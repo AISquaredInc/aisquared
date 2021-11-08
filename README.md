@@ -8,7 +8,7 @@ This package is not (yet) available through [Pypi](https://pypi.org), though tha
 
 ```bash
 # clone the repository and cd into it
-git clone https://github.com/theaisquaredinc/aisquared
+git clone https://github.com/AISquaredInc/aisquared
 cd aisquared
 
 # install dependencies
@@ -21,6 +21,8 @@ pip install .
 ## Capabilities
 
 The `aisquared` package includes two subpackages, the `aisquared.preprocessing` package and the `aisquared.postprocessing` package. The preprocessing package includes utilities to configure preprocessing steps for data before it is fed into the model, and the postprocessing package contains utilities to configure postprocessing of model output after prediction. Objects within these two classes are then fed into top-level utilities to fully configure and prepare a model for deployment.
+
+This package is currently in a state of constant development, so it is very likely that breaking changes will be made often. We will work to create stable releases in the future.
 
 ### Preprocessing
 
