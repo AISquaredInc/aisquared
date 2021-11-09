@@ -43,7 +43,7 @@ class TabularPreprocessor:
         Get the preprocessor object as a dictionary
         """
         return {
-            'TabularPreprocessor' : [step.to_dict() for step in self.steps]
+            'tabularPreprocessor' : [step.to_dict() for step in self.steps]
         }
 
     def to_json(self):

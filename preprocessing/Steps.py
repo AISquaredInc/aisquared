@@ -84,7 +84,7 @@ class ZScore(PreProcStep):
 
     def to_dict(self):
         return {
-            'z_score' : {
+            'zScore' : {
                 'means' : self.means,
                 'stds' : self.stds,
                 'columns' : self.columns
@@ -160,7 +160,7 @@ class MinMax(PreProcStep):
         
     def to_dict(self):
         return {
-            'min_max' : {
+            'minMax' : {
                 'mins' : self.mins,
                 'maxs' : self.maxs,
                 'columns' : self.columns
@@ -209,7 +209,7 @@ class OneHot(PreProcStep):
 
     def to_dict(self):
         return {
-            'one_hot' : {
+            'oneHot' : {
                 'column' : self.column,
                 'values' : self.values
             }
@@ -235,7 +235,7 @@ class DropColumn(PreProcStep):
 
     def to_dict(self):
         return {
-            'drop_column' : self.column
+            'dropColumn' : self.column
         }
     
 class AddValue(PreProcStep):
@@ -266,7 +266,7 @@ class AddValue(PreProcStep):
 
     def to_dict(self):
         return {
-            'add_value' : self.value
+            'addValue' : self.value
         }
 
 class SubtractValue(PreProcStep):
@@ -297,7 +297,7 @@ class SubtractValue(PreProcStep):
 
     def to_dict(self):
         return {
-            'subtract_value' : self.value
+            'subtractValue' : self.value
         }
 
 class MultitplyValue(PreProcStep):
@@ -328,7 +328,7 @@ class MultitplyValue(PreProcStep):
 
     def to_dict(self):
         return {
-            'multiply_value' : self.value
+            'multiplyValue' : self.value
         }
 
 class DivideValue(PreProcStep):
@@ -359,7 +359,7 @@ class DivideValue(PreProcStep):
 
     def to_dict(self):
         return {
-            'divide_value' : self.value
+            'divideValue' : self.value
         }
 
 class ConvertToColor(PreProcStep):
@@ -389,7 +389,7 @@ class ConvertToColor(PreProcStep):
 
     def to_dict(self):
         return {
-            'convert_to_color' : self.color
+            'convertToColor' : self.color
         }
     
 class Resize(PreProcStep):
@@ -474,7 +474,7 @@ class Resize(PreProcStep):
             'resize' : {
                 'size' : self.size,
                 'method' : self.method,
-                'preserve_aspect_ratio' : self.preserve_aspect_ratio,
+                'preserveAspectRatio' : self.preserve_aspect_ratio,
                 'antialias' : self.antialias
             }
         }

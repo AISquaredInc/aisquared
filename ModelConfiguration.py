@@ -121,12 +121,12 @@ class ModelConfiguration:
         Get the ModelConfiguration object as a dictionary
         """
         return {
-            'ModelConfig' : {
-                'URI' : self.mlflow_uri,
-                'User' : self.mlflow_user,
-                'Token' : self.mlflow_token,
-                'Preprocessing' : [step.to_dict() for step in self.preprocessing_steps],
-                'Postprocessing' : [step.to_dict() for step in self.postprocessing_steps]
+            'modelConfig' : {
+                'uri' : self.mlflow_uri,
+                'user' : self.mlflow_user,
+                'token' : self.mlflow_token,
+                'preprocessing' : [step.to_dict() for step in self.preprocessing_steps],
+                'postprocessing' : [step.to_dict() for step in self.postprocessing_steps]
             }
         }
 

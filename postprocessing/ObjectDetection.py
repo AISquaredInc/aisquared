@@ -45,8 +45,8 @@ class ObjectDetection:
         Get the configuration object as a dictionary
         """
         return {
-            'ObjectDetection' : {
-                'label_map' : self.label_map,
+            'objectDetection' : {
+                'labelMap' : self.label_map,
                 'threshold' : self.threshold
             }
         }

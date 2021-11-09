@@ -46,7 +46,7 @@ class ImagePreprocessor:
         Get the preprocessor object as a dictionary
         """
         return {
-            'ImagePreprocessor' : [step.to_dict() for step in self.steps]
+            'imagePreprocessor' : [step.to_dict() for step in self.steps]
         }
 
     def to_json(self):
