@@ -11,11 +11,14 @@ This package is not (yet) available through [Pypi](https://pypi.org), though tha
 git clone https://github.com/AISquaredInc/aisquared
 cd aisquared
 
-# install dependencies
-pip install -r requirements.txt
-
 # install the package
 pip install .
+```
+
+Alternatively, the latest version of the software can be installed directly from GitHub using the following command
+
+```bash
+pip install git+https://github.com/AISquaredInc/aisquared
 ```
 
 ## Capabilities
@@ -48,6 +51,8 @@ The `aisquared.preprocessing` subpackage contains `PreProcStep` objects, which a
   - This class configures image resize procedures
 
 These step objects can then be placed within either the `TabularPreprocessor` or the `ImagePreprocessor` objects. For the `TabularPreprocessor`, the `ZScore`, `MinMax`, and `OneHot` Steps are supported. For the `ImagePreprocessor`, the `AddValue`, `SubtractValue`, `MultiplyValue`, `DivideValue`, `ConvertToColor`, and `Resize` Steps are supported.
+
+In addition to the `TabularPreprocessor` and `ImagePreprocessor` objects, there is also a `LanguagePreprocessor` object for interacting with and preprocessing text. This object is still under development and its interface is subject to change.
 
 ### Postprocessing
 
