@@ -38,6 +38,9 @@ class LanguagePreprocessor:
         self.max_len = max_len
 
     def to_dict(self):
+        """
+        Get the preprocessor object as a dictionary
+        """
         return {
             'languagePreprocessor': {
                 'vocabulary' : self.vocabulary,
@@ -50,4 +53,7 @@ class LanguagePreprocessor:
         }
 
     def to_json(self):
+        """
+        Get the preprocessor object as a JSON string
+        """
         return json.dumps(self.to_dict())
