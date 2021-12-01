@@ -1,10 +1,11 @@
 import json
-from aisquared.preprocessing import TabularPreprocessor, ImagePreprocessor
+from aisquared.preprocessing import TabularPreprocessor, ImagePreprocessor, LanguagePreprocessor
 from aisquared.postprocessing import BinaryClassification, MulticlassClassification, ObjectDetection, Regression
 
 PREPROCESSING_CLASSES = (
     TabularPreprocessor,
-    ImagePreprocessor
+    ImagePreprocessor,
+    LanguagePreprocessor
 )
 
 POSTPROCESSING_CLASSES = (
