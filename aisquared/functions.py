@@ -1,4 +1,4 @@
-from aisquared import ModelConfiguration
+from aisquared.config import ModelConfiguration
 import tensorflowjs as tfjs
 import tensorflow as tf
 import zipfile
