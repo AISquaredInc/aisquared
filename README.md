@@ -38,11 +38,11 @@ The `aisquared.config` subpackage contains the following objects:
 - `TabularPreprocessor`
   - The `TabularPreprocessor` class takes in preprocessing steps (defined below) which define preprocessing steps for tabular data.
 - `LanguagePreprocessor`
-  - TEXT
+  - The `LanguagePreprocessor` class identifies how text should be preprocessed for natural language tasks and models. THe only required input to instantiate this preprocessor is a vocabulary dictionary, which is a mapping of strings to be taken as individual words to integers. In addition to the vocabulary, the preprocessor also takes parameters for `max_vocab`, which is the maximum vocabulary integer to be used, `strip_punctuation`, a Boolean value to indicate whether punctuation should be stripped from input text, `lowercase`, which indicates whether text should be lowercased, as well as `padding_character`, `start_character`, `oov_character`, `padding`, and `max_len` values, which correspond to the reservedd character for sentence padding, the reserved character for the start of a sentence, the reserved character for out of vocabulary words, whether padding should occur at the beginning or end of the sentence, and the maximum number of words to allow for a sentence, respectively.
 - `Regression`
-  - TEXT
+  - The `Regression` object is a postprocessing class for models which perform regression. Since it is common to train regression models by scaling regression outputs to values between 0 and 1, this class is designed to convert output values between 0 and 1 to their original values, corresponding to `min` and `max` when the class is instantiated.
 - `BinaryClassification`
-  - TEXT
+  - The `BinaryClassification` object is a postprocessing class for models which perform binary classification. The class is instantiated with a label map and a cutoff value used to identify when the positive class (class 1) is identified.
 - `MulticlassClassification`
   - TEXT
 - `ObjectDetection`
