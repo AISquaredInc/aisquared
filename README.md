@@ -23,13 +23,34 @@ pip install git+https://github.com/AISquaredInc/aisquared
 
 ## Capabilities
 
-The `aisquared` package includes two subpackages, the `aisquared.preprocessing` package and the `aisquared.postprocessing` package. The preprocessing package includes utilities to configure preprocessing steps for data before it is fed into the model, and the postprocessing package contains utilities to configure postprocessing of model output after prediction. Objects within these two classes are then fed into top-level utilities to fully configure and prepare a model for deployment.
-
 This package is currently in a state of constant development, so it is very likely that breaking changes will be made often. We will work to create stable releases in the future.
 
-### Preprocessing
+The `aisquared` package currently contains one subpackage, the `aisquared.config` package. This package holds objects for building the configuration files that need to be included with converted model files for use within the AI Squared Extension. The contents of the config subpackage contain both pre- and postprocessing steps to use with the model. The following will explain the functionality of the config package:
 
-The `aisquared.preprocessing` subpackage contains `PreProcStep` objects, which are then fed into either the `ImagePreprocessor` or `TabularPreprocessor` classes. The `PreProcStep` classes are:
+### Config
+
+The `aisquared.config` subpackage contains the following objects:
+
+- `ModelConfiguration`
+  - The `ModelConfiguration` object is the final object to be used to create the configuration file. It takes as input a list of preprocessing steps, a list of postprocessing steps, a list of input shapes for all inputs within the model, an optional MLFlow URI, an optional MLFlow user, and an optional MLFlow token
+- `ImagePreprocessor`
+  - The `ImagePreprocessor` class takes in preprocessing steps (defined below) which define preprocessing steps for images.
+- `TabularPreprocessor`
+  - The `TabularPreprocessor` class takes in preprocessing steps (defined below) which define preprocessing steps for tabular data.
+- `LanguagePreprocessor`
+  - TEXT
+- `Regression`
+  - TEXT
+- `BinaryClassification`
+  - TEXT
+- `MulticlassClassification`
+  - TEXT
+- `ObjectDetection`
+  - TEXT
+
+### Preprocessing Steps
+
+The `aisquared.config.preprocessing` subpackage contains `PreProcStep` objects, which are then fed into either the `ImagePreprocessor` or `TabularPreprocessor` classes. The `PreProcStep` classes are:
 
 - `ZScore`
   - This class configures standard normalization procedures for tabular data
@@ -53,20 +74,6 @@ The `aisquared.preprocessing` subpackage contains `PreProcStep` objects, which a
 These step objects can then be placed within either the `TabularPreprocessor` or the `ImagePreprocessor` objects. For the `TabularPreprocessor`, the `ZScore`, `MinMax`, and `OneHot` Steps are supported. For the `ImagePreprocessor`, the `AddValue`, `SubtractValue`, `MultiplyValue`, `DivideValue`, `ConvertToColor`, and `Resize` Steps are supported.
 
 In addition to the `TabularPreprocessor` and `ImagePreprocessor` objects, there is also a `LanguagePreprocessor` object for interacting with and preprocessing text. This object is still under development and its interface is subject to change.
-
-### Postprocessing
-
-The `aisquared.postprocessing` subpackage contains classes for configuring processing model predictions. The following classes are present in this package to support different predictive cases. The following classes are contained within this package:
-
-- `BinaryClassification`
-  - The `BinaryClassification` class helps configure output for a binary classification task. To configure this class, a label map must be provided, and a threshold value for detection can optionally be provided as well.
-- `MulticlassClassification`
-  - The `MulticlassClassification` class helps configure output for a multiclass classification task. To configure this class, a label map must be provided.
-- `ObjectDetection`
-  - The `ObjectDetection` class helps configure output for object detection tasks. To configure this class, a label map must be provided, and a threshold value for detection can optionally be provided as well.
-- `Regression`
-  - The `Regression` class helps configure output for regression tasks. To configure this class, a minimum and maximum value must be provided, to which the output values of 0 and 1 will be mapped.
-
 
 ### Final Configuration and Model Creation
 
