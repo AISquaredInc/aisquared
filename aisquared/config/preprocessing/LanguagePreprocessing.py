@@ -7,6 +7,9 @@ class LanguagePreprocessor:
     def __init__(
             self,
             vocabulary,
+            max_vocab = None,
+            strip_punctuation = True,
+            lowercase = True,
             padding_character = 0,
             start_character = 1,
             oov_character = 2,
@@ -18,6 +21,12 @@ class LanguagePreprocessor:
         ----------
         vocabulary : dict
             Dictionary of string to int mappings for vocabulary
+        max_vocab : int or None (default None)
+            The maximum vocabulary character to use. If None, all words are used
+        strip_punctuation : bool (default True)
+            Whether punctuation should be stripped in input text
+        lowercase : bool (default True)
+            Whether text should be lowercased in input text
         padding_character : int (default 0)
             Character to indicate padding
         start_character : int (default 1)
@@ -31,6 +40,9 @@ class LanguagePreprocessor:
         """
 
         self.vocabulary = vocabulary
+        self.max_vocab = max_vocab
+        self.strip_punctuation = strip_punctuation
+        self.lowercase = lowercase
         self.padding_character = padding_character
         self.start_character = start_character
         self.oov_character = oov_character
@@ -44,6 +56,9 @@ class LanguagePreprocessor:
         return {
             'languagePreprocessor': {
                 'vocabulary' : self.vocabulary,
+                'maxVocab' : self.max_vocab,
+                'stripPunctuation' : self.strip_punctuation,
+                'lowercase' : self.lowercase,
                 'paddingCharacter' : self.vocabulary,
                 'startCharacter' : self.start_character,
                 'oovCharacter' : self.oov_character,
