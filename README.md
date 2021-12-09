@@ -44,9 +44,9 @@ The `aisquared.config` subpackage contains the following objects:
 - `BinaryClassification`
   - The `BinaryClassification` object is a postprocessing class for models which perform binary classification. The class is instantiated with a label map and a cutoff value used to identify when the positive class (class 1) is identified.
 - `MulticlassClassification`
-  - TEXT
+  - The `MulticlassClassification` object is a postprocessing class for models which perform multiclass classification. The class is instantiated with a label map only.
 - `ObjectDetection`
-  - TEXT
+  - The `ObjectDetection` object is a postprocessing class for models which perform object detection. The class is instantiated with a label map and a cutoff value for identification.
 
 ### Preprocessing Steps
 
@@ -77,6 +77,6 @@ In addition to the `TabularPreprocessor` and `ImagePreprocessor` objects, there 
 
 ### Final Configuration and Model Creation
 
-Once preprocessing and postprocessing objects have been created, these objects can then be passed to the `aisquared.ModelConfiguration` class. This class utilizes the objects passed to it to build the entire model configuration automatically.
+Once preprocessing and postprocessing objects have been created, these objects can then be passed to the `aisquared.config.ModelConfiguration` class. This class utilizes the objects passed to it to build the entire model configuration automatically.
 
 Finally, the `aisquared.create_air_model` takes in a `ModelConfiguration` class and an existing Keras model to create a model file compatible with the AI Squared extension and with the `.air` file extension.
