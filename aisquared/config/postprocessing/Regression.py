@@ -42,7 +42,8 @@ class Regression:
         Get the configuration object as a dictionary
         """
         return {
-            'regression' : {
+            'className' : 'Regression',
+            'params' : {
                 'min' : self.min,
                 'max' : self.max
             }

@@ -32,7 +32,8 @@ class MulticlassClassification:
         Get the configuration object as a dictionary
         """
         return {
-            'multiclassClassification' : {
+            'className' : 'MulticlassClassification',
+            'params' : {
                 'labelMap' : self.label_map
             }
         }
