@@ -48,7 +48,8 @@ class BinaryClassification:
         Get the configuration object as a dictionary
         """
         return {
-            'binaryClassification' : {
+            'className' : 'BinaryClassification',
+            'params' : {
                 'labelMap' : self.label_map,
                 'threshold' : self.threshold
             }

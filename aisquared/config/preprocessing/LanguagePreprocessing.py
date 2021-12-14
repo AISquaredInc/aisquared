@@ -54,12 +54,13 @@ class LanguagePreprocessor:
         Get the preprocessor object as a dictionary
         """
         return {
-            'languagePreprocessor': {
+            'className' : 'LanguagePreprocessor',
+            'params' : {
                 'vocabulary' : self.vocabulary,
                 'maxVocab' : self.max_vocab,
                 'stripPunctuation' : self.strip_punctuation,
                 'lowercase' : self.lowercase,
-                'paddingCharacter' : self.vocabulary,
+                'paddingCharacter' : self.padding_character,
                 'startCharacter' : self.start_character,
                 'oovCharacter' : self.oov_character,
                 'padding' : self.padding,
