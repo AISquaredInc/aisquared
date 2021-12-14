@@ -84,7 +84,8 @@ class ZScore(PreProcStep):
 
     def to_dict(self):
         return {
-            'zScore' : {
+            'className' : 'ZScore',
+            'params' : {
                 'means' : self.means,
                 'stds' : self.stds,
                 'columns' : self.columns
@@ -160,7 +161,8 @@ class MinMax(PreProcStep):
         
     def to_dict(self):
         return {
-            'minMax' : {
+            'className' : 'MinMax',
+            'params' : {
                 'mins' : self.mins,
                 'maxs' : self.maxs,
                 'columns' : self.columns
@@ -209,7 +211,8 @@ class OneHot(PreProcStep):
 
     def to_dict(self):
         return {
-            'oneHot' : {
+            'className' : 'OneHot',
+            'params' : {
                 'column' : self.column,
                 'values' : self.values
             }
@@ -235,7 +238,10 @@ class DropColumn(PreProcStep):
 
     def to_dict(self):
         return {
-            'dropColumn' : self.column
+            'className' : 'DropColumn',
+            'params' : {
+                'column' : self.column
+            }
         }
     
 class AddValue(PreProcStep):
@@ -266,7 +272,10 @@ class AddValue(PreProcStep):
 
     def to_dict(self):
         return {
-            'addValue' : self.value
+            'className' : 'AddValue',
+            'params' : {
+                'value' : self.value
+            }
         }
 
 class SubtractValue(PreProcStep):
@@ -297,7 +306,10 @@ class SubtractValue(PreProcStep):
 
     def to_dict(self):
         return {
-            'subtractValue' : self.value
+            'className' : 'SubtractValue',
+            'params' : {
+                'value' : self.value
+            }
         }
 
 class MultitplyValue(PreProcStep):
@@ -328,7 +340,10 @@ class MultitplyValue(PreProcStep):
 
     def to_dict(self):
         return {
-            'multiplyValue' : self.value
+            'className' : 'MultiplyValue',
+            'params' : {
+                'value' : self.value
+            }
         }
 
 class DivideValue(PreProcStep):
@@ -359,7 +374,10 @@ class DivideValue(PreProcStep):
 
     def to_dict(self):
         return {
-            'divideValue' : self.value
+            'className' : 'DivideValue',
+            'params' : {
+                'value' : self.value
+            }
         }
 
 class ConvertToColor(PreProcStep):
@@ -389,7 +407,10 @@ class ConvertToColor(PreProcStep):
 
     def to_dict(self):
         return {
-            'convertToColor' : self.color
+            'className' : 'ConvertToColor',
+            'params' : {
+                'color' : self.color
+            }
         }
     
 class Resize(PreProcStep):
@@ -471,7 +492,8 @@ class Resize(PreProcStep):
 
     def to_dict(self):
         return {
-            'resize' : {
+            'className' : 'Resize',
+            'params' : {
                 'size' : self.size,
                 'method' : self.method,
                 'preserveAspectRatio' : self.preserve_aspect_ratio,
