@@ -563,7 +563,50 @@ class Tokenize(PreProcStep):
         }
 
 class RemoveCharacters(PreProcStep):
-    pass
+    """Preprocessing step to remove characters from text"""
+    def __init__(
+        self,
+        remove_digits = True,
+        remove_punctuation = True
+    ):
+        """
+        Parameters
+        ----------
+        remove_digits : bool (default True)
+            Whether to remove digits from input text
+        remove_punctuation : bool (default True)
+            Whether to remove punctuation from input text
+        """
+        super(PreProcStep, self).__init__()
+        self.remove_digits = remove_digits
+        self.remove_punctuation = remove_punctuation
+
+    @property
+    def remove_digits(self):
+        return self._remove_digits
+    @remove_digits.setter
+    def remove_digits(self, value):
+        if not isinstance(value, bool):
+            raise TypeError('remove_digits must be bool')
+        self._remove_digits = value
+    
+    @property
+    def remove_punctuation(self):
+        return self._remove_punctuation
+    @remove_punctuation.setter
+    def remove_punctuation(self, value):
+        if not isinstance(value, bool):
+            raise TypeError('remove_punctuation must be bool')
+        self._remove_punctuation = value
+
+    def to_dict(self):
+        return {
+            'className' : 'RemoveCharacters',
+            'params' : {
+                'removeDigits' : self.remove_digits,
+                'removePunctuation' : self.remove_punctuation
+            }
+        }
 
 class ConvertToCase(PreProcStep):
     pass
