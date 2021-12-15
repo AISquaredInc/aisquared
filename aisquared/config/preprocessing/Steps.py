@@ -641,7 +641,73 @@ class ConvertToCase(PreProcStep):
         }
 
 class ConvertToVocabulary(PreProcStep):
-    pass
+    """Text preprocessing object to convert tokens to integer vocabularies"""
+    def __init__(
+        self,
+        vocabulary,
+        start_character = 1,
+        oov_character = 2,
+        max_vocab = None
+    ):
+        """
+        Parameters
+        ----------
+        vocabulary : dict
+            Dictionary of string -> integer mappings
+        start_character : int (default 1)
+            The character to use for the start of an input sequence
+        oov_character : int (default 2)
+            The character to use for out of vocabulary tokens
+        max_vocab : int or None (default None)
+            The maximum vocabulary integer to use. If None, all vocabulary are used
+        """
+        super(PreProcStep, self).__init__()
+        self.vocabulary = vocabulary
+        self.start_character = start_character
+        self.oov_character = oov_character
+        self.max_vocab = max_vocab
+
+    @property
+    def vocabulary(self):
+        return self._vocabulary
+    @vocabulary.setter
+    def vocabulary(self, value):
+        if not isinstance(value, dict):
+            raise TypeError('vocabulary must be dictionary')
+        if not all([isinstance(k, str) for k in value.keys()]):
+            raise ValueError('All keys in vocabulary must be strings')
+        if not all([isinstance(v, int) for v in value.values()]):
+            raise ValueError('All values in vocabulary must be integers')
+        self._vocabulary = value
+
+    @property
+    def start_character(self):
+        return self._start_character
+    @start_character.setter
+    def start_character(self, value):
+        if not isinstance(value, int):
+            raise TypeError('start_character must be int')
+        self._start_character = value
+    
+    @property
+    def oov_character(self, value):
+        return self._oov_character
+    @oov_character.setter
+    def oov_character(self, value):
+        if not isinstance(value, int):
+            raise TypeError('oov_character must be int')
+        self._oov_character = value
+
+    @property
+    def max_vocab(self):
+        return self._max_vocab
+    @max_vocab.setter
+    def max_vocab(self, value):
+        if not isinstance(value, int):
+            raise TypeError('max_vocab must be int')
+
+    def to_dict(self):
+        pass
 
 class PadSequences(PreProcStep):
     pass
