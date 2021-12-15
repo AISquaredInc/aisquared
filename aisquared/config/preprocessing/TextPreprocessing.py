@@ -8,7 +8,7 @@ ALLOWED_STEPS = (
     ConvertToVocabulary
 )
 
-class LanguagePreprocessor:
+class TextPreprocessor:
     """
     Preprocessor object for natural language
     """
