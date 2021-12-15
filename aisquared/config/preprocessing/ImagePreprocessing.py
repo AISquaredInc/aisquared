@@ -1,5 +1,4 @@
 import json
-from typing import Type
 from .Steps import AddValue, SubtractValue, MultitplyValue, DivideValue, ConvertToColor, Resize
 
 ALLOWED_STEPS = (
