@@ -609,7 +609,36 @@ class RemoveCharacters(PreProcStep):
         }
 
 class ConvertToCase(PreProcStep):
-    pass
+    """Text preprocessing object to convert inputs to all lowercase or all uppercase"""
+    def __init__(
+        self,
+        lowercase = True
+    ):
+        """
+        Parameters
+        ----------
+        lowercase : bool (default True)
+            Whether to convert to lower case. If False, converts to all uppercase
+        """
+        super(PreProcStep, self).__init__()
+        self.lowercase = lowercase
+
+    @property
+    def lowercase(self):
+        return self._lowercase
+    @lowercase.setter
+    def lowercase(self, value):
+        if not isinstance(value, bool):
+            raise TypeError('lowercase must be bool')
+        self._lowercase = value
+
+    def to_dict(self):
+        return {
+            'className' : 'ConvertToCase',
+            'params' : {
+                'lowercase' : self.lowercase
+            }
+        }
 
 class ConvertToVocabulary(PreProcStep):
     pass
