@@ -1,4 +1,5 @@
 import json
+from typing import Type
 
 class PreProcStep:
     """
@@ -500,3 +501,75 @@ class Resize(PreProcStep):
                 'antialias' : self.antialias
             }
         }
+
+class Tokenize(PreProcStep):
+    """Preprocessing Step to tokenize text"""
+    def __init__(
+        self,
+        split_sentences = False,
+        split_words = True,
+        token_pattern = '(?u)\\b\\w\\w+\\b'
+    ):
+        """
+        Parameters
+        ----------
+        split_sentences : bool (default False)
+            Whether to split on sentences first
+        split_words : bool (default True)
+            Whether to split on words
+        token_pattern : str (default '(?u)\\b\\w\\w+\\b')
+            Regex to tokenize on
+        """
+        super(PreProcStep, self).__init__()
+        self.split_sentences = split_sentences
+        self.split_words = split_words
+        self.token_pattern = token_pattern
+
+    @property
+    def split_sentences(self):
+        return self._split_sentences
+    @split_sentences.setter
+    def split_sentences(self, value):
+        if not isinstance(value, bool):
+            raise TypeError('split_sentences must be bool')
+        self._split_sentences = value
+
+    @property
+    def split_words(self):
+        return self._split_words
+    @split_words.setter
+    def split_words(self, value):
+        if not isinstance(value, bool):
+            raise TypeError('split_words must be bool')
+        self._split_words = value
+
+    @property
+    def token_pattern(self):
+        return self._token_pattern
+    @token_pattern.setter
+    def token_pattern(self, value):
+        if not isinstance(value, str):
+            raise TypeError('token_pattern must be string')
+        self._token_pattern = value
+
+    def to_dict(self):
+        return {
+            'className' : 'Tokenize',
+            'params' : {
+                'splitSentences' : self.split_sentences,
+                'splitWords' : self.split_words,
+                'tokenPattern' : self.token_pattern
+            }
+        }
+
+class RemoveCharacters(PreProcStep):
+    pass
+
+class ConvertToCase(PreProcStep):
+    pass
+
+class ConvertToVocabulary(PreProcStep):
+    pass
+
+class PadSequences(PreProcStep):
+    pass
