@@ -5,7 +5,8 @@ ALLOWED_STEPS = (
     Tokenize,
     RemoveCharacters,
     ConvertToCase,
-    ConvertToVocabulary
+    ConvertToVocabulary,
+    PadSequences
 )
 
 class TextPreprocessor:
