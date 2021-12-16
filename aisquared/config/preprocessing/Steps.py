@@ -708,8 +708,10 @@ class ConvertToVocabulary(PreProcStep):
         return self._max_vocab
     @max_vocab.setter
     def max_vocab(self, value):
-        if not isinstance(value, int):
-            raise TypeError('max_vocab must be int')
+        if value is not None:
+            if not isinstance(value, int):
+                raise TypeError('max_vocab must be int')
+        self._max_vocab = value
 
     def to_dict(self):
         return {
