@@ -1,18 +1,17 @@
 import json
-from .Steps import AddValue, SubtractValue, MultitplyValue, DivideValue, ConvertToColor, Resize
+from .Steps import Tokenize, RemoveCharacters, ConvertToCase, ConvertToVocabulary, PadSequences
 
 ALLOWED_STEPS = (
-    AddValue,
-    SubtractValue,
-    MultitplyValue,
-    DivideValue,
-    ConvertToColor,
-    Resize
+    Tokenize,
+    RemoveCharacters,
+    ConvertToCase,
+    ConvertToVocabulary,
+    PadSequences
 )
 
-class ImagePreprocessor:
+class TextPreprocessor:
     """
-    Preprocessor object for image data
+    Preprocessor object for natural language
     """
     def __init__(
             self,
@@ -21,9 +20,10 @@ class ImagePreprocessor:
         """
         Parameters
         ----------
-        steps : list
-            List of preprocessing steps for image data
+        steps : list or None (default None)
+            List of preprocessing steps for natural language
         """
+
         self.steps = None
         if steps is not None:
             for step in steps:
@@ -45,7 +45,7 @@ class ImagePreprocessor:
         Get the preprocessor object as a dictionary
         """
         return {
-            'className' : 'ImagePreprocessor',
+            'className' : 'LanguagePreprocessor',
             'steps' : [
                 step.to_dict() for step in self.steps
             ]

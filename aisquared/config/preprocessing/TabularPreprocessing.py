@@ -19,7 +19,7 @@ class TabularPreprocessor:
         """
         Parameters
         ----------
-        steps : list
+        steps : list or None (default None)
             List of preprocessor steps for tabular data
         """
         self.steps = None
