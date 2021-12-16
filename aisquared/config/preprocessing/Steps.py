@@ -1,6 +1,11 @@
 import json
 from typing import Type
 
+_ALLOWED_PADS = [
+    'pre',
+    'post'
+]
+
 class PreProcStep:
     """
     Base class for preprocessing steps
@@ -690,7 +695,7 @@ class ConvertToVocabulary(PreProcStep):
         self._start_character = value
     
     @property
-    def oov_character(self, value):
+    def oov_character(self):
         return self._oov_character
     @oov_character.setter
     def oov_character(self, value):
@@ -707,7 +712,94 @@ class ConvertToVocabulary(PreProcStep):
             raise TypeError('max_vocab must be int')
 
     def to_dict(self):
-        pass
+        return {
+            'className' : 'ConvertToVocabulary',
+            'params' : {
+                'vocabulary' : self.vocabulary,
+                'startCharacter' : self.start_character,
+                'oovCharacter' : self.oov_character,
+                'maxVocab' : self.max_vocab
+            }
+        }
 
 class PadSequences(PreProcStep):
-    pass
+    """Text preprocessing object to pad sequences"""
+    def __init__(
+        self,
+        pad_character = 0,
+        length = 128,
+        pad_location = 'post',
+        truncate_location = 'post'
+    ):
+        """
+        Parameters
+        ----------
+        pad_character : int (default 0)
+            The character to use for padding
+        length : int (default 128)
+            The length to pad sequences to
+        pad_location : str (default 'post')
+            One of either 'pre' or 'post', corresponding to how
+            sequences are to be padded
+        truncate_location : str (default 'post')
+            One of either 'pre' or 'post', corresponding to how
+            sequences are to be truncated
+        """
+        super(PreProcStep, self).__init__()
+        self.pad_character = pad_character
+        self.length = length
+        self.pad_location = pad_location
+        self.truncate_location = truncate_location
+
+    @property
+    def pad_character(self):
+        return self._pad_character
+    @pad_character.setter
+    def pad_character(self, value):
+        if not isinstance(value, int):
+            raise TypeError('pad_character must be int')
+        self._pad_character = value
+    
+    @property
+    def length(self):
+        return self._length
+    @length.setter
+    def length(self, value):
+        if not isinstance(value, int):
+            raise TypeError('length must be int')
+        if value <= 0 :
+            raise ValueError('length must be greater than 0')
+        self._length = value
+
+    @property
+    def pad_location(self):
+        return self._pad_location
+    @pad_location.setter
+    def pad_location(self, value):
+        if not isinstance(value, str):
+            raise TypeError('pad_location must be str')
+        if value not in _ALLOWED_PADS:
+            raise ValueError(f'pad_location must be one of {_ALLOWED_PADS}')
+        self._pad_location = value
+
+    @property
+    def truncate_location(self):
+        return self._truncate_location
+    @truncate_location.setter
+    def truncate_location(self, value):
+        if not isinstance(value, str):
+            raise TypeError('truncate_location must be str')
+        if value not in _ALLOWED_PADS:
+            raise ValueError(f'truncate_location must be one of {_ALLOWED_PADS}')
+        self._truncate_location = value
+    
+    def to_dict(self):
+        return {
+            'className' : 'PadSequences',
+            'params' : {
+                'padCharacter' : self.pad_character,
+                'length' : self.length,
+                'padLocation' : self.pad_location,
+                'truncateLocation' : self.truncate_location
+            }
+        }
