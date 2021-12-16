@@ -45,7 +45,7 @@ class TextPreprocessor:
         Get the preprocessor object as a dictionary
         """
         return {
-            'className' : 'LanguagePreprocessor',
+            'className' : 'TextPreprocessor',
             'steps' : [
                 step.to_dict() for step in self.steps
             ]
