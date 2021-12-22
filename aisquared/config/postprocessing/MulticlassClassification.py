@@ -57,7 +57,7 @@ class MulticlassClassification:
                 raise TypeError('documents should be list of list of str')
             if len(value) != len(self.label_map):
                 raise ValueError('Length of documents should be the same as number of classes')
-        self._documents
+        self._documents = value
         
     def to_dict(self):
         """
