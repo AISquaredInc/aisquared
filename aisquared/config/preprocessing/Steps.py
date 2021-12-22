@@ -427,8 +427,7 @@ class Resize(PreProcStep):
             self,
             size,
             method = 'bilinear',
-            preserve_aspect_ratio = False,
-            antialias = False
+            preserve_aspect_ratio = False
     ):
         """
         Parameters
@@ -440,13 +439,10 @@ class Resize(PreProcStep):
             'nearest', or 'mitchellcubic'
         preserve_aspect_ratio : bool (default False)
             Whether to preserve aspect ratio when resizing
-        antialias : bool (default False)
-            Whether to apply antialiasing when downsampling an image. Has no effect when upsampling
         """
         self.size = size
         self.method = method
         self.preserve_aspect_ratio = preserve_aspect_ratio
-        self.antialias = antialias
 
     @property
     def size(self):
@@ -487,23 +483,13 @@ class Resize(PreProcStep):
             raise TypeError('preserve_aspect_ratio must be bool')
         self._preserve_aspect_ratio = value
 
-    @property
-    def antialias(self):
-        return self._antialias
-    @antialias.setter
-    def antialias(self, value):
-        if not isinstance(value, bool):
-            raise TypeError('antialias must be bool')
-        self._antialias = value
-
     def to_dict(self):
         return {
             'className' : 'Resize',
             'params' : {
                 'size' : self.size,
                 'method' : self.method,
-                'preserveAspectRatio' : self.preserve_aspect_ratio,
-                'antialias' : self.antialias
+                'preserveAspectRatio' : self.preserve_aspect_ratio
             }
         }
 
