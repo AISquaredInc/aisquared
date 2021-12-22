@@ -21,6 +21,8 @@ class MulticlassClassification:
             List of list of document URLs corresponding to the top documents for every class
         """
         self.label_map = label_map
+        self.keywords = keywords
+        self.documents = documents
 
     @property
     def label_map(self):
