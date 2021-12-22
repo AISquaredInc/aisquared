@@ -64,7 +64,9 @@ class MulticlassClassification:
         return {
             'className' : 'MulticlassClassification',
             'params' : {
-                'labelMap' : self.label_map
+                'labelMap' : self.label_map,
+                'keywords' : self.keywords,
+                'documents' : self.documents
             }
         }
 
