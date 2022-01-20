@@ -12,7 +12,11 @@ setup(
     long_description = open('README.md').read(),
     long_description_content_type = 'text/markdown',
     license = 'AI Squared Developer License Agreement',
+    license_files = 'LICENSE',
     install_requires = [
         'tensorflowjs'
+    ],
+    classifiers = [
+        'License :: Other/Proprietary License'
     ]
 )
