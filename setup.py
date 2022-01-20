@@ -11,6 +11,7 @@ setup(
     descritption = 'Utilities for interacting with the AI Squared Technology Stack',
     long_description = open('README.md').read(),
     long_description_content_type = 'text/markdown',
+    license = 'AI Squared Developer License Agreement',
     install_requires = [
         'tensorflowjs'
     ]
