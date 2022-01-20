@@ -4,15 +4,10 @@ This package contains utilities to interact with the AI Squared technology stack
 
 ## Installation
 
-This package is not (yet) available through [Pypi](https://pypi.org), though that is on the development roadmap. For the time being, installation requires downloading and installing the source code directly, which can be done using the following commands
+This package is available through [Pypi](https://pypi.org) and can be installed by running the following command:
 
 ```bash
-# clone the repository and cd into it
-git clone https://github.com/AISquaredInc/aisquared
-cd aisquared
-
-# install the package
-pip install .
+pip install aisquared
 ```
 
 Alternatively, the latest version of the software can be installed directly from GitHub using the following command
@@ -23,7 +18,8 @@ pip install git+https://github.com/AISquaredInc/aisquared
 
 ## Capabilities
 
-This package is currently in a state of constant development, so it is very likely that breaking changes will be made often. We will work to create stable releases in the future.
+This package is currently in a state of constant development, so it is likely that breaking changes can be made at any time.  We will work 
+diligently to document changes and make stable releases in the future.
 
 The `aisquared` package currently contains one subpackage, the `aisquared.config` package. This package holds objects for building the configuration files that need to be included with converted model files for use within the AI Squared Extension. The contents of the config subpackage contain both pre- and postprocessing steps to use with the model. The following will explain the functionality of the config package:
 
