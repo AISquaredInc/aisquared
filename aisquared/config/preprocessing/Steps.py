@@ -278,7 +278,7 @@ class AddValue(PreProcStep):
 
     def to_dict(self):
         return {
-            'className' : 'AddValue',
+            'className' : 'Add',
             'params' : {
                 'value' : self.value
             }
@@ -312,7 +312,7 @@ class SubtractValue(PreProcStep):
 
     def to_dict(self):
         return {
-            'className' : 'SubtractValue',
+            'className' : 'Subtract',
             'params' : {
                 'value' : self.value
             }
@@ -346,7 +346,7 @@ class MultitplyValue(PreProcStep):
 
     def to_dict(self):
         return {
-            'className' : 'MultiplyValue',
+            'className' : 'Multiply',
             'params' : {
                 'value' : self.value
             }
@@ -380,7 +380,7 @@ class DivideValue(PreProcStep):
 
     def to_dict(self):
         return {
-            'className' : 'DivideValue',
+            'className' : 'Divide',
             'params' : {
                 'value' : self.value
             }
