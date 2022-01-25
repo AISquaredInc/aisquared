@@ -1,4 +1,4 @@
 from .ImagePrediction import ImagePrediction
-from .ObjectDetector import ObjectDetector
+from .ObjectDetection import ObjectDetection
 from .PopOutNLP import PopOutNLP
 from .WordDecorator import WordDecorator
