@@ -5,7 +5,7 @@ setup(
     name = 'aisquared',
     version = __version__,
     url = 'https://github.com/AISquaredInc/aisquared',
-    packages = ['aisquared', 'aisquared.config', 'aisquared.config.preprocessing', 'aisquared.config.postprocessing'],
+    packages = ['aisquared', 'aisquared.config', 'aisquared.config.preprocessing', 'aisquared.config.postprocessing', 'aisquared.config.rendering'],
     author = 'The AI Squared Team',
     author_email = 'staff@squared.ai',
     descritption = 'Utilities for interacting with the AI Squared Technology Stack',
