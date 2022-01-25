@@ -1,7 +1,7 @@
 import json
 from .ImagePrediction import ImagePrediction
 
-class ObjectDetection(ImagePrediction):
+class ObjectDetector(ImagePrediction):
     
     def __init__(
         self,
