@@ -1,6 +1,7 @@
 import json
+from .WordRendering import ALLOWED_COLORS
 
-_allowed_placements = [
+ALLOWED_PLACEMENTS = [
     'top',
     'bottom',
     'left',
@@ -16,14 +17,14 @@ class ImageRendering:
 
     def __init__(
         self,
-        color = 'green',
+        color = ALLOWED_COLORS[0],
         thickness = 5,
-        placement = 'bottomleft'
+        placement = ALLOWED_PLACEMENTS[0]
     ):
         self.color = color
         self.thickness = thickness
-        if placement not in _allowed_placements:
-            raise ValueError(f'Placement must be one of {_allowed_placements}, got {placement}')
+        if placement not in ALLOWED_PLACEMENTS:
+            raise ValueError(f'Placement must be one of {ALLOWED_PLACEMENTS}, got {placement}')
         self.placement = placement
 
     def to_dict(self):
