@@ -1,11 +1,12 @@
 import json
 from .ImageRendering import ImageRendering, _allowed_placements
+from .WordRendering import ALLOWED_COLORS
 
 class ObjectRendering(ImageRendering):
     
     def __init__(
         self,
-        color = 'green',
+        color = ALLOWED_COLORS[0],
         thickness = 5,
         placement = 'bottomleft'
     ):
