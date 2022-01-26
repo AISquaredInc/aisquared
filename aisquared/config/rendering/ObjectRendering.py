@@ -1,25 +1,15 @@
 import json
+from .ImageRendering import ImageRendering, _allowed_placements
 
-_allowed_placements = [
-    'top',
-    'bottom',
-    'left',
-    'right',
-    'topleft',
-    'topright',
-    'bottomleft',
-    'topright',
-    None
-]
-
-class ImagePrediction:
-
+class ObjectRendering(ImageRendering):
+    
     def __init__(
         self,
         color = 'green',
         thickness = 5,
         placement = 'bottomleft'
     ):
+        super(ImageRendering, self).__init__()
         self.color = color
         self.thickness = thickness
         if placement not in _allowed_placements:
@@ -28,13 +18,10 @@ class ImagePrediction:
 
     def to_dict(self):
         return {
-            'className' : 'ImagePrediction',
+            'className' : 'ObjectDetection',
             'params' : {
                 'color' : self.color,
                 'thickness' : self.thickness,
                 'placement' : self.placement
             }
         }
-
-    def to_json(self):
-        return json.dumps(self.to_dict())
