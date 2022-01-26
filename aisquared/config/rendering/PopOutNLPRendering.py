@@ -4,7 +4,7 @@ from xml.etree.ElementInclude import include
 class PopOutNLPRendering:
     def __init__(
         self,
-        document_list
+        document_list,
         include_prediction = True,
         include_score = True,
     ):
