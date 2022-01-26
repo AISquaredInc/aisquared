@@ -14,6 +14,9 @@ ALLOWED_PLACEMENTS = [
 ]
 
 class ImageRendering:
+    """
+    Object which dictates how to render images
+    """
 
     def __init__(
         self,
@@ -21,6 +24,16 @@ class ImageRendering:
         thickness = 5,
         placement = ALLOWED_PLACEMENTS[0]
     ):
+        f"""
+        Parameters
+        ----------
+        color : str (default {ALLOWED_COLORS[0]})
+            The color for the box around the image to be
+        thickness : int (default 5)
+            The pixel thickness of the box around the image
+        placement : str (default {ALLOWED_PLACEMENTS[0]})
+            The placement of the prediction inside the box
+        """
         self.color = color
         self.thickness = thickness
         if placement not in ALLOWED_PLACEMENTS:
@@ -28,6 +41,7 @@ class ImageRendering:
         self.placement = placement
 
     def to_dict(self):
+        """Return the object as a dictionary"""
         return {
             'className' : 'ImagePrediction',
             'params' : {
@@ -38,4 +52,5 @@ class ImageRendering:
         }
 
     def to_json(self):
+        """Return the object as a JSON string"""
         return json.dumps(self.to_dict())
