@@ -1,13 +1,26 @@
 import json
 from typing import Type
+from aisquared.config.harvesting import ImageHarvester, LanguageHarvester
 from aisquared.config.preprocessing import TabularPreprocessor, ImagePreprocessor, TextPreprocessor
+from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, ObjectDetection, Regression
 from aisquared.config.rendering import ImageRendering, ObjectRendering, PopOutNLPRendering, WordRendering
+
+HARVESTING_CLASSES = (
+    ImageHarvester,
+    LanguageHarvester
+)
 
 PREPROCESSING_CLASSES = (
     TabularPreprocessor,
     ImagePreprocessor,
     TextPreprocessor
+)
+
+ANALYTIC_CLASSES = (
+    DeployedAnalytic,
+    DeployedModel,
+    LocalModel
 )
 
 POSTPROCESSING_CLASSES = (
