@@ -2,6 +2,7 @@ import json
 from typing import Type
 from aisquared.config.preprocessing import TabularPreprocessor, ImagePreprocessor, TextPreprocessor
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, ObjectDetection, Regression
+from aisquared.config.rendering import ImageRendering, ObjectRendering, PopOutNLPRendering, WordRendering
 
 PREPROCESSING_CLASSES = (
     TabularPreprocessor,
@@ -14,7 +15,14 @@ POSTPROCESSING_CLASSES = (
     MulticlassClassification,
     ObjectDetection,
     Regression
-)    
+)
+
+RENDERING_CLASSES = (
+    ObjectRendering,
+    ImageRendering,
+    PopOutNLPRendering,
+    WordRendering
+)
 
 class ModelConfiguration:
     """
@@ -26,6 +34,7 @@ class ModelConfiguration:
             preprocessing_steps,
             postprocessing_steps,
             input_shapes,
+            renderings = None,
             version = None,
             description = '',
             mlflow_uri = None,
@@ -43,6 +52,9 @@ class ModelConfiguration:
             The postprocessing steps to occur for each output to the model
         input_shapes : list of int
             The input shapes for the model
+        renderings : list or None (default None)
+            List of rendering objects (for single-task model) or list of list of rendering objects (for multi-task model)
+            to be completed. If None, default rendering steps are inferred
         version : int or None (default None)
             The version for the model. If None is provided, defaults to 1 if the model name is not already present,
             else increments the existing version by 1
@@ -56,12 +68,13 @@ class ModelConfiguration:
             The MLFlow token for authentication
         """
         
+        self.name = name
         self.preprocessing_steps = preprocessing_steps
         self.postprocessing_steps = postprocessing_steps
         self.input_shapes = input_shapes
-        self.name = name
-        self.description = description
+        self.renderings = renderings
         self.version = version
+        self.description = description
         self.mlflow_uri = mlflow_uri
         self.mlflow_user = mlflow_user
         self.mlflow_token = mlflow_token
@@ -88,7 +101,7 @@ class ModelConfiguration:
         elif isinstance(value, list) and all([isinstance(val, POSTPROCESSING_CLASSES) for val in value]):
             self._postprocessing_steps = value
         else:
-            raise TypeError('postprocessing_stpes must be a single instance of or a list of instances of classes in the `aisquared.postprocessing` package')
+            raise TypeError('postprocessing_steps must be a single instance of or a list of instances of classes in the `aisquared.postprocessing` package')
 
     @property
     def input_shapes(self):
@@ -103,6 +116,20 @@ class ModelConfiguration:
             if not all([isinstance(v, int) for v in val]):
                 raise TypeError('input_shapes must be list of list of ints')
         self._input_shapes = value
+
+    @property
+    def renderings(self):
+        return self._renderings
+    @renderings.setter
+    def renderings(self, value):
+        if isinstance(value, RENDERING_CLASSES):
+            self._renderings = [value]
+        elif isinstance(value, list) and all([isinstance(val, RENDERING_CLASSES) for val in value]):
+            self._renderings = value
+        elif isinstance(value, list) and all([isinstance(v, RENDERING_CLASSES) for val in value for v in val]):
+            self._renderings = value
+        else:
+            raise TypeError('rendering_steps must be a single instance of a rendering class, a list of rendering instances, or a list of list of rendering instances')
 
     @property
     def name(self):
@@ -165,6 +192,15 @@ class ModelConfiguration:
         """
         Get the ModelConfiguration object as a dictionary
         """
+        if self.renderings is None:
+            rendering_dict = None
+        elif isinstance(self.renderings[0], list):
+            rendering_dict = [
+                [r.to_dict() for r in render] for render in self.renderings
+            ]
+        else:
+            rendering_dict = [render.to_dict() for render in self.renderings]
+
         return {
             'modelConfig' : {
                 'name' : self.name,
@@ -175,7 +211,8 @@ class ModelConfiguration:
                 'token' : self.mlflow_token,
                 'inputShapes' : self.input_shapes,
                 'preprocessing' : [step.to_dict() for step in self.preprocessing_steps],
-                'postprocessing' : [step.to_dict() for step in self.postprocessing_steps]
+                'postprocessing' : [step.to_dict() for step in self.postprocessing_steps],
+                'rendering' : rendering_dict
             }
         }
 
