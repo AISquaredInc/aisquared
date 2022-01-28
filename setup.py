@@ -7,8 +7,11 @@ setup(
     url = 'https://github.com/AISquaredInc/aisquared',
     packages = [
         'aisquared',
+        'aisquared.base',
         'aisquared.config',
+        'aisquared.config.harvesting',
         'aisquared.config.preprocessing',
+        'aisquared.config.analytic',
         'aisquared.config.postprocessing',
         'aisquared.config.rendering'
     ],
