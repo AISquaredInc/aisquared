@@ -1,5 +1,5 @@
-import json
 from .Steps import ZScore, MinMax, OneHot, DropColumn
+from aisquared.base import BaseObject
 
 ALLOWED_STEPS = (
     ZScore,
@@ -8,7 +8,7 @@ ALLOWED_STEPS = (
     DropColumn
 )
 
-class TabularPreprocessor:
+class TabularPreprocessor(BaseObject):
     """
     Preprocessor object for tabular data
     """
@@ -22,6 +22,7 @@ class TabularPreprocessor:
         steps : list or None (default None)
             List of preprocessor steps for tabular data
         """
+        super().__init__()
         self.steps = None
         if steps is not None:
             for step in steps:
@@ -48,9 +49,3 @@ class TabularPreprocessor:
                 step.to_dict() for step in self.steps
             ]
         }
-
-    def to_json(self):
-        """
-        Get the preprocessor object as a JSON string
-        """
-        return json.dumps(self.to_dict())

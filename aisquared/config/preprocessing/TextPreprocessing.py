@@ -1,4 +1,4 @@
-import json
+from aisquared.base import BaseObject
 from .Steps import Tokenize, RemoveCharacters, ConvertToCase, ConvertToVocabulary, PadSequences
 
 ALLOWED_STEPS = (
@@ -9,7 +9,7 @@ ALLOWED_STEPS = (
     PadSequences
 )
 
-class TextPreprocessor:
+class TextPreprocessor(BaseObject):
     """
     Preprocessor object for natural language
     """
@@ -23,7 +23,7 @@ class TextPreprocessor:
         steps : list or None (default None)
             List of preprocessing steps for natural language
         """
-
+        super().__init__()
         self.steps = None
         if steps is not None:
             for step in steps:
@@ -50,9 +50,3 @@ class TextPreprocessor:
                 step.to_dict() for step in self.steps
             ]
         }
-
-    def to_json(self):
-        """
-        Get the preprocessor object as a JSON string
-        """
-        return json.dumps(self.to_dict())

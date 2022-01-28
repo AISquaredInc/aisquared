@@ -1,4 +1,4 @@
-import json
+from aisquared.base import BaseObject
 from .Steps import AddValue, SubtractValue, MultitplyValue, DivideValue, ConvertToColor, Resize
 
 ALLOWED_STEPS = (
@@ -10,7 +10,7 @@ ALLOWED_STEPS = (
     Resize
 )
 
-class ImagePreprocessor:
+class ImagePreprocessor(BaseObject):
     """
     Preprocessor object for image data
     """
@@ -24,6 +24,7 @@ class ImagePreprocessor:
         steps : list
             List of preprocessing steps for image data
         """
+        super().__init__()
         self.steps = None
         if steps is not None:
             for step in steps:
@@ -50,9 +51,3 @@ class ImagePreprocessor:
                 step.to_dict() for step in self.steps
             ]
         }
-
-    def to_json(self):
-        """
-        Get the preprocessor object as a JSON string
-        """
-        return json.dumps(self.to_dict())
