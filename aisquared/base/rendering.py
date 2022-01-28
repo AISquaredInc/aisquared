@@ -1,4 +1,5 @@
 ALLOWED_LOCATIONS = [
+    None,
     'top',
     'bottom',
     'left',
