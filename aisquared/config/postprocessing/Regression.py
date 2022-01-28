@@ -1,6 +1,6 @@
-import json
+from aisquared.base import BaseObject
 
-class Regression:
+class Regression(BaseObject):
     """
     Postprocessing configuration object for Regression
     """
@@ -15,7 +15,7 @@ class Regression:
         max : None, int, or float (default None)
             The value to map an output of 1 to from the model
         """
-
+        super().__init__()
         self.min = min
         self.max = max
 
@@ -48,9 +48,3 @@ class Regression:
                 'max' : self.max
             }
         }
-
-    def to_json(self):
-        """
-        Get the configuration object as a JSON string
-        """
-        return json.dumps(self.to_dict())

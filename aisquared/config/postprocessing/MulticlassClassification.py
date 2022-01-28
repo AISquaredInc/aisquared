@@ -1,6 +1,6 @@
-import json
+from aisquared.base import BaseObject
 
-class MulticlassClassification:
+class MulticlassClassification(BaseObject):
     """
     Postprocessing configuration object for multiclass classification
     """
@@ -20,6 +20,7 @@ class MulticlassClassification:
         documents : list of list of strings or None (default None)
             List of list of document URLs corresponding to the top documents for every class
         """
+        super().__init__()
         self.label_map = label_map
         self.keywords = keywords
         self.documents = documents
@@ -71,10 +72,4 @@ class MulticlassClassification:
                 'documents' : self.documents
             }
         }
-
-    def to_json(self):
-        """
-        Get the configuration object as a JSON string
-        """
-        return json.dumps(self.to_dict())
         

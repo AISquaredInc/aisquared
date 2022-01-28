@@ -1,5 +1,4 @@
-import json
-from typing import Type
+from aisquared.base import BaseObject
 from aisquared.config.harvesting import ImageHarvester, LanguageHarvester
 from aisquared.config.preprocessing import TabularPreprocessor, ImagePreprocessor, TextPreprocessor
 from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel
@@ -37,7 +36,7 @@ RENDERING_CLASSES = (
     WordRendering
 )
 
-class ModelConfiguration:
+class ModelConfiguration(BaseObject):
     """
     An object that contains all pre- and postprocessing configuration for the model
     """
@@ -80,7 +79,7 @@ class ModelConfiguration:
         mlflow_token : None or str (default None)
             The MLFlow token for authentication
         """
-        
+        super().__init__()
         self.name = name
         self.preprocessing_steps = preprocessing_steps
         self.postprocessing_steps = postprocessing_steps
@@ -228,9 +227,3 @@ class ModelConfiguration:
                 'rendering' : rendering_dict
             }
         }
-
-    def to_json(self):
-        """
-        Get the ModelConfiguration object as a JSON string
-        """
-        return json.dumps(self.to_dict())
