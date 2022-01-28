@@ -6,7 +6,7 @@ class LocalModel(BaseObject):
         self,
         model_path
     ):
-        super.__init__()
+        super().__init__()
         self.model_path = model_path
 
     def to_dict(self):
