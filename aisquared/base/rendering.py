@@ -22,3 +22,9 @@ ALLOWED_COLORS = [
     'white',
     'blue'
 ]
+
+ALLOWED_BADGES = [
+    'circle',
+    'square',
+    'star'
+]

@@ -1,9 +1,10 @@
+from xml.dom.minidom import Document
 from aisquared.base import BaseObject
 from aisquared.config.harvesting import ImageHarvester, LanguageHarvester
 from aisquared.config.preprocessing import TabularPreprocessor, ImagePreprocessor, TextPreprocessor
 from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, ObjectDetection, Regression
-from aisquared.config.rendering import ImageRendering, ObjectRendering, PopOutNLPRendering, WordRendering
+from aisquared.config.rendering import ImageRendering, ObjectRendering, DocumentRendering, WordRendering
 
 HARVESTING_CLASSES = (
     ImageHarvester,
@@ -32,7 +33,7 @@ POSTPROCESSING_CLASSES = (
 RENDERING_CLASSES = (
     ObjectRendering,
     ImageRendering,
-    PopOutNLPRendering,
+    DocumentRendering,
     WordRendering
 )
 
@@ -43,10 +44,11 @@ class ModelConfiguration(BaseObject):
     def __init__(
             self,
             name,
+            harvesters,
             preprocessing_steps,
+            analytics,
             postprocessing_steps,
-            input_shapes,
-            renderings = None,
+            renderings,
             version = None,
             description = '',
             mlflow_uri = None,
@@ -81,9 +83,10 @@ class ModelConfiguration(BaseObject):
         """
         super().__init__()
         self.name = name
+        self.harvesters = harvesters
         self.preprocessing_steps = preprocessing_steps
+        self.analytics = analytics
         self.postprocessing_steps = postprocessing_steps
-        self.input_shapes = input_shapes
         self.renderings = renderings
         self.version = version
         self.description = description

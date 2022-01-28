@@ -1,7 +1,9 @@
 from aisquared.base import ALLOWED_COLORS, ALLOWED_BADGES, BaseObject
 
 class WordRendering(BaseObject):
-    
+    """
+    Object for rendering badges on individual words
+    """
     def __init__(
         self,
         content_key = None,
@@ -19,6 +21,6 @@ class WordRendering(BaseObject):
             'params' : {
                 'contentKey' : self.content_key,
                 'badgeShape' : self.badge_shape,
-                'badgeColor' : self.badge_color
+                'badgeColor' : self.badge_color 
             }
         }
