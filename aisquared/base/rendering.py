@@ -1,4 +1,4 @@
-ALLOWED_LOCATIONS = [
+LOCATIONS = [
     None,
     'top',
     'bottom',
@@ -10,7 +10,7 @@ ALLOWED_LOCATIONS = [
     'bottomleft'
 ]
 
-ALLOWED_COLORS = [
+COLORS = [
     'red',
     'orange',
     'green',
@@ -23,7 +23,7 @@ ALLOWED_COLORS = [
     'blue'
 ]
 
-ALLOWED_BADGES = [
+BADGES = [
     'circle',
     'square',
     'star'
