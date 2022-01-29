@@ -1,14 +1,15 @@
-from aisquared.base import ALLOWED_COLORS, ALLOWED_BADGES, BaseObject
+from aisquared.base import COLORS, BADGES, BaseObject
 
 class WordRendering(BaseObject):
     """
     Object for rendering badges on individual words
     """
+    
     def __init__(
         self,
         content_key = None,
-        badge_shape = ALLOWED_BADGES[-1],
-        badge_color = ALLOWED_COLORS[-1]
+        badge_shape = BADGES[-1],
+        badge_color = COLORS[-1]
     ):
         super().__init__()
         self.content_key = content_key

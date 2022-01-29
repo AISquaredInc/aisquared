@@ -1,4 +1,4 @@
-from aisquared.base import ALLOWED_LOCATIONS, ALLOWED_COLORS, BaseObject
+from aisquared.base import LOCATIONS, COLORS, BaseObject
 
 class ImageRendering(BaseObject):
     """
@@ -7,19 +7,19 @@ class ImageRendering(BaseObject):
 
     def __init__(
         self,
-        color = ALLOWED_COLORS[-1],
+        color = COLORS[-1],
         thickness = '5px',
-        placement = ALLOWED_LOCATIONS[-1],
+        placement = LOCATIONS[-1],
         include_probability = False,
-        badge_color = ALLOWED_COLORS[-2],
-        font_color = ALLOWED_COLORS[-4],
+        badge_color = COLORS[-2],
+        font_color = COLORS[-4],
         font_size = '5px'
     ):
         super().__init__()
         self.color = color
         self.thickness = thickness
-        if placement not in ALLOWED_LOCATIONS:
-            raise ValueError(f'Placement must be one of {ALLOWED_LOCATIONS}, got {placement}')
+        if placement not in LOCATIONS:
+            raise ValueError(f'Placement must be one of {LOCATIONS}, got {placement}')
         self.placement = placement
         self.include_probability = include_probability  
         self.badge_color = badge_color

@@ -1,4 +1,4 @@
-from aisquared.base import ALLOWED_LOCATIONS, ALLOWED_COLORS, BaseObject
+from aisquared.base import LOCATIONS, COLORS, BaseObject
 
 class ObjectRendering(BaseObject):
     """
@@ -7,27 +7,81 @@ class ObjectRendering(BaseObject):
 
     def __init__(
         self,
-        color = ALLOWED_COLORS[-1],
+        color = COLORS[-1],
         thickness = '5px',
-        placement = ALLOWED_LOCATIONS[-1],
+        placement = LOCATIONS[-1],
         include_probability = False,
-        badge_color = ALLOWED_COLORS[-2],
-        font_color = ALLOWED_COLORS[-4],
+        badge_color = COLORS[-2],
+        font_color = COLORS[-4],
         font_size = '5px'
     ):
         super().__init__()
         self.color = color
         self.thickness = thickness
-        if placement not in ALLOWED_LOCATIONS:
-            raise ValueError(f'Placement must be one of {ALLOWED_LOCATIONS}, got {placement}')
         self.placement = placement
         self.include_probability = include_probability
         self.badge_color = badge_color
         self.font_color = font_color
         self.font_size = font_size
 
+    @property
+    def color(self):
+        return self._color
+    @color.setter
+    def color(self, value):
+        if value not in COLORS:
+            raise ValueError(f'color must be one of {COLORS}')
+        self._color = value
+
+    @property
+    def thickness(self):
+        return self._thickness
+    @thickness.setter
+    def thickness(self, value):
+        self._thickness = value
+
+    @property
+    def placement(self):
+        return self._placement
+    @placement.setter
+    def placement(self, value):
+        if value not in LOCATIONS:
+            raise ValueError(f'placement must be one of {LOCATIONS}')
+        self._placement = value
+    
+    @property
+    def include_probability(self):
+        return self._include_probability
+    @include_probability.setter
+    def include_probability(self, value):
+        self._include_probability = value
+
+    @property
+    def badge_color(self):
+        return self._badge_color
+    @badge_color.setter
+    def badge_color(self, value):
+        if value not in COLORS:
+            raise ValueError(f'badge_color must be one of {COLORS}')
+        self._badge_color = value
+
+    @property
+    def font_color(self):
+        return self._font_color
+    @font_color.setter
+    def font_color(self, value):
+        if value not in COLORS:
+            raise ValueError(f'font_color must be one of {COLORS}')
+        self._font_color = value
+
+    @property
+    def font_size(self):
+        return self._font_size
+    @font_size.setter
+    def font_size(self, value):
+        self._font_size = value
+
     def to_dict(self):
-        """Return the object as a dictionary"""
         return {
             'className' : 'ObjectDetection',
             'params' : {
