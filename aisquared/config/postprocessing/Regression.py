@@ -38,9 +38,6 @@ class Regression(BaseObject):
         self._max = value
 
     def to_dict(self):
-        """
-        Get the configuration object as a dictionary
-        """
         return {
             'className' : 'Regression',
             'params' : {
