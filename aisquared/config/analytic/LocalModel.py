@@ -18,6 +18,13 @@ class LocalModel(BaseObject):
         super().__init__()
         self.model_path = model_path
 
+    @property
+    def model_path(self):
+        return self._model_path
+    @model_path.setter
+    def model_path(self, value):
+        self._model_path = value
+
     def to_dict(self):
         return {
             'className' : 'LocalModel',

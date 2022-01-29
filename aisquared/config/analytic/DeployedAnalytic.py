@@ -26,6 +26,27 @@ class DeployedAnalytic(BaseObject):
         self.secret = secret
         self.format = format
 
+    @property
+    def url(self):
+        return self._url
+    @url.setter
+    def url(self, value):
+        self._url = value
+
+    @property
+    def secret(self):
+        return self._secret
+    @secret.setter
+    def secret(self, value):
+        self._secret = value
+
+    @property
+    def format(self):
+        return self._format
+    @format.setter
+    def format(self, value):
+        self._format = value
+
     def to_dict(self):
         return {
             'className' : 'DeployedAnalytic',
