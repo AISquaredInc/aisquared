@@ -1,3 +1,4 @@
+from multiprocessing.sharedctypes import Value
 from aisquared.base import LOCATIONS, COLORS, BaseObject
 
 class ImageRendering(BaseObject):
@@ -15,19 +16,92 @@ class ImageRendering(BaseObject):
         font_color = COLORS[-4],
         font_size = '5px'
     ):
+        f"""
+        Parameters
+        ----------
+        color : str (default {COLORS[-1]})
+            The color of the box around images
+        thickness : str (default '5px')
+            The thickness of the box around images
+        placement : str (default {LOCATIONS[-1]})
+            The placement of the predicted value in the box 
+            around images
+        include_probability : bool (default False)
+            Whether to render calculated probabilities
+        badge_color : str (default {COLORS[-2]})
+            Background color of the text region
+        font_color : str (default {COLORS[-4]})
+            Color of the text
+        font_size : str (default '5px')
+            Text size
+        """
         super().__init__()
         self.color = color
         self.thickness = thickness
-        if placement not in LOCATIONS:
-            raise ValueError(f'Placement must be one of {LOCATIONS}, got {placement}')
         self.placement = placement
         self.include_probability = include_probability  
         self.badge_color = badge_color
         self.font_color = font_color
         self.font_size = font_size
 
+    @property
+    def color(self):
+        return self._color
+    @color.setter
+    def color(self, value):
+        if value not in COLORS:
+            raise ValueError(f'color must be one of {COLORS}')
+        self._color = value
+
+    @property
+    def thickness(self):
+        return self._thickness
+    @thickness.setter
+    def thickness(self, value):
+        self._thickness = value
+
+    @property
+    def placement(self):
+        return self._placement
+    @placement.setter
+    def placement(self, value):
+        if value not in LOCATIONS:
+            raise ValueError(f'placement must be one of {LOCATIONS}')
+        self._placement = value
+
+    @property
+    def include_probability(self):
+        return self._include_probability
+    @include_probability.setter
+    def include_probability(self, value):
+        self._include_probability = value
+
+    @property
+    def badge_color(self):
+        return self._badge_color
+    @badge_color.setter
+    def badge_color(self, value):
+        if value not in COLORS:
+            raise ValueError(f'badge_color must be one of {COLORS}')
+        self._badge_color = value
+
+    @property
+    def font_color(self):
+        return self._font_color
+    @font_color.setter
+    def font_color(self, value):
+        if value not in COLORS:
+            raise ValueError(f'font_color must be one of {COLORS}')
+        self._font_color = value
+
+    @property
+    def font_size(self):
+        return self._font_size
+    @font_size.setter
+    def font_size(self, value):
+        self._font_size = value
+
     def to_dict(self):
-        """Return the object as a dictionary"""
         return {
             'className' : 'ImagePrediction',
             'params' : {
