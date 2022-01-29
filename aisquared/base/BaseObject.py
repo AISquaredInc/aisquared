@@ -8,6 +8,9 @@ class BaseObject:
         pass
 
     def to_dict(self):
+        """
+        Get the object as a dictionary
+        """
         raise NotImplemented
 
     def to_json(self):
