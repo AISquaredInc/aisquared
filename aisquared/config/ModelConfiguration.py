@@ -1,4 +1,3 @@
-from xml.dom.minidom import Document
 from aisquared.base import BaseObject
 from aisquared.config.harvesting import ImageHarvester, LanguageHarvester
 from aisquared.config.preprocessing import TabularPreprocessor, ImagePreprocessor, TextPreprocessor
@@ -38,62 +37,58 @@ RENDERING_CLASSES = (
 )
 
 class ModelConfiguration(BaseObject):
-    """
-    An object that contains all pre- and postprocessing configuration for the model
-    """
     def __init__(
             self,
             name,
-            harvesters,
+            harvesting_steps,
             preprocessing_steps,
-            analytics,
+            analytic,
             postprocessing_steps,
-            renderings,
+            rendering_steps,
             version = None,
             description = '',
             mlflow_uri = None,
             mlflow_user = None,
             mlflow_token = None            
     ):
-        """
-        Parameters
-        ----------
-        name : str
-            A unique name for the model
-        preprocessing_steps : list or aisquared.preprocessing class
-            The preprocessing steps to occur for each input to the model
-        postprocessing_steps : list or aisquared.postprocessing class
-            The postprocessing steps to occur for each output to the model
-        input_shapes : list of int
-            The input shapes for the model
-        renderings : list or None (default None)
-            List of rendering objects (for single-task model) or list of list of rendering objects (for multi-task model)
-            to be completed. If None, default rendering steps are inferred
-        version : int or None (default None)
-            The version for the model. If None is provided, defaults to 1 if the model name is not already present,
-            else increments the existing version by 1
-        description : str (default '')
-            A description for the model
-        mlflow_uri : None or str (default None)
-            The MLFlow URI to point to
-        mlflow_user : None or str (default None)
-            The MLFlow user to use
-        mlflow_token : None or str (default None)
-            The MLFlow token for authentication
-        """
+
         super().__init__()
         self.name = name
-        self.harvesters = harvesters
+        self.harvesting_steps = harvesting_steps
         self.preprocessing_steps = preprocessing_steps
-        self.analytics = analytics
+        self.analytic = analytic
         self.postprocessing_steps = postprocessing_steps
-        self.renderings = renderings
+        self.rendering_steps = rendering_steps
         self.version = version
         self.description = description
         self.mlflow_uri = mlflow_uri
         self.mlflow_user = mlflow_user
         self.mlflow_token = mlflow_token
 
+    # name
+    @property
+    def name(self):
+        return self._name
+    @name.setter
+    def name(self, value):
+        self._name = str(value)
+
+    # harvesting_steps
+    @property
+    def harvesting_steps(self):
+        return self._harvesting_steps
+    @harvesting_steps.setter
+    def harvesting_steps(self, value):
+        if isinstance(value, HARVESTING_CLASSES):
+            self._harvesting_steps = [value]
+        elif isinstance(value, list) and all([isinstance(val, HARVESTING_CLASSES) for val in value]):
+            self._harvesting_steps = value
+        elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, HARVESTING_CLASSES) for val in value for v in val]):
+            self._harvesting_steps = value
+        else:
+            raise ValueError('harvesting_steps must be a single Harvester object, a list of Harvester objects, or a list of list of harvester objects')
+
+    # preprocessing_steps
     @property
     def preprocessing_steps(self):
         return self._preprocessing_steps
@@ -103,9 +98,27 @@ class ModelConfiguration(BaseObject):
             self._preprocessing_steps = [value]
         elif isinstance(value, list) and all([isinstance(val, PREPROCESSING_CLASSES) for val in value]):
             self._preprocessing_steps = value
+        elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, PREPROCESSING_CLASSES) for val in value for v in val]):
+            self._preprocessing_steps = value
         else:
-            raise TypeError('preprocessing_steps must be a single instance of or a list of instances of classes in the `aisquared.preprocessing` package')
+            raise ValueError('preprocessing_steps must a single Preprocessor object, a list of Preprocessor objects, or a list of list of preprocessor objects')
 
+    # analytic
+    @property
+    def analytic(self):
+        return self._analytic
+    @analytic.setter
+    def analytic(self, value):
+        if isinstance(value, ANALYTIC_CLASSES):
+            self._analytic = [value]
+        elif isinstance(value, list) and all([isinstance(val, ANALYTIC_CLASSES) for val in value]):
+            self._analytic = value
+        elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, ANALYTIC_CLASSES) for val in value for v in val]):
+            self._analytic = value
+        else:
+            raise ValueError('analytic must be a single Analytic object, a list of Analytic objects, or a list of list of Analtyic objects')
+
+    # postprocessing_steps
     @property
     def postprocessing_steps(self):
         return self._postprocessing_steps
@@ -115,118 +128,132 @@ class ModelConfiguration(BaseObject):
             self._postprocessing_steps = [value]
         elif isinstance(value, list) and all([isinstance(val, POSTPROCESSING_CLASSES) for val in value]):
             self._postprocessing_steps = value
+        elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, POSTPROCESSING_CLASSES) for val in value for v in val]):
+            self._postprocessing_steps = value
         else:
-            raise TypeError('postprocessing_steps must be a single instance of or a list of instances of classes in the `aisquared.postprocessing` package')
+            raise ValueError('postprocessing_stpes must be a single Postprocessing object, a list of Postprocessing objects, or a list of list of Postprocessing objects')
 
-    @property
-    def input_shapes(self):
-        return self._input_shapes
-    @input_shapes.setter
-    def input_shapes(self, value):
-        if not isinstance(value, list):
-            raise TypeError('input_shapes must be list of list of ints')
-        if not all([isinstance(val, list) for val in value]):
-            raise TypeError('input_shapes must be list of list of ints')
-        for val in value:
-            if not all([isinstance(v, int) for v in val]):
-                raise TypeError('input_shapes must be list of list of ints')
-        self._input_shapes = value
 
+    # rendering_steps
     @property
-    def renderings(self):
-        return self._renderings
-    @renderings.setter
-    def renderings(self, value):
+    def rendering_steps(self):
+        return self._rendering_steps
+    @rendering_steps.setter
+    def rendering_steps(self, value):
         if isinstance(value, RENDERING_CLASSES):
-            self._renderings = [value]
+            self._rendering_steps = [value]
         elif isinstance(value, list) and all([isinstance(val, RENDERING_CLASSES) for val in value]):
-            self._renderings = value
-        elif isinstance(value, list) and all([isinstance(v, RENDERING_CLASSES) for val in value for v in val]):
-            self._renderings = value
+            self._rendering_steps = value
+        elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, RENDERING_CLASSES) for val in value for v in val]):
+            self._rendering_steps = value
         else:
-            raise TypeError('rendering_steps must be a single instance of a rendering class, a list of rendering instances, or a list of list of rendering instances')
+            raise ValueError('rendering_steps must be a single Rendering object, a list of Rendering objects, or a list of list of Rendering objects')
 
-    @property
-    def name(self):
-        return self._name
-    @name.setter
-    def name(self, value):
-        if not isinstance(value, str):
-            raise TypeError('name must be string-valued')
-        self._name = value
 
-    @property
-    def description(self):
-        return self._description
-    @description.setter
-    def description(self, value):
-        if not isinstance(value, str):
-            raise TypeError('description must be string-valued')
-        self._description = value
-
+    # version
     @property
     def version(self):
         return self._version
     @version.setter
     def version(self, value):
-        if value is not None:
-            if not isinstance(value, int):
-                raise TypeError('version must be integer-valued')
-            if value <= 0:
-                raise ValueError('version must be integer >= 1')
-        self._version = value
-        
+        self._version = str(value) if value is not None else value
+
+    # description
+    @property
+    def description(self):
+        return self._description
+    @description.setter
+    def description(self, value):
+        self._description = str(value)
+
+    # mlflow_uri
     @property
     def mlflow_uri(self):
         return self._mlflow_uri
     @mlflow_uri.setter
     def mlflow_uri(self, value):
-        if value is not None and not isinstance(value, str):
-            raise TypeError('mlflow_uri must be None or str')
-        self._mlflow_uri = value
+        self._mlflow_uri = str(value)
 
+    # mlflow_user
     @property
     def mlflow_user(self):
         return self._mlflow_user
     @mlflow_user.setter
     def mlflow_user(self, value):
-        if value is not None and not isinstance(value, str):
-            raise TypeError('mlflow_user must be None or str')
-        self._mlflow_user = value
+        self._mlflow_user = str(value)
 
+    # mlflow_token
     @property
     def mlflow_token(self):
         return self._mlflow_token
     @mlflow_token.setter
     def mlflow_token(self, value):
-        if value is not None and not isinstance(value, str):
-            raise TypeError('mlflow_token must be None or str')
-        self._mlflow_token = value
+        self._mlflow_token = str(value)
+
+    # harvester_dict
+    @property
+    def harvester_dict(self):
+        if isinstance(self.harvesting_steps, list) and all([isinstance(val, HARVESTING_CLASSES) for val in self.harvesting_steps]):
+            return [val.to_dict() for val in self.harvesting_steps]
+        else:
+            return [
+                [v.to_dict() for v in val] for val in self.harvesting_steps
+            ]
+
+    # preprocessing_dict
+    @property
+    def preprocesser_dict(self):
+        if isinstance(self.preprocessing_steps, list) and all([isinstance(val, PREPROCESSING_CLASSES) for val in self.preprocessing_steps]):
+            return [val.to_dict() for val in self.preprocessing_steps]
+        else:
+            return [
+                [v.to_dict() for v in val] for val in self.preprocessing_steps
+            ]
+
+    # analytic dict
+    @property
+    def analytic_dict(self):
+        if isinstance(self.analytic, list) and all([isinstance(val, ANALYTIC_CLASSES) for val in self.analytic]):
+            return [val.to_dict() for val in self.analytic]
+        else:
+            return [
+                [v.to_dict() for v in val] for val in self.analytic
+            ]
+
+    # postprocesser_dict
+    @property
+    def postprocesser_dict(self):
+        if isinstance(self.postprocessing_steps, list) and all([isinstance(val, POSTPROCESSING_CLASSES) for val in self.postprocessing_steps]):
+            return [val.to_dict() for val in self.postprocessing_steps]
+        else:
+            return [
+                [v.to_dict() for v in val] for val in self.postprocessing_steps
+            ]
+
+    # render_dict
+    @property
+    def render_dict(self):
+        if isinstance(self.rendering_steps, list) and all([isinstance(val, RENDERING_CLASSES) for val in self.rendering_steps]):
+            return [val.to_dict() for val in self.rendering_steps]
+        else:
+            return [
+                [v.to_dict() for v in val] for val in self.rendering_steps
+            ]
 
     def to_dict(self):
-        """
-        Get the ModelConfiguration object as a dictionary
-        """
-        if self.renderings is None:
-            rendering_dict = None
-        elif isinstance(self.renderings[0], list):
-            rendering_dict = [
-                [r.to_dict() for r in render] for render in self.renderings
-            ]
-        else:
-            rendering_dict = [render.to_dict() for render in self.renderings]
-
         return {
-            'modelConfig' : {
+            'className' : 'ModelConfiguration',
+            'params' : {
                 'name' : self.name,
+                'harvestingSteps' : self.harvester_dict,
+                'preprocessingSteps' : self.preprocesser_dict,
+                'analytics' : self.analytic_dict,
+                'postprocessingSteps' : self.postprocesser_dict,
+                'renderingSteps' : self.render_dict,
                 'version' : self.version,
-                'description' : self.description, 
-                'uri' : self.mlflow_uri,
-                'user' : self.mlflow_user,
-                'token' : self.mlflow_token,
-                'inputShapes' : self.input_shapes,
-                'preprocessing' : [step.to_dict() for step in self.preprocessing_steps],
-                'postprocessing' : [step.to_dict() for step in self.postprocessing_steps],
-                'rendering' : rendering_dict
+                'description' : self.description,
+                'mlflowUri' : self.mlflow_uri,
+                'mlflowUser' : self.mlflow_user,
+                'mlflowToken' : self.mlflow_token
             }
         }
