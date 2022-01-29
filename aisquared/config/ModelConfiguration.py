@@ -1,9 +1,17 @@
+from multiprocessing.sharedctypes import Value
 from aisquared.base import BaseObject
 from aisquared.config.harvesting import ImageHarvester, LanguageHarvester
 from aisquared.config.preprocessing import TabularPreprocessor, ImagePreprocessor, TextPreprocessor
 from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, ObjectDetection, Regression
 from aisquared.config.rendering import ImageRendering, ObjectRendering, DocumentRendering, WordRendering
+
+import tensorflowjs as tfjs
+import tensorflow as tf
+import zipfile
+import shutil
+import json
+import os
 
 HARVESTING_CLASSES = (
     ImageHarvester,
@@ -240,6 +248,19 @@ class ModelConfiguration(BaseObject):
                 [v.to_dict() for v in val] for val in self.rendering_steps
             ]
 
+    def get_model_filenames(self):
+        filenames = []
+        if isinstance(self.analytic[0], ANALYTIC_CLASSES):
+            for a in self.analytic:
+                if isinstance(a, LocalModel):
+                    filenames.append(a.model_path)
+        else:
+            for analytic in self.analytic:
+                for a in analytic:
+                    if isinstance(a, LocalModel):
+                        filenames.append(a.model_path)
+        return filenames
+
     def to_dict(self):
         return {
             'className' : 'ModelConfiguration',
@@ -257,3 +278,20 @@ class ModelConfiguration(BaseObject):
                 'mlflowToken' : self.mlflow_token
             }
         }
+
+    def compile(self, filename = 'config.air', overwrite = False):
+        
+        dirname = os.path.splitext(filename)[0]
+
+        # write the object as json config 
+        os.makedirs(dirname, exist_ok = overwrite)
+        with open(os.path.join(dirname, 'config.json'), 'w') as f:
+            json.dump(json.loads(self.to_json()), f)
+
+        # go through the files and copy them/make them tfjs files
+        filenames = self.get_model_filenames()
+        print(filenames)
+        if len(filenames) != 0:
+            for f in filenames:
+                print(f)
+        
