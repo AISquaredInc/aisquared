@@ -41,9 +41,6 @@ class TextPreprocessor(BaseObject):
             self.steps = self.steps + [step]
 
     def to_dict(self):
-        """
-        Get the preprocessor object as a dictionary
-        """
         return {
             'className' : 'TextPreprocessor',
             'steps' : [
