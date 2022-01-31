@@ -113,6 +113,8 @@ class ModelConfiguration(BaseObject):
             self._preprocessing_steps = value
         elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, PREPROCESSING_CLASSES) for val in value for v in val]):
             self._preprocessing_steps = value
+        elif value is None:
+            self._preprocessing_steps = value
         else:
             raise ValueError('preprocessing_steps must a single Preprocessor object, a list of Preprocessor objects, or a list of list of preprocessor objects')
 
@@ -143,8 +145,10 @@ class ModelConfiguration(BaseObject):
             self._postprocessing_steps = value
         elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, POSTPROCESSING_CLASSES) for val in value for v in val]):
             self._postprocessing_steps = value
+        elif value is None:
+            self._postprocessing_steps = value
         else:
-            raise ValueError('postprocessing_stpes must be a single Postprocessing object, a list of Postprocessing objects, or a list of list of Postprocessing objects')
+            raise ValueError('postprocessing_steps must be a single Postprocessing object, a list of Postprocessing objects, or a list of list of Postprocessing objects')
 
 
     # rendering_steps
@@ -297,11 +301,19 @@ class ModelConfiguration(BaseObject):
         filenames = self.get_model_filenames()
         if len(filenames) != 0:
             for f in filenames:
-                if os.path.splitext(f) == '.h5':
+                if os.path.splitext(f)[-1] == '.h5':
                     model = tf.keras.models.load_model(f)
                     model_dir = os.path.join(dirname, f.split()[-1])
                     tfjs.converters.save_keras_model(model, model_dir)
                 else:
                     shutil.copy(f, dirname)
         
-        # go through the entire directory of dirname, grab all files, and 
+        # go through the entire directory of dirname, grab all files, and make
+        # the archive file
+        shutil.make_archive(filename, 'zip', dirname)
+
+        # Move the archive file to just have .air
+        shutil.move(filename + '.zip', filename)
+
+        # Remove the temp directory
+        shutil.rmtree(dirname, ignore_errors = True)
