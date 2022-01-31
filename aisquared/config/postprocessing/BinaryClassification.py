@@ -1,6 +1,6 @@
-import json
+from aisquared.base import BaseObject
 
-class BinaryClassification:
+class BinaryClassification(BaseObject):
     """
     Postprocesssing configuration object for binary classification
     """
@@ -18,6 +18,7 @@ class BinaryClassification:
         threshold : float (default 0.5)
             The threshold for the second value to the label map to be the one chosen
         """
+        super().__init__()
         self.label_map = label_map
         self.threshold = threshold
 
@@ -44,9 +45,6 @@ class BinaryClassification:
         self._threshold = value
 
     def to_dict(self):
-        """
-        Get the configuration object as a dictionary
-        """
         return {
             'className' : 'BinaryClassification',
             'params' : {
@@ -54,10 +52,3 @@ class BinaryClassification:
                 'threshold' : self.threshold
             }
         }
-
-    def to_json(self):
-        """
-        Get the configuration object as a JSON string
-        """
-        return json.dumps(self.to_dict())
-        

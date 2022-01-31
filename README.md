@@ -1,6 +1,6 @@
 # AISquared
 
-This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Browser Extension.
+This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Browser Extension or other applications developed through the AI Squared JavaScript SDK.
 
 ## Installation
 
@@ -18,10 +18,9 @@ pip install git+https://github.com/AISquaredInc/aisquared
 
 ## Capabilities
 
-This package is currently in a state of constant development, so it is likely that breaking changes can be made at any time.  We will work 
-diligently to document changes and make stable releases in the future.
+This package is currently in a state of constant development, so it is likely that breaking changes can be made at any time.  We will work diligently to document changes and make stable releases in the future.
 
-The `aisquared` package currently contains one subpackage, the `aisquared.config` package. This package holds objects for building the configuration files that need to be included with converted model files for use within the AI Squared Extension. The contents of the config subpackage contain both pre- and postprocessing steps to use with the model. The following will explain the functionality of the config package:
+The `aisquared` package currently contains one subpackage, the `aisquared.config` package. This package holds objects for building the configuration files that need to be included with converted model files for use within the AI Squared Extension. The contents of the config subpackage contain both pre- and postprocessing steps as well as rendering objects to use with the model. The following will explain the functionality of the config package:
 
 ### Config
 
@@ -43,6 +42,14 @@ The `aisquared.config` subpackage contains the following objects:
   - The `MulticlassClassification` object is a postprocessing class for models which perform multiclass classification. The class is instantiated with a label map only.
 - `ObjectDetection`
   - The `ObjectDetection` object is a postprocessing class for models which perform object detection. The class is instantiated with a label map and a cutoff value for identification.
+- `ImageRendering`
+  - The `ImageRendering` object is a rendering class for rendering single predictions on images.
+- `ObjectRendering`
+  - The `ObjectRendering` object is a rendering class for rendering object detection predictions on images.
+- `WordRendering`
+  - The `WordRendering` object is a rendering class for rendering highlights, underlines, or badges on individual words.
+- `PopOutNLPRendering`
+  - The `PopOutNLPRendering` object is a rendering class for rendering document predictions.
 
 ### Preprocessing Steps
 
@@ -81,6 +88,6 @@ These step objects can then be placed within the `TabularPreprocessor`, `ImagePr
 
 ### Final Configuration and Model Creation
 
-Once preprocessing and postprocessing objects have been created, these objects can then be passed to the `aisquared.config.ModelConfiguration` class. This class utilizes the objects passed to it to build the entire model configuration automatically.
+Once preprocessing, postprocessing, and rendering objects have been created, these objects can then be passed to the `aisquared.config.ModelConfiguration` class. This class utilizes the objects passed to it to build the entire model configuration automatically.
 
 Finally, the `aisquared.create_air_model` takes in a `ModelConfiguration` class and an existing Keras model to create a model file compatible with the AI Squared extension and with the `.air` file extension.

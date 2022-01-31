@@ -1,28 +1,12 @@
-import json
-from typing import Type
+from lib2to3.pytree import Base
+from aisquared.base import BaseObject
 
 _ALLOWED_PADS = [
     'pre',
     'post'
 ]
 
-class PreProcStep:
-    """
-    Base class for preprocessing steps
-    """
-    def to_dict(self):
-        """
-        Get the step as a dictionary
-        """
-        raise NotImplementedError
-
-    def to_json(self):
-        """
-        Get the step as a JSON string
-        """
-        return json.dumps(self.to_dict())
-
-class ZScore(PreProcStep):
+class ZScore(BaseObject):
     """
     Z-Score normalization preprocessing step
 
@@ -43,7 +27,7 @@ class ZScore(PreProcStep):
         columns : None or list (default None)
             If provided, is a list of column indexes to apply normalization to
         """
-        super(PreProcStep, self).__init__()
+        super().__init__()
         self.means = means
         self.stds = stds
         self.columns = columns
@@ -98,7 +82,7 @@ class ZScore(PreProcStep):
             }
         }
 
-class MinMax(PreProcStep):
+class MinMax(BaseObject):
     """
     Min-Max Scaling preprocessing step
 
@@ -121,7 +105,7 @@ class MinMax(PreProcStep):
         columns : None or list (default None)
             If provided, a list of column indexes to apply scaling to
         """
-        super(PreProcStep, self).__init__()
+        super().__init__()
         self.mins = mins
         self.maxs = maxs
         self.columns = columns
@@ -175,7 +159,7 @@ class MinMax(PreProcStep):
             }
         }
 
-class OneHot(PreProcStep):
+class OneHot(BaseObject):
     """
     One Hot encoding preprocessing step
     """
@@ -193,7 +177,7 @@ class OneHot(PreProcStep):
             The values, in order, to create binary columns for. Note that if a default value is intended, that
             value should simply not be provided in this list
         """
-        super(PreProcStep, self).__init__()
+        super().__init__()
         self.column = column
         self.values = values
 
@@ -224,13 +208,13 @@ class OneHot(PreProcStep):
             }
         }
 
-class DropColumn(PreProcStep):
+class DropColumn(BaseObject):
 
     def __init__(
             self,
             column
     ):
-        super(PreProcStep, self).__init__()
+        super().__init__()
         self.column = column
 
     @property
@@ -250,7 +234,7 @@ class DropColumn(PreProcStep):
             }
         }
     
-class AddValue(PreProcStep):
+class AddValue(BaseObject):
     """
     Preprocessing step to add a value to all pixels in an image
     """
@@ -264,7 +248,7 @@ class AddValue(PreProcStep):
         value : int or float
             The value to add
         """
-        super(PreProcStep, self).__init__()
+        super().__init__()
         self.value = value
 
     @property
@@ -284,7 +268,7 @@ class AddValue(PreProcStep):
             }
         }
 
-class SubtractValue(PreProcStep):
+class SubtractValue(BaseObject):
     """
     Preprocessing step to subtract a value from all pixels in an image
     """
@@ -298,7 +282,7 @@ class SubtractValue(PreProcStep):
         value : int or float
             The value to subtract
         """
-        super(PreProcStep, self).__init__()
+        super().__init__()
         self.value = value
 
     @property
@@ -318,7 +302,7 @@ class SubtractValue(PreProcStep):
             }
         }
 
-class MultitplyValue(PreProcStep):
+class MultitplyValue(BaseObject):
     """
     Preprocessing step to multiply all pixels in an image by a value
     """
@@ -332,7 +316,7 @@ class MultitplyValue(PreProcStep):
         value : int or float
             The value to multiply all pixels by
         """
-        super(PreProcStep, self).__init__()
+        super().__init__()
         self.value = value
 
     @property
@@ -352,7 +336,7 @@ class MultitplyValue(PreProcStep):
             }
         }
 
-class DivideValue(PreProcStep):
+class DivideValue(BaseObject):
     """
     Preprocessing step to divide all pixels in an image by a value
     """
@@ -366,7 +350,7 @@ class DivideValue(PreProcStep):
         value : int or float
             The value to divide all pixels by
         """
-        super(PreProcStep, self).__init__()
+        super().__init__()
         self.value = value
 
     @property
@@ -386,7 +370,7 @@ class DivideValue(PreProcStep):
             }
         }
 
-class ConvertToColor(PreProcStep):
+class ConvertToColor(BaseObject):
     """
     Preprocessing step to convert images to a color scheme
     """
@@ -397,7 +381,7 @@ class ConvertToColor(PreProcStep):
         color : str
             Either 'RGB' or 'B+W', each corresponding to RGB or grayscale color schemes, respectively
         """
-        super(PreProcStep, self).__init__()
+        super().__init__()
         self.color = color
 
     @property
@@ -419,7 +403,7 @@ class ConvertToColor(PreProcStep):
             }
         }
     
-class Resize(PreProcStep):
+class Resize(BaseObject):
     """
     Preprocessing step to resize an image
     """
@@ -440,6 +424,7 @@ class Resize(PreProcStep):
         preserve_aspect_ratio : bool (default False)
             Whether to preserve aspect ratio when resizing
         """
+        super().__init__()
         self.size = size
         self.method = method
         self.preserve_aspect_ratio = preserve_aspect_ratio
@@ -493,7 +478,7 @@ class Resize(PreProcStep):
             }
         }
 
-class Tokenize(PreProcStep):
+class Tokenize(BaseObject):
     """Preprocessing Step to tokenize text"""
     def __init__(
         self,
@@ -511,7 +496,7 @@ class Tokenize(PreProcStep):
         token_pattern : str (default '(?u)\\b\\w\\w+\\b')
             Regex to tokenize on
         """
-        super(PreProcStep, self).__init__()
+        super().__init__()
         self.split_sentences = split_sentences
         self.split_words = split_words
         self.token_pattern = token_pattern
@@ -553,7 +538,7 @@ class Tokenize(PreProcStep):
             }
         }
 
-class RemoveCharacters(PreProcStep):
+class RemoveCharacters(BaseObject):
     """Preprocessing step to remove characters from text"""
     def __init__(
         self,
@@ -568,7 +553,7 @@ class RemoveCharacters(PreProcStep):
         remove_punctuation : bool (default True)
             Whether to remove punctuation from input text
         """
-        super(PreProcStep, self).__init__()
+        super().__init__()
         self.remove_digits = remove_digits
         self.remove_punctuation = remove_punctuation
 
@@ -599,7 +584,7 @@ class RemoveCharacters(PreProcStep):
             }
         }
 
-class ConvertToCase(PreProcStep):
+class ConvertToCase(BaseObject):
     """Text preprocessing object to convert inputs to all lowercase or all uppercase"""
     def __init__(
         self,
@@ -611,7 +596,7 @@ class ConvertToCase(PreProcStep):
         lowercase : bool (default True)
             Whether to convert to lower case. If False, converts to all uppercase
         """
-        super(PreProcStep, self).__init__()
+        super().__init__()
         self.lowercase = lowercase
 
     @property
@@ -631,7 +616,7 @@ class ConvertToCase(PreProcStep):
             }
         }
 
-class ConvertToVocabulary(PreProcStep):
+class ConvertToVocabulary(BaseObject):
     """Text preprocessing object to convert tokens to integer vocabularies"""
     def __init__(
         self,
@@ -652,7 +637,7 @@ class ConvertToVocabulary(PreProcStep):
         max_vocab : int or None (default None)
             The maximum vocabulary integer to use. If None, all vocabulary are used
         """
-        super(PreProcStep, self).__init__()
+        super().__init__()
         self.vocabulary = vocabulary
         self.start_character = start_character
         self.oov_character = oov_character
@@ -710,7 +695,7 @@ class ConvertToVocabulary(PreProcStep):
             }
         }
 
-class PadSequences(PreProcStep):
+class PadSequences(BaseObject):
     """Text preprocessing object to pad sequences"""
     def __init__(
         self,
@@ -733,7 +718,7 @@ class PadSequences(PreProcStep):
             One of either 'pre' or 'post', corresponding to how
             sequences are to be truncated
         """
-        super(PreProcStep, self).__init__()
+        super().__init__()
         self.pad_character = pad_character
         self.length = length
         self.pad_location = pad_location

@@ -1,0 +1,30 @@
+LOCATIONS = [
+    None,
+    'top',
+    'bottom',
+    'left',
+    'right',
+    'topright',
+    'topleft',
+    'bottomright',
+    'bottomleft'
+]
+
+COLORS = [
+    'red',
+    'orange',
+    'green',
+    'purple',
+    'yellow',
+    'pink',
+    'black',
+    'grey',
+    'white',
+    'blue'
+]
+
+BADGES = [
+    'circle',
+    'square',
+    'star'
+]

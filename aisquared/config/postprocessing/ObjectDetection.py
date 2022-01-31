@@ -1,6 +1,6 @@
-import json
+from aisquared.base import BaseObject
 
-class ObjectDetection:
+class ObjectDetection(BaseObject):
     """
     Postprocessing configuration object for object detection
     """
@@ -17,6 +17,7 @@ class ObjectDetection:
         threshold : float (default 0.5)
             The confidence threshold to identify a detection
         """
+        super().__init__()
         self.label_map = label_map
         self.threshold = threshold
 
@@ -41,9 +42,6 @@ class ObjectDetection:
         self._threshold = value
 
     def to_dict(self):
-        """
-        Get the configuration object as a dictionary
-        """
         return {
             'className' : 'ObjectDetection',
             'params' : {
@@ -51,10 +49,4 @@ class ObjectDetection:
                 'threshold' : self.threshold
             }
         }
-
-    def to_json(self):
-        """
-        Get the configuration object as a JSON string
-        """
-        return json.dumps(self.to_dict())
         
