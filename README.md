@@ -20,20 +20,52 @@ pip install git+https://github.com/AISquaredInc/aisquared
 
 This package is currently in a state of constant development, so it is likely that breaking changes can be made at any time.  We will work diligently to document changes and make stable releases in the future.
 
-The `aisquared` package currently contains one subpackage, the `aisquared.config` package. This package holds objects for building the configuration files that need to be included with converted model files for use within the AI Squared Extension. The contents of the config subpackage contain both pre- and postprocessing steps as well as rendering objects to use with the model. The following will explain the functionality of the config package:
+The `aisquared` package currently contains one subpackage, the `aisquared.config` package. This package holds objects for building the configuration files that need to be included with converted model files for use within the AI Squared Extension. The contents of the config subpackage contain both pre- and postprocessing steps as well as harvesting, analytic, and rendering objects to use with the model. The following will explain the functionality of the config package:
 
-### Config
+### aisquared.config
 
 The `aisquared.config` subpackage contains the following objects:
 
 - `ModelConfiguration`
-  - The `ModelConfiguration` object is the final object to be used to create the configuration file. It takes as input a list of preprocessing steps, a list of postprocessing steps, a list of input shapes for all inputs within the model, an optional MLFlow URI, an optional MLFlow user, and an optional MLFlow token
+  - The `ModelConfiguration` object is the final object to be used to create the configuration file. It takes as input a list of harvesting steps, list of preprocessing steps, a list of analytics, a list of postprocessing steps, a list of rendering steps, an optional MLFlow URI, an optional MLFlow user, and an optional MLFlow token
+
+### aisquared.config.harvesting
+
+The `aisquared.config.harvesting` subpackage contains the following objects:
+
+- `ImageHarvester`
+  - The `ImageHarvester` class indicates the harvesting of images within the DOM to perform prediction on
+- `LanguageHarvester`
+  - The `LanguageHarvester` class indicates the harvesting of text within the DOM to perform prediction on
+
+### aisquared.config.preprocessing
+
+The `aisquared.config.preprocessing` subpackage contains the following objects:
+
 - `ImagePreprocessor`
   - The `ImagePreprocessor` class takes in preprocessing steps (defined below) which define preprocessing steps for images.
 - `TabularPreprocessor`
   - The `TabularPreprocessor` class takes in preprocessing steps (defined below) which define preprocessing steps for tabular data.
 - `TextPreprocessor`
   - The `TextPreprocessor` class takes in preprocessing steps (defined below) which define preprocessing steps for text data.
+
+### aisquared.config.analytic
+
+The `aisquared.config.analytic` subpackage contains the following objects:
+
+- `LocalAnalytic`
+  - The `LocalAnalytic` class indicates the use of an analytic or lookup table from a local file
+- `LocalModel`
+  - The `LocalModel` class indicates the use of a model from a local file
+- `DeployedAnalytic`
+  - The `DeployedAnalytic` class indicates the use of an analytic or lookup table from a remote resource
+- `DeployedModel`
+  - The `DeployedModel` class indicates the use of a model deployed to a remote resource
+
+### aisquared.config.postprocessing
+
+The `aisquared.config.postprocessing` subpackage contains the following objects:
+
 - `Regression`
   - The `Regression` object is a postprocessing class for models which perform regression. Since it is common to train regression models by scaling regression outputs to values between 0 and 1, this class is designed to convert output values between 0 and 1 to their original values, corresponding to `min` and `max` when the class is instantiated.
 - `BinaryClassification`
@@ -42,14 +74,20 @@ The `aisquared.config` subpackage contains the following objects:
   - The `MulticlassClassification` object is a postprocessing class for models which perform multiclass classification. The class is instantiated with a label map only.
 - `ObjectDetection`
   - The `ObjectDetection` object is a postprocessing class for models which perform object detection. The class is instantiated with a label map and a cutoff value for identification.
+
+### aisquared.config.rendering
+
+The `aisquared.config.rendering` subpackage contains the following objects:
+
 - `ImageRendering`
   - The `ImageRendering` object is a rendering class for rendering single predictions on images.
 - `ObjectRendering`
   - The `ObjectRendering` object is a rendering class for rendering object detection predictions on images.
 - `WordRendering`
   - The `WordRendering` object is a rendering class for rendering highlights, underlines, or badges on individual words.
-- `PopOutNLPRendering`
-  - The `PopOutNLPRendering` object is a rendering class for rendering document predictions.
+- `DocumentRendering`
+  - The `DocumentRendering` object is a rendering class for rendering document predictions.
+
 
 ### Preprocessing Steps
 
@@ -88,6 +126,6 @@ These step objects can then be placed within the `TabularPreprocessor`, `ImagePr
 
 ### Final Configuration and Model Creation
 
-Once preprocessing, postprocessing, and rendering objects have been created, these objects can then be passed to the `aisquared.config.ModelConfiguration` class. This class utilizes the objects passed to it to build the entire model configuration automatically.
+Once harvesting, preprocessing, analytic, postprocessing, and rendering objects have been created, these objects can then be passed to the `aisquared.config.ModelConfiguration` class. This class utilizes the objects passed to it to build the entire model configuration automatically.
 
-Finally, the `aisquared.create_air_model` takes in a `ModelConfiguration` class and an existing Keras model to create a model file compatible with the AI Squared extension and with the `.air` file extension.
+Once the `ModelConfiguration` object has been created with the required parameters, the `.compile()` method can be used to create a file with the `.air` extension that can be loaded into an application which utilizes the AI Squared JavaScript SDK.
