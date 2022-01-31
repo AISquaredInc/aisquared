@@ -288,9 +288,12 @@ class ModelConfiguration(BaseObject):
             }
         }
 
-    def compile(self, filename = 'config.air', overwrite = False):
+    def compile(self, filename = None, overwrite = False):
         
-        dirname = os.path.splitext(filename)[0]
+        if filename is None:
+            filename = self.name + '.air'
+
+        dirname = os.path.join('.', os.path.splitext(filename)[0])
 
         # write the object as json config 
         os.makedirs(dirname, exist_ok = overwrite)
@@ -303,7 +306,7 @@ class ModelConfiguration(BaseObject):
             for f in filenames:
                 if os.path.splitext(f)[-1] == '.h5':
                     model = tf.keras.models.load_model(f)
-                    model_dir = os.path.join(dirname, f.split()[-1])
+                    model_dir = os.path.join(dirname, os.path.split(f)[-1])
                     tfjs.converters.save_keras_model(model, model_dir)
                 else:
                     shutil.copy(f, dirname)
