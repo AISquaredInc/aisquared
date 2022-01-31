@@ -107,7 +107,9 @@ class ModelConfiguration(BaseObject):
         return self._preprocessing_steps
     @preprocessing_steps.setter
     def preprocessing_steps(self, value):
-        if isinstance(value, PREPROCESSING_CLASSES):
+        if value is None:
+            self._preprocessing_steps = value
+        elif isinstance(value, PREPROCESSING_CLASSES):
             self._preprocessing_steps = [value]
         elif isinstance(value, list) and all([isinstance(val, PREPROCESSING_CLASSES) for val in value]):
             self._preprocessing_steps = value
@@ -139,7 +141,9 @@ class ModelConfiguration(BaseObject):
         return self._postprocessing_steps
     @postprocessing_steps.setter
     def postprocessing_steps(self, value):
-        if isinstance(value, POSTPROCESSING_CLASSES):
+        if value is None:
+            self._postprocessing_steps = value
+        elif isinstance(value, POSTPROCESSING_CLASSES):
             self._postprocessing_steps = [value]
         elif isinstance(value, list) and all([isinstance(val, POSTPROCESSING_CLASSES) for val in value]):
             self._postprocessing_steps = value
@@ -220,7 +224,9 @@ class ModelConfiguration(BaseObject):
     # preprocessing_dict
     @property
     def preprocesser_dict(self):
-        if isinstance(self.preprocessing_steps, list) and all([isinstance(val, PREPROCESSING_CLASSES) for val in self.preprocessing_steps]):
+        if self.preprocessing_steps is None:
+            return self.preprocessing_steps
+        elif isinstance(self.preprocessing_steps, list) and all([isinstance(val, PREPROCESSING_CLASSES) for val in self.preprocessing_steps]):
             return [val.to_dict() for val in self.preprocessing_steps]
         else:
             return [
@@ -240,7 +246,9 @@ class ModelConfiguration(BaseObject):
     # postprocesser_dict
     @property
     def postprocesser_dict(self):
-        if isinstance(self.postprocessing_steps, list) and all([isinstance(val, POSTPROCESSING_CLASSES) for val in self.postprocessing_steps]):
+        if self.postprocessing_steps is None:
+            return self.postprocessing_steps
+        elif isinstance(self.postprocessing_steps, list) and all([isinstance(val, POSTPROCESSING_CLASSES) for val in self.postprocessing_steps]):
             return [val.to_dict() for val in self.postprocessing_steps]
         else:
             return [
