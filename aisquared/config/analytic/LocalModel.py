@@ -7,28 +7,28 @@ class LocalModel(BaseObject):
     """
     def __init__(
         self,
-        model_path
+        path
     ):
         """
         Parameters
         ----------
-        model_path : str or file-like
+        path : str or file-like
             The file path of the saved model
         """
         super().__init__()
-        self.model_path = model_path
+        self.model_path = path
 
     @property
     def model_path(self):
-        return self._model_path
+        return self._path
     @model_path.setter
     def model_path(self, value):
-        self._model_path = value
+        self._path = value
 
     def to_dict(self):
         return {
             'className' : 'LocalModel',
             'params' : {
-                'modelPath' : self.model_path
+                'path' : self.path
             }
         }
