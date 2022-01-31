@@ -50,6 +50,9 @@ LOCAL_CLASSES = (
 )
 
 class ModelConfiguration(BaseObject):
+    """
+    Configuration object for deploying a model or analytic
+    """
     def __init__(
             self,
             name,
@@ -64,7 +67,32 @@ class ModelConfiguration(BaseObject):
             mlflow_user = None,
             mlflow_token = None            
     ):
-
+        """
+        Parameters
+        ----------
+        name : str
+            The name of the deployed analytic
+        harvesting_steps : Harvesting object or list of Harvesting objects
+            Harvesters to use with the analytic
+        preprocessing_steps : Preprocessing object or list of Preprocessing objects or None
+            Preprocessers to use
+        analytic : Analytic object or list of Analytic objects
+            Analytics to use
+        postprocessing_steps : Postprocessing object or list of Postprocessing objects or None
+            Postprocessers to use
+        rendering_steps : Rendering object or list of Rendering objects
+            Renderers to use
+        version : str or None (default None)
+            Version of the analytic
+        description : str (default '')
+            The description of the analytic
+        mlflow_uri : str or None (default None)
+            MLFlow URI to use, if applicable
+        mlflow_user : str or None (default None)
+            MLFlow user to use, if applicable
+        mlflow_token : str or None (default None)
+            MLFlow token to use, if applicable
+        """
         super().__init__()
         self.name = name
         self.harvesting_steps = harvesting_steps
@@ -279,6 +307,9 @@ class ModelConfiguration(BaseObject):
         return filenames
 
     def to_dict(self):
+        """
+        Get the object as a dictionary
+        """
         return {
             'className' : 'ModelConfiguration',
             'params' : {
@@ -296,15 +327,24 @@ class ModelConfiguration(BaseObject):
             }
         }
 
-    def compile(self, filename = None, overwrite = False):
-        
+    def compile(self, filename = None):
+        """
+        Compile the object into a '.air' file, which can then be dragged and 
+        dropped into applications using the AI Squared JavaScript SDK
+
+        Parameters
+        ----------
+        filename : path-like or None (default None)
+            Filename to compile to. If None, defaults to '{NAME}.air', where {NAME} is the 
+            name of the analytic
+        """
         if filename is None:
             filename = self.name + '.air'
 
         dirname = os.path.join('.', os.path.splitext(filename)[0])
 
         # write the object as json config 
-        os.makedirs(dirname, exist_ok = overwrite)
+        os.makedirs(dirname, exist_ok = True)
         with open(os.path.join(dirname, 'config.json'), 'w') as f:
             json.dump(self.to_dict(), f)
 
