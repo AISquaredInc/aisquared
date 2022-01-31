@@ -2,13 +2,12 @@ from multiprocessing.sharedctypes import Value
 from aisquared.base import BaseObject
 from aisquared.config.harvesting import ImageHarvester, LanguageHarvester
 from aisquared.config.preprocessing import TabularPreprocessor, ImagePreprocessor, TextPreprocessor
-from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel
+from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel, LocalAnalytic
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, ObjectDetection, Regression
 from aisquared.config.rendering import ImageRendering, ObjectRendering, DocumentRendering, WordRendering
 
 import tensorflowjs as tfjs
 import tensorflow as tf
-import zipfile
 import shutil
 import json
 import os
@@ -27,7 +26,8 @@ PREPROCESSING_CLASSES = (
 ANALYTIC_CLASSES = (
     DeployedAnalytic,
     DeployedModel,
-    LocalModel
+    LocalModel,
+    LocalAnalytic
 )
 
 POSTPROCESSING_CLASSES = (
@@ -42,6 +42,11 @@ RENDERING_CLASSES = (
     ImageRendering,
     DocumentRendering,
     WordRendering
+)
+
+LOCAL_CLASSES = (
+    LocalModel,
+    LocalAnalytic
 )
 
 class ModelConfiguration(BaseObject):
@@ -252,13 +257,13 @@ class ModelConfiguration(BaseObject):
         filenames = []
         if isinstance(self.analytic[0], ANALYTIC_CLASSES):
             for a in self.analytic:
-                if isinstance(a, LocalModel):
-                    filenames.append(a.model_path)
+                if isinstance(a, LOCAL_CLASSES):
+                    filenames.append(a.path)
         else:
             for analytic in self.analytic:
                 for a in analytic:
-                    if isinstance(a, LocalModel):
-                        filenames.append(a.model_path)
+                    if isinstance(a, LOCAL_CLASSES):
+                        filenames.append(a.path)
         return filenames
 
     def to_dict(self):
@@ -286,12 +291,17 @@ class ModelConfiguration(BaseObject):
         # write the object as json config 
         os.makedirs(dirname, exist_ok = overwrite)
         with open(os.path.join(dirname, 'config.json'), 'w') as f:
-            json.dump(json.loads(self.to_json()), f)
+            json.dump(self.to_dict(), f)
 
         # go through the files and copy them/make them tfjs files
         filenames = self.get_model_filenames()
-        print(filenames)
         if len(filenames) != 0:
             for f in filenames:
-                print(f)
+                if os.path.splitext(f) == '.h5':
+                    model = tf.keras.models.load_model(f)
+                    model_dir = os.path.join(dirname, f.split()[-1])
+                    tfjs.converters.save_keras_model(model, model_dir)
+                else:
+                    shutil.copy(f, dirname)
         
+        # go through the entire directory of dirname, grab all files, and 
