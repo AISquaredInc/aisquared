@@ -29,6 +29,15 @@ class TextPreprocessor(BaseObject):
             for step in steps:
                 self.add_step(step)
 
+    @property
+    def step_dict(self):
+        if self.steps is None:
+            return self.steps
+        else:
+            return [
+                step.to_dict() for step in self.steps
+            ]
+
     def add_step(self, step):
         """
         Add a step to the preprocessor object
@@ -43,7 +52,5 @@ class TextPreprocessor(BaseObject):
     def to_dict(self):
         return {
             'className' : 'TextPreprocessor',
-            'steps' : [
-                step.to_dict() for step in self.steps
-            ]
+            'steps' : self.step_dict
         }
