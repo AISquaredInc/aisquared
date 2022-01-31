@@ -16,13 +16,13 @@ class LocalModel(BaseObject):
             The file path of the saved model
         """
         super().__init__()
-        self.model_path = path
+        self.path = path
 
     @property
-    def model_path(self):
+    def path(self):
         return self._path
-    @model_path.setter
-    def model_path(self, value):
+    @path.setter
+    def path(self, value):
         self._path = value
 
     def to_dict(self):
