@@ -1,2 +1,2 @@
 from .ImageHarvester import ImageHarvester
-from .LanguageHarvester import LanguageHarvester
+from .TextHarvester import TextHarvester

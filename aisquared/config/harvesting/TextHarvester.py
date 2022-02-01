@@ -1,9 +1,8 @@
-from inspect import Parameter
 from aisquared.base import BaseObject
 
-class LanguageHarvester(BaseObject):
+class TextHarvester(BaseObject):
     """
-    Object to harvest language/text
+    Object to harvest text
     """
     def __init__(
         self,
@@ -36,11 +35,11 @@ class LanguageHarvester(BaseObject):
         return self._regex
     @regex.setter
     def regex(self, value):
-        self._regex = value
+        self._regex = str(value)
 
     def to_dict(self):
         return {
-            'className' : 'LanguageHarvester',
+            'className' : 'TextHarvester',
             'params' : {
                 'how' : self.how,
                 'regex' : self.regex

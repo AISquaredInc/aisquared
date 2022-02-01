@@ -35,8 +35,8 @@ The `aisquared.config.harvesting` subpackage contains the following objects:
 
 - `ImageHarvester`
   - The `ImageHarvester` class indicates the harvesting of images within the DOM to perform prediction on
-- `LanguageHarvester`
-  - The `LanguageHarvester` class indicates the harvesting of text within the DOM to perform prediction on
+- `TextHarvester`
+  - The `TextHarvester` class indicates the harvesting of text within the DOM to perform prediction on
 
 ### aisquared.config.preprocessing
 
