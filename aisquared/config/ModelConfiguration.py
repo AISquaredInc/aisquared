@@ -1,6 +1,6 @@
 from multiprocessing.sharedctypes import Value
 from aisquared.base import BaseObject
-from aisquared.config.harvesting import ImageHarvester, LanguageHarvester
+from aisquared.config.harvesting import ImageHarvester, TextHarvester
 from aisquared.config.preprocessing import TabularPreprocessor, ImagePreprocessor, TextPreprocessor
 from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel, LocalAnalytic
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, ObjectDetection, Regression
@@ -14,7 +14,7 @@ import os
 
 HARVESTING_CLASSES = (
     ImageHarvester,
-    LanguageHarvester
+    TextHarvester
 )
 
 PREPROCESSING_CLASSES = (
