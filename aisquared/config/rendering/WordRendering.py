@@ -1,4 +1,3 @@
-from multiprocessing.sharedctypes import Value
 from aisquared.base import COLORS, BADGES, BaseObject
 
 class WordRendering(BaseObject):

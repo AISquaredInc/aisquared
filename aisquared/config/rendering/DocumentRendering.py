@@ -1,4 +1,3 @@
-from xml.dom.minidom import Document
 from aisquared.base import COLORS, BaseObject
 
 class DocumentRendering(BaseObject):

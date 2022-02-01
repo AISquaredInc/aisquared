@@ -1,4 +1,3 @@
-from multiprocessing.sharedctypes import Value
 from aisquared.base import LOCATIONS, COLORS, BaseObject
 
 class ImageRendering(BaseObject):

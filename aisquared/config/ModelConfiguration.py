@@ -1,4 +1,3 @@
-from multiprocessing.sharedctypes import Value
 from aisquared.base import BaseObject
 from aisquared.config.harvesting import ImageHarvester, TextHarvester
 from aisquared.config.preprocessing import TabularPreprocessor, ImagePreprocessor, TextPreprocessor
