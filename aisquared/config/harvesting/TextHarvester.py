@@ -1,19 +1,24 @@
 from aisquared.base import BaseObject
 
+_ALLOWED_HOWS = [
+    'all',
+    'regex'
+]
+
 class TextHarvester(BaseObject):
     """
     Object to harvest text
     """
     def __init__(
         self,
-        how = 'all',
+        how = _ALLOWED_HOWS[0],
         regex = None
     ):
-        """
+        f"""
         Parameters
         ----------
-        how : str (default 'all')
-            How to harvest text (supports 'all' or 'regex')
+        how : str (default {_ALLOWED_HOWS[0]})
+            How to harvest text (supports {_ALLOWED_HOWS})
         regex : str or None (default None)
             Regular expression to use to harvest individual strings
         """
@@ -26,8 +31,8 @@ class TextHarvester(BaseObject):
         return self._how
     @how.setter
     def how(self, value):
-        if value not in ['all', 'regex']:
-            raise ValueError(f"how must be one of 'all', 'regex', got {value}")
+        if value not in _ALLOWED_HOWS:
+            raise ValueError(f"how must be one of {_ALLOWED_HOWS}, got {value}")
         self._how = value
 
     @property
