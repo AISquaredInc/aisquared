@@ -6,7 +6,7 @@ from aisquared.config.postprocessing import BinaryClassification, MulticlassClas
 from aisquared.config.rendering import ImageRendering
 from aisquared.base import COLORS, LOCATIONS
 
-class ImagePredictor(ModelConfiguration):
+class ImagePredictor():
 
     def __init__(
         self,
@@ -66,17 +66,30 @@ class ImagePredictor(ModelConfiguration):
             font_color = font_color
         )
 
-        # Super init
-        super().__init__(
-            name,
-            harvester,
-            preprocesser,
-            analytic,
-            postprocesser,
-            renderer,
-            version,
-            description,
-            mlflow_uri,
-            mlflow_user,
-            mlflow_token
-        )
+        # Init
+        self.harvester = harvester
+        self.preprocesser = preprocesser
+        self.analytic = analytic
+        self.postprocesser = postprocesser
+        self.renderer = renderer
+        self.name = name
+        self.version = version
+        self.description = description
+        self.mlflow_uri = mlflow_uri
+        self.mlflow_user = mlflow_user
+        self.mlflow_token = mlflow_token
+
+    def compile(self):
+        ModelConfiguration(
+            self.name,
+            self.harvester,
+            self.preprocesser,
+            self.analytic,
+            self.postprocesser,
+            self.renderer,
+            self.version,
+            self.description,
+            self.mlflow_uri,
+            self.mlflow_user,
+            self.mlflow_token
+        ).compile()
