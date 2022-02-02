@@ -92,4 +92,4 @@ class ImagePredictor():
             self.mlflow_uri,
             self.mlflow_user,
             self.mlflow_token
-        ).compile()
+        ).compile() 
