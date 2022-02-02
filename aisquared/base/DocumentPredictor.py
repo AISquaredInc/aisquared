@@ -7,7 +7,7 @@ from aisquared.base import COLORS
 
 import aisquared.config.ModelConfiguration
 
-class DocumentPredicter():
+class DocumentPredictor():
 
     def __init__(
         self,
