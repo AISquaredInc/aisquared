@@ -1,10 +1,11 @@
-from aisquared.config import ModelConfiguration
 from aisquared.config.harvesting import ImageHarvester
 from aisquared.config.preprocessing import ImagePreprocessor, Resize, ConvertToColor, DivideValue
 from aisquared.config.analytic import LocalModel
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, Regression
 from aisquared.config.rendering import ImageRendering
 from aisquared.base import COLORS
+
+import aisquared.config.ModelConfiguration
 
 class ImagePredictor():
 
@@ -80,7 +81,7 @@ class ImagePredictor():
         self.mlflow_token = mlflow_token
 
     def compile(self):
-        ModelConfiguration(
+        aisquared.config.ModelConfiguration(
             self.name,
             self.harvester,
             self.preprocesser,
