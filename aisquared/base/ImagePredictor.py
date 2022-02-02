@@ -4,7 +4,7 @@ from aisquared.config.preprocessing import ImagePreprocessor, Resize, ConvertToC
 from aisquared.config.analytic import LocalModel
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, Regression
 from aisquared.config.rendering import ImageRendering
-from aisquared.base import COLORS, LOCATIONS
+from aisquared.base import COLORS
 
 class ImagePredictor():
 
