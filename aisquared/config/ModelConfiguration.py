@@ -220,7 +220,7 @@ class ModelConfiguration(BaseObject):
         return self._mlflow_uri
     @mlflow_uri.setter
     def mlflow_uri(self, value):
-        self._mlflow_uri = str(value)
+        self._mlflow_uri = value
 
     # mlflow_user
     @property
@@ -228,7 +228,7 @@ class ModelConfiguration(BaseObject):
         return self._mlflow_user
     @mlflow_user.setter
     def mlflow_user(self, value):
-        self._mlflow_user = str(value)
+        self._mlflow_user = value
 
     # mlflow_token
     @property
@@ -236,7 +236,7 @@ class ModelConfiguration(BaseObject):
         return self._mlflow_token
     @mlflow_token.setter
     def mlflow_token(self, value):
-        self._mlflow_token = str(value)
+        self._mlflow_token = value
 
     # harvester_dict
     @property
