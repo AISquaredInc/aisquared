@@ -16,10 +16,12 @@ class DocumentPredictor():
         sequence_length,
         name,
         task_type = 'classification',
+        prediction_key = 'className',
         label_map = None,
         min_value = None,
         max_value = None,
         include_probability = False,
+        probability_key = 'probability',
         tokenize_words = True,
         tokenize_sentences = False,
         remove_digits = True,
@@ -75,9 +77,11 @@ class DocumentPredictor():
 
         # Rendering
         renderer = DocumentRendering(
+            prediction_key,
             words,
             documents,
             include_probability,
+            probability_key,
             underline_color
         )
 
