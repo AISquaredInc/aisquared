@@ -7,7 +7,7 @@ class WordRendering(BaseObject):
 
     def __init__(
             self,
-            word_list = 'input',
+            word_list = WORD_LISTS[0],
             result_key = None,
             content_key = None,
             badge_shape = BADGES[-1],
@@ -16,7 +16,7 @@ class WordRendering(BaseObject):
         f"""
         Parameters
         ----------
-        word_list : str (default 'input')
+        word_list : str (default {WORD_LISTS[0]})
             How to identify words to render, must be one of {WORD_LISTS}
         results_key : str or None (default None)
             The result key to use to render, only used if word_list is 'results'
