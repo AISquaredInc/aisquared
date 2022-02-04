@@ -28,3 +28,8 @@ BADGES = [
     'square',
     'star'
 ]
+
+WORD_LISTS = [
+    'input',
+    'result'
+]
