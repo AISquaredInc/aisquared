@@ -1,4 +1,4 @@
-from aisquared.base import COLORS, BADGES, BaseObject
+from aisquared.base import COLORS, BADGES, WORD_LISTS, BaseObject
 
 class WordRendering(BaseObject):
     """
@@ -6,14 +6,20 @@ class WordRendering(BaseObject):
     """
 
     def __init__(
-        self,
-        content_key = None,
-        badge_shape = BADGES[-1],
-        badge_color = COLORS[-1]
+            self,
+            word_list = 'input',
+            result_key = None,
+            content_key = None,
+            badge_shape = BADGES[-1],
+            badge_color = COLORS[-1]
     ):
         f"""
         Parameters
         ----------
+        word_list : str (default 'input')
+            How to identify words to render, must be one of {WORD_LISTS}
+        results_key : str or None (default None)
+            The result key to use to render, only used if word_list is 'results'
         content_key : str or None (default None)
             The key from the results to use in rendering
         badge_shape : str (default {BADGES[-1]})
@@ -22,10 +28,28 @@ class WordRendering(BaseObject):
             The badge color to use
         """
         super().__init__()
+        self.word_list = word_list
+        self.result_key = result_key
         self.content_key = content_key
         self.badge_shape = badge_shape
         self.badge_color = badge_color
 
+    @property
+    def word_list(self):
+        return self._word_list
+    @word_list.setter
+    def word_list(self, value):
+        if value not in WORD_LISTS:
+            raise ValueError(f'word_list must be one of {WORD_LISTS}, got {value}')
+        self._word_list = value
+
+    @property
+    def result_key(self):
+        return self._result_key
+    @result_key.setter
+    def result_key(self, value):
+        self._result_key = value
+        
     @property
     def content_key(self):
         return self._content_key
@@ -55,6 +79,8 @@ class WordRendering(BaseObject):
         return {
             'className' : 'WordRendering',
             'params' : {
+                'wordList' : self.word_list,
+                'resultKey' : self.result_key,
                 'contentKey' : self.content_key,
                 'badgeShape' : self.badge_shape,
                 'badgeColor' : self.badge_color 
