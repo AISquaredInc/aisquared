@@ -7,8 +7,6 @@ class MulticlassClassification(BaseObject):
     def __init__(
             self,
             label_map,
-            keywords = None,
-            documents = None
     ):
         """
         Parameters
