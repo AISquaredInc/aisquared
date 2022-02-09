@@ -29,6 +29,9 @@ class MulticlassClassification(BaseObject):
         self._label_map = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'MulticlassClassification',
             'params' : {

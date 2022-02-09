@@ -10,6 +10,8 @@ class Regression(BaseObject):
         max = None
     ):
         """
+        Parameters
+        ----------
         min : None, int, or float (default None)
             The value to map an output of 0 to from the model
         max : None, int, or float (default None)
@@ -38,6 +40,9 @@ class Regression(BaseObject):
         self._max = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'Regression',
             'params' : {
