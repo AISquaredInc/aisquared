@@ -293,6 +293,9 @@ class ModelConfiguration(BaseObject):
             ]
 
     def get_model_filenames(self):
+        """
+        Get filenames for all models in the configuration
+        """
         filenames = []
         if isinstance(self.analytic[0], ANALYTIC_CLASSES):
             for a in self.analytic:
