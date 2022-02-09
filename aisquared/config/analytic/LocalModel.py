@@ -12,7 +12,7 @@ class LocalModel(BaseObject):
         """
         Parameters
         ----------
-        path : str or file-like
+        path : str or path-like or file-like
             The file path of the saved model
         """
         super().__init__()
@@ -26,6 +26,9 @@ class LocalModel(BaseObject):
         self._path = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'LocalModel',
             'params' : {

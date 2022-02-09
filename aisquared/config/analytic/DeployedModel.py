@@ -48,6 +48,9 @@ class DeployedModel(BaseObject):
         self._format = value
 
     def to_dict(self):
+        """
+        Get the config object as a dictionary
+        """
         return {
             'className' : 'DeployedModel',
             'params' : {

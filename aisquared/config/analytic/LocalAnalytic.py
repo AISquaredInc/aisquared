@@ -10,6 +10,12 @@ class LocalAnalytic(BaseObject):
         self,
         path
     ):
+        """
+        Parameters
+        ----------
+        path : str or path-like or file-like
+            The path to the analytic saved on disk
+        """
         super().__init__()
         self.path = path
 
@@ -21,6 +27,9 @@ class LocalAnalytic(BaseObject):
         self._path = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'LocalAnalytic',
             'params' : {
