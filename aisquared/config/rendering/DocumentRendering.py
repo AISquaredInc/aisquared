@@ -83,6 +83,9 @@ class DocumentRendering(BaseObject):
         self._underline_color = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'DocumentRendering',
             'params' : {
