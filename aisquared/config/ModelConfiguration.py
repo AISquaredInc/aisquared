@@ -119,7 +119,9 @@ class ModelConfiguration(BaseObject):
         return self._harvesting_steps
     @harvesting_steps.setter
     def harvesting_steps(self, value):
-        if isinstance(value, HARVESTING_CLASSES):
+        if value is None:
+            self._harvesting_steps = value
+        elif isinstance(value, HARVESTING_CLASSES):
             self._harvesting_steps = [value]
         elif isinstance(value, list) and all([isinstance(val, HARVESTING_CLASSES) for val in value]):
             self._harvesting_steps = value
@@ -241,7 +243,9 @@ class ModelConfiguration(BaseObject):
     # harvester_dict
     @property
     def harvester_dict(self):
-        if isinstance(self.harvesting_steps, list) and all([isinstance(val, HARVESTING_CLASSES) for val in self.harvesting_steps]):
+        if self.harvesting_steps is None:
+            return None
+        elif isinstance(self.harvesting_steps, list) and all([isinstance(val, HARVESTING_CLASSES) for val in self.harvesting_steps]):
             return [val.to_dict() for val in self.harvesting_steps]
         else:
             return [
