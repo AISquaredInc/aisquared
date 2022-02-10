@@ -71,7 +71,7 @@ class ModelConfiguration(BaseObject):
         ----------
         name : str
             The name of the deployed analytic
-        harvesting_steps : Harvesting object or list of Harvesting objects
+        harvesting_steps : None, Harvesting object or list of Harvesting objects
             Harvesters to use with the analytic
         preprocessing_steps : Preprocessing object or list of Preprocessing objects or None
             Preprocessers to use
@@ -128,7 +128,7 @@ class ModelConfiguration(BaseObject):
         elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, HARVESTING_CLASSES) for val in value for v in val]):
             self._harvesting_steps = value
         else:
-            raise ValueError('harvesting_steps must be a single Harvester object, a list of Harvester objects, or a list of list of harvester objects')
+            raise ValueError('harvesting_steps must be a None, single Harvester object, a list of Harvester objects, or a list of list of harvester objects')
 
     # preprocessing_steps
     @property
