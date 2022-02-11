@@ -29,7 +29,7 @@ The `aisquared.config` subpackage contains the following objects:
 - `ModelConfiguration`
   - The `ModelConfiguration` object is the final object to be used to create the configuration file. It takes as input a list of harvesting steps, list of preprocessing steps, a list of analytics, a list of postprocessing steps, a list of rendering steps, an optional MLFlow URI, an optional MLFlow user, and an optional MLFlow token
 
-### aisquared.config.harvesting
+#### aisquared.config.harvesting
 
 The `aisquared.config.harvesting` subpackage contains the following objects:
 
@@ -38,7 +38,7 @@ The `aisquared.config.harvesting` subpackage contains the following objects:
 - `TextHarvester`
   - The `TextHarvester` class indicates the harvesting of text within the DOM to perform prediction on
 
-### aisquared.config.preprocessing
+#### aisquared.config.preprocessing
 
 The `aisquared.config.preprocessing` subpackage contains the following objects:
 
@@ -49,7 +49,7 @@ The `aisquared.config.preprocessing` subpackage contains the following objects:
 - `TextPreprocessor`
   - The `TextPreprocessor` class takes in preprocessing steps (defined below) which define preprocessing steps for text data.
 
-### aisquared.config.analytic
+#### aisquared.config.analytic
 
 The `aisquared.config.analytic` subpackage contains the following objects:
 
@@ -62,7 +62,7 @@ The `aisquared.config.analytic` subpackage contains the following objects:
 - `DeployedModel`
   - The `DeployedModel` class indicates the use of a model deployed to a remote resource
 
-### aisquared.config.postprocessing
+#### aisquared.config.postprocessing
 
 The `aisquared.config.postprocessing` subpackage contains the following objects:
 
@@ -75,7 +75,7 @@ The `aisquared.config.postprocessing` subpackage contains the following objects:
 - `ObjectDetection`
   - The `ObjectDetection` object is a postprocessing class for models which perform object detection. The class is instantiated with a label map and a cutoff value for identification.
 
-### aisquared.config.rendering
+#### aisquared.config.rendering
 
 The `aisquared.config.rendering` subpackage contains the following objects:
 
@@ -89,7 +89,7 @@ The `aisquared.config.rendering` subpackage contains the following objects:
   - The `DocumentRendering` object is a rendering class for rendering document predictions.
 
 
-### Preprocessing Steps
+#### Preprocessing Steps
 
 The `aisquared.config.preprocessing` subpackage contains `PreProcStep` objects, which are then fed into the `ImagePreprocessor`, `TabularPreprocessor`, and `TextPreprocessor` classes. The `PreProcStep` classes are:
 
@@ -124,12 +124,12 @@ The `aisquared.config.preprocessing` subpackage contains `PreProcStep` objects, 
 
 These step objects can then be placed within the `TabularPreprocessor`, `ImagePreprocessor`, or `TextPreprocessor` objects. For the `TabularPreprocessor`, the `ZScore`, `MinMax`, and `OneHot` Steps are supported. For the `ImagePreprocessor`, the `AddValue`, `SubtractValue`, `MultiplyValue`, `DivideValue`, `ConvertToColor`, and `Resize` Steps are supported. For the `TextPreprocessor`, the `Tokenize`, `RemoveCharacters`, `ConvertToCase`, `ConvertToVocabulary`, and `PadSequences` Steps are supported
 
-### Final Configuration and Model Creation
+#### Final Configuration and Model Creation
 
 Once harvesting, preprocessing, analytic, postprocessing, and rendering objects have been created, these objects can then be passed to the `aisquared.config.ModelConfiguration` class. This class utilizes the objects passed to it to build the entire model configuration automatically.
 
 Once the `ModelConfiguration` object has been created with the required parameters, the `.compile()` method can be used to create a file with the `.air` extension that can be loaded into an application which utilizes the AI Squared JavaScript SDK.
 
-## aisquared.base
+### aisquared.base
 
 The `aisquared.base` subpackage contains two classes, the `DocumentPredictor` and the `ImagePredictor` classes, which streamline document prediction and image prediction using locally-saved models.  These classes abstract away the steps required in the `ModelConfiguration` class.  However, just like the `ModelConfiguration` class, objects of these classes support the `.compile()` method; using this method creates the `.air` file as well.
