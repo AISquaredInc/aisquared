@@ -129,3 +129,7 @@ These step objects can then be placed within the `TabularPreprocessor`, `ImagePr
 Once harvesting, preprocessing, analytic, postprocessing, and rendering objects have been created, these objects can then be passed to the `aisquared.config.ModelConfiguration` class. This class utilizes the objects passed to it to build the entire model configuration automatically.
 
 Once the `ModelConfiguration` object has been created with the required parameters, the `.compile()` method can be used to create a file with the `.air` extension that can be loaded into an application which utilizes the AI Squared JavaScript SDK.
+
+## aisquared.base
+
+The `aisquared.base` subpackage contains two classes, the `DocumentPredictor` and the `ImagePredictor` classes, which streamline document prediction and image prediction using locally-saved models.  These classes abstract away the steps required in the `ModelConfiguration` class.  However, just like the `ModelConfiguration` class, objects of these classes support the `.compile()` method; using this method creates the `.air` file as well.

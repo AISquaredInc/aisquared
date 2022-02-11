@@ -27,6 +27,9 @@ class ImageHarvester(BaseObject):
         self._how = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'ImageHarvester',
             'params' : {

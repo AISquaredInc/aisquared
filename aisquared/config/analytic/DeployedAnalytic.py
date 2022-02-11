@@ -7,6 +7,7 @@ class DeployedAnalytic(BaseObject):
     def __init__(
         self,
         url,
+        input_type,
         secret = 'request',
         format = None
     ):
@@ -15,6 +16,8 @@ class DeployedAnalytic(BaseObject):
         ----------
         url : str
             The base URL for the remote analytic
+        input_type : str
+            The input types supplied to the analytic. Either one of 'cv' or 'text'
         secret : str (default 'request')
             The secret key used to interact with the service. Default value of 'request' 
             indicates that the user inputs the key whenever the analytic is started again
@@ -23,6 +26,7 @@ class DeployedAnalytic(BaseObject):
         """
         super().__init__()
         self.url = url
+        self.input_type = input_type
         self.secret = secret
         self.format = format
 
@@ -32,6 +36,13 @@ class DeployedAnalytic(BaseObject):
     @url.setter
     def url(self, value):
         self._url = value
+
+    @property
+    def input_type(self):
+        return self._input_type
+    @input_type.setter
+    def input_type(self, value):
+        self._input_type = value
 
     @property
     def secret(self):
@@ -52,6 +63,7 @@ class DeployedAnalytic(BaseObject):
             'className' : 'DeployedAnalytic',
             'params' : {
                 'url' : self.url,
+                'inputType' : self.input_type,
                 'secret' : self.secret,
                 'format' : self.format
             }

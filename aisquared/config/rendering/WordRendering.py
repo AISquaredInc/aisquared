@@ -76,6 +76,9 @@ class WordRendering(BaseObject):
         self._badge_color = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'WordRendering',
             'params' : {

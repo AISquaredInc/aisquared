@@ -42,6 +42,9 @@ class ObjectDetection(BaseObject):
         self._threshold = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'ObjectDetection',
             'params' : {

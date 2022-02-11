@@ -72,6 +72,9 @@ class ZScore(BaseObject):
         self._columns = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'ZScore',
             'params' : {
@@ -149,6 +152,9 @@ class MinMax(BaseObject):
         self._columns = value
         
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'MinMax',
             'params' : {
@@ -199,6 +205,9 @@ class OneHot(BaseObject):
         self._values = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'OneHot',
             'params' : {
@@ -208,11 +217,19 @@ class OneHot(BaseObject):
         }
 
 class DropColumn(BaseObject):
-
+    """
+    Drop a column from tabular data
+    """
     def __init__(
             self,
             column
     ):
+        """
+        Parameters
+        ----------
+        column : int
+            The column index to drop
+        """
         super().__init__()
         self.column = column
 
@@ -226,6 +243,9 @@ class DropColumn(BaseObject):
         self._column = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'DropColumn',
             'params' : {
@@ -260,6 +280,9 @@ class AddValue(BaseObject):
         self._value = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'Add',
             'params' : {
@@ -294,6 +317,9 @@ class SubtractValue(BaseObject):
         self._value = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'Subtract',
             'params' : {
@@ -328,6 +354,9 @@ class MultitplyValue(BaseObject):
         self._value = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'Multiply',
             'params' : {
@@ -362,6 +391,9 @@ class DivideValue(BaseObject):
         self._value = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'Divide',
             'params' : {
@@ -395,6 +427,9 @@ class ConvertToColor(BaseObject):
         self._color = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'ConvertToColor',
             'params' : {
@@ -468,6 +503,9 @@ class Resize(BaseObject):
         self._preserve_aspect_ratio = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'Resize',
             'params' : {
@@ -528,6 +566,9 @@ class Tokenize(BaseObject):
         self._token_pattern = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'Tokenize',
             'params' : {
@@ -575,6 +616,9 @@ class RemoveCharacters(BaseObject):
         self._remove_punctuation = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'RemoveCharacters',
             'params' : {
@@ -608,6 +652,9 @@ class ConvertToCase(BaseObject):
         self._lowercase = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'ConvertToCase',
             'params' : {
@@ -684,6 +731,9 @@ class ConvertToVocabulary(BaseObject):
         self._max_vocab = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'ConvertToVocabulary',
             'params' : {
@@ -766,6 +816,9 @@ class PadSequences(BaseObject):
         self._truncate_location = value
     
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'PadSequences',
             'params' : {

@@ -29,6 +29,44 @@ class ImagePredictor():
         mlflow_user = None,
         mlflow_token = None
     ):
+        f"""
+        Parameters
+        ----------
+        model_path : str or file-like
+            The path to the model on local disk
+        name : str
+            The name of the model
+        image_size : list of ints or None (default None)
+            The size to reshape images to
+        divide_value : int or float (default 1)
+            The value to divide all pixel values by
+        color : str (default 'RGB')
+            Either 'RGB' or 'B+W', the color scheme to convert all images to
+        task_type : str (default 'classification')
+            Either 'classification' or 'regression', corresponding to the type of model
+        label_map : list or None (default None)
+            Label map for classification use cases
+        min_value : float or None (default None)
+            Value to map 0 to in regression use cases
+        max_value : float or None (default None)
+            Value to map 1 to in regression use cases
+        include_probability : bool (default False)
+            Whether to include predicted probability in classification use cases
+        box_color : str (default {COLORS[-1]})
+            The color to make the box around images
+        font_color : str (default {COLORS[-4]})
+            The font color to use
+        version : int or None (default None)
+            The version of the analytic
+        description : str (default '')
+            Description of the analytic
+        mlflow_uri : str or None (default None)
+            The MLFlow URI to use
+        mlflow_user : str or None (default None)
+            The MLFlow user to use
+        mlflow_token : str or None (default None)
+            The MLFlow token to use
+        """
         
         # Harvester
         harvester = ImageHarvester()

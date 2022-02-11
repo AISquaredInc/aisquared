@@ -71,7 +71,7 @@ class ModelConfiguration(BaseObject):
         ----------
         name : str
             The name of the deployed analytic
-        harvesting_steps : Harvesting object or list of Harvesting objects
+        harvesting_steps : None, Harvesting object or list of Harvesting objects
             Harvesters to use with the analytic
         preprocessing_steps : Preprocessing object or list of Preprocessing objects or None
             Preprocessers to use
@@ -119,14 +119,16 @@ class ModelConfiguration(BaseObject):
         return self._harvesting_steps
     @harvesting_steps.setter
     def harvesting_steps(self, value):
-        if isinstance(value, HARVESTING_CLASSES):
+        if value is None:
+            self._harvesting_steps = value
+        elif isinstance(value, HARVESTING_CLASSES):
             self._harvesting_steps = [value]
         elif isinstance(value, list) and all([isinstance(val, HARVESTING_CLASSES) for val in value]):
             self._harvesting_steps = value
         elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, HARVESTING_CLASSES) for val in value for v in val]):
             self._harvesting_steps = value
         else:
-            raise ValueError('harvesting_steps must be a single Harvester object, a list of Harvester objects, or a list of list of harvester objects')
+            raise ValueError('harvesting_steps must be a None, single Harvester object, a list of Harvester objects, or a list of list of harvester objects')
 
     # preprocessing_steps
     @property
@@ -241,7 +243,9 @@ class ModelConfiguration(BaseObject):
     # harvester_dict
     @property
     def harvester_dict(self):
-        if isinstance(self.harvesting_steps, list) and all([isinstance(val, HARVESTING_CLASSES) for val in self.harvesting_steps]):
+        if self.harvesting_steps is None:
+            return None
+        elif isinstance(self.harvesting_steps, list) and all([isinstance(val, HARVESTING_CLASSES) for val in self.harvesting_steps]):
             return [val.to_dict() for val in self.harvesting_steps]
         else:
             return [
@@ -293,6 +297,9 @@ class ModelConfiguration(BaseObject):
             ]
 
     def get_model_filenames(self):
+        """
+        Get filenames for all models in the configuration
+        """
         filenames = []
         if isinstance(self.analytic[0], ANALYTIC_CLASSES):
             for a in self.analytic:

@@ -100,6 +100,9 @@ class ObjectRendering(BaseObject):
         self._font_size = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className' : 'ObjectDetection',
             'params' : {
