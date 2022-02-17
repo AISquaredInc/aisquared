@@ -105,7 +105,7 @@ class ImageRendering(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'ImagePrediction',
+            'className' : 'ImageRendering',
             'params' : {
                 'color' : self.color,
                 'thickness' : self.thickness,
