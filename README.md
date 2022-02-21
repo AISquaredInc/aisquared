@@ -20,7 +20,7 @@ pip install git+https://github.com/AISquaredInc/aisquared
 
 This package is currently in a state of constant development, so it is likely that breaking changes can be made at any time.  We will work diligently to document changes and make stable releases in the future.
 
-The `aisquared` package currently contains one subpackage, the `aisquared.config` package. This package holds objects for building the configuration files that need to be included with converted model files for use within the AI Squared Extension. The contents of the config subpackage contain both pre- and postprocessing steps as well as harvesting, analytic, and rendering objects to use with the model. The following will explain the functionality of the config package:
+The `aisquared` package currently contains one subpackage, the `aisquared.config` package. This package holds objects for building the configuration files that need to be included with converted model files for use within the AI Squared Extension. The contents of the config subpackage contain both pre- and postprocessing steps as well as harvesting, analytic, rendering, and feedback objects to use with the model. The following will explain the functionality of the config package:
 
 ### aisquared.config
 
@@ -88,6 +88,18 @@ The `aisquared.config.rendering` subpackage contains the following objects:
 - `DocumentRendering`
   - The `DocumentRendering` object is a rendering class for rendering document predictions.
 
+#### aisquared.config.feedback
+
+The `aisquared.config.feedback` subpackage contains the following objects:
+
+- `SimpleFeedback`
+  - The `SimpleFeedback` object is a feedback object for simple thumbs up/thumbs down for predictions
+- `BinaryFeedback`
+  - The `BinaryFeedback` object is a feedback object for binary classification use cases
+- `MulticlassFeedback`
+  - The `MulticlassFeedback` object is a feedback object for multiclass classification use cases
+- `RegressionFeedback`
+  - The `RegressionFeedback` object is a feedback object for regression use cases
 
 #### Preprocessing Steps
 
