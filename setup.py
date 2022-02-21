@@ -8,6 +8,7 @@ setup(
     packages = [
         'aisquared',
         'aisquared.base',
+        'aisquared.remote',
         'aisquared.config',
         'aisquared.config.harvesting',
         'aisquared.config.preprocessing',
