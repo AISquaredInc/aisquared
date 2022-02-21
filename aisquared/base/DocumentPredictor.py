@@ -126,7 +126,7 @@ class DocumentPredictor():
         preprocesser = TextPreprocessor(steps)
 
         # Model
-        analytic = LocalModel(model_path)
+        analytic = LocalModel(model_path, input_type = 'text')
 
         # Postprocessing
         if task_type == 'classification':

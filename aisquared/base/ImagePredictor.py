@@ -83,7 +83,7 @@ class ImagePredictor():
         preprocesser = ImagePreprocessor(steps)
 
         # Model
-        analytic = LocalModel(model_path)
+        analytic = LocalModel(model_path, input_type = 'cv')
 
         # Postprocessing
         if task_type == 'classification':
