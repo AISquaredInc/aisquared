@@ -20,7 +20,7 @@ pip install git+https://github.com/AISquaredInc/aisquared
 
 This package is currently in a state of constant development, so it is likely that breaking changes can be made at any time.  We will work diligently to document changes and make stable releases in the future.
 
-The `aisquared` package currently contains one subpackage, the `aisquared.config` package. This package holds objects for building the configuration files that need to be included with converted model files for use within the AI Squared Extension. The contents of the config subpackage contain both pre- and postprocessing steps as well as harvesting, analytic, rendering, and feedback objects to use with the model. The following will explain the functionality of the config package:
+The `aisquared` package currently contains three subpackage, the `aisquared.config` package, the `aisquared.base` subpackage, and the `aisquared.remote` package. The `config` package holds objects for building the configuration files that need to be included with converted model files for use within the AI Squared Extension. The contents of the config subpackage contain both pre- and postprocessing steps as well as harvesting, analytic, rendering, and feedback objects to use with the model. The following will explain the functionality of the config package:
 
 ### aisquared.config
 
@@ -145,3 +145,10 @@ Once the `ModelConfiguration` object has been created with the required paramete
 ### aisquared.base
 
 The `aisquared.base` subpackage contains two classes, the `DocumentPredictor` and the `ImagePredictor` classes, which streamline document prediction and image prediction using locally-saved models.  These classes abstract away the steps required in the `ModelConfiguration` class.  However, just like the `ModelConfiguration` class, objects of these classes support the `.compile()` method; using this method creates the `.air` file as well.
+
+### aisquared.remote
+
+The `aisquared.remote` subpackage contains utilities and classes for interacting with cloud-based resources for deploying and managing models and results.  Currently, we have the following client objects:
+
+- `AWSClient`
+  - This client facilitates the interaction with AWS cloud storage

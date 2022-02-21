@@ -25,7 +25,8 @@ setup(
     license = 'AI Squared Developer License Agreement',
     license_files = 'LICENSE',
     install_requires = [
-        'tensorflowjs'
+        'tensorflowjs',
+        'boto3'
     ],
     classifiers = [
         'License :: Other/Proprietary License'
