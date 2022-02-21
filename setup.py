@@ -13,7 +13,8 @@ setup(
         'aisquared.config.preprocessing',
         'aisquared.config.analytic',
         'aisquared.config.postprocessing',
-        'aisquared.config.rendering'
+        'aisquared.config.rendering',
+        'aisquared.config.feedback'
     ],
     author = 'The AI Squared Team',
     author_email = 'staff@squared.ai',
