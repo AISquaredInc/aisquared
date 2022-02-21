@@ -4,6 +4,7 @@ from aisquared.config.preprocessing import TabularPreprocessor, ImagePreprocesso
 from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel, LocalAnalytic
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, ObjectDetection, Regression
 from aisquared.config.rendering import ImageRendering, ObjectRendering, DocumentRendering, WordRendering
+from aisquared.config.feedback import SimpleFeedback, BinaryFeedback, MulticlassFeedback, RegressionFeedback
 
 import tensorflowjs as tfjs
 import tensorflow as tf
@@ -43,6 +44,13 @@ RENDERING_CLASSES = (
     WordRendering
 )
 
+FEEDBACK_CLASSES = (
+    SimpleFeedback,
+    BinaryFeedback,
+    MulticlassFeedback,
+    RegressionFeedback
+)
+
 LOCAL_CLASSES = (
     LocalModel,
     LocalAnalytic
@@ -60,6 +68,7 @@ class ModelConfiguration(BaseObject):
             analytic,
             postprocessing_steps,
             rendering_steps,
+            feedback_steps = None,
             version = None,
             description = '',
             mlflow_uri = None,
@@ -81,6 +90,8 @@ class ModelConfiguration(BaseObject):
             Postprocessers to use
         rendering_steps : Rendering object or list of Rendering objects
             Renderers to use
+        feedback_steps : Feedback object or list of Feedback objects or None (default None)
+            Feedback steps to use
         version : str or None (default None)
             Version of the analytic
         description : str (default '')
@@ -99,6 +110,7 @@ class ModelConfiguration(BaseObject):
         self.analytic = analytic
         self.postprocessing_steps = postprocessing_steps
         self.rendering_steps = rendering_steps
+        self.feedback_steps = feedback_steps
         self.version = version
         self.description = description
         self.mlflow_uri = mlflow_uri
@@ -199,6 +211,22 @@ class ModelConfiguration(BaseObject):
         else:
             raise ValueError('rendering_steps must be a single Rendering object, a list of Rendering objects, or a list of list of Rendering objects')
 
+    # feedback_steps
+    @property
+    def feedback_steps(self):
+        return self._feedback_steps
+    @feedback_steps.setter
+    def feedback_steps(self, value):
+        if value is None:
+            self._feedback_steps = value
+        elif isinstance(value, FEEDBACK_CLASSES):
+            self._feedback_steps = [value]
+        elif isinstance(value, list) and all([isinstance(val, FEEDBACK_CLASSES) for val in value]):
+            self._feedback_steps = value
+        elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, FEEDBACK_CLASSES) for val in value for v in val]):
+            self._feedback_steps = value
+        else:
+            raise ValueError('feedback_steps must be a single Feedback object, a list of Feedback objects, a list of list of Feedback objects, or None')
 
     # version
     @property
@@ -296,6 +324,18 @@ class ModelConfiguration(BaseObject):
                 [v.to_dict() for v in val] for val in self.rendering_steps
             ]
 
+    # feedback_dict
+    @property
+    def feedback_dict(self):
+        if self.feedback_steps is None:
+            return self.feedback_steps
+        elif isinstance(self.feedback_steps, list) and all([isinstance(val, FEEDBACK_CLASSES) for val in self.feedback_steps]):
+            return [val.to_dict() for val in self.feedback_steps]
+        else:
+            return [
+                [v.to_dict() for v in val] for val in self.feedback_steps
+            ]
+
     def get_model_filenames(self):
         """
         Get filenames for all models in the configuration
@@ -325,6 +365,7 @@ class ModelConfiguration(BaseObject):
                 'analytics' : self.analytic_dict,
                 'postprocessingSteps' : self.postprocesser_dict,
                 'renderingSteps' : self.render_dict,
+                'feedbackSteps' : self.feedback_dict,
                 'version' : self.version,
                 'description' : self.description,
                 'mlflowUri' : self.mlflow_uri,
