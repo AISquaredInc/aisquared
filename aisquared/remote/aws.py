@@ -82,6 +82,8 @@ class AWSClient:
         if bucket is None:
             bucket = self.get_default_bucket()
         object_name = os.path.basename(model_path)
+        if os.path.splitext(object_name) != '.air':
+            raise ValueError('It does not appear that the specified file is the correct file type')
         self._client.upload_file(model_path, bucket, object_name)
 
     @staticmethod
