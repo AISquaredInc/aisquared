@@ -23,7 +23,7 @@ class AWSClient:
         except:
             raise ValueError('It does not appear that a default bucket is configured. Try running `AWSClient.configure()` with a default bucket name to configure')
 
-    def list_models(self, bucket = None):
+    def list_models(self, bucket = None, detailed = False):
         """
         List models in storage
 
@@ -35,6 +35,8 @@ class AWSClient:
         if bucket is None:
             bucket = self.get_default_bucket()
         listed = self._client.list_objects_v2(Bucket = bucket)
+        if detailed:
+            return listed
         return [content['Key'] for content in listed['Contents']]
     
     def delete_model(self, model_name, bucket = None):

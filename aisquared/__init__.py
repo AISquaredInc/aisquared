@@ -1,4 +1,4 @@
-__version__ = '0.1.2dev1'
+__version__ = '0.1.2dev2'
 __dev__ = True
 
 import aisquared.config
