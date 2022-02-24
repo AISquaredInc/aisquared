@@ -81,7 +81,8 @@ class AzureClient:
         if container is None:
             container = self.get_default_container()
         container_client = self._client.get_container_client(container)
-        container_client.download_blob(model_name)
+        with open(model_name, 'wb') as f:
+            f.write(container_client.download_blob(model_name).readall())
 
     def upload_model(self, model_path, container = None):
         """
