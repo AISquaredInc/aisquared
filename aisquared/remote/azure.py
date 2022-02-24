@@ -123,5 +123,6 @@ class AzureClient:
                 {
                     'connectionString' : connection_string,
                     'defaultContainer' : default_container
-                }
+                },
+                f
             )
