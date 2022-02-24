@@ -31,6 +31,8 @@ class AWSClient:
         ----------
         bucket : str or None (default None)
             Bucket to search for models in
+        detailed : bool (default False)
+            Whether to return additional metadata about models
         """
         if bucket is None:
             bucket = self.get_default_bucket()
@@ -78,6 +80,7 @@ class AWSClient:
         model_path : str or path-like
             The path of the model saved locally
         bucket : str or None (default None)
+            The bucket to upload to
         """
         if bucket is None:
             bucket = self.get_default_bucket()
