@@ -249,7 +249,7 @@ class ModelConfiguration(BaseObject):
     def stage(self, value):
         if value not in ALLOWED_STAGES:
             raise ValueError(f'stage must be one of {ALLOWED_STAGES}')
-        self._stage is value
+        self._stage = value
         
     # version
     @property
