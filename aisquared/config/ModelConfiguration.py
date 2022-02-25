@@ -74,8 +74,8 @@ class ModelConfiguration(BaseObject):
             analytic,
             postprocessing_steps,
             rendering_steps,
-            stage = ALLOWED_STAGES[0],
             feedback_steps = None,
+            stage = ALLOWED_STAGES[0],
             version = None,
             description = '',
             mlflow_uri = None,
@@ -122,8 +122,8 @@ class ModelConfiguration(BaseObject):
         self.analytic = analytic
         self.postprocessing_steps = postprocessing_steps
         self.rendering_steps = rendering_steps
-        self.feedback_steps = feedback_steps
         self.stage = stage
+        self.feedback_steps = feedback_steps
         self.version = version
         self.description = description
         self.mlflow_uri = mlflow_uri
@@ -249,6 +249,7 @@ class ModelConfiguration(BaseObject):
     def stage(self, value):
         if value not in ALLOWED_STAGES:
             raise ValueError(f'stage must be one of {ALLOWED_STAGES}')
+        self._stage is value
         
     # version
     @property
@@ -296,8 +297,9 @@ class ModelConfiguration(BaseObject):
         return self._owner
     @owner.setter
     def owner(self, value):
-        if not isinstance(value, str):
-            raise ValueError('owner must be a string')
+        if not isinstance(value, str) and value is not None:
+            raise ValueError('owner must be a string or None')
+        self._owner = value
 
     # harvester_dict
     @property
@@ -397,11 +399,13 @@ class ModelConfiguration(BaseObject):
                 'postprocessingSteps' : self.postprocesser_dict,
                 'renderingSteps' : self.render_dict,
                 'feedbackSteps' : self.feedback_dict,
+                'stage' : self.stage,
                 'version' : self.version,
                 'description' : self.description,
                 'mlflowUri' : self.mlflow_uri,
                 'mlflowUser' : self.mlflow_user,
-                'mlflowToken' : self.mlflow_token
+                'mlflowToken' : self.mlflow_token,
+                'owner' : self.owner
             }
         }
 
