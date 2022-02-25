@@ -1,4 +1,5 @@
 import boto3
+import stat
 import json
 import os
 
@@ -96,3 +97,4 @@ class AWSClient:
             os.makedirs(DIRECTORY)
         with open(AWS_FILE, 'w') as f:
             json.dump({'defaultBucket' : default_bucket}, f)
+        os.chmod(AWS_FILE, stat.S_IREAD | stat.S_IWRITE)

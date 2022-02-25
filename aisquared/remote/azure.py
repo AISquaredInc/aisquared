@@ -1,5 +1,6 @@
 from azure.storage.blob import BlobServiceClient
 from getpass import getpass
+import stat
 import json
 import os
 
@@ -127,3 +128,4 @@ class AzureClient:
                 },
                 f
             )
+        os.chmod(AZURE_FILE, stat.S_IREAD | stat.S_IWRITE)
