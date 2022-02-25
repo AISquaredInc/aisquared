@@ -83,7 +83,7 @@ class ModelConfiguration(BaseObject):
             mlflow_token = None,
             owner = None
     ):
-        f"""
+        """
         Parameters
         ----------
         name : str
@@ -100,8 +100,8 @@ class ModelConfiguration(BaseObject):
             Renderers to use
         feedback_steps : Feedback object or list of Feedback objects or None (default None)
             Feedback steps to use
-        stage : str (default {ALLOWED_STAGES[0]}
-            The stage of the model, from {ALLOWED_STAGES}
+        stage : str (default 'experimental')
+            The stage of the model, from 'experimental', 'staging', 'production'
         version : str or None (default None)
             Version of the analytic
         description : str (default '')
