@@ -72,7 +72,7 @@ class AWSClient:
             bucket = self.get_default_bucket()
         self._client.download_file(bucket, model_name, model_name)
     
-    def upload_model(self, model_path, bucket = None):
+    def upload_model(self, model_path, bucket = None, overwrite = False):
         """
         Upload a model
 
@@ -82,12 +82,17 @@ class AWSClient:
             The path of the model saved locally
         bucket : str or None (default None)
             The bucket to upload to
+        overwrite : bool (default False)
+            Whether to overwrite the model if it already exists
         """
         if bucket is None:
             bucket = self.get_default_bucket()
         object_name = os.path.basename(model_path)
         if os.path.splitext(object_name)[-1] != '.air':
             raise ValueError('It does not appear that the specified file is the correct file type')
+        if not overwrite:
+            if object_name in self.list_models():
+                raise ValueError('Model with the same name already exists. To overwrite the model, set overwrite to True')
         self._client.upload_file(model_path, bucket, object_name)
 
     @staticmethod

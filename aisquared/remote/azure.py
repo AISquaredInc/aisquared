@@ -85,7 +85,7 @@ class AzureClient:
         with open(model_name, 'wb') as f:
             f.write(container_client.download_blob(model_name).readall())
 
-    def upload_model(self, model_path, container = None):
+    def upload_model(self, model_path, container = None, overwrite = False):
         """
         Upload a model
 
@@ -95,6 +95,8 @@ class AzureClient:
             The path of the model saved locally
         container : str or None (default None)
             The container to upload to
+        overwrite : bool (default False)
+            Whether to overwrite model if it already exists
         """
         if container is None:
             container = self.get_default_container()
@@ -105,7 +107,8 @@ class AzureClient:
         with open(object_name, 'rb') as f:
             container_client.upload_blob(
                 object_name,
-                f
+                f,
+                overwrite = overwrite
             )
 
     @staticmethod
