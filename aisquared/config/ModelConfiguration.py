@@ -56,6 +56,12 @@ LOCAL_CLASSES = (
     LocalAnalytic
 )
 
+ALLOWED_STAGES = [
+    'experimental',
+    'staging',
+    'production'
+]
+
 class ModelConfiguration(BaseObject):
     """
     Configuration object for deploying a model or analytic
@@ -68,14 +74,16 @@ class ModelConfiguration(BaseObject):
             analytic,
             postprocessing_steps,
             rendering_steps,
+            stage = ALLOWED_STAGES[0],
             feedback_steps = None,
             version = None,
             description = '',
             mlflow_uri = None,
             mlflow_user = None,
-            mlflow_token = None            
+            mlflow_token = None,
+            owner = None
     ):
-        """
+        f"""
         Parameters
         ----------
         name : str
@@ -92,6 +100,8 @@ class ModelConfiguration(BaseObject):
             Renderers to use
         feedback_steps : Feedback object or list of Feedback objects or None (default None)
             Feedback steps to use
+        stage : str (default {ALLOWED_STAGES[0]}
+            The stage of the model, from {ALLOWED_STAGES}
         version : str or None (default None)
             Version of the analytic
         description : str (default '')
@@ -102,6 +112,8 @@ class ModelConfiguration(BaseObject):
             MLFlow user to use, if applicable
         mlflow_token : str or None (default None)
             MLFlow token to use, if applicable
+        owner : str or None (default None)
+            The owner of the model
         """
         super().__init__()
         self.name = name
@@ -111,11 +123,13 @@ class ModelConfiguration(BaseObject):
         self.postprocessing_steps = postprocessing_steps
         self.rendering_steps = rendering_steps
         self.feedback_steps = feedback_steps
+        self.stage = stage
         self.version = version
         self.description = description
         self.mlflow_uri = mlflow_uri
         self.mlflow_user = mlflow_user
         self.mlflow_token = mlflow_token
+        self.owner = owner
 
     # name
     @property
@@ -195,7 +209,6 @@ class ModelConfiguration(BaseObject):
         else:
             raise ValueError('postprocessing_steps must be a single Postprocessing object, a list of Postprocessing objects, or a list of list of Postprocessing objects')
 
-
     # rendering_steps
     @property
     def rendering_steps(self):
@@ -228,6 +241,15 @@ class ModelConfiguration(BaseObject):
         else:
             raise ValueError('feedback_steps must be a single Feedback object, a list of Feedback objects, a list of list of Feedback objects, or None')
 
+    # stage
+    @property
+    def stage(self):
+        return self._stage
+    @stage.setter
+    def stage(self, value):
+        if value not in ALLOWED_STAGES:
+            raise ValueError(f'stage must be one of {ALLOWED_STAGES}')
+        
     # version
     @property
     def version(self):
@@ -267,6 +289,15 @@ class ModelConfiguration(BaseObject):
     @mlflow_token.setter
     def mlflow_token(self, value):
         self._mlflow_token = value
+
+    # owner
+    @property
+    def owner(self):
+        return self._owner
+    @owner.setter
+    def owner(self, value):
+        if not isinstance(value, str):
+            raise ValueError('owner must be a string')
 
     # harvester_dict
     @property
