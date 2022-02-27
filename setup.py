@@ -26,7 +26,8 @@ setup(
     license_files = 'LICENSE',
     install_requires = [
         'tensorflowjs',
-        'boto3'
+        'boto3',
+        'azure-storage-blob'
     ],
     classifiers = [
         'License :: Other/Proprietary License'
