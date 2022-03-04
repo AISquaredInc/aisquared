@@ -437,7 +437,7 @@ class ModelConfiguration(BaseObject):
                 if os.path.splitext(f)[-1] == '.h5':
                     model = tf.keras.models.load_model(f)
                     model_dir = os.path.join(dirname, os.path.split(f)[-1])
-                    tfjs.converters.save_keras_model(model, model_dir)
+                    tfjs.converters.save_keras_model(model, model_dir, quantization_dtype_map = {model.dtype : '*'})
                 else:
                     shutil.copy(f, dirname)
         
