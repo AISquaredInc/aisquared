@@ -152,3 +152,6 @@ The `aisquared.remote` subpackage contains utilities and classes for interacting
 
 - `AWSClient`
   - This client facilitates the interaction with AWS cloud storage
+- `AzureClient`
+  - This client facilitates the interaction with Azure cloud storage
+  
