@@ -409,7 +409,7 @@ class ModelConfiguration(BaseObject):
             }
         }
 
-    def compile(self, filename = None):
+    def compile(self, filename = None, dtype = None):
         """
         Compile the object into a '.air' file, which can then be dragged and 
         dropped into applications using the AI Squared JavaScript SDK
@@ -419,10 +419,17 @@ class ModelConfiguration(BaseObject):
         filename : path-like or None (default None)
             Filename to compile to. If None, defaults to '{NAME}.air', where {NAME} is the 
             name of the analytic
+        dtype : str or None (default None)
+            The datatype to use for the model weights. If None, defaults to 'float32'
         """
         if filename is None:
             filename = self.name + '.air'
 
+        if dtype is None:
+            dtype_map = = None
+        else:
+            dtype_map = {dtype : '*'}
+            
         dirname = os.path.join('.', os.path.splitext(filename)[0])
 
         # write the object as json config 
@@ -437,7 +444,7 @@ class ModelConfiguration(BaseObject):
                 if os.path.splitext(f)[-1] == '.h5':
                     model = tf.keras.models.load_model(f)
                     model_dir = os.path.join(dirname, os.path.split(f)[-1])
-                    tfjs.converters.save_keras_model(model, model_dir, quantization_dtype_map = {model.dtype : '*'})
+                    tfjs.converters.save_keras_model(model, model_dir, quantization_dtype_map = dtype_map)
                 else:
                     shutil.copy(f, dirname)
         
