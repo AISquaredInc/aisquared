@@ -426,7 +426,7 @@ class ModelConfiguration(BaseObject):
             filename = self.name + '.air'
 
         if dtype is None:
-            dtype_map = = None
+            dtype_map = None
         else:
             dtype_map = {dtype : '*'}
             
