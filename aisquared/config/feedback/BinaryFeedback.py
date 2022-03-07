@@ -2,7 +2,9 @@ from lib2to3.pytree import Base
 from aisquared.base import BaseObject
 
 class BinaryFeedback(BaseObject):
-    
+    """
+    Feedback for binary classification
+    """
     def __init__(self, label_map):
         super().__init__()
         self.label_map = label_map
@@ -17,6 +19,9 @@ class BinaryFeedback(BaseObject):
         self._label_map = value
 
     def to_dict(self):
+        """
+        Return the object as a dictionary
+        """
         return {
             'className' : 'BinaryFeedback',
             'params' : {
