@@ -1,5 +1,3 @@
-from cProfile import label
-from typing import Type
 from aisquared.base import BaseObject
 
 class MulticlassFeedback(BaseObject):
