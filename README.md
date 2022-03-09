@@ -102,6 +102,8 @@ The `aisquared.config.feedback` subpackage contains the following objects:
   - The `RegressionFeedback` object is a feedback object for regression use cases
 - `ModelFeedback`
   - The `ModelFeedback` object is a feedback object for configuring feedback for the model directly, rather than its predictions
+- `QualitativeFeedback`
+  - The `QualitativeFeedback` object is a feedback object for configuring questions asked about each individual prediction the model makes
 
 #### Preprocessing Steps
 
