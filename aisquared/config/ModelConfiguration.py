@@ -4,7 +4,7 @@ from aisquared.config.preprocessing import TabularPreprocessor, ImagePreprocesso
 from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel, LocalAnalytic
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, ObjectDetection, Regression
 from aisquared.config.rendering import ImageRendering, ObjectRendering, DocumentRendering, WordRendering
-from aisquared.config.feedback import SimpleFeedback, BinaryFeedback, MulticlassFeedback, RegressionFeedback, ModelFeedback
+from aisquared.config.feedback import SimpleFeedback, BinaryFeedback, MulticlassFeedback, RegressionFeedback, ModelFeedback, QualitativeFeedback
 
 import tensorflowjs as tfjs
 import tensorflow as tf
@@ -49,7 +49,8 @@ FEEDBACK_CLASSES = (
     BinaryFeedback,
     MulticlassFeedback,
     RegressionFeedback,
-    ModelFeedback
+    ModelFeedback,
+    QualitativeFeedback
 )
 
 LOCAL_CLASSES = (
