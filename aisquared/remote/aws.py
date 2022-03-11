@@ -40,7 +40,10 @@ class AWSClient:
         listed = self._client.list_objects_v2(Bucket = bucket)
         if detailed:
             return listed
-        return [content['Key'] for content in listed['Contents']]
+        try:
+            return [content['Key'] for content in listed['Contents']]
+        except:
+            return listed
     
     def delete_model(self, model_name, bucket = None):
         """
