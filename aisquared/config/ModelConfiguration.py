@@ -49,7 +49,6 @@ FEEDBACK_CLASSES = (
     BinaryFeedback,
     MulticlassFeedback,
     RegressionFeedback,
-    ModelFeedback,
     QualitativeFeedback
 )
 
@@ -76,6 +75,7 @@ class ModelConfiguration(BaseObject):
             analytic,
             postprocessing_steps,
             rendering_steps,
+            model_feedback = None,
             feedback_steps = None,
             stage = ALLOWED_STAGES[0],
             version = None,
@@ -100,6 +100,8 @@ class ModelConfiguration(BaseObject):
             Postprocessers to use
         rendering_steps : Rendering object or list of Rendering objects
             Renderers to use
+        model_feedback: ModelFeedback object
+            Feedback object for model predictions
         feedback_steps : Feedback object or list of Feedback objects or None (default None)
             Feedback steps to use
         stage : str (default 'experimental')
@@ -125,6 +127,7 @@ class ModelConfiguration(BaseObject):
         self.postprocessing_steps = postprocessing_steps
         self.rendering_steps = rendering_steps
         self.stage = stage
+        self.model_feedback = model_feedback
         self.feedback_steps = feedback_steps
         self.version = version
         self.description = description
@@ -225,6 +228,16 @@ class ModelConfiguration(BaseObject):
             self._rendering_steps = value
         else:
             raise ValueError('rendering_steps must be a single Rendering object, a list of Rendering objects, or a list of list of Rendering objects')
+
+    # ModelFeedback
+    @property
+    def model_feedback(self):
+        return self._model_feedback
+    @model_feedback.setter
+    def model_feedback(self, value):
+        if value is not None and not isinstance(value, ModelFeedback):
+            raise ValueError('model_feedback must be None or a ModelFeedback object')
+        self._model_feedback = value
 
     # feedback_steps
     @property
@@ -359,6 +372,14 @@ class ModelConfiguration(BaseObject):
                 [v.to_dict() for v in val] for val in self.rendering_steps
             ]
 
+    # model_feedback_dict
+    @property
+    def model_feedback_dict(self):
+        if self.model_feedback is None:
+            return self.model_feedback
+        else:
+            return self.model_feedback.to_dict()
+
     # feedback_dict
     @property
     def feedback_dict(self):
@@ -400,6 +421,7 @@ class ModelConfiguration(BaseObject):
                 'analytics' : self.analytic_dict,
                 'postprocessingSteps' : self.postprocesser_dict,
                 'renderingSteps' : self.render_dict,
+                'modelFeedback' : self.model_feedback_dict,
                 'feedbackSteps' : self.feedback_dict,
                 'stage' : self.stage,
                 'version' : self.version,
