@@ -3,7 +3,9 @@ from aisquared.config.preprocessing import ImagePreprocessor, Resize, ConvertToC
 from aisquared.config.analytic import LocalModel
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, Regression
 from aisquared.config.rendering import ImageRendering
+from aisquared.config.feedback import SimpleFeedback
 from aisquared.base import COLORS
+from aisquared.config.ModelConfiguration import ALLOWED_STAGES
 
 import aisquared.config.ModelConfiguration
 
@@ -23,6 +25,8 @@ class ImagePredictor():
         include_probability = False,
         box_color = COLORS[-1],
         font_color = COLORS[-4],
+        feedback = False,
+        stage = ALLOWED_STAGES[0],
         version = None,
         description = '',
         mlflow_uri = None,
@@ -56,6 +60,10 @@ class ImagePredictor():
             The color to make the box around images
         font_color : str (default {COLORS[-4]})
             The font color to use
+        feedback : bool (default False)
+            Whether to enable simple feedback
+        stage : str (default {ALLOWED_STAGES[0]})
+            The stage of the model to use
         version : int or None (default None)
             The version of the analytic
         description : str (default '')
@@ -105,13 +113,21 @@ class ImagePredictor():
             font_color = font_color
         )
 
+        # Feedback
+        if feedback:
+            simple_feedback = SimpleFeedback()
+        else:
+            simple_feedback = None
+
         # Init
         self.harvester = harvester
         self.preprocesser = preprocesser
         self.analytic = analytic
         self.postprocesser = postprocesser
         self.renderer = renderer
+        self.feedback = simple_feedback
         self.name = name
+        self.stage = stage
         self.version = version
         self.description = description
         self.mlflow_uri = mlflow_uri
@@ -120,15 +136,17 @@ class ImagePredictor():
 
     def compile(self):
         aisquared.config.ModelConfiguration(
-            self.name,
-            self.harvester,
-            self.preprocesser,
-            self.analytic,
-            self.postprocesser,
-            self.renderer,
-            self.version,
-            self.description,
-            self.mlflow_uri,
-            self.mlflow_user,
-            self.mlflow_token
+            name = self.name,
+            harvesting_steps = self.harvester,
+            preprocessing_steps = self.preprocesser,
+            analytic = self.analytic,
+            postprocessing_steps = self.postprocesser,
+            rendering_steps = self.renderer,
+            feedback_steps = self.feedback,
+            stage = self.stage,
+            version = self.version,
+            description = self.description,
+            mlflow_uri = self.mlflow_uri,
+            mlflow_user = self.mlflow_user,
+            mlflow_token = self.mlflow_token
         ).compile() 

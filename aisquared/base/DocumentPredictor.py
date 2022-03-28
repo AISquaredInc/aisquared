@@ -3,7 +3,9 @@ from aisquared.config.preprocessing import TextPreprocessor, Tokenize, RemoveCha
 from aisquared.config.analytic import LocalModel
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, Regression
 from aisquared.config.rendering import DocumentRendering
+from aisquared.config.feedback import SimpleFeedback
 from aisquared.base import COLORS
+from aisquared.config.ModelConfiguration import ALLOWED_STAGES
 
 import aisquared.config.ModelConfiguration
 
@@ -37,6 +39,8 @@ class DocumentPredictor():
         words = None,
         documents = None,
         underline_color = COLORS[-1],
+        stage = ALLOWED_STAGES[0],
+        feedback = False,
         version = None,
         description = '',
         mlflow_uri = None,
@@ -98,6 +102,10 @@ class DocumentPredictor():
             List of document URLs or list of list of document URLs to recommend when rendering
         underline_color : str (default {COLORS[-1]})
             Color to use when underlining words
+        feedback : bool (default False)
+            Whether to enable simple feedback
+        stage : str (default {ALLOWED_STAGES[0]})
+            The stage of the model to use
         version : int or None (default None)
             The version of the analytic
         description : str (default '')
@@ -151,13 +159,21 @@ class DocumentPredictor():
             underline_color
         )
 
+        # Feedback
+        if feedback:
+            simple_feedback = SimpleFeedback()
+        else:
+            simple_feedback = None
+
         # Init
         self.harvester = harvester
         self.preprocesser = preprocesser
         self.analytic = analytic
         self.postprocesser = postprocesser
         self.renderer = renderer
+        self.feedback = simple_feedback
         self.name = name
+        self.stage = stage
         self.version = version
         self.description = description
         self.mlflow_uri = mlflow_uri
@@ -169,15 +185,17 @@ class DocumentPredictor():
         Compile the configuration to a .air file
         """
         aisquared.config.ModelConfiguration(
-            self.name,
-            self.harvester,
-            self.preprocesser,
-            self.analytic,
-            self.postprocesser,
-            self.renderer,
-            self.version,
-            self.description,
-            self.mlflow_uri,
-            self.mlflow_user,
-            self.mlflow_token
+            name = self.name,
+            harvesting_steps = self.harvester,
+            preprocessing_steps = self.preprocesser,
+            analytic = self.analytic,
+            postprocessing_steps = self.postprocesser,
+            rendering_steps = self.renderer,
+            feedback_steps = self.feedback,
+            stage = self.stage,
+            version = self.version,
+            description = self.description,
+            mlflow_uri = self.mlflow_uri,
+            mlflow_user = self.mlflow_user,
+            mlflow_token = self.mlflow_token
         ).compile() 
