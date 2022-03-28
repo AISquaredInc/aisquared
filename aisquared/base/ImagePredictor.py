@@ -4,8 +4,7 @@ from aisquared.config.analytic import LocalModel
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, Regression
 from aisquared.config.rendering import ImageRendering
 from aisquared.config.feedback import SimpleFeedback
-from aisquared.base import COLORS
-from aisquared.config.ModelConfiguration import ALLOWED_STAGES
+from aisquared.base import COLORS, ALLOWED_STAGES
 
 import aisquared.config.ModelConfiguration
 
