@@ -1,4 +1,4 @@
-from aisquared.base import BaseObject
+from aisquared.base import BaseObject, ALLOWED_STAGES
 from aisquared.config.harvesting import ImageHarvester, TextHarvester
 from aisquared.config.preprocessing import TabularPreprocessor, ImagePreprocessor, TextPreprocessor
 from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel, LocalAnalytic
@@ -57,12 +57,6 @@ LOCAL_CLASSES = (
     LocalModel,
     LocalAnalytic
 )
-
-ALLOWED_STAGES = [
-    'experimental',
-    'staging',
-    'production'
-]
 
 class ModelConfiguration(BaseObject):
     """
