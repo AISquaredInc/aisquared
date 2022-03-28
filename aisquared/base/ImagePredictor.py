@@ -4,7 +4,7 @@ from aisquared.config.analytic import LocalModel
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, Regression
 from aisquared.config.rendering import ImageRendering
 from aisquared.config.feedback import SimpleFeedback
-from aisquared.base import COLORS, ALLOWED_STAGES
+from aisquared.base import COLORS
 
 import aisquared.config.ModelConfiguration
 
@@ -25,7 +25,7 @@ class ImagePredictor():
         box_color = COLORS[-1],
         font_color = COLORS[-4],
         feedback = False,
-        stage = ALLOWED_STAGES[0],
+        stage = 'experimental',
         version = None,
         description = '',
         mlflow_uri = None,
@@ -61,7 +61,7 @@ class ImagePredictor():
             The font color to use
         feedback : bool (default False)
             Whether to enable simple feedback
-        stage : str (default {ALLOWED_STAGES[0]})
+        stage : str (default 'experimental')
             The stage of the model to use
         version : int or None (default None)
             The version of the analytic

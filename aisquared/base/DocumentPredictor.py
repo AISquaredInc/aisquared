@@ -4,7 +4,7 @@ from aisquared.config.analytic import LocalModel
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, Regression
 from aisquared.config.rendering import DocumentRendering
 from aisquared.config.feedback import SimpleFeedback
-from aisquared.base import COLORS, ALLOWED_STAGES
+from aisquared.base import COLORS
 
 import aisquared.config.ModelConfiguration
 
@@ -38,7 +38,7 @@ class DocumentPredictor():
         words = None,
         documents = None,
         underline_color = COLORS[-1],
-        stage = ALLOWED_STAGES[0],
+        stage = 'experimental',
         feedback = False,
         version = None,
         description = '',
@@ -103,7 +103,7 @@ class DocumentPredictor():
             Color to use when underlining words
         feedback : bool (default False)
             Whether to enable simple feedback
-        stage : str (default {ALLOWED_STAGES[0]})
+        stage : str (default 'experimental')
             The stage of the model to use
         version : int or None (default None)
             The version of the analytic
