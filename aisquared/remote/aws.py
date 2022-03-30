@@ -1,9 +1,15 @@
+import platform
 import boto3
 import stat
 import json
 import os
 
-DIRECTORY = os.path.join(os.getenv('HOME'), '.aisquared')
+if platform.system() == 'Windows':
+    basedir = os.getenv('HOMEPATH')
+else:
+    basedir = os.getenv('HOME')
+
+DIRECTORY = os.path.join(basedir, '.aisquared')
 AWS_FILE = os.path.join(DIRECTORY, 'aws_config.json')
 
 class AWSClient:

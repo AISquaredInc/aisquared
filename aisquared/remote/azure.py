@@ -1,10 +1,16 @@
 from azure.storage.blob import BlobServiceClient
 from getpass import getpass
+import platform
 import stat
 import json
 import os
 
-DIRECTORY = os.path.join(os.getenv('HOME'), '.aisquared')
+if platform.system() == 'Windows':
+    basedir = os.getenv('HOMEPATH')
+else:
+    basedir = os.getenv('HOME')
+
+DIRECTORY = os.path.join(basedir, '.aisquared')
 AZURE_FILE = os.path.join(DIRECTORY, 'azure_config.json')
 
 class AzureClient:
