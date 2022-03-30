@@ -77,7 +77,8 @@ class ModelConfiguration(BaseObject):
             mlflow_uri = None,
             mlflow_user = None,
             mlflow_token = None,
-            owner = None
+            owner = None,
+            url = '*'
     ):
         """
         Parameters
@@ -110,6 +111,8 @@ class ModelConfiguration(BaseObject):
             MLFlow token to use, if applicable
         owner : str or None (default None)
             The owner of the model
+        url : str (default '*')
+            URL or URL pattern to match
         """
         super().__init__()
         self.name = name
@@ -126,6 +129,7 @@ class ModelConfiguration(BaseObject):
         self.mlflow_user = mlflow_user
         self.mlflow_token = mlflow_token
         self.owner = owner
+        self.url = url
 
     # name
     @property
@@ -297,6 +301,16 @@ class ModelConfiguration(BaseObject):
             raise ValueError('owner must be a string or None')
         self._owner = value
 
+    # url
+    @property
+    def url(self):
+        return self._url
+    @url.setter
+    def url(self, value):
+        if not isinstance(value, str):
+            raise ValueError('url must be string')
+        self._url = value
+
     # harvester_dict
     @property
     def harvester_dict(self):
@@ -401,7 +415,8 @@ class ModelConfiguration(BaseObject):
                 'mlflowUri' : self.mlflow_uri,
                 'mlflowUser' : self.mlflow_user,
                 'mlflowToken' : self.mlflow_token,
-                'owner' : self.owner
+                'owner' : self.owner,
+                'url' : self.url
             }
         }
 
