@@ -521,7 +521,7 @@ class Tokenize(BaseObject):
         self,
         split_sentences = False,
         split_words = True,
-        token_pattern = '(?u)\\b\\w\\w+\\b'
+        token_pattern = '\b\w\w+\b'
     ):
         """
         Parameters
