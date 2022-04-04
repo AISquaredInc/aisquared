@@ -159,3 +159,16 @@ The `aisquared.remote` subpackage contains utilities and classes for interacting
 - `AzureClient`
   - This client facilitates the interaction with Azure cloud storage
   
+## Changes
+
+Below are a list of additional features, bug fixes, and other changes made for each version.
+
+## Version 0.1.3
+- Added `flags` parameter to `TextHarvester` using regular expression harvesting
+- Deleted `model_feedback` parameter in `ModelConfiguration` object and included functionality in `feedback_steps` parameter
+- Changed `format` parameter to `header` for both deployed analytics
+- Added feedback and stages to `DocumentPredictor` and `ImagePredictor` objects
+- Non-API changes for `ALLOWED_STAGES`
+- Fixed bugs preventing Windows users from importing the package
+- Updated `ModelConfiguration` to include `url` parameter
+- Changed default tokenization string
