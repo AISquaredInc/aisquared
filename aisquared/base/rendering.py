@@ -33,3 +33,12 @@ WORD_LISTS = [
     'input',
     'result'
 ]
+
+QUALIFIERS = [
+    'greater',
+    'less',
+    'greater_equal',
+    'less_equal',
+    'equal',
+    'in'
+]
