@@ -13,18 +13,18 @@ class WordRendering(BaseObject):
             badge_shape = BADGES[-1],
             badge_color = COLORS[-1]
     ):
-        f"""
+        """
         Parameters
         ----------
-        word_list : str (default {WORD_LISTS[0]})
+        word_list : str (default 'input')
             How to identify words to render, must be one of {WORD_LISTS}
         results_key : str or None (default None)
             The result key to use to render, only used if word_list is 'results'
         content_key : str or None (default None)
             The key from the results to use in rendering
-        badge_shape : str (default {BADGES[-1]})
+        badge_shape : str (default 'star')
             The badge shape to use
-        badge_color : str (default {COLORS[-1]})
+        badge_color : str (default 'blue')
             The badge color to use
         """
         super().__init__()
