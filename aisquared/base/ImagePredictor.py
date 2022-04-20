@@ -1,5 +1,5 @@
 from aisquared.config.harvesting import ImageHarvester
-from aisquared.config.preprocessing import ImagePreprocessor, Resize, ConvertToColor, DivideValue
+from aisquared.config.preprocessing.image import ImagePreprocessor, Resize, ConvertToColor, DivideValue
 from aisquared.config.analytic import LocalModel
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, Regression
 from aisquared.config.rendering import ImageRendering

@@ -1,5 +1,5 @@
 from aisquared.config.harvesting import TextHarvester
-from aisquared.config.preprocessing import TextPreprocessor, Tokenize, RemoveCharacters, ConvertToCase, ConvertToVocabulary, PadSequences
+from aisquared.config.preprocessing.text import TextPreprocessor, Tokenize, RemoveCharacters, ConvertToCase, ConvertToVocabulary, PadSequences
 from aisquared.config.analytic import LocalModel
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, Regression
 from aisquared.config.rendering import DocumentRendering
