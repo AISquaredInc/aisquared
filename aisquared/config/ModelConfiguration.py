@@ -1,5 +1,5 @@
 from aisquared.base import BaseObject, ALLOWED_STAGES
-from aisquared.config.harvesting import ImageHarvester, TextHarvester
+from aisquared.config.harvesting import ImageHarvester, TextHarvester, InputHarvester
 from aisquared.config.preprocessing import TabularPreprocessor, ImagePreprocessor, TextPreprocessor
 from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel, LocalAnalytic
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, ObjectDetection, Regression
@@ -14,7 +14,8 @@ import os
 
 HARVESTING_CLASSES = (
     ImageHarvester,
-    TextHarvester
+    TextHarvester,
+    InputHarvester
 )
 
 PREPROCESSING_CLASSES = (
