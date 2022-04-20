@@ -1,6 +1,8 @@
 from aisquared.base import BaseObject, ALLOWED_STAGES
 from aisquared.config.harvesting import ImageHarvester, TextHarvester, InputHarvester
-from aisquared.config.preprocessing import TabularPreprocessor, ImagePreprocessor, TextPreprocessor
+from aisquared.config.preprocessing.tabular import TabularPreprocessor
+from aisquared.config.preprocessing.image import ImagePreprocessor
+from aisquared.config.preprocessing.text import TextPreprocessor
 from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel, LocalAnalytic
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, ObjectDetection, Regression
 from aisquared.config.rendering import ImageRendering, ObjectRendering, DocumentRendering, WordRendering, ChainRendering
