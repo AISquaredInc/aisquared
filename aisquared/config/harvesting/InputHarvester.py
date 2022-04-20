@@ -9,6 +9,15 @@ class InputHarvester(BaseObject):
             input_type = 'text',
             max_length = None
     ):
+        """
+        Parameters
+        ----------
+        input_type : str (default 'text')
+            What kind of input to harvest
+            NOTE: Currently only supports 'text'
+        max_length : int or None (default None)
+            The maximum length of harvested text
+        """
         super().__init__()
         self.input_type = input_type
         self.max_length = max_length

@@ -15,11 +15,11 @@ class TextHarvester(BaseObject):
         regex = None,
         flags = 'gu'
     ):
-        f"""
+        """
         Parameters
         ----------
-        how : str (default {_ALLOWED_HOWS[0]})
-            How to harvest text (supports {_ALLOWED_HOWS})
+        how : str (default 'all')
+            How to harvest text (supports ['how', 'all'])
         regex : str or None (default None)
             Javascript-compatible regular expression to use to harvest individual strings
         flags : str or None (default 'gu')
