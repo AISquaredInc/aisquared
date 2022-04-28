@@ -178,3 +178,9 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Fixed bugs preventing Windows users from importing the package
 - Updated `ModelConfiguration` to include `url` parameter
 - Changed default tokenization string
+
+## Version 0.2.0
+- Moved preprocessing steps under subpackages for specific kinds of preprocessing steps
+- Cleaned up documentation to render within programmatic access environments
+- Added `aisquared.logging` subpackage
+- Created `InputHarvester`
