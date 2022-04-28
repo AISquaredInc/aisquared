@@ -10,6 +10,7 @@ setup(
         'aisquared.base',
         'aisquared.remote',
         'aisquared.config',
+        'aisquared.logging',
         'aisquared.config.harvesting',
         'aisquared.config.preprocessing',
         'aisquared.config.preprocessing.text',
@@ -29,6 +30,7 @@ setup(
     license_files = 'LICENSE',
     install_requires = [
         'tensorflowjs',
+        'mlflow',
         'boto3',
         'azure-storage-blob'
     ],
