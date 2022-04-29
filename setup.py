@@ -11,6 +11,7 @@ setup(
         'aisquared.remote',
         'aisquared.config',
         'aisquared.logging',
+        'aisquared.serving',
         'aisquared.config.harvesting',
         'aisquared.config.preprocessing',
         'aisquared.config.preprocessing.text',
