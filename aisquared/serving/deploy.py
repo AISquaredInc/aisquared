@@ -1,3 +1,4 @@
+from jax import host_count
 from mlflow.tensorflow import load_model as load_tensorflow_model
 from mlflow.sklearn import load_model as load_sklearn_model
 from mlflow.pytorch import load_model as load_pytorch_model
@@ -6,6 +7,8 @@ from flask import Flask, request
 import tensorflow as tf
 import numpy as np
 import json
+
+import waitress
 
 _ALLOWED_TYPES = [
         'tensorflow',
@@ -80,7 +83,8 @@ def deploy_model(
         })
 
     # run the app
-    app.run(
+    waitress.serve(
+        app,
         host = host,
         port = port
     )

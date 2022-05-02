@@ -34,7 +34,9 @@ setup(
         'tensorflowjs',
         'mlflow',
         'boto3',
-        'azure-storage-blob'
+        'azure-storage-blob',
+        'flask',
+        'waitress'
     ],
     classifiers = [
         'License :: Other/Proprietary License'
