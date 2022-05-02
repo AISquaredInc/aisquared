@@ -189,3 +189,5 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Added `aisquared.logging` subpackage
 - Created `InputHarvester`
 - Created the `aisquared.serving` subpackage
+- Created the `aisquared` CLI with the following commands:
+  - `aisquared deploy`, which deploys a model locally
