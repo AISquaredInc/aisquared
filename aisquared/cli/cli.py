@@ -13,6 +13,9 @@ def aisquared(context):
 @click.option('--host', '-h', type = str, default = '127.0.0.1')
 @click.option('--port', '-p', type = int, default = 2244)
 def deploy(saved_model, model_type, host, port):
+    """
+    Deploy a model to a local endpoint
+    """
     deploy_model(
         saved_model,
         model_type,
