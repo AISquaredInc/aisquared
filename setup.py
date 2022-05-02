@@ -7,6 +7,7 @@ setup(
     url = 'https://github.com/AISquaredInc/aisquared',
     packages = [
         'aisquared',
+        'aisquared.cli',
         'aisquared.base',
         'aisquared.remote',
         'aisquared.config',
@@ -37,5 +38,10 @@ setup(
     ],
     classifiers = [
         'License :: Other/Proprietary License'
-    ]
+    ],
+    entry_points = {
+        'console_scripts' : [
+            'aisquared = aisquared.cli.cli:aisquared'
+        ]
+    }
 )
