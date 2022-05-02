@@ -20,7 +20,7 @@ pip install git+https://github.com/AISquaredInc/aisquared
 
 This package is currently in a state of constant development, so it is likely that breaking changes can be made at any time.  We will work diligently to document changes and make stable releases in the future.
 
-The `aisquared` package currently contains four subpackages, the `aisquared.config` package, the `aisquared.base` subpackage, the `aisquared.logging` subpackage, and the `aisquared.remote` package. The `config` package holds objects for building the configuration files that need to be included with converted model files for use within the AI Squared Extension. The contents of the config subpackage contain both pre- and postprocessing steps as well as harvesting, analytic, rendering, and feedback objects to use with the model. The following will explain the functionality of the config package:
+The `aisquared` package currently contains five subpackages, the `aisquared.config` package, the `aisquared.base` subpackage, the `aisquared.logging` subpackage, the `aisquared.serving` subpackage, and the `aisquared.remote` package. The `config` package holds objects for building the configuration files that need to be included with converted model files for use within the AI Squared Extension. The contents of the config subpackage contain both pre- and postprocessing steps as well as harvesting, analytic, rendering, and feedback objects to use with the model. The following will explain the functionality of the config package:
 
 ### aisquared.config
 
@@ -159,6 +159,10 @@ The `aisquared.remote` subpackage contains utilities and classes for interacting
 - `AzureClient`
   - This client facilitates the interaction with Azure cloud storage
 
+### aisquared.serving
+
+The `aisquared.serving` subpackage contains utilities for serving models locally or remotely using [MLflow](https://mlflow.org) or locally using [Flask](https://flask.palletsprojects.com/en/2.1.x/).
+
 ### aisquared.logging
 
 The `aisquared.logging` subpackage is powered by [MLflow](https://mlflow.org), a powerful open-source platform for the machine learning lifecycle. The `logging` subpackage inherits nearly all functionality from mlflow, so we highly recommend users refer to the [MLflow documentation site](https://mlflow.org/docs/latest/index.html) for additional information.
@@ -184,3 +188,4 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Cleaned up documentation to render within programmatic access environments
 - Added `aisquared.logging` subpackage
 - Created `InputHarvester`
+- Created the `aisquared.serving` subpackage
