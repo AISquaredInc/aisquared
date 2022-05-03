@@ -136,6 +136,7 @@ class GraphConfiguration(BaseObject):
         for node in self.nodes:
             if node['step']['className'] in LOCAL_CLASSES:
                 filenames.append(node['step']['params']['path'])
+        return filenames
 
     def to_dict(self):
         """
