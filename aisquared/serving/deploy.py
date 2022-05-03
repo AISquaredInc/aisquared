@@ -5,9 +5,9 @@ from mlflow.keras import load_model as load_keras_model
 from flask import Flask, request
 import tensorflow as tf
 import numpy as np
+import waitress
 import json
 
-import waitress
 
 _ALLOWED_TYPES = [
         'tensorflow',
