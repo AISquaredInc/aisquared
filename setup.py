@@ -36,7 +36,8 @@ setup(
         'boto3',
         'azure-storage-blob',
         'flask',
-        'waitress'
+        'waitress',
+        'click'
     ],
     classifiers = [
         'License :: Other/Proprietary License'
