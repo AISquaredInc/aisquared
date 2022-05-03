@@ -111,10 +111,10 @@ class GraphConfiguration(BaseObject):
             raise ValueError('url must be string')
         self._url = value
 
-    def add_node(step, dependencies = None):
+    def add_node(self, step, dependencies = None):
         if not isinstance(step, BaseObject):
             raise TypeError('Each node in the configuration graph should be an aisquared configuration step')
-        if not isinstance(dependencies, int) and dependencies is not None:
+        if not (isinstance(dependencies, int) or dependencies is None):
             if not isinstance(dependencies, list) or not all([isinstance(dep, int) for dep in dependencies]):
                 raise ValueError('dependencies must be integer or list of integers')
         
@@ -152,9 +152,9 @@ class GraphConfiguration(BaseObject):
                 'mlflowUser' : self.mlflow_user,
                 'mlflowToken' : self.mlflow_token,
                 'owner' : self.owner,
-                'url' : self.url,
-                'nodes' : self.nodes
-            }
+                'url' : self.url
+            },
+            'nodes' : self.nodes
         }
 
     def compile(self, filename = None, dtype = None):
