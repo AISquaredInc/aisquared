@@ -82,6 +82,7 @@ def deploy_model(
         })
 
     # run the app
+    print('App created successfully. Serving and awaiting requests.')
     waitress.serve(
         app,
         host = host,
