@@ -23,6 +23,28 @@ class GraphConfiguration(BaseObject):
             owner = None,
             url = '*'
     ):
+        """
+        Parameters
+        ----------
+        name : str
+            The name of the deployed analytic
+        stage : str (default 'experimental')
+            The stage of the model, from 'experimental', 'staging', 'production'
+        version : str or None (default None)
+            Version of the analytic
+        description : str (default '')
+            The description of the analytic
+        mlflow_uri : str or None (default None)
+            MLFlow URI to use, if applicable
+        mlflow_user : str or None (default None)
+            MLFlow user to use, if applicable
+        mlflow_token : str or None (default None)
+            MLFlow token to use, if applicable
+        owner : str or None (default None)
+            The owner of the model
+        url : str (default '*')
+            URL or URL pattern to match
+        """
         super().__init__()
         self.name = name
         self.stage = stage
@@ -112,6 +134,22 @@ class GraphConfiguration(BaseObject):
         self._url = value
 
     def add_node(self, step, dependencies = None):
+        """
+        Add a node to the configuration graph
+
+        Parameters
+        ----------
+        step : aisquared configuration step
+            The step to add
+        dependencies : int, list of int, or None
+            The ids of nodes which must be run before the 
+            added node
+        
+        Returns
+        -------
+        node_id : int
+            The integer id of the node that is added
+        """
         if not isinstance(step, BaseObject):
             raise TypeError('Each node in the configuration graph should be an aisquared configuration step')
         if not (isinstance(dependencies, int) or dependencies is None):
