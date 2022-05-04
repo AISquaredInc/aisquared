@@ -2,7 +2,7 @@ from mlflow.tensorflow import load_model as load_tensorflow_model
 from mlflow.sklearn import load_model as load_sklearn_model
 from mlflow.pytorch import load_model as load_pytorch_model
 from mlflow.keras import load_model as load_keras_model
-from flask import Flask, request
+from flask import Flask, request, Response
 import tensorflow as tf
 import numpy as np
 import waitress
@@ -69,17 +69,41 @@ def deploy_model(
     # Create the predict function
     @app.route('/predict', methods = ['POST'])
     def predict():
-        data = request.get_json()
-        to_predict = data['data']
-        if model_type == 'mann':
-            to_predict = [
-                np.asarray(d) for d in to_predict
-            ]
-        elif model_type in ['tensorflow', 'keras', 'pytorch', 'sklearn']:
-            to_predict = np.asarray(to_predict)
-        return json.dumps({
-            'predictions' : np.asarray(model.predict(to_predict)).tolist()
-        })
+
+        # try to get the data
+        try:
+            data = request.get_json()
+            to_predict = data['data']
+        except:
+            return Response(
+                'Data appears to be incorrectly formatted',
+                400
+            )
+        
+        # try to get the data correctly formatted for prediction
+        try:
+            if model_type == 'mann':
+                to_predict = [
+                    np.asarray(d) for d in to_predict
+                ]
+            elif model_type in ['tensorflow', 'keras', 'pytorch', 'sklearn']:
+                to_predict = np.asarray(to_predict)
+        except:
+            return Response(
+                'Data passed could not be correctly converted to numpy array for prediction',
+                400
+            )
+
+        # try to return the actual predictions
+        try:
+            return json.dumps({
+                'predictions' : np.asarray(model.predict(to_predict)).tolist()
+            })
+        except:
+            return Response(
+                'Error in performing prediction',
+                400
+            )
 
     # run the app
     print('App created successfully. Serving and awaiting requests.')

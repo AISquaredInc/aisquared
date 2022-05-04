@@ -64,6 +64,6 @@ def get_remote_prediction(
         )
     
     if resp.status_code != 200:
-        raise ValueError(f'Something went wrong. Status code {resp.status_code}')
+        return resp
     else:
         return resp.json()['predictions']
