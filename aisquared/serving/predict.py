@@ -2,7 +2,7 @@ import numpy as np
 import requests
 import json
 
-def predict(
+def get_remote_prediction(
     data,
     host = 'http://127.0.0.1',
     port = 2244
