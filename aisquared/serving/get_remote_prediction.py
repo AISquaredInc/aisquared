@@ -4,7 +4,7 @@ import json
 
 def get_remote_prediction(
     data,
-    host = 'http://127.0.0.1',
+    host = '127.0.0.1',
     port = 2244
 ):
     """
@@ -14,7 +14,7 @@ def get_remote_prediction(
     ----------
     data : dict, str, np.ndarray, or list
         The data to be predicted on
-    host : str (default 'http://127.0.0.1')
+    host : str (default '127.0.0.1')
         The host to use
     port : int (default '2244')
         The port to use
@@ -32,7 +32,7 @@ def get_remote_prediction(
         The predictions from the deployed model
     """
     # Setup the url and headers
-    url = f'{host}:{port}/predict'
+    url = f'http://{host}:{port}/predict'
     headers = {
         'Content-Type' : 'application/json'
     }

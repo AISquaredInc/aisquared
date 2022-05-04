@@ -50,4 +50,4 @@ def predict(data, host, port, outfile):
         print(predictions)
     else:
         with open(outfile, 'w') as f:
-            json.dump(data, f)
+            json.dump(predictions, f)
