@@ -34,7 +34,7 @@ def deploy_model(
         custom_objects = None
 ):
     """
-    Deploy a model to a Flask development server on the specified host
+    Deploy a model to a Flask server on the specified host
 
     Parameters
     ----------
