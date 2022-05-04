@@ -39,7 +39,8 @@ setup(
         'waitress',
         'click',
         'numpy',
-        'tensorflow'
+        'tensorflow',
+        'mann'
     ],
     classifiers = [
         'License :: Other/Proprietary License'
