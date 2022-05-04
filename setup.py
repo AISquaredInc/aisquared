@@ -40,7 +40,8 @@ setup(
         'click',
         'numpy',
         'tensorflow',
-        'mann'
+        'mann',
+        'scikit-learn'
     ],
     classifiers = [
         'License :: Other/Proprietary License'
