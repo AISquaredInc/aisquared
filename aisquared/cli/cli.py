@@ -31,7 +31,9 @@ def deploy(saved_model, model_type, host, port):
 @click.option('--port', '-p', type = int, default = 2244)
 @click.option('--outfile', '-o', default = None)
 def predict(data, host, port, outfile):
-    
+    """
+    Get predictions from a deployed model
+    """
     # Load the json
     with open(data, 'r') as f:
         data = json.load(f)
