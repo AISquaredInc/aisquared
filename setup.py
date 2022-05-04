@@ -37,7 +37,9 @@ setup(
         'azure-storage-blob',
         'flask',
         'waitress',
-        'click'
+        'click',
+        'numpy',
+        'tensorflow'
     ],
     classifiers = [
         'License :: Other/Proprietary License'
