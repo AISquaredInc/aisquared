@@ -117,7 +117,7 @@ def delete(client_type, model_name, bucket):
 
 @airfiles.command('download')
 @click.argument('client-type', type = click.Choice(_ALLOWED_CLIENTS, case_sensitive = False))
-@click.argument('--model-name', type = str)
+@click.argument('model-name', type = str)
 @click.option('--bucket', '-b', type = str, default = None)
 def download(client_type, model_name, bucket):
     """
