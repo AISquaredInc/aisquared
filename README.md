@@ -193,3 +193,4 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Created the `aisquared` CLI with the following commands:
   - `aisquared deploy`, which deploys a model locally
   - `aisquared predict`, which predicts using a local JSON file
+  - `aisquared airfiles`, which contains the subcommands `list`, `delete`, `download`, and `upload`
