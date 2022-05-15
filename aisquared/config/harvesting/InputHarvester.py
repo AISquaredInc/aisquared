@@ -14,7 +14,7 @@ class InputHarvester(BaseObject):
         ----------
         input_type : str (default 'text')
             What kind of input to harvest
-            NOTE: Currently only supports 'text'
+            NOTE: Currently only supports 'text' or 'image'
         max_length : int or None (default None)
             The maximum length of harvested text
         """
@@ -27,8 +27,8 @@ class InputHarvester(BaseObject):
         return self._input_type
     @input_type.setter
     def input_type(self, value):
-        if value != 'text':
-            raise ValueError("InputHarvester currently only supports 'text' input")
+        if value not in ['text', 'image']:
+            raise ValueError("InputHarvester currently only supports 'text' or 'image' input")
         self._input_type = value
 
     @property
