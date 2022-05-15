@@ -190,6 +190,7 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Created `InputHarvester`
 - Created the `aisquared.serving` subpackage, specifically the `deploy_model` and `get_remote_prediction` functions
 - Created the `GraphConfiguration` class
+- Added `auto-run` parameter to `ModelConfiguration` and `GraphConfiguration` classes
 - Created the `aisquared` CLI with the following commands:
   - `aisquared deploy`, which deploys a model locally
   - `aisquared predict`, which predicts using a local JSON file
