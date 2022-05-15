@@ -188,7 +188,7 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Cleaned up documentation to render within programmatic access environments
 - Added `aisquared.logging` subpackage
 - Created `InputHarvester`
-  - Allows for harvesting of input text and images
+  - Allows for harvesting of input text, images, and tabular data
 - Created the `aisquared.serving` subpackage, specifically the `deploy_model` and `get_remote_prediction` functions
 - Created the `GraphConfiguration` class
 - Added `auto-run` parameter to `ModelConfiguration` and `GraphConfiguration` classes
