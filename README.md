@@ -196,3 +196,4 @@ Below are a list of additional features, bug fixes, and other changes made for e
   - `aisquared deploy`, which deploys a model locally
   - `aisquared predict`, which predicts using a local JSON file
   - `aisquared airfiles`, which contains the subcommands `list`, `delete`, `download`, and `upload`
+- Changed all classes within `aisquared.config.analytic` to accept `'tabular'` as an `input_type`
