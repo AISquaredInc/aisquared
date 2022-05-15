@@ -17,7 +17,7 @@ class LocalAnalytic(BaseObject):
         path : str or path-like or file-like
             The path to the analytic saved on disk
         input_type : str
-            The input type to the analytic. Either one of 'cv' or 'text'
+            The input type to the analytic. Either one of 'cv', 'text', or 'tabular'
         """
         super().__init__()
         self.path = path

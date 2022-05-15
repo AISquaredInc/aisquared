@@ -17,7 +17,7 @@ class DeployedModel(BaseObject):
         url : str
             The base URL for the remote endpoint
         input_type : str
-            The input type to the model. Either one of 'cv' or 'text'
+            The input type to the model. Either one of 'cv', 'text', or 'tabular'
         secret : str (default 'request')
             The secret key used to interact with the service. Default value of 'request'
             indicates that the user inputs the key whenever the analytic is started again
