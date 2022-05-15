@@ -1,3 +1,4 @@
+from typing import Type
 from aisquared.base import BaseObject, ALLOWED_STAGES
 import tensorflowjs as tfjs
 import tensorflow as tf
@@ -21,7 +22,8 @@ class GraphConfiguration(BaseObject):
             mlflow_user = None,
             mlflow_token = None,
             owner = None,
-            url = '*'
+            url = '*',
+            auto_run = False
     ):
         """
         Parameters
@@ -44,6 +46,8 @@ class GraphConfiguration(BaseObject):
             The owner of the model
         url : str (default '*')
             URL or URL pattern to match
+        auto_run : bool (default False)
+            Whether to automatically run this file when on a valid page
         """
         super().__init__()
         self.name = name
@@ -55,6 +59,7 @@ class GraphConfiguration(BaseObject):
         self.mlflow_token = mlflow_token
         self.owner = owner
         self.url = url
+        self.auto_run = auto_run
         self.nodes = []
 
     # name
@@ -133,6 +138,16 @@ class GraphConfiguration(BaseObject):
             raise ValueError('url must be string')
         self._url = value
 
+    # auto_run
+    @property
+    def auto_run(self):
+        return self._auto_run
+    @auto_run.setter
+    def auto_run(self, value):
+        if not isinstance(value, bool):
+            raise TypeError('auto_run must be Boolean valued')
+        self._auto_run = value
+
     def add_node(self, step, dependencies = None):
         """
         Add a node to the configuration graph
@@ -191,7 +206,8 @@ class GraphConfiguration(BaseObject):
                 'mlflowUser' : self.mlflow_user,
                 'mlflowToken' : self.mlflow_token,
                 'owner' : self.owner,
-                'url' : self.url
+                'url' : self.url,
+                'autoRun' : self.auto_run
             },
             'nodes' : self.nodes
         }
