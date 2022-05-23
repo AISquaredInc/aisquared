@@ -7,6 +7,4 @@ __dev__ = True
 
 import aisquared.config
 import aisquared.base
-import aisquared.remote
-import aisquared.logging
 import aisquared.serving
