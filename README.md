@@ -199,3 +199,4 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Changed all classes within `aisquared.config.analytic` to accept `'tabular'` as an `input_type`
 - Removed `aisquared.logging` and `aisquared.remote` from top-level imports
 - Added `round` parameter to Regression postprocesser
+- Removed `DocumentPredictor` and `ImagePredictor` classes
