@@ -200,3 +200,6 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Removed `aisquared.logging` and `aisquared.remote` from top-level imports
 - Added `round` parameter to Regression postprocesser
 - Removed `DocumentPredictor` and `ImagePredictor` classes
+- Removed `ChainRendering` class
+- Created `FilterRendering` class
+- Altered `QUALIFIERS`
