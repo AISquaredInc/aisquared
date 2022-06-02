@@ -1,4 +1,4 @@
-from aisquared.base import LOCATIONS, COLORS, BaseObject
+from aisquared.base import LOCATIONS, BaseObject
 
 class ImageRendering(BaseObject):
     """
@@ -7,13 +7,16 @@ class ImageRendering(BaseObject):
 
     def __init__(
         self,
-        color = COLORS[-1],
+        color = 'blue',
         thickness = '5px',
         placement = LOCATIONS[-1],
         include_probability = False,
-        badge_color = COLORS[-2],
-        font_color = COLORS[-4],
-        font_size = '5px'
+        badge_color = 'white',
+        font_color = 'black',
+        font_size = '5px',
+        classes = None,
+        confidence_threshold = None,
+        regression_threshold = None
     ):
         """
         Parameters
@@ -33,6 +36,12 @@ class ImageRendering(BaseObject):
             Color of the text
         font_size : str (default '5px')
             Text size
+        classes : None or list (default None)
+            If provided, list of classes that will be rendered
+        confidence_threshold : None or float (default None)
+            The threshold for rendering, if provided
+        regression_threshold : None or dict (default None)
+            Information for regression rendering, with 'filter' and 'value' keys
         """
         super().__init__()
         self.color = color
@@ -42,14 +51,15 @@ class ImageRendering(BaseObject):
         self.badge_color = badge_color
         self.font_color = font_color
         self.font_size = font_size
+        self.classes = classes
+        self.confidence_threshold = confidence_threshold
+        self.regression_threshold = regression_threshold
 
     @property
     def color(self):
         return self._color
     @color.setter
     def color(self, value):
-        if value not in COLORS:
-            raise ValueError(f'color must be one of {COLORS}')
         self._color = value
 
     @property
@@ -80,8 +90,6 @@ class ImageRendering(BaseObject):
         return self._badge_color
     @badge_color.setter
     def badge_color(self, value):
-        if value not in COLORS:
-            raise ValueError(f'badge_color must be one of {COLORS}')
         self._badge_color = value
 
     @property
@@ -89,8 +97,6 @@ class ImageRendering(BaseObject):
         return self._font_color
     @font_color.setter
     def font_color(self, value):
-        if value not in COLORS:
-            raise ValueError(f'font_color must be one of {COLORS}')
         self._font_color = value
 
     @property
@@ -99,6 +105,27 @@ class ImageRendering(BaseObject):
     @font_size.setter
     def font_size(self, value):
         self._font_size = value
+    
+    @property
+    def classes(self):
+        return self._classes
+    @classes.setter
+    def classes(self, value):
+        self._classes = value
+
+    @property
+    def confidence_threshold(self):
+        return self._confidence_threshold
+    @confidence_threshold.setter
+    def confidence_threshold(self, value):
+        self._confidence_threshold = value
+
+    @property
+    def regression_threshold(self):
+        return self._regression_threshold
+    @regression_threshold.setter
+    def regression_threshold(self, value):
+        self._regression_threshold = value
 
     def to_dict(self):
         """
@@ -113,6 +140,9 @@ class ImageRendering(BaseObject):
                 'includeProbability' : self.include_probability,
                 'badgeColor' : self.badge_color,
                 'fontColor' : self.font_color,
-                'fontSize' : self.font_size
+                'fontSize' : self.font_size,
+                'classes' : self.classes,
+                'confidenceThreshold' : self.confidence_threshold,
+                'regressionThreshold' : self.regression_threshold
             }
         }
