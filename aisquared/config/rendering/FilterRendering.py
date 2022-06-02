@@ -65,7 +65,7 @@ class FilterRendering(BaseObject):
     @property
     def value(self):
         return self._value
-    @property
+    @value.setter
     def value(self, val):
         if not isinstance(val, (list, str, int, float)):
             raise TypeError('value must be list, string, or numeric')
