@@ -35,10 +35,11 @@ WORD_LISTS = [
 ]
 
 QUALIFIERS = [
-    'greater',
-    'less',
-    'greater_equal',
-    'less_equal',
-    'equal',
-    'in'
+    'gt',
+    'lt',
+    'gte',
+    'lte',
+    'in',
+    'ne',
+    'nin'
 ]
