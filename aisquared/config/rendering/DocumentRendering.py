@@ -14,7 +14,7 @@ class DocumentRendering(BaseObject):
         probability_key = 'probability',
         underline_color = COLORS[-1]
     ):
-        f"""
+        """
         Parameters
         ----------
         prediction_key : str (default 'className')
@@ -28,7 +28,7 @@ class DocumentRendering(BaseObject):
             Whether to include probabilities
         probability_key : str (default 'probability')
             Key to use to retrieve probability from results
-        underline_color : str (default {COLORS[-1]})
+        underline_color : str (default 'blue')
         """
         super().__init__()
         self.prediction_key = prediction_key
