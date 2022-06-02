@@ -203,3 +203,4 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Removed `ChainRendering` class
 - Created `FilterRendering` class
 - Altered `QUALIFIERS`
+- Added advanced rendering parameters to rendering objects
