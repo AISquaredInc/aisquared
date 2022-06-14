@@ -20,9 +20,9 @@ class WordRendering(BaseObject):
         Parameters
         ----------
         word_list : str (default 'input')
-            How to identify words to render, must be one of {WORD_LISTS}
+            How to identify words to render, must be one of 'input', 'result'
         results_key : str or None (default None)
-            The result key to use to render, only used if word_list is 'results'
+            The result key to use to render, only used if word_list is 'result'
         content_key : str or None (default None)
             The key from the results to use in rendering
         badge_shape : str (default 'star')
