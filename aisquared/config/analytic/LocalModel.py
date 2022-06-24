@@ -16,7 +16,7 @@ class LocalModel(BaseObject):
         path : str or path-like or file-like
             The file path of the saved model
         input_type : str
-            Input type to the model. Must be one of 'cv' or 'text'
+            Input type to the model. Must be one of 'cv', 'text', or 'tabular'
         """
         super().__init__()
         self.path = path

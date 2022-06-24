@@ -7,11 +7,17 @@ setup(
     url = 'https://github.com/AISquaredInc/aisquared',
     packages = [
         'aisquared',
+        'aisquared.cli',
         'aisquared.base',
         'aisquared.remote',
         'aisquared.config',
+        'aisquared.logging',
+        'aisquared.serving',
         'aisquared.config.harvesting',
         'aisquared.config.preprocessing',
+        'aisquared.config.preprocessing.text',
+        'aisquared.config.preprocessing.image',
+        'aisquared.config.preprocessing.tabular',
         'aisquared.config.analytic',
         'aisquared.config.postprocessing',
         'aisquared.config.rendering',
@@ -26,10 +32,24 @@ setup(
     license_files = 'LICENSE',
     install_requires = [
         'tensorflowjs',
+        'mlflow',
         'boto3',
-        'azure-storage-blob'
+        'azure-storage-blob',
+        'flask',
+        'waitress',
+        'click',
+        'numpy',
+        'tensorflow',
+        'mann',
+        'scikit-learn',
+        'torch'
     ],
     classifiers = [
         'License :: Other/Proprietary License'
-    ]
+    ],
+    entry_points = {
+        'console_scripts' : [
+            'aisquared = aisquared.cli.cli:aisquared'
+        ]
+    }
 )

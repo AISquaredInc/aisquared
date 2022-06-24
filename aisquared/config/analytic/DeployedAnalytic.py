@@ -17,7 +17,7 @@ class DeployedAnalytic(BaseObject):
         url : str
             The base URL for the remote analytic
         input_type : str
-            The input types supplied to the analytic. Either one of 'cv' or 'text'
+            The input types supplied to the analytic. Either one of 'cv', 'text', or 'tabular'
         secret : str (default 'request')
             The secret key used to interact with the service. Default value of 'request' 
             indicates that the user inputs the key whenever the analytic is started again

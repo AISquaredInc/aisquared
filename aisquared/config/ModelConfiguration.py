@@ -1,9 +1,11 @@
 from aisquared.base import BaseObject, ALLOWED_STAGES
-from aisquared.config.harvesting import ImageHarvester, TextHarvester
-from aisquared.config.preprocessing import TabularPreprocessor, ImagePreprocessor, TextPreprocessor
+from aisquared.config.harvesting import ImageHarvester, TextHarvester, InputHarvester
+from aisquared.config.preprocessing.tabular import TabularPreprocessor
+from aisquared.config.preprocessing.image import ImagePreprocessor
+from aisquared.config.preprocessing.text import TextPreprocessor
 from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel, LocalAnalytic
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, ObjectDetection, Regression
-from aisquared.config.rendering import ImageRendering, ObjectRendering, DocumentRendering, WordRendering
+from aisquared.config.rendering import ImageRendering, ObjectRendering, DocumentRendering, WordRendering, FilterRendering
 from aisquared.config.feedback import SimpleFeedback, BinaryFeedback, MulticlassFeedback, RegressionFeedback, ModelFeedback, QualitativeFeedback
 
 import tensorflowjs as tfjs
@@ -14,7 +16,8 @@ import os
 
 HARVESTING_CLASSES = (
     ImageHarvester,
-    TextHarvester
+    TextHarvester,
+    InputHarvester
 )
 
 PREPROCESSING_CLASSES = (
@@ -41,7 +44,8 @@ RENDERING_CLASSES = (
     ObjectRendering,
     ImageRendering,
     DocumentRendering,
-    WordRendering
+    WordRendering,
+    FilterRendering
 )
 
 FEEDBACK_CLASSES = (
@@ -78,7 +82,8 @@ class ModelConfiguration(BaseObject):
             mlflow_user = None,
             mlflow_token = None,
             owner = None,
-            url = '*'
+            url = '*',
+            auto_run = False
     ):
         """
         Parameters
@@ -93,9 +98,9 @@ class ModelConfiguration(BaseObject):
             Analytics to use
         postprocessing_steps : Postprocessing object or list of Postprocessing objects or None
             Postprocessers to use
-        rendering_steps : Rendering object or list of Rendering objects
+        rendering_steps : Rendering object or list of Rendering objects or None
             Renderers to use
-        feedback_steps : Feedback object or list of Feedback objects or None (default None)
+        feedback_steps : None, Feedback object or list of Feedback objects or None (default None)
             Feedback steps to use
         stage : str (default 'experimental')
             The stage of the model, from 'experimental', 'staging', 'production'
@@ -113,6 +118,8 @@ class ModelConfiguration(BaseObject):
             The owner of the model
         url : str (default '*')
             URL or URL pattern to match
+        auto_run : bool (default False)
+            Whether to automatically run this file when on a valid page
         """
         super().__init__()
         self.name = name
@@ -130,6 +137,7 @@ class ModelConfiguration(BaseObject):
         self.mlflow_token = mlflow_token
         self.owner = owner
         self.url = url
+        self.auto_run = auto_run
 
     # name
     @property
@@ -145,13 +153,14 @@ class ModelConfiguration(BaseObject):
         return self._harvesting_steps
     @harvesting_steps.setter
     def harvesting_steps(self, value):
+        harvesting_classes = HARVESTING_CLASSES + (ModelConfiguration,)
         if value is None:
             self._harvesting_steps = value
-        elif isinstance(value, HARVESTING_CLASSES):
+        elif isinstance(value, harvesting_classes):
             self._harvesting_steps = [value]
-        elif isinstance(value, list) and all([isinstance(val, HARVESTING_CLASSES) for val in value]):
+        elif isinstance(value, list) and all([isinstance(val, harvesting_classes) for val in value]):
             self._harvesting_steps = value
-        elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, HARVESTING_CLASSES) for val in value for v in val]):
+        elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, harvesting_classes) for val in value for v in val]):
             self._harvesting_steps = value
         else:
             raise ValueError('harvesting_steps must be a None, single Harvester object, a list of Harvester objects, or a list of list of harvester objects')
@@ -215,14 +224,14 @@ class ModelConfiguration(BaseObject):
         return self._rendering_steps
     @rendering_steps.setter
     def rendering_steps(self, value):
-        if isinstance(value, RENDERING_CLASSES):
+        if isinstance(value, RENDERING_CLASSES) or value is None:
             self._rendering_steps = [value]
         elif isinstance(value, list) and all([isinstance(val, RENDERING_CLASSES) for val in value]):
             self._rendering_steps = value
         elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, RENDERING_CLASSES) for val in value for v in val]):
             self._rendering_steps = value
         else:
-            raise ValueError('rendering_steps must be a single Rendering object, a list of Rendering objects, or a list of list of Rendering objects')
+            raise ValueError('rendering_steps must be a single Rendering object, a list of Rendering objects, a list of list of Rendering objects, or None')
 
     # feedback_steps
     @property
@@ -310,13 +319,24 @@ class ModelConfiguration(BaseObject):
         if not isinstance(value, str):
             raise ValueError('url must be string')
         self._url = value
+    
+    # auto_run
+    @property
+    def auto_run(self):
+        return self._auto_run
+    @auto_run.setter
+    def auto_run(self, value):
+        if not isinstance(value, bool):
+            raise TypeError('auto_run must be Boolean valued')
+        self._auto_run = value
 
     # harvester_dict
     @property
     def harvester_dict(self):
+        harvesting_classes = HARVESTING_CLASSES + (ModelConfiguration,)
         if self.harvesting_steps is None:
             return None
-        elif isinstance(self.harvesting_steps, list) and all([isinstance(val, HARVESTING_CLASSES) for val in self.harvesting_steps]):
+        elif isinstance(self.harvesting_steps, list) and all([isinstance(val, harvesting_classes) for val in self.harvesting_steps]):
             return [val.to_dict() for val in self.harvesting_steps]
         else:
             return [
@@ -360,7 +380,9 @@ class ModelConfiguration(BaseObject):
     # render_dict
     @property
     def render_dict(self):
-        if isinstance(self.rendering_steps, list) and all([isinstance(val, RENDERING_CLASSES) for val in self.rendering_steps]):
+        if self.rendering_steps[0] is None:
+            return []
+        elif isinstance(self.rendering_steps, list) and all([isinstance(val, RENDERING_CLASSES) for val in self.rendering_steps]):
             return [val.to_dict() for val in self.rendering_steps]
         else:
             return [
@@ -384,6 +406,14 @@ class ModelConfiguration(BaseObject):
         Get filenames for all models in the configuration
         """
         filenames = []
+        if isinstance(self.harvesting_steps[0], list):
+            harvesting_list = [h for harvester in self.harvesting_steps for h in harvester]
+        else:
+            harvesting_list = self.harvesting_steps
+        for harvester in harvesting_list:
+            if isinstance(harvester, ModelConfiguration):
+                filenames.extend(harvester.get_model_filenames())
+
         if isinstance(self.analytic[0], ANALYTIC_CLASSES):
             for a in self.analytic:
                 if isinstance(a, LOCAL_CLASSES):
@@ -416,7 +446,8 @@ class ModelConfiguration(BaseObject):
                 'mlflowUser' : self.mlflow_user,
                 'mlflowToken' : self.mlflow_token,
                 'owner' : self.owner,
-                'url' : self.url
+                'url' : self.url,
+                'autoRun' : self.auto_run
             }
         }
 

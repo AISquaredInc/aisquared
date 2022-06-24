@@ -33,3 +33,13 @@ WORD_LISTS = [
     'input',
     'result'
 ]
+
+QUALIFIERS = [
+    'gt',
+    'lt',
+    'gte',
+    'lte',
+    'in',
+    'ne',
+    'nin'
+]
