@@ -28,6 +28,8 @@ The `aisquared.config` subpackage contains the following objects:
 
 - `ModelConfiguration`
   - The `ModelConfiguration` object is the final object to be used to create the configuration file. It takes as input a list of harvesting steps, list of preprocessing steps, a list of analytics, a list of postprocessing steps, a list of rendering steps, an optional MLFlow URI, an optional MLFlow user, and an optional MLFlow token
+- `GraphConfiguration`
+  - The `GraphConfiguration object is another method for creating configuration files. Instead of taking a predefined set of steps, it allows the developer to add steps to create a directed acyclic graph
 
 #### aisquared.config.harvesting
 
@@ -37,6 +39,8 @@ The `aisquared.config.harvesting` subpackage contains the following objects:
   - The `ImageHarvester` class indicates the harvesting of images within the DOM to perform prediction on
 - `TextHarvester`
   - The `TextHarvester` class indicates the harvesting of text within the DOM to perform prediction on
+- `InputHarvester`
+  - The `InputHarvester` class configures harvesting of different kinds of user-defined inputs
 
 #### aisquared.config.preprocessing
 
@@ -109,33 +113,35 @@ The `aisquared.config.feedback` subpackage contains the following objects:
 
 The `aisquared.config.preprocessing` subpackage contains `PreProcStep` objects, which are then fed into the `ImagePreprocessor`, `TabularPreprocessor`, and `TextPreprocessor` classes. The `PreProcStep` classes are:
 
-- `ZScore`
+- `tabular.ZScore`
   - This class configures standard normalization procedures for tabular data
-- `MinMax`
+- `tabular.MinMax`
   - This class configures Min-Max scaling procedures for tabular data
-- `OneHot`
+- `tabular.OneHot`
   - This class configures One Hot encoding for columns of tabular data
-- `AddValue`
+- `tabular.DropColumn`
+  - This class configures dropping columns
+- `image.AddValue`
   - This class configures adding values to pixels in image data
-- `SubtractValue`
+- `image.SubtractValue`
   - This class configures subtracting values to pixels in image data
-- `MultiplyValue`
+- `image.MultiplyValue`
   - This class configures multiplying pixel values by a value in image data
-- `DivideValue`
+- `image.DivideValue`
   - This class configures dividing pixel values by a value in image data
-- `ConvertToColor`
+- `image.ConvertToColor`
   - This class configures converting images to the specified color scheme
-- `Resize`
+- `image.Resize`
   - This class configures image resize procedures
-- `Tokenize`
+- `text.Tokenize`
   - This class configures how text will be tokenized
-- `RemoveCharacters`
+- `text.RemoveCharacters`
   - This class configures which characters should be removed from text
-- `ConvertToCase`
+- `text.ConvertToCase`
   - This class configures which case - upper or lower - text should be converted to
-- `ConvertToVocabulary`
+- `text.ConvertToVocabulary`
   - This class configures how text tokens should be converted to vocabulary integers
-- `PadSequences`
+- `text.PadSequences`
   - This class configures how padding should occur given a sequence of text tokens converted to a sequence of integers
 
 These step objects can then be placed within the `TabularPreprocessor`, `ImagePreprocessor`, or `TextPreprocessor` objects. For the `TabularPreprocessor`, the `ZScore`, `MinMax`, and `OneHot` Steps are supported. For the `ImagePreprocessor`, the `AddValue`, `SubtractValue`, `MultiplyValue`, `DivideValue`, `ConvertToColor`, and `Resize` Steps are supported. For the `TextPreprocessor`, the `Tokenize`, `RemoveCharacters`, `ConvertToCase`, `ConvertToVocabulary`, and `PadSequences` Steps are supported
@@ -148,7 +154,7 @@ Once the `ModelConfiguration` object has been created with the required paramete
 
 ### aisquared.base
 
-The `aisquared.base` subpackage contains two classes, the `DocumentPredictor` and the `ImagePredictor` classes, which streamline document prediction and image prediction using locally-saved models.  These classes abstract away the steps required in the `ModelConfiguration` class.  However, just like the `ModelConfiguration` class, objects of these classes support the `.compile()` method; using this method creates the `.air` file as well.
+The `aisquared.base` subpackage contains base utilities not designed to be directly called by the end user.
 
 ### aisquared.remote
 
@@ -168,6 +174,17 @@ The `aisquared.serving` subpackage contains utilities for serving models locally
 The `aisquared.logging` subpackage is powered by [MLflow](https://mlflow.org), a powerful open-source platform for the machine learning lifecycle. The `logging` subpackage inherits nearly all functionality from mlflow, so we highly recommend users refer to the [MLflow documentation site](https://mlflow.org/docs/latest/index.html) for additional information.
 
 In this subpackage, we have additionally added implementations of individual functions to save TensorFlow, Keras, Scikit-Learn, and PyTorch models in a format that can be deployed quickly using MLflow.
+
+## The `aisquared` CLI
+
+The `aisquared` CLI, which is installed with the package, contains command-line functions that provide some high-level functionality the `aisquared` package provides, including:
+
+- `aisquared airfiles`
+  - This command contains functionality to list, delete, upload, and download `.air` files
+- `aisquared deploy`
+  - This command contains functionality to deploy models
+- `aisquared predict`
+  - This command contains functionality to get predictions from deployed models
 
 ## Changes
 
