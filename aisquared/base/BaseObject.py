@@ -11,7 +11,7 @@ class BaseObject:
         """
         Get the object as a dictionary
         """
-        raise NotImplemented
+        raise NotImplementedError
 
     def to_json(self):
         """

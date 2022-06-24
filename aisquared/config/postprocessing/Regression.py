@@ -7,7 +7,8 @@ class Regression(BaseObject):
     def __init__(
         self,
         min = None,
-        max = None
+        max = None,
+        round = False
     ):
         """
         Parameters
@@ -16,10 +17,13 @@ class Regression(BaseObject):
             The value to map an output of 0 to from the model
         max : None, int, or float (default None)
             The value to map an output of 1 to from the model
+        round : bool (default False)
+            Whether to round the output
         """
         super().__init__()
         self.min = min
         self.max = max
+        self.round = round
 
     @property
     def min(self):
@@ -39,6 +43,15 @@ class Regression(BaseObject):
             raise TypeError('max must be None, float, or int')
         self._max = value
 
+    @property
+    def round(self):
+        return self._round
+    @round.setter
+    def round(self, value):
+        if not isinstance(value, bool):
+            raise TypeError('round must be Boolean valued')
+        self._round = value
+
     def to_dict(self):
         """
         Get the configuration object as a dictionary
@@ -47,6 +60,7 @@ class Regression(BaseObject):
             'className' : 'Regression',
             'params' : {
                 'min' : self.min,
-                'max' : self.max
+                'max' : self.max,
+                'round' : self.round
             }
         }

@@ -20,7 +20,7 @@ pip install git+https://github.com/AISquaredInc/aisquared
 
 This package is currently in a state of constant development, so it is likely that breaking changes can be made at any time.  We will work diligently to document changes and make stable releases in the future.
 
-The `aisquared` package currently contains three subpackage, the `aisquared.config` package, the `aisquared.base` subpackage, and the `aisquared.remote` package. The `config` package holds objects for building the configuration files that need to be included with converted model files for use within the AI Squared Extension. The contents of the config subpackage contain both pre- and postprocessing steps as well as harvesting, analytic, rendering, and feedback objects to use with the model. The following will explain the functionality of the config package:
+The `aisquared` package currently contains five subpackages, the `aisquared.config` package, the `aisquared.base` subpackage, the `aisquared.logging` subpackage, the `aisquared.serving` subpackage, and the `aisquared.remote` package. The `config` package holds objects for building the configuration files that need to be included with converted model files for use within the AI Squared Extension. The contents of the config subpackage contain both pre- and postprocessing steps as well as harvesting, analytic, rendering, and feedback objects to use with the model. The following will explain the functionality of the config package:
 
 ### aisquared.config
 
@@ -158,7 +158,17 @@ The `aisquared.remote` subpackage contains utilities and classes for interacting
   - This client facilitates the interaction with AWS cloud storage
 - `AzureClient`
   - This client facilitates the interaction with Azure cloud storage
-  
+
+### aisquared.serving
+
+The `aisquared.serving` subpackage contains utilities for serving models locally or remotely using [MLflow](https://mlflow.org) or locally using [Flask](https://flask.palletsprojects.com/en/2.1.x/).
+
+### aisquared.logging
+
+The `aisquared.logging` subpackage is powered by [MLflow](https://mlflow.org), a powerful open-source platform for the machine learning lifecycle. The `logging` subpackage inherits nearly all functionality from mlflow, so we highly recommend users refer to the [MLflow documentation site](https://mlflow.org/docs/latest/index.html) for additional information.
+
+In this subpackage, we have additionally added implementations of individual functions to save TensorFlow, Keras, Scikit-Learn, and PyTorch models in a format that can be deployed quickly using MLflow.
+
 ## Changes
 
 Below are a list of additional features, bug fixes, and other changes made for each version.
@@ -172,3 +182,25 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Fixed bugs preventing Windows users from importing the package
 - Updated `ModelConfiguration` to include `url` parameter
 - Changed default tokenization string
+
+## Version 0.2.0
+- Moved preprocessing steps under subpackages for specific kinds of preprocessing steps
+- Cleaned up documentation to render within programmatic access environments
+- Added `aisquared.logging` subpackage
+- Created `InputHarvester`
+  - Allows for harvesting of input text, images, and tabular data
+- Created the `aisquared.serving` subpackage, specifically the `deploy_model` and `get_remote_prediction` functions
+- Created the `GraphConfiguration` class
+- Added `auto-run` parameter to `ModelConfiguration` and `GraphConfiguration` classes
+- Created the `aisquared` CLI with the following commands:
+  - `aisquared deploy`, which deploys a model locally
+  - `aisquared predict`, which predicts using a local JSON file
+  - `aisquared airfiles`, which contains the subcommands `list`, `delete`, `download`, and `upload`
+- Changed all classes within `aisquared.config.analytic` to accept `'tabular'` as an `input_type`
+- Removed `aisquared.logging` and `aisquared.remote` from top-level imports
+- Added `round` parameter to Regression postprocesser
+- Removed `DocumentPredictor` and `ImagePredictor` classes
+- Removed `ChainRendering` class
+- Created `FilterRendering` class
+- Altered `QUALIFIERS`
+- Added advanced rendering parameters to rendering objects

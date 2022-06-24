@@ -15,20 +15,20 @@ class ObjectRendering(BaseObject):
         font_color = COLORS[-4],
         font_size = '5px'
     ):
-        f"""
+        """
         Parameters
         ----------
-        color : str (default {COLORS[-1]})
+        color : str (default 'blue')
             The color of the box around images
         thickness : str (default '5px')
             The thickness of the box around images
-        placement : str (default {LOCATIONS[-1]})
+        placement : str (default 'bottomleft')
             The placement of the prediction text
         include_probability : bool (default False)
             Whether to render calculated probabilities
-        badge_color : str (default {COLORS[-2]})
+        badge_color : str (default 'white')
             Background color for the text region
-        font_color : str (default {COLORS[-4]})
+        font_color : str (default 'black')
             Color of the text
         font_size : str (default '5px')
             Text size
