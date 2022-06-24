@@ -41,7 +41,8 @@ setup(
         'numpy',
         'tensorflow',
         'mann',
-        'scikit-learn'
+        'scikit-learn',
+        'torch'
     ],
     classifiers = [
         'License :: Other/Proprietary License'
