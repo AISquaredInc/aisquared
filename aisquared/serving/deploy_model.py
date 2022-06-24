@@ -6,6 +6,7 @@ from flask import Flask, request, Response
 import tensorflow as tf
 import numpy as np
 import waitress
+import torch
 import json
 
 
@@ -96,9 +97,13 @@ def deploy_model(
 
         # try to return the actual predictions
         try:
-            return json.dumps({
-                'predictions' : np.asarray(model.predict(to_predict)).tolist()
-            })
+            if model_type != 'pytorch':
+                return json.dumps({
+                    'predictions' : np.asarray(model.predict(to_predict)).tolist()
+                })
+            else:
+                return json.dumps({
+                    'predictions' : model(torch.Tensor(to_predict)).detach().numpy().tolist()
         except:
             return Response(
                 'Error in performing prediction',
