@@ -101,9 +101,9 @@ def deploy_model(
                 return json.dumps({
                     'predictions' : np.asarray(model.predict(to_predict)).tolist()
                 })
-            else:
+            elif model_type == 'pytorch':
                 return json.dumps({
-                    'predictions' : model(torch.Tensor(to_predict)).detach().numpy().tolist()
+                    'predictions' : model(torch.Tensor(to_predict)).detach().numpy().tolist()})
         except:
             return Response(
                 'Error in performing prediction',
