@@ -204,3 +204,4 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Created `FilterRendering` class
 - Altered `QUALIFIERS`
 - Added advanced rendering parameters to rendering objects
+- Removed `logging` and `remote` subpackages from top-level `aisquared` import
