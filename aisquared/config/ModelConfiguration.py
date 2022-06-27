@@ -62,10 +62,12 @@ LOCAL_CLASSES = (
     LocalAnalytic
 )
 
+
 class ModelConfiguration(BaseObject):
     """
     Configuration object for deploying a model or analytic
     """
+
     def __init__(
             self,
             name,
@@ -74,16 +76,16 @@ class ModelConfiguration(BaseObject):
             analytic,
             postprocessing_steps,
             rendering_steps,
-            feedback_steps = None,
-            stage = ALLOWED_STAGES[0],
-            version = None,
-            description = '',
-            mlflow_uri = None,
-            mlflow_user = None,
-            mlflow_token = None,
-            owner = None,
-            url = '*',
-            auto_run = False
+            feedback_steps=None,
+            stage=ALLOWED_STAGES[0],
+            version=None,
+            description='',
+            mlflow_uri=None,
+            mlflow_user=None,
+            mlflow_token=None,
+            owner=None,
+            url='*',
+            auto_run=False
     ):
         """
         Parameters
@@ -143,6 +145,7 @@ class ModelConfiguration(BaseObject):
     @property
     def name(self):
         return self._name
+
     @name.setter
     def name(self, value):
         self._name = str(value)
@@ -151,6 +154,7 @@ class ModelConfiguration(BaseObject):
     @property
     def harvesting_steps(self):
         return self._harvesting_steps
+
     @harvesting_steps.setter
     def harvesting_steps(self, value):
         harvesting_classes = HARVESTING_CLASSES + (ModelConfiguration,)
@@ -163,12 +167,14 @@ class ModelConfiguration(BaseObject):
         elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, harvesting_classes) for val in value for v in val]):
             self._harvesting_steps = value
         else:
-            raise ValueError('harvesting_steps must be a None, single Harvester object, a list of Harvester objects, or a list of list of harvester objects')
+            raise ValueError(
+                'harvesting_steps must be a None, single Harvester object, a list of Harvester objects, or a list of list of harvester objects')
 
     # preprocessing_steps
     @property
     def preprocessing_steps(self):
         return self._preprocessing_steps
+
     @preprocessing_steps.setter
     def preprocessing_steps(self, value):
         if value is None:
@@ -182,12 +188,14 @@ class ModelConfiguration(BaseObject):
         elif value is None:
             self._preprocessing_steps = value
         else:
-            raise ValueError('preprocessing_steps must a single Preprocessor object, a list of Preprocessor objects, or a list of list of preprocessor objects')
+            raise ValueError(
+                'preprocessing_steps must a single Preprocessor object, a list of Preprocessor objects, or a list of list of preprocessor objects')
 
     # analytic
     @property
     def analytic(self):
         return self._analytic
+
     @analytic.setter
     def analytic(self, value):
         if isinstance(value, ANALYTIC_CLASSES):
@@ -197,12 +205,14 @@ class ModelConfiguration(BaseObject):
         elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, ANALYTIC_CLASSES) for val in value for v in val]):
             self._analytic = value
         else:
-            raise ValueError('analytic must be a single Analytic object, a list of Analytic objects, or a list of list of Analtyic objects')
+            raise ValueError(
+                'analytic must be a single Analytic object, a list of Analytic objects, or a list of list of Analtyic objects')
 
     # postprocessing_steps
     @property
     def postprocessing_steps(self):
         return self._postprocessing_steps
+
     @postprocessing_steps.setter
     def postprocessing_steps(self, value):
         if value is None:
@@ -216,12 +226,14 @@ class ModelConfiguration(BaseObject):
         elif value is None:
             self._postprocessing_steps = value
         else:
-            raise ValueError('postprocessing_steps must be a single Postprocessing object, a list of Postprocessing objects, or a list of list of Postprocessing objects')
+            raise ValueError(
+                'postprocessing_steps must be a single Postprocessing object, a list of Postprocessing objects, or a list of list of Postprocessing objects')
 
     # rendering_steps
     @property
     def rendering_steps(self):
         return self._rendering_steps
+
     @rendering_steps.setter
     def rendering_steps(self, value):
         if isinstance(value, RENDERING_CLASSES) or value is None:
@@ -231,12 +243,14 @@ class ModelConfiguration(BaseObject):
         elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, RENDERING_CLASSES) for val in value for v in val]):
             self._rendering_steps = value
         else:
-            raise ValueError('rendering_steps must be a single Rendering object, a list of Rendering objects, a list of list of Rendering objects, or None')
+            raise ValueError(
+                'rendering_steps must be a single Rendering object, a list of Rendering objects, a list of list of Rendering objects, or None')
 
     # feedback_steps
     @property
     def feedback_steps(self):
         return self._feedback_steps
+
     @feedback_steps.setter
     def feedback_steps(self, value):
         if value is None:
@@ -248,22 +262,25 @@ class ModelConfiguration(BaseObject):
         elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, FEEDBACK_CLASSES) for val in value for v in val]):
             self._feedback_steps = value
         else:
-            raise ValueError('feedback_steps must be a single Feedback object, a list of Feedback objects, a list of list of Feedback objects, or None')
+            raise ValueError(
+                'feedback_steps must be a single Feedback object, a list of Feedback objects, a list of list of Feedback objects, or None')
 
     # stage
     @property
     def stage(self):
         return self._stage
+
     @stage.setter
     def stage(self, value):
         if value not in ALLOWED_STAGES:
             raise ValueError(f'stage must be one of {ALLOWED_STAGES}')
         self._stage = value
-        
+
     # version
     @property
     def version(self):
         return self._version
+
     @version.setter
     def version(self, value):
         self._version = str(value) if value is not None else value
@@ -272,6 +289,7 @@ class ModelConfiguration(BaseObject):
     @property
     def description(self):
         return self._description
+
     @description.setter
     def description(self, value):
         self._description = str(value)
@@ -280,6 +298,7 @@ class ModelConfiguration(BaseObject):
     @property
     def mlflow_uri(self):
         return self._mlflow_uri
+
     @mlflow_uri.setter
     def mlflow_uri(self, value):
         self._mlflow_uri = value
@@ -288,6 +307,7 @@ class ModelConfiguration(BaseObject):
     @property
     def mlflow_user(self):
         return self._mlflow_user
+
     @mlflow_user.setter
     def mlflow_user(self, value):
         self._mlflow_user = value
@@ -296,6 +316,7 @@ class ModelConfiguration(BaseObject):
     @property
     def mlflow_token(self):
         return self._mlflow_token
+
     @mlflow_token.setter
     def mlflow_token(self, value):
         self._mlflow_token = value
@@ -304,6 +325,7 @@ class ModelConfiguration(BaseObject):
     @property
     def owner(self):
         return self._owner
+
     @owner.setter
     def owner(self, value):
         if not isinstance(value, str) and value is not None:
@@ -314,16 +336,18 @@ class ModelConfiguration(BaseObject):
     @property
     def url(self):
         return self._url
+
     @url.setter
     def url(self, value):
         if not isinstance(value, str):
             raise ValueError('url must be string')
         self._url = value
-    
+
     # auto_run
     @property
     def auto_run(self):
         return self._auto_run
+
     @auto_run.setter
     def auto_run(self, value):
         if not isinstance(value, bool):
@@ -407,7 +431,8 @@ class ModelConfiguration(BaseObject):
         """
         filenames = []
         if isinstance(self.harvesting_steps[0], list):
-            harvesting_list = [h for harvester in self.harvesting_steps for h in harvester]
+            harvesting_list = [
+                h for harvester in self.harvesting_steps for h in harvester]
         else:
             harvesting_list = self.harvesting_steps
         for harvester in harvesting_list:
@@ -430,28 +455,28 @@ class ModelConfiguration(BaseObject):
         Get the object as a dictionary
         """
         return {
-            'className' : 'ModelConfiguration',
-            'params' : {
-                'name' : self.name,
-                'harvestingSteps' : self.harvester_dict,
-                'preprocessingSteps' : self.preprocesser_dict,
-                'analytics' : self.analytic_dict,
-                'postprocessingSteps' : self.postprocesser_dict,
-                'renderingSteps' : self.render_dict,
-                'feedbackSteps' : self.feedback_dict,
-                'stage' : self.stage,
-                'version' : self.version,
-                'description' : self.description,
-                'mlflowUri' : self.mlflow_uri,
-                'mlflowUser' : self.mlflow_user,
-                'mlflowToken' : self.mlflow_token,
-                'owner' : self.owner,
-                'url' : self.url,
-                'autoRun' : self.auto_run
+            'className': 'ModelConfiguration',
+            'params': {
+                'name': self.name,
+                'harvestingSteps': self.harvester_dict,
+                'preprocessingSteps': self.preprocesser_dict,
+                'analytics': self.analytic_dict,
+                'postprocessingSteps': self.postprocesser_dict,
+                'renderingSteps': self.render_dict,
+                'feedbackSteps': self.feedback_dict,
+                'stage': self.stage,
+                'version': self.version,
+                'description': self.description,
+                'mlflowUri': self.mlflow_uri,
+                'mlflowUser': self.mlflow_user,
+                'mlflowToken': self.mlflow_token,
+                'owner': self.owner,
+                'url': self.url,
+                'autoRun': self.auto_run
             }
         }
 
-    def compile(self, filename = None, dtype = None):
+    def compile(self, filename=None, dtype=None):
         """
         Compile the object into a '.air' file, which can then be dragged and 
         dropped into applications using the AI Squared JavaScript SDK
@@ -470,12 +495,12 @@ class ModelConfiguration(BaseObject):
         if dtype is None:
             dtype_map = None
         else:
-            dtype_map = {dtype : '*'}
-            
+            dtype_map = {dtype: '*'}
+
         dirname = os.path.join('.', os.path.splitext(filename)[0])
 
-        # write the object as json config 
-        os.makedirs(dirname, exist_ok = True)
+        # write the object as json config
+        os.makedirs(dirname, exist_ok=True)
         with open(os.path.join(dirname, 'config.json'), 'w') as f:
             json.dump(self.to_dict(), f)
 
@@ -486,10 +511,11 @@ class ModelConfiguration(BaseObject):
                 if os.path.splitext(f)[-1] == '.h5':
                     model = tf.keras.models.load_model(f)
                     model_dir = os.path.join(dirname, os.path.split(f)[-1])
-                    tfjs.converters.save_keras_model(model, model_dir, quantization_dtype_map = dtype_map)
+                    tfjs.converters.save_keras_model(
+                        model, model_dir, quantization_dtype_map=dtype_map)
                 else:
                     shutil.copy(f, dirname)
-        
+
         # go through the entire directory of dirname, grab all files, and make
         # the archive file
         shutil.make_archive(filename, 'zip', dirname)
@@ -498,4 +524,4 @@ class ModelConfiguration(BaseObject):
         shutil.move(filename + '.zip', filename)
 
         # Remove the temp directory
-        shutil.rmtree(dirname, ignore_errors = True)
+        shutil.rmtree(dirname, ignore_errors=True)

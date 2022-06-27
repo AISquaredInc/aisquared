@@ -5,6 +5,7 @@ _ALLOWED_SOURCES = [
     'outputs'
 ]
 
+
 class FilterRendering(BaseObject):
     """
     Object which dictates how predictions are to be passed to downstream analytics
@@ -38,6 +39,7 @@ class FilterRendering(BaseObject):
     @property
     def source(self):
         return self._source
+
     @source.setter
     def source(self, value):
         if value not in _ALLOWED_SOURCES:
@@ -47,6 +49,7 @@ class FilterRendering(BaseObject):
     @property
     def key(self):
         return self._key
+
     @key.setter
     def key(self, value):
         if not isinstance(value, str):
@@ -56,6 +59,7 @@ class FilterRendering(BaseObject):
     @property
     def qualifier(self):
         return self._qualifier
+
     @qualifier.setter
     def qualifier(self, value):
         if value not in QUALIFIERS:
@@ -65,6 +69,7 @@ class FilterRendering(BaseObject):
     @property
     def value(self):
         return self._value
+
     @value.setter
     def value(self, val):
         if not isinstance(val, (list, str, int, float)):
@@ -76,11 +81,11 @@ class FilterRendering(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'FilterRendering',
-            'params' : {
-                'source' : self.source,
-                'key' : self.key,
-                'qualifier' : self.qualifier,
-                'value' : self.value
+            'className': 'FilterRendering',
+            'params': {
+                'source': self.source,
+                'key': self.key,
+                'qualifier': self.qualifier,
+                'value': self.value
             }
         }

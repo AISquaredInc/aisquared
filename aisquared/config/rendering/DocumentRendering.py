@@ -1,5 +1,6 @@
 from aisquared.base import BaseObject
 
+
 class DocumentRendering(BaseObject):
     """
     Object which dictates how to render predictions on entire documents
@@ -7,15 +8,15 @@ class DocumentRendering(BaseObject):
 
     def __init__(
         self,
-        prediction_key = 'className',
-        words = None,
-        documents = None,
-        include_probability = False,
-        probability_key = 'probability',
-        underline_color = 'blue',
-        classes = None,
-        confidence_threshold = None,
-        regression_threshold = None
+        prediction_key='className',
+        words=None,
+        documents=None,
+        include_probability=False,
+        probability_key='probability',
+        underline_color='blue',
+        classes=None,
+        confidence_threshold=None,
+        regression_threshold=None
     ):
         """
         Parameters
@@ -53,6 +54,7 @@ class DocumentRendering(BaseObject):
     @property
     def prediction_key(self):
         return self._prediction_key
+
     @prediction_key.setter
     def prediction_key(self, value):
         self._prediction_key = value
@@ -60,6 +62,7 @@ class DocumentRendering(BaseObject):
     @property
     def words(self):
         return self._words
+
     @words.setter
     def words(self, value):
         self._words = value
@@ -67,6 +70,7 @@ class DocumentRendering(BaseObject):
     @property
     def documents(self):
         return self._documents
+
     @documents.setter
     def documents(self, value):
         self._documents = value
@@ -74,6 +78,7 @@ class DocumentRendering(BaseObject):
     @property
     def include_probability(self):
         return self._include_probability
+
     @include_probability.setter
     def include_probability(self, value):
         self._include_probability = value
@@ -81,6 +86,7 @@ class DocumentRendering(BaseObject):
     @property
     def probability_key(self):
         return self._probability_key
+
     @probability_key.setter
     def probability_key(self, value):
         self._probability_key = value
@@ -88,6 +94,7 @@ class DocumentRendering(BaseObject):
     @property
     def underline_color(self):
         return self._underline_color
+
     @underline_color.setter
     def underline_color(self, value):
         self._underline_color = value
@@ -95,6 +102,7 @@ class DocumentRendering(BaseObject):
     @property
     def classes(self):
         return self._classes
+
     @classes.setter
     def classes(self, value):
         self._classes = value
@@ -102,6 +110,7 @@ class DocumentRendering(BaseObject):
     @property
     def confidence_threshold(self):
         return self._confidence_threshold
+
     @confidence_threshold.setter
     def confidence_threshold(self, value):
         self._confidence_threshold = value
@@ -109,6 +118,7 @@ class DocumentRendering(BaseObject):
     @property
     def regression_threshold(self):
         return self._regression_threshold
+
     @regression_threshold.setter
     def regression_threshold(self, value):
         self._regression_threshold = value
@@ -118,16 +128,16 @@ class DocumentRendering(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'DocumentRendering',
-            'params' : {
-                'predictionKey' : self.prediction_key,
-                'words' : self.words,
-                'documents' : self.documents,
-                'includeProbability' : self.include_probability,
-                'probabilityKey' : self.probability_key,
-                'underlineColor' : self.underline_color,
-                'classes' : self.classes,
-                'confidenceThreshold' : self.confidence_threshold,
-                'regressionThreshold' : self.regression_threshold
+            'className': 'DocumentRendering',
+            'params': {
+                'predictionKey': self.prediction_key,
+                'words': self.words,
+                'documents': self.documents,
+                'includeProbability': self.include_probability,
+                'probabilityKey': self.probability_key,
+                'underlineColor': self.underline_color,
+                'classes': self.classes,
+                'confidenceThreshold': self.confidence_threshold,
+                'regressionThreshold': self.regression_threshold
             }
         }

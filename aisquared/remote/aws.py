@@ -12,10 +12,12 @@ else:
 DIRECTORY = os.path.join(basedir, '.aisquared')
 AWS_FILE = os.path.join(DIRECTORY, 'aws_config.json')
 
+
 class AWSClient:
     """
     Client for interacting with and viewing models stored in AWS S3 Storage
     """
+
     def __init__(self):
         self._client = boto3.client('s3')
 
@@ -28,9 +30,10 @@ class AWSClient:
                 loaded = json.load(f)
             return loaded['defaultBucket']
         except:
-            raise ValueError('It does not appear that a default bucket is configured. Try running `AWSClient.configure()` with a default bucket name to configure')
+            raise ValueError(
+                'It does not appear that a default bucket is configured. Try running `AWSClient.configure()` with a default bucket name to configure')
 
-    def list_models(self, bucket = None, detailed = False):
+    def list_models(self, bucket=None, detailed=False):
         """
         List models in storage
 
@@ -43,15 +46,15 @@ class AWSClient:
         """
         if bucket is None:
             bucket = self.get_default_bucket()
-        listed = self._client.list_objects_v2(Bucket = bucket)
+        listed = self._client.list_objects_v2(Bucket=bucket)
         if detailed:
             return listed
         try:
             return [content['Key'] for content in listed['Contents']]
         except:
             return listed
-    
-    def delete_model(self, model_name, bucket = None):
+
+    def delete_model(self, model_name, bucket=None):
         """
         Delete a model
 
@@ -64,9 +67,9 @@ class AWSClient:
         """
         if bucket is None:
             bucket = self.get_default_bucket()
-        self._client.delete_object(Bucket = bucket, Key = model_name)
-    
-    def download_model(self, model_name, bucket = None):
+        self._client.delete_object(Bucket=bucket, Key=model_name)
+
+    def download_model(self, model_name, bucket=None):
         """
         Download a model
 
@@ -80,8 +83,8 @@ class AWSClient:
         if bucket is None:
             bucket = self.get_default_bucket()
         self._client.download_file(bucket, model_name, model_name)
-    
-    def upload_model(self, model_path, bucket = None, overwrite = False):
+
+    def upload_model(self, model_path, bucket=None, overwrite=False):
         """
         Upload a model
 
@@ -98,10 +101,12 @@ class AWSClient:
             bucket = self.get_default_bucket()
         object_name = os.path.basename(model_path)
         if os.path.splitext(object_name)[-1] != '.air':
-            raise ValueError('It does not appear that the specified file is the correct file type')
+            raise ValueError(
+                'It does not appear that the specified file is the correct file type')
         if not overwrite:
             if object_name in self.list_models():
-                raise ValueError('Model with the same name already exists. To overwrite the model, set overwrite to True')
+                raise ValueError(
+                    'Model with the same name already exists. To overwrite the model, set overwrite to True')
         self._client.upload_file(model_path, bucket, object_name)
 
     @staticmethod
@@ -110,5 +115,5 @@ class AWSClient:
         if not os.path.exists(DIRECTORY):
             os.makedirs(DIRECTORY)
         with open(AWS_FILE, 'w') as f:
-            json.dump({'defaultBucket' : default_bucket}, f)
+            json.dump({'defaultBucket': default_bucket}, f)
         os.chmod(AWS_FILE, stat.S_IREAD | stat.S_IWRITE)

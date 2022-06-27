@@ -10,13 +10,15 @@ ALLOWED_STEPS = (
     Resize
 )
 
+
 class ImagePreprocessor(BaseObject):
     """
     Preprocessor object for image data
     """
+
     def __init__(
             self,
-            steps = None
+            steps=None
     ):
         """
         Parameters
@@ -55,6 +57,6 @@ class ImagePreprocessor(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'ImagePreprocessor',
-            'steps' : self.step_dict
+            'className': 'ImagePreprocessor',
+            'steps': self.step_dict
         }

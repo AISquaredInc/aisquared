@@ -8,13 +8,15 @@ ALLOWED_STEPS = (
     DropColumn
 )
 
+
 class TabularPreprocessor(BaseObject):
     """
     Preprocessor object for tabular data
     """
+
     def __init__(
             self,
-            steps = None
+            steps=None
     ):
         """
         Parameters
@@ -44,8 +46,8 @@ class TabularPreprocessor(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'TabularPreprocessor',
-            'steps' : [
+            'className': 'TabularPreprocessor',
+            'steps': [
                 step.to_dict() for step in self.steps
             ]
         }

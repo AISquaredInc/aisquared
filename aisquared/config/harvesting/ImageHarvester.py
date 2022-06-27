@@ -1,12 +1,14 @@
 from aisquared.base import BaseObject
 
+
 class ImageHarvester(BaseObject):
     """
     Object to harvest images
     """
+
     def __init__(
         self,
-        how = 'all'
+        how='all'
     ):
         """
         Parameters
@@ -20,10 +22,12 @@ class ImageHarvester(BaseObject):
     @property
     def how(self):
         return self._how
+
     @how.setter
     def how(self, value):
         if value != 'all':
-            raise ValueError("Currently the only value supported for how is 'all'")
+            raise ValueError(
+                "Currently the only value supported for how is 'all'")
         self._how = value
 
     def to_dict(self):
@@ -31,8 +35,8 @@ class ImageHarvester(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'ImageHarvester',
-            'params' : {
-                'how' : self.how
+            'className': 'ImageHarvester',
+            'params': {
+                'how': self.how
             }
         }

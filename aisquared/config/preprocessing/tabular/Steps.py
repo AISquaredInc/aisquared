@@ -1,5 +1,6 @@
 from aisquared.base import BaseObject
 
+
 class ZScore(BaseObject):
     """
     Z-Score normalization preprocessing step
@@ -7,11 +8,12 @@ class ZScore(BaseObject):
     Z-Score normalization takes each supplied column value, subtracts that column's provided mean, and divides
     by the provided standard deviation.
     """
+
     def __init__(
             self,
             means,
             stds,
-            columns = None
+            columns=None
     ):
         """
         means : list
@@ -30,11 +32,13 @@ class ZScore(BaseObject):
             raise ValueError('means and stds must have the same length')
         if self.columns is not None:
             if len(self.columns) != len(self.means):
-                raise ValueError('Number of columns must match number of means and stds')
+                raise ValueError(
+                    'Number of columns must match number of means and stds')
 
     @property
     def means(self):
         return self._means
+
     @means.setter
     def means(self, value):
         if not isinstance(value, list):
@@ -46,6 +50,7 @@ class ZScore(BaseObject):
     @property
     def stds(self):
         return self._stds
+
     @stds.setter
     def stds(self, value):
         if not isinstance(value, list):
@@ -54,10 +59,10 @@ class ZScore(BaseObject):
             raise TypeError('Each value in stds must be int or float')
         self._stds = value
 
-
     @property
     def columns(self):
         return self._columns
+
     @columns.setter
     def columns(self, value):
         if not isinstance(value, list) and value is not None:
@@ -71,13 +76,14 @@ class ZScore(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'ZScore',
-            'params' : {
-                'means' : self.means,
-                'stds' : self.stds,
-                'columns' : self.columns
+            'className': 'ZScore',
+            'params': {
+                'means': self.means,
+                'stds': self.stds,
+                'columns': self.columns
             }
         }
+
 
 class MinMax(BaseObject):
     """
@@ -86,11 +92,12 @@ class MinMax(BaseObject):
     Min-Max Scaling takes all associated columns and maps values relative to the minimum and maximum values
     of the training data.
     """
+
     def __init__(
             self,
             mins,
             maxs,
-            columns = None
+            columns=None
     ):
         """
         Parameters
@@ -110,11 +117,13 @@ class MinMax(BaseObject):
             raise ValueError('Length of mins and maxs must equal')
         if self.columns is not None:
             if len(self.mins) != len(self.columns):
-                raise ValueError('Number of mins and maxs must equal the number of columns')
+                raise ValueError(
+                    'Number of mins and maxs must equal the number of columns')
 
     @property
     def mins(self):
         return self._mins
+
     @mins.setter
     def mins(self, value):
         if not isinstance(value, list):
@@ -126,6 +135,7 @@ class MinMax(BaseObject):
     @property
     def maxs(self):
         return self._maxs
+
     @maxs.setter
     def maxs(self, value):
         if not isinstance(value, list):
@@ -137,32 +147,36 @@ class MinMax(BaseObject):
     @property
     def columns(self):
         return self._columns
+
     @columns.setter
     def columns(self, value):
         if not isinstance(value, list) and value is not None:
             raise TypeError('If passed, columns must be list')
         if value is not None:
             if not all([isinstance(val, int) for val in value]):
-                raise TypeError('If passed, each value in columns must be an int')
+                raise TypeError(
+                    'If passed, each value in columns must be an int')
         self._columns = value
-        
+
     def to_dict(self):
         """
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'MinMax',
-            'params' : {
-                'mins' : self.mins,
-                'maxs' : self.maxs,
-                'columns' : self.columns
+            'className': 'MinMax',
+            'params': {
+                'mins': self.mins,
+                'maxs': self.maxs,
+                'columns': self.columns
             }
         }
+
 
 class OneHot(BaseObject):
     """
     One Hot encoding preprocessing step
     """
+
     def __init__(
             self,
             column,
@@ -184,6 +198,7 @@ class OneHot(BaseObject):
     @property
     def column(self):
         return self._column
+
     @column.setter
     def column(self, value):
         if not isinstance(value, int):
@@ -193,6 +208,7 @@ class OneHot(BaseObject):
     @property
     def values(self):
         return self._values
+
     @values.setter
     def values(self, value):
         if not isinstance(value, list):
@@ -204,17 +220,19 @@ class OneHot(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'OneHot',
-            'params' : {
-                'column' : self.column,
-                'values' : self.values
+            'className': 'OneHot',
+            'params': {
+                'column': self.column,
+                'values': self.values
             }
         }
+
 
 class DropColumn(BaseObject):
     """
     Drop a column from tabular data
     """
+
     def __init__(
             self,
             column
@@ -231,6 +249,7 @@ class DropColumn(BaseObject):
     @property
     def column(self):
         return self._column
+
     @column.setter
     def column(self, value):
         if not isinstance(value, int):
@@ -242,8 +261,8 @@ class DropColumn(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'DropColumn',
-            'params' : {
-                'column' : self.column
+            'className': 'DropColumn',
+            'params': {
+                'column': self.column
             }
         }

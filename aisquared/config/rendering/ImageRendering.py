@@ -1,5 +1,6 @@
 from aisquared.base import LOCATIONS, BaseObject
 
+
 class ImageRendering(BaseObject):
     """
     Object which dictates how to render images
@@ -7,16 +8,16 @@ class ImageRendering(BaseObject):
 
     def __init__(
         self,
-        color = 'blue',
-        thickness = '5px',
-        placement = LOCATIONS[-1],
-        include_probability = False,
-        badge_color = 'white',
-        font_color = 'black',
-        font_size = '5px',
-        classes = None,
-        confidence_threshold = None,
-        regression_threshold = None
+        color='blue',
+        thickness='5px',
+        placement=LOCATIONS[-1],
+        include_probability=False,
+        badge_color='white',
+        font_color='black',
+        font_size='5px',
+        classes=None,
+        confidence_threshold=None,
+        regression_threshold=None
     ):
         """
         Parameters
@@ -47,7 +48,7 @@ class ImageRendering(BaseObject):
         self.color = color
         self.thickness = thickness
         self.placement = placement
-        self.include_probability = include_probability  
+        self.include_probability = include_probability
         self.badge_color = badge_color
         self.font_color = font_color
         self.font_size = font_size
@@ -58,6 +59,7 @@ class ImageRendering(BaseObject):
     @property
     def color(self):
         return self._color
+
     @color.setter
     def color(self, value):
         self._color = value
@@ -65,6 +67,7 @@ class ImageRendering(BaseObject):
     @property
     def thickness(self):
         return self._thickness
+
     @thickness.setter
     def thickness(self, value):
         self._thickness = value
@@ -72,6 +75,7 @@ class ImageRendering(BaseObject):
     @property
     def placement(self):
         return self._placement
+
     @placement.setter
     def placement(self, value):
         if value not in LOCATIONS:
@@ -81,6 +85,7 @@ class ImageRendering(BaseObject):
     @property
     def include_probability(self):
         return self._include_probability
+
     @include_probability.setter
     def include_probability(self, value):
         self._include_probability = value
@@ -88,6 +93,7 @@ class ImageRendering(BaseObject):
     @property
     def badge_color(self):
         return self._badge_color
+
     @badge_color.setter
     def badge_color(self, value):
         self._badge_color = value
@@ -95,6 +101,7 @@ class ImageRendering(BaseObject):
     @property
     def font_color(self):
         return self._font_color
+
     @font_color.setter
     def font_color(self, value):
         self._font_color = value
@@ -102,13 +109,15 @@ class ImageRendering(BaseObject):
     @property
     def font_size(self):
         return self._font_size
+
     @font_size.setter
     def font_size(self, value):
         self._font_size = value
-    
+
     @property
     def classes(self):
         return self._classes
+
     @classes.setter
     def classes(self, value):
         self._classes = value
@@ -116,6 +125,7 @@ class ImageRendering(BaseObject):
     @property
     def confidence_threshold(self):
         return self._confidence_threshold
+
     @confidence_threshold.setter
     def confidence_threshold(self, value):
         self._confidence_threshold = value
@@ -123,6 +133,7 @@ class ImageRendering(BaseObject):
     @property
     def regression_threshold(self):
         return self._regression_threshold
+
     @regression_threshold.setter
     def regression_threshold(self, value):
         self._regression_threshold = value
@@ -132,17 +143,17 @@ class ImageRendering(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'ImageRendering',
-            'params' : {
-                'color' : self.color,
-                'thickness' : self.thickness,
-                'placement' : self.placement,
-                'includeProbability' : self.include_probability,
-                'badgeColor' : self.badge_color,
-                'fontColor' : self.font_color,
-                'fontSize' : self.font_size,
-                'classes' : self.classes,
-                'confidenceThreshold' : self.confidence_threshold,
-                'regressionThreshold' : self.regression_threshold
+            'className': 'ImageRendering',
+            'params': {
+                'color': self.color,
+                'thickness': self.thickness,
+                'placement': self.placement,
+                'includeProbability': self.include_probability,
+                'badgeColor': self.badge_color,
+                'fontColor': self.font_color,
+                'fontSize': self.font_size,
+                'classes': self.classes,
+                'confidenceThreshold': self.confidence_threshold,
+                'regressionThreshold': self.regression_threshold
             }
         }

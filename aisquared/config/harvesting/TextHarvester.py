@@ -5,15 +5,17 @@ _ALLOWED_HOWS = [
     'regex'
 ]
 
+
 class TextHarvester(BaseObject):
     """
     Object to harvest text
     """
+
     def __init__(
         self,
-        how = _ALLOWED_HOWS[0],
-        regex = None,
-        flags = 'gu'
+        how=_ALLOWED_HOWS[0],
+        regex=None,
+        flags='gu'
     ):
         """
         Parameters
@@ -33,15 +35,18 @@ class TextHarvester(BaseObject):
     @property
     def how(self):
         return self._how
+
     @how.setter
     def how(self, value):
         if value not in _ALLOWED_HOWS:
-            raise ValueError(f"how must be one of {_ALLOWED_HOWS}, got {value}")
+            raise ValueError(
+                f"how must be one of {_ALLOWED_HOWS}, got {value}")
         self._how = value
 
     @property
     def regex(self):
         return self._regex
+
     @regex.setter
     def regex(self, value):
         self._regex = str(value)
@@ -49,6 +54,7 @@ class TextHarvester(BaseObject):
     @property
     def flags(self):
         return self._flags
+
     @flags.setter
     def flags(self, value):
         self._flags = value
@@ -58,10 +64,10 @@ class TextHarvester(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'TextHarvester',
-            'params' : {
-                'how' : self.how,
-                'regex' : self.regex,
-                'flags' : self.flags
+            'className': 'TextHarvester',
+            'params': {
+                'how': self.how,
+                'regex': self.regex,
+                'flags': self.flags
             }
         }

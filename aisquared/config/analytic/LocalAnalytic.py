@@ -1,5 +1,6 @@
 from aisquared.base import BaseObject
 
+
 class LocalAnalytic(BaseObject):
     """
     Interaction with an analytic (lookup table) saved to the 
@@ -26,6 +27,7 @@ class LocalAnalytic(BaseObject):
     @property
     def path(self):
         return self._path
+
     @path.setter
     def path(self, value):
         self._path = value
@@ -33,6 +35,7 @@ class LocalAnalytic(BaseObject):
     @property
     def input_type(self):
         return self._input_type
+
     @input_type.setter
     def input_type(self, value):
         self._input_type = value
@@ -42,9 +45,9 @@ class LocalAnalytic(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'LocalAnalytic',
-            'params' : {
-                'path' : self.path,
-                'inputType' : self.input_type
+            'className': 'LocalAnalytic',
+            'params': {
+                'path': self.path,
+                'inputType': self.input_type
             }
         }

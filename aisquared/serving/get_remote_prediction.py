@@ -2,10 +2,11 @@ import numpy as np
 import requests
 import json
 
+
 def get_remote_prediction(
     data,
-    host = '127.0.0.1',
-    port = 2244
+    host='127.0.0.1',
+    port=2244
 ):
     """
     Send data to use for prediction
@@ -18,7 +19,7 @@ def get_remote_prediction(
         The host to use
     port : int (default '2244')
         The port to use
-    
+
     Notes
     -----
     - If data is a dictionary, it is expected to already be 
@@ -34,7 +35,7 @@ def get_remote_prediction(
     # Setup the url and headers
     url = f'http://{host}:{port}/predict'
     headers = {
-        'Content-Type' : 'application/json'
+        'Content-Type': 'application/json'
     }
 
     # Format the data
@@ -45,24 +46,24 @@ def get_remote_prediction(
     elif isinstance(data, np.ndarray):
         data = json.dumps(
             {
-                'data' : data.tolist()
+                'data': data.tolist()
             }
         )
     elif isinstance(data, list):
         data = json.dumps(
             {
-                'data' : data
+                'data': data
             }
         )
-    
+
     # Make the request
     with requests.session() as sess:
         resp = sess.post(
             url,
-            data = data,
-            headers = headers
+            data=data,
+            headers=headers
         )
-    
+
     if resp.status_code != 200:
         return resp
     else:
