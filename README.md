@@ -225,3 +225,6 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Altered `QUALIFIERS`
 - Added advanced rendering parameters to rendering objects
 - Removed `logging` and `remote` subpackages from top-level `aisquared` import
+
+## Version 0.2.1
+- Added the `S3Connector` class to the `analytics` subpackage, which allows download of an analytic directly from S3
