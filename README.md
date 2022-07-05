@@ -189,6 +189,10 @@ The `aisquared` CLI, which is installed with the package, contains command-line 
 - `aisquared predict`
   - This command contains functionality to get predictions from deployed models
 
+## Contributing
+
+AI Squared welcomes feedback and contributions to this repository! We use GitHub for issue tracking, so feel free to place your input there. For any issues you would like to keep confidential, such as any confidential security issues, or if you would like to contribute directly to this project, please reach out to pythonsdk@squared.ai and we will get back to you as soon as possible.
+
 ## Changes
 
 Below are a list of additional features, bug fixes, and other changes made for each version.
