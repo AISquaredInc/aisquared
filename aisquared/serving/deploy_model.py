@@ -78,7 +78,7 @@ def deploy_model(
         try:
             data = request.get_json()
             to_predict = data['data']
-        except:
+        except Exception:
             return Response(
                 'Data appears to be incorrectly formatted',
                 400
@@ -92,7 +92,7 @@ def deploy_model(
                 ]
             elif model_type in ['tensorflow', 'keras', 'pytorch', 'sklearn']:
                 to_predict = np.asarray(to_predict)
-        except:
+        except Exception:
             return Response(
                 'Data passed could not be correctly converted to numpy array for prediction',
                 400
@@ -107,7 +107,7 @@ def deploy_model(
             elif model_type == 'pytorch':
                 return json.dumps({
                     'predictions': model(torch.Tensor(to_predict)).detach().numpy().tolist()})
-        except:
+        except Exception:
             return Response(
                 'Error in performing prediction',
                 400
