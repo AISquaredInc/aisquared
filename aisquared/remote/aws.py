@@ -29,7 +29,7 @@ class AWSClient:
             with open(AWS_FILE, 'r') as f:
                 loaded = json.load(f)
             return loaded['defaultBucket']
-        except:
+        except Exception:
             raise ValueError(
                 'It does not appear that a default bucket is configured. Try running `AWSClient.configure()` with a default bucket name to configure')
 
@@ -51,7 +51,7 @@ class AWSClient:
             return listed
         try:
             return [content['Key'] for content in listed['Contents']]
-        except:
+        except Exception:
             return listed
 
     def delete_model(self, model_name, bucket=None):

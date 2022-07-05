@@ -26,7 +26,7 @@ class AzureClient:
             connection_string = loaded['connectionString']
             self._client = BlobServiceClient.from_connection_string(
                 connection_string)
-        except:
+        except Exception:
             raise RuntimeError(
                 'Connection could not be made. Please ensure you have configured the connection string by running `AzureClient.configure`')
 
@@ -38,7 +38,7 @@ class AzureClient:
             with open(AZURE_FILE, 'r') as f:
                 loaded = json.load(f)
             return loaded['defaultContainer']
-        except:
+        except Exception:
             raise ValueError(
                 'It does not appear that a default container is configured. Try running `AzureClient.configure()` to configure')
 
