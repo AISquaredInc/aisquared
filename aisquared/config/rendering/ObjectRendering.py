@@ -1,5 +1,6 @@
 from aisquared.base import LOCATIONS, COLORS, BaseObject
 
+
 class ObjectRendering(BaseObject):
     """
     Object which dictates how to render object detection in images
@@ -7,13 +8,13 @@ class ObjectRendering(BaseObject):
 
     def __init__(
         self,
-        color = COLORS[-1],
-        thickness = '5px',
-        placement = LOCATIONS[-1],
-        include_probability = False,
-        badge_color = COLORS[-2],
-        font_color = COLORS[-4],
-        font_size = '5px'
+        color=COLORS[-1],
+        thickness='5px',
+        placement=LOCATIONS[-1],
+        include_probability=False,
+        badge_color=COLORS[-2],
+        font_color=COLORS[-4],
+        font_size='5px'
     ):
         """
         Parameters
@@ -45,6 +46,7 @@ class ObjectRendering(BaseObject):
     @property
     def color(self):
         return self._color
+
     @color.setter
     def color(self, value):
         if value not in COLORS:
@@ -54,6 +56,7 @@ class ObjectRendering(BaseObject):
     @property
     def thickness(self):
         return self._thickness
+
     @thickness.setter
     def thickness(self, value):
         self._thickness = value
@@ -61,15 +64,17 @@ class ObjectRendering(BaseObject):
     @property
     def placement(self):
         return self._placement
+
     @placement.setter
     def placement(self, value):
         if value not in LOCATIONS:
             raise ValueError(f'placement must be one of {LOCATIONS}')
         self._placement = value
-    
+
     @property
     def include_probability(self):
         return self._include_probability
+
     @include_probability.setter
     def include_probability(self, value):
         self._include_probability = value
@@ -77,6 +82,7 @@ class ObjectRendering(BaseObject):
     @property
     def badge_color(self):
         return self._badge_color
+
     @badge_color.setter
     def badge_color(self, value):
         if value not in COLORS:
@@ -86,6 +92,7 @@ class ObjectRendering(BaseObject):
     @property
     def font_color(self):
         return self._font_color
+
     @font_color.setter
     def font_color(self, value):
         if value not in COLORS:
@@ -95,6 +102,7 @@ class ObjectRendering(BaseObject):
     @property
     def font_size(self):
         return self._font_size
+
     @font_size.setter
     def font_size(self, value):
         self._font_size = value
@@ -104,14 +112,14 @@ class ObjectRendering(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'ObjectDetection',
-            'params' : {
-                'color' : self.color,
-                'thickness' : self.thickness,
-                'placement' : self.placement,
-                'includeProbability' : self.include_probability,
-                'badgeColor' : self.badge_color,
-                'fontColor' : self.font_color,
-                'fontSize' : self.font_size
+            'className': 'ObjectDetection',
+            'params': {
+                'color': self.color,
+                'thickness': self.thickness,
+                'placement': self.placement,
+                'includeProbability': self.include_probability,
+                'badgeColor': self.badge_color,
+                'fontColor': self.font_color,
+                'fontSize': self.font_size
             }
         }

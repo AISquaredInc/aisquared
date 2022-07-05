@@ -2,10 +2,10 @@ from setuptools import setup
 from aisquared import __version__
 
 setup(
-    name = 'aisquared',
-    version = __version__,
-    url = 'https://github.com/AISquaredInc/aisquared',
-    packages = [
+    name='aisquared',
+    version=__version__,
+    url='https://github.com/AISquaredInc/aisquared',
+    packages=[
         'aisquared',
         'aisquared.cli',
         'aisquared.base',
@@ -23,14 +23,14 @@ setup(
         'aisquared.config.rendering',
         'aisquared.config.feedback'
     ],
-    author = 'The AI Squared Team',
-    author_email = 'staff@squared.ai',
-    description = 'Utilities for interacting with the AI Squared Technology Stack',
-    long_description = open('README.md').read(),
-    long_description_content_type = 'text/markdown',
-    license = 'AI Squared Developer License Agreement',
-    license_files = 'LICENSE',
-    install_requires = [
+    author='The AI Squared Team',
+    author_email='staff@squared.ai',
+    description='Utilities for interacting with the AI Squared Technology Stack',
+    long_description=open('README.md').read(),
+    long_description_content_type='text/markdown',
+    license='AI Squared Developer License Agreement',
+    license_files='LICENSE',
+    install_requires=[
         'tensorflowjs',
         'mlflow',
         'boto3',
@@ -44,11 +44,11 @@ setup(
         'scikit-learn',
         'torch'
     ],
-    classifiers = [
+    classifiers=[
         'License :: Other/Proprietary License'
     ],
-    entry_points = {
-        'console_scripts' : [
+    entry_points={
+        'console_scripts': [
             'aisquared = aisquared.cli.cli:aisquared'
         ]
     }

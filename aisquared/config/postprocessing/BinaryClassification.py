@@ -1,5 +1,6 @@
 from aisquared.base import BaseObject
 
+
 class BinaryClassification(BaseObject):
     """
     Postprocesssing configuration object for binary classification
@@ -8,7 +9,7 @@ class BinaryClassification(BaseObject):
     def __init__(
         self,
         label_map,
-        threshold = 0.5
+        threshold=0.5
     ):
         """
         Parameters
@@ -25,17 +26,20 @@ class BinaryClassification(BaseObject):
     @property
     def label_map(self):
         return self._label_map
+
     @label_map.setter
     def label_map(self, value):
         if not isinstance(value, list):
             raise TypeError('label_map must be a list')
         if len(value) != 2:
-            raise ValueError('label_map must have exactly two values for binary classification')
+            raise ValueError(
+                'label_map must have exactly two values for binary classification')
         self._label_map = value
 
     @property
     def threshold(self):
         return self._threshold
+
     @threshold.setter
     def threshold(self, value):
         if not isinstance(value, float):
@@ -49,9 +53,9 @@ class BinaryClassification(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'BinaryClassification',
-            'params' : {
-                'labelMap' : self.label_map,
-                'threshold' : self.threshold
+            'className': 'BinaryClassification',
+            'params': {
+                'labelMap': self.label_map,
+                'threshold': self.threshold
             }
         }

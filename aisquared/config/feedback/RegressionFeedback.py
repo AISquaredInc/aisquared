@@ -1,9 +1,11 @@
 from aisquared.base import BaseObject
 
+
 class RegressionFeedback(BaseObject):
     """
     Feedback for regression
     """
+
     def __init__(self):
         super().__init__()
 
@@ -12,6 +14,6 @@ class RegressionFeedback(BaseObject):
         Return the object as a dictionary
         """
         return {
-            'className' : 'RegressionFeedback',
-            'params' : dict()
+            'className': 'RegressionFeedback',
+            'params': dict()
         }

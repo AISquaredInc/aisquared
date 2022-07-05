@@ -11,12 +11,13 @@ import json
 
 
 _ALLOWED_TYPES = [
-        'tensorflow',
-        'sklearn',
-        'pytorch',
-        'keras',
-        'mann'
+    'tensorflow',
+    'sklearn',
+    'pytorch',
+    'keras',
+    'mann'
 ]
+
 
 def load_mann_model(model, custom_objects):
     """
@@ -24,15 +25,16 @@ def load_mann_model(model, custom_objects):
     """
     return tf.keras.models.load_model(
         model,
-        custom_objects = custom_objects
+        custom_objects=custom_objects
     )
+
 
 def deploy_model(
         saved_model,
         model_type,
-        host = '127.0.0.1',
-        port = 2244,
-        custom_objects = None
+        host='127.0.0.1',
+        port=2244,
+        custom_objects=None
 ):
     """
     Deploy a model to a Flask server on the specified host
@@ -51,8 +53,9 @@ def deploy_model(
         Any custom objects to load when using a MANN model
     """
     if model_type not in _ALLOWED_TYPES:
-        raise ValueError(f'model_type must be one of {_ALLOWED_TYPES}, got {model_type}')
-    
+        raise ValueError(
+            f'model_type must be one of {_ALLOWED_TYPES}, got {model_type}')
+
     if model_type == 'tensorflow':
         model = load_tensorflow_model(saved_model)
     elif model_type == 'sklearn':
@@ -68,19 +71,19 @@ def deploy_model(
     app = Flask(__name__)
 
     # Create the predict function
-    @app.route('/predict', methods = ['POST'])
+    @app.route('/predict', methods=['POST'])
     def predict():
 
         # try to get the data
         try:
             data = request.get_json()
             to_predict = data['data']
-        except:
+        except Exception:
             return Response(
                 'Data appears to be incorrectly formatted',
                 400
             )
-        
+
         # try to get the data correctly formatted for prediction
         try:
             if model_type == 'mann':
@@ -89,7 +92,7 @@ def deploy_model(
                 ]
             elif model_type in ['tensorflow', 'keras', 'pytorch', 'sklearn']:
                 to_predict = np.asarray(to_predict)
-        except:
+        except Exception:
             return Response(
                 'Data passed could not be correctly converted to numpy array for prediction',
                 400
@@ -99,12 +102,12 @@ def deploy_model(
         try:
             if model_type != 'pytorch':
                 return json.dumps({
-                    'predictions' : np.asarray(model.predict(to_predict)).tolist()
+                    'predictions': np.asarray(model.predict(to_predict)).tolist()
                 })
             elif model_type == 'pytorch':
                 return json.dumps({
-                    'predictions' : model(torch.Tensor(to_predict)).detach().numpy().tolist()})
-        except:
+                    'predictions': model(torch.Tensor(to_predict)).detach().numpy().tolist()})
+        except Exception:
             return Response(
                 'Error in performing prediction',
                 400
@@ -114,6 +117,6 @@ def deploy_model(
     print('App created successfully. Serving and awaiting requests.')
     waitress.serve(
         app,
-        host = host,
-        port = port
+        host=host,
+        port=port
     )

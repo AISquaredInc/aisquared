@@ -1,5 +1,8 @@
 # AISquared
 
+[![PyPI version](https://badge.fury.io/py/aisquared.svg)](https://badge.fury.io/py/aisquared)
+[![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
+
 This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Browser Extension or other applications developed through the AI Squared JavaScript SDK.
 
 ## Installation
@@ -186,6 +189,10 @@ The `aisquared` CLI, which is installed with the package, contains command-line 
 - `aisquared predict`
   - This command contains functionality to get predictions from deployed models
 
+## Contributing
+
+AI Squared welcomes feedback and contributions to this repository! We use GitHub for issue tracking, so feel free to place your input there. For any issues you would like to keep confidential, such as any confidential security issues, or if you would like to contribute directly to this project, please reach out to pythonsdk@squared.ai and we will get back to you as soon as possible.
+
 ## Changes
 
 Below are a list of additional features, bug fixes, and other changes made for each version.
@@ -222,3 +229,7 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Altered `QUALIFIERS`
 - Added advanced rendering parameters to rendering objects
 - Removed `logging` and `remote` subpackages from top-level `aisquared` import
+
+## Version 0.2.1
+- Added the `S3Connector` class to the `analytics` subpackage, which allows download of an analytic directly from S3
+- Updated the documentation and added the `docs` subdirectory for hosting the documentation on GitHub Pages

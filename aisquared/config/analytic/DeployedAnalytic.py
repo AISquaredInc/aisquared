@@ -1,15 +1,17 @@
 from aisquared.base import BaseObject
 
+
 class DeployedAnalytic(BaseObject):
     """
     Interaction with a remote analytic
     """
+
     def __init__(
         self,
         url,
         input_type,
-        secret = 'request',
-        header = None
+        secret='request',
+        header=None
     ):
         """
         Parameters
@@ -19,7 +21,7 @@ class DeployedAnalytic(BaseObject):
         input_type : str
             The input types supplied to the analytic. Either one of 'cv', 'text', or 'tabular'
         secret : str (default 'request')
-            The secret key used to interact with the service. Default value of 'request' 
+            The secret key used to interact with the service. Default value of 'request'
             indicates that the user inputs the key whenever the analytic is started again
         header : dict or None (default None)
             Header to use when calling the endpoint
@@ -33,6 +35,7 @@ class DeployedAnalytic(BaseObject):
     @property
     def url(self):
         return self._url
+
     @url.setter
     def url(self, value):
         self._url = value
@@ -40,6 +43,7 @@ class DeployedAnalytic(BaseObject):
     @property
     def input_type(self):
         return self._input_type
+
     @input_type.setter
     def input_type(self, value):
         self._input_type = value
@@ -47,6 +51,7 @@ class DeployedAnalytic(BaseObject):
     @property
     def secret(self):
         return self._secret
+
     @secret.setter
     def secret(self, value):
         self._secret = value
@@ -54,17 +59,18 @@ class DeployedAnalytic(BaseObject):
     @property
     def header(self):
         return self._header
+
     @header.setter
     def header(self, value):
         self._header = value
 
     def to_dict(self):
         return {
-            'className' : 'DeployedAnalytic',
-            'params' : {
-                'url' : self.url,
-                'inputType' : self.input_type,
-                'secret' : self.secret,
-                'header' : self.header
+            'className': 'DeployedAnalytic',
+            'params': {
+                'url': self.url,
+                'inputType': self.input_type,
+                'secret': self.secret,
+                'header': self.header
             }
         }

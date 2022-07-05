@@ -13,19 +13,23 @@ else:
 DIRECTORY = os.path.join(basedir, '.aisquared')
 AZURE_FILE = os.path.join(DIRECTORY, 'azure_config.json')
 
+
 class AzureClient:
     """
     Client for interacting with and viewing models stored in Azure
     """
+
     def __init__(self):
         try:
             with open(AZURE_FILE, 'r') as f:
                 loaded = json.load(f)
             connection_string = loaded['connectionString']
-            self._client = BlobServiceClient.from_connection_string(connection_string)
-        except:
-            raise RuntimeError('Connection could not be made. Please ensure you have configured the connection string by running `AzureClient.configure`')
-    
+            self._client = BlobServiceClient.from_connection_string(
+                connection_string)
+        except Exception:
+            raise RuntimeError(
+                'Connection could not be made. Please ensure you have configured the connection string by running `AzureClient.configure`')
+
     def get_default_container(self):
         """
         Returns the name of the default container
@@ -34,13 +38,14 @@ class AzureClient:
             with open(AZURE_FILE, 'r') as f:
                 loaded = json.load(f)
             return loaded['defaultContainer']
-        except:
-            raise ValueError('It does not appear that a default container is configured. Try running `AzureClient.configure()` to configure')
+        except Exception:
+            raise ValueError(
+                'It does not appear that a default container is configured. Try running `AzureClient.configure()` to configure')
 
-    def list_models(self, container = None, detailed = False):
+    def list_models(self, container=None, detailed=False):
         """
         List models in storage
-        
+
         Parameters
         ----------
         container : str or None (default None)
@@ -58,7 +63,7 @@ class AzureClient:
             content['name'] for content in listed
         ]
 
-    def delete_model(self, model_name, container = None):
+    def delete_model(self, model_name, container=None):
         """
         Delete a model
 
@@ -74,7 +79,7 @@ class AzureClient:
         container_client = self._client.get_container_client(container)
         container_client.delete_blob(model_name)
 
-    def download_model(self, model_name, container = None):
+    def download_model(self, model_name, container=None):
         """
         Download a model
 
@@ -91,7 +96,7 @@ class AzureClient:
         with open(model_name, 'wb') as f:
             f.write(container_client.download_blob(model_name).readall())
 
-    def upload_model(self, model_path, container = None, overwrite = False):
+    def upload_model(self, model_path, container=None, overwrite=False):
         """
         Upload a model
 
@@ -109,18 +114,19 @@ class AzureClient:
         container_client = self._client.get_container_client(container)
         object_name = os.path.basename(model_path)
         if os.path.splitext(object_name)[-1] != '.air':
-            raise ValueError('It does not appear that the specified file is the correct file type')
+            raise ValueError(
+                'It does not appear that the specified file is the correct file type')
         with open(object_name, 'rb') as f:
             container_client.upload_blob(
                 object_name,
                 f,
-                overwrite = overwrite
+                overwrite=overwrite
             )
 
     @staticmethod
     def configure(
-        connection_string = None,
-        default_container = None
+        connection_string=None,
+        default_container=None
     ):
         """Configure the default behavior to use"""
         if not os.path.exists(DIRECTORY):
@@ -132,8 +138,8 @@ class AzureClient:
         with open(AZURE_FILE, 'w') as f:
             json.dump(
                 {
-                    'connectionString' : connection_string,
-                    'defaultContainer' : default_container
+                    'connectionString': connection_string,
+                    'defaultContainer': default_container
                 },
                 f
             )

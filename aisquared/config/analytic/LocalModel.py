@@ -1,10 +1,12 @@
 from aisquared.base import BaseObject
 
+
 class LocalModel(BaseObject):
     """
-    Interaction with a model currently saved to the local 
+    Interaction with a model currently saved to the local
     file system
     """
+
     def __init__(
         self,
         path,
@@ -25,6 +27,7 @@ class LocalModel(BaseObject):
     @property
     def path(self):
         return self._path
+
     @path.setter
     def path(self, value):
         self._path = value
@@ -32,6 +35,7 @@ class LocalModel(BaseObject):
     @property
     def input_type(self):
         return self._input_type
+
     @input_type.setter
     def input_type(self, value):
         self._input_type = value
@@ -41,9 +45,9 @@ class LocalModel(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'LocalModel',
-            'params' : {
-                'path' : self.path,
-                'inputType' : self.input_type
+            'className': 'LocalModel',
+            'params': {
+                'path': self.path,
+                'inputType': self.input_type
             }
         }

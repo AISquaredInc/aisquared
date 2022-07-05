@@ -1,13 +1,15 @@
 from aisquared.base import BaseObject
 
+
 class ObjectDetection(BaseObject):
     """
     Postprocessing configuration object for object detection
     """
+
     def __init__(
         self,
         label_map,
-        threshold = 0.5
+        threshold=0.5
     ):
         """
         Parameters
@@ -24,6 +26,7 @@ class ObjectDetection(BaseObject):
     @property
     def label_map(self):
         return self._label_map
+
     @label_map.setter
     def label_map(self, value):
         if not isinstance(value, list):
@@ -33,6 +36,7 @@ class ObjectDetection(BaseObject):
     @property
     def threshold(self):
         return self._threshold
+
     @threshold.setter
     def threshold(self, value):
         if not isinstance(value, float):
@@ -46,10 +50,9 @@ class ObjectDetection(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'ObjectDetection',
-            'params' : {
-                'labelMap' : self.label_map,
-                'threshold' : self.threshold
+            'className': 'ObjectDetection',
+            'params': {
+                'labelMap': self.label_map,
+                'threshold': self.threshold
             }
         }
-        

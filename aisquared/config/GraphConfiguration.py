@@ -8,22 +8,24 @@ import os
 
 LOCAL_CLASSES = ['LocalModel', 'LocalAnalytic']
 
+
 class GraphConfiguration(BaseObject):
     """
     Configuration object for deploying a set of processing steps and/or analytics as a dependency graph
     """
+
     def __init__(
             self,
             name,
-            stage = ALLOWED_STAGES[0],
-            version = None,
-            description = '',
-            mlflow_uri = None,
-            mlflow_user = None,
-            mlflow_token = None,
-            owner = None,
-            url = '*',
-            auto_run = False
+            stage=ALLOWED_STAGES[0],
+            version=None,
+            description='',
+            mlflow_uri=None,
+            mlflow_user=None,
+            mlflow_token=None,
+            owner=None,
+            url='*',
+            auto_run=False
     ):
         """
         Parameters
@@ -66,6 +68,7 @@ class GraphConfiguration(BaseObject):
     @property
     def name(self):
         return self._name
+
     @name.setter
     def name(self, value):
         self._name = str(value)
@@ -74,24 +77,28 @@ class GraphConfiguration(BaseObject):
     @property
     def stage(self):
         return self._stage
+
     @stage.setter
     def stage(self, value):
         if value not in ALLOWED_STAGES:
-            raise ValueError(f'stage must be one of {ALLOWED_STAGES}, got {value}')
+            raise ValueError(
+                f'stage must be one of {ALLOWED_STAGES}, got {value}')
         self._stage = value
 
     # version
     @property
     def version(self):
         return self._version
+
     @version.setter
     def version(self, value):
         self._version = str(value) if value is not None else value
-        
+
     # description
     @property
     def description(self):
         return self._description
+
     @description.setter
     def description(self, value):
         self._description = str(value)
@@ -100,14 +107,16 @@ class GraphConfiguration(BaseObject):
     @property
     def mlflow_uri(self):
         return self._mlflow_uri
+
     @mlflow_uri.setter
     def mlflow_uri(self, value):
         self._mlflow_uri = value
-        
+
     # mlflow_user
     @property
     def mlflow_user(self):
         return self._mlflow_user
+
     @mlflow_user.setter
     def mlflow_user(self, value):
         self._mlflow_user = value
@@ -116,6 +125,7 @@ class GraphConfiguration(BaseObject):
     @property
     def mlflow_token(self):
         return self._mlflow_token
+
     @mlflow_token.setter
     def mlflow_token(self, value):
         self._mlflow_token = value
@@ -124,6 +134,7 @@ class GraphConfiguration(BaseObject):
     @property
     def owner(self):
         return self._owner
+
     @owner.setter
     def owner(self, value):
         self._owner = str(value) if value is not None else value
@@ -132,6 +143,7 @@ class GraphConfiguration(BaseObject):
     @property
     def url(self):
         return self._url
+
     @url.setter
     def url(self, value):
         if not isinstance(value, str):
@@ -142,13 +154,14 @@ class GraphConfiguration(BaseObject):
     @property
     def auto_run(self):
         return self._auto_run
+
     @auto_run.setter
     def auto_run(self, value):
         if not isinstance(value, bool):
             raise TypeError('auto_run must be Boolean valued')
         self._auto_run = value
 
-    def add_node(self, step, dependencies = None):
+    def add_node(self, step, dependencies=None):
         """
         Add a node to the configuration graph
 
@@ -157,26 +170,28 @@ class GraphConfiguration(BaseObject):
         step : aisquared configuration step
             The step to add
         dependencies : int, list of int, or None
-            The ids of nodes which must be run before the 
+            The ids of nodes which must be run before the
             added node
-        
+
         Returns
         -------
         node_id : int
             The integer id of the node that is added
         """
         if not isinstance(step, BaseObject):
-            raise TypeError('Each node in the configuration graph should be an aisquared configuration step')
+            raise TypeError(
+                'Each node in the configuration graph should be an aisquared configuration step')
         if not (isinstance(dependencies, int) or dependencies is None):
             if not isinstance(dependencies, list) or not all([isinstance(dep, int) for dep in dependencies]):
-                raise ValueError('dependencies must be integer or list of integers')
-        
+                raise ValueError(
+                    'dependencies must be integer or list of integers')
+
         id = len(self.nodes)
         self.nodes.append(
             {
-                'id' : id,
-                'dependencies' : dependencies,
-                'step' : step.to_dict()
+                'id': id,
+                'dependencies': dependencies,
+                'step': step.to_dict()
             }
         )
         return id
@@ -196,23 +211,23 @@ class GraphConfiguration(BaseObject):
         Get the object as a dictionary
         """
         return {
-            'className' : 'GraphConfiguration',
-            'params' : {
-                'name' : self.name,
-                'stage' : self.stage,
-                'version' : self.version,
-                'description' : self.description,
-                'mlflowUri' : self.mlflow_uri,
-                'mlflowUser' : self.mlflow_user,
-                'mlflowToken' : self.mlflow_token,
-                'owner' : self.owner,
-                'url' : self.url,
-                'autoRun' : self.auto_run
+            'className': 'GraphConfiguration',
+            'params': {
+                'name': self.name,
+                'stage': self.stage,
+                'version': self.version,
+                'description': self.description,
+                'mlflowUri': self.mlflow_uri,
+                'mlflowUser': self.mlflow_user,
+                'mlflowToken': self.mlflow_token,
+                'owner': self.owner,
+                'url': self.url,
+                'autoRun': self.auto_run
             },
-            'nodes' : self.nodes
+            'nodes': self.nodes
         }
 
-    def compile(self, filename = None, dtype = None):
+    def compile(self, filename=None, dtype=None):
         """
         Compile the object into a '.air' file, which can then be dragged and dropped into applications using the AI Squared JavaScript SDK
 
@@ -229,12 +244,12 @@ class GraphConfiguration(BaseObject):
         if dtype is None:
             dtype_map = None
         else:
-            dtype_map = {dtype : '*'}
+            dtype_map = {dtype: '*'}
 
         dirname = os.path.join('.', os.path.splitext(filename)[0])
 
         # write the object as json config
-        os.makedirs(dirname, exist_ok = True)
+        os.makedirs(dirname, exist_ok=True)
         with open(os.path.join(dirname, 'config.json'), 'w') as f:
             json.dump(self.to_dict(), f)
 
@@ -245,7 +260,8 @@ class GraphConfiguration(BaseObject):
                 if os.path.splitext(f)[-1] == 'h5':
                     model = tf.keras.models.load_model(f)
                     model_dir = os.path.join(dirname, os.path.split(f)[-1])
-                    tfjs.converters.save_keras_model(model, model_dir, quantization_dtype_map = dtype_map)
+                    tfjs.converters.save_keras_model(
+                        model, model_dir, quantization_dtype_map=dtype_map)
                 else:
                     shutil.copy(f, dirname)
 
@@ -257,4 +273,4 @@ class GraphConfiguration(BaseObject):
         shutil.move(filename + '.zip', filename)
 
         # Remove the temp directory
-        shutil.rmtree(dirname, ignore_errors = True)
+        shutil.rmtree(dirname, ignore_errors=True)

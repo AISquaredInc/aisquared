@@ -1,15 +1,17 @@
 from aisquared.base import BaseObject
 
+
 class DeployedModel(BaseObject):
     """
     Interaction with a remote model
     """
+
     def __init__(
         self,
         url,
         input_type,
-        secret = 'request',
-        header = None
+        secret='request',
+        header=None
     ):
         """
         Parameters
@@ -33,6 +35,7 @@ class DeployedModel(BaseObject):
     @property
     def url(self):
         return self._url
+
     @url.setter
     def url(self, value):
         self._url = value
@@ -40,6 +43,7 @@ class DeployedModel(BaseObject):
     @property
     def input_type(self):
         return self._input_type
+
     @input_type.setter
     def input_type(self, value):
         self._input_type = value
@@ -47,6 +51,7 @@ class DeployedModel(BaseObject):
     @property
     def secret(self):
         return self._secret
+
     @secret.setter
     def secret(self, value):
         self._secret = value
@@ -54,6 +59,7 @@ class DeployedModel(BaseObject):
     @property
     def header(self):
         return self._header
+
     @header.setter
     def header(self, value):
         self._header = value
@@ -63,11 +69,11 @@ class DeployedModel(BaseObject):
         Get the config object as a dictionary
         """
         return {
-            'className' : 'DeployedModel',
-            'params' : {
-                'url' : self.url,
-                'inputType' : self.input_type,
-                'secret' : self.secret,
-                'header' : self.header
+            'className': 'DeployedModel',
+            'params': {
+                'url': self.url,
+                'inputType': self.input_type,
+                'secret': self.secret,
+                'header': self.header
             }
         }

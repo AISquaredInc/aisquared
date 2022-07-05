@@ -1,9 +1,11 @@
 from aisquared.base import BaseObject
 
+
 class SimpleFeedback(BaseObject):
     """
     Simple thumbs-up/thumbs-down feedback for predictions
     """
+
     def __init__(self):
         super().__init__()
 
@@ -12,6 +14,6 @@ class SimpleFeedback(BaseObject):
         Return the object as a dictionary
         """
         return {
-            'className' : 'SimpleFeedback',
-            'params' : dict()
+            'className': 'SimpleFeedback',
+            'params': dict()
         }

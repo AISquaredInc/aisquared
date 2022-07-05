@@ -1,5 +1,6 @@
 from aisquared.base import BADGES, WORD_LISTS, BaseObject
 
+
 class WordRendering(BaseObject):
     """
     Object for rendering badges on individual words
@@ -7,14 +8,14 @@ class WordRendering(BaseObject):
 
     def __init__(
             self,
-            word_list = WORD_LISTS[0],
-            result_key = None,
-            content_key = None,
-            badge_shape = BADGES[-1],
-            badge_color = 'blue',
-            classes = None,
-            confidence_threshold = None,
-            regression_threshold = None
+            word_list=WORD_LISTS[0],
+            result_key=None,
+            content_key=None,
+            badge_shape=BADGES[-1],
+            badge_color='blue',
+            classes=None,
+            confidence_threshold=None,
+            regression_threshold=None
     ):
         """
         Parameters
@@ -49,22 +50,26 @@ class WordRendering(BaseObject):
     @property
     def word_list(self):
         return self._word_list
+
     @word_list.setter
     def word_list(self, value):
         if value not in WORD_LISTS:
-            raise ValueError(f'word_list must be one of {WORD_LISTS}, got {value}')
+            raise ValueError(
+                f'word_list must be one of {WORD_LISTS}, got {value}')
         self._word_list = value
 
     @property
     def result_key(self):
         return self._result_key
+
     @result_key.setter
     def result_key(self, value):
         self._result_key = value
-        
+
     @property
     def content_key(self):
         return self._content_key
+
     @content_key.setter
     def content_key(self, value):
         self._content_key = value
@@ -72,6 +77,7 @@ class WordRendering(BaseObject):
     @property
     def badge_shape(self):
         return self._badge_shape
+
     @badge_shape.setter
     def badge_shape(self, value):
         if value not in BADGES:
@@ -81,6 +87,7 @@ class WordRendering(BaseObject):
     @property
     def badge_color(self):
         return self._badge_color
+
     @badge_color.setter
     def badge_color(self, value):
         self._badge_color = value
@@ -88,6 +95,7 @@ class WordRendering(BaseObject):
     @property
     def classes(self):
         return self._classes
+
     @classes.setter
     def classes(self, value):
         self._classes = value
@@ -95,6 +103,7 @@ class WordRendering(BaseObject):
     @property
     def confidence_threshold(self):
         return self._confidence_threshold
+
     @confidence_threshold.setter
     def confidence_threshold(self, value):
         self._confidence_threshold = value
@@ -102,6 +111,7 @@ class WordRendering(BaseObject):
     @property
     def regression_threshold(self):
         return self._regression_threshold
+
     @regression_threshold.setter
     def regression_threshold(self, value):
         self._regression_threshold = value
@@ -111,15 +121,15 @@ class WordRendering(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'WordRendering',
-            'params' : {
-                'wordList' : self.word_list,
-                'resultKey' : self.result_key,
-                'contentKey' : self.content_key,
-                'badgeShape' : self.badge_shape,
-                'badgeColor' : self.badge_color,
-                'classes' : self.classes,
-                'confidenceThreshold' : self.confidence_threshold,
-                'regressionThreshold' : self.regression_threshold
+            'className': 'WordRendering',
+            'params': {
+                'wordList': self.word_list,
+                'resultKey': self.result_key,
+                'contentKey': self.content_key,
+                'badgeShape': self.badge_shape,
+                'badgeColor': self.badge_color,
+                'classes': self.classes,
+                'confidenceThreshold': self.confidence_threshold,
+                'regressionThreshold': self.regression_threshold
             }
         }

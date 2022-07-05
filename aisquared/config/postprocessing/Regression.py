@@ -1,14 +1,16 @@
 from aisquared.base import BaseObject
 
+
 class Regression(BaseObject):
     """
     Postprocessing configuration object for Regression
     """
+
     def __init__(
         self,
-        min = None,
-        max = None,
-        round = False
+        min=None,
+        max=None,
+        round=False
     ):
         """
         Parameters
@@ -28,15 +30,17 @@ class Regression(BaseObject):
     @property
     def min(self):
         return self._min
+
     @min.setter
     def min(self, value):
         if not isinstance(value, (float, int)) and value is not None:
             raise TypeError('min must be None, float, or int')
         self._min = value
-    
+
     @property
     def max(self):
         return self._max
+
     @max.setter
     def max(self, value):
         if not isinstance(value, (float, int)) and value is not None:
@@ -46,6 +50,7 @@ class Regression(BaseObject):
     @property
     def round(self):
         return self._round
+
     @round.setter
     def round(self, value):
         if not isinstance(value, bool):
@@ -57,10 +62,10 @@ class Regression(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'Regression',
-            'params' : {
-                'min' : self.min,
-                'max' : self.max,
-                'round' : self.round
+            'className': 'Regression',
+            'params': {
+                'min': self.min,
+                'max': self.max,
+                'round': self.round
             }
         }

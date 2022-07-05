@@ -1,9 +1,11 @@
 from aisquared.base import BaseObject
-    
+
+
 class AddValue(BaseObject):
     """
     Preprocessing step to add a value to all pixels in an image
     """
+
     def __init__(
             self,
             value
@@ -20,6 +22,7 @@ class AddValue(BaseObject):
     @property
     def value(self):
         return self._value
+
     @value.setter
     def value(self, value):
         if not isinstance(value, (int, float)):
@@ -31,16 +34,18 @@ class AddValue(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'Add',
-            'params' : {
-                'value' : self.value
+            'className': 'Add',
+            'params': {
+                'value': self.value
             }
         }
+
 
 class SubtractValue(BaseObject):
     """
     Preprocessing step to subtract a value from all pixels in an image
     """
+
     def __init__(
             self,
             value
@@ -57,6 +62,7 @@ class SubtractValue(BaseObject):
     @property
     def value(self):
         return self._value
+
     @value.setter
     def value(self, value):
         if not isinstance(value, (int, float)):
@@ -68,16 +74,18 @@ class SubtractValue(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'Subtract',
-            'params' : {
-                'value' : self.value
+            'className': 'Subtract',
+            'params': {
+                'value': self.value
             }
         }
+
 
 class MultitplyValue(BaseObject):
     """
     Preprocessing step to multiply all pixels in an image by a value
     """
+
     def __init__(
             self,
             value
@@ -94,6 +102,7 @@ class MultitplyValue(BaseObject):
     @property
     def value(self):
         return self._value
+
     @value.setter
     def value(self, value):
         if not isinstance(value, (int, float)):
@@ -105,16 +114,18 @@ class MultitplyValue(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'Multiply',
-            'params' : {
-                'value' : self.value
+            'className': 'Multiply',
+            'params': {
+                'value': self.value
             }
         }
+
 
 class DivideValue(BaseObject):
     """
     Preprocessing step to divide all pixels in an image by a value
     """
+
     def __init__(
             self,
             value
@@ -131,6 +142,7 @@ class DivideValue(BaseObject):
     @property
     def value(self):
         return self._value
+
     @value.setter
     def value(self, value):
         if not isinstance(value, (int, float)):
@@ -142,16 +154,18 @@ class DivideValue(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'Divide',
-            'params' : {
-                'value' : self.value
+            'className': 'Divide',
+            'params': {
+                'value': self.value
             }
         }
+
 
 class ConvertToColor(BaseObject):
     """
     Preprocessing step to convert images to a color scheme
     """
+
     def __init__(self, color):
         """
         Parameters
@@ -165,6 +179,7 @@ class ConvertToColor(BaseObject):
     @property
     def color(self):
         return self._color
+
     @color.setter
     def color(self, value):
         if not isinstance(value, str):
@@ -178,21 +193,23 @@ class ConvertToColor(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'ConvertToColor',
-            'params' : {
-                'color' : self.color
+            'className': 'ConvertToColor',
+            'params': {
+                'color': self.color
             }
         }
-    
+
+
 class Resize(BaseObject):
     """
     Preprocessing step to resize an image
     """
+
     def __init__(
             self,
             size,
-            method = 'bilinear',
-            preserve_aspect_ratio = False
+            method='bilinear',
+            preserve_aspect_ratio=False
     ):
         """
         Parameters
@@ -213,6 +230,7 @@ class Resize(BaseObject):
     @property
     def size(self):
         return self._size
+
     @size.setter
     def size(self, value):
         if not isinstance(value, list):
@@ -224,6 +242,7 @@ class Resize(BaseObject):
     @property
     def method(self):
         return self._method
+
     @method.setter
     def method(self, value):
         allowed_methods = [
@@ -243,6 +262,7 @@ class Resize(BaseObject):
     @property
     def preserve_aspect_ratio(self):
         return self._preserve_aspect_ratio
+
     @preserve_aspect_ratio.setter
     def preserve_aspect_ratio(self, value):
         if not isinstance(value, bool):
@@ -254,10 +274,10 @@ class Resize(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'Resize',
-            'params' : {
-                'size' : self.size,
-                'method' : self.method,
-                'preserveAspectRatio' : self.preserve_aspect_ratio
+            'className': 'Resize',
+            'params': {
+                'size': self.size,
+                'method': self.method,
+                'preserveAspectRatio': self.preserve_aspect_ratio
             }
         }

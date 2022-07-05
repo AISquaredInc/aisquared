@@ -1,3 +1,7 @@
+"""
+Some allowed configuration parameters - not meant to be directly called by the end user
+"""
+
 LOCATIONS = [
     None,
     'top',

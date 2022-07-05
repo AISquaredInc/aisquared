@@ -9,13 +9,15 @@ ALLOWED_STEPS = (
     PadSequences
 )
 
+
 class TextPreprocessor(BaseObject):
     """
     Preprocessor object for natural language
     """
+
     def __init__(
             self,
-            steps = None
+            steps=None
     ):
         """
         Parameters
@@ -54,6 +56,6 @@ class TextPreprocessor(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'TextPreprocessor',
-            'steps' : self.step_dict
+            'className': 'TextPreprocessor',
+            'steps': self.step_dict
         }
