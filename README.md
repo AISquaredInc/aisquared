@@ -68,6 +68,8 @@ The `aisquared.config.analytic` subpackage contains the following objects:
   - The `DeployedAnalytic` class indicates the use of an analytic or lookup table from a remote resource
 - `DeployedModel`
   - The `DeployedModel` class indicates the use of a model deployed to a remote resource
+- `S3Connector`
+  - The `S3Connector` class indicates the use of data from S3
 
 #### aisquared.config.postprocessing
 
