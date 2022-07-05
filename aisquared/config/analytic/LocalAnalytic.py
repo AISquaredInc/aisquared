@@ -3,7 +3,7 @@ from aisquared.base import BaseObject
 
 class LocalAnalytic(BaseObject):
     """
-    Interaction with an analytic (lookup table) saved to the 
+    Interaction with an analytic (lookup table) saved to the
     local file system
     """
 

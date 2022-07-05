@@ -170,7 +170,7 @@ class GraphConfiguration(BaseObject):
         step : aisquared configuration step
             The step to add
         dependencies : int, list of int, or None
-            The ids of nodes which must be run before the 
+            The ids of nodes which must be run before the
             added node
 
         Returns

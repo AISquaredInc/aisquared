@@ -3,7 +3,7 @@ from aisquared.base import BaseObject
 
 class LocalModel(BaseObject):
     """
-    Interaction with a model currently saved to the local 
+    Interaction with a model currently saved to the local
     file system
     """
 

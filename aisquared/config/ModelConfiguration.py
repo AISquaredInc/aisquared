@@ -478,13 +478,13 @@ class ModelConfiguration(BaseObject):
 
     def compile(self, filename=None, dtype=None):
         """
-        Compile the object into a '.air' file, which can then be dragged and 
+        Compile the object into a '.air' file, which can then be dragged and
         dropped into applications using the AI Squared JavaScript SDK
 
         Parameters
         ----------
         filename : path-like or None (default None)
-            Filename to compile to. If None, defaults to '{NAME}.air', where {NAME} is the 
+            Filename to compile to. If None, defaults to '{NAME}.air', where {NAME} is the
             name of the analytic
         dtype : str or None (default None)
             The datatype to use for the model weights. If None, defaults to 'float32'

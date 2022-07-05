@@ -21,7 +21,7 @@ class DeployedAnalytic(BaseObject):
         input_type : str
             The input types supplied to the analytic. Either one of 'cv', 'text', or 'tabular'
         secret : str (default 'request')
-            The secret key used to interact with the service. Default value of 'request' 
+            The secret key used to interact with the service. Default value of 'request'
             indicates that the user inputs the key whenever the analytic is started again
         header : dict or None (default None)
             Header to use when calling the endpoint
