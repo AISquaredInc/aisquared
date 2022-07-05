@@ -27,7 +27,7 @@ class ImageRendering(BaseObject):
         thickness : str (default '5px')
             The thickness of the box around images
         placement : str (default 'bottomleft')
-            The placement of the predicted value in the box 
+            The placement of the predicted value in the box
             around images
         include_probability : bool (default False)
             Whether to render calculated probabilities
