@@ -1,3 +1,7 @@
+"""
+The aisquared.serving package contains utilities to serve models to a local REST endpoint
+"""
+
 from mlflow.tensorflow import save_model as save_tensorflow_model
 from mlflow.sklearn import save_model as save_sklearn_model
 from mlflow.pytorch import save_model as save_pytorch_model

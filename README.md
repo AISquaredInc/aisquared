@@ -232,3 +232,4 @@ Below are a list of additional features, bug fixes, and other changes made for e
 
 ## Version 0.2.1
 - Added the `S3Connector` class to the `analytics` subpackage, which allows download of an analytic directly from S3
+- Updated the documentation and added the `docs` subdirectory for hosting the documentation on GitHub Pages
