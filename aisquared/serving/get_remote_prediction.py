@@ -22,9 +22,9 @@ def get_remote_prediction(
 
     Notes
     -----
-    - If data is a dictionary, it is expected to already be 
+    - If data is a dictionary, it is expected to already be
       correctly formatted
-    - If data is a string, it is expected to already be 
+    - If data is a string, it is expected to already be
       correctly formatted
 
     Returns
