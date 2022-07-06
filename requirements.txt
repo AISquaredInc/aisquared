@@ -1,0 +1,12 @@
+tensorflowjs
+mlflow
+boto3
+azure-storage-blob
+flask
+waitress
+click
+numpy
+tensorflow
+mann
+scikit-learn
+torch
