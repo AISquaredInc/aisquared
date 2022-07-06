@@ -1,5 +1,5 @@
 import pytest
 
 def test_import():
-    import ../aisquared
+    import aisquared
     assert True
