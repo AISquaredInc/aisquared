@@ -1,4 +1,3 @@
-from multiprocessing.sharedctypes import Value
 from aisquared.base import BaseObject
 
 ALLOWED_TYPES = ['singleChoice', 'multiChoice', 'text']
