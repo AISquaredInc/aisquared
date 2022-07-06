@@ -2,6 +2,7 @@ from typing import Type
 import pytest
 import aisquared
 
+
 def test_postprocessor_init():
     with pytest.raises(TypeError):
         aisquared.config.postprocessing.BinaryClassification(
@@ -13,13 +14,13 @@ def test_postprocessor_init():
             0
         )
         aisquared.config.postprocessing.Regression(
-            min = 'test'
+            min='test'
         )
         aisquared.config.postprocessing.Regression(
-            max = 'test'
+            max='test'
         )
         aisquared.config.postprocessing.Regression(
-            round = 'test'
+            round='test'
         )
 
     with pytest.raises(ValueError):
@@ -47,5 +48,5 @@ def test_postprocessor_init():
     aisquared.config.postprocessing.Regression(
         12,
         24,
-        round = True
+        round=True
     )

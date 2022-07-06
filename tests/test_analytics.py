@@ -1,6 +1,7 @@
 import pytest
 import aisquared
 
+
 def test_analytic_init():
     with pytest.raises(TypeError):
         aisquared.config.analytic.LocalAnalytic()
@@ -8,9 +9,9 @@ def test_analytic_init():
         aisquared.config.analytic.DeployedAnalytic()
         aisquared.config.analytic.DeployedModel()
         aisquared.config.analytic.S3Connector()
-    
+
         aisquared.config.analytic.LocalModel('test', 'foo')
-    
+
     aisquared.config.analytic.LocalAnalytic(
         'test',
         'cv'
