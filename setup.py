@@ -1,6 +1,9 @@
 from setuptools import setup
 from aisquared import __version__
 
+with open('requirements.txt', 'r') as f:
+    requirements = [line for line in f.read().splitlines() if line != '']
+
 setup(
     name='aisquared',
     version=__version__,
@@ -30,20 +33,7 @@ setup(
     long_description_content_type='text/markdown',
     license='AI Squared Developer License Agreement',
     license_files='LICENSE',
-    install_requires=[
-        'tensorflowjs',
-        'mlflow',
-        'boto3',
-        'azure-storage-blob',
-        'flask',
-        'waitress',
-        'click',
-        'numpy',
-        'tensorflow',
-        'mann',
-        'scikit-learn',
-        'torch'
-    ],
+    install_requires=requirements,
     classifiers=[
         'License :: Other/Proprietary License'
     ],
