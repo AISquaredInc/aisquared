@@ -2,7 +2,7 @@ from setuptools import setup
 from aisquared import __version__
 
 with open('requirements.txt', 'r') as f:
-    requirements = [l for l in f.read().splitlines() if l != '']
+    requirements = [line for line in f.read().splitlines() if line != '']
 
 setup(
     name='aisquared',
