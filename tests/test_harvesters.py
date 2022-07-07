@@ -28,8 +28,8 @@ def test_text_harvester():
         }
     }
     harvester = aisquared.config.harvesting.TextHarvester(
-        how = 'regex',
-        regex = 'test'
+        how='regex',
+        regex='test'
     )
     assert harvester.to_dict() == {
         'className': 'TextHarvester',

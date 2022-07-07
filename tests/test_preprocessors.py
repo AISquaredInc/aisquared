@@ -18,7 +18,7 @@ def test_steps_init():
 
     aisquared.config.preprocessing.image.AddValue(10)
     aisquared.config.preprocessing.image.SubtractValue(10)
-    aisquared.config.preprocessing.image.MultitplyValue(10)
+    aisquared.config.preprocessing.image.MultiplyValue(10)
     aisquared.config.preprocessing.image.DivideValue(10)
     aisquared.config.preprocessing.image.ConvertToColor('RGB')
     aisquared.config.preprocessing.image.Resize([10, 10])

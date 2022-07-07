@@ -81,7 +81,7 @@ class SubtractValue(BaseObject):
         }
 
 
-class MultitplyValue(BaseObject):
+class MultiplyValue(BaseObject):
     """
     Preprocessing step to multiply all pixels in an image by a value
     """
