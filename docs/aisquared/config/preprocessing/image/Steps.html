@@ -61,16 +61,16 @@
 
             </li>
             <li>
-                    <a class="class" href="#MultitplyValue">MultitplyValue</a>
+                    <a class="class" href="#MultiplyValue">MultiplyValue</a>
                             <ul class="memberlist">
                         <li>
-                                <a class="function" href="#MultitplyValue.__init__">MultitplyValue</a>
+                                <a class="function" href="#MultiplyValue.__init__">MultiplyValue</a>
                         </li>
                         <li>
-                                <a class="variable" href="#MultitplyValue.value">value</a>
+                                <a class="variable" href="#MultiplyValue.value">value</a>
                         </li>
                         <li>
-                                <a class="function" href="#MultitplyValue.to_dict">to_dict</a>
+                                <a class="function" href="#MultiplyValue.to_dict">to_dict</a>
                         </li>
                 </ul>
 
@@ -230,7 +230,7 @@
 </span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a>        <span class="p">}</span>
 </span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a>
 </span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a>
-</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a><span class="k">class</span> <span class="nc">MultitplyValue</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
+</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a><span class="k">class</span> <span class="nc">MultiplyValue</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
 </span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a>    <span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a><span class="sd">    Preprocessing step to multiply all pixels in an image by a value</span>
 </span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a><span class="sd">    &quot;&quot;&quot;</span>
@@ -716,55 +716,55 @@ The value to subtract</li>
                                 </dl>
                             </div>
                 </section>
-                <section id="MultitplyValue">
-                            <input id="MultitplyValue-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                <section id="MultiplyValue">
+                            <input id="MultiplyValue-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
             
     <span class="def">class</span>
-    <span class="name">MultitplyValue</span><wbr>(<span class="base"><a href="../../../base/BaseObject.html#BaseObject">aisquared.base.BaseObject.BaseObject</a></span>):
+    <span class="name">MultiplyValue</span><wbr>(<span class="base"><a href="../../../base/BaseObject.html#BaseObject">aisquared.base.BaseObject.BaseObject</a></span>):
 
-                <label class="view-source-button" for="MultitplyValue-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="MultiplyValue-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#MultitplyValue"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="MultitplyValue-85"><a href="#MultitplyValue-85"><span class="linenos"> 85</span></a><span class="k">class</span> <span class="nc">MultitplyValue</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
-</span><span id="MultitplyValue-86"><a href="#MultitplyValue-86"><span class="linenos"> 86</span></a>    <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="MultitplyValue-87"><a href="#MultitplyValue-87"><span class="linenos"> 87</span></a><span class="sd">    Preprocessing step to multiply all pixels in an image by a value</span>
-</span><span id="MultitplyValue-88"><a href="#MultitplyValue-88"><span class="linenos"> 88</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="MultitplyValue-89"><a href="#MultitplyValue-89"><span class="linenos"> 89</span></a>
-</span><span id="MultitplyValue-90"><a href="#MultitplyValue-90"><span class="linenos"> 90</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-</span><span id="MultitplyValue-91"><a href="#MultitplyValue-91"><span class="linenos"> 91</span></a>            <span class="bp">self</span><span class="p">,</span>
-</span><span id="MultitplyValue-92"><a href="#MultitplyValue-92"><span class="linenos"> 92</span></a>            <span class="n">value</span>
-</span><span id="MultitplyValue-93"><a href="#MultitplyValue-93"><span class="linenos"> 93</span></a>    <span class="p">):</span>
-</span><span id="MultitplyValue-94"><a href="#MultitplyValue-94"><span class="linenos"> 94</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="MultitplyValue-95"><a href="#MultitplyValue-95"><span class="linenos"> 95</span></a><span class="sd">        Parameters</span>
-</span><span id="MultitplyValue-96"><a href="#MultitplyValue-96"><span class="linenos"> 96</span></a><span class="sd">        ----------</span>
-</span><span id="MultitplyValue-97"><a href="#MultitplyValue-97"><span class="linenos"> 97</span></a><span class="sd">        value : int or float</span>
-</span><span id="MultitplyValue-98"><a href="#MultitplyValue-98"><span class="linenos"> 98</span></a><span class="sd">            The value to multiply all pixels by</span>
-</span><span id="MultitplyValue-99"><a href="#MultitplyValue-99"><span class="linenos"> 99</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="MultitplyValue-100"><a href="#MultitplyValue-100"><span class="linenos">100</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="MultitplyValue-101"><a href="#MultitplyValue-101"><span class="linenos">101</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
-</span><span id="MultitplyValue-102"><a href="#MultitplyValue-102"><span class="linenos">102</span></a>
-</span><span id="MultitplyValue-103"><a href="#MultitplyValue-103"><span class="linenos">103</span></a>    <span class="nd">@property</span>
-</span><span id="MultitplyValue-104"><a href="#MultitplyValue-104"><span class="linenos">104</span></a>    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="MultitplyValue-105"><a href="#MultitplyValue-105"><span class="linenos">105</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
-</span><span id="MultitplyValue-106"><a href="#MultitplyValue-106"><span class="linenos">106</span></a>
-</span><span id="MultitplyValue-107"><a href="#MultitplyValue-107"><span class="linenos">107</span></a>    <span class="nd">@value</span><span class="o">.</span><span class="n">setter</span>
-</span><span id="MultitplyValue-108"><a href="#MultitplyValue-108"><span class="linenos">108</span></a>    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-</span><span id="MultitplyValue-109"><a href="#MultitplyValue-109"><span class="linenos">109</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
-</span><span id="MultitplyValue-110"><a href="#MultitplyValue-110"><span class="linenos">110</span></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;value must be int or float&#39;</span><span class="p">)</span>
-</span><span id="MultitplyValue-111"><a href="#MultitplyValue-111"><span class="linenos">111</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="n">value</span>
-</span><span id="MultitplyValue-112"><a href="#MultitplyValue-112"><span class="linenos">112</span></a>
-</span><span id="MultitplyValue-113"><a href="#MultitplyValue-113"><span class="linenos">113</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="MultitplyValue-114"><a href="#MultitplyValue-114"><span class="linenos">114</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="MultitplyValue-115"><a href="#MultitplyValue-115"><span class="linenos">115</span></a><span class="sd">        Get the configuration object as a dictionary</span>
-</span><span id="MultitplyValue-116"><a href="#MultitplyValue-116"><span class="linenos">116</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="MultitplyValue-117"><a href="#MultitplyValue-117"><span class="linenos">117</span></a>        <span class="k">return</span> <span class="p">{</span>
-</span><span id="MultitplyValue-118"><a href="#MultitplyValue-118"><span class="linenos">118</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;Multiply&#39;</span><span class="p">,</span>
-</span><span id="MultitplyValue-119"><a href="#MultitplyValue-119"><span class="linenos">119</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
-</span><span id="MultitplyValue-120"><a href="#MultitplyValue-120"><span class="linenos">120</span></a>                <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
-</span><span id="MultitplyValue-121"><a href="#MultitplyValue-121"><span class="linenos">121</span></a>            <span class="p">}</span>
-</span><span id="MultitplyValue-122"><a href="#MultitplyValue-122"><span class="linenos">122</span></a>        <span class="p">}</span>
+    <a class="headerlink" href="#MultiplyValue"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="MultiplyValue-85"><a href="#MultiplyValue-85"><span class="linenos"> 85</span></a><span class="k">class</span> <span class="nc">MultiplyValue</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
+</span><span id="MultiplyValue-86"><a href="#MultiplyValue-86"><span class="linenos"> 86</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="MultiplyValue-87"><a href="#MultiplyValue-87"><span class="linenos"> 87</span></a><span class="sd">    Preprocessing step to multiply all pixels in an image by a value</span>
+</span><span id="MultiplyValue-88"><a href="#MultiplyValue-88"><span class="linenos"> 88</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="MultiplyValue-89"><a href="#MultiplyValue-89"><span class="linenos"> 89</span></a>
+</span><span id="MultiplyValue-90"><a href="#MultiplyValue-90"><span class="linenos"> 90</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+</span><span id="MultiplyValue-91"><a href="#MultiplyValue-91"><span class="linenos"> 91</span></a>            <span class="bp">self</span><span class="p">,</span>
+</span><span id="MultiplyValue-92"><a href="#MultiplyValue-92"><span class="linenos"> 92</span></a>            <span class="n">value</span>
+</span><span id="MultiplyValue-93"><a href="#MultiplyValue-93"><span class="linenos"> 93</span></a>    <span class="p">):</span>
+</span><span id="MultiplyValue-94"><a href="#MultiplyValue-94"><span class="linenos"> 94</span></a>        <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="MultiplyValue-95"><a href="#MultiplyValue-95"><span class="linenos"> 95</span></a><span class="sd">        Parameters</span>
+</span><span id="MultiplyValue-96"><a href="#MultiplyValue-96"><span class="linenos"> 96</span></a><span class="sd">        ----------</span>
+</span><span id="MultiplyValue-97"><a href="#MultiplyValue-97"><span class="linenos"> 97</span></a><span class="sd">        value : int or float</span>
+</span><span id="MultiplyValue-98"><a href="#MultiplyValue-98"><span class="linenos"> 98</span></a><span class="sd">            The value to multiply all pixels by</span>
+</span><span id="MultiplyValue-99"><a href="#MultiplyValue-99"><span class="linenos"> 99</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="MultiplyValue-100"><a href="#MultiplyValue-100"><span class="linenos">100</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="MultiplyValue-101"><a href="#MultiplyValue-101"><span class="linenos">101</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+</span><span id="MultiplyValue-102"><a href="#MultiplyValue-102"><span class="linenos">102</span></a>
+</span><span id="MultiplyValue-103"><a href="#MultiplyValue-103"><span class="linenos">103</span></a>    <span class="nd">@property</span>
+</span><span id="MultiplyValue-104"><a href="#MultiplyValue-104"><span class="linenos">104</span></a>    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="MultiplyValue-105"><a href="#MultiplyValue-105"><span class="linenos">105</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
+</span><span id="MultiplyValue-106"><a href="#MultiplyValue-106"><span class="linenos">106</span></a>
+</span><span id="MultiplyValue-107"><a href="#MultiplyValue-107"><span class="linenos">107</span></a>    <span class="nd">@value</span><span class="o">.</span><span class="n">setter</span>
+</span><span id="MultiplyValue-108"><a href="#MultiplyValue-108"><span class="linenos">108</span></a>    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+</span><span id="MultiplyValue-109"><a href="#MultiplyValue-109"><span class="linenos">109</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+</span><span id="MultiplyValue-110"><a href="#MultiplyValue-110"><span class="linenos">110</span></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;value must be int or float&#39;</span><span class="p">)</span>
+</span><span id="MultiplyValue-111"><a href="#MultiplyValue-111"><span class="linenos">111</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="n">value</span>
+</span><span id="MultiplyValue-112"><a href="#MultiplyValue-112"><span class="linenos">112</span></a>
+</span><span id="MultiplyValue-113"><a href="#MultiplyValue-113"><span class="linenos">113</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="MultiplyValue-114"><a href="#MultiplyValue-114"><span class="linenos">114</span></a>        <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="MultiplyValue-115"><a href="#MultiplyValue-115"><span class="linenos">115</span></a><span class="sd">        Get the configuration object as a dictionary</span>
+</span><span id="MultiplyValue-116"><a href="#MultiplyValue-116"><span class="linenos">116</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="MultiplyValue-117"><a href="#MultiplyValue-117"><span class="linenos">117</span></a>        <span class="k">return</span> <span class="p">{</span>
+</span><span id="MultiplyValue-118"><a href="#MultiplyValue-118"><span class="linenos">118</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;Multiply&#39;</span><span class="p">,</span>
+</span><span id="MultiplyValue-119"><a href="#MultiplyValue-119"><span class="linenos">119</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="MultiplyValue-120"><a href="#MultiplyValue-120"><span class="linenos">120</span></a>                <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+</span><span id="MultiplyValue-121"><a href="#MultiplyValue-121"><span class="linenos">121</span></a>            <span class="p">}</span>
+</span><span id="MultiplyValue-122"><a href="#MultiplyValue-122"><span class="linenos">122</span></a>        <span class="p">}</span>
 </span></pre></div>
 
 
@@ -772,28 +772,28 @@ The value to subtract</li>
 </div>
 
 
-                            <div id="MultitplyValue.__init__" class="classattr">
-                                        <input id="MultitplyValue.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="MultiplyValue.__init__" class="classattr">
+                                        <input id="MultiplyValue.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
-        <span class="name">MultitplyValue</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">value</span></span>)</span>
+        <span class="name">MultiplyValue</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">value</span></span>)</span>
 
-                <label class="view-source-button" for="MultitplyValue.__init__-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="MultiplyValue.__init__-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#MultitplyValue.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="MultitplyValue.__init__-90"><a href="#MultitplyValue.__init__-90"><span class="linenos"> 90</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-</span><span id="MultitplyValue.__init__-91"><a href="#MultitplyValue.__init__-91"><span class="linenos"> 91</span></a>            <span class="bp">self</span><span class="p">,</span>
-</span><span id="MultitplyValue.__init__-92"><a href="#MultitplyValue.__init__-92"><span class="linenos"> 92</span></a>            <span class="n">value</span>
-</span><span id="MultitplyValue.__init__-93"><a href="#MultitplyValue.__init__-93"><span class="linenos"> 93</span></a>    <span class="p">):</span>
-</span><span id="MultitplyValue.__init__-94"><a href="#MultitplyValue.__init__-94"><span class="linenos"> 94</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="MultitplyValue.__init__-95"><a href="#MultitplyValue.__init__-95"><span class="linenos"> 95</span></a><span class="sd">        Parameters</span>
-</span><span id="MultitplyValue.__init__-96"><a href="#MultitplyValue.__init__-96"><span class="linenos"> 96</span></a><span class="sd">        ----------</span>
-</span><span id="MultitplyValue.__init__-97"><a href="#MultitplyValue.__init__-97"><span class="linenos"> 97</span></a><span class="sd">        value : int or float</span>
-</span><span id="MultitplyValue.__init__-98"><a href="#MultitplyValue.__init__-98"><span class="linenos"> 98</span></a><span class="sd">            The value to multiply all pixels by</span>
-</span><span id="MultitplyValue.__init__-99"><a href="#MultitplyValue.__init__-99"><span class="linenos"> 99</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="MultitplyValue.__init__-100"><a href="#MultitplyValue.__init__-100"><span class="linenos">100</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="MultitplyValue.__init__-101"><a href="#MultitplyValue.__init__-101"><span class="linenos">101</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+    <a class="headerlink" href="#MultiplyValue.__init__"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="MultiplyValue.__init__-90"><a href="#MultiplyValue.__init__-90"><span class="linenos"> 90</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+</span><span id="MultiplyValue.__init__-91"><a href="#MultiplyValue.__init__-91"><span class="linenos"> 91</span></a>            <span class="bp">self</span><span class="p">,</span>
+</span><span id="MultiplyValue.__init__-92"><a href="#MultiplyValue.__init__-92"><span class="linenos"> 92</span></a>            <span class="n">value</span>
+</span><span id="MultiplyValue.__init__-93"><a href="#MultiplyValue.__init__-93"><span class="linenos"> 93</span></a>    <span class="p">):</span>
+</span><span id="MultiplyValue.__init__-94"><a href="#MultiplyValue.__init__-94"><span class="linenos"> 94</span></a>        <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="MultiplyValue.__init__-95"><a href="#MultiplyValue.__init__-95"><span class="linenos"> 95</span></a><span class="sd">        Parameters</span>
+</span><span id="MultiplyValue.__init__-96"><a href="#MultiplyValue.__init__-96"><span class="linenos"> 96</span></a><span class="sd">        ----------</span>
+</span><span id="MultiplyValue.__init__-97"><a href="#MultiplyValue.__init__-97"><span class="linenos"> 97</span></a><span class="sd">        value : int or float</span>
+</span><span id="MultiplyValue.__init__-98"><a href="#MultiplyValue.__init__-98"><span class="linenos"> 98</span></a><span class="sd">            The value to multiply all pixels by</span>
+</span><span id="MultiplyValue.__init__-99"><a href="#MultiplyValue.__init__-99"><span class="linenos"> 99</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="MultiplyValue.__init__-100"><a href="#MultiplyValue.__init__-100"><span class="linenos">100</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="MultiplyValue.__init__-101"><a href="#MultiplyValue.__init__-101"><span class="linenos">101</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
 </span></pre></div>
 
 
@@ -807,38 +807,38 @@ The value to multiply all pixels by</li>
 
 
                             </div>
-                            <div id="MultitplyValue.value" class="classattr">
+                            <div id="MultiplyValue.value" class="classattr">
                                 <div class="attr variable">
             <span class="name">value</span>
 
         
     </div>
-    <a class="headerlink" href="#MultitplyValue.value"></a>
+    <a class="headerlink" href="#MultiplyValue.value"></a>
     
     
 
                             </div>
-                            <div id="MultitplyValue.to_dict" class="classattr">
-                                        <input id="MultitplyValue.to_dict-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="MultiplyValue.to_dict" class="classattr">
+                                        <input id="MultiplyValue.to_dict-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
         <span class="name">to_dict</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span>)</span>
 
-                <label class="view-source-button" for="MultitplyValue.to_dict-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="MultiplyValue.to_dict-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#MultitplyValue.to_dict"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="MultitplyValue.to_dict-113"><a href="#MultitplyValue.to_dict-113"><span class="linenos">113</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="MultitplyValue.to_dict-114"><a href="#MultitplyValue.to_dict-114"><span class="linenos">114</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="MultitplyValue.to_dict-115"><a href="#MultitplyValue.to_dict-115"><span class="linenos">115</span></a><span class="sd">        Get the configuration object as a dictionary</span>
-</span><span id="MultitplyValue.to_dict-116"><a href="#MultitplyValue.to_dict-116"><span class="linenos">116</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="MultitplyValue.to_dict-117"><a href="#MultitplyValue.to_dict-117"><span class="linenos">117</span></a>        <span class="k">return</span> <span class="p">{</span>
-</span><span id="MultitplyValue.to_dict-118"><a href="#MultitplyValue.to_dict-118"><span class="linenos">118</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;Multiply&#39;</span><span class="p">,</span>
-</span><span id="MultitplyValue.to_dict-119"><a href="#MultitplyValue.to_dict-119"><span class="linenos">119</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
-</span><span id="MultitplyValue.to_dict-120"><a href="#MultitplyValue.to_dict-120"><span class="linenos">120</span></a>                <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
-</span><span id="MultitplyValue.to_dict-121"><a href="#MultitplyValue.to_dict-121"><span class="linenos">121</span></a>            <span class="p">}</span>
-</span><span id="MultitplyValue.to_dict-122"><a href="#MultitplyValue.to_dict-122"><span class="linenos">122</span></a>        <span class="p">}</span>
+    <a class="headerlink" href="#MultiplyValue.to_dict"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="MultiplyValue.to_dict-113"><a href="#MultiplyValue.to_dict-113"><span class="linenos">113</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="MultiplyValue.to_dict-114"><a href="#MultiplyValue.to_dict-114"><span class="linenos">114</span></a>        <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="MultiplyValue.to_dict-115"><a href="#MultiplyValue.to_dict-115"><span class="linenos">115</span></a><span class="sd">        Get the configuration object as a dictionary</span>
+</span><span id="MultiplyValue.to_dict-116"><a href="#MultiplyValue.to_dict-116"><span class="linenos">116</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="MultiplyValue.to_dict-117"><a href="#MultiplyValue.to_dict-117"><span class="linenos">117</span></a>        <span class="k">return</span> <span class="p">{</span>
+</span><span id="MultiplyValue.to_dict-118"><a href="#MultiplyValue.to_dict-118"><span class="linenos">118</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;Multiply&#39;</span><span class="p">,</span>
+</span><span id="MultiplyValue.to_dict-119"><a href="#MultiplyValue.to_dict-119"><span class="linenos">119</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="MultiplyValue.to_dict-120"><a href="#MultiplyValue.to_dict-120"><span class="linenos">120</span></a>                <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+</span><span id="MultiplyValue.to_dict-121"><a href="#MultiplyValue.to_dict-121"><span class="linenos">121</span></a>            <span class="p">}</span>
+</span><span id="MultiplyValue.to_dict-122"><a href="#MultiplyValue.to_dict-122"><span class="linenos">122</span></a>        <span class="p">}</span>
 </span></pre></div>
 
 
@@ -851,7 +851,7 @@ The value to multiply all pixels by</li>
                                 <h5>Inherited Members</h5>
                                 <dl>
                                     <div><dt><a href="../../../base/BaseObject.html#BaseObject">aisquared.base.BaseObject.BaseObject</a></dt>
-                                <dd id="MultitplyValue.to_json" class="function"><a href="../../../base/BaseObject.html#BaseObject.to_json">to_json</a></dd>
+                                <dd id="MultiplyValue.to_json" class="function"><a href="../../../base/BaseObject.html#BaseObject.to_json">to_json</a></dd>
 
             </div>
                                 </dl>
