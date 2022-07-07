@@ -80,7 +80,7 @@ def test_object_rendering():
     object = aisquared.config.rendering.ObjectRendering()
 
     assert object.to_dict() == {
-        'className': 'ObjectDetection',
+        'className': 'ObjectRendering',
         'params': {
             'color': 'blue',
             'thickness': '5px',
