@@ -23,7 +23,19 @@ def test_text_harvester():
         'className': 'TextHarvester',
         'params': {
             'how': 'all',
-            'regex': 'None',
+            'regex': None,
+            'flags': 'gu'
+        }
+    }
+    harvester = aisquared.config.harvesting.TextHarvester(
+        how = 'regex',
+        regex = 'test'
+    )
+    assert harvester.to_dict() == {
+        'className': 'TextHarvester',
+        'params': {
+            'how': 'regex',
+            'regex': 'test',
             'flags': 'gu'
         }
     }

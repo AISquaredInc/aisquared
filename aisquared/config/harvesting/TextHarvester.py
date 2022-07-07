@@ -49,7 +49,7 @@ class TextHarvester(BaseObject):
 
     @regex.setter
     def regex(self, value):
-        self._regex = str(value)
+        self._regex = str(value) if value is not None else value
 
     @property
     def flags(self):
