@@ -15,7 +15,8 @@ class TextHarvester(BaseObject):
         self,
         how=_ALLOWED_HOWS[0],
         regex=None,
-        flags='gu'
+        flags='gu',
+        body_only=False
     ):
         """
         Parameters
@@ -26,11 +27,14 @@ class TextHarvester(BaseObject):
             Javascript-compatible regular expression to use to harvest individual strings
         flags : str or None (default 'gu')
             Flags to use with the Regex
+        body_only : bool (default False)
+            Whether to only harvest text from the body of the webpage
         """
         super().__init__()
         self.how = how
         self.regex = regex
         self.flags = flags
+        self.body_only = body_only
 
     @property
     def how(self):
@@ -59,6 +63,16 @@ class TextHarvester(BaseObject):
     def flags(self, value):
         self._flags = value
 
+    @property
+    def body_only(self):
+        return self._body_only
+
+    @body_only.setter
+    def body_only(self, value):
+        if not isinstance(value, bool):
+            raise TypeError('body_only must be Boolean')
+        self._body_only = value
+
     def to_dict(self):
         """
         Get the configuration object as a dictionary
@@ -68,6 +82,7 @@ class TextHarvester(BaseObject):
             'params': {
                 'how': self.how,
                 'regex': self.regex,
-                'flags': self.flags
+                'flags': self.flags,
+                'bodyOnly': self.body_only
             }
         }
