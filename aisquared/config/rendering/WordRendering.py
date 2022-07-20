@@ -11,7 +11,7 @@ class WordRendering(BaseObject):
             word_list=WORD_LISTS[0],
             result_key=None,
             content_key=None,
-            badge_shape=BADGES[-1],
+            badge_shape=BADGES[-2],
             badge_color='blue',
             classes=None,
             confidence_threshold=None,

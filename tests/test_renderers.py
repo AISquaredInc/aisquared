@@ -116,6 +116,20 @@ def test_word_rendering():
             'regressionThreshold': None
         }
     }
+    word = aisquared.config.rendering.WordRendering(badge_shape='underline')
+    assert word.to_dict() == {
+        'className': 'WordRendering',
+        'params': {
+            'wordList': 'input',
+            'resultKey': None,
+            'contentKey': None,
+            'badgeShape': 'underline',
+            'badgeColor': 'blue',
+            'classes': None,
+            'confidenceThreshold': None,
+            'regressionThreshold': None
+        }
+    }
 
 
 def test_document_rendering():

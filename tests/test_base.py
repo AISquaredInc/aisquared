@@ -34,7 +34,8 @@ def test_badges():
     assert aisquared.base.BADGES == [
         'circle',
         'square',
-        'star'
+        'star',
+        'underline'
     ]
 
 
