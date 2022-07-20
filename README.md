@@ -241,3 +241,6 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Fixed bug in `to_dict` method within `ObjectRendering` class
 - Fixed bug in name of `MultiplyValue` step
 - Fixed bug in datatype checking for text harvester
+- Added `body_only` parameter to `TextHarvester`
+- Added `'underline'` to possible badges
+- Added `threshold_key` and `threshold_values` to relevant rendering classes
