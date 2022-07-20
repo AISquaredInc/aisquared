@@ -14,8 +14,8 @@ class WordRendering(BaseObject):
             badge_shape=BADGES[-2],
             badge_color='blue',
             classes=None,
-            confidence_threshold=None,
-            regression_threshold=None
+            threshold_key=None,
+            threshold_value=None
     ):
         """
         Parameters
@@ -32,10 +32,10 @@ class WordRendering(BaseObject):
             The badge color to use
         classes : None or list (default None)
             If provided, list of classes that will be rendered
-        confidence_threshold : None or float (default None)
-            The threshold for rendering, if provided
-        regression_threshold : None or dict (default None)
-            Information for regression rendering, with 'filter' and 'value' keys
+        threshold_key : None or string (default None)
+            If provided, the key to look for to threshold
+        theshold_value : None or numeric (default None)
+            If provided with threshold_key, the minimum value required to render
         """
         super().__init__()
         self.word_list = word_list
@@ -44,8 +44,8 @@ class WordRendering(BaseObject):
         self.badge_shape = badge_shape
         self.badge_color = badge_color
         self.classes = classes
-        self.confidence_threshold = confidence_threshold
-        self.regression_threshold = regression_threshold
+        self.threshold_key = threshold_key
+        self.threshold_value = threshold_value
 
     @property
     def word_list(self):
@@ -101,20 +101,20 @@ class WordRendering(BaseObject):
         self._classes = value
 
     @property
-    def confidence_threshold(self):
-        return self._confidence_threshold
+    def threshold_key(self):
+        return self._threshold_key
 
-    @confidence_threshold.setter
-    def confidence_threshold(self, value):
-        self._confidence_threshold = value
+    @threshold_key.setter
+    def threshold_key(self, value):
+        self._threshold_key = value
 
     @property
-    def regression_threshold(self):
-        return self._regression_threshold
+    def threshold_value(self):
+        return self._threshold_value
 
-    @regression_threshold.setter
-    def regression_threshold(self, value):
-        self._regression_threshold = value
+    @threshold_value.setter
+    def threshold_value(self, value):
+        self._threshold_value = value
 
     def to_dict(self):
         """
@@ -129,7 +129,7 @@ class WordRendering(BaseObject):
                 'badgeShape': self.badge_shape,
                 'badgeColor': self.badge_color,
                 'classes': self.classes,
-                'confidenceThreshold': self.confidence_threshold,
-                'regressionThreshold': self.regression_threshold
+                'thresholdKey': self.threshold_key,
+                'thresholdValue': self.threshold_value
             }
         }

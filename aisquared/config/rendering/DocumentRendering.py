@@ -15,8 +15,8 @@ class DocumentRendering(BaseObject):
         probability_key='probability',
         underline_color='blue',
         classes=None,
-        confidence_threshold=None,
-        regression_threshold=None
+        threshold_key=None,
+        threshold_value=None
     ):
         """
         Parameters
@@ -35,10 +35,10 @@ class DocumentRendering(BaseObject):
         underline_color : str (default 'blue')
         classes : None or list (default None)
             If provided, list of classes that will be rendered
-        confidence_threshold : None or float (default None)
-            The threshold for rendering, if provided
-        regression_threshold : None or dict (default None)
-            Information for regression rendering, with 'filter' and 'value' keys
+        threshold_key : None or str (default None)
+            If provided, the key to threshold on
+        threshold_value : None or numeric (default None)
+            If provided with threshold_key, the value to threshold rendering upon
         """
         super().__init__()
         self.prediction_key = prediction_key
@@ -48,8 +48,8 @@ class DocumentRendering(BaseObject):
         self.probability_key = probability_key
         self.underline_color = underline_color
         self.classes = classes
-        self.confidence_threshold = confidence_threshold
-        self.regression_threshold = regression_threshold
+        self.threshold_key = threshold_key
+        self.threshold_value = threshold_value
 
     @property
     def prediction_key(self):
@@ -108,20 +108,20 @@ class DocumentRendering(BaseObject):
         self._classes = value
 
     @property
-    def confidence_threshold(self):
-        return self._confidence_threshold
+    def threshold_key(self):
+        return self._threshold_key
 
-    @confidence_threshold.setter
-    def confidence_threshold(self, value):
-        self._confidence_threshold = value
+    @threshold_key.setter
+    def threshold_key(self, value):
+        self._threshold_key = value
 
     @property
-    def regression_threshold(self):
-        return self._regression_threshold
+    def threshold_value(self):
+        return self._threshold_value
 
-    @regression_threshold.setter
-    def regression_threshold(self, value):
-        self._regression_threshold = value
+    @threshold_value.setter
+    def threshold_value(self, value):
+        self._threshold_value = value
 
     def to_dict(self):
         """
@@ -137,7 +137,7 @@ class DocumentRendering(BaseObject):
                 'probabilityKey': self.probability_key,
                 'underlineColor': self.underline_color,
                 'classes': self.classes,
-                'confidenceThreshold': self.confidence_threshold,
-                'regressionThreshold': self.regression_threshold
+                'thresholdKey': self.threshold_key,
+                'thresholdValue': self.threshold_value
             }
         }
