@@ -7,6 +7,6 @@ waitress
 click
 numpy
 tensorflow
-mann
+beyondml
 scikit-learn
 torch
