@@ -349,7 +349,7 @@ class Trim(BaseObject):
     """Text preprocessing class to trim whitespace from text"""
 
     def __init__(self):
-        super.__init__()
+        super().__init__()
 
     def to_dict(self):
         """
