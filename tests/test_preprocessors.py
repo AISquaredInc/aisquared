@@ -15,6 +15,7 @@ def test_steps_init():
         }
     )
     aisquared.config.preprocessing.text.PadSequences()
+    aisquared.config.preprocessing.text.Trim()
 
     aisquared.config.preprocessing.image.AddValue(10)
     aisquared.config.preprocessing.image.SubtractValue(10)
