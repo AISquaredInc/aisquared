@@ -132,6 +132,18 @@
                 </ul>
 
             </li>
+            <li>
+                    <a class="class" href="#Trim">Trim</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#Trim.__init__">Trim</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Trim.to_dict">to_dict</a>
+                        </li>
+                </ul>
+
+            </li>
     </ul>
 
 
@@ -498,6 +510,22 @@
 </span><span id="L-343"><a href="#L-343"><span class="linenos">343</span></a>                <span class="s1">&#39;truncateLocation&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">truncate_location</span>
 </span><span id="L-344"><a href="#L-344"><span class="linenos">344</span></a>            <span class="p">}</span>
 </span><span id="L-345"><a href="#L-345"><span class="linenos">345</span></a>        <span class="p">}</span>
+</span><span id="L-346"><a href="#L-346"><span class="linenos">346</span></a>
+</span><span id="L-347"><a href="#L-347"><span class="linenos">347</span></a>
+</span><span id="L-348"><a href="#L-348"><span class="linenos">348</span></a><span class="k">class</span> <span class="nc">Trim</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
+</span><span id="L-349"><a href="#L-349"><span class="linenos">349</span></a>    <span class="sd">&quot;&quot;&quot;Text preprocessing class to trim whitespace from text&quot;&quot;&quot;</span>
+</span><span id="L-350"><a href="#L-350"><span class="linenos">350</span></a>
+</span><span id="L-351"><a href="#L-351"><span class="linenos">351</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-352"><a href="#L-352"><span class="linenos">352</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="L-353"><a href="#L-353"><span class="linenos">353</span></a>
+</span><span id="L-354"><a href="#L-354"><span class="linenos">354</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-355"><a href="#L-355"><span class="linenos">355</span></a>        <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-356"><a href="#L-356"><span class="linenos">356</span></a><span class="sd">        Get the configuration object as a dictionary</span>
+</span><span id="L-357"><a href="#L-357"><span class="linenos">357</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-358"><a href="#L-358"><span class="linenos">358</span></a>        <span class="k">return</span> <span class="p">{</span>
+</span><span id="L-359"><a href="#L-359"><span class="linenos">359</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;Trim&#39;</span><span class="p">,</span>
+</span><span id="L-360"><a href="#L-360"><span class="linenos">360</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{}</span>
+</span><span id="L-361"><a href="#L-361"><span class="linenos">361</span></a>        <span class="p">}</span>
 </span></pre></div>
 
 
@@ -1507,6 +1535,93 @@ sequences are to be truncated</li>
                                 <dl>
                                     <div><dt><a href="../../../base/BaseObject.html#BaseObject">aisquared.base.BaseObject.BaseObject</a></dt>
                                 <dd id="PadSequences.to_json" class="function"><a href="../../../base/BaseObject.html#BaseObject.to_json">to_json</a></dd>
+
+            </div>
+                                </dl>
+                            </div>
+                </section>
+                <section id="Trim">
+                            <input id="Trim-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">Trim</span><wbr>(<span class="base"><a href="../../../base/BaseObject.html#BaseObject">aisquared.base.BaseObject.BaseObject</a></span>):
+
+                <label class="view-source-button" for="Trim-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#Trim"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Trim-349"><a href="#Trim-349"><span class="linenos">349</span></a><span class="k">class</span> <span class="nc">Trim</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
+</span><span id="Trim-350"><a href="#Trim-350"><span class="linenos">350</span></a>    <span class="sd">&quot;&quot;&quot;Text preprocessing class to trim whitespace from text&quot;&quot;&quot;</span>
+</span><span id="Trim-351"><a href="#Trim-351"><span class="linenos">351</span></a>
+</span><span id="Trim-352"><a href="#Trim-352"><span class="linenos">352</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="Trim-353"><a href="#Trim-353"><span class="linenos">353</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="Trim-354"><a href="#Trim-354"><span class="linenos">354</span></a>
+</span><span id="Trim-355"><a href="#Trim-355"><span class="linenos">355</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="Trim-356"><a href="#Trim-356"><span class="linenos">356</span></a>        <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="Trim-357"><a href="#Trim-357"><span class="linenos">357</span></a><span class="sd">        Get the configuration object as a dictionary</span>
+</span><span id="Trim-358"><a href="#Trim-358"><span class="linenos">358</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="Trim-359"><a href="#Trim-359"><span class="linenos">359</span></a>        <span class="k">return</span> <span class="p">{</span>
+</span><span id="Trim-360"><a href="#Trim-360"><span class="linenos">360</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;Trim&#39;</span><span class="p">,</span>
+</span><span id="Trim-361"><a href="#Trim-361"><span class="linenos">361</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{}</span>
+</span><span id="Trim-362"><a href="#Trim-362"><span class="linenos">362</span></a>        <span class="p">}</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Text preprocessing class to trim whitespace from text</p>
+</div>
+
+
+                            <div id="Trim.__init__" class="classattr">
+                                        <input id="Trim.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="name">Trim</span><span class="signature pdoc-code condensed">()</span>
+
+                <label class="view-source-button" for="Trim.__init__-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#Trim.__init__"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Trim.__init__-352"><a href="#Trim.__init__-352"><span class="linenos">352</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="Trim.__init__-353"><a href="#Trim.__init__-353"><span class="linenos">353</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></pre></div>
+
+
+    
+
+                            </div>
+                            <div id="Trim.to_dict" class="classattr">
+                                        <input id="Trim.to_dict-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">to_dict</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span>)</span>
+
+                <label class="view-source-button" for="Trim.to_dict-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#Trim.to_dict"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Trim.to_dict-355"><a href="#Trim.to_dict-355"><span class="linenos">355</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="Trim.to_dict-356"><a href="#Trim.to_dict-356"><span class="linenos">356</span></a>        <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="Trim.to_dict-357"><a href="#Trim.to_dict-357"><span class="linenos">357</span></a><span class="sd">        Get the configuration object as a dictionary</span>
+</span><span id="Trim.to_dict-358"><a href="#Trim.to_dict-358"><span class="linenos">358</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="Trim.to_dict-359"><a href="#Trim.to_dict-359"><span class="linenos">359</span></a>        <span class="k">return</span> <span class="p">{</span>
+</span><span id="Trim.to_dict-360"><a href="#Trim.to_dict-360"><span class="linenos">360</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;Trim&#39;</span><span class="p">,</span>
+</span><span id="Trim.to_dict-361"><a href="#Trim.to_dict-361"><span class="linenos">361</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{}</span>
+</span><span id="Trim.to_dict-362"><a href="#Trim.to_dict-362"><span class="linenos">362</span></a>        <span class="p">}</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Get the configuration object as a dictionary</p>
+</div>
+
+
+                            </div>
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt><a href="../../../base/BaseObject.html#BaseObject">aisquared.base.BaseObject.BaseObject</a></dt>
+                                <dd id="Trim.to_json" class="function"><a href="../../../base/BaseObject.html#BaseObject.to_json">to_json</a></dd>
 
             </div>
                                 </dl>
