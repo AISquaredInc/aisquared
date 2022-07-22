@@ -32,3 +32,7 @@ def test_analytic_init():
         'bucket',
         'key'
     )
+    aisquared.config.analytic.LocalONNXModel(
+        'test',
+        'cv'
+    )
