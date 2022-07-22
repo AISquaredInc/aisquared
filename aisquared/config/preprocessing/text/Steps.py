@@ -344,6 +344,7 @@ class PadSequences(BaseObject):
             }
         }
 
+
 class Trim(BaseObject):
     """Text preprocessing class to trim whitespace from text"""
 
@@ -356,6 +357,5 @@ class Trim(BaseObject):
         """
         return {
             'className': 'Trim',
-            'params' : {}
+            'params': {}
         }
-    
