@@ -34,5 +34,6 @@ def test_analytic_init():
     )
     aisquared.config.analytic.LocalONNXModel(
         'test',
+        [1],
         'cv'
     )
