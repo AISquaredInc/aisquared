@@ -244,3 +244,5 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Added `body_only` parameter to `TextHarvester`
 - Added `'underline'` to possible badges
 - Added `threshold_key` and `threshold_values` to relevant rendering classes
+- Added `Trim` text preprocessing class
+- Added `LocalONNXModel` class to prepare for support of ONNX models
