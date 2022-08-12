@@ -1,5 +1,6 @@
 from .BaseObject import BaseObject
 
+
 class CustomObject(BaseObject):
     """
     Custom class that allows the user to define custom classes for configuration
@@ -18,7 +19,7 @@ class CustomObject(BaseObject):
         self.class_name = class_name
         self.params = kwargs
         self.path = kwargs.get('path')
-        
+
         if 'path' not in self.params.keys():
             self.params['path'] = self.path
 
@@ -27,6 +28,6 @@ class CustomObject(BaseObject):
         Get the object as a dictionary
         """
         return {
-            'className' : self.class_name,
-            'params' : self.params
+            'className': self.class_name,
+            'params': self.params
         }
