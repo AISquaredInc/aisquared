@@ -7,4 +7,3 @@ from .DeployedModel import DeployedModel
 from .LocalModel import LocalModel
 from .LocalAnalytic import LocalAnalytic
 from .S3Connector import S3Connector
-from .LocalONNXModel import LocalONNXModel

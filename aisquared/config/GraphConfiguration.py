@@ -1,12 +1,11 @@
-from typing import Type
-from aisquared.base import BaseObject, ALLOWED_STAGES
+from aisquared.base import BaseObject, CustomObject, ALLOWED_STAGES
 import tensorflowjs as tfjs
 import tensorflow as tf
 import shutil
 import json
 import os
 
-LOCAL_CLASSES = ['LocalModel', 'LocalAnalytic']
+LOCAL_CLASSES = ['LocalModel', 'LocalAnalytic', 'CustomObject']
 
 
 class GraphConfiguration(BaseObject):

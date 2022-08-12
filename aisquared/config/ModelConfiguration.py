@@ -1,9 +1,9 @@
-from aisquared.base import BaseObject, ALLOWED_STAGES
+from aisquared.base import BaseObject, CustomObject, ALLOWED_STAGES
 from aisquared.config.harvesting import ImageHarvester, TextHarvester, InputHarvester
 from aisquared.config.preprocessing.tabular import TabularPreprocessor
 from aisquared.config.preprocessing.image import ImagePreprocessor
 from aisquared.config.preprocessing.text import TextPreprocessor
-from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel, LocalAnalytic, LocalONNXModel
+from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel, LocalAnalytic
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, ObjectDetection, Regression
 from aisquared.config.rendering import ImageRendering, ObjectRendering, DocumentRendering, WordRendering, FilterRendering
 from aisquared.config.feedback import SimpleFeedback, BinaryFeedback, MulticlassFeedback, RegressionFeedback, ModelFeedback, QualitativeFeedback
@@ -17,13 +17,15 @@ import os
 HARVESTING_CLASSES = (
     ImageHarvester,
     TextHarvester,
-    InputHarvester
+    InputHarvester,
+    CustomObject
 )
 
 PREPROCESSING_CLASSES = (
     TabularPreprocessor,
     ImagePreprocessor,
-    TextPreprocessor
+    TextPreprocessor,
+    CustomObject
 )
 
 ANALYTIC_CLASSES = (
@@ -31,14 +33,15 @@ ANALYTIC_CLASSES = (
     DeployedModel,
     LocalModel,
     LocalAnalytic,
-    LocalONNXModel
+    CustomObject
 )
 
 POSTPROCESSING_CLASSES = (
     BinaryClassification,
     MulticlassClassification,
     ObjectDetection,
-    Regression
+    Regression,
+    CustomObject
 )
 
 RENDERING_CLASSES = (
@@ -46,7 +49,8 @@ RENDERING_CLASSES = (
     ImageRendering,
     DocumentRendering,
     WordRendering,
-    FilterRendering
+    FilterRendering,
+    CustomObject
 )
 
 FEEDBACK_CLASSES = (
@@ -61,7 +65,7 @@ FEEDBACK_CLASSES = (
 LOCAL_CLASSES = (
     LocalModel,
     LocalAnalytic,
-    LocalONNXModel
+    CustomObject
 )
 
 
@@ -444,13 +448,15 @@ class ModelConfiguration(BaseObject):
         if isinstance(self.analytic[0], ANALYTIC_CLASSES):
             for a in self.analytic:
                 if isinstance(a, LOCAL_CLASSES):
-                    filenames.append(a.path)
+                    if a.path is not None:
+                        filenames.append(a.path)
         else:
             for analytic in self.analytic:
                 for a in analytic:
                     if isinstance(a, LOCAL_CLASSES):
-                        filenames.append(a.path)
-        return filenames
+                        if a.path is not None:
+                            filenames.append(a.path)
+        return [f for f in filenames if f is not None]
 
     def to_dict(self):
         """
