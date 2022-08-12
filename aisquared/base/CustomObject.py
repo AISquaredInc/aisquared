@@ -6,6 +6,14 @@ class CustomObject(BaseObject):
     """
 
     def __init__(self, class_name, **kwargs):
+        """
+        Parameters
+        ----------
+        class_name : str
+            The name for the class
+        **kwargs : additional keyword arguments
+            Other parameters to be used
+        """
         super().__init__()
         self.class_name = class_name
         self.params = kwargs
