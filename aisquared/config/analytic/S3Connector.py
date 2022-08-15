@@ -51,6 +51,7 @@ class S3Connector(BaseObject):
             'className': 'S3Connector',
             'params': {
                 'bucket': self.bucket,
-                'key': self.key
+                'key': self.key,
+                'inputType': 'text'
             }
         }
