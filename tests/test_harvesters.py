@@ -104,3 +104,17 @@ def test_input_harvester_fails():
 
         aisquared.config.harvesting.InputHarvester(
             'tabular', features=['test'])
+
+
+def test_keyword_harvester():
+    harvester = aisquared.config.harvesting.KeywordHarvester(
+        ['foo', 'bar'],
+        case_sensitive=True
+    )
+    assert harvester.to_dict() == {
+        'className': 'KeywordHarvester',
+        'params': {
+            'keywords': ['foo', 'bar'],
+            'caseSensitive': True
+        }
+    }
