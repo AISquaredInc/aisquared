@@ -1,5 +1,5 @@
 from aisquared.base import BaseObject, CustomObject, ALLOWED_STAGES
-from aisquared.config.harvesting import ImageHarvester, TextHarvester, InputHarvester
+from aisquared.config.harvesting import ImageHarvester, TextHarvester, InputHarvester, KeywordHarvester
 from aisquared.config.preprocessing.tabular import TabularPreprocessor
 from aisquared.config.preprocessing.image import ImagePreprocessor
 from aisquared.config.preprocessing.text import TextPreprocessor
@@ -18,6 +18,7 @@ HARVESTING_CLASSES = (
     ImageHarvester,
     TextHarvester,
     InputHarvester,
+    KeywordHarvester,
     CustomObject
 )
 
