@@ -2,7 +2,8 @@ from aisquared.base import BaseObject
 
 _ALLOWED_HOWS = [
     'all',
-    'regex'
+    'regex',
+    'keywords'
 ]
 
 
@@ -16,25 +17,29 @@ class TextHarvester(BaseObject):
         how=_ALLOWED_HOWS[0],
         regex=None,
         flags='gu',
-        body_only=False
+        body_only=False,
+        keywords=None
     ):
         """
         Parameters
         ----------
         how : str (default 'all')
-            How to harvest text (supports ['how', 'all'])
+            How to harvest text (supports ['how', 'all', 'keywords'])
         regex : str or None (default None)
             Javascript-compatible regular expression to use to harvest individual strings
         flags : str or None (default 'gu')
             Flags to use with the Regex
         body_only : bool (default False)
             Whether to only harvest text from the body of the webpage
+        keywords : list of str or None (default None)
+            If provided, keywords to search for
         """
         super().__init__()
         self.how = how
         self.regex = regex
         self.flags = flags
         self.body_only = body_only
+        self.keywords = keywords
 
     @property
     def how(self):
@@ -77,6 +82,17 @@ class TextHarvester(BaseObject):
         """
         Get the configuration object as a dictionary
         """
+        if self.how == 'keywords':
+            return {
+                'className': 'TextHarvester',
+                'params': {
+                    'how': 'regex',
+                    'regex': '|'.join(self.keywords),
+                    'flags': self.flags,
+                    'bodyOnly': self.body_only
+                }
+            }
+
         return {
             'className': 'TextHarvester',
             'params': {

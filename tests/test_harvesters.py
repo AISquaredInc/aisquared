@@ -107,14 +107,17 @@ def test_input_harvester_fails():
 
 
 def test_keyword_harvester():
-    harvester = aisquared.config.harvesting.KeywordHarvester(
-        ['foo', 'bar'],
-        case_sensitive=True
+    harvester = aisquared.config.harvesting.TextHarvester(
+        how='keywords',
+        keywords=['foo', 'bar'],
+        flags='gui'
     )
     assert harvester.to_dict() == {
-        'className': 'KeywordHarvester',
+        'className': 'TextHarvester',
         'params': {
-            'keywords': ['foo', 'bar'],
-            'caseSensitive': True
+            'bodyOnly': False,
+            'how': 'regex',
+            'regex': 'foo|bar',
+            'flags': 'gui'
         }
     }
