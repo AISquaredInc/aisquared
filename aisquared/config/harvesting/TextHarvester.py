@@ -24,7 +24,7 @@ class TextHarvester(BaseObject):
         Parameters
         ----------
         how : str (default 'all')
-            How to harvest text (supports ['how', 'all', 'keywords'])
+            How to harvest text (supports ['all', 'regex', 'keywords'])
         regex : str or None (default None)
             Javascript-compatible regular expression to use to harvest individual strings
         flags : str or None (default 'gu')
