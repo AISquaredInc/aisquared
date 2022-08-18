@@ -165,7 +165,7 @@ class ModelConfiguration(BaseObject):
     def harvesting_steps(self, value):
         harvesting_classes = HARVESTING_CLASSES + (ModelConfiguration,)
         if value is None:
-            self._harvesting_steps = value
+            self._harvesting_steps = [value]
         elif isinstance(value, harvesting_classes):
             self._harvesting_steps = [value]
         elif isinstance(value, list) and all([isinstance(val, harvesting_classes) for val in value]):
