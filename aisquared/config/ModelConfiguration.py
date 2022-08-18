@@ -165,7 +165,7 @@ class ModelConfiguration(BaseObject):
     def harvesting_steps(self, value):
         harvesting_classes = HARVESTING_CLASSES + (ModelConfiguration,)
         if value is None:
-            self._harvesting_steps = [value]
+            self._harvesting_steps = value
         elif isinstance(value, harvesting_classes):
             self._harvesting_steps = [value]
         elif isinstance(value, list) and all([isinstance(val, harvesting_classes) for val in value]):
@@ -436,7 +436,9 @@ class ModelConfiguration(BaseObject):
         Get filenames for all models in the configuration
         """
         filenames = []
-        if isinstance(self.harvesting_steps[0], list):
+        if self.harvesting_steps is None:
+            harvesting_list = []
+        elif isinstance(self.harvesting_steps[0], list):
             harvesting_list = [
                 h for harvester in self.harvesting_steps for h in harvester]
         else:
@@ -448,14 +450,18 @@ class ModelConfiguration(BaseObject):
         if isinstance(self.analytic[0], ANALYTIC_CLASSES):
             for a in self.analytic:
                 if isinstance(a, LOCAL_CLASSES):
-                    if a.path is not None:
+                    try:
                         filenames.append(a.path)
+                    except:
+                        pass
         else:
             for analytic in self.analytic:
                 for a in analytic:
                     if isinstance(a, LOCAL_CLASSES):
-                        if a.path is not None:
+                        try:
                             filenames.append(a.path)
+                        except:
+                            pass
         return [f for f in filenames if f is not None]
 
     def to_dict(self):

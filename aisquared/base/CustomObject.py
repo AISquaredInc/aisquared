@@ -18,10 +18,6 @@ class CustomObject(BaseObject):
         super().__init__()
         self.class_name = class_name
         self.params = kwargs
-        self.path = kwargs.get('path')
-
-        if 'path' not in self.params.keys():
-            self.params['path'] = self.path
 
     def to_dict(self):
         """
