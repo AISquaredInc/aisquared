@@ -84,7 +84,6 @@ class ReverseMLWorkflow(BaseObject):
                 'bucket': self.bucket,
                 'fileName': self.filename,
                 'column': self.column,
-                'period': self.period,
-                'inputType': 'text'
+                'period': self.period
             }
         }
