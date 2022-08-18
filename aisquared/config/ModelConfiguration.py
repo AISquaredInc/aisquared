@@ -436,7 +436,7 @@ class ModelConfiguration(BaseObject):
         Get filenames for all models in the configuration
         """
         filenames = []
-        if self.harvesting_steps is None:
+        if self.harvesting_steps is None or len(self.harvesting_steps) == 1 and self.harvesting_steps[0] is None:
             harvesting_list = []
         elif isinstance(self.harvesting_steps[0], list):
             harvesting_list = [
