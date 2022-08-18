@@ -3,7 +3,7 @@ from aisquared.config.harvesting import ImageHarvester, TextHarvester, InputHarv
 from aisquared.config.preprocessing.tabular import TabularPreprocessor
 from aisquared.config.preprocessing.image import ImagePreprocessor
 from aisquared.config.preprocessing.text import TextPreprocessor
-from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel, LocalAnalytic
+from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel, LocalAnalytic, ReverseMLWorkflow
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, ObjectDetection, Regression
 from aisquared.config.rendering import ImageRendering, ObjectRendering, DocumentRendering, WordRendering, FilterRendering
 from aisquared.config.feedback import SimpleFeedback, BinaryFeedback, MulticlassFeedback, RegressionFeedback, ModelFeedback, QualitativeFeedback
@@ -33,6 +33,7 @@ ANALYTIC_CLASSES = (
     DeployedModel,
     LocalModel,
     LocalAnalytic,
+    ReverseMLWorkflow,
     CustomObject
 )
 

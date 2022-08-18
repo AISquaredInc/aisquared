@@ -12,5 +12,5 @@ def test_custom():
         'className': 'TestClass',
         'params': {
             'test': 'foo',
-            'otherTest': 'bar'        }
+            'otherTest': 'bar'}
     }
