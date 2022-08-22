@@ -24,7 +24,8 @@ setup(
         'aisquared.config.analytic',
         'aisquared.config.postprocessing',
         'aisquared.config.rendering',
-        'aisquared.config.feedback'
+        'aisquared.config.feedback',
+        'aisquared.utils'
     ],
     author='The AI Squared Team',
     author_email='staff@squared.ai',
