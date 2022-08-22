@@ -453,7 +453,7 @@ class ModelConfiguration(BaseObject):
                 if isinstance(a, LOCAL_CLASSES):
                     try:
                         filenames.append(a.path)
-                    except:
+                    except Exception:
                         pass
         else:
             for analytic in self.analytic:
@@ -461,7 +461,7 @@ class ModelConfiguration(BaseObject):
                     if isinstance(a, LOCAL_CLASSES):
                         try:
                             filenames.append(a.path)
-                        except:
+                        except Exception:
                             pass
         return [f for f in filenames if f is not None]
 
