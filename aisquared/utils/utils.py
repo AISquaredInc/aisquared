@@ -44,6 +44,7 @@ def mimic_model(
     loss,
     metrics,
     optimizer,
+    mimic_proba=False,
     retention=0.9,
     batch_size=32,
     epochs=100,
@@ -67,8 +68,12 @@ def mimic_model(
         training_predictions = trained_model.transform(training_data)
         testing_predictions = trained_model.transform(test_data)
     elif isinstance(trained_model, (ClassifierMixin, RegressorMixin)):
-        training_predictions = trained_model.predict(training_data)
-        testing_predictions = trained_model.predict(test_data)
+        if isinstance(trained_model, ClassifierMixin) and mimic_proba:
+            training_predictions = trained_model.predict_proba(training_data)
+            testing_predictions = trained_model.predict(test_data)
+        else:
+            training_predictions = trained_model.predict(training_data)
+            testing_predictions = trained_model.predict(test_data)
     else:
         raise TypeError(
             'trained_model is not a scikit-learn TransformerMixin, ClassifierMixin, or RegressorMixin')
