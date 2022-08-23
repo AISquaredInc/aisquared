@@ -246,4 +246,5 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Added `threshold_key` and `threshold_values` to relevant rendering classes
 - Added `Trim` text preprocessing class
 - Added `CustomObject` in the base package to allow for creation of custom classes
-- Added `KeywordHarvester` class
+- Added keyword harvesting capabilities
+- Added `utils` subpackage with capabilities to mimic a trained sklearn model
