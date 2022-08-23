@@ -59,9 +59,9 @@ def _get_cv_model(size, input_shape, num_outputs, output_activation):
 
     for block_num in range(num_blocks - 1):
         x = tf.keras.layers.Conv2D(
-            8*(2**(block_num + 1)), 3, padding='same', activation='relu')(x)
+            8 * (2 ** (block_num + 1)), 3, padding='same', activation='relu')(x)
         x = tf.keras.layers.Conv2D(
-            8*(2**(block_num + 1)), 3, padding='same', activation='relu')(x)
+            8 * (2 ** (block_num + 1)), 3, padding='same', activation='relu')(x)
         x = tf.keras.layers.MaxPool2D(strides=1)(x)
 
     x = tf.keras.layers.Flatten()(x)
