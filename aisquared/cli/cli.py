@@ -1,6 +1,6 @@
 from aisquared.serving import deploy_model, get_remote_prediction
 from aisquared.remote import AWSClient, AzureClient
-from mann.utils import get_custom_objects
+from beyondml.tflow.utils import get_custom_objects
 import click
 import json
 
