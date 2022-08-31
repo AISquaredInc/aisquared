@@ -14,3 +14,4 @@ def test_custom():
             'test': 'foo',
             'otherTest': 'bar'}
     }
+    assert obj.path is None
