@@ -2,7 +2,7 @@
 <img src="../logo/aisquared.png"
     alt="AI Squared Logo"
     style="float: left; margin-right: 10px;"
-    width="400"
+    width="600"
     height="100" />
 
 <br>
