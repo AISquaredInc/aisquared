@@ -248,3 +248,4 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Added `CustomObject` in the base package to allow for creation of custom classes
 - Added keyword harvesting capabilities
 - Added `utils` subpackage with capabilities to mimic a trained sklearn model
+- Small documentation changes
