@@ -1,4 +1,15 @@
 """
+<img src="../logo/aisquared.png"
+    alt="AI Squared Logo"
+    style="float: left; margin-right: 10px;"
+    width="400"
+    height="100" />
+
+<br>
+<br>
+<br>
+<br>
+
 This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Browser Extension or other applications developed through the AI Squared JavaScript SDK.
 """
 
