@@ -18,6 +18,7 @@ class CustomObject(BaseObject):
         super().__init__()
         self.class_name = class_name
         self.params = kwargs
+        self.path = kwargs.get('path')
 
     def to_dict(self):
         """
