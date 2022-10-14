@@ -1,6 +1,6 @@
 try:
     from azure.storage.blob import BlobServiceClient
-except:
+except ImportError:
     pass
 
 from getpass import getpass

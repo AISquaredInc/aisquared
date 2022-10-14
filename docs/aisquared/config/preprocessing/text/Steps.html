@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="pdoc 12.0.2"/>
+    <meta name="generator" content="pdoc 12.2.0"/>
     <title>aisquared.config.preprocessing.text.Steps API documentation</title>
 
     <style>/*! * Bootstrap Reboot v5.0.0 (https://getbootstrap.com/) * Copyright 2011-2021 The Bootstrap Authors * Copyright 2011-2021 Twitter, Inc. * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md) */*,::after,::before{box-sizing:border-box}@media (prefers-reduced-motion:no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:1rem;font-weight:400;line-height:1.5;color:#212529;background-color:#fff;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}hr{margin:1rem 0;color:inherit;background-color:currentColor;border:0;opacity:.25}hr:not([size]){height:1px}h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:.5rem;font-weight:500;line-height:1.2}h1{font-size:calc(1.375rem + 1.5vw)}@media (min-width:1200px){h1{font-size:2.5rem}}h2{font-size:calc(1.325rem + .9vw)}@media (min-width:1200px){h2{font-size:2rem}}h3{font-size:calc(1.3rem + .6vw)}@media (min-width:1200px){h3{font-size:1.75rem}}h4{font-size:calc(1.275rem + .3vw)}@media (min-width:1200px){h4{font-size:1.5rem}}h5{font-size:1.25rem}h6{font-size:1rem}p{margin-top:0;margin-bottom:1rem}abbr[data-bs-original-title],abbr[title]{-webkit-text-decoration:underline dotted;text-decoration:underline dotted;cursor:help;-webkit-text-decoration-skip-ink:none;text-decoration-skip-ink:none}address{margin-bottom:1rem;font-style:normal;line-height:inherit}ol,ul{padding-left:2rem}dl,ol,ul{margin-top:0;margin-bottom:1rem}ol ol,ol ul,ul ol,ul ul{margin-bottom:0}dt{font-weight:700}dd{margin-bottom:.5rem;margin-left:0}blockquote{margin:0 0 1rem}b,strong{font-weight:bolder}small{font-size:.875em}mark{padding:.2em;background-color:#fcf8e3}sub,sup{position:relative;font-size:.75em;line-height:0;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}a{color:#0d6efd;text-decoration:underline}a:hover{color:#0a58ca}a:not([href]):not([class]),a:not([href]):not([class]):hover{color:inherit;text-decoration:none}code,kbd,pre,samp{font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em;direction:ltr;unicode-bidi:bidi-override}pre{display:block;margin-top:0;margin-bottom:1rem;overflow:auto;font-size:.875em}pre code{font-size:inherit;color:inherit;word-break:normal}code{font-size:.875em;color:#d63384;word-wrap:break-word}a>code{color:inherit}kbd{padding:.2rem .4rem;font-size:.875em;color:#fff;background-color:#212529;border-radius:.2rem}kbd kbd{padding:0;font-size:1em;font-weight:700}figure{margin:0 0 1rem}img,svg{vertical-align:middle}table{caption-side:bottom;border-collapse:collapse}caption{padding-top:.5rem;padding-bottom:.5rem;color:#6c757d;text-align:left}th{text-align:inherit;text-align:-webkit-match-parent}tbody,td,tfoot,th,thead,tr{border-color:inherit;border-style:solid;border-width:0}label{display:inline-block}button{border-radius:0}button:focus:not(:focus-visible){outline:0}button,input,optgroup,select,textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button,select{text-transform:none}[role=button]{cursor:pointer}select{word-wrap:normal}select:disabled{opacity:1}[list]::-webkit-calendar-picker-indicator{display:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]:not(:disabled),[type=reset]:not(:disabled),[type=submit]:not(:disabled),button:not(:disabled){cursor:pointer}::-moz-focus-inner{padding:0;border-style:none}textarea{resize:vertical}fieldset{min-width:0;padding:0;margin:0;border:0}legend{float:left;width:100%;padding:0;margin-bottom:.5rem;font-size:calc(1.275rem + .3vw);line-height:inherit}@media (min-width:1200px){legend{font-size:1.5rem}}legend+*{clear:left}::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-fields-wrapper,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-text,::-webkit-datetime-edit-year-field{padding:0}::-webkit-inner-spin-button{height:auto}[type=search]{outline-offset:-2px;-webkit-appearance:textfield}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-color-swatch-wrapper{padding:0}::file-selector-button{font:inherit}::-webkit-file-upload-button{font:inherit;-webkit-appearance:button}output{display:inline-block}iframe{border:0}summary{display:list-item;cursor:pointer}progress{vertical-align:baseline}[hidden]{display:none!important}</style>
@@ -37,15 +37,6 @@
                                 <a class="function" href="#Tokenize.__init__">Tokenize</a>
                         </li>
                         <li>
-                                <a class="variable" href="#Tokenize.split_sentences">split_sentences</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#Tokenize.split_words">split_words</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#Tokenize.token_pattern">token_pattern</a>
-                        </li>
-                        <li>
                                 <a class="function" href="#Tokenize.to_dict">to_dict</a>
                         </li>
                 </ul>
@@ -56,12 +47,6 @@
                             <ul class="memberlist">
                         <li>
                                 <a class="function" href="#RemoveCharacters.__init__">RemoveCharacters</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#RemoveCharacters.remove_digits">remove_digits</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#RemoveCharacters.remove_punctuation">remove_punctuation</a>
                         </li>
                         <li>
                                 <a class="function" href="#RemoveCharacters.to_dict">to_dict</a>
@@ -76,9 +61,6 @@
                                 <a class="function" href="#ConvertToCase.__init__">ConvertToCase</a>
                         </li>
                         <li>
-                                <a class="variable" href="#ConvertToCase.lowercase">lowercase</a>
-                        </li>
-                        <li>
                                 <a class="function" href="#ConvertToCase.to_dict">to_dict</a>
                         </li>
                 </ul>
@@ -91,18 +73,6 @@
                                 <a class="function" href="#ConvertToVocabulary.__init__">ConvertToVocabulary</a>
                         </li>
                         <li>
-                                <a class="variable" href="#ConvertToVocabulary.vocabulary">vocabulary</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#ConvertToVocabulary.start_character">start_character</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#ConvertToVocabulary.oov_character">oov_character</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#ConvertToVocabulary.max_vocab">max_vocab</a>
-                        </li>
-                        <li>
                                 <a class="function" href="#ConvertToVocabulary.to_dict">to_dict</a>
                         </li>
                 </ul>
@@ -113,18 +83,6 @@
                             <ul class="memberlist">
                         <li>
                                 <a class="function" href="#PadSequences.__init__">PadSequences</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#PadSequences.pad_character">pad_character</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#PadSequences.length">length</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#PadSequences.pad_location">pad_location</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#PadSequences.truncate_location">truncate_location</a>
                         </li>
                         <li>
                                 <a class="function" href="#PadSequences.to_dict">to_dict</a>
@@ -161,9 +119,9 @@
 <a href="./../../../../aisquared.html">aisquared</a><wbr>.<a href="./../../../config.html">config</a><wbr>.<a href="./../../preprocessing.html">preprocessing</a><wbr>.<a href="./../text.html">text</a><wbr>.Steps    </h1>
 
                 
-                        <input id="Steps-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                        <input id="mod-Steps-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 
-                        <label class="view-source-button" for="Steps-view-source"><span>View Source</span></label>
+                        <label class="view-source-button" for="mod-Steps-view-source"><span>View Source</span></label>
 
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">  1</span></a><span class="kn">from</span> <span class="nn">aisquared.base</span> <span class="kn">import</span> <span class="n">BaseObject</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos">  2</span></a>
@@ -661,45 +619,12 @@ Regex to tokenize on</li>
 
 
                             </div>
-                            <div id="Tokenize.split_sentences" class="classattr">
-                                <div class="attr variable">
-            <span class="name">split_sentences</span>
-
-        
-    </div>
-    <a class="headerlink" href="#Tokenize.split_sentences"></a>
-    
-    
-
-                            </div>
-                            <div id="Tokenize.split_words" class="classattr">
-                                <div class="attr variable">
-            <span class="name">split_words</span>
-
-        
-    </div>
-    <a class="headerlink" href="#Tokenize.split_words"></a>
-    
-    
-
-                            </div>
-                            <div id="Tokenize.token_pattern" class="classattr">
-                                <div class="attr variable">
-            <span class="name">token_pattern</span>
-
-        
-    </div>
-    <a class="headerlink" href="#Tokenize.token_pattern"></a>
-    
-    
-
-                            </div>
                             <div id="Tokenize.to_dict" class="classattr">
                                         <input id="Tokenize.to_dict-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">to_dict</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span>)</span>
+        <span class="name">to_dict</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
 
                 <label class="view-source-button" for="Tokenize.to_dict-view-source"><span>View Source</span></label>
 
@@ -845,34 +770,12 @@ Whether to remove punctuation from input text</li>
 
 
                             </div>
-                            <div id="RemoveCharacters.remove_digits" class="classattr">
-                                <div class="attr variable">
-            <span class="name">remove_digits</span>
-
-        
-    </div>
-    <a class="headerlink" href="#RemoveCharacters.remove_digits"></a>
-    
-    
-
-                            </div>
-                            <div id="RemoveCharacters.remove_punctuation" class="classattr">
-                                <div class="attr variable">
-            <span class="name">remove_punctuation</span>
-
-        
-    </div>
-    <a class="headerlink" href="#RemoveCharacters.remove_punctuation"></a>
-    
-    
-
-                            </div>
                             <div id="RemoveCharacters.to_dict" class="classattr">
                                         <input id="RemoveCharacters.to_dict-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">to_dict</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span>)</span>
+        <span class="name">to_dict</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
 
                 <label class="view-source-button" for="RemoveCharacters.to_dict-view-source"><span>View Source</span></label>
 
@@ -996,23 +899,12 @@ Whether to convert to lower case. If False, converts to all uppercase</li>
 
 
                             </div>
-                            <div id="ConvertToCase.lowercase" class="classattr">
-                                <div class="attr variable">
-            <span class="name">lowercase</span>
-
-        
-    </div>
-    <a class="headerlink" href="#ConvertToCase.lowercase"></a>
-    
-    
-
-                            </div>
                             <div id="ConvertToCase.to_dict" class="classattr">
                                         <input id="ConvertToCase.to_dict-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">to_dict</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span>)</span>
+        <span class="name">to_dict</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
 
                 <label class="view-source-button" for="ConvertToCase.to_dict-view-source"><span>View Source</span></label>
 
@@ -1203,56 +1095,12 @@ The maximum vocabulary integer to use. If None, all vocabulary are used</li>
 
 
                             </div>
-                            <div id="ConvertToVocabulary.vocabulary" class="classattr">
-                                <div class="attr variable">
-            <span class="name">vocabulary</span>
-
-        
-    </div>
-    <a class="headerlink" href="#ConvertToVocabulary.vocabulary"></a>
-    
-    
-
-                            </div>
-                            <div id="ConvertToVocabulary.start_character" class="classattr">
-                                <div class="attr variable">
-            <span class="name">start_character</span>
-
-        
-    </div>
-    <a class="headerlink" href="#ConvertToVocabulary.start_character"></a>
-    
-    
-
-                            </div>
-                            <div id="ConvertToVocabulary.oov_character" class="classattr">
-                                <div class="attr variable">
-            <span class="name">oov_character</span>
-
-        
-    </div>
-    <a class="headerlink" href="#ConvertToVocabulary.oov_character"></a>
-    
-    
-
-                            </div>
-                            <div id="ConvertToVocabulary.max_vocab" class="classattr">
-                                <div class="attr variable">
-            <span class="name">max_vocab</span>
-
-        
-    </div>
-    <a class="headerlink" href="#ConvertToVocabulary.max_vocab"></a>
-    
-    
-
-                            </div>
                             <div id="ConvertToVocabulary.to_dict" class="classattr">
                                         <input id="ConvertToVocabulary.to_dict-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">to_dict</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span>)</span>
+        <span class="name">to_dict</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
 
                 <label class="view-source-button" for="ConvertToVocabulary.to_dict-view-source"><span>View Source</span></label>
 
@@ -1454,56 +1302,12 @@ sequences are to be truncated</li>
 
 
                             </div>
-                            <div id="PadSequences.pad_character" class="classattr">
-                                <div class="attr variable">
-            <span class="name">pad_character</span>
-
-        
-    </div>
-    <a class="headerlink" href="#PadSequences.pad_character"></a>
-    
-    
-
-                            </div>
-                            <div id="PadSequences.length" class="classattr">
-                                <div class="attr variable">
-            <span class="name">length</span>
-
-        
-    </div>
-    <a class="headerlink" href="#PadSequences.length"></a>
-    
-    
-
-                            </div>
-                            <div id="PadSequences.pad_location" class="classattr">
-                                <div class="attr variable">
-            <span class="name">pad_location</span>
-
-        
-    </div>
-    <a class="headerlink" href="#PadSequences.pad_location"></a>
-    
-    
-
-                            </div>
-                            <div id="PadSequences.truncate_location" class="classattr">
-                                <div class="attr variable">
-            <span class="name">truncate_location</span>
-
-        
-    </div>
-    <a class="headerlink" href="#PadSequences.truncate_location"></a>
-    
-    
-
-                            </div>
                             <div id="PadSequences.to_dict" class="classattr">
                                         <input id="PadSequences.to_dict-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">to_dict</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span>)</span>
+        <span class="name">to_dict</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
 
                 <label class="view-source-button" for="PadSequences.to_dict-view-source"><span>View Source</span></label>
 
@@ -1595,7 +1399,7 @@ sequences are to be truncated</li>
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">to_dict</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span>)</span>
+        <span class="name">to_dict</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
 
                 <label class="view-source-button" for="Trim.to_dict-view-source"><span>View Source</span></label>
 
@@ -1730,7 +1534,11 @@ sequences are to be truncated</li>
                 let heading;
                 switch (result.doc.type) {
                     case "function":
-                        heading = `<span class="def">${doc.funcdef}</span> <span class="name">${doc.fullname}</span><span class="signature">${doc.signature}:</span>`;
+                        if (doc.fullname.endsWith(".__init__")) {
+                            heading = `<span class="name">${doc.fullname.replace(/\.__init__$/, "")}</span>${doc.signature}`;
+                        } else {
+                            heading = `<span class="def">${doc.funcdef}</span> <span class="name">${doc.fullname}</span>${doc.signature}`;
+                        }
                         break;
                     case "class":
                         heading = `<span class="def">class</span> <span class="name">${doc.fullname}</span>`;
