@@ -1,5 +1,10 @@
 import platform
-import boto3
+
+try:
+    import boto3
+except ImportError:
+    pass
+
 import stat
 import json
 import os

@@ -1,12 +1,29 @@
-from mlflow.tensorflow import load_model as load_tensorflow_model
-from mlflow.sklearn import load_model as load_sklearn_model
-from mlflow.pytorch import load_model as load_pytorch_model
-from mlflow.keras import load_model as load_keras_model
-from flask import Flask, request, Response
+try:
+    from mlflow.tensorflow import load_model as load_tensorflow_model
+    from mlflow.sklearn import load_model as load_sklearn_model
+    from mlflow.pytorch import load_model as load_pytorch_model
+    from mlflow.keras import load_model as load_keras_model
+except ImportError:
+    pass
+
+try:
+    from flask import Flask, request, Response
+except ImportError:
+    pass
+
 import tensorflow as tf
 import numpy as np
-import waitress
-import torch
+
+try:
+    import waitress
+except ImportError:
+    pass
+
+try:
+    import torch
+except ImportError:
+    pass
+
 import json
 
 

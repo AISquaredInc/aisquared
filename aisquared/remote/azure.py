@@ -1,4 +1,8 @@
-from azure.storage.blob import BlobServiceClient
+try:
+    from azure.storage.blob import BlobServiceClient
+except:
+    pass
+
 from getpass import getpass
 import platform
 import stat

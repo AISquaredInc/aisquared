@@ -4,4 +4,7 @@ The aisquared.logging subpackage contains utilities for performing experiments w
 This functionality is inhereted from MLFlow. Please see the MFLow documentatation at https://mlflow.org.
 """
 
-from mlflow import *
+try:
+    from mlflow import *
+except ImportError:
+    pass
