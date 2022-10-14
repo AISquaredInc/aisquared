@@ -249,3 +249,5 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Added keyword harvesting capabilities
 - Added `utils` subpackage with capabilities to mimic a trained sklearn model
 - Small documentation changes
+- Changed the required imports for the package, and created two installation options
+`aisquared` and `aisquared[full]`
