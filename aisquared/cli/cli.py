@@ -1,7 +1,23 @@
-from aisquared.serving import deploy_model, get_remote_prediction
-from aisquared.remote import AWSClient, AzureClient
-from beyondml.tflow.utils import get_custom_objects
-import click
+try:
+    from aisquared.serving import deploy_model, get_remote_prediction
+except ImportError:
+    pass
+
+try:
+    from aisquared.remote import AWSClient, AzureClient
+except ImportError:
+    pass
+
+try:
+    from beyondml.tflow.utils import get_custom_objects
+except ImportError:
+    pass
+
+try:
+    import click
+except ImportError:
+    pass
+
 import json
 
 _ALLOWED_CLIENTS = ['aws', 'azure']
