@@ -1,10 +1,10 @@
 from aisquared.base import BaseObject
-from .Steps import AddValue, SubtractValue, MultitplyValue, DivideValue, ConvertToColor, Resize
+from .Steps import AddValue, SubtractValue, MultiplyValue, DivideValue, ConvertToColor, Resize
 
 ALLOWED_STEPS = (
     AddValue,
     SubtractValue,
-    MultitplyValue,
+    MultiplyValue,
     DivideValue,
     ConvertToColor,
     Resize

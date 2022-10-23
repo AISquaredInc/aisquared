@@ -23,8 +23,23 @@ def test_text_harvester():
         'className': 'TextHarvester',
         'params': {
             'how': 'all',
-            'regex': 'None',
-            'flags': 'gu'
+            'regex': None,
+            'flags': 'gu',
+            'bodyOnly': False
+        }
+    }
+    harvester = aisquared.config.harvesting.TextHarvester(
+        how='regex',
+        regex='test',
+        body_only=True
+    )
+    assert harvester.to_dict() == {
+        'className': 'TextHarvester',
+        'params': {
+            'how': 'regex',
+            'regex': 'test',
+            'flags': 'gu',
+            'bodyOnly': True
         }
     }
 
@@ -39,7 +54,8 @@ def test_text_harvester_regex():
         'params': {
             'how': 'regex',
             'regex': '\D(\d{5})\D',
-            'flags': 'gu'
+            'flags': 'gu',
+            'bodyOnly': False
         }
     }
 
@@ -88,3 +104,20 @@ def test_input_harvester_fails():
 
         aisquared.config.harvesting.InputHarvester(
             'tabular', features=['test'])
+
+
+def test_keyword_harvester():
+    harvester = aisquared.config.harvesting.TextHarvester(
+        how='keywords',
+        keywords=['foo', 'bar'],
+        flags='gui'
+    )
+    assert harvester.to_dict() == {
+        'className': 'TextHarvester',
+        'params': {
+            'bodyOnly': False,
+            'how': 'regex',
+            'regex': 'foo|bar',
+            'flags': 'gui'
+        }
+    }

@@ -3,6 +3,9 @@ from aisquared import __version__
 
 with open('requirements.txt', 'r') as f:
     requirements = [line for line in f.read().splitlines() if line != '']
+with open('additional_requirements.txt', 'r') as f:
+    additional_requirements = [
+        line for line in f.read().splitlines() if line != '']
 
 setup(
     name='aisquared',
@@ -24,7 +27,8 @@ setup(
         'aisquared.config.analytic',
         'aisquared.config.postprocessing',
         'aisquared.config.rendering',
-        'aisquared.config.feedback'
+        'aisquared.config.feedback',
+        'aisquared.utils'
     ],
     author='The AI Squared Team',
     author_email='staff@squared.ai',
@@ -34,6 +38,7 @@ setup(
     license='AI Squared Developer License Agreement',
     license_files='LICENSE',
     install_requires=requirements,
+    extras_require={'full': additional_requirements},
     classifiers=[
         'License :: Other/Proprietary License'
     ],

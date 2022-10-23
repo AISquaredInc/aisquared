@@ -56,8 +56,8 @@ def test_image_rendering():
             'fontColor': 'black',
             'fontSize': '5px',
             'classes': None,
-            'confidenceThreshold': None,
-            'regressionThreshold': None
+            'thresholdKey': None,
+            'thresholdValue': None
         }
     }
 
@@ -80,7 +80,7 @@ def test_object_rendering():
     object = aisquared.config.rendering.ObjectRendering()
 
     assert object.to_dict() == {
-        'className': 'ObjectDetection',
+        'className': 'ObjectRendering',
         'params': {
             'color': 'blue',
             'thickness': '5px',
@@ -112,8 +112,22 @@ def test_word_rendering():
             'badgeShape': 'star',
             'badgeColor': 'blue',
             'classes': None,
-            'confidenceThreshold': None,
-            'regressionThreshold': None
+            'thresholdKey': None,
+            'thresholdValue': None
+        }
+    }
+    word = aisquared.config.rendering.WordRendering(badge_shape='underline')
+    assert word.to_dict() == {
+        'className': 'WordRendering',
+        'params': {
+            'wordList': 'input',
+            'resultKey': None,
+            'contentKey': None,
+            'badgeShape': 'underline',
+            'badgeColor': 'blue',
+            'classes': None,
+            'thresholdKey': None,
+            'thresholdValue': None
         }
     }
 
@@ -130,7 +144,7 @@ def test_document_rendering():
             'probabilityKey': 'probability',
             'underlineColor': 'blue',
             'classes': None,
-            'confidenceThreshold': None,
-            'regressionThreshold': None
+            'thresholdKey': None,
+            'thresholdValue': None
         }
     }

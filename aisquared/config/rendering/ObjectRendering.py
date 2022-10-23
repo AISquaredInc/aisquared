@@ -112,7 +112,7 @@ class ObjectRendering(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className': 'ObjectDetection',
+            'className': 'ObjectRendering',
             'params': {
                 'color': self.color,
                 'thickness': self.thickness,

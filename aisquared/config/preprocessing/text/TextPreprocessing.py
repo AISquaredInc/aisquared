@@ -1,12 +1,13 @@
 from aisquared.base import BaseObject
-from .Steps import Tokenize, RemoveCharacters, ConvertToCase, ConvertToVocabulary, PadSequences
+from .Steps import Tokenize, RemoveCharacters, ConvertToCase, ConvertToVocabulary, PadSequences, Trim
 
 ALLOWED_STEPS = (
     Tokenize,
     RemoveCharacters,
     ConvertToCase,
     ConvertToVocabulary,
-    PadSequences
+    PadSequences,
+    Trim
 )
 
 

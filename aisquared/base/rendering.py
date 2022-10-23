@@ -30,7 +30,8 @@ COLORS = [
 BADGES = [
     'circle',
     'square',
-    'star'
+    'star',
+    'underline'
 ]
 
 WORD_LISTS = [

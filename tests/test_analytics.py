@@ -28,7 +28,9 @@ def test_analytic_init():
         'test',
         'cv'
     )
-    aisquared.config.analytic.S3Connector(
+    aisquared.config.analytic.ReverseMLWorkflow(
         'bucket',
-        'key'
+        'filename',
+        'column',
+        10
     )

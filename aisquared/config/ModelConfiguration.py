@@ -1,9 +1,9 @@
-from aisquared.base import BaseObject, ALLOWED_STAGES
+from aisquared.base import BaseObject, CustomObject, ALLOWED_STAGES
 from aisquared.config.harvesting import ImageHarvester, TextHarvester, InputHarvester
 from aisquared.config.preprocessing.tabular import TabularPreprocessor
 from aisquared.config.preprocessing.image import ImagePreprocessor
 from aisquared.config.preprocessing.text import TextPreprocessor
-from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel, LocalAnalytic
+from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel, LocalAnalytic, ReverseMLWorkflow
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, ObjectDetection, Regression
 from aisquared.config.rendering import ImageRendering, ObjectRendering, DocumentRendering, WordRendering, FilterRendering
 from aisquared.config.feedback import SimpleFeedback, BinaryFeedback, MulticlassFeedback, RegressionFeedback, ModelFeedback, QualitativeFeedback
@@ -17,27 +17,32 @@ import os
 HARVESTING_CLASSES = (
     ImageHarvester,
     TextHarvester,
-    InputHarvester
+    InputHarvester,
+    CustomObject
 )
 
 PREPROCESSING_CLASSES = (
     TabularPreprocessor,
     ImagePreprocessor,
-    TextPreprocessor
+    TextPreprocessor,
+    CustomObject
 )
 
 ANALYTIC_CLASSES = (
     DeployedAnalytic,
     DeployedModel,
     LocalModel,
-    LocalAnalytic
+    LocalAnalytic,
+    ReverseMLWorkflow,
+    CustomObject
 )
 
 POSTPROCESSING_CLASSES = (
     BinaryClassification,
     MulticlassClassification,
     ObjectDetection,
-    Regression
+    Regression,
+    CustomObject
 )
 
 RENDERING_CLASSES = (
@@ -45,7 +50,8 @@ RENDERING_CLASSES = (
     ImageRendering,
     DocumentRendering,
     WordRendering,
-    FilterRendering
+    FilterRendering,
+    CustomObject
 )
 
 FEEDBACK_CLASSES = (
@@ -59,7 +65,8 @@ FEEDBACK_CLASSES = (
 
 LOCAL_CLASSES = (
     LocalModel,
-    LocalAnalytic
+    LocalAnalytic,
+    CustomObject
 )
 
 
@@ -158,7 +165,7 @@ class ModelConfiguration(BaseObject):
     @harvesting_steps.setter
     def harvesting_steps(self, value):
         harvesting_classes = HARVESTING_CLASSES + (ModelConfiguration,)
-        if value is None:
+        if value is None or (isinstance(value, list) and all([val is None for val in value])):
             self._harvesting_steps = value
         elif isinstance(value, harvesting_classes):
             self._harvesting_steps = [value]
@@ -358,7 +365,7 @@ class ModelConfiguration(BaseObject):
     @property
     def harvester_dict(self):
         harvesting_classes = HARVESTING_CLASSES + (ModelConfiguration,)
-        if self.harvesting_steps is None:
+        if self.harvesting_steps is None or (isinstance(self.harvesting_steps, list) and all([val is None for val in self.harvesting_steps])):
             return None
         elif isinstance(self.harvesting_steps, list) and all([isinstance(val, harvesting_classes) for val in self.harvesting_steps]):
             return [val.to_dict() for val in self.harvesting_steps]
@@ -430,7 +437,9 @@ class ModelConfiguration(BaseObject):
         Get filenames for all models in the configuration
         """
         filenames = []
-        if isinstance(self.harvesting_steps[0], list):
+        if self.harvesting_steps is None or (isinstance(self.harvesting_steps, list) and all([val is None for val in self.harvesting_steps])):
+            harvesting_list = []
+        elif isinstance(self.harvesting_steps[0], list):
             harvesting_list = [
                 h for harvester in self.harvesting_steps for h in harvester]
         else:
@@ -442,13 +451,19 @@ class ModelConfiguration(BaseObject):
         if isinstance(self.analytic[0], ANALYTIC_CLASSES):
             for a in self.analytic:
                 if isinstance(a, LOCAL_CLASSES):
-                    filenames.append(a.path)
+                    try:
+                        filenames.append(a.path)
+                    except Exception:
+                        pass
         else:
             for analytic in self.analytic:
                 for a in analytic:
                     if isinstance(a, LOCAL_CLASSES):
-                        filenames.append(a.path)
-        return filenames
+                        try:
+                            filenames.append(a.path)
+                        except Exception:
+                            pass
+        return [f for f in filenames if f is not None]
 
     def to_dict(self):
         """

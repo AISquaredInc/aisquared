@@ -343,3 +343,19 @@ class PadSequences(BaseObject):
                 'truncateLocation': self.truncate_location
             }
         }
+
+
+class Trim(BaseObject):
+    """Text preprocessing class to trim whitespace from text"""
+
+    def __init__(self):
+        super().__init__()
+
+    def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
+        return {
+            'className': 'Trim',
+            'params': {}
+        }
