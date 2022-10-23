@@ -158,7 +158,7 @@ Once harvesting, preprocessing, analytic, postprocessing, and rendering objects 
 
 Once the `ModelConfiguration` object has been created with the required parameters, the `.compile()` method can be used to create a file with the `.air` extension that can be loaded into an application which utilizes the AI Squared JavaScript SDK.
 
-### `aisquared.base` (requires installing aisquared\[full\])
+### `aisquared.base`
 
 The `aisquared.base` subpackage contains base utilities not designed to be directly called by the end user.
 
@@ -175,7 +175,7 @@ The `aisquared.remote` subpackage contains utilities and classes for interacting
 
 The `aisquared.serving` subpackage contains utilities for serving models locally or remotely using [MLflow](https://mlflow.org) or locally using [Flask](https://flask.palletsprojects.com/en/2.1.x/).
 
-###`aisquared.logging` (requires installing aisquared\[full\])
+### `aisquared.logging` (requires installing aisquared\[full\])
 
 The `aisquared.logging` subpackage is powered by [MLflow](https://mlflow.org), a powerful open-source platform for the machine learning lifecycle. The `logging` subpackage inherits nearly all functionality from mlflow, so we highly recommend users refer to the [MLflow documentation site](https://mlflow.org/docs/latest/index.html) for additional information.
 
