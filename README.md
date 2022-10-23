@@ -26,7 +26,7 @@ This package is currently in a state of constant development, so it is likely th
 
 The `aisquared` package currently contains five subpackages, the `aisquared.config` package, the `aisquared.base` subpackage, the `aisquared.logging` subpackage, the `aisquared.serving` subpackage, and the `aisquared.remote` package. The `config` package holds objects for building the configuration files that need to be included with converted model files for use within the AI Squared Extension. The contents of the config subpackage contain both pre- and postprocessing steps as well as harvesting, analytic, rendering, and feedback objects to use with the model. The following will explain the functionality of the config package:
 
-### aisquared.config
+### `aisquared.config`
 
 The `aisquared.config` subpackage contains the following objects:
 
@@ -35,7 +35,7 @@ The `aisquared.config` subpackage contains the following objects:
 - `GraphConfiguration`
   - The `GraphConfiguration object is another method for creating configuration files. Instead of taking a predefined set of steps, it allows the developer to add steps to create a directed acyclic graph
 
-#### aisquared.config.harvesting
+#### `aisquared.config.harvesting`
 
 The `aisquared.config.harvesting` subpackage contains the following objects:
 
@@ -46,7 +46,7 @@ The `aisquared.config.harvesting` subpackage contains the following objects:
 - `InputHarvester`
   - The `InputHarvester` class configures harvesting of different kinds of user-defined inputs
 
-#### aisquared.config.preprocessing
+#### `aisquared.config.preprocessing`
 
 The `aisquared.config.preprocessing` subpackage contains the following objects:
 
@@ -57,7 +57,7 @@ The `aisquared.config.preprocessing` subpackage contains the following objects:
 - `TextPreprocessor`
   - The `TextPreprocessor` class takes in preprocessing steps (defined below) which define preprocessing steps for text data.
 
-#### aisquared.config.analytic
+#### `aisquared.config.analytic`
 
 The `aisquared.config.analytic` subpackage contains the following objects:
 
@@ -72,7 +72,7 @@ The `aisquared.config.analytic` subpackage contains the following objects:
 - `S3Connector`
   - The `S3Connector` class indicates the use of data from S3
 
-#### aisquared.config.postprocessing
+#### `aisquared.config.postprocessing`
 
 The `aisquared.config.postprocessing` subpackage contains the following objects:
 
@@ -85,7 +85,7 @@ The `aisquared.config.postprocessing` subpackage contains the following objects:
 - `ObjectDetection`
   - The `ObjectDetection` object is a postprocessing class for models which perform object detection. The class is instantiated with a label map and a cutoff value for identification.
 
-#### aisquared.config.rendering
+#### `aisquared.config.rendering`
 
 The `aisquared.config.rendering` subpackage contains the following objects:
 
@@ -98,7 +98,7 @@ The `aisquared.config.rendering` subpackage contains the following objects:
 - `DocumentRendering`
   - The `DocumentRendering` object is a rendering class for rendering document predictions.
 
-#### aisquared.config.feedback
+#### `aisquared.config.feedback`
 
 The `aisquared.config.feedback` subpackage contains the following objects:
 
@@ -158,11 +158,11 @@ Once harvesting, preprocessing, analytic, postprocessing, and rendering objects 
 
 Once the `ModelConfiguration` object has been created with the required parameters, the `.compile()` method can be used to create a file with the `.air` extension that can be loaded into an application which utilizes the AI Squared JavaScript SDK.
 
-### aisquared.base
+### `aisquared.base`
 
 The `aisquared.base` subpackage contains base utilities not designed to be directly called by the end user.
 
-### aisquared.remote
+### `aisquared.remote` (requires installing aisquared\[full\])
 
 The `aisquared.remote` subpackage contains utilities and classes for interacting with cloud-based resources for deploying and managing models and results.  Currently, we have the following client objects:
 
@@ -171,17 +171,17 @@ The `aisquared.remote` subpackage contains utilities and classes for interacting
 - `AzureClient`
   - This client facilitates the interaction with Azure cloud storage
 
-### aisquared.serving
+### aisquared.serving (requires installing aisquared\[full\])
 
 The `aisquared.serving` subpackage contains utilities for serving models locally or remotely using [MLflow](https://mlflow.org) or locally using [Flask](https://flask.palletsprojects.com/en/2.1.x/).
 
-### aisquared.logging
+### `aisquared.logging` (requires installing aisquared\[full\])
 
 The `aisquared.logging` subpackage is powered by [MLflow](https://mlflow.org), a powerful open-source platform for the machine learning lifecycle. The `logging` subpackage inherits nearly all functionality from mlflow, so we highly recommend users refer to the [MLflow documentation site](https://mlflow.org/docs/latest/index.html) for additional information.
 
 In this subpackage, we have additionally added implementations of individual functions to save TensorFlow, Keras, Scikit-Learn, and PyTorch models in a format that can be deployed quickly using MLflow.
 
-## The `aisquared` CLI
+## The `aisquared` CLI (requires installing aisquared\[full\])
 
 The `aisquared` CLI, which is installed with the package, contains command-line functions that provide some high-level functionality the `aisquared` package provides, including:
 
@@ -249,5 +249,5 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Added keyword harvesting capabilities
 - Added `utils` subpackage with capabilities to mimic a trained sklearn model
 - Small documentation changes
-- Changed the required imports for the package, and created two installation options
+- Changed the required imports for the package to streamline installation process, and created two installation options
 `aisquared` and `aisquared[full]`
