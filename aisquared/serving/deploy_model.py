@@ -52,7 +52,7 @@ def deploy_model(
         host='127.0.0.1',
         port=2244,
         custom_objects=None,
-        additional_functions_file = None
+        additional_functions_file=None
 ):
     """
     Deploy a model to a Flask server on the specified host
@@ -91,17 +91,16 @@ def deploy_model(
     # Import preprocessing and postprocessing steps, if provided
     if additional_functions_file:
         module = __import__(os.path.splitext(additional_functions_file)[0])
-        
+
         try:
             preprocess = module.preprocess
         except AttributeError:
             preprocess = None
-        
+
         try:
             postprocess = module.postprocess
         except AttributeError:
             postprocess = None
-
 
     # Create the Flask app
     app = Flask(__name__)
@@ -141,7 +140,8 @@ def deploy_model(
             if model_type != 'pytorch':
                 predictions = np.asarray(model.predict(to_predict)).tolist()
             elif model_type == 'pytorch':
-                predictions = model(torch.Tensor(to_predict)).detach().numpy().tolist()
+                predictions = model(torch.Tensor(to_predict)
+                                    ).detach().numpy().tolist()
 
             if postprocess:
                 try:
@@ -149,9 +149,9 @@ def deploy_model(
                 except Exception as e:
                     print(e)
             return json.dumps({
-                    'predictions': predictions
-                })
-        
+                'predictions': predictions
+            })
+
         except Exception:
             return Response(
                 'Error in performing prediction',
