@@ -49,8 +49,7 @@ def aisquared(context):
 @click.argument('model-type', type=str)
 @click.option('--host', '-h', type=str, default='127.0.0.1')
 @click.option('--port', '-p', type=int, default=2244)
-@click.option('--additional-functions', '-a', type=click.Path(exists=True, file_okay=True, dir_okay=False), default=None)
-def deploy(saved_model, model_type, host, port, additional_functions):
+def deploy(saved_model, model_type, host, port):
     """
     Deploy a model to a local endpoint
     """
@@ -59,8 +58,7 @@ def deploy(saved_model, model_type, host, port, additional_functions):
         model_type,
         host,
         port,
-        get_custom_objects(),
-        additional_functions_file = os.path.abspath(additional_functions)
+        get_custom_objects()
     )
 
 
