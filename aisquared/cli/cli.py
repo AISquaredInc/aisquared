@@ -19,6 +19,7 @@ except ImportError:
     pass
 
 import json
+import os
 
 _ALLOWED_CLIENTS = ['aws', 'azure']
 
@@ -48,8 +49,7 @@ def aisquared(context):
 @click.argument('model-type', type=str)
 @click.option('--host', '-h', type=str, default='127.0.0.1')
 @click.option('--port', '-p', type=int, default=2244)
-@click.option('--additional-functions', '-a', type=click.Path(exists=True, file_okay=True, dir_okay=False), default=None)
-def deploy(saved_model, model_type, host, port, additional_functions):
+def deploy(saved_model, model_type, host, port):
     """
     Deploy a model to a local endpoint
     """
@@ -58,8 +58,7 @@ def deploy(saved_model, model_type, host, port, additional_functions):
         model_type,
         host,
         port,
-        get_custom_objects(),
-        additional_functions
+        get_custom_objects()
     )
 
 
@@ -67,7 +66,7 @@ def deploy(saved_model, model_type, host, port, additional_functions):
 @click.argument('data', type=click.Path(exists=True, file_okay=True, dir_okay=True))
 @click.option('--host', '-h', type=str, default='127.0.0.1')
 @click.option('--port', '-p', type=int, default=2244)
-@click.option('--outfile', '-o', default=None, type=click.Path(exists=False, file_okay=True, dir_okay=False))
+@click.option('--outfile', '-o', default=None, type=click.Path(exists = False, file_okay = True, dir_okay = False))
 def predict(data, host, port, outfile):
     """
     Get predictions from a deployed model
