@@ -253,4 +253,5 @@ Below are a list of additional features, bug fixes, and other changes made for e
 `aisquared` and `aisquared[full]`
 
 ## Version 0.2.3
+- Added functionality to add custom preprocessing and postprocessing functions to the model deployment pipeline
 - Added `all` parameter to `LocalAnalytic` class
