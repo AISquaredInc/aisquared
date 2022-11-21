@@ -251,3 +251,6 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Small documentation changes
 - Changed the required imports for the package to streamline installation process, and created two installation options
 `aisquared` and `aisquared[full]`
+
+## Version 0.2.3
+- Added `all` parameter to `LocalAnalytic` class
