@@ -229,26 +229,19 @@ def mimic_model(
 
     # Add layer masks
     nnet = beyondml.tflow.utils.add_layer_masks(nnet)
-    nnet.compile(
-        loss=loss,
-        optimizer=optimizer,
-        metrics=metrics
-    )
-
-    # Create the ActiveSparsification callback
-    callback = beyondml.tflow.utils.ActiveSparsification(
-        cutoff,
-        starting_sparsification=starting_sparsification,
-        max_sparsification=max_sparsification,
-        sparsification_rate=sparsification_rate
-    )
-
-    nnet.fit(
+    nnet = beyondml.tflow.utils.train_model(
+        nnet,
         training_data,
         training_predictions,
-        epochs=epochs,
-        batch_size=batch_size,
-        callbacks=[callback]
+        loss,
+        metrics,
+        optimizer,
+        cutoff,
+        batch_size,
+        epochs,
+        starting_sparsification,
+        max_sparsification,
+        sparsification_rate
     )
 
     nnet = beyondml.tflow.utils.remove_layer_masks(nnet)
