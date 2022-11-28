@@ -66,7 +66,7 @@ def deploy(saved_model, model_type, host, port):
 @click.argument('data', type=click.Path(exists=True, file_okay=True, dir_okay=True))
 @click.option('--host', '-h', type=str, default='127.0.0.1')
 @click.option('--port', '-p', type=int, default=2244)
-@click.option('--outfile', '-o', default=None, type=click.Path(exists = False, file_okay = True, dir_okay = False))
+@click.option('--outfile', '-o', default=None, type=click.Path(exists=False, file_okay=True, dir_okay=False))
 def predict(data, host, port, outfile):
     """
     Get predictions from a deployed model

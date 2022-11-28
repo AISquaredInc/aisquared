@@ -91,7 +91,8 @@ def deploy_model(
 
     # Import preprocessing and postprocessing steps, if provided
     if additional_functions_file:
-        file_name = os.path.splitext(os.path.basename(additional_functions_file))[0]
+        file_name = os.path.splitext(
+            os.path.basename(additional_functions_file))[0]
         dir_name = os.path.dirname(os.path.abspath(additional_functions_file))
         module = import_module(file_name, dir_name)
 
