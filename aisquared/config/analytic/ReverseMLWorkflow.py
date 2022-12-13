@@ -11,7 +11,9 @@ class ReverseMLWorkflow(BaseObject):
         bucket,
         filename,
         column,
-        period=None
+        input_type,
+        period=None,
+        secret = ''
     ):
         """
         Parameters
@@ -22,14 +24,20 @@ class ReverseMLWorkflow(BaseObject):
             The name for the specific file
         column : str
             The column name in the CSV file
+        input_type : str
+            Either one of 'text' or 'cv'
         period : None or int (default None)
             The period for this to run
+        secret : str (default '')
+            A secret, if needed
         """
         super().__init__()
         self.bucket = bucket
         self.filename = filename
         self.column = column
+        self.input_type = input_type
         self.period = period
+        self.secret = secret
 
     @property
     def bucket(self):
@@ -62,6 +70,14 @@ class ReverseMLWorkflow(BaseObject):
         self._column = value
 
     @property
+    def input_type(self):
+        return self._input_type
+
+    @input_type.setter
+    def input_type(self, value):
+        self._input_type = value
+
+    @property
     def period(self):
         return self._period
 
@@ -74,6 +90,14 @@ class ReverseMLWorkflow(BaseObject):
                 raise ValueError('period must be greater than or equal to 1')
         self._period = value
 
+    @property
+    def secret(self):
+        return self._secret
+
+    @secret.setter
+    def secret(self, value):
+        self._secret = value
+
     def to_dict(self):
         """
         Get the configuration object as a dictionary
@@ -83,7 +107,9 @@ class ReverseMLWorkflow(BaseObject):
             'params': {
                 'bucket': self.bucket,
                 'fileName': self.filename,
+                'inputType': self.input_type,
                 'column': self.column,
-                'period': self.period
+                'period': self.period,
+                'secret' : self.secret
             }
         }
