@@ -1,11 +1,11 @@
 from aisquared.base import BaseObject, CustomObject, ALLOWED_STAGES
-from aisquared.config.harvesting import ImageHarvester, TextHarvester, InputHarvester
+from aisquared.config.harvesting import ImageHarvester, TextHarvester, InputHarvester, QueryParameterHarvester
 from aisquared.config.preprocessing.tabular import TabularPreprocessor
 from aisquared.config.preprocessing.image import ImagePreprocessor
 from aisquared.config.preprocessing.text import TextPreprocessor
 from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel, LocalAnalytic, ReverseMLWorkflow
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, ObjectDetection, Regression
-from aisquared.config.rendering import ImageRendering, ObjectRendering, DocumentRendering, WordRendering, FilterRendering
+from aisquared.config.rendering import ImageRendering, ObjectRendering, DocumentRendering, WordRendering, FilterRendering, ContainerRendering, HTMLTagRendering, DoughnutChartRendering, TableRendering
 from aisquared.config.feedback import SimpleFeedback, BinaryFeedback, MulticlassFeedback, RegressionFeedback, ModelFeedback, QualitativeFeedback
 
 import tensorflowjs as tfjs
@@ -18,6 +18,7 @@ HARVESTING_CLASSES = (
     ImageHarvester,
     TextHarvester,
     InputHarvester,
+    QueryParameterHarvester,
     CustomObject
 )
 
@@ -51,6 +52,10 @@ RENDERING_CLASSES = (
     DocumentRendering,
     WordRendering,
     FilterRendering,
+    ContainerRendering,
+    HTMLTagRendering,
+    DoughnutChartRendering,
+    TableRendering,
     CustomObject
 )
 

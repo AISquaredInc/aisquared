@@ -1,18 +1,19 @@
 from aisquared.base import BaseObject
 
+
 class ContainerRendering(BaseObject):
     def __init__(
         self,
         label,
         id,
         query_selector,
-        width = 'auto',
-        height = '75',
-        display = 'flex',
-        xOffset = '0',
-        yOffset = '0',
-        position = '',
-        orientation = 'column'
+        width='auto',
+        height='75',
+        display='flex',
+        xOffset='0',
+        yOffset='0',
+        position='',
+        orientation='column'
     ):
         """
         Parameters
@@ -39,6 +40,7 @@ class ContainerRendering(BaseObject):
         super().__init__()
         self.label = label
         self.id = id
+        self.query_selector = query_selector
         self.width = width
         self.height = height
         self.display = display
@@ -50,6 +52,7 @@ class ContainerRendering(BaseObject):
     @property
     def label(self):
         return self._label
+
     @label.setter
     def label(self, value):
         self._label = value
@@ -57,13 +60,23 @@ class ContainerRendering(BaseObject):
     @property
     def id(self):
         return self._id
+
     @id.setter
     def id(self, value):
         self._id = value
 
     @property
+    def query_selector(self):
+        return self._query_selector
+
+    @query_selector.setter
+    def query_selector(self, value):
+        self._query_selector = value
+
+    @property
     def width(self):
         return self._width
+
     @width.setter
     def width(self, value):
         self._width = value
@@ -71,6 +84,7 @@ class ContainerRendering(BaseObject):
     @property
     def height(self):
         return self._height
+
     @height.setter
     def height(self, value):
         self._height = value
@@ -78,6 +92,7 @@ class ContainerRendering(BaseObject):
     @property
     def display(self):
         return self._display
+
     @display.setter
     def display(self, value):
         self._display = value
@@ -85,6 +100,7 @@ class ContainerRendering(BaseObject):
     @property
     def xOffset(self):
         return self._xOffset
+
     @xOffset.setter
     def xOffset(self, value):
         self._xOffset = value
@@ -92,6 +108,7 @@ class ContainerRendering(BaseObject):
     @property
     def yOffset(self):
         return self._yOffset
+
     @yOffset.setter
     def yOffset(self, value):
         self._yOffset = value
@@ -99,6 +116,7 @@ class ContainerRendering(BaseObject):
     @property
     def position(self):
         return self._position
+
     @position.setter
     def position(self, value):
         self._position = value
@@ -106,6 +124,7 @@ class ContainerRendering(BaseObject):
     @property
     def orientation(self):
         return self._orientation
+
     @orientation.setter
     def orientation(self, value):
         self._orientation = value
@@ -115,16 +134,17 @@ class ContainerRendering(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'ContainerRendering',
-            'label' : self.label,
+            'className': 'ContainerRendering',
+            'label': self.label,
             'params': {
-                'id' : self.id,
-                'width' : self.width,
-                'height' : self.height,
+                'id': self.id,
+                'width': self.width,
+                'height': self.height,
                 'display': self.display,
-                'xOffset' : self.xOffset,
-                'yOffset' : self.yOffset,
-                'position' : self.position,
-                'orientation' : self.orientation
+                'xOffset': self.xOffset,
+                'yOffset': self.yOffset,
+                'position': self.position,
+                'orientation': self.orientation,
+                'querySelector': self.query_selector
             }
         }
