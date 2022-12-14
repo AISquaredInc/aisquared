@@ -2,7 +2,9 @@ from aisquared.base import BaseObject
 
 
 class HTMLTagRendering(BaseObject):
-
+    """
+    Rendering for HTML tags
+    """
     def __init__(
         self,
         label,
@@ -16,6 +18,30 @@ class HTMLTagRendering(BaseObject):
         prediction_name_value,
         content=''
     ):
+        """
+        Parameters
+        ----------
+        label : str
+            The label for the HTML tag
+        id : str
+            The ID for the HTML tag
+        container_id : str
+            The ID of the container
+        html_content : str
+            HTML to render
+        extra_content_tag : str
+            Any extra content tags to render
+        injection_action : str
+            The injection action
+        prediction_name_key : str
+            The key for the prediction name
+        prediction_value_key : str
+            The key for the prediction value
+        prediction_name_value : str
+            The value for the prediction name
+        content : str (default '')
+            The content
+        """
         super().__init__()
         self.label = label
         self.id = id
@@ -29,6 +55,9 @@ class HTMLTagRendering(BaseObject):
         self.content = content
 
     def to_dict(self):
+        """
+        Return the configuration object as a dictionary
+        """
         return {
             'className': 'HTMLTagRendering',
             'label': self.label,

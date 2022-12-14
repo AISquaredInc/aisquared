@@ -2,7 +2,9 @@ from aisquared.base import BaseObject
 
 
 class TableRendering(BaseObject):
-
+    """
+    Class for rendering tables
+    """
     def __init__(
         self,
         label,
@@ -13,6 +15,22 @@ class TableRendering(BaseObject):
         prediction_name_values,
         table_name='',
     ):
+        """
+        Parameters
+        ----------
+        label : str
+            Label for the table
+        id : str
+            ID for the table
+        container_id : str
+            The ID for the container
+        prediction_name_key : str
+            The key to use for the prediction name
+        prediction_value_key : str
+            The key to use for the prediction value
+        prediction_name_values : list of str
+            The name of the values for the prediction
+        """
 
         super().__init__()
         self.label = label
@@ -24,6 +42,9 @@ class TableRendering(BaseObject):
         self.table_name = table_name
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className': 'TableRendering',
             'label': self.label,
