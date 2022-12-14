@@ -1,7 +1,7 @@
 from aisquared.base import BaseObject
 
 
-class DoughnutChartRendering(BaseObject):
+class PieChartRendering(BaseObject):
     """
     Rendering class for rendering a Pie Chart
     """

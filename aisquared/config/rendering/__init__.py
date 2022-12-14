@@ -11,3 +11,8 @@ from .ContainerRendering import ContainerRendering
 from .DoughnutChartRendering import DoughnutChartRendering
 from .TableRendering import TableRendering
 from .HTMLTagRendering import HTMLTagRendering
+from .BarChartRendering import BarChartRendering
+from .LineChartRendering import LineChartRendering
+from .DashboardReplacementRendering import DashboardReplacementRendering
+from .PieChartRendering import PieChartRendering
+from .SOSRendering import SOSRendering
