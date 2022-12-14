@@ -256,3 +256,6 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Added functionality to add custom preprocessing and postprocessing functions to the model deployment pipeline
 - Added `all` parameter to `LocalAnalytic` class
 - Changed under-the-hood functionality of `mimic_model` function in line with updates to `BeyondML`
+- Altered the `ReverseMLWorkflow` analytic
+- Added the `BarChartRendering`, `ContainerRendering`, `DashboardReplacementRendering`, `DoughnutChartRendering`, `HTMLTagRendering`, `LineChartRendering`, `PieChartRendering`, `SOSRendering`, and `TableRendering` rendering classes
+- Added the `QueryParameterHarvester` harvester class
