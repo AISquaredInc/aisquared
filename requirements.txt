@@ -1,2 +1,3 @@
 tensorflowjs
 tensorflow
+pandas
