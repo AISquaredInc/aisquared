@@ -5,6 +5,7 @@ class TableRendering(BaseObject):
     """
     Class for rendering tables
     """
+
     def __init__(
         self,
         label,

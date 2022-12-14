@@ -1,10 +1,12 @@
 from aisquared.base import BaseObject
 
+
 class BarChartRendering(BaseObject):
 
     """
     Rendering class for rendering a Bar Chart
     """
+
     def __init__(
         self,
         label,

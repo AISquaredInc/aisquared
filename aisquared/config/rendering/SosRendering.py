@@ -1,13 +1,15 @@
 from aisquared.base import BaseObject
 
+
 class SOSRendering(BaseObject):
     """
     Rendering of an SOS dashboard
     """
+
     def __init__(
         self,
         can_toggle,
-        label = ''
+        label=''
     ):
         """
         Parameters
@@ -24,7 +26,7 @@ class SOSRendering(BaseObject):
     @property
     def can_toggle(self):
         return self._can_toggle
-    
+
     @can_toggle.setter
     def can_toggle(self, value):
         if not isinstance(value, bool) and value is not None:
@@ -34,7 +36,7 @@ class SOSRendering(BaseObject):
     @property
     def label(self):
         return self._label
-    
+
     @label.setter
     def label(self, value):
         if not isinstance(value, str):
@@ -46,9 +48,9 @@ class SOSRendering(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'SOSRendering',
-            'label' : self.label,
-            'params' : {
-                'canToggle' : self.can_toggle
+            'className': 'SOSRendering',
+            'label': self.label,
+            'params': {
+                'canToggle': self.can_toggle
             }
         }

@@ -1,9 +1,11 @@
 from aisquared.base import BaseObject
 
+
 class DoughnutChartRendering(BaseObject):
     """
     Rendering class for rendering a Pie Chart
     """
+
     def __init__(
         self,
         label,
@@ -90,8 +92,8 @@ class DoughnutChartRendering(BaseObject):
                 'predictionNameKey': self.prediction_name_key,
                 'predictionValueKey': self.prediction_value_key,
                 'predictionNameValue': self.prediction_name_value,
-                'displayLegend' : self.display_legend,
-                'legendIcon' : self.legend_icon,
+                'displayLegend': self.display_legend,
+                'legendIcon': self.legend_icon,
                 'width': self.width,
                 'height': self.height,
                 'xOffset': self.xOffset,

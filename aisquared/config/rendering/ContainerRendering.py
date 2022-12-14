@@ -5,6 +5,7 @@ class ContainerRendering(BaseObject):
     """
     Rendering for a container
     """
+
     def __init__(
         self,
         label,

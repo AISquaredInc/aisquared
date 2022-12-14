@@ -13,7 +13,7 @@ class ReverseMLWorkflow(BaseObject):
         column,
         input_type,
         period=None,
-        secret = ''
+        secret=''
     ):
         """
         Parameters
@@ -110,6 +110,6 @@ class ReverseMLWorkflow(BaseObject):
                 'inputType': self.input_type,
                 'column': self.column,
                 'period': self.period,
-                'secret' : self.secret
+                'secret': self.secret
             }
         }

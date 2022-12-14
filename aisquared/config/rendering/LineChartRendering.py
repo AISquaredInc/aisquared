@@ -1,10 +1,12 @@
 from aisquared.base import BaseObject
 
+
 class LineChartRendering(BaseObject):
 
     """
     Rendering class for rendering a Line Chart
     """
+
     def __init__(
         self,
         label,

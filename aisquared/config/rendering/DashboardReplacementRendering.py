@@ -1,14 +1,16 @@
 from aisquared.base import BaseObject
 
+
 class DashboardReplacementRendering(BaseObject):
     """
     Rendering for dashboard replacement
     """
+
     def __init__(
         self,
         anchor_selector,
-        where_replace = '',
-        label = ''
+        where_replace='',
+        label=''
     ):
         """
         Parameters
@@ -28,7 +30,7 @@ class DashboardReplacementRendering(BaseObject):
     @property
     def anchor_selector(self):
         return self._anchor_selector
-    
+
     @anchor_selector.setter
     def anchor_selector(self, value):
         self._anchor_selector = value
@@ -36,7 +38,7 @@ class DashboardReplacementRendering(BaseObject):
     @property
     def where_replace(self):
         return self._where_replace
-    
+
     @where_replace.setter
     def where_replace(self, value):
         self._where_replace = value
@@ -44,7 +46,7 @@ class DashboardReplacementRendering(BaseObject):
     @property
     def label(self):
         return self._label
-    
+
     @label.setter
     def label(self, value):
         self._label = value
@@ -54,10 +56,10 @@ class DashboardReplacementRendering(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'DashboardReplacementRendering',
-            'label' : self.label,
-            'params' : {
-                'anchorSelector' : self.anchor_selector,
-                'whereReplace' : self.where_replace
+            'className': 'DashboardReplacementRendering',
+            'label': self.label,
+            'params': {
+                'anchorSelector': self.anchor_selector,
+                'whereReplace': self.where_replace
             }
         }

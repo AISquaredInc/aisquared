@@ -1,9 +1,11 @@
 from aisquared.base import BaseObject
 
+
 class QueryParameterHarvester(BaseObject):
     """
     Harvester for Query Parameters
     """
+
     def __init__(
         self,
         query_keys,
@@ -27,7 +29,7 @@ class QueryParameterHarvester(BaseObject):
     @property
     def query_keys(self):
         return self._query_keys
-    
+
     @query_keys.setter
     def query_keys(self, value):
         if isinstance(value, str):
@@ -35,7 +37,7 @@ class QueryParameterHarvester(BaseObject):
 
         if not isinstance(value, list) or not all([isinstance(v, str) for v in value]):
             raise ValueError('query_keys must be list of strings')
-        
+
         self._query_keys = value
 
     @property
@@ -46,7 +48,7 @@ class QueryParameterHarvester(BaseObject):
     def url_locations(self, value):
         if isinstance(value, str):
             value = [value]
-        
+
         if not isinstance(value, list) or not all([isinstance(v, str) for v in value]):
             raise ValueError('url_locations must be list of strings')
 
@@ -60,7 +62,7 @@ class QueryParameterHarvester(BaseObject):
     def attributes(self, value):
         if isinstance(value, str):
             value = [value]
-        
+
         if not isinstance(value, list) or not all([isinstance(v, str) for v in value]):
             raise ValueError('attributes must be list of strings')
 
@@ -71,10 +73,10 @@ class QueryParameterHarvester(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className' : 'QueryParameterHarvester',
-            'params' : {
-                'queryKeys' : self.query_keys,
-                'urlLocations' : self.url_locations,
-                'attributes' : self.attributes
+            'className': 'QueryParameterHarvester',
+            'params': {
+                'queryKeys': self.query_keys,
+                'urlLocations': self.url_locations,
+                'attributes': self.attributes
             }
         }

@@ -5,6 +5,7 @@ class HTMLTagRendering(BaseObject):
     """
     Rendering for HTML tags
     """
+
     def __init__(
         self,
         label,
