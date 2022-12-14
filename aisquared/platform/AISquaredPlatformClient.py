@@ -93,7 +93,7 @@ class AISquaredPlatformClient:
     def list_models(self, as_df = False, port = 8080):
         with requests.Session() as sess:
             resp = sess.get(
-                f'{self.base_url}:{port}/api/v1/models?page=1',
+                f'{self.base_url}:{port}/api/v1/models',
                 headers = self.headers
             )
         if resp.status_code != 200:
