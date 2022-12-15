@@ -22,7 +22,7 @@ class AISquaredPlatformClient:
 
         try:
             self._load_info(CONFIG_FILE)
-        except ValueError as e:
+        except Exception as e:
             print('It appears you are not authenticated to the AI Squared Platform. Please run Client.login() before performing any action')
 
     def login(
