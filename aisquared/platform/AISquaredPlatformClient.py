@@ -321,6 +321,7 @@ class AISquaredPlatformClient:
 
     # BUG: NOT WORKING
     def list_model_feedback(self, model_id, port=8080):
+        raise NotImplementedError('Functionality not yet implemented')
         with requests.Session() as sess:
             resp = sess.get(f'{self.base_url}:{port}/api/v1/feedback/models/{model_id}',
                             headers=self.headers
@@ -333,15 +334,24 @@ class AISquaredPlatformClient:
 
     # TODO
     def list_prediction_feedback(self):
-        pass
+        raise NotImplementedError('Functionality not yet implemented')
 
     # TODO
-    def list_model_predictions(self):
-        pass
+    def list_model_predictions(self, model_id, port = 8080):
+        raise NotImplementedError('Functionality not yet implemented')
+        with requests.Session() as sess:
+            resp = sess.get(
+                f'{self.base_url}:{port}/api/v1/predictions?modelID={model_id}',
+                headers = self.headers
+            )
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+        else:
+            return resp
 
     # TODO
     def list_model_prediction_feedback(self):
-        pass
+        raise NotImplementedError('Functionality not yet implemented')
 
     def list_users(self, as_df=True, port=8080):
         """
@@ -382,6 +392,7 @@ class AISquaredPlatformClient:
 
     #BUG: not working
     def get_user_usage_metrics(self, user_id, port=8080):
+        raise NotImplementedError('Functionality not yet implemented')
         with requests.Session() as sess:
             resp = sess.get(
                 f'{self.base_url}:{port}/api/v1/usage_metrics?period=hourly&entityId={user_id}',
