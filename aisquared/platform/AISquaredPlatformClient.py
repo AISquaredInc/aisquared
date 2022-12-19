@@ -259,7 +259,7 @@ class AISquaredPlatformClient:
 
             return resp.json()
 
-    def share_model(self, model_id, user_id, port=8080):
+    def share_model_with_user(self, model_id, user_id, port=8080):
         """
         Share a model with a user
 
@@ -286,7 +286,7 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()
 
-    def unshare_model(self, model_id, user_id, port=8080):
+    def unshare_model_with_user(self, model_id, user_id, port=8080):
         """
         Unshare a model with a user
 
@@ -312,6 +312,10 @@ class AISquaredPlatformClient:
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
         return resp.json()
+
+    # TODO
+    def share_model_with_group(self, model_id, group_id, port = 8083):
+        raise NotImplementedError('Functionality not yet implemented')
 
     # BUG: NOT WORKING
     def list_model_feedback(self, model_id, port=8080):
@@ -384,6 +388,86 @@ class AISquaredPlatformClient:
             return pd.DataFrame(user_resp.json()['data']).iloc[:, :-1].sort_values(by='displayName').reset_index(drop=True)
         return user_resp.json()
 
+    def list_groups(self, as_df = True, port = 8083):
+        """
+        List all groups
+
+        Parameters
+        ----------
+        as_df : bool (default True)
+            Whether to return the result as a pandas DataFrame
+        port : int (default 8083)
+            The API port for the call
+
+        Returns
+        -------
+        groups : pandas DataFrame or dictionary
+            The response from the API
+        """
+        with requests.Session() as sess:
+            resp = sess.get(
+                f'{self.base_url}:{port}/scim/v2/Groups?count=10&startIndex=1',
+                headers = self.headers
+            )
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+
+        if as_df:
+            resp = resp.json()
+            ids = [i['id'] for i in resp['Resources']]
+            names = [i['displayName'] for i in resp['Resources']]
+            members = []
+            
+            members = [[(u['value'], u['display']) for u in i['members'] if i != []] for i in resp['Resources']]
+            return pd.DataFrame({'id' : ids, 'name' : names, 'members' : members})
+
+        return resp.json()
+
+    def list_group_users(self, group_id, as_df = True, port = 8083):
+        """
+        List users in a group
+
+        Parameters
+        ----------
+        group_id : str
+            The ID for the group
+        as_df : bool (default True)
+            Whether to return the response as a pandas DataFrame
+        port : int (default 8083)
+            The API port to use
+
+        Returns
+        -------
+        users : pandas DataFrame or dictionary
+            The response from the API
+        """
+        with requests.Session() as sess:
+            resp = sess.get(
+                f'{self.base_url}:{port}/scim/v2/Groups/{group_id}',
+                headers = self.headers
+            )
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+        
+        if as_df:
+            resp = resp.json()
+            ids = []
+            names = []
+            for d in resp['members']:
+                ids.append(d['value'])
+                names.append(d['display'])
+
+            return pd.DataFrame({'id' : ids, 'displayName' : names})
+        return resp.json()
+
+    # TODO
+    def add_user_to_group(self, group_id, user_id):
+        raise NotImplementedError('Functionality not yet implemented')
+
+    # TODO
+    def remove_user_from_group(self, group_id, user_id):
+        raise NotImplementedError('Functionality not yet implemented')
+
     #BUG: not working
     def get_user_usage_metrics(self, user_id, port=8080):
         raise NotImplementedError('Functionality not yet implemented')
@@ -395,3 +479,7 @@ class AISquaredPlatformClient:
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
         return resp.json()
+
+    # TODO
+    def upload_model(self):
+        raise NotImplementedError('Functionality not yet implemented')
