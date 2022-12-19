@@ -150,9 +150,6 @@ class AISquaredPlatformClient:
         ----------
         as_df : bool (default True)
             Whether to return the response as a pandas DataFrame
-        all : bool (default False)
-            Whether to return all models or just the ones the logged-in user has
-            access to
         port : int (default 8080)
             The API port for the call
 
@@ -162,10 +159,7 @@ class AISquaredPlatformClient:
             The models
         """
         with requests.Session() as sess:
-            if all:
-                url = f'{self.base_url}:{port}/api/v1/models?page=1'
-            else:
-                url = f'{self.base_url}:{port}/api/v1/models?userOnly=true'
+            url = f'{self.base_url}:{port}/api/v1/models?userOnly=true'
             resp = sess.get(
                 url,
                 headers=self.headers
