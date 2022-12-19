@@ -317,7 +317,7 @@ class AISquaredPlatformClient:
     def share_model_with_group(self, model_id, group_id, port = 8083):
         raise NotImplementedError('Functionality not yet implemented')
 
-    # BUG: NOT WORKING
+    # TODO
     def list_model_feedback(self, model_id, port=8080):
         raise NotImplementedError('Functionality not yet implemented')
         with requests.Session() as sess:
@@ -331,7 +331,7 @@ class AISquaredPlatformClient:
         return resp.json()
 
     # TODO
-    def list_prediction_feedback(self):
+    def list_prediction_feedback(self, prediction_id, port = 8080):
         raise NotImplementedError('Functionality not yet implemented')
 
     # TODO
@@ -348,7 +348,7 @@ class AISquaredPlatformClient:
             return resp
 
     # TODO
-    def list_model_prediction_feedback(self):
+    def list_model_prediction_feedback(self, model_id):
         raise NotImplementedError('Functionality not yet implemented')
 
     def list_users(self, as_df=True, port=8080):
@@ -468,7 +468,7 @@ class AISquaredPlatformClient:
     def remove_user_from_group(self, group_id, user_id):
         raise NotImplementedError('Functionality not yet implemented')
 
-    #BUG: not working
+    # TODO
     def get_user_usage_metrics(self, user_id, port=8080):
         raise NotImplementedError('Functionality not yet implemented')
         with requests.Session() as sess:
