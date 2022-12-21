@@ -18,7 +18,8 @@ class TextHarvester(BaseObject):
         regex=None,
         flags='gu',
         body_only=False,
-        keywords=None
+        keywords=None,
+        limit = None
     ):
         """
         Parameters
@@ -33,6 +34,8 @@ class TextHarvester(BaseObject):
             Whether to only harvest text from the body of the webpage
         keywords : list of str or None (default None)
             If provided, keywords to search for
+        limit : int or None (default None)
+            The limit to the number of times to perform the harvesting, if provided
         """
         super().__init__()
         self.how = how
@@ -40,6 +43,7 @@ class TextHarvester(BaseObject):
         self.flags = flags
         self.body_only = body_only
         self.keywords = keywords
+        self.limit = limit
 
     @property
     def how(self):
@@ -78,6 +82,16 @@ class TextHarvester(BaseObject):
             raise TypeError('body_only must be Boolean')
         self._body_only = value
 
+    @property
+    def limit(self):
+        return self._limit
+    
+    @limit.setter
+    def limit(self, value):
+        if not isinstance(value, int) and value is not None:
+            raise TypeError('limit must be int or None')
+        self._limit = value
+
     def to_dict(self):
         """
         Get the configuration object as a dictionary
@@ -99,6 +113,7 @@ class TextHarvester(BaseObject):
                 'how': self.how,
                 'regex': self.regex,
                 'flags': self.flags,
-                'bodyOnly': self.body_only
+                'bodyOnly': self.body_only,
+                'limit' : self.limit
             }
         }

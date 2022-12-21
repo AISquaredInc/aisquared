@@ -275,3 +275,4 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Altered the `ReverseMLWorkflow` analytic
 - Added the `BarChartRendering`, `ContainerRendering`, `DashboardReplacementRendering`, `DoughnutChartRendering`, `HTMLTagRendering`, `LineChartRendering`, `PieChartRendering`, `SOSRendering`, and `TableRendering` rendering classes
 - Added the `QueryParameterHarvester` harvester class
+- Added the `limit` parameter to the TextHarvester class
