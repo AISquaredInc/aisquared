@@ -81,7 +81,7 @@
 </span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>        <span class="n">injection_action</span><span class="p">,</span>
 </span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>        <span class="n">prediction_name_key</span><span class="p">,</span>
 </span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>        <span class="n">prediction_value_key</span><span class="p">,</span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>        <span class="n">prediction_name_value</span><span class="p">,</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>        <span class="n">prediction_name_values</span><span class="p">,</span>
 </span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>        <span class="n">content</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
 </span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>    <span class="p">):</span>
 </span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>        <span class="sd">&quot;&quot;&quot;</span>
@@ -103,7 +103,7 @@
 </span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a><span class="sd">            The key for the prediction name</span>
 </span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a><span class="sd">        prediction_value_key : str</span>
 </span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a><span class="sd">            The key for the prediction value</span>
-</span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a><span class="sd">        prediction_name_value : str</span>
+</span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a><span class="sd">        prediction_name_values : str</span>
 </span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a><span class="sd">            The value for the prediction name</span>
 </span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a><span class="sd">        content : str (default &#39;&#39;)</span>
 </span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a><span class="sd">            The content</span>
@@ -117,7 +117,7 @@
 </span><span id="L-52"><a href="#L-52"><span class="linenos">52</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">injection_action</span> <span class="o">=</span> <span class="n">injection_action</span>
 </span><span id="L-53"><a href="#L-53"><span class="linenos">53</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">prediction_name_key</span> <span class="o">=</span> <span class="n">prediction_name_key</span>
 </span><span id="L-54"><a href="#L-54"><span class="linenos">54</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">prediction_value_key</span> <span class="o">=</span> <span class="n">prediction_value_key</span>
-</span><span id="L-55"><a href="#L-55"><span class="linenos">55</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">prediction_name_value</span> <span class="o">=</span> <span class="n">prediction_name_value</span>
+</span><span id="L-55"><a href="#L-55"><span class="linenos">55</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">prediction_name_values</span> <span class="o">=</span> <span class="n">prediction_name_values</span>
 </span><span id="L-56"><a href="#L-56"><span class="linenos">56</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="n">content</span>
 </span><span id="L-57"><a href="#L-57"><span class="linenos">57</span></a>
 </span><span id="L-58"><a href="#L-58"><span class="linenos">58</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -135,7 +135,7 @@
 </span><span id="L-70"><a href="#L-70"><span class="linenos">70</span></a>                <span class="s1">&#39;injectionAction&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">injection_action</span><span class="p">,</span>
 </span><span id="L-71"><a href="#L-71"><span class="linenos">71</span></a>                <span class="s1">&#39;predictionNameKey&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">prediction_name_key</span><span class="p">,</span>
 </span><span id="L-72"><a href="#L-72"><span class="linenos">72</span></a>                <span class="s1">&#39;predictionValueKey&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">prediction_value_key</span><span class="p">,</span>
-</span><span id="L-73"><a href="#L-73"><span class="linenos">73</span></a>                <span class="s1">&#39;predictionNameValue&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">prediction_name_value</span><span class="p">,</span>
+</span><span id="L-73"><a href="#L-73"><span class="linenos">73</span></a>                <span class="s1">&#39;predictionNameValue&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">prediction_name_values</span><span class="p">,</span>
 </span><span id="L-74"><a href="#L-74"><span class="linenos">74</span></a>                <span class="s1">&#39;content&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span>
 </span><span id="L-75"><a href="#L-75"><span class="linenos">75</span></a>            <span class="p">}</span>
 </span><span id="L-76"><a href="#L-76"><span class="linenos">76</span></a>        <span class="p">}</span>
@@ -169,7 +169,7 @@
 </span><span id="HTMLTagRendering-17"><a href="#HTMLTagRendering-17"><span class="linenos">17</span></a>        <span class="n">injection_action</span><span class="p">,</span>
 </span><span id="HTMLTagRendering-18"><a href="#HTMLTagRendering-18"><span class="linenos">18</span></a>        <span class="n">prediction_name_key</span><span class="p">,</span>
 </span><span id="HTMLTagRendering-19"><a href="#HTMLTagRendering-19"><span class="linenos">19</span></a>        <span class="n">prediction_value_key</span><span class="p">,</span>
-</span><span id="HTMLTagRendering-20"><a href="#HTMLTagRendering-20"><span class="linenos">20</span></a>        <span class="n">prediction_name_value</span><span class="p">,</span>
+</span><span id="HTMLTagRendering-20"><a href="#HTMLTagRendering-20"><span class="linenos">20</span></a>        <span class="n">prediction_name_values</span><span class="p">,</span>
 </span><span id="HTMLTagRendering-21"><a href="#HTMLTagRendering-21"><span class="linenos">21</span></a>        <span class="n">content</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
 </span><span id="HTMLTagRendering-22"><a href="#HTMLTagRendering-22"><span class="linenos">22</span></a>    <span class="p">):</span>
 </span><span id="HTMLTagRendering-23"><a href="#HTMLTagRendering-23"><span class="linenos">23</span></a>        <span class="sd">&quot;&quot;&quot;</span>
@@ -191,7 +191,7 @@
 </span><span id="HTMLTagRendering-39"><a href="#HTMLTagRendering-39"><span class="linenos">39</span></a><span class="sd">            The key for the prediction name</span>
 </span><span id="HTMLTagRendering-40"><a href="#HTMLTagRendering-40"><span class="linenos">40</span></a><span class="sd">        prediction_value_key : str</span>
 </span><span id="HTMLTagRendering-41"><a href="#HTMLTagRendering-41"><span class="linenos">41</span></a><span class="sd">            The key for the prediction value</span>
-</span><span id="HTMLTagRendering-42"><a href="#HTMLTagRendering-42"><span class="linenos">42</span></a><span class="sd">        prediction_name_value : str</span>
+</span><span id="HTMLTagRendering-42"><a href="#HTMLTagRendering-42"><span class="linenos">42</span></a><span class="sd">        prediction_name_values : str</span>
 </span><span id="HTMLTagRendering-43"><a href="#HTMLTagRendering-43"><span class="linenos">43</span></a><span class="sd">            The value for the prediction name</span>
 </span><span id="HTMLTagRendering-44"><a href="#HTMLTagRendering-44"><span class="linenos">44</span></a><span class="sd">        content : str (default &#39;&#39;)</span>
 </span><span id="HTMLTagRendering-45"><a href="#HTMLTagRendering-45"><span class="linenos">45</span></a><span class="sd">            The content</span>
@@ -205,7 +205,7 @@
 </span><span id="HTMLTagRendering-53"><a href="#HTMLTagRendering-53"><span class="linenos">53</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">injection_action</span> <span class="o">=</span> <span class="n">injection_action</span>
 </span><span id="HTMLTagRendering-54"><a href="#HTMLTagRendering-54"><span class="linenos">54</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">prediction_name_key</span> <span class="o">=</span> <span class="n">prediction_name_key</span>
 </span><span id="HTMLTagRendering-55"><a href="#HTMLTagRendering-55"><span class="linenos">55</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">prediction_value_key</span> <span class="o">=</span> <span class="n">prediction_value_key</span>
-</span><span id="HTMLTagRendering-56"><a href="#HTMLTagRendering-56"><span class="linenos">56</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">prediction_name_value</span> <span class="o">=</span> <span class="n">prediction_name_value</span>
+</span><span id="HTMLTagRendering-56"><a href="#HTMLTagRendering-56"><span class="linenos">56</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">prediction_name_values</span> <span class="o">=</span> <span class="n">prediction_name_values</span>
 </span><span id="HTMLTagRendering-57"><a href="#HTMLTagRendering-57"><span class="linenos">57</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="n">content</span>
 </span><span id="HTMLTagRendering-58"><a href="#HTMLTagRendering-58"><span class="linenos">58</span></a>
 </span><span id="HTMLTagRendering-59"><a href="#HTMLTagRendering-59"><span class="linenos">59</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -223,7 +223,7 @@
 </span><span id="HTMLTagRendering-71"><a href="#HTMLTagRendering-71"><span class="linenos">71</span></a>                <span class="s1">&#39;injectionAction&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">injection_action</span><span class="p">,</span>
 </span><span id="HTMLTagRendering-72"><a href="#HTMLTagRendering-72"><span class="linenos">72</span></a>                <span class="s1">&#39;predictionNameKey&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">prediction_name_key</span><span class="p">,</span>
 </span><span id="HTMLTagRendering-73"><a href="#HTMLTagRendering-73"><span class="linenos">73</span></a>                <span class="s1">&#39;predictionValueKey&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">prediction_value_key</span><span class="p">,</span>
-</span><span id="HTMLTagRendering-74"><a href="#HTMLTagRendering-74"><span class="linenos">74</span></a>                <span class="s1">&#39;predictionNameValue&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">prediction_name_value</span><span class="p">,</span>
+</span><span id="HTMLTagRendering-74"><a href="#HTMLTagRendering-74"><span class="linenos">74</span></a>                <span class="s1">&#39;predictionNameValue&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">prediction_name_values</span><span class="p">,</span>
 </span><span id="HTMLTagRendering-75"><a href="#HTMLTagRendering-75"><span class="linenos">75</span></a>                <span class="s1">&#39;content&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span>
 </span><span id="HTMLTagRendering-76"><a href="#HTMLTagRendering-76"><span class="linenos">76</span></a>            <span class="p">}</span>
 </span><span id="HTMLTagRendering-77"><a href="#HTMLTagRendering-77"><span class="linenos">77</span></a>        <span class="p">}</span>
@@ -238,7 +238,7 @@
                                         <input id="HTMLTagRendering.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
-        <span class="name">HTMLTagRendering</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">label</span>,</span><span class="param">	<span class="nb">id</span>,</span><span class="param">	<span class="n">container_id</span>,</span><span class="param">	<span class="n">html_content</span>,</span><span class="param">	<span class="n">extra_content_tag</span>,</span><span class="param">	<span class="n">injection_action</span>,</span><span class="param">	<span class="n">prediction_name_key</span>,</span><span class="param">	<span class="n">prediction_value_key</span>,</span><span class="param">	<span class="n">prediction_name_value</span>,</span><span class="param">	<span class="n">content</span><span class="o">=</span><span class="s1">&#39;&#39;</span></span>)</span>
+        <span class="name">HTMLTagRendering</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">label</span>,</span><span class="param">	<span class="nb">id</span>,</span><span class="param">	<span class="n">container_id</span>,</span><span class="param">	<span class="n">html_content</span>,</span><span class="param">	<span class="n">extra_content_tag</span>,</span><span class="param">	<span class="n">injection_action</span>,</span><span class="param">	<span class="n">prediction_name_key</span>,</span><span class="param">	<span class="n">prediction_value_key</span>,</span><span class="param">	<span class="n">prediction_name_values</span>,</span><span class="param">	<span class="n">content</span><span class="o">=</span><span class="s1">&#39;&#39;</span></span>)</span>
 
                 <label class="view-source-button" for="HTMLTagRendering.__init__-view-source"><span>View Source</span></label>
 
@@ -254,7 +254,7 @@
 </span><span id="HTMLTagRendering.__init__-17"><a href="#HTMLTagRendering.__init__-17"><span class="linenos">17</span></a>        <span class="n">injection_action</span><span class="p">,</span>
 </span><span id="HTMLTagRendering.__init__-18"><a href="#HTMLTagRendering.__init__-18"><span class="linenos">18</span></a>        <span class="n">prediction_name_key</span><span class="p">,</span>
 </span><span id="HTMLTagRendering.__init__-19"><a href="#HTMLTagRendering.__init__-19"><span class="linenos">19</span></a>        <span class="n">prediction_value_key</span><span class="p">,</span>
-</span><span id="HTMLTagRendering.__init__-20"><a href="#HTMLTagRendering.__init__-20"><span class="linenos">20</span></a>        <span class="n">prediction_name_value</span><span class="p">,</span>
+</span><span id="HTMLTagRendering.__init__-20"><a href="#HTMLTagRendering.__init__-20"><span class="linenos">20</span></a>        <span class="n">prediction_name_values</span><span class="p">,</span>
 </span><span id="HTMLTagRendering.__init__-21"><a href="#HTMLTagRendering.__init__-21"><span class="linenos">21</span></a>        <span class="n">content</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
 </span><span id="HTMLTagRendering.__init__-22"><a href="#HTMLTagRendering.__init__-22"><span class="linenos">22</span></a>    <span class="p">):</span>
 </span><span id="HTMLTagRendering.__init__-23"><a href="#HTMLTagRendering.__init__-23"><span class="linenos">23</span></a>        <span class="sd">&quot;&quot;&quot;</span>
@@ -276,7 +276,7 @@
 </span><span id="HTMLTagRendering.__init__-39"><a href="#HTMLTagRendering.__init__-39"><span class="linenos">39</span></a><span class="sd">            The key for the prediction name</span>
 </span><span id="HTMLTagRendering.__init__-40"><a href="#HTMLTagRendering.__init__-40"><span class="linenos">40</span></a><span class="sd">        prediction_value_key : str</span>
 </span><span id="HTMLTagRendering.__init__-41"><a href="#HTMLTagRendering.__init__-41"><span class="linenos">41</span></a><span class="sd">            The key for the prediction value</span>
-</span><span id="HTMLTagRendering.__init__-42"><a href="#HTMLTagRendering.__init__-42"><span class="linenos">42</span></a><span class="sd">        prediction_name_value : str</span>
+</span><span id="HTMLTagRendering.__init__-42"><a href="#HTMLTagRendering.__init__-42"><span class="linenos">42</span></a><span class="sd">        prediction_name_values : str</span>
 </span><span id="HTMLTagRendering.__init__-43"><a href="#HTMLTagRendering.__init__-43"><span class="linenos">43</span></a><span class="sd">            The value for the prediction name</span>
 </span><span id="HTMLTagRendering.__init__-44"><a href="#HTMLTagRendering.__init__-44"><span class="linenos">44</span></a><span class="sd">        content : str (default &#39;&#39;)</span>
 </span><span id="HTMLTagRendering.__init__-45"><a href="#HTMLTagRendering.__init__-45"><span class="linenos">45</span></a><span class="sd">            The content</span>
@@ -290,7 +290,7 @@
 </span><span id="HTMLTagRendering.__init__-53"><a href="#HTMLTagRendering.__init__-53"><span class="linenos">53</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">injection_action</span> <span class="o">=</span> <span class="n">injection_action</span>
 </span><span id="HTMLTagRendering.__init__-54"><a href="#HTMLTagRendering.__init__-54"><span class="linenos">54</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">prediction_name_key</span> <span class="o">=</span> <span class="n">prediction_name_key</span>
 </span><span id="HTMLTagRendering.__init__-55"><a href="#HTMLTagRendering.__init__-55"><span class="linenos">55</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">prediction_value_key</span> <span class="o">=</span> <span class="n">prediction_value_key</span>
-</span><span id="HTMLTagRendering.__init__-56"><a href="#HTMLTagRendering.__init__-56"><span class="linenos">56</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">prediction_name_value</span> <span class="o">=</span> <span class="n">prediction_name_value</span>
+</span><span id="HTMLTagRendering.__init__-56"><a href="#HTMLTagRendering.__init__-56"><span class="linenos">56</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">prediction_name_values</span> <span class="o">=</span> <span class="n">prediction_name_values</span>
 </span><span id="HTMLTagRendering.__init__-57"><a href="#HTMLTagRendering.__init__-57"><span class="linenos">57</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="n">content</span>
 </span></pre></div>
 
@@ -314,7 +314,7 @@ The injection action</li>
 The key for the prediction name</li>
 <li><strong>prediction_value_key</strong> (str):
 The key for the prediction value</li>
-<li><strong>prediction_name_value</strong> (str):
+<li><strong>prediction_name_values</strong> (str):
 The value for the prediction name</li>
 <li><strong>content</strong> (str (default '')):
 The content</li>
@@ -349,7 +349,7 @@ The content</li>
 </span><span id="HTMLTagRendering.to_dict-71"><a href="#HTMLTagRendering.to_dict-71"><span class="linenos">71</span></a>                <span class="s1">&#39;injectionAction&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">injection_action</span><span class="p">,</span>
 </span><span id="HTMLTagRendering.to_dict-72"><a href="#HTMLTagRendering.to_dict-72"><span class="linenos">72</span></a>                <span class="s1">&#39;predictionNameKey&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">prediction_name_key</span><span class="p">,</span>
 </span><span id="HTMLTagRendering.to_dict-73"><a href="#HTMLTagRendering.to_dict-73"><span class="linenos">73</span></a>                <span class="s1">&#39;predictionValueKey&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">prediction_value_key</span><span class="p">,</span>
-</span><span id="HTMLTagRendering.to_dict-74"><a href="#HTMLTagRendering.to_dict-74"><span class="linenos">74</span></a>                <span class="s1">&#39;predictionNameValue&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">prediction_name_value</span><span class="p">,</span>
+</span><span id="HTMLTagRendering.to_dict-74"><a href="#HTMLTagRendering.to_dict-74"><span class="linenos">74</span></a>                <span class="s1">&#39;predictionNameValue&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">prediction_name_values</span><span class="p">,</span>
 </span><span id="HTMLTagRendering.to_dict-75"><a href="#HTMLTagRendering.to_dict-75"><span class="linenos">75</span></a>                <span class="s1">&#39;content&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span>
 </span><span id="HTMLTagRendering.to_dict-76"><a href="#HTMLTagRendering.to_dict-76"><span class="linenos">76</span></a>            <span class="p">}</span>
 </span><span id="HTMLTagRendering.to_dict-77"><a href="#HTMLTagRendering.to_dict-77"><span class="linenos">77</span></a>        <span class="p">}</span>
