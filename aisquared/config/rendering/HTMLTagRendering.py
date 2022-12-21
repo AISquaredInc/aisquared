@@ -16,7 +16,7 @@ class HTMLTagRendering(BaseObject):
         injection_action,
         prediction_name_key,
         prediction_value_key,
-        prediction_name_values,
+        prediction_name_value,
         content=''
     ):
         """
@@ -52,7 +52,7 @@ class HTMLTagRendering(BaseObject):
         self.injection_action = injection_action
         self.prediction_name_key = prediction_name_key
         self.prediction_value_key = prediction_value_key
-        self.prediction_name_values = prediction_name_values
+        self.prediction_name_value = prediction_name_value
         self.content = content
 
     def to_dict(self):
@@ -70,7 +70,7 @@ class HTMLTagRendering(BaseObject):
                 'injectionAction': self.injection_action,
                 'predictionNameKey': self.prediction_name_key,
                 'predictionValueKey': self.prediction_value_key,
-                'predictionNameValue': self.prediction_name_values,
+                'predictionNameValue': self.prediction_name_value,
                 'content': self.content
             }
         }
