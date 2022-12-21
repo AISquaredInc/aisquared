@@ -19,7 +19,7 @@ class TextHarvester(BaseObject):
         flags='gu',
         body_only=False,
         keywords=None,
-        limit = None
+        limit=None
     ):
         """
         Parameters
@@ -85,7 +85,7 @@ class TextHarvester(BaseObject):
     @property
     def limit(self):
         return self._limit
-    
+
     @limit.setter
     def limit(self, value):
         if not isinstance(value, int) and value is not None:
@@ -114,6 +114,6 @@ class TextHarvester(BaseObject):
                 'regex': self.regex,
                 'flags': self.flags,
                 'bodyOnly': self.body_only,
-                'limit' : self.limit
+                'limit': self.limit
             }
         }

@@ -106,11 +106,11 @@ class AISquaredPlatformClient:
 
     @property
     def password(self):
-        return '*'*len(self._password)
+        return '*' * len(self._password)
 
     @property
     def token(self):
-        return '*'*len(self._token)
+        return '*' * len(self._token)
 
     @property
     def base_url(self):
@@ -314,7 +314,7 @@ class AISquaredPlatformClient:
         return resp.json()
 
     # TODO
-    def share_model_with_group(self, model_id, group_id, port = 8083):
+    def share_model_with_group(self, model_id, group_id, port=8083):
         raise NotImplementedError('Functionality not yet implemented')
 
     # TODO
@@ -331,7 +331,7 @@ class AISquaredPlatformClient:
         return resp.json()
 
     # TODO
-    def list_prediction_feedback(self, prediction_id, port = 8080):
+    def list_prediction_feedback(self, prediction_id, port=8080):
         raise NotImplementedError('Functionality not yet implemented')
 
     # TODO
@@ -388,7 +388,7 @@ class AISquaredPlatformClient:
             return pd.DataFrame(user_resp.json()['data']).iloc[:, :-1].sort_values(by='displayName').reset_index(drop=True)
         return user_resp.json()
 
-    def list_groups(self, as_df = True, port = 8083):
+    def list_groups(self, as_df=True, port=8083):
         """
         List all groups
 
@@ -407,7 +407,7 @@ class AISquaredPlatformClient:
         with requests.Session() as sess:
             resp = sess.get(
                 f'{self.base_url}:{port}/scim/v2/Groups?count=10&startIndex=1',
-                headers = self.headers
+                headers=self.headers
             )
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
@@ -417,13 +417,14 @@ class AISquaredPlatformClient:
             ids = [i['id'] for i in resp['Resources']]
             names = [i['displayName'] for i in resp['Resources']]
             members = []
-            
-            members = [[(u['value'], u['display']) for u in i['members'] if i != []] for i in resp['Resources']]
-            return pd.DataFrame({'id' : ids, 'name' : names, 'members' : members})
+
+            members = [[(u['value'], u['display'])
+                        for u in i['members'] if i != []] for i in resp['Resources']]
+            return pd.DataFrame({'id': ids, 'name': names, 'members': members})
 
         return resp.json()
 
-    def list_group_users(self, group_id, as_df = True, port = 8083):
+    def list_group_users(self, group_id, as_df=True, port=8083):
         """
         List users in a group
 
@@ -444,11 +445,11 @@ class AISquaredPlatformClient:
         with requests.Session() as sess:
             resp = sess.get(
                 f'{self.base_url}:{port}/scim/v2/Groups/{group_id}',
-                headers = self.headers
+                headers=self.headers
             )
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
-        
+
         if as_df:
             resp = resp.json()
             ids = []
@@ -457,7 +458,7 @@ class AISquaredPlatformClient:
                 ids.append(d['value'])
                 names.append(d['display'])
 
-            return pd.DataFrame({'id' : ids, 'displayName' : names})
+            return pd.DataFrame({'id': ids, 'displayName': names})
         return resp.json()
 
     # TODO
