@@ -103,7 +103,8 @@ class TextHarvester(BaseObject):
                     'how': 'regex',
                     'regex': '|'.join(self.keywords),
                     'flags': self.flags,
-                    'bodyOnly': self.body_only
+                    'bodyOnly': self.body_only,
+                    'limit': self.limit
                 }
             }
 

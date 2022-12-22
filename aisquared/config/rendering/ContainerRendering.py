@@ -12,7 +12,7 @@ class ContainerRendering(BaseObject):
         id,
         query_selector,
         width='auto',
-        height='75',
+        height='auto',
         display='flex',
         xOffset='0',
         yOffset='0',

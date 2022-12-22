@@ -22,8 +22,8 @@ class QueryParameterHarvester(BaseObject):
         attributes : list of str
             Attributes for the query
         """
-        self.query_keys = query_keys,
-        self.url_locations = url_locations,
+        self.query_keys = query_keys
+        self.url_locations = url_locations
         self.attributes = attributes
 
     @property
@@ -34,6 +34,8 @@ class QueryParameterHarvester(BaseObject):
     def query_keys(self, value):
         if isinstance(value, str):
             value = [value]
+
+        print(value)
 
         if not isinstance(value, list) or not all([isinstance(v, str) for v in value]):
             raise ValueError('query_keys must be list of strings')

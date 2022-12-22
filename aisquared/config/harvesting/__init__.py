@@ -5,4 +5,4 @@ The aisquared.config.harvesting subpackage contains objects for configuring harv
 from .ImageHarvester import ImageHarvester
 from .TextHarvester import TextHarvester
 from .InputHarvester import InputHarvester
-from .QueryParameterHarveseter import QueryParameterHarvester
+from .QueryParameterHarvester import QueryParameterHarvester
