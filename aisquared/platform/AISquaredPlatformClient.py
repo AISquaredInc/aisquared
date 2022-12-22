@@ -481,6 +481,31 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()
 
-    # TODO
-    def upload_model(self):
-        raise NotImplementedError('Functionality not yet implemented')
+    def upload_model(self, model_file, port = 8081):
+        """
+        Upload a model to the platform
+
+        Parameters
+        ----------
+        model_file : path or path-like
+            The path to the model file
+        port : int (default 8081)
+            The API port to use
+
+        Returns
+        -------
+        response : dictionary
+            The API response from the platform
+        """
+        with open(model_file, 'rb') as f:
+
+            with requests.Session() as sess:
+                resp = sess.post(
+                    f'{self.base_url}:{port}/upload/v1/models',
+                    headers = self.headers,
+                    files = {'model' : f}
+            )
+
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+        return resp.json()
