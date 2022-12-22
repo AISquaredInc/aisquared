@@ -20,6 +20,12 @@ CONFIG_FILE = os.path.join(DIRECTORY, '.aisquared.json')
 
 
 class AISquaredPlatformClient:
+    """
+    Client for interacting with the AI Squared platform programmatically
+
+    When using the client for the first time, it is important to run the `client.login()` method. When doing so, the
+    client will ask for any required information interactively.
+    """
 
     def __init__(self):
 
@@ -177,6 +183,36 @@ class AISquaredPlatformClient:
 
             return resp.json()['data']['models']
 
+    def upload_model(self, model_file, port=8081):
+        """
+        Upload a model to the platform
+
+        Parameters
+        ----------
+        model_file : path or path-like
+            The path to the model file
+        port : int (default 8081)
+            The API port to use
+
+        Returns
+        -------
+        successful : bool
+            Whether the action was successful
+        """
+        with open(model_file, 'rb') as f:
+
+            with requests.Session() as sess:
+                resp = sess.post(
+                    f'{self.base_url}:{port}/upload/v1/models',
+                    headers=self.headers,
+                    files={'model': f}
+                )
+
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+
+        return resp.json()['data']['id']
+
     def get_model(self, id, port=8080):
         """
         Retrieve a model configuration
@@ -190,8 +226,8 @@ class AISquaredPlatformClient:
 
         Returns
         -------
-        response : dictionary
-            The response from the API
+        data : dictionary
+            Metadata about the model coupled with the model's configuration information
         """
         with requests.Session() as sess:
             resp = sess.get(
@@ -200,7 +236,7 @@ class AISquaredPlatformClient:
             )
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
-        return resp.json()
+        return resp.json()['data']
 
     def delete_model(self, id, port=8080):
         """
@@ -215,8 +251,8 @@ class AISquaredPlatformClient:
 
         Returns
         -------
-        response : dictionary
-            The response from the API
+        success : bool
+            Whether the action was successful
         """
         with requests.Session() as sess:
             resp = sess.delete(
@@ -225,7 +261,7 @@ class AISquaredPlatformClient:
             )
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
-        return resp.json()
+        return resp.json()['success']
 
     def list_model_users(self, id, as_df=True, port=8080):
         """
@@ -284,7 +320,7 @@ class AISquaredPlatformClient:
             )
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
-        return resp.json()
+        return resp.json()['success']
 
     def unshare_model_with_user(self, model_id, user_id, port=8080):
         """
@@ -301,8 +337,8 @@ class AISquaredPlatformClient:
 
         Returns
         -------
-        resp : dictionary
-            The JSON response from the API
+        success : bool
+            Whether the action was successful
         """
         with requests.Session() as sess:
             resp = sess.delete(
@@ -311,14 +347,40 @@ class AISquaredPlatformClient:
             )
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
-        return resp.json()
+        return resp.json()['success']
+
+    def get_model_id_by_name(self, model_name):
+        """
+        Retrieve a model's ID using the name of the model
+
+        Parameters
+        ----------
+        model_name : str
+            The name of the model
+
+        Returns
+        -------
+        model_id : str
+            The model's ID
+        """
+
+        models = self.list_models()
+        this_model = models[models.name == model_name]
+
+        if this_model.shape[0] == 0:
+            raise ValueError('No model with that name appears to exist')
+
+        return this_model.id.iloc[0]
 
     # TODO
+
     def share_model_with_group(self, model_id, group_id, port=8083):
+        """Not yet implemented"""
         raise NotImplementedError('Functionality not yet implemented')
 
     # TODO
     def list_model_feedback(self, model_id, port=8080):
+        """Not yet implemented"""
         raise NotImplementedError('Functionality not yet implemented')
         with requests.Session() as sess:
             resp = sess.get(f'{self.base_url}:{port}/api/v1/feedback/models/{model_id}',
@@ -332,10 +394,12 @@ class AISquaredPlatformClient:
 
     # TODO
     def list_prediction_feedback(self, prediction_id, port=8080):
+        """Not yet implemented"""
         raise NotImplementedError('Functionality not yet implemented')
 
     # TODO
     def list_model_predictions(self, model_id, port=8080):
+        """Not yet implemented"""
         raise NotImplementedError('Functionality not yet implemented')
         with requests.Session() as sess:
             resp = sess.get(
@@ -349,6 +413,7 @@ class AISquaredPlatformClient:
 
     # TODO
     def list_model_prediction_feedback(self, model_id):
+        """Not yet implemented"""
         raise NotImplementedError('Functionality not yet implemented')
 
     def list_users(self, as_df=True, port=8080):
@@ -461,51 +526,48 @@ class AISquaredPlatformClient:
             return pd.DataFrame({'id': ids, 'displayName': names})
         return resp.json()
 
+    def get_user_id_by_name(self, name):
+        """
+        Get a user's ID from their display name
+
+        Parameters
+        ----------
+        name : str
+            The display name of the user
+
+        Returns
+        -------
+        id : str
+            The ID of the user
+        """
+
+        users = self.list_users()
+        this_user = users[users.displayName == name]
+
+        if this_user.shape[0] == 0:
+            raise ValueError('No user of that name appears to exist')
+
+        return this_user.id.iloc[0]
+
     # TODO
     def add_user_to_group(self, group_id, user_id):
+        """Not yet implemented"""
         raise NotImplementedError('Functionality not yet implemented')
 
     # TODO
     def remove_user_from_group(self, group_id, user_id):
+        """Not yet implemented"""
         raise NotImplementedError('Functionality not yet implemented')
 
     # TODO
     def get_user_usage_metrics(self, user_id, port=8080):
+        """Not yet implemented"""
         raise NotImplementedError('Functionality not yet implemented')
         with requests.Session() as sess:
             resp = sess.get(
                 f'{self.base_url}:{port}/api/v1/usage_metrics?period=hourly&entityId={user_id}',
                 headers=self.headers
             )
-        if resp.status_code != 200:
-            raise AISquaredAPIException(resp.json())
-        return resp.json()
-
-    def upload_model(self, model_file, port = 8081):
-        """
-        Upload a model to the platform
-
-        Parameters
-        ----------
-        model_file : path or path-like
-            The path to the model file
-        port : int (default 8081)
-            The API port to use
-
-        Returns
-        -------
-        response : dictionary
-            The API response from the platform
-        """
-        with open(model_file, 'rb') as f:
-
-            with requests.Session() as sess:
-                resp = sess.post(
-                    f'{self.base_url}:{port}/upload/v1/models',
-                    headers = self.headers,
-                    files = {'model' : f}
-            )
-
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
         return resp.json()
