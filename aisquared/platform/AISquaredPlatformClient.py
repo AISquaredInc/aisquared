@@ -5,11 +5,6 @@ import platform
 import json
 import os
 
-
-class AISquaredAPIException(Exception):
-    pass
-
-
 if platform.system() == 'Windows':
     basedir = os.getenv('HOMEPATH')
 else:
@@ -17,6 +12,10 @@ else:
 
 DIRECTORY = os.path.join(basedir, '.aisquared')
 CONFIG_FILE = os.path.join(DIRECTORY, '.aisquared.json')
+
+
+class AISquaredAPIException(Exception):
+    pass
 
 
 class AISquaredPlatformClient:
