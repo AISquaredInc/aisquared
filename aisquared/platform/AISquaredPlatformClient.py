@@ -372,7 +372,6 @@ class AISquaredPlatformClient:
         return this_model.id.iloc[0]
 
     # TODO
-
     def share_model_with_group(self, model_id, group_id, port=8083):
         """Not yet implemented"""
         raise NotImplementedError('Functionality not yet implemented')
