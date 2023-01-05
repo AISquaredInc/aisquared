@@ -1,5 +1,24 @@
 """
-The aisquared.serving package contains utilities to serve models to a local REST endpoint
+The aisquared.serving package contains utilities to serve models to a local REST endpoint.
+
+Here is an example of how to serve a simple keras model using these utilities:
+
+>>> # Assume model is already trained and stored in memory as model
+>>> from aisquared import serving
+>>> serving.save_keras_model(model, 'my_model')
+>>> serving.deploy_model(
+    'my_model',
+    'keras',
+    additional_functions_file = '<optional file containing `preprocess` and `postprocess` functions, if applicable>'
+)
+App created successfullly. Serving and awaiting requests
+
+And to retrieve predictions from the model:
+
+>>> # From a separate terminal, assume data is already loaded
+>>> from aisquared import serving
+>>> serving.get_remote_predictions(data) # Do not need to change host or port if predicting from the same machine
+*predictions*
 """
 try:
     from mlflow.tensorflow import save_model as save_tensorflow_model

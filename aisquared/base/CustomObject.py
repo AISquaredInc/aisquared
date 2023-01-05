@@ -4,6 +4,14 @@ from .BaseObject import BaseObject
 class CustomObject(BaseObject):
     """
     Custom class that allows the user to define custom classes for configuration
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.base.CustomObject(
+    >>> my_obj.to_dict()
+    {'className': 'MyClass', 'params': {'key1': 'foo', 'key2': 'bar'}}
+    )
     """
 
     def __init__(self, class_name, **kwargs):

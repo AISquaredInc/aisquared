@@ -4,6 +4,20 @@ from aisquared.base import BaseObject
 class DeployedAnalytic(BaseObject):
     """
     Interaction with a remote analytic
+
+    Example usage:
+
+    >>> import aisquared
+    >>> analytic = aisquared.config.analytic.DeployedAnalytic(
+        'analytic_url',
+        'text'
+    )
+    >>> analytic.to_dict()
+    {'className': 'DeployedAnalytic',
+    'params': {'url': 'analytic_url',
+    'inputType': 'text',
+    'secret': 'request',
+    'header': None}}
     """
 
     def __init__(
