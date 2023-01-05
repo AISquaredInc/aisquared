@@ -4,6 +4,15 @@ from aisquared.base import BaseObject
 class InputHarvester(BaseObject):
     """
     Object to harvest user-input text
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.harvesting.InputHarvester()
+    >>> my_obj.to_dict()
+    {'className': 'InputHarvester',
+    'params': {'inputType': 'text', 'maxLength': None, 'features': None}}
+
     """
 
     def __init__(

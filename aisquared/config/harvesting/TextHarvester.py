@@ -10,6 +10,22 @@ _ALLOWED_HOWS = [
 class TextHarvester(BaseObject):
     """
     Object to harvest text
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.harvesting.TextHarvester(
+        how = 'all',
+        body_only = True
+    )
+    >>> my_obj.to_dict()
+    {'className': 'TextHarvester',
+    'params': {'how': 'all',
+    'regex': None,
+    'flags': 'gu',
+    'bodyOnly': True,
+    'limit': None}}
+
     """
 
     def __init__(

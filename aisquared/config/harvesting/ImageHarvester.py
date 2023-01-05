@@ -4,6 +4,14 @@ from aisquared.base import BaseObject
 class ImageHarvester(BaseObject):
     """
     Object to harvest images
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.harvesting.ImageHarvester()
+    >>> my_obj.to_dict()
+    {'className': 'ImageHarvester', 'params': {'how' : 'all'}}
+
     """
 
     def __init__(

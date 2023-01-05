@@ -4,6 +4,21 @@ from aisquared.base import BaseObject
 class QueryParameterHarvester(BaseObject):
     """
     Harvester for Query Parameters
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.harvesting.QueryParameterHarvester(
+        'test_key',
+        'test_url',
+        'test_attribute'
+    )
+    >>> my_obj.to_dict()
+    {'className': 'QueryParameterHarvester',
+    'params': {'queryKeys': ['test_key'],
+    'urlLocations': ['test_url'],
+    'attributes': ['test_attribute']}}
+
     """
 
     def __init__(
@@ -34,8 +49,6 @@ class QueryParameterHarvester(BaseObject):
     def query_keys(self, value):
         if isinstance(value, str):
             value = [value]
-
-        print(value)
 
         if not isinstance(value, list) or not all([isinstance(v, str) for v in value]):
             raise ValueError('query_keys must be list of strings')
