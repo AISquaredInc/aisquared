@@ -14,7 +14,7 @@ class MulticlassClassification(BaseObject):
     >>> my_obj.to_dict()
     {'className': 'MulticlassClassification',
     'params': {'labelMap': ['class1', 'class2', 'class3']}}
-    
+
     """
 
     def __init__(
