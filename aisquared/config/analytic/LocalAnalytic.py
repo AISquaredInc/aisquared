@@ -5,6 +5,19 @@ class LocalAnalytic(BaseObject):
     """
     Interaction with an analytic (lookup table) saved to the
     local file system
+
+    Example usage:
+
+    >>> import aisquared
+    >>> analytic = aisquared.config.analytic.LocalAnalytic(
+        'analytic_path',
+        'text'
+    )
+    >>> analytic.to_dict()
+    {'className': 'LocalAnalytic',
+    'params': {'path': 'analytic_path',
+    'inputType': 'text',
+    'all': False}}
     """
 
     def __init__(

@@ -4,6 +4,25 @@ from aisquared.base import BaseObject
 class ReverseMLWorkflow(BaseObject):
     """
     Interaction with a ReverseML CSV stored in S3
+
+    Example usage:
+
+    >>> import aisquared
+    >>> analytic = aisquared.config.analytic.ReverseMLWorkflow(
+        'bucket_name',
+        'file_name',
+        'column_name',
+        'text'
+    )
+    >>> analytic.to_dict()
+    {'className': 'ReverseMLWorkflow',
+    'params': {'bucket': 'bucket_name',
+    'fileName': 'file_name',
+    'inputType': 'text',
+    'column': 'column_name',
+    'period': None,
+    'secret': ''}}
+
     """
 
     def __init__(
