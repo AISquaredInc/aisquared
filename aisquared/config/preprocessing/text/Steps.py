@@ -7,7 +7,17 @@ _ALLOWED_PADS = [
 
 
 class Tokenize(BaseObject):
-    """Preprocessing Step to tokenize text"""
+    """Preprocessing Step to tokenize text
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.text.Tokenize()
+    )
+    
+    """
 
     def __init__(
         self,
@@ -75,7 +85,16 @@ class Tokenize(BaseObject):
 
 
 class RemoveCharacters(BaseObject):
-    """Preprocessing step to remove characters from text"""
+    """Preprocessing step to remove characters from text
+    
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.text.RemoveCharacters()
+    )
+    """
 
     def __init__(
         self,
@@ -128,7 +147,16 @@ class RemoveCharacters(BaseObject):
 
 
 class ConvertToCase(BaseObject):
-    """Text preprocessing object to convert inputs to all lowercase or all uppercase"""
+    """Text preprocessing object to convert inputs to all lowercase or all uppercase
+    
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.text.ConvertToCase()
+    )
+    """
 
     def __init__(
         self,
@@ -166,7 +194,21 @@ class ConvertToCase(BaseObject):
 
 
 class ConvertToVocabulary(BaseObject):
-    """Text preprocessing object to convert tokens to integer vocabularies"""
+    """Text preprocessing object to convert tokens to integer vocabularies
+    
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.text.ConvertToVocabulary(
+            {
+                'test' : 3,
+                'vocabulary' : 4
+            }
+        )
+    )
+    """
 
     def __init__(
         self,
@@ -254,7 +296,16 @@ class ConvertToVocabulary(BaseObject):
 
 
 class PadSequences(BaseObject):
-    """Text preprocessing object to pad sequences"""
+    """Text preprocessing object to pad sequences
+    
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.text.PadSequences()
+    )
+    """
 
     def __init__(
         self,
@@ -346,7 +397,16 @@ class PadSequences(BaseObject):
 
 
 class Trim(BaseObject):
-    """Text preprocessing class to trim whitespace from text"""
+    """Text preprocessing class to trim whitespace from text
+    
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.text.Trim()
+    )
+    """
 
     def __init__(self):
         super().__init__()

@@ -4,6 +4,14 @@ from aisquared.base import BaseObject
 class AddValue(BaseObject):
     """
     Preprocessing step to add a value to all pixels in an image
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.image.AddValue(255.0)
+    )
     """
 
     def __init__(
@@ -44,6 +52,14 @@ class AddValue(BaseObject):
 class SubtractValue(BaseObject):
     """
     Preprocessing step to subtract a value from all pixels in an image
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.image.SubtractValue(255.0)
+    )
     """
 
     def __init__(
@@ -84,6 +100,14 @@ class SubtractValue(BaseObject):
 class MultiplyValue(BaseObject):
     """
     Preprocessing step to multiply all pixels in an image by a value
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.image.MultiplyValue(2.0)
+    )
     """
 
     def __init__(
@@ -124,6 +148,14 @@ class MultiplyValue(BaseObject):
 class DivideValue(BaseObject):
     """
     Preprocessing step to divide all pixels in an image by a value
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.image.DivideValue(255.0)
+    )
     """
 
     def __init__(
@@ -164,6 +196,14 @@ class DivideValue(BaseObject):
 class ConvertToColor(BaseObject):
     """
     Preprocessing step to convert images to a color scheme
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.image.ConvertToColor('RGB')
+    )
     """
 
     def __init__(self, color):
@@ -203,6 +243,12 @@ class ConvertToColor(BaseObject):
 class Resize(BaseObject):
     """
     Preprocessing step to resize an image
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.image.Resize([100, 100])
+    )
     """
 
     def __init__(

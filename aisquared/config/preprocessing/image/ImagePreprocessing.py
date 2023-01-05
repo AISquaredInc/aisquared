@@ -14,6 +14,14 @@ ALLOWED_STEPS = (
 class ImagePreprocessor(BaseObject):
     """
     Preprocessor object for image data
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.image.AddValue(255.0)
+    )
     """
 
     def __init__(

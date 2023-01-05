@@ -14,6 +14,14 @@ ALLOWED_STEPS = (
 class TextPreprocessor(BaseObject):
     """
     Preprocessor object for natural language
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.text.Tokenize()
+    )
     """
 
     def __init__(

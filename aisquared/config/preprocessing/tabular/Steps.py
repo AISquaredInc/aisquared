@@ -7,6 +7,17 @@ class ZScore(BaseObject):
 
     Z-Score normalization takes each supplied column value, subtracts that column's provided mean, and divides
     by the provided standard deviation.
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.tabular.ZScore(
+            [0, 1, 2],
+            [0.2, 0.4, 0.6]
+        )
+    )
     """
 
     def __init__(
@@ -91,6 +102,17 @@ class MinMax(BaseObject):
 
     Min-Max Scaling takes all associated columns and maps values relative to the minimum and maximum values
     of the training data.
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.tabular.MinMax(
+            [0, 1.1, 2],
+            [0.2, 14, 18.3]
+        )
+    )
     """
 
     def __init__(
@@ -175,6 +197,17 @@ class MinMax(BaseObject):
 class OneHot(BaseObject):
     """
     One Hot encoding preprocessing step
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.tabular.OneHot(
+            6,
+            ['one', 'two', 'three']
+        )
+    )
     """
 
     def __init__(
@@ -231,6 +264,16 @@ class OneHot(BaseObject):
 class DropColumn(BaseObject):
     """
     Drop a column from tabular data
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.tabular.DropColumn(
+            3
+        )
+    )
     """
 
     def __init__(
