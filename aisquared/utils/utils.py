@@ -18,8 +18,12 @@ def _print_report(true_data, orig_preds, mimic_preds, problem_type):
     print('\n')
     print('Relative to First Model:')
     if problem_type == 'classification':
-        print(confusion_matrix(orig_preds, mimic_preds.argmax(axis=1)))
-        print(classification_report(orig_preds, mimic_preds.argmax(axis=1)))
+        if mimic_preds.shape[1] == 1:
+            print(confusion_matrix(orig_preds, (mimic_preds >= 0.5).astype(int)))
+            print(classification_report(orig_preds, (mimic_preds >= 0.5).astype(int)))
+        else:
+            print(confusion_matrix(orig_preds, mimic_preds.argmax(axis=1)))
+            print(classification_report(orig_preds, mimic_preds.argmax(axis=1)))
     else:
         print(mean_squared_error(orig_preds, mimic_preds, squared=False))
         print(f'Standard deviation: {np.std(mimic_preds - orig_preds)}')
@@ -27,8 +31,12 @@ def _print_report(true_data, orig_preds, mimic_preds, problem_type):
 
     print('Relative to Original:')
     if problem_type == 'classification':
-        print(confusion_matrix(true_data, mimic_preds.argmax(axis=1)))
-        print(classification_report(true_data, mimic_preds.argmax(axis=1)))
+        if mimic_preds.shape[1] == 1:
+            print(confusion_matrix(true_data, (mimic_preds >= 0.5).astype(int)))
+            print(classification_report(true_data, (mimic_preds >= 0.5).astype(int)))
+        else:
+            print(confusion_matrix(true_data, mimic_preds.argmax(axis=1)))
+            print(classification_report(true_data, mimic_preds.argmax(axis=1)))
     else:
         print(mean_squared_error(true_data, mimic_preds, squared=False))
         print(f'Standard deviation: {np.std(true_data - orig_preds)}')
