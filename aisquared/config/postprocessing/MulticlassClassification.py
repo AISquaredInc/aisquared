@@ -4,6 +4,17 @@ from aisquared.base import BaseObject
 class MulticlassClassification(BaseObject):
     """
     Postprocessing configuration object for multiclass classification
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.postprocessing.MulticlassClassification(
+        ['class1', 'class2', 'class3']
+    )
+    >>> my_obj.to_dict()
+    {'className': 'MulticlassClassification',
+    'params': {'labelMap': ['class1', 'class2', 'class3']}}
+    
     """
 
     def __init__(

@@ -4,6 +4,17 @@ from aisquared.base import BaseObject
 class ObjectDetection(BaseObject):
     """
     Postprocessing configuration object for object detection
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.postprocessing.ObjectDetection(
+        ['class1', 'class2', 'class3']
+    )
+    >>> my_obj.to_dict()
+    {'className': 'ObjectDetection',
+    'params': {'labelMap': ['class1', 'class2', 'class3'], 'threshold': 0.5}}
+
     """
 
     def __init__(

@@ -4,6 +4,17 @@ from aisquared.base import BaseObject
 class BinaryClassification(BaseObject):
     """
     Postprocesssing configuration object for binary classification
+
+    Example usage
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.postprocessing.BinaryClassification(
+        ['class1', 'class2']
+    )
+    >>> my_obj.to_dict()
+    {'className': 'BinaryClassification',
+    'params': {'labelMap': ['class1', 'class2'], 'threshold': 0.5}}
+
     """
 
     def __init__(
