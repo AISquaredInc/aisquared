@@ -25,6 +25,25 @@ def _create_question_dict(question, answer_type, choices):
 class ModelFeedback(BaseObject):
     """
     Feedback object for questions and answers for an individual model.
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.feedback.ModelFeedback()
+    >>> my_obj.add_question(
+        'How is the model performing?',
+        choices = ['very poorly', 'poorly', 'neutral', 'well', 'very well']
+    )
+    >>> my_obj.add_question(
+        'Any additional feedback?',
+        'text'
+    )
+    >>> my_obj.to_dict()
+    {'className': 'ModelFeedback',
+    'params': {'questions': [{'question': 'How is the model performing?',
+    'answerType': 'singleChoice',
+    'choices': ['very poorly', 'poorly', 'neutral', 'well', 'very well']},
+    {'question': 'Any additional feedback?', 'answerType': 'text'}]}}
     """
 
     def __init__(self):

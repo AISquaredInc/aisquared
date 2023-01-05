@@ -5,6 +5,17 @@ from aisquared.base import BaseObject
 class QualitativeFeedback(BaseObject):
     """
     Feedback object for questions and answers for individual predictions.
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.feedback.QualitativeFeedback()
+    >>> my_obj.add_question('Any additional feedback?', 'text')
+    >>> my_obj.to_dict()
+    {'className': 'QualitativeFeedback',
+    'params': {'questions': [{'question': 'Any additional feedback?',
+    'answerType': 'text'}]}}
+    
     """
 
     def __init__(self):
