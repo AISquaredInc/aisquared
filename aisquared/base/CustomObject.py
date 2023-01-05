@@ -9,6 +9,10 @@ class CustomObject(BaseObject):
 
     >>> import aisquared
     >>> my_obj = aisquared.base.CustomObject(
+        'MyClass',
+        key1 = 'foo',
+        key2 = 'bar'
+        )
     >>> my_obj.to_dict()
     {'className': 'MyClass', 'params': {'key1': 'foo', 'key2': 'bar'}}
     )
