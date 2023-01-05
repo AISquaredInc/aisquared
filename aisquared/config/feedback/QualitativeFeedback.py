@@ -15,7 +15,7 @@ class QualitativeFeedback(BaseObject):
     {'className': 'QualitativeFeedback',
     'params': {'questions': [{'question': 'Any additional feedback?',
     'answerType': 'text'}]}}
-    
+
     """
 
     def __init__(self):

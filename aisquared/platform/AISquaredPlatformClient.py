@@ -33,7 +33,7 @@ class AISquaredPlatformClient:
     >>> client.test_connection()
     Connection successful
     200
-    
+
     """
 
     def __init__(self):
@@ -338,7 +338,7 @@ class AISquaredPlatformClient:
         -------
         model_users : pandas DataFrame or dictionary
             The users for the model
-        
+
         """
         with requests.Session() as sess:
             resp = sess.get(
@@ -409,7 +409,7 @@ class AISquaredPlatformClient:
         -------
         success : bool
             Whether the action was successful
-        
+
         """
         with requests.Session() as sess:
             resp = sess.delete(
@@ -438,7 +438,7 @@ class AISquaredPlatformClient:
         -------
         model_id : str
             The model's ID
-        
+
         """
 
         models = self.list_models()
