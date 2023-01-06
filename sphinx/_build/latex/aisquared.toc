@@ -1,102 +1,103 @@
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {1}aisquared}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}aisquared package}{1}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Subpackages}{1}{subsection.1.1.1}%
-\contentsline {subsubsection}{aisquared.base package}{1}{subsubsection*.3}%
-\contentsline {paragraph}{Submodules}{1}{paragraph*.4}%
-\contentsline {paragraph}{aisquared.base.BaseObject module}{1}{paragraph*.5}%
-\contentsline {paragraph}{aisquared.base.CustomObject module}{1}{paragraph*.9}%
-\contentsline {paragraph}{aisquared.base.rendering module}{2}{paragraph*.12}%
-\contentsline {paragraph}{aisquared.base.stages module}{2}{paragraph*.13}%
-\contentsline {paragraph}{Module contents}{2}{paragraph*.14}%
-\contentsline {subsubsection}{aisquared.config package}{2}{subsubsection*.15}%
-\contentsline {paragraph}{Subpackages}{2}{paragraph*.16}%
-\contentsline {subparagraph}{aisquared.config.analytic package}{2}{subparagraph*.17}%
-\contentsline {subparagraph}{Submodules}{2}{subparagraph*.18}%
-\contentsline {subparagraph}{aisquared.config.analytic.DeployedAnalytic module}{2}{subparagraph*.19}%
-\contentsline {subparagraph}{aisquared.config.analytic.DeployedModel module}{3}{subparagraph*.26}%
-\contentsline {subparagraph}{aisquared.config.analytic.LocalAnalytic module}{4}{subparagraph*.33}%
-\contentsline {subparagraph}{aisquared.config.analytic.LocalModel module}{4}{subparagraph*.39}%
-\contentsline {subparagraph}{aisquared.config.analytic.ReverseMLWorkflow module}{5}{subparagraph*.44}%
-\contentsline {subparagraph}{Module contents}{5}{subparagraph*.53}%
-\contentsline {subparagraph}{aisquared.config.feedback package}{6}{subparagraph*.54}%
-\contentsline {subparagraph}{Submodules}{6}{subparagraph*.55}%
-\contentsline {subparagraph}{aisquared.config.feedback.BinaryFeedback module}{6}{subparagraph*.56}%
-\contentsline {subparagraph}{aisquared.config.feedback.ModelFeedback module}{6}{subparagraph*.60}%
-\contentsline {subparagraph}{aisquared.config.feedback.MulticlassFeedback module}{7}{subparagraph*.64}%
-\contentsline {subparagraph}{aisquared.config.feedback.QualitativeFeedback module}{7}{subparagraph*.68}%
-\contentsline {subparagraph}{aisquared.config.feedback.RegressionFeedback module}{8}{subparagraph*.72}%
-\contentsline {subparagraph}{aisquared.config.feedback.SimpleFeedback module}{8}{subparagraph*.75}%
-\contentsline {subparagraph}{Module contents}{8}{subparagraph*.78}%
-\contentsline {subparagraph}{aisquared.config.harvesting package}{9}{subparagraph*.79}%
-\contentsline {subparagraph}{Submodules}{9}{subparagraph*.80}%
-\contentsline {subparagraph}{aisquared.config.harvesting.ImageHarvester module}{9}{subparagraph*.81}%
-\contentsline {subparagraph}{aisquared.config.harvesting.InputHarvester module}{9}{subparagraph*.85}%
-\contentsline {subparagraph}{aisquared.config.harvesting.QueryParameterHarvester module}{10}{subparagraph*.91}%
-\contentsline {subparagraph}{aisquared.config.harvesting.TextHarvester module}{10}{subparagraph*.97}%
-\contentsline {subparagraph}{Module contents}{11}{subparagraph*.105}%
-\contentsline {subparagraph}{aisquared.config.postprocessing package}{11}{subparagraph*.106}%
-\contentsline {subparagraph}{Submodules}{11}{subparagraph*.107}%
-\contentsline {subparagraph}{aisquared.config.postprocessing.BinaryClassification module}{11}{subparagraph*.108}%
-\contentsline {subparagraph}{aisquared.config.postprocessing.MulticlassClassification module}{12}{subparagraph*.113}%
-\contentsline {subparagraph}{aisquared.config.postprocessing.ObjectDetection module}{12}{subparagraph*.117}%
-\contentsline {subparagraph}{aisquared.config.postprocessing.Regression module}{13}{subparagraph*.122}%
-\contentsline {subparagraph}{Module contents}{13}{subparagraph*.128}%
-\contentsline {subparagraph}{aisquared.config.preprocessing package}{13}{subparagraph*.129}%
-\contentsline {subparagraph}{Subpackages}{13}{subparagraph*.130}%
-\contentsline {subparagraph}{aisquared.config.preprocessing.image package}{13}{subparagraph*.131}%
-\contentsline {subparagraph}{Submodules}{13}{subparagraph*.132}%
-\contentsline {subparagraph}{aisquared.config.preprocessing.image.ImagePreprocessing module}{13}{subparagraph*.133}%
-\contentsline {subparagraph}{aisquared.config.preprocessing.image.Steps module}{14}{subparagraph*.138}%
-\contentsline {subparagraph}{Module contents}{16}{subparagraph*.159}%
-\contentsline {subparagraph}{aisquared.config.preprocessing.tabular package}{16}{subparagraph*.160}%
-\contentsline {subparagraph}{Submodules}{16}{subparagraph*.161}%
-\contentsline {subparagraph}{aisquared.config.preprocessing.tabular.Steps module}{16}{subparagraph*.162}%
-\contentsline {subparagraph}{aisquared.config.preprocessing.tabular.TabularPreprocessing module}{18}{subparagraph*.180}%
-\contentsline {subparagraph}{Module contents}{19}{subparagraph*.184}%
-\contentsline {subparagraph}{aisquared.config.preprocessing.text package}{19}{subparagraph*.185}%
-\contentsline {subparagraph}{Submodules}{19}{subparagraph*.186}%
-\contentsline {subparagraph}{aisquared.config.preprocessing.text.Steps module}{19}{subparagraph*.187}%
-\contentsline {subparagraph}{aisquared.config.preprocessing.text.TextPreprocessing module}{21}{subparagraph*.214}%
-\contentsline {subparagraph}{Module contents}{22}{subparagraph*.219}%
-\contentsline {subparagraph}{Module contents}{22}{subparagraph*.220}%
-\contentsline {subparagraph}{aisquared.config.rendering package}{22}{subparagraph*.221}%
-\contentsline {subparagraph}{Submodules}{22}{subparagraph*.222}%
-\contentsline {subparagraph}{aisquared.config.rendering.BarChartRendering module}{22}{subparagraph*.223}%
-\contentsline {subparagraph}{aisquared.config.rendering.ContainerRendering module}{23}{subparagraph*.226}%
-\contentsline {subparagraph}{aisquared.config.rendering.DashboardReplacementRendering module}{24}{subparagraph*.239}%
-\contentsline {subparagraph}{aisquared.config.rendering.DocumentRendering module}{25}{subparagraph*.245}%
-\contentsline {subparagraph}{aisquared.config.rendering.DoughnutChartRendering module}{26}{subparagraph*.257}%
-\contentsline {subparagraph}{aisquared.config.rendering.FilterRendering module}{27}{subparagraph*.260}%
-\contentsline {subparagraph}{aisquared.config.rendering.HTMLTagRendering module}{28}{subparagraph*.267}%
-\contentsline {subparagraph}{aisquared.config.rendering.ImageRendering module}{29}{subparagraph*.270}%
-\contentsline {subparagraph}{aisquared.config.rendering.LineChartRendering module}{30}{subparagraph*.283}%
-\contentsline {subparagraph}{aisquared.config.rendering.ObjectRendering module}{31}{subparagraph*.286}%
-\contentsline {subparagraph}{aisquared.config.rendering.PieChartRendering module}{32}{subparagraph*.296}%
-\contentsline {subparagraph}{aisquared.config.rendering.SOSRendering module}{33}{subparagraph*.299}%
-\contentsline {subparagraph}{aisquared.config.rendering.TableRendering module}{33}{subparagraph*.304}%
-\contentsline {subparagraph}{aisquared.config.rendering.WordRendering module}{34}{subparagraph*.307}%
-\contentsline {subparagraph}{Module contents}{35}{subparagraph*.318}%
-\contentsline {paragraph}{Submodules}{35}{paragraph*.319}%
-\contentsline {paragraph}{aisquared.config.GraphConfiguration module}{35}{paragraph*.320}%
-\contentsline {paragraph}{aisquared.config.ModelConfiguration module}{36}{paragraph*.336}%
-\contentsline {paragraph}{Module contents}{38}{paragraph*.363}%
-\contentsline {subsubsection}{aisquared.logging package}{38}{subsubsection*.364}%
-\contentsline {paragraph}{Module contents}{38}{paragraph*.365}%
-\contentsline {subsubsection}{aisquared.platform package}{38}{subsubsection*.366}%
-\contentsline {paragraph}{Submodules}{38}{paragraph*.367}%
-\contentsline {paragraph}{aisquared.platform.AISquaredPlatformClient module}{38}{paragraph*.368}%
-\contentsline {paragraph}{Module contents}{44}{paragraph*.398}%
-\contentsline {subsubsection}{aisquared.serving package}{44}{subsubsection*.399}%
-\contentsline {paragraph}{Submodules}{44}{paragraph*.400}%
-\contentsline {paragraph}{aisquared.serving.deploy\_model module}{44}{paragraph*.401}%
-\contentsline {paragraph}{aisquared.serving.get\_remote\_prediction module}{45}{paragraph*.404}%
-\contentsline {paragraph}{Module contents}{45}{paragraph*.406}%
-\contentsline {subsubsection}{aisquared.utils package}{46}{subsubsection*.407}%
-\contentsline {paragraph}{Submodules}{46}{paragraph*.408}%
-\contentsline {paragraph}{aisquared.utils.utils module}{46}{paragraph*.409}%
-\contentsline {paragraph}{Module contents}{47}{paragraph*.412}%
-\contentsline {subsection}{\numberline {1.1.2}Module contents}{47}{subsection.1.1.2}%
-\contentsline {chapter}{\numberline {2}Indices and tables}{49}{chapter.2}%
-\contentsline {chapter}{Python Module Index}{51}{section*.413}%
-\contentsline {chapter}{Index}{53}{section*.414}%
+\contentsline {chapter}{\numberline {1}Installation}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}aisquared}{3}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}aisquared package}{3}{subsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1.1}Subpackages}{3}{subsubsection.1.1.1.1}%
+\contentsline {paragraph}{aisquared.base package}{3}{paragraph*.3}%
+\contentsline {subparagraph}{Submodules}{3}{subparagraph*.4}%
+\contentsline {subparagraph}{aisquared.base.BaseObject module}{3}{subparagraph*.5}%
+\contentsline {subparagraph}{aisquared.base.CustomObject module}{4}{subparagraph*.9}%
+\contentsline {subparagraph}{aisquared.base.rendering module}{4}{subparagraph*.12}%
+\contentsline {subparagraph}{aisquared.base.stages module}{4}{subparagraph*.13}%
+\contentsline {subparagraph}{Module contents}{4}{subparagraph*.14}%
+\contentsline {paragraph}{aisquared.config package}{4}{paragraph*.15}%
+\contentsline {subparagraph}{Subpackages}{4}{subparagraph*.16}%
+\contentsline {subparagraph}{aisquared.config.analytic package}{4}{subparagraph*.17}%
+\contentsline {subparagraph}{Submodules}{4}{subparagraph*.18}%
+\contentsline {subparagraph}{aisquared.config.analytic.DeployedAnalytic module}{4}{subparagraph*.19}%
+\contentsline {subparagraph}{aisquared.config.analytic.DeployedModel module}{5}{subparagraph*.26}%
+\contentsline {subparagraph}{aisquared.config.analytic.LocalAnalytic module}{6}{subparagraph*.33}%
+\contentsline {subparagraph}{aisquared.config.analytic.LocalModel module}{6}{subparagraph*.39}%
+\contentsline {subparagraph}{aisquared.config.analytic.ReverseMLWorkflow module}{7}{subparagraph*.44}%
+\contentsline {subparagraph}{Module contents}{8}{subparagraph*.53}%
+\contentsline {subparagraph}{aisquared.config.feedback package}{8}{subparagraph*.54}%
+\contentsline {subparagraph}{Submodules}{8}{subparagraph*.55}%
+\contentsline {subparagraph}{aisquared.config.feedback.BinaryFeedback module}{8}{subparagraph*.56}%
+\contentsline {subparagraph}{aisquared.config.feedback.ModelFeedback module}{8}{subparagraph*.60}%
+\contentsline {subparagraph}{aisquared.config.feedback.MulticlassFeedback module}{9}{subparagraph*.64}%
+\contentsline {subparagraph}{aisquared.config.feedback.QualitativeFeedback module}{9}{subparagraph*.68}%
+\contentsline {subparagraph}{aisquared.config.feedback.RegressionFeedback module}{10}{subparagraph*.72}%
+\contentsline {subparagraph}{aisquared.config.feedback.SimpleFeedback module}{10}{subparagraph*.75}%
+\contentsline {subparagraph}{Module contents}{11}{subparagraph*.78}%
+\contentsline {subparagraph}{aisquared.config.harvesting package}{11}{subparagraph*.79}%
+\contentsline {subparagraph}{Submodules}{11}{subparagraph*.80}%
+\contentsline {subparagraph}{aisquared.config.harvesting.ImageHarvester module}{11}{subparagraph*.81}%
+\contentsline {subparagraph}{aisquared.config.harvesting.InputHarvester module}{11}{subparagraph*.85}%
+\contentsline {subparagraph}{aisquared.config.harvesting.QueryParameterHarvester module}{12}{subparagraph*.91}%
+\contentsline {subparagraph}{aisquared.config.harvesting.TextHarvester module}{12}{subparagraph*.97}%
+\contentsline {subparagraph}{Module contents}{13}{subparagraph*.105}%
+\contentsline {subparagraph}{aisquared.config.postprocessing package}{13}{subparagraph*.106}%
+\contentsline {subparagraph}{Submodules}{13}{subparagraph*.107}%
+\contentsline {subparagraph}{aisquared.config.postprocessing.BinaryClassification module}{13}{subparagraph*.108}%
+\contentsline {subparagraph}{aisquared.config.postprocessing.MulticlassClassification module}{14}{subparagraph*.113}%
+\contentsline {subparagraph}{aisquared.config.postprocessing.ObjectDetection module}{14}{subparagraph*.117}%
+\contentsline {subparagraph}{aisquared.config.postprocessing.Regression module}{15}{subparagraph*.122}%
+\contentsline {subparagraph}{Module contents}{15}{subparagraph*.128}%
+\contentsline {subparagraph}{aisquared.config.preprocessing package}{15}{subparagraph*.129}%
+\contentsline {subparagraph}{Subpackages}{15}{subparagraph*.130}%
+\contentsline {subparagraph}{aisquared.config.preprocessing.image package}{15}{subparagraph*.131}%
+\contentsline {subparagraph}{Submodules}{15}{subparagraph*.132}%
+\contentsline {subparagraph}{aisquared.config.preprocessing.image.ImagePreprocessing module}{15}{subparagraph*.133}%
+\contentsline {subparagraph}{aisquared.config.preprocessing.image.Steps module}{16}{subparagraph*.138}%
+\contentsline {subparagraph}{Module contents}{18}{subparagraph*.159}%
+\contentsline {subparagraph}{aisquared.config.preprocessing.tabular package}{18}{subparagraph*.160}%
+\contentsline {subparagraph}{Submodules}{18}{subparagraph*.161}%
+\contentsline {subparagraph}{aisquared.config.preprocessing.tabular.Steps module}{18}{subparagraph*.162}%
+\contentsline {subparagraph}{aisquared.config.preprocessing.tabular.TabularPreprocessing module}{20}{subparagraph*.180}%
+\contentsline {subparagraph}{Module contents}{21}{subparagraph*.184}%
+\contentsline {subparagraph}{aisquared.config.preprocessing.text package}{21}{subparagraph*.185}%
+\contentsline {subparagraph}{Submodules}{21}{subparagraph*.186}%
+\contentsline {subparagraph}{aisquared.config.preprocessing.text.Steps module}{21}{subparagraph*.187}%
+\contentsline {subparagraph}{aisquared.config.preprocessing.text.TextPreprocessing module}{23}{subparagraph*.214}%
+\contentsline {subparagraph}{Module contents}{24}{subparagraph*.219}%
+\contentsline {subparagraph}{Module contents}{24}{subparagraph*.220}%
+\contentsline {subparagraph}{aisquared.config.rendering package}{24}{subparagraph*.221}%
+\contentsline {subparagraph}{Submodules}{24}{subparagraph*.222}%
+\contentsline {subparagraph}{aisquared.config.rendering.BarChartRendering module}{24}{subparagraph*.223}%
+\contentsline {subparagraph}{aisquared.config.rendering.ContainerRendering module}{25}{subparagraph*.226}%
+\contentsline {subparagraph}{aisquared.config.rendering.DashboardReplacementRendering module}{26}{subparagraph*.239}%
+\contentsline {subparagraph}{aisquared.config.rendering.DocumentRendering module}{27}{subparagraph*.245}%
+\contentsline {subparagraph}{aisquared.config.rendering.DoughnutChartRendering module}{28}{subparagraph*.257}%
+\contentsline {subparagraph}{aisquared.config.rendering.FilterRendering module}{29}{subparagraph*.260}%
+\contentsline {subparagraph}{aisquared.config.rendering.HTMLTagRendering module}{30}{subparagraph*.267}%
+\contentsline {subparagraph}{aisquared.config.rendering.ImageRendering module}{31}{subparagraph*.270}%
+\contentsline {subparagraph}{aisquared.config.rendering.LineChartRendering module}{32}{subparagraph*.283}%
+\contentsline {subparagraph}{aisquared.config.rendering.ObjectRendering module}{33}{subparagraph*.286}%
+\contentsline {subparagraph}{aisquared.config.rendering.PieChartRendering module}{34}{subparagraph*.296}%
+\contentsline {subparagraph}{aisquared.config.rendering.SOSRendering module}{35}{subparagraph*.299}%
+\contentsline {subparagraph}{aisquared.config.rendering.TableRendering module}{35}{subparagraph*.304}%
+\contentsline {subparagraph}{aisquared.config.rendering.WordRendering module}{36}{subparagraph*.307}%
+\contentsline {subparagraph}{Module contents}{37}{subparagraph*.318}%
+\contentsline {subparagraph}{Submodules}{37}{subparagraph*.319}%
+\contentsline {subparagraph}{aisquared.config.GraphConfiguration module}{37}{subparagraph*.320}%
+\contentsline {subparagraph}{aisquared.config.ModelConfiguration module}{38}{subparagraph*.336}%
+\contentsline {subparagraph}{Module contents}{40}{subparagraph*.363}%
+\contentsline {paragraph}{aisquared.logging package}{40}{paragraph*.364}%
+\contentsline {subparagraph}{Module contents}{40}{subparagraph*.365}%
+\contentsline {paragraph}{aisquared.platform package}{40}{paragraph*.366}%
+\contentsline {subparagraph}{Submodules}{40}{subparagraph*.367}%
+\contentsline {subparagraph}{aisquared.platform.AISquaredPlatformClient module}{40}{subparagraph*.368}%
+\contentsline {subparagraph}{Module contents}{46}{subparagraph*.398}%
+\contentsline {paragraph}{aisquared.serving package}{46}{paragraph*.399}%
+\contentsline {subparagraph}{Submodules}{46}{subparagraph*.400}%
+\contentsline {subparagraph}{aisquared.serving.deploy\_model module}{46}{subparagraph*.401}%
+\contentsline {subparagraph}{aisquared.serving.get\_remote\_prediction module}{47}{subparagraph*.404}%
+\contentsline {subparagraph}{Module contents}{47}{subparagraph*.406}%
+\contentsline {paragraph}{aisquared.utils package}{48}{paragraph*.407}%
+\contentsline {subparagraph}{Submodules}{48}{subparagraph*.408}%
+\contentsline {subparagraph}{aisquared.utils.utils module}{48}{subparagraph*.409}%
+\contentsline {subparagraph}{Module contents}{49}{subparagraph*.412}%
+\contentsline {subsubsection}{\numberline {1.1.1.2}Module contents}{49}{subsubsection.1.1.1.2}%
+\contentsline {chapter}{\numberline {2}Changelog}{51}{chapter.2}%
+\contentsline {chapter}{Python Module Index}{53}{section*.413}%
+\contentsline {chapter}{Index}{55}{section*.414}%

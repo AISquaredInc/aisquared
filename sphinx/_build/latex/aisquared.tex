@@ -54,11 +54,11 @@
 % Set up styles of URL: it should be placed after hyperref.
 \urlstyle{same}
 
-\addto\captionsenglish{\renewcommand{\contentsname}{Contents:}}
+\addto\captionsenglish{\renewcommand{\contentsname}{Documentation}}
 
 \usepackage{sphinxmessages}
-\setcounter{tocdepth}{1}
-
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
 
 
 \title{aisquared}
@@ -81,31 +81,65 @@
 \sphinxtableofcontents
 \pagestyle{normal}
 \phantomsection\label{\detokenize{index::doc}}
+\noindent{\hspace*{\fill}\sphinxincludegraphics[width=400\sphinxpxdimen]{{aisquared}.png}\hspace*{\fill}}
 
+\begin{DUlineblock}{0em}
+\item[] 
+\item[] 
+\end{DUlineblock}
+
+
+
+\sphinxAtStartPar
+This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Current Production Version:} \sphinxcode{\sphinxupquote{0.3.0}}
+
+\begin{DUlineblock}{0em}
+\item[] 
+\end{DUlineblock}
+
+
+\chapter{Installation}
+\label{\detokenize{index:installation}}
+\sphinxAtStartPar
+This package is available through \sphinxhref{https://pypi.org}{Pypi} and can be installed by running the following command:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+pip\PYG{+w}{ }install\PYG{+w}{ }aisquared
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Alternatively, the latest version of the software can be installed directly from GitHub using the following command:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+pip\PYG{+w}{ }install\PYG{+w}{ }git+https://github.com/AISquaredInc/aisquared
+\end{sphinxVerbatim}
 
 \sphinxstepscope
 
 
-\chapter{aisquared}
+\section{aisquared}
 \label{\detokenize{modules:aisquared}}\label{\detokenize{modules::doc}}
 \sphinxstepscope
 
 
-\section{aisquared package}
+\subsection{aisquared package}
 \label{\detokenize{aisquared:aisquared-package}}\label{\detokenize{aisquared::doc}}
 
-\subsection{Subpackages}
+\subsubsection{Subpackages}
 \label{\detokenize{aisquared:subpackages}}
 \sphinxstepscope
 
 
-\subsubsection{aisquared.base package}
+\paragraph{aisquared.base package}
 \label{\detokenize{aisquared.base:aisquared-base-package}}\label{\detokenize{aisquared.base::doc}}
 
-\paragraph{Submodules}
+\subparagraph{Submodules}
 \label{\detokenize{aisquared.base:submodules}}
 
-\paragraph{aisquared.base.BaseObject module}
+\subparagraph{aisquared.base.BaseObject module}
 \label{\detokenize{aisquared.base:module-aisquared.base.BaseObject}}\label{\detokenize{aisquared.base:aisquared-base-baseobject-module}}\index{module@\spxentry{module}!aisquared.base.BaseObject@\spxentry{aisquared.base.BaseObject}}\index{aisquared.base.BaseObject@\spxentry{aisquared.base.BaseObject}!module@\spxentry{module}}\index{BaseObject (class in aisquared.base.BaseObject)@\spxentry{BaseObject}\spxextra{class in aisquared.base.BaseObject}}
 
 \begin{fulllineitems}
@@ -149,7 +183,7 @@ Return the object as a json string
 
 
 
-\paragraph{aisquared.base.CustomObject module}
+\subparagraph{aisquared.base.CustomObject module}
 \label{\detokenize{aisquared.base:module-aisquared.base.CustomObject}}\label{\detokenize{aisquared.base:aisquared-base-customobject-module}}\index{module@\spxentry{module}!aisquared.base.CustomObject@\spxentry{aisquared.base.CustomObject}}\index{aisquared.base.CustomObject@\spxentry{aisquared.base.CustomObject}!module@\spxentry{module}}\index{CustomObject (class in aisquared.base.CustomObject)@\spxentry{CustomObject}\spxextra{class in aisquared.base.CustomObject}}
 
 \begin{fulllineitems}
@@ -194,19 +228,19 @@ Get the object as a dictionary
 
 
 
-\paragraph{aisquared.base.rendering module}
+\subparagraph{aisquared.base.rendering module}
 \label{\detokenize{aisquared.base:module-aisquared.base.rendering}}\label{\detokenize{aisquared.base:aisquared-base-rendering-module}}\index{module@\spxentry{module}!aisquared.base.rendering@\spxentry{aisquared.base.rendering}}\index{aisquared.base.rendering@\spxentry{aisquared.base.rendering}!module@\spxentry{module}}
 \sphinxAtStartPar
 Some allowed configuration parameters \sphinxhyphen{} not meant to be directly called by the end user
 
 
-\paragraph{aisquared.base.stages module}
+\subparagraph{aisquared.base.stages module}
 \label{\detokenize{aisquared.base:module-aisquared.base.stages}}\label{\detokenize{aisquared.base:aisquared-base-stages-module}}\index{module@\spxentry{module}!aisquared.base.stages@\spxentry{aisquared.base.stages}}\index{aisquared.base.stages@\spxentry{aisquared.base.stages}!module@\spxentry{module}}
 \sphinxAtStartPar
 Some allowed configuration parameters \sphinxhyphen{} not designed to be directly called by the user
 
 
-\paragraph{Module contents}
+\subparagraph{Module contents}
 \label{\detokenize{aisquared.base:module-aisquared.base}}\label{\detokenize{aisquared.base:module-contents}}\index{module@\spxentry{module}!aisquared.base@\spxentry{aisquared.base}}\index{aisquared.base@\spxentry{aisquared.base}!module@\spxentry{module}}
 \sphinxAtStartPar
 The aisquared.base package contains both some basic objects that are used across the aisquared package backend and some objects which are designed to facilitate simple use cases of the technology.
@@ -214,10 +248,10 @@ The aisquared.base package contains both some basic objects that are used across
 \sphinxstepscope
 
 
-\subsubsection{aisquared.config package}
+\paragraph{aisquared.config package}
 \label{\detokenize{aisquared.config:aisquared-config-package}}\label{\detokenize{aisquared.config::doc}}
 
-\paragraph{Subpackages}
+\subparagraph{Subpackages}
 \label{\detokenize{aisquared.config:subpackages}}
 \sphinxstepscope
 
@@ -3947,10 +3981,10 @@ Get the configuration object as a dictionary
 The aisquared.config.rendering subpackage contains objects for configuring how rendering of predictions is to occur.
 
 
-\paragraph{Submodules}
+\subparagraph{Submodules}
 \label{\detokenize{aisquared.config:submodules}}
 
-\paragraph{aisquared.config.GraphConfiguration module}
+\subparagraph{aisquared.config.GraphConfiguration module}
 \label{\detokenize{aisquared.config:module-aisquared.config.GraphConfiguration}}\label{\detokenize{aisquared.config:aisquared-config-graphconfiguration-module}}\index{module@\spxentry{module}!aisquared.config.GraphConfiguration@\spxentry{aisquared.config.GraphConfiguration}}\index{aisquared.config.GraphConfiguration@\spxentry{aisquared.config.GraphConfiguration}!module@\spxentry{module}}\index{GraphConfiguration (class in aisquared.config.GraphConfiguration)@\spxentry{GraphConfiguration}\spxextra{class in aisquared.config.GraphConfiguration}}
 
 \begin{fulllineitems}
@@ -4141,7 +4175,7 @@ Get the object as a dictionary
 
 
 
-\paragraph{aisquared.config.ModelConfiguration module}
+\subparagraph{aisquared.config.ModelConfiguration module}
 \label{\detokenize{aisquared.config:module-aisquared.config.ModelConfiguration}}\label{\detokenize{aisquared.config:aisquared-config-modelconfiguration-module}}\index{module@\spxentry{module}!aisquared.config.ModelConfiguration@\spxentry{aisquared.config.ModelConfiguration}}\index{aisquared.config.ModelConfiguration@\spxentry{aisquared.config.ModelConfiguration}!module@\spxentry{module}}\index{ModelConfiguration (class in aisquared.config.ModelConfiguration)@\spxentry{ModelConfiguration}\spxextra{class in aisquared.config.ModelConfiguration}}
 
 \begin{fulllineitems}
@@ -4408,7 +4442,7 @@ Get the object as a dictionary
 
 
 
-\paragraph{Module contents}
+\subparagraph{Module contents}
 \label{\detokenize{aisquared.config:module-aisquared.config}}\label{\detokenize{aisquared.config:module-contents}}\index{module@\spxentry{module}!aisquared.config@\spxentry{aisquared.config}}\index{aisquared.config@\spxentry{aisquared.config}!module@\spxentry{module}}
 \sphinxAtStartPar
 The aisquared.config subpackage contains utilities and objects for packaging aisquared configuration steps and models.
@@ -4420,10 +4454,10 @@ GitHub repository at \sphinxurl{https://github.com/AISquaredInc/airFiles}
 \sphinxstepscope
 
 
-\subsubsection{aisquared.logging package}
+\paragraph{aisquared.logging package}
 \label{\detokenize{aisquared.logging:aisquared-logging-package}}\label{\detokenize{aisquared.logging::doc}}
 
-\paragraph{Module contents}
+\subparagraph{Module contents}
 \label{\detokenize{aisquared.logging:module-aisquared.logging}}\label{\detokenize{aisquared.logging:module-contents}}\index{module@\spxentry{module}!aisquared.logging@\spxentry{aisquared.logging}}\index{aisquared.logging@\spxentry{aisquared.logging}!module@\spxentry{module}}
 \sphinxAtStartPar
 The aisquared.logging subpackage contains utilities for performing experiments within aisquared.
@@ -4434,13 +4468,13 @@ This functionality is inhereted from MLFlow. Please see the MFLow documentatatio
 \sphinxstepscope
 
 
-\subsubsection{aisquared.platform package}
+\paragraph{aisquared.platform package}
 \label{\detokenize{aisquared.platform:aisquared-platform-package}}\label{\detokenize{aisquared.platform::doc}}
 
-\paragraph{Submodules}
+\subparagraph{Submodules}
 \label{\detokenize{aisquared.platform:submodules}}
 
-\paragraph{aisquared.platform.AISquaredPlatformClient module}
+\subparagraph{aisquared.platform.AISquaredPlatformClient module}
 \label{\detokenize{aisquared.platform:module-aisquared.platform.AISquaredPlatformClient}}\label{\detokenize{aisquared.platform:aisquared-platform-aisquaredplatformclient-module}}\index{module@\spxentry{module}!aisquared.platform.AISquaredPlatformClient@\spxentry{aisquared.platform.AISquaredPlatformClient}}\index{aisquared.platform.AISquaredPlatformClient@\spxentry{aisquared.platform.AISquaredPlatformClient}!module@\spxentry{module}}\index{AISquaredAPIException@\spxentry{AISquaredAPIException}}
 
 \begin{fulllineitems}
@@ -5199,7 +5233,7 @@ The username associated with the client
 
 
 
-\paragraph{Module contents}
+\subparagraph{Module contents}
 \label{\detokenize{aisquared.platform:module-aisquared.platform}}\label{\detokenize{aisquared.platform:module-contents}}\index{module@\spxentry{module}!aisquared.platform@\spxentry{aisquared.platform}}\index{aisquared.platform@\spxentry{aisquared.platform}!module@\spxentry{module}}
 \sphinxAtStartPar
 Utilities for interacting with the AI Squared Platform.
@@ -5212,13 +5246,13 @@ information about this class, please see its documentation.
 \sphinxstepscope
 
 
-\subsubsection{aisquared.serving package}
+\paragraph{aisquared.serving package}
 \label{\detokenize{aisquared.serving:aisquared-serving-package}}\label{\detokenize{aisquared.serving::doc}}
 
-\paragraph{Submodules}
+\subparagraph{Submodules}
 \label{\detokenize{aisquared.serving:submodules}}
 
-\paragraph{aisquared.serving.deploy\_model module}
+\subparagraph{aisquared.serving.deploy\_model module}
 \label{\detokenize{aisquared.serving:module-aisquared.serving.deploy_model}}\label{\detokenize{aisquared.serving:aisquared-serving-deploy-model-module}}\index{module@\spxentry{module}!aisquared.serving.deploy\_model@\spxentry{aisquared.serving.deploy\_model}}\index{aisquared.serving.deploy\_model@\spxentry{aisquared.serving.deploy\_model}!module@\spxentry{module}}\index{deploy\_model() (in module aisquared.serving.deploy\_model)@\spxentry{deploy\_model()}\spxextra{in module aisquared.serving.deploy\_model}}
 
 \begin{fulllineitems}
@@ -5275,7 +5309,7 @@ Load a MANN model with custom objects
 
 
 
-\paragraph{aisquared.serving.get\_remote\_prediction module}
+\subparagraph{aisquared.serving.get\_remote\_prediction module}
 \label{\detokenize{aisquared.serving:module-aisquared.serving.get_remote_prediction}}\label{\detokenize{aisquared.serving:aisquared-serving-get-remote-prediction-module}}\index{module@\spxentry{module}!aisquared.serving.get\_remote\_prediction@\spxentry{aisquared.serving.get\_remote\_prediction}}\index{aisquared.serving.get\_remote\_prediction@\spxentry{aisquared.serving.get\_remote\_prediction}!module@\spxentry{module}}\index{get\_remote\_prediction() (in module aisquared.serving.get\_remote\_prediction)@\spxentry{get\_remote\_prediction()}\spxextra{in module aisquared.serving.get\_remote\_prediction}}
 
 \begin{fulllineitems}
@@ -5330,7 +5364,7 @@ list
 
 
 
-\paragraph{Module contents}
+\subparagraph{Module contents}
 \label{\detokenize{aisquared.serving:module-aisquared.serving}}\label{\detokenize{aisquared.serving:module-contents}}\index{module@\spxentry{module}!aisquared.serving@\spxentry{aisquared.serving}}\index{aisquared.serving@\spxentry{aisquared.serving}!module@\spxentry{module}}
 \sphinxAtStartPar
 The aisquared.serving package contains utilities to serve models to a local REST endpoint.
@@ -5363,13 +5397,13 @@ And to retrieve predictions from the model:
 \sphinxstepscope
 
 
-\subsubsection{aisquared.utils package}
+\paragraph{aisquared.utils package}
 \label{\detokenize{aisquared.utils:aisquared-utils-package}}\label{\detokenize{aisquared.utils::doc}}
 
-\paragraph{Submodules}
+\subparagraph{Submodules}
 \label{\detokenize{aisquared.utils:submodules}}
 
-\paragraph{aisquared.utils.utils module}
+\subparagraph{aisquared.utils.utils module}
 \label{\detokenize{aisquared.utils:module-aisquared.utils.utils}}\label{\detokenize{aisquared.utils:aisquared-utils-utils-module}}\index{module@\spxentry{module}!aisquared.utils.utils@\spxentry{aisquared.utils.utils}}\index{aisquared.utils.utils@\spxentry{aisquared.utils.utils}!module@\spxentry{module}}\index{get\_model() (in module aisquared.utils.utils)@\spxentry{get\_model()}\spxextra{in module aisquared.utils.utils}}
 
 \begin{fulllineitems}
@@ -5510,7 +5544,7 @@ TensorFlow keras Model
 
 
 
-\paragraph{Module contents}
+\subparagraph{Module contents}
 \label{\detokenize{aisquared.utils:module-aisquared.utils}}\label{\detokenize{aisquared.utils:module-contents}}\index{module@\spxentry{module}!aisquared.utils@\spxentry{aisquared.utils}}\index{aisquared.utils@\spxentry{aisquared.utils}!module@\spxentry{module}}
 \sphinxAtStartPar
 Additional utilities to use with the \sphinxtitleref{aisquared} package. These utilities currently consist of two functions, the
@@ -5521,25 +5555,261 @@ to train teacher\sphinxhyphen{}student models
 To see in\sphinxhyphen{}depth examples of how to use these functions, please visit our GitHub repository at \sphinxurl{https://github.com/AISquaredInc/MimicModelExamples}
 
 
-\subsection{Module contents}
+\subsubsection{Module contents}
 \label{\detokenize{aisquared:module-aisquared}}\label{\detokenize{aisquared:module-contents}}\index{module@\spxentry{module}!aisquared@\spxentry{aisquared}}\index{aisquared@\spxentry{aisquared}!module@\spxentry{module}}
 \sphinxAtStartPar
 This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Browser Extension or other applications developed through the AI Squared JavaScript SDK.
 
 
-\chapter{Indices and tables}
-\label{\detokenize{index:indices-and-tables}}\begin{itemize}
+\chapter{Changelog}
+\label{\detokenize{index:changelog}}\begin{itemize}
+\item {} \begin{description}
+\sphinxlineitem{Version 0.1.3}\begin{itemize}
 \item {} 
 \sphinxAtStartPar
-\DUrole{xref,std,std-ref}{genindex}
+Added \sphinxtitleref{flags} parameter to \sphinxtitleref{TextHarvester} using regular expression harvesting
 
 \item {} 
 \sphinxAtStartPar
-\DUrole{xref,std,std-ref}{modindex}
+Deleted \sphinxtitleref{model\_feedback} parameter in \sphinxtitleref{ModelConfiguration} object and included functionality in \sphinxtitleref{feedback\_steps} parameter
 
 \item {} 
 \sphinxAtStartPar
-\DUrole{xref,std,std-ref}{search}
+Changed \sphinxtitleref{format} parameter to \sphinxtitleref{header} for both deployed analytics
+
+\item {} 
+\sphinxAtStartPar
+Added feedback and stages to \sphinxtitleref{DocumentPredictor} and \sphinxtitleref{ImagePredictor} objects
+
+\item {} 
+\sphinxAtStartPar
+Non\sphinxhyphen{}API changes for \sphinxtitleref{ALLOWED\_STAGES}
+
+\item {} 
+\sphinxAtStartPar
+Fixed bugs preventing Windows users from importing the package
+
+\item {} 
+\sphinxAtStartPar
+Updated \sphinxtitleref{ModelConfiguration} to include \sphinxtitleref{url} parameter
+
+\item {} 
+\sphinxAtStartPar
+Changed default tokenization string
+
+\end{itemize}
+
+\end{description}
+
+\item {} \begin{description}
+\sphinxlineitem{Version 0.2.0}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Moved preprocessing steps under subpackages for specific kinds of preprocessing steps
+
+\item {} 
+\sphinxAtStartPar
+Cleaned up documentation to render within programmatic access environments
+
+\item {} 
+\sphinxAtStartPar
+Added \sphinxtitleref{aisquared.logging} subpackage
+
+\item {} \begin{description}
+\sphinxlineitem{Created \sphinxtitleref{InputHarvester}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Allows for harvesting of input text, images, and tabular data
+
+\end{itemize}
+
+\end{description}
+
+\item {} 
+\sphinxAtStartPar
+Created the \sphinxtitleref{aisquared.serving} subpackage, specifically the \sphinxtitleref{deploy\_model} and \sphinxtitleref{get\_remote\_prediction} functions
+
+\item {} 
+\sphinxAtStartPar
+Created the \sphinxtitleref{GraphConfiguration} class
+
+\item {} 
+\sphinxAtStartPar
+Added \sphinxtitleref{auto\sphinxhyphen{}run} parameter to \sphinxtitleref{ModelConfiguration} and \sphinxtitleref{GraphConfiguration} classes
+
+\item {} \begin{description}
+\sphinxlineitem{Created the \sphinxtitleref{aisquared} CLI with the following commands:}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxtitleref{aisquared deploy}, which deploys a model locally
+
+\item {} 
+\sphinxAtStartPar
+\sphinxtitleref{aisquared predict}, which predicts using a local JSON file
+
+\item {} 
+\sphinxAtStartPar
+\sphinxtitleref{aisquared airfiles}, which contains the subcommands \sphinxtitleref{list}, \sphinxtitleref{delete}, \sphinxtitleref{download}, and \sphinxtitleref{upload}
+
+\end{itemize}
+
+\end{description}
+
+\item {} 
+\sphinxAtStartPar
+Changed all classes within \sphinxtitleref{aisquared.config.analytic} to accept \sphinxtitleref{‘tabular’} as an \sphinxtitleref{input\_type}
+
+\item {} 
+\sphinxAtStartPar
+Removed \sphinxtitleref{aisquared.logging} and \sphinxtitleref{aisquared.remote} from top\sphinxhyphen{}level imports
+
+\item {} 
+\sphinxAtStartPar
+Added \sphinxtitleref{round} parameter to Regression postprocesser
+
+\item {} 
+\sphinxAtStartPar
+Removed \sphinxtitleref{DocumentPredictor} and \sphinxtitleref{ImagePredictor} classes
+
+\item {} 
+\sphinxAtStartPar
+Removed \sphinxtitleref{ChainRendering} class
+
+\item {} 
+\sphinxAtStartPar
+Created \sphinxtitleref{FilterRendering} class
+
+\item {} 
+\sphinxAtStartPar
+Altered \sphinxtitleref{QUALIFIERS}
+
+\item {} 
+\sphinxAtStartPar
+Added advanced rendering parameters to rendering objects
+
+\item {} 
+\sphinxAtStartPar
+Removed \sphinxtitleref{logging} and \sphinxtitleref{remote} subpackages from top\sphinxhyphen{}level \sphinxtitleref{aisquared} import
+
+\end{itemize}
+
+\end{description}
+
+\item {} \begin{description}
+\sphinxlineitem{Version 0.2.1}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Added the \sphinxtitleref{S3Connector} class to the \sphinxtitleref{analytics} subpackage, which allows download of an analytic directly from S3
+
+\item {} 
+\sphinxAtStartPar
+Updated the documentation and added the \sphinxtitleref{docs} subdirectory for hosting the documentation on GitHub Pages
+
+\end{itemize}
+
+\end{description}
+
+\item {} \begin{description}
+\sphinxlineitem{Version 0.2.2}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Fixed bug in \sphinxtitleref{to\_dict} method within \sphinxtitleref{ObjectRendering} class
+
+\item {} 
+\sphinxAtStartPar
+Fixed bug in name of \sphinxtitleref{MultiplyValue} step
+
+\item {} 
+\sphinxAtStartPar
+Fixed bug in datatype checking for text harvester
+
+\item {} 
+\sphinxAtStartPar
+Added \sphinxtitleref{body\_only} parameter to \sphinxtitleref{TextHarvester}
+
+\item {} 
+\sphinxAtStartPar
+Added \sphinxtitleref{‘underline’} to possible badges
+
+\item {} 
+\sphinxAtStartPar
+Added \sphinxtitleref{threshold\_key} and \sphinxtitleref{threshold\_values} to relevant rendering classes
+
+\item {} 
+\sphinxAtStartPar
+Added \sphinxtitleref{Trim} text preprocessing class
+
+\item {} 
+\sphinxAtStartPar
+Added \sphinxtitleref{CustomObject} in the base package to allow for creation of custom classes
+
+\item {} 
+\sphinxAtStartPar
+Added keyword harvesting capabilities
+
+\item {} 
+\sphinxAtStartPar
+Added \sphinxtitleref{utils} subpackage with capabilities to mimic a trained sklearn model
+
+\item {} 
+\sphinxAtStartPar
+Small documentation changes
+
+\item {} 
+\sphinxAtStartPar
+Changed the required imports for the package to streamline installation process, and created two installation options \sphinxtitleref{aisquared} and \sphinxtitleref{aisquared{[}full{]}}
+
+\end{itemize}
+
+\end{description}
+
+\item {} \begin{description}
+\sphinxlineitem{Version 0.2.3}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Added functionality to add custom preprocessing and postprocessing functions to the model deployment pipeline
+
+\item {} 
+\sphinxAtStartPar
+Added \sphinxtitleref{all} parameter to \sphinxtitleref{LocalAnalytic} class
+
+\item {} 
+\sphinxAtStartPar
+Changed under\sphinxhyphen{}the\sphinxhyphen{}hood functionality of \sphinxtitleref{mimic\_model} function in line with updates to \sphinxtitleref{BeyondML}
+
+\item {} 
+\sphinxAtStartPar
+Altered the \sphinxtitleref{ReverseMLWorkflow} analytic
+
+\item {} 
+\sphinxAtStartPar
+Added the \sphinxtitleref{BarChartRendering}, \sphinxtitleref{ContainerRendering}, \sphinxtitleref{DashboardReplacementRendering}, \sphinxtitleref{DoughnutChartRendering}, \sphinxtitleref{HTMLTagRendering}, \sphinxtitleref{LineChartRendering}, \sphinxtitleref{PieChartRendering}, \sphinxtitleref{SOSRendering}, and \sphinxtitleref{TableRendering} rendering classes
+
+\item {} 
+\sphinxAtStartPar
+Added the \sphinxtitleref{QueryParameterHarvester} harvester class
+
+\item {} 
+\sphinxAtStartPar
+Added the \sphinxtitleref{limit} parameter to the TextHarvester class
+
+\end{itemize}
+
+\end{description}
+
+\item {} \begin{description}
+\sphinxlineitem{Version 0.3.0}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Added type hinting to documentation strings
+
+\item {} 
+\sphinxAtStartPar
+Revamped documentation to use Sphinx
+
+\end{itemize}
+
+\end{description}
 
 \end{itemize}
 
