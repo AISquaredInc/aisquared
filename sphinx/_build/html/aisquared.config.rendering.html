@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>aisquared.config.rendering package &mdash; aisquared  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="aisquared.logging package" href="aisquared.logging.html" />
+    <link rel="prev" title="aisquared.config.preprocessing.text package" href="aisquared.config.preprocessing.text.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> aisquared
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">aisquared</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="aisquared.html">aisquared package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="aisquared.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="aisquared.base.html">aisquared.base package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="aisquared.config.html">aisquared.config package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.logging.html">aisquared.logging package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html">aisquared.platform package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.serving.html">aisquared.serving package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.utils.html">aisquared.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.html#module-aisquared">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">aisquared</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">aisquared</a></li>
+          <li class="breadcrumb-item"><a href="aisquared.html">aisquared package</a></li>
+          <li class="breadcrumb-item"><a href="aisquared.config.html">aisquared.config package</a></li>
+      <li class="breadcrumb-item active">aisquared.config.rendering package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/aisquared.config.rendering.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="aisquared-config-rendering-package">
+<h1>aisquared.config.rendering package<a class="headerlink" href="#aisquared-config-rendering-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-aisquared.config.rendering.BarChartRendering">
+<span id="aisquared-config-rendering-barchartrendering-module"></span><h2>aisquared.config.rendering.BarChartRendering module<a class="headerlink" href="#module-aisquared.config.rendering.BarChartRendering" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aisquared.config.rendering.BarChartRendering.BarChartRendering">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.rendering.BarChartRendering.</span></span><span class="sig-name descname"><span class="pre">BarChartRendering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chart_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chart_colors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chart_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">container_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_name_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_value_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_name_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xOffset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yOffset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'0'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/rendering/BarChartRendering.html#BarChartRendering"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.BarChartRendering.BarChartRendering" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
+<p>Rendering class for rendering a Bar Chart</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">rendering</span><span class="o">.</span><span class="n">BarChartRendering</span><span class="p">(</span>
+<span class="go">    &#39;my bar chart&#39;,</span>
+<span class="go">    &#39;barChart1Label&#39;,</span>
+<span class="go">    &#39;MyBarChart&#39;,</span>
+<span class="go">    [&#39;red&#39;, &#39;blue&#39;],</span>
+<span class="go">    [&#39;label1&#39;, &#39;label2&#39;],</span>
+<span class="go">    &#39;my_container&#39;,</span>
+<span class="go">    &#39;key&#39;,</span>
+<span class="go">    &#39;value&#39;,</span>
+<span class="go">    &#39;name&#39;</span>
+<span class="go">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="go">{&#39;className&#39;: &#39;BarChartRendering&#39;,</span>
+<span class="go">&#39;label&#39;: &#39;my bar chart&#39;,</span>
+<span class="go">&#39;params&#39;: {&#39;id&#39;: &#39;barChart1Label&#39;,</span>
+<span class="go">&#39;chartName&#39;: &#39;MyBarChart&#39;,</span>
+<span class="go">&#39;chartColors&#39;: [&#39;red&#39;, &#39;blue&#39;],</span>
+<span class="go">&#39;chartLabels&#39;: [&#39;label1&#39;, &#39;label2&#39;],</span>
+<span class="go">&#39;containerId&#39;: &#39;my_container&#39;,</span>
+<span class="go">&#39;predictionNameKey&#39;: &#39;key&#39;,</span>
+<span class="go">&#39;predictionValueKey&#39;: &#39;value&#39;,</span>
+<span class="go">&#39;predictionNameValue&#39;: &#39;name&#39;,</span>
+<span class="go">&#39;width&#39;: &#39;auto&#39;,</span>
+<span class="go">&#39;height&#39;: &#39;auto&#39;,</span>
+<span class="go">&#39;xOffset&#39;: &#39;0&#39;,</span>
+<span class="go">&#39;yOffset&#39;: &#39;0&#39;}}</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.rendering.BarChartRendering.BarChartRendering.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/config/rendering/BarChartRendering.html#BarChartRendering.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.BarChartRendering.BarChartRendering.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Get the configuration object as a dictionary</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-aisquared.config.rendering.ContainerRendering">
+<span id="aisquared-config-rendering-containerrendering-module"></span><h2>aisquared.config.rendering.ContainerRendering module<a class="headerlink" href="#module-aisquared.config.rendering.ContainerRendering" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ContainerRendering.ContainerRendering">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.rendering.ContainerRendering.</span></span><span class="sig-name descname"><span class="pre">ContainerRendering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_selector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'flex'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xOffset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yOffset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'column'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/rendering/ContainerRendering.html#ContainerRendering"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.ContainerRendering.ContainerRendering" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
+<p>Rendering for a container</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">rendering</span><span class="o">.</span><span class="n">ContainerRendering</span><span class="p">(</span>
+<span class="go">    &#39;my container&#39;,</span>
+<span class="go">    &#39;myContainerID&#39;,</span>
+<span class="go">    &quot;[data-id=&#39;tabpanel-general&#39;]&quot;</span>
+<span class="go">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="go">{&#39;className&#39;: &#39;ContainerRendering&#39;,</span>
+<span class="go">&#39;label&#39;: &#39;my container&#39;,</span>
+<span class="go">&#39;params&#39;: {&#39;id&#39;: &#39;myContainerID&#39;,</span>
+<span class="go">&#39;width&#39;: &#39;auto&#39;,</span>
+<span class="go">&#39;height&#39;: &#39;auto&#39;,</span>
+<span class="go">&#39;display&#39;: &#39;flex&#39;,</span>
+<span class="go">&#39;xOffset&#39;: &#39;0&#39;,</span>
+<span class="go">&#39;yOffset&#39;: &#39;0&#39;,</span>
+<span class="go">&#39;position&#39;: &#39;&#39;,</span>
+<span class="go">&#39;orientation&#39;: &#39;column&#39;,</span>
+<span class="go">&#39;querySelector&#39;: &quot;[data-id=&#39;tabpanel-general&#39;]&quot;}}</span>
+</pre></div>
+</div>
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ContainerRendering.ContainerRendering.display">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">display</span></span><a class="headerlink" href="#aisquared.config.rendering.ContainerRendering.ContainerRendering.display" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ContainerRendering.ContainerRendering.height">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">height</span></span><a class="headerlink" href="#aisquared.config.rendering.ContainerRendering.ContainerRendering.height" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ContainerRendering.ContainerRendering.id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#aisquared.config.rendering.ContainerRendering.ContainerRendering.id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ContainerRendering.ContainerRendering.label">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">label</span></span><a class="headerlink" href="#aisquared.config.rendering.ContainerRendering.ContainerRendering.label" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ContainerRendering.ContainerRendering.orientation">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">orientation</span></span><a class="headerlink" href="#aisquared.config.rendering.ContainerRendering.ContainerRendering.orientation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ContainerRendering.ContainerRendering.position">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">position</span></span><a class="headerlink" href="#aisquared.config.rendering.ContainerRendering.ContainerRendering.position" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ContainerRendering.ContainerRendering.query_selector">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">query_selector</span></span><a class="headerlink" href="#aisquared.config.rendering.ContainerRendering.ContainerRendering.query_selector" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ContainerRendering.ContainerRendering.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/config/rendering/ContainerRendering.html#ContainerRendering.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.ContainerRendering.ContainerRendering.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Get the configuration object as a dictionary</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ContainerRendering.ContainerRendering.width">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">width</span></span><a class="headerlink" href="#aisquared.config.rendering.ContainerRendering.ContainerRendering.width" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ContainerRendering.ContainerRendering.xOffset">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">xOffset</span></span><a class="headerlink" href="#aisquared.config.rendering.ContainerRendering.ContainerRendering.xOffset" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ContainerRendering.ContainerRendering.yOffset">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">yOffset</span></span><a class="headerlink" href="#aisquared.config.rendering.ContainerRendering.ContainerRendering.yOffset" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-aisquared.config.rendering.DashboardReplacementRendering">
+<span id="aisquared-config-rendering-dashboardreplacementrendering-module"></span><h2>aisquared.config.rendering.DashboardReplacementRendering module<a class="headerlink" href="#module-aisquared.config.rendering.DashboardReplacementRendering" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.rendering.DashboardReplacementRendering.</span></span><span class="sig-name descname"><span class="pre">DashboardReplacementRendering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">anchor_selector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">where_replace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/rendering/DashboardReplacementRendering.html#DashboardReplacementRendering"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
+<p>Rendering for dashboard replacement</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">rendering</span><span class="o">.</span><span class="n">DashboardReplacementRendering</span><span class="p">(</span>
+<span class="go">    &#39;test_anchor_selector&#39;</span>
+<span class="go">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="go">{&#39;className&#39;: &#39;DashboardReplacementRendering&#39;,</span>
+<span class="go">&#39;label&#39;: &#39;&#39;,</span>
+<span class="go">&#39;params&#39;: {&#39;anchorSelector&#39;: &#39;test_anchor_selector&#39;, &#39;whereReplace&#39;: &#39;&#39;}}</span>
+</pre></div>
+</div>
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering.anchor_selector">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">anchor_selector</span></span><a class="headerlink" href="#aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering.anchor_selector" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering.label">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">label</span></span><a class="headerlink" href="#aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering.label" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/config/rendering/DashboardReplacementRendering.html#DashboardReplacementRendering.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Get the configuration object as a dictionary</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering.where_replace">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">where_replace</span></span><a class="headerlink" href="#aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering.where_replace" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-aisquared.config.rendering.DocumentRendering">
+<span id="aisquared-config-rendering-documentrendering-module"></span><h2>aisquared.config.rendering.DocumentRendering module<a class="headerlink" href="#module-aisquared.config.rendering.DocumentRendering" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aisquared.config.rendering.DocumentRendering.DocumentRendering">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.rendering.DocumentRendering.</span></span><span class="sig-name descname"><span class="pre">DocumentRendering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'className'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">words</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_probability</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">probability_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'probability'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">underline_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'blue'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/rendering/DocumentRendering.html#DocumentRendering"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.DocumentRendering.DocumentRendering" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
+<p>Object which dictates how to render predictions on entire documents</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">rendering</span><span class="o">.</span><span class="n">DocumentRendering</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="go">{&#39;className&#39;: &#39;DocumentRendering&#39;,</span>
+<span class="go">&#39;params&#39;: {&#39;predictionKey&#39;: &#39;className&#39;,</span>
+<span class="go">&#39;words&#39;: None,</span>
+<span class="go">&#39;documents&#39;: None,</span>
+<span class="go">&#39;includeProbability&#39;: False,</span>
+<span class="go">&#39;probabilityKey&#39;: &#39;probability&#39;,</span>
+<span class="go">&#39;underlineColor&#39;: &#39;blue&#39;,</span>
+<span class="go">&#39;classes&#39;: None,</span>
+<span class="go">&#39;thresholdKey&#39;: None,</span>
+<span class="go">&#39;thresholdValue&#39;: None}}</span>
+</pre></div>
+</div>
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.DocumentRendering.DocumentRendering.classes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">classes</span></span><a class="headerlink" href="#aisquared.config.rendering.DocumentRendering.DocumentRendering.classes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.DocumentRendering.DocumentRendering.documents">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">documents</span></span><a class="headerlink" href="#aisquared.config.rendering.DocumentRendering.DocumentRendering.documents" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.DocumentRendering.DocumentRendering.include_probability">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">include_probability</span></span><a class="headerlink" href="#aisquared.config.rendering.DocumentRendering.DocumentRendering.include_probability" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.DocumentRendering.DocumentRendering.prediction_key">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">prediction_key</span></span><a class="headerlink" href="#aisquared.config.rendering.DocumentRendering.DocumentRendering.prediction_key" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.DocumentRendering.DocumentRendering.probability_key">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">probability_key</span></span><a class="headerlink" href="#aisquared.config.rendering.DocumentRendering.DocumentRendering.probability_key" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.DocumentRendering.DocumentRendering.threshold_key">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">threshold_key</span></span><a class="headerlink" href="#aisquared.config.rendering.DocumentRendering.DocumentRendering.threshold_key" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.DocumentRendering.DocumentRendering.threshold_value">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">threshold_value</span></span><a class="headerlink" href="#aisquared.config.rendering.DocumentRendering.DocumentRendering.threshold_value" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.rendering.DocumentRendering.DocumentRendering.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/config/rendering/DocumentRendering.html#DocumentRendering.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.DocumentRendering.DocumentRendering.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Get the configuration object as a dictionary</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.DocumentRendering.DocumentRendering.underline_color">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">underline_color</span></span><a class="headerlink" href="#aisquared.config.rendering.DocumentRendering.DocumentRendering.underline_color" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.DocumentRendering.DocumentRendering.words">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">words</span></span><a class="headerlink" href="#aisquared.config.rendering.DocumentRendering.DocumentRendering.words" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-aisquared.config.rendering.DoughnutChartRendering">
+<span id="aisquared-config-rendering-doughnutchartrendering-module"></span><h2>aisquared.config.rendering.DoughnutChartRendering module<a class="headerlink" href="#module-aisquared.config.rendering.DoughnutChartRendering" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aisquared.config.rendering.DoughnutChartRendering.DoughnutChartRendering">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.rendering.DoughnutChartRendering.</span></span><span class="sig-name descname"><span class="pre">DoughnutChartRendering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chart_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chart_colors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chart_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">container_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_name_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_value_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_name_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_legend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_icon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xOffset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yOffset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'0'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/rendering/DoughnutChartRendering.html#DoughnutChartRendering"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.DoughnutChartRendering.DoughnutChartRendering" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
+<p>Rendering class for rendering a Doughnut Chart</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">rendering</span><span class="o">.</span><span class="n">DoughnutChartRendering</span><span class="p">(</span>
+<span class="go">    &#39;my doughnut chart&#39;,</span>
+<span class="go">    &#39;MyDoughnutChartID&#39;,</span>
+<span class="go">    &#39;MyDoughnutChart&#39;,</span>
+<span class="go">    [&#39;red&#39;, &#39;blue&#39;],</span>
+<span class="go">    [&#39;label1&#39;, &#39;label2&#39;],</span>
+<span class="go">    &#39;my_countainer_id&#39;,</span>
+<span class="go">    &#39;key&#39;,</span>
+<span class="go">    &#39;value&#39;,</span>
+<span class="go">    &#39;name&#39;,</span>
+<span class="go">    True,</span>
+<span class="go">    &#39;circle&#39;</span>
+<span class="go">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="go">{&#39;className&#39;: &#39;DoughnutChartRendering&#39;,</span>
+<span class="go">&#39;label&#39;: &#39;my doughnut chart&#39;,</span>
+<span class="go">&#39;params&#39;: {&#39;id&#39;: &#39;MyDoughnutChartID&#39;,</span>
+<span class="go">&#39;chartName&#39;: &#39;MyDoughnutChart&#39;,</span>
+<span class="go">&#39;chartColors&#39;: [&#39;red&#39;, &#39;blue&#39;],</span>
+<span class="go">&#39;chartLabels&#39;: [&#39;label1&#39;, &#39;label2&#39;],</span>
+<span class="go">&#39;containerId&#39;: &#39;my_countainer_id&#39;,</span>
+<span class="go">&#39;predictionNameKey&#39;: &#39;key&#39;,</span>
+<span class="go">&#39;predictionValueKey&#39;: &#39;value&#39;,</span>
+<span class="go">&#39;predictionNameValue&#39;: &#39;name&#39;,</span>
+<span class="go">&#39;displayLegend&#39;: True,</span>
+<span class="go">&#39;legendIcon&#39;: &#39;circle&#39;,</span>
+<span class="go">&#39;width&#39;: &#39;auto&#39;,</span>
+<span class="go">&#39;height&#39;: &#39;auto&#39;,</span>
+<span class="go">&#39;xOffset&#39;: &#39;0&#39;,</span>
+<span class="go">&#39;yOffset&#39;: &#39;0&#39;}}</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.rendering.DoughnutChartRendering.DoughnutChartRendering.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/config/rendering/DoughnutChartRendering.html#DoughnutChartRendering.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.DoughnutChartRendering.DoughnutChartRendering.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Get the configuration object as a dictionary</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-aisquared.config.rendering.FilterRendering">
+<span id="aisquared-config-rendering-filterrendering-module"></span><h2>aisquared.config.rendering.FilterRendering module<a class="headerlink" href="#module-aisquared.config.rendering.FilterRendering" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aisquared.config.rendering.FilterRendering.FilterRendering">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.rendering.FilterRendering.</span></span><span class="sig-name descname"><span class="pre">FilterRendering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/rendering/FilterRendering.html#FilterRendering"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.FilterRendering.FilterRendering" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
+<p>Object which dictates how predictions are to be passed to downstream analytics</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">rendering</span><span class="o">.</span><span class="n">FilterRendering</span><span class="p">(</span>
+<span class="go">    &#39;inputs&#39;,</span>
+<span class="go">    &#39;key&#39;,</span>
+<span class="go">    &#39;gt&#39;,</span>
+<span class="go">    0.2</span>
+<span class="go">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="go">{&#39;className&#39;: &#39;FilterRendering&#39;,</span>
+<span class="go">&#39;params&#39;: {&#39;source&#39;: &#39;inputs&#39;, &#39;key&#39;: &#39;key&#39;, &#39;qualifier&#39;: &#39;gt&#39;, &#39;value&#39;: 0.2}}</span>
+</pre></div>
+</div>
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.FilterRendering.FilterRendering.key">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#aisquared.config.rendering.FilterRendering.FilterRendering.key" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.FilterRendering.FilterRendering.qualifier">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">qualifier</span></span><a class="headerlink" href="#aisquared.config.rendering.FilterRendering.FilterRendering.qualifier" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.FilterRendering.FilterRendering.source">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">source</span></span><a class="headerlink" href="#aisquared.config.rendering.FilterRendering.FilterRendering.source" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.rendering.FilterRendering.FilterRendering.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/config/rendering/FilterRendering.html#FilterRendering.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.FilterRendering.FilterRendering.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Get the configuration object as a dictionary</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.FilterRendering.FilterRendering.value">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#aisquared.config.rendering.FilterRendering.FilterRendering.value" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-aisquared.config.rendering.HTMLTagRendering">
+<span id="aisquared-config-rendering-htmltagrendering-module"></span><h2>aisquared.config.rendering.HTMLTagRendering module<a class="headerlink" href="#module-aisquared.config.rendering.HTMLTagRendering" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aisquared.config.rendering.HTMLTagRendering.HTMLTagRendering">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.rendering.HTMLTagRendering.</span></span><span class="sig-name descname"><span class="pre">HTMLTagRendering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">container_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">html_content</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_content_tag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">injection_action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_name_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_value_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_name_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/rendering/HTMLTagRendering.html#HTMLTagRendering"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.HTMLTagRendering.HTMLTagRendering" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
+<p>Rendering for HTML tags</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">rendering</span><span class="o">.</span><span class="n">HTMLTagRendering</span><span class="p">(</span>
+<span class="go">    &#39;my HTML tag&#39;,</span>
+<span class="go">    &#39;MyHTMLTagRenderingID&#39;,</span>
+<span class="go">    &#39;MyContainerID&#39;,</span>
+<span class="go">    &#39;&lt;p&gt;Example Text&lt;/p&gt;&#39;,</span>
+<span class="go">    &#39;extra_tag&#39;,</span>
+<span class="go">    &#39;append&#39;,</span>
+<span class="go">    &#39;name_key&#39;,</span>
+<span class="go">    &#39;value_key&#39;,</span>
+<span class="go">    &#39;name_value&#39;</span>
+<span class="go">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="go">{&#39;className&#39;: &#39;HTMLTagRendering&#39;,</span>
+<span class="go">&#39;label&#39;: &#39;my HTML tag&#39;,</span>
+<span class="go">&#39;params&#39;: {&#39;id&#39;: &#39;MyHTMLTagRenderingID&#39;,</span>
+<span class="go">&#39;containerId&#39;: &#39;MyContainerID&#39;,</span>
+<span class="go">&#39;htmlContent&#39;: &#39;&lt;p&gt;Example Text&lt;/p&gt;&#39;,</span>
+<span class="go">&#39;extraContentTag&#39;: &#39;extra_tag&#39;,</span>
+<span class="go">&#39;injectionAction&#39;: &#39;append&#39;,</span>
+<span class="go">&#39;predictionNameKey&#39;: &#39;name_key&#39;,</span>
+<span class="go">&#39;predictionValueKey&#39;: &#39;value_key&#39;,</span>
+<span class="go">&#39;predictionNameValue&#39;: &#39;name_value&#39;,</span>
+<span class="go">&#39;content&#39;: &#39;&#39;}}</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.rendering.HTMLTagRendering.HTMLTagRendering.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/config/rendering/HTMLTagRendering.html#HTMLTagRendering.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.HTMLTagRendering.HTMLTagRendering.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Return the configuration object as a dictionary</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-aisquared.config.rendering.ImageRendering">
+<span id="aisquared-config-rendering-imagerendering-module"></span><h2>aisquared.config.rendering.ImageRendering module<a class="headerlink" href="#module-aisquared.config.rendering.ImageRendering" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ImageRendering.ImageRendering">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.rendering.ImageRendering.</span></span><span class="sig-name descname"><span class="pre">ImageRendering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'blue'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thickness</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'5px'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">placement</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'bottomleft'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_probability</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">badge_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'5px'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/rendering/ImageRendering.html#ImageRendering"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.ImageRendering.ImageRendering" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
+<p>Object which dictates how to render images</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">rendering</span><span class="o">.</span><span class="n">ImageRendering</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="go">{&#39;className&#39;: &#39;ImageRendering&#39;,</span>
+<span class="go">&#39;params&#39;: {&#39;color&#39;: &#39;blue&#39;,</span>
+<span class="go">&#39;thickness&#39;: &#39;5px&#39;,</span>
+<span class="go">&#39;placement&#39;: &#39;bottomleft&#39;,</span>
+<span class="go">&#39;includeProbability&#39;: False,</span>
+<span class="go">&#39;badgeColor&#39;: &#39;white&#39;,</span>
+<span class="go">&#39;fontColor&#39;: &#39;black&#39;,</span>
+<span class="go">&#39;fontSize&#39;: &#39;5px&#39;,</span>
+<span class="go">&#39;classes&#39;: None,</span>
+<span class="go">&#39;thresholdKey&#39;: None,</span>
+<span class="go">&#39;thresholdValue&#39;: None}}</span>
+</pre></div>
+</div>
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ImageRendering.ImageRendering.badge_color">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">badge_color</span></span><a class="headerlink" href="#aisquared.config.rendering.ImageRendering.ImageRendering.badge_color" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ImageRendering.ImageRendering.classes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">classes</span></span><a class="headerlink" href="#aisquared.config.rendering.ImageRendering.ImageRendering.classes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ImageRendering.ImageRendering.color">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">color</span></span><a class="headerlink" href="#aisquared.config.rendering.ImageRendering.ImageRendering.color" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ImageRendering.ImageRendering.font_color">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">font_color</span></span><a class="headerlink" href="#aisquared.config.rendering.ImageRendering.ImageRendering.font_color" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ImageRendering.ImageRendering.font_size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">font_size</span></span><a class="headerlink" href="#aisquared.config.rendering.ImageRendering.ImageRendering.font_size" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ImageRendering.ImageRendering.include_probability">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">include_probability</span></span><a class="headerlink" href="#aisquared.config.rendering.ImageRendering.ImageRendering.include_probability" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ImageRendering.ImageRendering.placement">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">placement</span></span><a class="headerlink" href="#aisquared.config.rendering.ImageRendering.ImageRendering.placement" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ImageRendering.ImageRendering.thickness">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">thickness</span></span><a class="headerlink" href="#aisquared.config.rendering.ImageRendering.ImageRendering.thickness" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ImageRendering.ImageRendering.threshold_key">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">threshold_key</span></span><a class="headerlink" href="#aisquared.config.rendering.ImageRendering.ImageRendering.threshold_key" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ImageRendering.ImageRendering.threshold_value">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">threshold_value</span></span><a class="headerlink" href="#aisquared.config.rendering.ImageRendering.ImageRendering.threshold_value" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ImageRendering.ImageRendering.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/config/rendering/ImageRendering.html#ImageRendering.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.ImageRendering.ImageRendering.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Get the configuration object as a dictionary</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-aisquared.config.rendering.LineChartRendering">
+<span id="aisquared-config-rendering-linechartrendering-module"></span><h2>aisquared.config.rendering.LineChartRendering module<a class="headerlink" href="#module-aisquared.config.rendering.LineChartRendering" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aisquared.config.rendering.LineChartRendering.LineChartRendering">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.rendering.LineChartRendering.</span></span><span class="sig-name descname"><span class="pre">LineChartRendering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chart_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chart_colors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chart_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">container_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_name_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_value_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_name_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xOffset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yOffset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'0'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/rendering/LineChartRendering.html#LineChartRendering"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.LineChartRendering.LineChartRendering" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
+<p>Rendering class for rendering a Line Chart</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">rendering</span><span class="o">.</span><span class="n">LineChartRendering</span><span class="p">(</span>
+<span class="go">    &#39;my line chart&#39;,</span>
+<span class="go">    &#39;MyLineChartID&#39;,</span>
+<span class="go">    &#39;MyLineChart&#39;,</span>
+<span class="go">    [&#39;red&#39;, &#39;blue&#39;],</span>
+<span class="go">    [&#39;label1&#39;, &#39;label2&#39;],</span>
+<span class="go">    &#39;MyContainerID&#39;,</span>
+<span class="go">    &#39;name_key&#39;,</span>
+<span class="go">    &#39;value_key&#39;,</span>
+<span class="go">    &#39;name_value&#39;</span>
+<span class="go">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="go">{&#39;className&#39;: &#39;LineChartRendering&#39;,</span>
+<span class="go">&#39;label&#39;: &#39;my line chart&#39;,</span>
+<span class="go">&#39;params&#39;: {&#39;id&#39;: &#39;MyLineChartID&#39;,</span>
+<span class="go">&#39;chartName&#39;: &#39;MyLineChart&#39;,</span>
+<span class="go">&#39;chartColors&#39;: [&#39;red&#39;, &#39;blue&#39;],</span>
+<span class="go">&#39;chartLabels&#39;: [&#39;label1&#39;, &#39;label2&#39;],</span>
+<span class="go">&#39;containerId&#39;: &#39;MyContainerID&#39;,</span>
+<span class="go">&#39;predictionNameKey&#39;: &#39;name_key&#39;,</span>
+<span class="go">&#39;predictionValueKey&#39;: &#39;value_key&#39;,</span>
+<span class="go">&#39;predictionNameValue&#39;: &#39;name_value&#39;,</span>
+<span class="go">&#39;width&#39;: &#39;auto&#39;,</span>
+<span class="go">&#39;height&#39;: &#39;auto&#39;,</span>
+<span class="go">&#39;xOffset&#39;: &#39;0&#39;,</span>
+<span class="go">&#39;yOffset&#39;: &#39;0&#39;}}</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.rendering.LineChartRendering.LineChartRendering.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/config/rendering/LineChartRendering.html#LineChartRendering.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.LineChartRendering.LineChartRendering.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Get the configuration object as a dictionary</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-aisquared.config.rendering.ObjectRendering">
+<span id="aisquared-config-rendering-objectrendering-module"></span><h2>aisquared.config.rendering.ObjectRendering module<a class="headerlink" href="#module-aisquared.config.rendering.ObjectRendering" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ObjectRendering.ObjectRendering">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.rendering.ObjectRendering.</span></span><span class="sig-name descname"><span class="pre">ObjectRendering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'blue'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thickness</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'5px'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">placement</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'bottomleft'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_probability</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">badge_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'5px'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/rendering/ObjectRendering.html#ObjectRendering"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.ObjectRendering.ObjectRendering" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
+<p>Object which dictates how to render object detection in images</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">rendering</span><span class="o">.</span><span class="n">ObjectRendering</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="go">{&#39;className&#39;: &#39;ObjectRendering&#39;,</span>
+<span class="go">&#39;params&#39;: {&#39;color&#39;: &#39;blue&#39;,</span>
+<span class="go">&#39;thickness&#39;: &#39;5px&#39;,</span>
+<span class="go">&#39;placement&#39;: &#39;bottomleft&#39;,</span>
+<span class="go">&#39;includeProbability&#39;: False,</span>
+<span class="go">&#39;badgeColor&#39;: &#39;white&#39;,</span>
+<span class="go">&#39;fontColor&#39;: &#39;black&#39;,</span>
+<span class="go">&#39;fontSize&#39;: &#39;5px&#39;}}</span>
+</pre></div>
+</div>
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ObjectRendering.ObjectRendering.badge_color">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">badge_color</span></span><a class="headerlink" href="#aisquared.config.rendering.ObjectRendering.ObjectRendering.badge_color" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ObjectRendering.ObjectRendering.color">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">color</span></span><a class="headerlink" href="#aisquared.config.rendering.ObjectRendering.ObjectRendering.color" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ObjectRendering.ObjectRendering.font_color">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">font_color</span></span><a class="headerlink" href="#aisquared.config.rendering.ObjectRendering.ObjectRendering.font_color" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ObjectRendering.ObjectRendering.font_size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">font_size</span></span><a class="headerlink" href="#aisquared.config.rendering.ObjectRendering.ObjectRendering.font_size" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ObjectRendering.ObjectRendering.include_probability">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">include_probability</span></span><a class="headerlink" href="#aisquared.config.rendering.ObjectRendering.ObjectRendering.include_probability" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ObjectRendering.ObjectRendering.placement">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">placement</span></span><a class="headerlink" href="#aisquared.config.rendering.ObjectRendering.ObjectRendering.placement" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ObjectRendering.ObjectRendering.thickness">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">thickness</span></span><a class="headerlink" href="#aisquared.config.rendering.ObjectRendering.ObjectRendering.thickness" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.rendering.ObjectRendering.ObjectRendering.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/config/rendering/ObjectRendering.html#ObjectRendering.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.ObjectRendering.ObjectRendering.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Get the configuration object as a dictionary</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-aisquared.config.rendering.PieChartRendering">
+<span id="aisquared-config-rendering-piechartrendering-module"></span><h2>aisquared.config.rendering.PieChartRendering module<a class="headerlink" href="#module-aisquared.config.rendering.PieChartRendering" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aisquared.config.rendering.PieChartRendering.PieChartRendering">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.rendering.PieChartRendering.</span></span><span class="sig-name descname"><span class="pre">PieChartRendering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chart_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chart_colors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chart_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">container_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_name_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_value_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_name_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_legend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_icon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xOffset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yOffset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'0'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/rendering/PieChartRendering.html#PieChartRendering"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.PieChartRendering.PieChartRendering" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
+<p>Rendering class for rendering a Pie Chart</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">rendering</span><span class="o">.</span><span class="n">PieChartRendering</span><span class="p">(</span>
+<span class="go">    &#39;my pie chart&#39;,</span>
+<span class="go">    &#39;MyPieChartID&#39;,</span>
+<span class="go">    &#39;MyPieChart&#39;,</span>
+<span class="go">    [&#39;red&#39;, &#39;blue&#39;],</span>
+<span class="go">    [&#39;label1&#39;, &#39;label2&#39;],</span>
+<span class="go">    &#39;my_countainer_id&#39;,</span>
+<span class="go">    &#39;key&#39;,</span>
+<span class="go">    &#39;value&#39;,</span>
+<span class="go">    &#39;name&#39;,</span>
+<span class="go">    True,</span>
+<span class="go">    &#39;circle&#39;</span>
+<span class="go">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="go">{&#39;className&#39;: &#39;PieChartRendering&#39;,</span>
+<span class="go">&#39;label&#39;: &#39;my pie chart&#39;,</span>
+<span class="go">&#39;params&#39;: {&#39;id&#39;: &#39;MyPieChartID&#39;,</span>
+<span class="go">&#39;chartName&#39;: &#39;MyPieChart&#39;,</span>
+<span class="go">&#39;chartColors&#39;: [&#39;red&#39;, &#39;blue&#39;],</span>
+<span class="go">&#39;chartLabels&#39;: [&#39;label1&#39;, &#39;label2&#39;],</span>
+<span class="go">&#39;containerId&#39;: &#39;my_countainer_id&#39;,</span>
+<span class="go">&#39;predictionNameKey&#39;: &#39;key&#39;,</span>
+<span class="go">&#39;predictionValueKey&#39;: &#39;value&#39;,</span>
+<span class="go">&#39;predictionNameValue&#39;: &#39;name&#39;,</span>
+<span class="go">&#39;displayLegend&#39;: True,</span>
+<span class="go">&#39;legendIcon&#39;: &#39;circle&#39;,</span>
+<span class="go">&#39;width&#39;: &#39;auto&#39;,</span>
+<span class="go">&#39;height&#39;: &#39;auto&#39;,</span>
+<span class="go">&#39;xOffset&#39;: &#39;0&#39;,</span>
+<span class="go">&#39;yOffset&#39;: &#39;0&#39;}}</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.rendering.PieChartRendering.PieChartRendering.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/config/rendering/PieChartRendering.html#PieChartRendering.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.PieChartRendering.PieChartRendering.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Get the configuration object as a dictionary</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-aisquared.config.rendering.SOSRendering">
+<span id="aisquared-config-rendering-sosrendering-module"></span><h2>aisquared.config.rendering.SOSRendering module<a class="headerlink" href="#module-aisquared.config.rendering.SOSRendering" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aisquared.config.rendering.SOSRendering.SOSRendering">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.rendering.SOSRendering.</span></span><span class="sig-name descname"><span class="pre">SOSRendering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">can_toggle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/rendering/SOSRendering.html#SOSRendering"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.SOSRendering.SOSRendering" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
+<p>Rendering of an SOS dashboard</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">rendering</span><span class="o">.</span><span class="n">SOSRendering</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="go">{&#39;className&#39;: &#39;SOSRendering&#39;, &#39;label&#39;: &#39;&#39;, &#39;params&#39;: {&#39;canToggle&#39;: True}}</span>
+</pre></div>
+</div>
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.SOSRendering.SOSRendering.can_toggle">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">can_toggle</span></span><a class="headerlink" href="#aisquared.config.rendering.SOSRendering.SOSRendering.can_toggle" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.SOSRendering.SOSRendering.label">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">label</span></span><a class="headerlink" href="#aisquared.config.rendering.SOSRendering.SOSRendering.label" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.rendering.SOSRendering.SOSRendering.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/config/rendering/SOSRendering.html#SOSRendering.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.SOSRendering.SOSRendering.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Get the configuration object as a dictionary</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-aisquared.config.rendering.TableRendering">
+<span id="aisquared-config-rendering-tablerendering-module"></span><h2>aisquared.config.rendering.TableRendering module<a class="headerlink" href="#module-aisquared.config.rendering.TableRendering" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aisquared.config.rendering.TableRendering.TableRendering">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.rendering.TableRendering.</span></span><span class="sig-name descname"><span class="pre">TableRendering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">container_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_name_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_value_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_name_values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/rendering/TableRendering.html#TableRendering"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.TableRendering.TableRendering" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
+<p>Class for rendering tables</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">rendering</span><span class="o">.</span><span class="n">TableRendering</span><span class="p">(</span>
+<span class="go">    &#39;my table&#39;,</span>
+<span class="go">    &#39;MyTableID&#39;,</span>
+<span class="go">    &#39;MyContainerID&#39;,</span>
+<span class="go">    &#39;name_key&#39;,</span>
+<span class="go">    &#39;value_key&#39;,</span>
+<span class="go">    &#39;name_values&#39;</span>
+<span class="go">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="go">{&#39;className&#39;: &#39;TableRendering&#39;,</span>
+<span class="go">&#39;label&#39;: &#39;my table&#39;,</span>
+<span class="go">&#39;params&#39;: {&#39;id&#39;: &#39;MyTableID&#39;,</span>
+<span class="go">&#39;containerId&#39;: &#39;MyContainerID&#39;,</span>
+<span class="go">&#39;predictionNameKey&#39;: &#39;name_key&#39;,</span>
+<span class="go">&#39;predictionValueKey&#39;: &#39;value_key&#39;,</span>
+<span class="go">&#39;predictionNameValues&#39;: &#39;name_values&#39;,</span>
+<span class="go">&#39;tableName&#39;: &#39;&#39;}}</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.rendering.TableRendering.TableRendering.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/config/rendering/TableRendering.html#TableRendering.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.TableRendering.TableRendering.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Get the configuration object as a dictionary</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-aisquared.config.rendering.WordRendering">
+<span id="aisquared-config-rendering-wordrendering-module"></span><h2>aisquared.config.rendering.WordRendering module<a class="headerlink" href="#module-aisquared.config.rendering.WordRendering" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aisquared.config.rendering.WordRendering.WordRendering">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.rendering.WordRendering.</span></span><span class="sig-name descname"><span class="pre">WordRendering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">word_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'input'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">result_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">badge_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'star'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">badge_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'blue'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/rendering/WordRendering.html#WordRendering"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.WordRendering.WordRendering" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
+<p>Object for rendering badges on individual words</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">rendering</span><span class="o">.</span><span class="n">WordRendering</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="go">{&#39;className&#39;: &#39;WordRendering&#39;,</span>
+<span class="go">&#39;params&#39;: {&#39;wordList&#39;: &#39;input&#39;,</span>
+<span class="go">&#39;resultKey&#39;: None,</span>
+<span class="go">&#39;contentKey&#39;: None,</span>
+<span class="go">&#39;badgeShape&#39;: &#39;star&#39;,</span>
+<span class="go">&#39;badgeColor&#39;: &#39;blue&#39;,</span>
+<span class="go">&#39;classes&#39;: None,</span>
+<span class="go">&#39;thresholdKey&#39;: None,</span>
+<span class="go">&#39;thresholdValue&#39;: None}}</span>
+</pre></div>
+</div>
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.WordRendering.WordRendering.badge_color">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">badge_color</span></span><a class="headerlink" href="#aisquared.config.rendering.WordRendering.WordRendering.badge_color" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.WordRendering.WordRendering.badge_shape">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">badge_shape</span></span><a class="headerlink" href="#aisquared.config.rendering.WordRendering.WordRendering.badge_shape" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.WordRendering.WordRendering.classes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">classes</span></span><a class="headerlink" href="#aisquared.config.rendering.WordRendering.WordRendering.classes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.WordRendering.WordRendering.content_key">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">content_key</span></span><a class="headerlink" href="#aisquared.config.rendering.WordRendering.WordRendering.content_key" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.WordRendering.WordRendering.result_key">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">result_key</span></span><a class="headerlink" href="#aisquared.config.rendering.WordRendering.WordRendering.result_key" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.WordRendering.WordRendering.threshold_key">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">threshold_key</span></span><a class="headerlink" href="#aisquared.config.rendering.WordRendering.WordRendering.threshold_key" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.WordRendering.WordRendering.threshold_value">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">threshold_value</span></span><a class="headerlink" href="#aisquared.config.rendering.WordRendering.WordRendering.threshold_value" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.rendering.WordRendering.WordRendering.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/config/rendering/WordRendering.html#WordRendering.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.WordRendering.WordRendering.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Get the configuration object as a dictionary</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.WordRendering.WordRendering.word_list">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">word_list</span></span><a class="headerlink" href="#aisquared.config.rendering.WordRendering.WordRendering.word_list" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-aisquared.config.rendering">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-aisquared.config.rendering" title="Permalink to this heading"></a></h2>
+<p>The aisquared.config.rendering subpackage contains objects for configuring how rendering of predictions is to occur.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="aisquared.config.preprocessing.text.html" class="btn btn-neutral float-left" title="aisquared.config.preprocessing.text package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="aisquared.logging.html" class="btn btn-neutral float-right" title="aisquared.logging package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, The AI Squared Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

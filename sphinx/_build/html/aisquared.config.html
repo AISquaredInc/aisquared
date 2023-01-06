@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>aisquared.config package &mdash; aisquared  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="aisquared.config.analytic package" href="aisquared.config.analytic.html" />
+    <link rel="prev" title="aisquared.base package" href="aisquared.base.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> aisquared
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">aisquared</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="aisquared.html">aisquared package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="aisquared.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="aisquared.base.html">aisquared.base package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">aisquared.config package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.logging.html">aisquared.logging package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html">aisquared.platform package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.serving.html">aisquared.serving package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.utils.html">aisquared.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.html#module-aisquared">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">aisquared</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">aisquared</a></li>
+          <li class="breadcrumb-item"><a href="aisquared.html">aisquared package</a></li>
+      <li class="breadcrumb-item active">aisquared.config package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/aisquared.config.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="aisquared-config-package">
+<h1>aisquared.config package<a class="headerlink" href="#aisquared-config-package" title="Permalink to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="aisquared.config.analytic.html">aisquared.config.analytic package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.analytic.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.analytic.html#module-aisquared.config.analytic.DeployedAnalytic">aisquared.config.analytic.DeployedAnalytic module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic"><code class="docutils literal notranslate"><span class="pre">DeployedAnalytic</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.header"><code class="docutils literal notranslate"><span class="pre">DeployedAnalytic.header</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.input_type"><code class="docutils literal notranslate"><span class="pre">DeployedAnalytic.input_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.secret"><code class="docutils literal notranslate"><span class="pre">DeployedAnalytic.secret</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.to_dict"><code class="docutils literal notranslate"><span class="pre">DeployedAnalytic.to_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.url"><code class="docutils literal notranslate"><span class="pre">DeployedAnalytic.url</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.analytic.html#module-aisquared.config.analytic.DeployedModel">aisquared.config.analytic.DeployedModel module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.DeployedModel.DeployedModel"><code class="docutils literal notranslate"><span class="pre">DeployedModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.DeployedModel.DeployedModel.header"><code class="docutils literal notranslate"><span class="pre">DeployedModel.header</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.DeployedModel.DeployedModel.input_type"><code class="docutils literal notranslate"><span class="pre">DeployedModel.input_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.DeployedModel.DeployedModel.secret"><code class="docutils literal notranslate"><span class="pre">DeployedModel.secret</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.DeployedModel.DeployedModel.to_dict"><code class="docutils literal notranslate"><span class="pre">DeployedModel.to_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.DeployedModel.DeployedModel.url"><code class="docutils literal notranslate"><span class="pre">DeployedModel.url</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.analytic.html#module-aisquared.config.analytic.LocalAnalytic">aisquared.config.analytic.LocalAnalytic module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.LocalAnalytic.LocalAnalytic"><code class="docutils literal notranslate"><span class="pre">LocalAnalytic</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.LocalAnalytic.LocalAnalytic.all"><code class="docutils literal notranslate"><span class="pre">LocalAnalytic.all</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.LocalAnalytic.LocalAnalytic.input_type"><code class="docutils literal notranslate"><span class="pre">LocalAnalytic.input_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.LocalAnalytic.LocalAnalytic.path"><code class="docutils literal notranslate"><span class="pre">LocalAnalytic.path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.LocalAnalytic.LocalAnalytic.to_dict"><code class="docutils literal notranslate"><span class="pre">LocalAnalytic.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.analytic.html#module-aisquared.config.analytic.LocalModel">aisquared.config.analytic.LocalModel module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.LocalModel.LocalModel"><code class="docutils literal notranslate"><span class="pre">LocalModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.LocalModel.LocalModel.input_type"><code class="docutils literal notranslate"><span class="pre">LocalModel.input_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.LocalModel.LocalModel.path"><code class="docutils literal notranslate"><span class="pre">LocalModel.path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.LocalModel.LocalModel.to_dict"><code class="docutils literal notranslate"><span class="pre">LocalModel.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.analytic.html#module-aisquared.config.analytic.ReverseMLWorkflow">aisquared.config.analytic.ReverseMLWorkflow module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow"><code class="docutils literal notranslate"><span class="pre">ReverseMLWorkflow</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.bucket"><code class="docutils literal notranslate"><span class="pre">ReverseMLWorkflow.bucket</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.column"><code class="docutils literal notranslate"><span class="pre">ReverseMLWorkflow.column</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.filename"><code class="docutils literal notranslate"><span class="pre">ReverseMLWorkflow.filename</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.input_type"><code class="docutils literal notranslate"><span class="pre">ReverseMLWorkflow.input_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.period"><code class="docutils literal notranslate"><span class="pre">ReverseMLWorkflow.period</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.secret"><code class="docutils literal notranslate"><span class="pre">ReverseMLWorkflow.secret</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.analytic.html#aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.to_dict"><code class="docutils literal notranslate"><span class="pre">ReverseMLWorkflow.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.analytic.html#module-aisquared.config.analytic">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aisquared.config.feedback.html">aisquared.config.feedback package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.feedback.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.feedback.html#module-aisquared.config.feedback.BinaryFeedback">aisquared.config.feedback.BinaryFeedback module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.feedback.html#aisquared.config.feedback.BinaryFeedback.BinaryFeedback"><code class="docutils literal notranslate"><span class="pre">BinaryFeedback</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.feedback.html#aisquared.config.feedback.BinaryFeedback.BinaryFeedback.label_map"><code class="docutils literal notranslate"><span class="pre">BinaryFeedback.label_map</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.feedback.html#aisquared.config.feedback.BinaryFeedback.BinaryFeedback.to_dict"><code class="docutils literal notranslate"><span class="pre">BinaryFeedback.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.feedback.html#module-aisquared.config.feedback.ModelFeedback">aisquared.config.feedback.ModelFeedback module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.feedback.html#aisquared.config.feedback.ModelFeedback.ModelFeedback"><code class="docutils literal notranslate"><span class="pre">ModelFeedback</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.feedback.html#aisquared.config.feedback.ModelFeedback.ModelFeedback.add_question"><code class="docutils literal notranslate"><span class="pre">ModelFeedback.add_question()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.feedback.html#aisquared.config.feedback.ModelFeedback.ModelFeedback.to_dict"><code class="docutils literal notranslate"><span class="pre">ModelFeedback.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.feedback.html#module-aisquared.config.feedback.MulticlassFeedback">aisquared.config.feedback.MulticlassFeedback module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.feedback.html#aisquared.config.feedback.MulticlassFeedback.MulticlassFeedback"><code class="docutils literal notranslate"><span class="pre">MulticlassFeedback</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.feedback.html#aisquared.config.feedback.MulticlassFeedback.MulticlassFeedback.label_map"><code class="docutils literal notranslate"><span class="pre">MulticlassFeedback.label_map</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.feedback.html#aisquared.config.feedback.MulticlassFeedback.MulticlassFeedback.to_dict"><code class="docutils literal notranslate"><span class="pre">MulticlassFeedback.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.feedback.html#module-aisquared.config.feedback.QualitativeFeedback">aisquared.config.feedback.QualitativeFeedback module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.feedback.html#aisquared.config.feedback.QualitativeFeedback.QualitativeFeedback"><code class="docutils literal notranslate"><span class="pre">QualitativeFeedback</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.feedback.html#aisquared.config.feedback.QualitativeFeedback.QualitativeFeedback.add_question"><code class="docutils literal notranslate"><span class="pre">QualitativeFeedback.add_question()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.feedback.html#aisquared.config.feedback.QualitativeFeedback.QualitativeFeedback.to_dict"><code class="docutils literal notranslate"><span class="pre">QualitativeFeedback.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.feedback.html#module-aisquared.config.feedback.RegressionFeedback">aisquared.config.feedback.RegressionFeedback module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.feedback.html#aisquared.config.feedback.RegressionFeedback.RegressionFeedback"><code class="docutils literal notranslate"><span class="pre">RegressionFeedback</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.feedback.html#aisquared.config.feedback.RegressionFeedback.RegressionFeedback.to_dict"><code class="docutils literal notranslate"><span class="pre">RegressionFeedback.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.feedback.html#module-aisquared.config.feedback.SimpleFeedback">aisquared.config.feedback.SimpleFeedback module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.feedback.html#aisquared.config.feedback.SimpleFeedback.SimpleFeedback"><code class="docutils literal notranslate"><span class="pre">SimpleFeedback</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.feedback.html#aisquared.config.feedback.SimpleFeedback.SimpleFeedback.to_dict"><code class="docutils literal notranslate"><span class="pre">SimpleFeedback.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.feedback.html#module-aisquared.config.feedback">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aisquared.config.harvesting.html">aisquared.config.harvesting package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.harvesting.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.harvesting.html#module-aisquared.config.harvesting.ImageHarvester">aisquared.config.harvesting.ImageHarvester module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.harvesting.html#aisquared.config.harvesting.ImageHarvester.ImageHarvester"><code class="docutils literal notranslate"><span class="pre">ImageHarvester</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.harvesting.html#aisquared.config.harvesting.ImageHarvester.ImageHarvester.how"><code class="docutils literal notranslate"><span class="pre">ImageHarvester.how</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.harvesting.html#aisquared.config.harvesting.ImageHarvester.ImageHarvester.to_dict"><code class="docutils literal notranslate"><span class="pre">ImageHarvester.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.harvesting.html#module-aisquared.config.harvesting.InputHarvester">aisquared.config.harvesting.InputHarvester module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.harvesting.html#aisquared.config.harvesting.InputHarvester.InputHarvester"><code class="docutils literal notranslate"><span class="pre">InputHarvester</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.harvesting.html#aisquared.config.harvesting.InputHarvester.InputHarvester.features"><code class="docutils literal notranslate"><span class="pre">InputHarvester.features</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.harvesting.html#aisquared.config.harvesting.InputHarvester.InputHarvester.input_type"><code class="docutils literal notranslate"><span class="pre">InputHarvester.input_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.harvesting.html#aisquared.config.harvesting.InputHarvester.InputHarvester.max_length"><code class="docutils literal notranslate"><span class="pre">InputHarvester.max_length</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.harvesting.html#aisquared.config.harvesting.InputHarvester.InputHarvester.to_dict"><code class="docutils literal notranslate"><span class="pre">InputHarvester.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.harvesting.html#module-aisquared.config.harvesting.QueryParameterHarvester">aisquared.config.harvesting.QueryParameterHarvester module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.harvesting.html#aisquared.config.harvesting.QueryParameterHarvester.QueryParameterHarvester"><code class="docutils literal notranslate"><span class="pre">QueryParameterHarvester</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.harvesting.html#aisquared.config.harvesting.QueryParameterHarvester.QueryParameterHarvester.attributes"><code class="docutils literal notranslate"><span class="pre">QueryParameterHarvester.attributes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.harvesting.html#aisquared.config.harvesting.QueryParameterHarvester.QueryParameterHarvester.query_keys"><code class="docutils literal notranslate"><span class="pre">QueryParameterHarvester.query_keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.harvesting.html#aisquared.config.harvesting.QueryParameterHarvester.QueryParameterHarvester.to_dict"><code class="docutils literal notranslate"><span class="pre">QueryParameterHarvester.to_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.harvesting.html#aisquared.config.harvesting.QueryParameterHarvester.QueryParameterHarvester.url_locations"><code class="docutils literal notranslate"><span class="pre">QueryParameterHarvester.url_locations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.harvesting.html#module-aisquared.config.harvesting.TextHarvester">aisquared.config.harvesting.TextHarvester module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.harvesting.html#aisquared.config.harvesting.TextHarvester.TextHarvester"><code class="docutils literal notranslate"><span class="pre">TextHarvester</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.harvesting.html#aisquared.config.harvesting.TextHarvester.TextHarvester.body_only"><code class="docutils literal notranslate"><span class="pre">TextHarvester.body_only</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.harvesting.html#aisquared.config.harvesting.TextHarvester.TextHarvester.flags"><code class="docutils literal notranslate"><span class="pre">TextHarvester.flags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.harvesting.html#aisquared.config.harvesting.TextHarvester.TextHarvester.how"><code class="docutils literal notranslate"><span class="pre">TextHarvester.how</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.harvesting.html#aisquared.config.harvesting.TextHarvester.TextHarvester.limit"><code class="docutils literal notranslate"><span class="pre">TextHarvester.limit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.harvesting.html#aisquared.config.harvesting.TextHarvester.TextHarvester.regex"><code class="docutils literal notranslate"><span class="pre">TextHarvester.regex</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.harvesting.html#aisquared.config.harvesting.TextHarvester.TextHarvester.to_dict"><code class="docutils literal notranslate"><span class="pre">TextHarvester.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.harvesting.html#module-aisquared.config.harvesting">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aisquared.config.postprocessing.html">aisquared.config.postprocessing package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.postprocessing.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.postprocessing.html#module-aisquared.config.postprocessing.BinaryClassification">aisquared.config.postprocessing.BinaryClassification module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.postprocessing.html#aisquared.config.postprocessing.BinaryClassification.BinaryClassification"><code class="docutils literal notranslate"><span class="pre">BinaryClassification</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.postprocessing.html#aisquared.config.postprocessing.BinaryClassification.BinaryClassification.label_map"><code class="docutils literal notranslate"><span class="pre">BinaryClassification.label_map</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.postprocessing.html#aisquared.config.postprocessing.BinaryClassification.BinaryClassification.threshold"><code class="docutils literal notranslate"><span class="pre">BinaryClassification.threshold</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.postprocessing.html#aisquared.config.postprocessing.BinaryClassification.BinaryClassification.to_dict"><code class="docutils literal notranslate"><span class="pre">BinaryClassification.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.postprocessing.html#module-aisquared.config.postprocessing.MulticlassClassification">aisquared.config.postprocessing.MulticlassClassification module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.postprocessing.html#aisquared.config.postprocessing.MulticlassClassification.MulticlassClassification"><code class="docutils literal notranslate"><span class="pre">MulticlassClassification</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.postprocessing.html#aisquared.config.postprocessing.MulticlassClassification.MulticlassClassification.label_map"><code class="docutils literal notranslate"><span class="pre">MulticlassClassification.label_map</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.postprocessing.html#aisquared.config.postprocessing.MulticlassClassification.MulticlassClassification.to_dict"><code class="docutils literal notranslate"><span class="pre">MulticlassClassification.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.postprocessing.html#module-aisquared.config.postprocessing.ObjectDetection">aisquared.config.postprocessing.ObjectDetection module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.postprocessing.html#aisquared.config.postprocessing.ObjectDetection.ObjectDetection"><code class="docutils literal notranslate"><span class="pre">ObjectDetection</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.postprocessing.html#aisquared.config.postprocessing.ObjectDetection.ObjectDetection.label_map"><code class="docutils literal notranslate"><span class="pre">ObjectDetection.label_map</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.postprocessing.html#aisquared.config.postprocessing.ObjectDetection.ObjectDetection.threshold"><code class="docutils literal notranslate"><span class="pre">ObjectDetection.threshold</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.postprocessing.html#aisquared.config.postprocessing.ObjectDetection.ObjectDetection.to_dict"><code class="docutils literal notranslate"><span class="pre">ObjectDetection.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.postprocessing.html#module-aisquared.config.postprocessing.Regression">aisquared.config.postprocessing.Regression module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.postprocessing.html#aisquared.config.postprocessing.Regression.Regression"><code class="docutils literal notranslate"><span class="pre">Regression</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.postprocessing.html#aisquared.config.postprocessing.Regression.Regression.max"><code class="docutils literal notranslate"><span class="pre">Regression.max</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.postprocessing.html#aisquared.config.postprocessing.Regression.Regression.min"><code class="docutils literal notranslate"><span class="pre">Regression.min</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.postprocessing.html#aisquared.config.postprocessing.Regression.Regression.round"><code class="docutils literal notranslate"><span class="pre">Regression.round</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.postprocessing.html#aisquared.config.postprocessing.Regression.Regression.to_dict"><code class="docutils literal notranslate"><span class="pre">Regression.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.postprocessing.html#module-aisquared.config.postprocessing">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aisquared.config.preprocessing.html">aisquared.config.preprocessing package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.preprocessing.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.preprocessing.image.html">aisquared.config.preprocessing.image package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.preprocessing.image.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.preprocessing.image.html#module-aisquared.config.preprocessing.image.ImagePreprocessing">aisquared.config.preprocessing.image.ImagePreprocessing module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.preprocessing.image.html#module-aisquared.config.preprocessing.image.Steps">aisquared.config.preprocessing.image.Steps module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.preprocessing.image.html#module-aisquared.config.preprocessing.image">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.preprocessing.tabular.html">aisquared.config.preprocessing.tabular package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.preprocessing.tabular.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.preprocessing.tabular.html#module-aisquared.config.preprocessing.tabular.Steps">aisquared.config.preprocessing.tabular.Steps module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.preprocessing.tabular.html#module-aisquared.config.preprocessing.tabular.TabularPreprocessing">aisquared.config.preprocessing.tabular.TabularPreprocessing module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.preprocessing.tabular.html#module-aisquared.config.preprocessing.tabular">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.preprocessing.text.html">aisquared.config.preprocessing.text package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.preprocessing.text.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.preprocessing.text.html#module-aisquared.config.preprocessing.text.Steps">aisquared.config.preprocessing.text.Steps module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.preprocessing.text.html#module-aisquared.config.preprocessing.text.TextPreprocessing">aisquared.config.preprocessing.text.TextPreprocessing module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.preprocessing.text.html#module-aisquared.config.preprocessing.text">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.preprocessing.html#module-aisquared.config.preprocessing">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aisquared.config.rendering.html">aisquared.config.rendering package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.rendering.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.rendering.html#module-aisquared.config.rendering.BarChartRendering">aisquared.config.rendering.BarChartRendering module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.BarChartRendering.BarChartRendering"><code class="docutils literal notranslate"><span class="pre">BarChartRendering</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.BarChartRendering.BarChartRendering.to_dict"><code class="docutils literal notranslate"><span class="pre">BarChartRendering.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.rendering.html#module-aisquared.config.rendering.ContainerRendering">aisquared.config.rendering.ContainerRendering module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ContainerRendering.ContainerRendering"><code class="docutils literal notranslate"><span class="pre">ContainerRendering</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ContainerRendering.ContainerRendering.display"><code class="docutils literal notranslate"><span class="pre">ContainerRendering.display</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ContainerRendering.ContainerRendering.height"><code class="docutils literal notranslate"><span class="pre">ContainerRendering.height</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ContainerRendering.ContainerRendering.id"><code class="docutils literal notranslate"><span class="pre">ContainerRendering.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ContainerRendering.ContainerRendering.label"><code class="docutils literal notranslate"><span class="pre">ContainerRendering.label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ContainerRendering.ContainerRendering.orientation"><code class="docutils literal notranslate"><span class="pre">ContainerRendering.orientation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ContainerRendering.ContainerRendering.position"><code class="docutils literal notranslate"><span class="pre">ContainerRendering.position</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ContainerRendering.ContainerRendering.query_selector"><code class="docutils literal notranslate"><span class="pre">ContainerRendering.query_selector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ContainerRendering.ContainerRendering.to_dict"><code class="docutils literal notranslate"><span class="pre">ContainerRendering.to_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ContainerRendering.ContainerRendering.width"><code class="docutils literal notranslate"><span class="pre">ContainerRendering.width</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ContainerRendering.ContainerRendering.xOffset"><code class="docutils literal notranslate"><span class="pre">ContainerRendering.xOffset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ContainerRendering.ContainerRendering.yOffset"><code class="docutils literal notranslate"><span class="pre">ContainerRendering.yOffset</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.rendering.html#module-aisquared.config.rendering.DashboardReplacementRendering">aisquared.config.rendering.DashboardReplacementRendering module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering"><code class="docutils literal notranslate"><span class="pre">DashboardReplacementRendering</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering.anchor_selector"><code class="docutils literal notranslate"><span class="pre">DashboardReplacementRendering.anchor_selector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering.label"><code class="docutils literal notranslate"><span class="pre">DashboardReplacementRendering.label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering.to_dict"><code class="docutils literal notranslate"><span class="pre">DashboardReplacementRendering.to_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering.where_replace"><code class="docutils literal notranslate"><span class="pre">DashboardReplacementRendering.where_replace</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.rendering.html#module-aisquared.config.rendering.DocumentRendering">aisquared.config.rendering.DocumentRendering module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.DocumentRendering.DocumentRendering"><code class="docutils literal notranslate"><span class="pre">DocumentRendering</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.DocumentRendering.DocumentRendering.classes"><code class="docutils literal notranslate"><span class="pre">DocumentRendering.classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.DocumentRendering.DocumentRendering.documents"><code class="docutils literal notranslate"><span class="pre">DocumentRendering.documents</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.DocumentRendering.DocumentRendering.include_probability"><code class="docutils literal notranslate"><span class="pre">DocumentRendering.include_probability</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.DocumentRendering.DocumentRendering.prediction_key"><code class="docutils literal notranslate"><span class="pre">DocumentRendering.prediction_key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.DocumentRendering.DocumentRendering.probability_key"><code class="docutils literal notranslate"><span class="pre">DocumentRendering.probability_key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.DocumentRendering.DocumentRendering.threshold_key"><code class="docutils literal notranslate"><span class="pre">DocumentRendering.threshold_key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.DocumentRendering.DocumentRendering.threshold_value"><code class="docutils literal notranslate"><span class="pre">DocumentRendering.threshold_value</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.DocumentRendering.DocumentRendering.to_dict"><code class="docutils literal notranslate"><span class="pre">DocumentRendering.to_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.DocumentRendering.DocumentRendering.underline_color"><code class="docutils literal notranslate"><span class="pre">DocumentRendering.underline_color</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.DocumentRendering.DocumentRendering.words"><code class="docutils literal notranslate"><span class="pre">DocumentRendering.words</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.rendering.html#module-aisquared.config.rendering.DoughnutChartRendering">aisquared.config.rendering.DoughnutChartRendering module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.DoughnutChartRendering.DoughnutChartRendering"><code class="docutils literal notranslate"><span class="pre">DoughnutChartRendering</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.DoughnutChartRendering.DoughnutChartRendering.to_dict"><code class="docutils literal notranslate"><span class="pre">DoughnutChartRendering.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.rendering.html#module-aisquared.config.rendering.FilterRendering">aisquared.config.rendering.FilterRendering module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.FilterRendering.FilterRendering"><code class="docutils literal notranslate"><span class="pre">FilterRendering</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.FilterRendering.FilterRendering.key"><code class="docutils literal notranslate"><span class="pre">FilterRendering.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.FilterRendering.FilterRendering.qualifier"><code class="docutils literal notranslate"><span class="pre">FilterRendering.qualifier</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.FilterRendering.FilterRendering.source"><code class="docutils literal notranslate"><span class="pre">FilterRendering.source</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.FilterRendering.FilterRendering.to_dict"><code class="docutils literal notranslate"><span class="pre">FilterRendering.to_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.FilterRendering.FilterRendering.value"><code class="docutils literal notranslate"><span class="pre">FilterRendering.value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.rendering.html#module-aisquared.config.rendering.HTMLTagRendering">aisquared.config.rendering.HTMLTagRendering module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.HTMLTagRendering.HTMLTagRendering"><code class="docutils literal notranslate"><span class="pre">HTMLTagRendering</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.HTMLTagRendering.HTMLTagRendering.to_dict"><code class="docutils literal notranslate"><span class="pre">HTMLTagRendering.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.rendering.html#module-aisquared.config.rendering.ImageRendering">aisquared.config.rendering.ImageRendering module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ImageRendering.ImageRendering"><code class="docutils literal notranslate"><span class="pre">ImageRendering</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ImageRendering.ImageRendering.badge_color"><code class="docutils literal notranslate"><span class="pre">ImageRendering.badge_color</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ImageRendering.ImageRendering.classes"><code class="docutils literal notranslate"><span class="pre">ImageRendering.classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ImageRendering.ImageRendering.color"><code class="docutils literal notranslate"><span class="pre">ImageRendering.color</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ImageRendering.ImageRendering.font_color"><code class="docutils literal notranslate"><span class="pre">ImageRendering.font_color</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ImageRendering.ImageRendering.font_size"><code class="docutils literal notranslate"><span class="pre">ImageRendering.font_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ImageRendering.ImageRendering.include_probability"><code class="docutils literal notranslate"><span class="pre">ImageRendering.include_probability</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ImageRendering.ImageRendering.placement"><code class="docutils literal notranslate"><span class="pre">ImageRendering.placement</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ImageRendering.ImageRendering.thickness"><code class="docutils literal notranslate"><span class="pre">ImageRendering.thickness</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ImageRendering.ImageRendering.threshold_key"><code class="docutils literal notranslate"><span class="pre">ImageRendering.threshold_key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ImageRendering.ImageRendering.threshold_value"><code class="docutils literal notranslate"><span class="pre">ImageRendering.threshold_value</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ImageRendering.ImageRendering.to_dict"><code class="docutils literal notranslate"><span class="pre">ImageRendering.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.rendering.html#module-aisquared.config.rendering.LineChartRendering">aisquared.config.rendering.LineChartRendering module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.LineChartRendering.LineChartRendering"><code class="docutils literal notranslate"><span class="pre">LineChartRendering</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.LineChartRendering.LineChartRendering.to_dict"><code class="docutils literal notranslate"><span class="pre">LineChartRendering.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.rendering.html#module-aisquared.config.rendering.ObjectRendering">aisquared.config.rendering.ObjectRendering module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ObjectRendering.ObjectRendering"><code class="docutils literal notranslate"><span class="pre">ObjectRendering</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ObjectRendering.ObjectRendering.badge_color"><code class="docutils literal notranslate"><span class="pre">ObjectRendering.badge_color</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ObjectRendering.ObjectRendering.color"><code class="docutils literal notranslate"><span class="pre">ObjectRendering.color</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ObjectRendering.ObjectRendering.font_color"><code class="docutils literal notranslate"><span class="pre">ObjectRendering.font_color</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ObjectRendering.ObjectRendering.font_size"><code class="docutils literal notranslate"><span class="pre">ObjectRendering.font_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ObjectRendering.ObjectRendering.include_probability"><code class="docutils literal notranslate"><span class="pre">ObjectRendering.include_probability</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ObjectRendering.ObjectRendering.placement"><code class="docutils literal notranslate"><span class="pre">ObjectRendering.placement</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ObjectRendering.ObjectRendering.thickness"><code class="docutils literal notranslate"><span class="pre">ObjectRendering.thickness</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.ObjectRendering.ObjectRendering.to_dict"><code class="docutils literal notranslate"><span class="pre">ObjectRendering.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.rendering.html#module-aisquared.config.rendering.PieChartRendering">aisquared.config.rendering.PieChartRendering module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.PieChartRendering.PieChartRendering"><code class="docutils literal notranslate"><span class="pre">PieChartRendering</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.PieChartRendering.PieChartRendering.to_dict"><code class="docutils literal notranslate"><span class="pre">PieChartRendering.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.rendering.html#module-aisquared.config.rendering.SOSRendering">aisquared.config.rendering.SOSRendering module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.SOSRendering.SOSRendering"><code class="docutils literal notranslate"><span class="pre">SOSRendering</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.SOSRendering.SOSRendering.can_toggle"><code class="docutils literal notranslate"><span class="pre">SOSRendering.can_toggle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.SOSRendering.SOSRendering.label"><code class="docutils literal notranslate"><span class="pre">SOSRendering.label</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.SOSRendering.SOSRendering.to_dict"><code class="docutils literal notranslate"><span class="pre">SOSRendering.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.rendering.html#module-aisquared.config.rendering.TableRendering">aisquared.config.rendering.TableRendering module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.TableRendering.TableRendering"><code class="docutils literal notranslate"><span class="pre">TableRendering</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.TableRendering.TableRendering.to_dict"><code class="docutils literal notranslate"><span class="pre">TableRendering.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.rendering.html#module-aisquared.config.rendering.WordRendering">aisquared.config.rendering.WordRendering module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.WordRendering.WordRendering"><code class="docutils literal notranslate"><span class="pre">WordRendering</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.WordRendering.WordRendering.badge_color"><code class="docutils literal notranslate"><span class="pre">WordRendering.badge_color</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.WordRendering.WordRendering.badge_shape"><code class="docutils literal notranslate"><span class="pre">WordRendering.badge_shape</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.WordRendering.WordRendering.classes"><code class="docutils literal notranslate"><span class="pre">WordRendering.classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.WordRendering.WordRendering.content_key"><code class="docutils literal notranslate"><span class="pre">WordRendering.content_key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.WordRendering.WordRendering.result_key"><code class="docutils literal notranslate"><span class="pre">WordRendering.result_key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.WordRendering.WordRendering.threshold_key"><code class="docutils literal notranslate"><span class="pre">WordRendering.threshold_key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.WordRendering.WordRendering.threshold_value"><code class="docutils literal notranslate"><span class="pre">WordRendering.threshold_value</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.WordRendering.WordRendering.to_dict"><code class="docutils literal notranslate"><span class="pre">WordRendering.to_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.rendering.html#aisquared.config.rendering.WordRendering.WordRendering.word_list"><code class="docutils literal notranslate"><span class="pre">WordRendering.word_list</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.config.rendering.html#module-aisquared.config.rendering">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-aisquared.config.GraphConfiguration">
+<span id="aisquared-config-graphconfiguration-module"></span><h2>aisquared.config.GraphConfiguration module<a class="headerlink" href="#module-aisquared.config.GraphConfiguration" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aisquared.config.GraphConfiguration.GraphConfiguration">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.GraphConfiguration.</span></span><span class="sig-name descname"><span class="pre">GraphConfiguration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'experimental'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlflow_uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlflow_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlflow_token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">owner</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_run</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/GraphConfiguration.html#GraphConfiguration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.GraphConfiguration.GraphConfiguration" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
+<p>Configuration object for deploying a set of processing steps and/or analytics as a dependency graph</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.GraphConfiguration.GraphConfiguration.add_node">
+<span class="sig-name descname"><span class="pre">add_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><span class="pre">BaseObject</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dependencies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/aisquared/config/GraphConfiguration.html#GraphConfiguration.add_node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.GraphConfiguration.GraphConfiguration.add_node" title="Permalink to this definition"></a></dt>
+<dd><p>Add a node to the configuration graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>step</strong> (<em>aisquared configuration step</em>) – The step to add</p></li>
+<li><p><strong>dependencies</strong> (<em>int</em><em>, </em><em>list</em><em> of </em><em>int</em><em>, or </em><em>None</em>) – The ids of nodes which must be run before the
+added node</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>node_id</strong> – The integer id of the node that is added</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.GraphConfiguration.GraphConfiguration.auto_run">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">auto_run</span></span><a class="headerlink" href="#aisquared.config.GraphConfiguration.GraphConfiguration.auto_run" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.GraphConfiguration.GraphConfiguration.compile">
+<span class="sig-name descname"><span class="pre">compile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/aisquared/config/GraphConfiguration.html#GraphConfiguration.compile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.GraphConfiguration.GraphConfiguration.compile" title="Permalink to this definition"></a></dt>
+<dd><p>Compile the object into a ‘.air’ file, which can then be dragged and dropped into applications using the AI Squared JavaScript SDK</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>path-like</em><em> or </em><em>None</em><em> (</em><em>default None</em><em>)</em>) – Filename to compile to. If None, defaults to ‘{NAME}.air’, where {NAME} is the name of the analytic</p></li>
+<li><p><strong>dtype</strong> (<em>str</em><em> or </em><em>None</em><em> (</em><em>default None</em><em>)</em>) – The datatype to use for the model weights when using a Keras model. If None, defaults to ‘float32’</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.GraphConfiguration.GraphConfiguration.description">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#aisquared.config.GraphConfiguration.GraphConfiguration.description" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.GraphConfiguration.GraphConfiguration.get_filenames">
+<span class="sig-name descname"><span class="pre">get_filenames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/aisquared/config/GraphConfiguration.html#GraphConfiguration.get_filenames"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.GraphConfiguration.GraphConfiguration.get_filenames" title="Permalink to this definition"></a></dt>
+<dd><p>Get filenames for all models in the configuration</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.GraphConfiguration.GraphConfiguration.mlflow_token">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mlflow_token</span></span><a class="headerlink" href="#aisquared.config.GraphConfiguration.GraphConfiguration.mlflow_token" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.GraphConfiguration.GraphConfiguration.mlflow_uri">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mlflow_uri</span></span><a class="headerlink" href="#aisquared.config.GraphConfiguration.GraphConfiguration.mlflow_uri" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.GraphConfiguration.GraphConfiguration.mlflow_user">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mlflow_user</span></span><a class="headerlink" href="#aisquared.config.GraphConfiguration.GraphConfiguration.mlflow_user" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.GraphConfiguration.GraphConfiguration.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#aisquared.config.GraphConfiguration.GraphConfiguration.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.GraphConfiguration.GraphConfiguration.owner">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">owner</span></span><a class="headerlink" href="#aisquared.config.GraphConfiguration.GraphConfiguration.owner" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.GraphConfiguration.GraphConfiguration.stage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stage</span></span><a class="headerlink" href="#aisquared.config.GraphConfiguration.GraphConfiguration.stage" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.GraphConfiguration.GraphConfiguration.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/config/GraphConfiguration.html#GraphConfiguration.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.GraphConfiguration.GraphConfiguration.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Get the object as a dictionary</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.GraphConfiguration.GraphConfiguration.url">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">url</span></span><a class="headerlink" href="#aisquared.config.GraphConfiguration.GraphConfiguration.url" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.GraphConfiguration.GraphConfiguration.version">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">version</span></span><a class="headerlink" href="#aisquared.config.GraphConfiguration.GraphConfiguration.version" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-aisquared.config.ModelConfiguration">
+<span id="aisquared-config-modelconfiguration-module"></span><h2>aisquared.config.ModelConfiguration module<a class="headerlink" href="#module-aisquared.config.ModelConfiguration" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.ModelConfiguration.</span></span><span class="sig-name descname"><span class="pre">ModelConfiguration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">harvesting_steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><span class="pre">BaseObject</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><span class="pre">aisquared.base.BaseObject.BaseObject</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocessing_steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><span class="pre">BaseObject</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><span class="pre">aisquared.base.BaseObject.BaseObject</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">analytic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><span class="pre">BaseObject</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><span class="pre">aisquared.base.BaseObject.BaseObject</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">postprocessing_steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><span class="pre">BaseObject</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><span class="pre">aisquared.base.BaseObject.BaseObject</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rendering_steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><span class="pre">BaseObject</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><span class="pre">aisquared.base.BaseObject.BaseObject</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feedback_steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><span class="pre">BaseObject</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><span class="pre">aisquared.base.BaseObject.BaseObject</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'experimental'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlflow_uri</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlflow_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlflow_token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">owner</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'*'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_run</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/ModelConfiguration.html#ModelConfiguration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
+<p>Configuration object for deploying a model or analytic</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.analytic">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">analytic</span></span><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.analytic" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.analytic_dict">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">analytic_dict</span></span><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.analytic_dict" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.auto_run">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">auto_run</span></span><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.auto_run" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.compile">
+<span class="sig-name descname"><span class="pre">compile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/aisquared/config/ModelConfiguration.html#ModelConfiguration.compile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.compile" title="Permalink to this definition"></a></dt>
+<dd><p>Compile the object into a ‘.air’ file, which can then be dragged and
+dropped into applications using the AI Squared JavaScript SDK</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>path-like</em><em> or </em><em>None</em><em> (</em><em>default None</em><em>)</em>) – Filename to compile to. If None, defaults to ‘{NAME}.air’, where {NAME} is the
+name of the analytic</p></li>
+<li><p><strong>dtype</strong> (<em>str</em><em> or </em><em>None</em><em> (</em><em>default None</em><em>)</em>) – The datatype to use for the model weights. If None, defaults to ‘float32’</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.description">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.description" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.feedback_dict">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">feedback_dict</span></span><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.feedback_dict" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.feedback_steps">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">feedback_steps</span></span><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.feedback_steps" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.get_model_filenames">
+<span class="sig-name descname"><span class="pre">get_model_filenames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/aisquared/config/ModelConfiguration.html#ModelConfiguration.get_model_filenames"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.get_model_filenames" title="Permalink to this definition"></a></dt>
+<dd><p>Get filenames for all models in the configuration</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.harvester_dict">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">harvester_dict</span></span><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.harvester_dict" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.harvesting_steps">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">harvesting_steps</span></span><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.harvesting_steps" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.mlflow_token">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mlflow_token</span></span><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.mlflow_token" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.mlflow_uri">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mlflow_uri</span></span><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.mlflow_uri" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.mlflow_user">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mlflow_user</span></span><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.mlflow_user" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.owner">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">owner</span></span><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.owner" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.postprocesser_dict">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">postprocesser_dict</span></span><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.postprocesser_dict" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.postprocessing_steps">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">postprocessing_steps</span></span><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.postprocessing_steps" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.preprocesser_dict">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">preprocesser_dict</span></span><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.preprocesser_dict" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.preprocessing_steps">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">preprocessing_steps</span></span><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.preprocessing_steps" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.render_dict">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">render_dict</span></span><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.render_dict" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.rendering_steps">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rendering_steps</span></span><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.rendering_steps" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.stage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stage</span></span><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.stage" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/config/ModelConfiguration.html#ModelConfiguration.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Get the object as a dictionary</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.url">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">url</span></span><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.url" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.ModelConfiguration.ModelConfiguration.version">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">version</span></span><a class="headerlink" href="#aisquared.config.ModelConfiguration.ModelConfiguration.version" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-aisquared.config">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-aisquared.config" title="Permalink to this heading"></a></h2>
+<p>The aisquared.config subpackage contains utilities and objects for packaging aisquared configuration steps and models.</p>
+<p>For in-depth examples of how to build out .air files using the utilities and classes in this library, please visit our
+GitHub repository at <a class="reference external" href="https://github.com/AISquaredInc/airFiles">https://github.com/AISquaredInc/airFiles</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="aisquared.base.html" class="btn btn-neutral float-left" title="aisquared.base package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="aisquared.config.analytic.html" class="btn btn-neutral float-right" title="aisquared.config.analytic package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, The AI Squared Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
