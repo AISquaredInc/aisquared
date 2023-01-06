@@ -4,6 +4,41 @@ from aisquared.base import BaseObject
 class PieChartRendering(BaseObject):
     """
     Rendering class for rendering a Pie Chart
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.rendering.PieChartRendering(
+        'my pie chart',
+        'MyPieChartID',
+        'MyPieChart',
+        ['red', 'blue'],
+        ['label1', 'label2'],
+        'my_countainer_id',
+        'key',
+        'value',
+        'name',
+        True,
+        'circle'
+    )
+    >>> my_obj.to_dict()
+    {'className': 'PieChartRendering',
+    'label': 'my pie chart',
+    'params': {'id': 'MyPieChartID',
+    'chartName': 'MyPieChart',
+    'chartColors': ['red', 'blue'],
+    'chartLabels': ['label1', 'label2'],
+    'containerId': 'my_countainer_id',
+    'predictionNameKey': 'key',
+    'predictionValueKey': 'value',
+    'predictionNameValue': 'name',
+    'displayLegend': True,
+    'legendIcon': 'circle',
+    'width': 'auto',
+    'height': 'auto',
+    'xOffset': '0',
+    'yOffset': '0'}}
+
     """
 
     def __init__(

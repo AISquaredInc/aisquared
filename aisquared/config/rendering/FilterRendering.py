@@ -9,6 +9,20 @@ _ALLOWED_SOURCES = [
 class FilterRendering(BaseObject):
     """
     Object which dictates how predictions are to be passed to downstream analytics
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.rendering.FilterRendering(
+        'inputs',
+        'key',
+        'gt',
+        0.2
+    )
+    >>> my_obj.to_dict()
+    {'className': 'FilterRendering',
+    'params': {'source': 'inputs', 'key': 'key', 'qualifier': 'gt', 'value': 0.2}}
+
     """
 
     def __init__(

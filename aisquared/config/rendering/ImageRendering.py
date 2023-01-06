@@ -4,6 +4,24 @@ from aisquared.base import LOCATIONS, BaseObject
 class ImageRendering(BaseObject):
     """
     Object which dictates how to render images
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.rendering.ImageRendering()
+    >>> my_obj.to_dict()
+    {'className': 'ImageRendering',
+    'params': {'color': 'blue',
+    'thickness': '5px',
+    'placement': 'bottomleft',
+    'includeProbability': False,
+    'badgeColor': 'white',
+    'fontColor': 'black',
+    'fontSize': '5px',
+    'classes': None,
+    'thresholdKey': None,
+    'thresholdValue': None}}
+    
     """
 
     def __init__(

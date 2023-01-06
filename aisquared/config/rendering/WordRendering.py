@@ -4,6 +4,22 @@ from aisquared.base import BADGES, WORD_LISTS, BaseObject
 class WordRendering(BaseObject):
     """
     Object for rendering badges on individual words
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.rendering.WordRendering()
+    >>> my_obj.to_dict()
+    {'className': 'WordRendering',
+    'params': {'wordList': 'input',
+    'resultKey': None,
+    'contentKey': None,
+    'badgeShape': 'star',
+    'badgeColor': 'blue',
+    'classes': None,
+    'thresholdKey': None,
+    'thresholdValue': None}}
+
     """
 
     def __init__(

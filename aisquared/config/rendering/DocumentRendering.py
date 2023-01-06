@@ -4,6 +4,23 @@ from aisquared.base import BaseObject
 class DocumentRendering(BaseObject):
     """
     Object which dictates how to render predictions on entire documents
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.rendering.DocumentRendering()
+    >>> my_obj.to_dict()
+    {'className': 'DocumentRendering',
+    'params': {'predictionKey': 'className',
+    'words': None,
+    'documents': None,
+    'includeProbability': False,
+    'probabilityKey': 'probability',
+    'underlineColor': 'blue',
+    'classes': None,
+    'thresholdKey': None,
+    'thresholdValue': None}}
+
     """
 
     def __init__(

@@ -4,6 +4,34 @@ from aisquared.base import BaseObject
 class HTMLTagRendering(BaseObject):
     """
     Rendering for HTML tags
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.rendering.HTMLTagRendering(
+        'my HTML tag',
+        'MyHTMLTagRenderingID',
+        'MyContainerID',
+        '<p>Example Text</p>',
+        'extra_tag',
+        'append',
+        'name_key',
+        'value_key',
+        'name_value'
+    )
+    >>> my_obj.to_dict()
+    {'className': 'HTMLTagRendering',
+    'label': 'my HTML tag',
+    'params': {'id': 'MyHTMLTagRenderingID',
+    'containerId': 'MyContainerID',
+    'htmlContent': '<p>Example Text</p>',
+    'extraContentTag': 'extra_tag',
+    'injectionAction': 'append',
+    'predictionNameKey': 'name_key',
+    'predictionValueKey': 'value_key',
+    'predictionNameValue': 'name_value',
+    'content': ''}}
+
     """
 
     def __init__(

@@ -4,6 +4,21 @@ from aisquared.base import LOCATIONS, COLORS, BaseObject
 class ObjectRendering(BaseObject):
     """
     Object which dictates how to render object detection in images
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.rendering.ObjectRendering()
+    >>> my_obj.to_dict()
+    {'className': 'ObjectRendering',
+    'params': {'color': 'blue',
+    'thickness': '5px',
+    'placement': 'bottomleft',
+    'includeProbability': False,
+    'badgeColor': 'white',
+    'fontColor': 'black',
+    'fontSize': '5px'}}
+
     """
 
     def __init__(

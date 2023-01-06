@@ -4,6 +4,41 @@ from aisquared.base import BaseObject
 class DoughnutChartRendering(BaseObject):
     """
     Rendering class for rendering a Doughnut Chart
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.rendering.DoughnutChartRendering(
+        'my doughnut chart',
+        'MyDoughnutChartID',
+        'MyDoughnutChart',
+        ['red', 'blue'],
+        ['label1', 'label2'],
+        'my_countainer_id',
+        'key',
+        'value',
+        'name',
+        True,
+        'circle'
+    )
+    >>> my_obj.to_dict()
+    {'className': 'DoughnutChartRendering',
+    'label': 'my doughnut chart',
+    'params': {'id': 'MyDoughnutChartID',
+    'chartName': 'MyDoughnutChart',
+    'chartColors': ['red', 'blue'],
+    'chartLabels': ['label1', 'label2'],
+    'containerId': 'my_countainer_id',
+    'predictionNameKey': 'key',
+    'predictionValueKey': 'value',
+    'predictionNameValue': 'name',
+    'displayLegend': True,
+    'legendIcon': 'circle',
+    'width': 'auto',
+    'height': 'auto',
+    'xOffset': '0',
+    'yOffset': '0'}}
+
     """
 
     def __init__(

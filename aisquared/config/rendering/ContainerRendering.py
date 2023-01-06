@@ -4,6 +4,28 @@ from aisquared.base import BaseObject
 class ContainerRendering(BaseObject):
     """
     Rendering for a container
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.rendering.ContainerRendering(
+        'my container',
+        'myContainerID',
+        "[data-id='tabpanel-general']"
+    )
+    >>> my_obj.to_dict()
+    {'className': 'ContainerRendering',
+    'label': 'my container',
+    'params': {'id': 'myContainerID',
+    'width': 'auto',
+    'height': 'auto',
+    'display': 'flex',
+    'xOffset': '0',
+    'yOffset': '0',
+    'position': '',
+    'orientation': 'column',
+    'querySelector': "[data-id='tabpanel-general']"}}
+
     """
 
     def __init__(

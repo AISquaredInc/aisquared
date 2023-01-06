@@ -5,6 +5,37 @@ class BarChartRendering(BaseObject):
 
     """
     Rendering class for rendering a Bar Chart
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.rendering.BarChartRendering(
+        'my bar chart',
+        'barChart1Label',
+        'MyBarChart',
+        ['red', 'blue'],
+        ['label1', 'label2'],
+        'my_container',
+        'key',
+        'value',
+        'name'
+    )
+    >>> my_obj.to_dict()
+    {'className': 'BarChartRendering',
+    'label': 'my bar chart',
+    'params': {'id': 'barChart1Label',
+    'chartName': 'MyBarChart',
+    'chartColors': ['red', 'blue'],
+    'chartLabels': ['label1', 'label2'],
+    'containerId': 'my_container',
+    'predictionNameKey': 'key',
+    'predictionValueKey': 'value',
+    'predictionNameValue': 'name',
+    'width': 'auto',
+    'height': 'auto',
+    'xOffset': '0',
+    'yOffset': '0'}}
+
     """
 
     def __init__(

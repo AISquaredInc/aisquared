@@ -4,6 +4,14 @@ from aisquared.base import BaseObject
 class SOSRendering(BaseObject):
     """
     Rendering of an SOS dashboard
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.rendering.SOSRendering(True)
+    >>> my_obj.to_dict()
+    {'className': 'SOSRendering', 'label': '', 'params': {'canToggle': True}}
+
     """
 
     def __init__(

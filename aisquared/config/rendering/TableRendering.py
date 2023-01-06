@@ -4,6 +4,28 @@ from aisquared.base import BaseObject
 class TableRendering(BaseObject):
     """
     Class for rendering tables
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.rendering.TableRendering(
+        'my table',
+        'MyTableID',
+        'MyContainerID',
+        'name_key',
+        'value_key',
+        'name_values'
+    )
+    >>> my_obj.to_dict()
+    {'className': 'TableRendering',
+    'label': 'my table',
+    'params': {'id': 'MyTableID',
+    'containerId': 'MyContainerID',
+    'predictionNameKey': 'name_key',
+    'predictionValueKey': 'value_key',
+    'predictionNameValues': 'name_values',
+    'tableName': ''}}
+
     """
 
     def __init__(
