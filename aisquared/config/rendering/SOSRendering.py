@@ -4,12 +4,20 @@ from aisquared.base import BaseObject
 class SOSRendering(BaseObject):
     """
     Rendering of an SOS dashboard
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.rendering.SOSRendering(True)
+    >>> my_obj.to_dict()
+    {'className': 'SOSRendering', 'label': '', 'params': {'canToggle': True}}
+
     """
 
     def __init__(
         self,
-        can_toggle,
-        label=''
+        can_toggle: bool,
+        label: str = ''
     ):
         """
         Parameters
@@ -43,7 +51,7 @@ class SOSRendering(BaseObject):
             raise TypeError('label must be str')
         self._label = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

@@ -1,16 +1,26 @@
+from typing import Union
 from aisquared.base import BaseObject
 
 
 class InputHarvester(BaseObject):
     """
     Object to harvest user-input text
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.harvesting.InputHarvester()
+    >>> my_obj.to_dict()
+    {'className': 'InputHarvester',
+    'params': {'inputType': 'text', 'maxLength': None, 'features': None}}
+
     """
 
     def __init__(
             self,
-            input_type='text',
-            max_length=None,
-            features=None
+            input_type: str = 'text',
+            max_length: Union[None, int] = None,
+            features: Union[None, list] = None
     ):
         """
         Parameters
@@ -84,7 +94,7 @@ class InputHarvester(BaseObject):
 
         self._features = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

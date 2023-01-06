@@ -1,17 +1,34 @@
+from typing import Union
+
 from aisquared.base import BaseObject
 
 
 class DeployedModel(BaseObject):
     """
     Interaction with a remote model
+
+    Example usage:
+
+    >>> import aisquared
+    >>> analytic = aisquared.config.analytic.DeployedModel(
+        'model_url',
+        'text'
+    )
+    >>> analytic.to_dict()
+    {'className': 'DeployedModel',
+    'params': {'url': 'model_url',
+    'inputType': 'text',
+    'secret': 'request',
+    'header': None}}
+
     """
 
     def __init__(
         self,
-        url,
-        input_type,
-        secret='request',
-        header=None
+        url: str,
+        input_type: str,
+        secret: str = 'request',
+        header: Union[None, dict] = None
     ):
         """
         Parameters
@@ -64,7 +81,7 @@ class DeployedModel(BaseObject):
     def header(self, value):
         self._header = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the config object as a dictionary
         """

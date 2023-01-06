@@ -4,12 +4,23 @@ from aisquared.base import BaseObject
 class BinaryClassification(BaseObject):
     """
     Postprocesssing configuration object for binary classification
+
+    Example usage
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.postprocessing.BinaryClassification(
+        ['class1', 'class2']
+    )
+    >>> my_obj.to_dict()
+    {'className': 'BinaryClassification',
+    'params': {'labelMap': ['class1', 'class2'], 'threshold': 0.5}}
+
     """
 
     def __init__(
         self,
-        label_map,
-        threshold=0.5
+        label_map: list[str],
+        threshold: float = 0.5
     ):
         """
         Parameters
@@ -48,7 +59,7 @@ class BinaryClassification(BaseObject):
             raise ValueError('threshold value must be between 0 and 1')
         self._threshold = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

@@ -4,7 +4,7 @@
 ![Tests](https://github.com/aisquaredinc/aisquared/actions/workflows/python-package.yml/badge.svg)
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
 
-This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Browser Extension or other applications developed through the AI Squared JavaScript SDK.
+This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.
 
 ## Installation
 
@@ -276,3 +276,7 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Added the `BarChartRendering`, `ContainerRendering`, `DashboardReplacementRendering`, `DoughnutChartRendering`, `HTMLTagRendering`, `LineChartRendering`, `PieChartRendering`, `SOSRendering`, and `TableRendering` rendering classes
 - Added the `QueryParameterHarvester` harvester class
 - Added the `limit` parameter to the TextHarvester class
+
+## Version 0.3.0
+- Added type hinting to documentation strings
+- Revamped documentation to use Sphinx

@@ -1,3 +1,5 @@
+from typing import Union
+
 try:
     from mlflow.tensorflow import load_model as load_tensorflow_model
     from mlflow.sklearn import load_model as load_sklearn_model
@@ -37,7 +39,7 @@ _ALLOWED_TYPES = [
 ]
 
 
-def load_mann_model(model, custom_objects):
+def load_mann_model(model: str, custom_objects: dict):
     """
     Load a MANN model with custom objects
     """
@@ -48,12 +50,12 @@ def load_mann_model(model, custom_objects):
 
 
 def deploy_model(
-        saved_model,
-        model_type,
-        host='127.0.0.1',
-        port=2244,
-        custom_objects=None,
-        additional_functions_file=None
+        saved_model: str,
+        model_type: str,
+        host: str = '127.0.0.1',
+        port: int = 2244,
+        custom_objects: Union[None, dict] = None,
+        additional_functions_file: Union[None, str] = None
 ):
     """
     Deploy a model to a Flask server on the specified host

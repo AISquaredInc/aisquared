@@ -5,23 +5,54 @@ class BarChartRendering(BaseObject):
 
     """
     Rendering class for rendering a Bar Chart
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.rendering.BarChartRendering(
+        'my bar chart',
+        'barChart1Label',
+        'MyBarChart',
+        ['red', 'blue'],
+        ['label1', 'label2'],
+        'my_container',
+        'key',
+        'value',
+        'name'
+    )
+    >>> my_obj.to_dict()
+    {'className': 'BarChartRendering',
+    'label': 'my bar chart',
+    'params': {'id': 'barChart1Label',
+    'chartName': 'MyBarChart',
+    'chartColors': ['red', 'blue'],
+    'chartLabels': ['label1', 'label2'],
+    'containerId': 'my_container',
+    'predictionNameKey': 'key',
+    'predictionValueKey': 'value',
+    'predictionNameValue': 'name',
+    'width': 'auto',
+    'height': 'auto',
+    'xOffset': '0',
+    'yOffset': '0'}}
+
     """
 
     def __init__(
         self,
-        label,
-        id,
-        chart_name,
-        chart_colors,
-        chart_labels,
-        container_id,
-        prediction_name_key,
-        prediction_value_key,
-        prediction_name_value,
-        width='auto',
-        height='auto',
-        xOffset='0',
-        yOffset='0',
+        label: str,
+        id: str,
+        chart_name: str,
+        chart_colors: list[str],
+        chart_labels: list[str],
+        container_id: str,
+        prediction_name_key: str,
+        prediction_value_key: str,
+        prediction_name_value: str,
+        width: str = 'auto',
+        height: str = 'auto',
+        xOffset: str = '0',
+        yOffset: str = '0',
 
     ):
         """
@@ -69,7 +100,7 @@ class BarChartRendering(BaseObject):
         self.xOffset = xOffset
         self.yOffset = yOffset
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

@@ -5,23 +5,54 @@ class LineChartRendering(BaseObject):
 
     """
     Rendering class for rendering a Line Chart
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.rendering.LineChartRendering(
+        'my line chart',
+        'MyLineChartID',
+        'MyLineChart',
+        ['red', 'blue'],
+        ['label1', 'label2'],
+        'MyContainerID',
+        'name_key',
+        'value_key',
+        'name_value'
+    )
+    >>> my_obj.to_dict()
+    {'className': 'LineChartRendering',
+    'label': 'my line chart',
+    'params': {'id': 'MyLineChartID',
+    'chartName': 'MyLineChart',
+    'chartColors': ['red', 'blue'],
+    'chartLabels': ['label1', 'label2'],
+    'containerId': 'MyContainerID',
+    'predictionNameKey': 'name_key',
+    'predictionValueKey': 'value_key',
+    'predictionNameValue': 'name_value',
+    'width': 'auto',
+    'height': 'auto',
+    'xOffset': '0',
+    'yOffset': '0'}}
+
     """
 
     def __init__(
         self,
-        label,
-        id,
-        chart_name,
-        chart_colors,
-        chart_labels,
-        container_id,
-        prediction_name_key,
-        prediction_value_key,
-        prediction_name_value,
-        width='auto',
-        height='auto',
-        xOffset='0',
-        yOffset='0',
+        label: str,
+        id: str,
+        chart_name: str,
+        chart_colors: list[str],
+        chart_labels: list[str],
+        container_id: str,
+        prediction_name_key: str,
+        prediction_value_key: str,
+        prediction_name_value: str,
+        width: str = 'auto',
+        height: str = 'auto',
+        xOffset: str = '0',
+        yOffset: str = '0',
 
     ):
         """
@@ -69,7 +100,7 @@ class LineChartRendering(BaseObject):
         self.xOffset = xOffset
         self.yOffset = yOffset
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

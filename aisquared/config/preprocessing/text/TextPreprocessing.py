@@ -14,11 +14,19 @@ ALLOWED_STEPS = (
 class TextPreprocessor(BaseObject):
     """
     Preprocessor object for natural language
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.text.Tokenize()
+    )
     """
 
     def __init__(
             self,
-            steps=None
+            steps: list = None
     ):
         """
         Parameters
@@ -52,7 +60,7 @@ class TextPreprocessor(BaseObject):
         else:
             self.steps = self.steps + [step]
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

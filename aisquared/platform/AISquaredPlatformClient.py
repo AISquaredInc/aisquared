@@ -1,14 +1,11 @@
+from typing import Union
+
 from getpass import getpass
 import pandas as pd
 import requests
 import platform
 import json
 import os
-
-
-class AISquaredAPIException(Exception):
-    pass
-
 
 if platform.system() == 'Windows':
     basedir = os.getenv('HOMEPATH')
@@ -19,12 +16,26 @@ DIRECTORY = os.path.join(basedir, '.aisquared')
 CONFIG_FILE = os.path.join(DIRECTORY, '.aisquared.json')
 
 
+class AISquaredAPIException(Exception):
+    pass
+
+
 class AISquaredPlatformClient:
     """
     Client for interacting with the AI Squared platform programmatically
 
     When using the client for the first time, it is important to run the `client.login()` method. When doing so, the
     client will ask for any required information interactively.
+
+    >>> import aisquared
+    >>> client = aisquared.platform.AISquaredPlatformClient()
+    >>> # If you have never logged in before, run the following code:
+    >>> client.login()
+    >>> # Test connection
+    >>> client.test_connection()
+    Connection successful
+    200
+
     """
 
     def __init__(self):
@@ -36,13 +47,20 @@ class AISquaredPlatformClient:
 
     def login(
         self,
-        url=None,
-        port=8080,
-        username=None,
-        password=None
-    ):
+        url: Union[None, str] = None,
+        port: int = 8080,
+        username: Union[None, str] = None,
+        password: Union[None, str] = None
+    ) -> None:
         """
         Log in to the platform programmatically.  If no url, username, or password are provided, logs in interactively
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.login()
+        Enter URL: https://platform.squared.ai
+        Enter Username: your.email@your_domain.com
+        Enter Password: <hidden>
 
         Parameters
         ----------
@@ -54,6 +72,7 @@ class AISquaredPlatformClient:
             The username
         password : str or None (default None)
             The password
+
         """
         if url is None:
             url = input('Enter URL: ')
@@ -101,30 +120,41 @@ class AISquaredPlatformClient:
 
     @property
     def headers(self):
+        """Headers used for authentication with the AI Squared Platform"""
         return {
             'authorization': f'Bearer {self._token}',
             'authType': 'jwt'
         }
 
     @property
-    def username(self):
+    def username(self) -> str:
+        """The username associated with the client"""
         return self._username
 
     @property
-    def password(self):
+    def password(self) -> str:
+        """The password associated with the client"""
         return '*' * len(self._password)
 
     @property
-    def token(self):
+    def token(self) -> str:
+        """The token associated with the client"""
         return '*' * len(self._token)
 
     @property
-    def base_url(self):
+    def base_url(self) -> str:
+        """The base URL associated with the client"""
         return self._base_url
 
-    def test_connection(self, port=8080):
+    def test_connection(self, port: int = 8080) -> int:
         """
         Test whether there is a healthy connection to the platform
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.test_connection()
+        Connection successful
+        200
 
         Parameters
         ----------
@@ -135,6 +165,7 @@ class AISquaredPlatformClient:
         -------
         status_code : int
             The status code when checking the health API
+
         """
         with requests.Session() as sess:
             resp = sess.get(
@@ -148,9 +179,14 @@ class AISquaredPlatformClient:
 
         return resp.status_code
 
-    def list_models(self, as_df=True, all=False, port=8080):
+    def list_models(self, as_df: bool = True, port: int = 8080) -> Union[pd.DataFrame, dict]:
         """
         List models within the platform
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.list_models()
+        *DataFrame with results*
 
         Parameters
         ----------
@@ -163,6 +199,7 @@ class AISquaredPlatformClient:
         -------
         models : pandas DataFrame or dictionary
             The models
+
         """
         with requests.Session() as sess:
             url = f'{self.base_url}:{port}/api/v1/models?userOnly=true'
@@ -183,9 +220,14 @@ class AISquaredPlatformClient:
 
             return resp.json()['data']['models']
 
-    def upload_model(self, model_file, port=8081):
+    def upload_model(self, model_file: str, port: int = 8081) -> str:
         """
         Upload a model to the platform
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.upload_model('my_model_filename.air')
+        True
 
         Parameters
         ----------
@@ -198,6 +240,7 @@ class AISquaredPlatformClient:
         -------
         successful : bool
             Whether the action was successful
+
         """
         with open(model_file, 'rb') as f:
 
@@ -213,9 +256,14 @@ class AISquaredPlatformClient:
 
         return resp.json()['data']['id']
 
-    def get_model(self, id, port=8080):
+    def get_model(self, id: str, port: int = 8080) -> dict:
         """
         Retrieve a model configuration
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.get_model('model_id')
+        *JSON Response including model data and metadata*
 
         Parameters
         ----------
@@ -228,6 +276,7 @@ class AISquaredPlatformClient:
         -------
         data : dictionary
             Metadata about the model coupled with the model's configuration information
+
         """
         with requests.Session() as sess:
             resp = sess.get(
@@ -238,9 +287,14 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()['data']
 
-    def delete_model(self, id, port=8080):
+    def delete_model(self, id: str, port: int = 8080) -> bool:
         """
         Delete a model
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.delete_model('model_id')
+        True
 
         Parameters
         ----------
@@ -253,6 +307,7 @@ class AISquaredPlatformClient:
         -------
         success : bool
             Whether the action was successful
+
         """
         with requests.Session() as sess:
             resp = sess.delete(
@@ -263,9 +318,14 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()['success']
 
-    def list_model_users(self, id, as_df=True, port=8080):
+    def list_model_users(self, id: str, as_df: bool = True, port: int = 8080) -> Union[pd.DataFrame, dict]:
         """
         List users for a model
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.list_model_users('model_id')
+        *DataFrame with results*
 
         Parameters
         ----------
@@ -280,6 +340,7 @@ class AISquaredPlatformClient:
         -------
         model_users : pandas DataFrame or dictionary
             The users for the model
+
         """
         with requests.Session() as sess:
             resp = sess.get(
@@ -295,36 +356,14 @@ class AISquaredPlatformClient:
 
             return resp.json()
 
-    def share_model_with_user(self, model_id, user_id, port=8080):
+    def share_model_with_user(self, model_id: str, user_id: str, port: int = 8080) -> bool:
         """
         Share a model with a user
 
-        Parameters
-        ----------
-        model_id : str
-            The ID for the model
-        user_id : str
-            The ID for the user
-        port : int (default 8080)
-            The API port for the call
-
-        Returns
-        -------
-        response : dictionary
-            The response from the API
-        """
-        with requests.Session() as sess:
-            resp = sess.put(
-                f'{self.base_url}:{port}/api/v1/models/{model_id}/users/{user_id}',
-                headers=self.headers
-            )
-        if resp.status_code != 200:
-            raise AISquaredAPIException(resp.json())
-        return resp.json()['success']
-
-    def unshare_model_with_user(self, model_id, user_id, port=8080):
-        """
-        Unshare a model with a user
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.share_model_with_user('model_id', 'user_id')
+        True
 
         Parameters
         ----------
@@ -339,6 +378,40 @@ class AISquaredPlatformClient:
         -------
         success : bool
             Whether the action was successful
+
+        """
+        with requests.Session() as sess:
+            resp = sess.put(
+                f'{self.base_url}:{port}/api/v1/models/{model_id}/users/{user_id}',
+                headers=self.headers
+            )
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+        return resp.json()['success']
+
+    def unshare_model_with_user(self, model_id: str, user_id: str, port: int = 8080) -> bool:
+        """
+        Unshare a model with a user
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.unshare_model_with_user('model_id', 'user_id')
+        True
+
+        Parameters
+        ----------
+        model_id : str
+            The ID for the model
+        user_id : str
+            The ID for the user
+        port : int (default 8080)
+            The API port for the call
+
+        Returns
+        -------
+        success : bool
+            Whether the action was successful
+
         """
         with requests.Session() as sess:
             resp = sess.delete(
@@ -349,9 +422,14 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()['success']
 
-    def get_model_id_by_name(self, model_name):
+    def get_model_id_by_name(self, model_name: str) -> str:
         """
         Retrieve a model's ID using the name of the model
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.get_model_id_by_name('my_awesome_model')
+        *model_id*
 
         Parameters
         ----------
@@ -362,6 +440,7 @@ class AISquaredPlatformClient:
         -------
         model_id : str
             The model's ID
+
         """
 
         models = self.list_models()
@@ -373,7 +452,6 @@ class AISquaredPlatformClient:
         return this_model.id.iloc[0]
 
     # TODO
-
     def share_model_with_group(self, model_id, group_id, port=8083):
         """Not yet implemented"""
         raise NotImplementedError('Functionality not yet implemented')
@@ -416,9 +494,14 @@ class AISquaredPlatformClient:
         """Not yet implemented"""
         raise NotImplementedError('Functionality not yet implemented')
 
-    def list_users(self, as_df=True, port=8080):
+    def list_users(self, as_df: bool = True, port: int = 8080) -> Union[pd.DataFrame, dict]:
         """
         List all users
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.list_users()
+        *DataFrame with results*
 
         Parameters
         ----------
@@ -431,6 +514,7 @@ class AISquaredPlatformClient:
         -------
         users : pandas DataFrame or dictionary
             The response from the API
+
         """
         with requests.Session() as sess:
             model_resp = sess.get(
@@ -453,9 +537,14 @@ class AISquaredPlatformClient:
             return pd.DataFrame(user_resp.json()['data']).iloc[:, :-1].sort_values(by='displayName').reset_index(drop=True)
         return user_resp.json()
 
-    def list_groups(self, as_df=True, port=8083):
+    def list_groups(self, as_df: bool = True, port: int = 8083) -> Union[pd.DataFrame, dict]:
         """
         List all groups
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.list_groups()
+        *DataFrame with results*
 
         Parameters
         ----------
@@ -468,6 +557,7 @@ class AISquaredPlatformClient:
         -------
         groups : pandas DataFrame or dictionary
             The response from the API
+
         """
         with requests.Session() as sess:
             resp = sess.get(
@@ -489,9 +579,14 @@ class AISquaredPlatformClient:
 
         return resp.json()
 
-    def list_group_users(self, group_id, as_df=True, port=8083):
+    def list_group_users(self, group_id: str, as_df: bool = True, port: int = 8083) -> Union[pd.DataFrame, dict]:
         """
         List users in a group
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.list_group_users('group_id')
+        *DataFrame with results*
 
         Parameters
         ----------
@@ -506,6 +601,7 @@ class AISquaredPlatformClient:
         -------
         users : pandas DataFrame or dictionary
             The response from the API
+
         """
         with requests.Session() as sess:
             resp = sess.get(
@@ -526,9 +622,14 @@ class AISquaredPlatformClient:
             return pd.DataFrame({'id': ids, 'displayName': names})
         return resp.json()
 
-    def get_user_id_by_name(self, name):
+    def get_user_id_by_name(self, name: str) -> str:
         """
         Get a user's ID from their display name
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.get_user_id_by_name('User Name')
+        *user_id*
 
         Parameters
         ----------
@@ -539,6 +640,7 @@ class AISquaredPlatformClient:
         -------
         id : str
             The ID of the user
+
         """
 
         users = self.list_users()

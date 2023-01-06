@@ -1,16 +1,32 @@
+from typing import Union
 from aisquared.base import BaseObject
 
 
 class QueryParameterHarvester(BaseObject):
     """
     Harvester for Query Parameters
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.harvesting.QueryParameterHarvester(
+        'test_key',
+        'test_url',
+        'test_attribute'
+    )
+    >>> my_obj.to_dict()
+    {'className': 'QueryParameterHarvester',
+    'params': {'queryKeys': ['test_key'],
+    'urlLocations': ['test_url'],
+    'attributes': ['test_attribute']}}
+
     """
 
     def __init__(
         self,
-        query_keys,
-        url_locations,
-        attributes
+        query_keys: Union[str, list[str]],
+        url_locations: Union[str, list[str]],
+        attributes: Union[str, list[str]]
     ):
         """
         Parameters
@@ -34,8 +50,6 @@ class QueryParameterHarvester(BaseObject):
     def query_keys(self, value):
         if isinstance(value, str):
             value = [value]
-
-        print(value)
 
         if not isinstance(value, list) or not all([isinstance(v, str) for v in value]):
             raise ValueError('query_keys must be list of strings')
@@ -70,7 +84,7 @@ class QueryParameterHarvester(BaseObject):
 
         self._attributes = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

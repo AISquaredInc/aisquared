@@ -5,13 +5,26 @@ class LocalAnalytic(BaseObject):
     """
     Interaction with an analytic (lookup table) saved to the
     local file system
+
+    Example usage:
+
+    >>> import aisquared
+    >>> analytic = aisquared.config.analytic.LocalAnalytic(
+        'analytic_path',
+        'text'
+    )
+    >>> analytic.to_dict()
+    {'className': 'LocalAnalytic',
+    'params': {'path': 'analytic_path',
+    'inputType': 'text',
+    'all': False}}
     """
 
     def __init__(
         self,
-        path,
-        input_type,
-        all=False
+        path: str,
+        input_type: str,
+        all: bool = False
     ):
         """
         Parameters
@@ -54,7 +67,7 @@ class LocalAnalytic(BaseObject):
             raise TypeError('all must be Boolean')
         self._all = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

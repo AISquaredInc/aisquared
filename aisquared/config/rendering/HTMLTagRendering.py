@@ -4,20 +4,48 @@ from aisquared.base import BaseObject
 class HTMLTagRendering(BaseObject):
     """
     Rendering for HTML tags
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.rendering.HTMLTagRendering(
+        'my HTML tag',
+        'MyHTMLTagRenderingID',
+        'MyContainerID',
+        '<p>Example Text</p>',
+        'extra_tag',
+        'append',
+        'name_key',
+        'value_key',
+        'name_value'
+    )
+    >>> my_obj.to_dict()
+    {'className': 'HTMLTagRendering',
+    'label': 'my HTML tag',
+    'params': {'id': 'MyHTMLTagRenderingID',
+    'containerId': 'MyContainerID',
+    'htmlContent': '<p>Example Text</p>',
+    'extraContentTag': 'extra_tag',
+    'injectionAction': 'append',
+    'predictionNameKey': 'name_key',
+    'predictionValueKey': 'value_key',
+    'predictionNameValue': 'name_value',
+    'content': ''}}
+
     """
 
     def __init__(
         self,
-        label,
-        id,
-        container_id,
-        html_content,
-        extra_content_tag,
-        injection_action,
-        prediction_name_key,
-        prediction_value_key,
-        prediction_name_value,
-        content=''
+        label: str,
+        id: str,
+        container_id: str,
+        html_content: str,
+        extra_content_tag: str,
+        injection_action: str,
+        prediction_name_key: str,
+        prediction_value_key: str,
+        prediction_name_value: str,
+        content: str = ''
     ):
         """
         Parameters
@@ -55,7 +83,7 @@ class HTMLTagRendering(BaseObject):
         self.prediction_name_value = prediction_name_value
         self.content = content
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Return the configuration object as a dictionary
         """

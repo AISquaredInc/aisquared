@@ -1,3 +1,4 @@
+from typing import Union
 from aisquared.base import BaseObject
 
 _ALLOWED_PADS = [
@@ -7,13 +8,23 @@ _ALLOWED_PADS = [
 
 
 class Tokenize(BaseObject):
-    """Preprocessing Step to tokenize text"""
+    """Preprocessing Step to tokenize text
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.text.Tokenize()
+    )
+
+    """
 
     def __init__(
         self,
-        split_sentences=False,
-        split_words=True,
-        token_pattern='\b\w\w+\b'
+        split_sentences: bool = False,
+        split_words: bool = True,
+        token_pattern: str = '\b\w\w+\b'
     ):
         """
         Parameters
@@ -60,7 +71,7 @@ class Tokenize(BaseObject):
             raise TypeError('token_pattern must be string')
         self._token_pattern = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -75,12 +86,21 @@ class Tokenize(BaseObject):
 
 
 class RemoveCharacters(BaseObject):
-    """Preprocessing step to remove characters from text"""
+    """Preprocessing step to remove characters from text
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.text.RemoveCharacters()
+    )
+    """
 
     def __init__(
         self,
-        remove_digits=True,
-        remove_punctuation=True
+        remove_digits: bool = True,
+        remove_punctuation: bool = True
     ):
         """
         Parameters
@@ -114,7 +134,7 @@ class RemoveCharacters(BaseObject):
             raise TypeError('remove_punctuation must be bool')
         self._remove_punctuation = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -128,11 +148,20 @@ class RemoveCharacters(BaseObject):
 
 
 class ConvertToCase(BaseObject):
-    """Text preprocessing object to convert inputs to all lowercase or all uppercase"""
+    """Text preprocessing object to convert inputs to all lowercase or all uppercase
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.text.ConvertToCase()
+    )
+    """
 
     def __init__(
         self,
-        lowercase=True
+        lowercase: bool = True
     ):
         """
         Parameters
@@ -153,7 +182,7 @@ class ConvertToCase(BaseObject):
             raise TypeError('lowercase must be bool')
         self._lowercase = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -166,14 +195,28 @@ class ConvertToCase(BaseObject):
 
 
 class ConvertToVocabulary(BaseObject):
-    """Text preprocessing object to convert tokens to integer vocabularies"""
+    """Text preprocessing object to convert tokens to integer vocabularies
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.text.ConvertToVocabulary(
+            {
+                'test' : 3,
+                'vocabulary' : 4
+            }
+        )
+    )
+    """
 
     def __init__(
         self,
-        vocabulary,
-        start_character=1,
-        oov_character=2,
-        max_vocab=None
+        vocabulary: dict,
+        start_character: int = 1,
+        oov_character: int = 2,
+        max_vocab: Union[None, int] = None
     ):
         """
         Parameters
@@ -238,7 +281,7 @@ class ConvertToVocabulary(BaseObject):
                 raise TypeError('max_vocab must be int')
         self._max_vocab = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -254,14 +297,23 @@ class ConvertToVocabulary(BaseObject):
 
 
 class PadSequences(BaseObject):
-    """Text preprocessing object to pad sequences"""
+    """Text preprocessing object to pad sequences
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.text.PadSequences()
+    )
+    """
 
     def __init__(
         self,
-        pad_character=0,
-        length=128,
-        pad_location='post',
-        truncate_location='post'
+        pad_character: int = 0,
+        length: int = 128,
+        pad_location: str = 'post',
+        truncate_location: str = 'post'
     ):
         """
         Parameters
@@ -330,7 +382,7 @@ class PadSequences(BaseObject):
                 f'truncate_location must be one of {_ALLOWED_PADS}')
         self._truncate_location = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -346,12 +398,21 @@ class PadSequences(BaseObject):
 
 
 class Trim(BaseObject):
-    """Text preprocessing class to trim whitespace from text"""
+    """Text preprocessing class to trim whitespace from text
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.text.Trim()
+    )
+    """
 
     def __init__(self):
         super().__init__()
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

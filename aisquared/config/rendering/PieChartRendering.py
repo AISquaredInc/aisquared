@@ -4,25 +4,60 @@ from aisquared.base import BaseObject
 class PieChartRendering(BaseObject):
     """
     Rendering class for rendering a Pie Chart
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.rendering.PieChartRendering(
+        'my pie chart',
+        'MyPieChartID',
+        'MyPieChart',
+        ['red', 'blue'],
+        ['label1', 'label2'],
+        'my_countainer_id',
+        'key',
+        'value',
+        'name',
+        True,
+        'circle'
+    )
+    >>> my_obj.to_dict()
+    {'className': 'PieChartRendering',
+    'label': 'my pie chart',
+    'params': {'id': 'MyPieChartID',
+    'chartName': 'MyPieChart',
+    'chartColors': ['red', 'blue'],
+    'chartLabels': ['label1', 'label2'],
+    'containerId': 'my_countainer_id',
+    'predictionNameKey': 'key',
+    'predictionValueKey': 'value',
+    'predictionNameValue': 'name',
+    'displayLegend': True,
+    'legendIcon': 'circle',
+    'width': 'auto',
+    'height': 'auto',
+    'xOffset': '0',
+    'yOffset': '0'}}
+
     """
 
     def __init__(
         self,
-        label,
-        id,
-        chart_name,
-        chart_colors,
-        chart_labels,
-        container_id,
-        prediction_name_key,
-        prediction_value_key,
-        prediction_name_value,
-        display_legend,
-        legend_icon,
-        width='auto',
-        height='auto',
-        xOffset='0',
-        yOffset='0',
+        label: str,
+        id: str,
+        chart_name: str,
+        chart_colors: list[str],
+        chart_labels: list[str],
+        container_id: str,
+        prediction_name_key: str,
+        prediction_value_key: str,
+        prediction_name_value: str,
+        display_legend: bool,
+        legend_icon: str,
+        width: str = 'auto',
+        height: str = 'auto',
+        xOffset: str = '0',
+        yOffset: str = '0',
 
     ):
         """
@@ -76,7 +111,7 @@ class PieChartRendering(BaseObject):
         self.xOffset = xOffset
         self.yOffset = yOffset
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

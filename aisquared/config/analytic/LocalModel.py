@@ -5,12 +5,25 @@ class LocalModel(BaseObject):
     """
     Interaction with a model currently saved to the local
     file system
+
+    Example usage:
+
+    >>> import aisquared
+    >>> analytic = aisquared.config.analytic.LocalModel(
+        'model_path',
+        'text'
+    )
+    >>> analytic.to_dict()
+    {'className': 'LocalModel',
+    'params': {'path': 'model_path',
+    'inputType': 'text'}}
+
     """
 
     def __init__(
         self,
-        path,
-        input_type
+        path: str,
+        input_type: str
     ):
         """
         Parameters
@@ -40,7 +53,7 @@ class LocalModel(BaseObject):
     def input_type(self, value):
         self._input_type = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

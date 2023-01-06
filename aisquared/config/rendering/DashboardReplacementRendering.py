@@ -4,13 +4,25 @@ from aisquared.base import BaseObject
 class DashboardReplacementRendering(BaseObject):
     """
     Rendering for dashboard replacement
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.rendering.DashboardReplacementRendering(
+        'test_anchor_selector'
+    )
+    >>> my_obj.to_dict()
+    {'className': 'DashboardReplacementRendering',
+    'label': '',
+    'params': {'anchorSelector': 'test_anchor_selector', 'whereReplace': ''}}
+
     """
 
     def __init__(
         self,
-        anchor_selector,
-        where_replace='',
-        label=''
+        anchor_selector: str,
+        where_replace: str = '',
+        label: str = ''
     ):
         """
         Parameters
@@ -51,7 +63,7 @@ class DashboardReplacementRendering(BaseObject):
     def label(self, value):
         self._label = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

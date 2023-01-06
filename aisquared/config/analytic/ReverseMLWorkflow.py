@@ -1,19 +1,39 @@
+from typing import Union
 from aisquared.base import BaseObject
 
 
 class ReverseMLWorkflow(BaseObject):
     """
     Interaction with a ReverseML CSV stored in S3
+
+    Example usage:
+
+    >>> import aisquared
+    >>> analytic = aisquared.config.analytic.ReverseMLWorkflow(
+        'bucket_name',
+        'file_name',
+        'column_name',
+        'text'
+    )
+    >>> analytic.to_dict()
+    {'className': 'ReverseMLWorkflow',
+    'params': {'bucket': 'bucket_name',
+    'fileName': 'file_name',
+    'inputType': 'text',
+    'column': 'column_name',
+    'period': None,
+    'secret': ''}}
+
     """
 
     def __init__(
         self,
-        bucket,
-        filename,
-        column,
-        input_type,
-        period=None,
-        secret=''
+        bucket: str,
+        filename: str,
+        column: str,
+        input_type: str,
+        period: Union[None, int] = None,
+        secret: str = ''
     ):
         """
         Parameters
@@ -98,7 +118,7 @@ class ReverseMLWorkflow(BaseObject):
     def secret(self, value):
         self._secret = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

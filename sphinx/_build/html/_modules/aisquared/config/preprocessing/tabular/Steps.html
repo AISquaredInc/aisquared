@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>aisquared.config.preprocessing.tabular.Steps &mdash; aisquared  documentation</title>
+      <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../../index.html" class="icon icon-home"> aisquared
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modules.html">aisquared</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">aisquared</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">aisquared.config.preprocessing.tabular.Steps</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for aisquared.config.preprocessing.tabular.Steps</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">aisquared.base</span> <span class="kn">import</span> <span class="n">BaseObject</span>
+
+
+<div class="viewcode-block" id="ZScore"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.Steps.ZScore">[docs]</a><span class="k">class</span> <span class="nc">ZScore</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Z-Score normalization preprocessing step</span>
+
+<span class="sd">    Z-Score normalization takes each supplied column value, subtracts that column&#39;s provided mean, and divides</span>
+<span class="sd">    by the provided standard deviation.</span>
+
+<span class="sd">    Example usage:</span>
+
+<span class="sd">    &gt;&gt;&gt; import aisquared</span>
+<span class="sd">    &gt;&gt;&gt; preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocessor()</span>
+<span class="sd">    &gt;&gt;&gt; preprocesser.add_step(</span>
+<span class="sd">        aisquared.config.preprocessing.tabular.ZScore(</span>
+<span class="sd">            [0, 1, 2],</span>
+<span class="sd">            [0.2, 0.4, 0.6]</span>
+<span class="sd">        )</span>
+<span class="sd">    )</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">means</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]],</span>
+            <span class="n">stds</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]],</span>
+            <span class="n">columns</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        means : list</span>
+<span class="sd">            List of integer or float values which are the means of the associated columns</span>
+<span class="sd">        stds : list</span>
+<span class="sd">            List of integer or float values which are the standard deviations of the associated columns</span>
+<span class="sd">        columns : None or list (default None)</span>
+<span class="sd">            If provided, is a list of column indexes to apply normalization to</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">means</span> <span class="o">=</span> <span class="n">means</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stds</span> <span class="o">=</span> <span class="n">stds</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">means</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stds</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;means and stds must have the same length&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">means</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s1">&#39;Number of columns must match number of means and stds&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">means</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_means</span>
+
+    <span class="nd">@means</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">means</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;means must be a list&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Each value in means must be int or float&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_means</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">stds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stds</span>
+
+    <span class="nd">@stds</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">stds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;stds must be a list&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Each value in stds must be int or float&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stds</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">columns</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_columns</span>
+
+    <span class="nd">@columns</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">columns</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;If provided, columns must be list&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Each value of columns must be an int&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_columns</span> <span class="o">=</span> <span class="n">value</span>
+
+<div class="viewcode-block" id="ZScore.to_dict"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.Steps.ZScore.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the configuration object as a dictionary</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;ZScore&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;means&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">means</span><span class="p">,</span>
+                <span class="s1">&#39;stds&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">stds</span><span class="p">,</span>
+                <span class="s1">&#39;columns&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span>
+            <span class="p">}</span>
+        <span class="p">}</span></div></div>
+
+
+<div class="viewcode-block" id="MinMax"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.Steps.MinMax">[docs]</a><span class="k">class</span> <span class="nc">MinMax</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Min-Max Scaling preprocessing step</span>
+
+<span class="sd">    Min-Max Scaling takes all associated columns and maps values relative to the minimum and maximum values</span>
+<span class="sd">    of the training data.</span>
+
+<span class="sd">    Example usage:</span>
+
+<span class="sd">    &gt;&gt;&gt; import aisquared</span>
+<span class="sd">    &gt;&gt;&gt; preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocessor()</span>
+<span class="sd">    &gt;&gt;&gt; preprocesser.add_step(</span>
+<span class="sd">        aisquared.config.preprocessing.tabular.MinMax(</span>
+<span class="sd">            [0, 1.1, 2],</span>
+<span class="sd">            [0.2, 14, 18.3]</span>
+<span class="sd">        )</span>
+<span class="sd">    )</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">mins</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]],</span>
+            <span class="n">maxs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]],</span>
+            <span class="n">columns</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        mins : list</span>
+<span class="sd">            List of integers or floats associated with the minimum values of each column in the training data</span>
+<span class="sd">        maxs : list</span>
+<span class="sd">            List of integers or floats associated with the maximum values of each column in the training data</span>
+<span class="sd">        columns : None or list (default None)</span>
+<span class="sd">            If provided, a list of column indexes to apply scaling to</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mins</span> <span class="o">=</span> <span class="n">mins</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maxs</span> <span class="o">=</span> <span class="n">maxs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mins</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">maxs</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Length of mins and maxs must equal&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mins</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s1">&#39;Number of mins and maxs must equal the number of columns&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mins</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mins</span>
+
+    <span class="nd">@mins</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">mins</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;mins must be a list&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Each value in mins must be int or float&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mins</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">maxs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maxs</span>
+
+    <span class="nd">@maxs</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">maxs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;maxs must be a list&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Each value in maxs must be int or float&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maxs</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">columns</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_columns</span>
+
+    <span class="nd">@columns</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">columns</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;If passed, columns must be list&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                    <span class="s1">&#39;If passed, each value in columns must be an int&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_columns</span> <span class="o">=</span> <span class="n">value</span>
+
+<div class="viewcode-block" id="MinMax.to_dict"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.Steps.MinMax.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the configuration object as a dictionary</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;MinMax&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;mins&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mins</span><span class="p">,</span>
+                <span class="s1">&#39;maxs&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxs</span><span class="p">,</span>
+                <span class="s1">&#39;columns&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span>
+            <span class="p">}</span>
+        <span class="p">}</span></div></div>
+
+
+<div class="viewcode-block" id="OneHot"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.Steps.OneHot">[docs]</a><span class="k">class</span> <span class="nc">OneHot</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    One Hot encoding preprocessing step</span>
+
+<span class="sd">    Example usage:</span>
+
+<span class="sd">    &gt;&gt;&gt; import aisquared</span>
+<span class="sd">    &gt;&gt;&gt; preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocessor()</span>
+<span class="sd">    &gt;&gt;&gt; preprocesser.add_step(</span>
+<span class="sd">        aisquared.config.preprocessing.tabular.OneHot(</span>
+<span class="sd">            6,</span>
+<span class="sd">            [&#39;one&#39;, &#39;two&#39;, &#39;three&#39;]</span>
+<span class="sd">        )</span>
+<span class="sd">    )</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">column</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+            <span class="n">values</span><span class="p">:</span> <span class="nb">list</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        column : int</span>
+<span class="sd">            Integer index of the column to apply one hot encoding to</span>
+<span class="sd">        values : list</span>
+<span class="sd">            The values, in order, to create binary columns for. Note that if a default value is intended, that</span>
+<span class="sd">            value should simply not be provided in this list</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">column</span> <span class="o">=</span> <span class="n">column</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">values</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">column</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_column</span>
+
+    <span class="nd">@column</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">column</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;column must be integer&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_column</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_values</span>
+
+    <span class="nd">@values</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;values must be list&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_values</span> <span class="o">=</span> <span class="n">value</span>
+
+<div class="viewcode-block" id="OneHot.to_dict"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.Steps.OneHot.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the configuration object as a dictionary</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;OneHot&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;column&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
+                <span class="s1">&#39;values&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span>
+            <span class="p">}</span>
+        <span class="p">}</span></div></div>
+
+
+<div class="viewcode-block" id="DropColumn"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.Steps.DropColumn">[docs]</a><span class="k">class</span> <span class="nc">DropColumn</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Drop a column from tabular data</span>
+
+<span class="sd">    Example usage:</span>
+
+<span class="sd">    &gt;&gt;&gt; import aisquared</span>
+<span class="sd">    &gt;&gt;&gt; preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocessor()</span>
+<span class="sd">    &gt;&gt;&gt; preprocesser.add_step(</span>
+<span class="sd">        aisquared.config.preprocessing.tabular.DropColumn(</span>
+<span class="sd">            3</span>
+<span class="sd">        )</span>
+<span class="sd">    )</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">column</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        column : int</span>
+<span class="sd">            The column index to drop</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">column</span> <span class="o">=</span> <span class="n">column</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">column</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_column</span>
+
+    <span class="nd">@column</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">column</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;column must be integer valued&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_column</span> <span class="o">=</span> <span class="n">value</span>
+
+<div class="viewcode-block" id="DropColumn.to_dict"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.Steps.DropColumn.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the configuration object as a dictionary</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;DropColumn&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;column&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">column</span>
+            <span class="p">}</span>
+        <span class="p">}</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, The AI Squared Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

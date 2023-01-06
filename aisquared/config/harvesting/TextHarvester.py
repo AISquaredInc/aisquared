@@ -1,3 +1,4 @@
+from typing import Union
 from aisquared.base import BaseObject
 
 _ALLOWED_HOWS = [
@@ -10,16 +11,32 @@ _ALLOWED_HOWS = [
 class TextHarvester(BaseObject):
     """
     Object to harvest text
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.harvesting.TextHarvester(
+        how = 'all',
+        body_only = True
+    )
+    >>> my_obj.to_dict()
+    {'className': 'TextHarvester',
+    'params': {'how': 'all',
+    'regex': None,
+    'flags': 'gu',
+    'bodyOnly': True,
+    'limit': None}}
+
     """
 
     def __init__(
         self,
-        how=_ALLOWED_HOWS[0],
-        regex=None,
-        flags='gu',
-        body_only=False,
-        keywords=None,
-        limit=None
+        how: str = _ALLOWED_HOWS[0],
+        regex: Union[None, str] = None,
+        flags: str = 'gu',
+        body_only: bool = False,
+        keywords: Union[None, str, list[str]] = None,
+        limit: Union[None, int] = None
     ):
         """
         Parameters
@@ -92,7 +109,7 @@ class TextHarvester(BaseObject):
             raise TypeError('limit must be int or None')
         self._limit = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
