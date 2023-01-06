@@ -276,3 +276,7 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Added the `BarChartRendering`, `ContainerRendering`, `DashboardReplacementRendering`, `DoughnutChartRendering`, `HTMLTagRendering`, `LineChartRendering`, `PieChartRendering`, `SOSRendering`, and `TableRendering` rendering classes
 - Added the `QueryParameterHarvester` harvester class
 - Added the `limit` parameter to the TextHarvester class
+
+## Version 0.3.0
+- Added type hinting to documentation strings
+- Revamped documentation to use Sphinx
