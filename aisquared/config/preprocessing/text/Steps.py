@@ -16,7 +16,7 @@ class Tokenize(BaseObject):
     >>> preprocesser.add_step(
         aisquared.config.preprocessing.text.Tokenize()
     )
-    
+
     """
 
     def __init__(
@@ -86,7 +86,7 @@ class Tokenize(BaseObject):
 
 class RemoveCharacters(BaseObject):
     """Preprocessing step to remove characters from text
-    
+
     Example usage:
 
     >>> import aisquared
@@ -148,7 +148,7 @@ class RemoveCharacters(BaseObject):
 
 class ConvertToCase(BaseObject):
     """Text preprocessing object to convert inputs to all lowercase or all uppercase
-    
+
     Example usage:
 
     >>> import aisquared
@@ -195,7 +195,7 @@ class ConvertToCase(BaseObject):
 
 class ConvertToVocabulary(BaseObject):
     """Text preprocessing object to convert tokens to integer vocabularies
-    
+
     Example usage:
 
     >>> import aisquared
@@ -297,7 +297,7 @@ class ConvertToVocabulary(BaseObject):
 
 class PadSequences(BaseObject):
     """Text preprocessing object to pad sequences
-    
+
     Example usage:
 
     >>> import aisquared
@@ -398,7 +398,7 @@ class PadSequences(BaseObject):
 
 class Trim(BaseObject):
     """Text preprocessing class to trim whitespace from text
-    
+
     Example usage:
 
     >>> import aisquared

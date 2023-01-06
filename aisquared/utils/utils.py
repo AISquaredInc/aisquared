@@ -20,7 +20,8 @@ def _print_report(true_data, orig_preds, mimic_preds, problem_type):
     if problem_type == 'classification':
         if mimic_preds.shape[1] == 1:
             print(confusion_matrix(orig_preds, (mimic_preds >= 0.5).astype(int)))
-            print(classification_report(orig_preds, (mimic_preds >= 0.5).astype(int)))
+            print(classification_report(orig_preds,
+                  (mimic_preds >= 0.5).astype(int)))
         else:
             print(confusion_matrix(orig_preds, mimic_preds.argmax(axis=1)))
             print(classification_report(orig_preds, mimic_preds.argmax(axis=1)))
@@ -33,7 +34,8 @@ def _print_report(true_data, orig_preds, mimic_preds, problem_type):
     if problem_type == 'classification':
         if mimic_preds.shape[1] == 1:
             print(confusion_matrix(true_data, (mimic_preds >= 0.5).astype(int)))
-            print(classification_report(true_data, (mimic_preds >= 0.5).astype(int)))
+            print(classification_report(
+                true_data, (mimic_preds >= 0.5).astype(int)))
         else:
             print(confusion_matrix(true_data, mimic_preds.argmax(axis=1)))
             print(classification_report(true_data, mimic_preds.argmax(axis=1)))

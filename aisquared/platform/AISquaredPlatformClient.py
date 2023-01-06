@@ -47,10 +47,10 @@ class AISquaredPlatformClient:
 
     def login(
         self,
-        url: Union[None, str]=None,
-        port: int=8080,
-        username: Union[None, str]=None,
-        password: Union[None, str]=None
+        url: Union[None, str] = None,
+        port: int = 8080,
+        username: Union[None, str] = None,
+        password: Union[None, str] = None
     ) -> None:
         """
         Log in to the platform programmatically.  If no url, username, or password are provided, logs in interactively
@@ -146,7 +146,7 @@ class AISquaredPlatformClient:
         """The base URL associated with the client"""
         return self._base_url
 
-    def test_connection(self, port: int=8080) -> int:
+    def test_connection(self, port: int = 8080) -> int:
         """
         Test whether there is a healthy connection to the platform
 
@@ -179,7 +179,7 @@ class AISquaredPlatformClient:
 
         return resp.status_code
 
-    def list_models(self, as_df: bool=True, port: int=8080) -> Union[pd.DataFrame, dict]:
+    def list_models(self, as_df: bool = True, port: int = 8080) -> Union[pd.DataFrame, dict]:
         """
         List models within the platform
 
@@ -220,7 +220,7 @@ class AISquaredPlatformClient:
 
             return resp.json()['data']['models']
 
-    def upload_model(self, model_file: str, port: int=8081) -> str:
+    def upload_model(self, model_file: str, port: int = 8081) -> str:
         """
         Upload a model to the platform
 
@@ -256,7 +256,7 @@ class AISquaredPlatformClient:
 
         return resp.json()['data']['id']
 
-    def get_model(self, id: str, port: int=8080) -> dict:
+    def get_model(self, id: str, port: int = 8080) -> dict:
         """
         Retrieve a model configuration
 
@@ -287,7 +287,7 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()['data']
 
-    def delete_model(self, id: str, port: int=8080) -> bool:
+    def delete_model(self, id: str, port: int = 8080) -> bool:
         """
         Delete a model
 
@@ -318,7 +318,7 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()['success']
 
-    def list_model_users(self, id: str, as_df: bool=True, port: int=8080) -> Union[pd.DataFrame, dict]:
+    def list_model_users(self, id: str, as_df: bool = True, port: int = 8080) -> Union[pd.DataFrame, dict]:
         """
         List users for a model
 
@@ -356,7 +356,7 @@ class AISquaredPlatformClient:
 
             return resp.json()
 
-    def share_model_with_user(self, model_id: str, user_id: str, port: int=8080) -> bool:
+    def share_model_with_user(self, model_id: str, user_id: str, port: int = 8080) -> bool:
         """
         Share a model with a user
 
@@ -389,7 +389,7 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()['success']
 
-    def unshare_model_with_user(self, model_id: str, user_id: str, port: int=8080) -> bool:
+    def unshare_model_with_user(self, model_id: str, user_id: str, port: int = 8080) -> bool:
         """
         Unshare a model with a user
 
@@ -494,7 +494,7 @@ class AISquaredPlatformClient:
         """Not yet implemented"""
         raise NotImplementedError('Functionality not yet implemented')
 
-    def list_users(self, as_df: bool=True, port: int=8080) -> Union[pd.DataFrame, dict]:
+    def list_users(self, as_df: bool = True, port: int = 8080) -> Union[pd.DataFrame, dict]:
         """
         List all users
 
@@ -537,7 +537,7 @@ class AISquaredPlatformClient:
             return pd.DataFrame(user_resp.json()['data']).iloc[:, :-1].sort_values(by='displayName').reset_index(drop=True)
         return user_resp.json()
 
-    def list_groups(self, as_df: bool=True, port: int=8083) -> Union[pd.DataFrame, dict]:
+    def list_groups(self, as_df: bool = True, port: int = 8083) -> Union[pd.DataFrame, dict]:
         """
         List all groups
 
@@ -579,7 +579,7 @@ class AISquaredPlatformClient:
 
         return resp.json()
 
-    def list_group_users(self, group_id: str, as_df: bool =True, port: int=8083) -> Union[pd.DataFrame, dict]:
+    def list_group_users(self, group_id: str, as_df: bool = True, port: int = 8083) -> Union[pd.DataFrame, dict]:
         """
         List users in a group
 
