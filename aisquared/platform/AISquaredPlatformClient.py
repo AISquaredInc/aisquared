@@ -1,3 +1,5 @@
+from typing import Union
+
 from getpass import getpass
 import pandas as pd
 import requests
@@ -45,11 +47,11 @@ class AISquaredPlatformClient:
 
     def login(
         self,
-        url=None,
-        port=8080,
-        username=None,
-        password=None
-    ):
+        url: Union[None, str]=None,
+        port: int=8080,
+        username: Union[None, str]=None,
+        password: Union[None, str]=None
+    ) -> None:
         """
         Log in to the platform programmatically.  If no url, username, or password are provided, logs in interactively
 
@@ -125,26 +127,26 @@ class AISquaredPlatformClient:
         }
 
     @property
-    def username(self):
+    def username(self) -> str:
         """The username associated with the client"""
         return self._username
 
     @property
-    def password(self):
+    def password(self) -> str:
         """The password associated with the client"""
         return '*' * len(self._password)
 
     @property
-    def token(self):
+    def token(self) -> str:
         """The token associated with the client"""
         return '*' * len(self._token)
 
     @property
-    def base_url(self):
+    def base_url(self) -> str:
         """The base URL associated with the client"""
         return self._base_url
 
-    def test_connection(self, port=8080):
+    def test_connection(self, port: int=8080) -> int:
         """
         Test whether there is a healthy connection to the platform
 
@@ -177,7 +179,7 @@ class AISquaredPlatformClient:
 
         return resp.status_code
 
-    def list_models(self, as_df=True, all=False, port=8080):
+    def list_models(self, as_df: bool=True, port: int=8080) -> Union[pd.DataFrame, dict]:
         """
         List models within the platform
 
@@ -218,7 +220,7 @@ class AISquaredPlatformClient:
 
             return resp.json()['data']['models']
 
-    def upload_model(self, model_file, port=8081):
+    def upload_model(self, model_file: str, port: int=8081) -> str:
         """
         Upload a model to the platform
 
@@ -254,7 +256,7 @@ class AISquaredPlatformClient:
 
         return resp.json()['data']['id']
 
-    def get_model(self, id, port=8080):
+    def get_model(self, id: str, port: int=8080) -> dict:
         """
         Retrieve a model configuration
 
@@ -285,7 +287,7 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()['data']
 
-    def delete_model(self, id, port=8080):
+    def delete_model(self, id: str, port: int=8080) -> bool:
         """
         Delete a model
 
@@ -316,7 +318,7 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()['success']
 
-    def list_model_users(self, id, as_df=True, port=8080):
+    def list_model_users(self, id: str, as_df: bool=True, port: int=8080) -> Union[pd.DataFrame, dict]:
         """
         List users for a model
 
@@ -354,7 +356,7 @@ class AISquaredPlatformClient:
 
             return resp.json()
 
-    def share_model_with_user(self, model_id, user_id, port=8080):
+    def share_model_with_user(self, model_id: str, user_id: str, port: int=8080) -> bool:
         """
         Share a model with a user
 
@@ -387,7 +389,7 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()['success']
 
-    def unshare_model_with_user(self, model_id, user_id, port=8080):
+    def unshare_model_with_user(self, model_id: str, user_id: str, port: int=8080) -> bool:
         """
         Unshare a model with a user
 
@@ -420,7 +422,7 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()['success']
 
-    def get_model_id_by_name(self, model_name):
+    def get_model_id_by_name(self, model_name: str) -> str:
         """
         Retrieve a model's ID using the name of the model
 
@@ -492,7 +494,7 @@ class AISquaredPlatformClient:
         """Not yet implemented"""
         raise NotImplementedError('Functionality not yet implemented')
 
-    def list_users(self, as_df=True, port=8080):
+    def list_users(self, as_df: bool=True, port: int=8080) -> Union[pd.DataFrame, dict]:
         """
         List all users
 
@@ -535,7 +537,7 @@ class AISquaredPlatformClient:
             return pd.DataFrame(user_resp.json()['data']).iloc[:, :-1].sort_values(by='displayName').reset_index(drop=True)
         return user_resp.json()
 
-    def list_groups(self, as_df=True, port=8083):
+    def list_groups(self, as_df: bool=True, port: int=8083) -> Union[pd.DataFrame, dict]:
         """
         List all groups
 
@@ -577,7 +579,7 @@ class AISquaredPlatformClient:
 
         return resp.json()
 
-    def list_group_users(self, group_id, as_df=True, port=8083):
+    def list_group_users(self, group_id: str, as_df: bool =True, port: int=8083) -> Union[pd.DataFrame, dict]:
         """
         List users in a group
 
@@ -620,7 +622,7 @@ class AISquaredPlatformClient:
             return pd.DataFrame({'id': ids, 'displayName': names})
         return resp.json()
 
-    def get_user_id_by_name(self, name):
+    def get_user_id_by_name(self, name: str) -> str:
         """
         Get a user's ID from their display name
 

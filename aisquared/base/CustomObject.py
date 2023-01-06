@@ -18,7 +18,7 @@ class CustomObject(BaseObject):
     )
     """
 
-    def __init__(self, class_name, **kwargs):
+    def __init__(self, class_name: str, **kwargs):
         """
         Parameters
         ----------
@@ -32,7 +32,7 @@ class CustomObject(BaseObject):
         self.params = kwargs
         self.path = kwargs.get('path')
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the object as a dictionary
         """
