@@ -21,7 +21,7 @@ class ImageRendering(BaseObject):
     'classes': None,
     'thresholdKey': None,
     'thresholdValue': None}}
-    
+
     """
 
     def __init__(
