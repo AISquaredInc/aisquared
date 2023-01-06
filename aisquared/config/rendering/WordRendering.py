@@ -1,3 +1,4 @@
+from typing import Union
 from aisquared.base import BADGES, WORD_LISTS, BaseObject
 
 
@@ -24,14 +25,14 @@ class WordRendering(BaseObject):
 
     def __init__(
             self,
-            word_list=WORD_LISTS[0],
-            result_key=None,
-            content_key=None,
-            badge_shape=BADGES[-2],
-            badge_color='blue',
-            classes=None,
-            threshold_key=None,
-            threshold_value=None
+            word_list: str = WORD_LISTS[0],
+            result_key: Union[None, str] = None,
+            content_key: Union[None, str] = None,
+            badge_shape: str = BADGES[-2],
+            badge_color: str = 'blue',
+            classes: Union[None, list[str]] = None,
+            threshold_key: Union[None, str] = None,
+            threshold_value: Union[None, int, float] = None
     ):
         """
         Parameters
@@ -132,7 +133,7 @@ class WordRendering(BaseObject):
     def threshold_value(self, value):
         self._threshold_value = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

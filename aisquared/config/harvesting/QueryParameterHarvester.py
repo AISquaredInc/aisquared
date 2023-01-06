@@ -1,3 +1,4 @@
+from typing import Union
 from aisquared.base import BaseObject
 
 
@@ -23,9 +24,9 @@ class QueryParameterHarvester(BaseObject):
 
     def __init__(
         self,
-        query_keys,
-        url_locations,
-        attributes
+        query_keys: Union[str, list[str]],
+        url_locations: Union[str, list[str]],
+        attributes: Union[str, list[str]]
     ):
         """
         Parameters
@@ -83,7 +84,7 @@ class QueryParameterHarvester(BaseObject):
 
         self._attributes = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

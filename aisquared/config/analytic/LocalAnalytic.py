@@ -22,9 +22,9 @@ class LocalAnalytic(BaseObject):
 
     def __init__(
         self,
-        path,
-        input_type,
-        all=False
+        path: str,
+        input_type: str,
+        all: bool = False
     ):
         """
         Parameters
@@ -67,7 +67,7 @@ class LocalAnalytic(BaseObject):
             raise TypeError('all must be Boolean')
         self._all = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

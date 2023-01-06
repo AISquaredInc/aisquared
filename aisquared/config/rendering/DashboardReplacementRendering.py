@@ -20,9 +20,9 @@ class DashboardReplacementRendering(BaseObject):
 
     def __init__(
         self,
-        anchor_selector,
-        where_replace='',
-        label=''
+        anchor_selector: str,
+        where_replace: str = '',
+        label: str = ''
     ):
         """
         Parameters
@@ -63,7 +63,7 @@ class DashboardReplacementRendering(BaseObject):
     def label(self, value):
         self._label = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

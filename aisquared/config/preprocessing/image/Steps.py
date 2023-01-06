@@ -1,3 +1,4 @@
+from typing import Union
 from aisquared.base import BaseObject
 
 
@@ -16,7 +17,7 @@ class AddValue(BaseObject):
 
     def __init__(
             self,
-            value
+            value: Union[int, float]
     ):
         """
         Parameters
@@ -37,7 +38,7 @@ class AddValue(BaseObject):
             raise TypeError('value must be int or float')
         self._value = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -64,7 +65,7 @@ class SubtractValue(BaseObject):
 
     def __init__(
             self,
-            value
+            value: Union[int, float]
     ):
         """
         Parameters
@@ -85,7 +86,7 @@ class SubtractValue(BaseObject):
             raise TypeError('value must be int or float')
         self._value = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -112,7 +113,7 @@ class MultiplyValue(BaseObject):
 
     def __init__(
             self,
-            value
+            value: Union[int, float]
     ):
         """
         Parameters
@@ -133,7 +134,7 @@ class MultiplyValue(BaseObject):
             raise TypeError('value must be int or float')
         self._value = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -160,7 +161,7 @@ class DivideValue(BaseObject):
 
     def __init__(
             self,
-            value
+            value: Union[int, float]
     ):
         """
         Parameters
@@ -181,7 +182,7 @@ class DivideValue(BaseObject):
             raise TypeError('value must be int or float')
         self._value = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -206,7 +207,7 @@ class ConvertToColor(BaseObject):
     )
     """
 
-    def __init__(self, color):
+    def __init__(self, color: str):
         """
         Parameters
         ----------
@@ -228,7 +229,7 @@ class ConvertToColor(BaseObject):
             raise ValueError('color must be one of `RGB` or `B+W`')
         self._color = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -253,9 +254,9 @@ class Resize(BaseObject):
 
     def __init__(
             self,
-            size,
-            method='bilinear',
-            preserve_aspect_ratio=False
+            size: list[int],
+            method: str = 'bilinear',
+            preserve_aspect_ratio: bool = False
     ):
         """
         Parameters
@@ -315,7 +316,7 @@ class Resize(BaseObject):
             raise TypeError('preserve_aspect_ratio must be bool')
         self._preserve_aspect_ratio = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

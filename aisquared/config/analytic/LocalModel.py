@@ -22,8 +22,8 @@ class LocalModel(BaseObject):
 
     def __init__(
         self,
-        path,
-        input_type
+        path: str,
+        input_type: str
     ):
         """
         Parameters
@@ -53,7 +53,7 @@ class LocalModel(BaseObject):
     def input_type(self, value):
         self._input_type = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

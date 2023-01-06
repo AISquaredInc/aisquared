@@ -1,3 +1,4 @@
+from typing import Union
 from aisquared.base import LOCATIONS, BaseObject
 
 
@@ -26,16 +27,16 @@ class ImageRendering(BaseObject):
 
     def __init__(
         self,
-        color='blue',
-        thickness='5px',
-        placement=LOCATIONS[-1],
-        include_probability=False,
-        badge_color='white',
-        font_color='black',
-        font_size='5px',
-        classes=None,
-        threshold_key=None,
-        threshold_value=None
+        color: str = 'blue',
+        thickness: str = '5px',
+        placement: str = LOCATIONS[-1],
+        include_probability: bool = False,
+        badge_color: str = 'white',
+        font_color: str = 'black',
+        font_size: str = '5px',
+        classes: Union[None, list] = None,
+        threshold_key: Union[None, str] = None,
+        threshold_value: Union[None, Union[int, float]] = None
     ):
         """
         Parameters
@@ -156,7 +157,7 @@ class ImageRendering(BaseObject):
     def threshold_value(self, value):
         self._threshold_value = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

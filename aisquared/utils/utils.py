@@ -1,3 +1,4 @@
+from typing import Union
 from sklearn.base import BaseEstimator, ClassifierMixin, RegressorMixin, TransformerMixin
 from sklearn.metrics import classification_report, confusion_matrix, mean_squared_error
 import tensorflow as tf
@@ -145,23 +146,23 @@ def _get_fc_model(size, input_shape, num_outputs, output_activation):
 
 
 def mimic_model(
-    trained_model,
-    nnet,
-    training_data,
-    test_data,
-    test_labels,
-    problem_type,
-    loss,
-    metrics,
-    optimizer,
-    mimic_proba=False,
-    retention=0.9,
-    batch_size=32,
-    epochs=100,
-    starting_sparsification=0,
-    max_sparsification=99,
-    sparsification_rate=5
-):
+    trained_model: BaseEstimator,
+    nnet: tf.keras.models.Model,
+    training_data: np.ndarray,
+    test_data: np.ndarray,
+    test_labels: np.ndarray,
+    problem_type: str,
+    loss: str,
+    metrics: Union[str, list[str]],
+    optimizer: str,
+    mimic_proba: bool = False,
+    retention: float = 0.9,
+    batch_size: int = 32,
+    epochs: int = 100,
+    starting_sparsification: int = 0,
+    max_sparsification: int = 99,
+    sparsification_rate: int = 5
+) -> tf.keras.models.Model:
     """
     Train a sparse neural network to mimic a scikit-learn model
 
@@ -261,12 +262,12 @@ def mimic_model(
 
 
 def get_model(
-    model_type,
-    input_shape,
-    num_outputs,
-    output_activation,
-    size='small',
-    vocab_size=None
+    model_type: str,
+    input_shape: Union[int, tuple[int]],
+    num_outputs: int,
+    output_activation: str,
+    size: str = 'small',
+    vocab_size: Union[None, int] = None
 ):
     """
     Get a pre-configured model for different use cases

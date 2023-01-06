@@ -36,16 +36,16 @@ class HTMLTagRendering(BaseObject):
 
     def __init__(
         self,
-        label,
-        id,
-        container_id,
-        html_content,
-        extra_content_tag,
-        injection_action,
-        prediction_name_key,
-        prediction_value_key,
-        prediction_name_value,
-        content=''
+        label: str,
+        id: str,
+        container_id: str,
+        html_content: str,
+        extra_content_tag: str,
+        injection_action: str,
+        prediction_name_key: str,
+        prediction_value_key: str,
+        prediction_name_value: str,
+        content: str = ''
     ):
         """
         Parameters
@@ -83,7 +83,7 @@ class HTMLTagRendering(BaseObject):
         self.prediction_name_value = prediction_name_value
         self.content = content
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Return the configuration object as a dictionary
         """

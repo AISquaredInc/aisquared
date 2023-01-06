@@ -1,3 +1,4 @@
+from typing import Union
 from aisquared.base import BaseObject
 
 
@@ -22,9 +23,9 @@ class ZScore(BaseObject):
 
     def __init__(
             self,
-            means,
-            stds,
-            columns=None
+            means: list[Union[int, float]],
+            stds: list[Union[int, float]],
+            columns: Union[None, int, list[int]] = None
     ):
         """
         means : list
@@ -82,7 +83,7 @@ class ZScore(BaseObject):
             raise TypeError('Each value of columns must be an int')
         self._columns = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -117,9 +118,9 @@ class MinMax(BaseObject):
 
     def __init__(
             self,
-            mins,
-            maxs,
-            columns=None
+            mins: list[Union[int, float]],
+            maxs: list[Union[int, float]],
+            columns: Union[None, list[int]] = None
     ):
         """
         Parameters
@@ -180,7 +181,7 @@ class MinMax(BaseObject):
                     'If passed, each value in columns must be an int')
         self._columns = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -212,8 +213,8 @@ class OneHot(BaseObject):
 
     def __init__(
             self,
-            column,
-            values
+            column: int,
+            values: list
     ):
         """
         Parameters
@@ -248,7 +249,7 @@ class OneHot(BaseObject):
             raise TypeError('values must be list')
         self._values = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -278,7 +279,7 @@ class DropColumn(BaseObject):
 
     def __init__(
             self,
-            column
+            column: int
     ):
         """
         Parameters
@@ -299,7 +300,7 @@ class DropColumn(BaseObject):
             raise ValueError('column must be integer valued')
         self._column = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

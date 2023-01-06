@@ -19,7 +19,7 @@ class MulticlassClassification(BaseObject):
 
     def __init__(
             self,
-            label_map,
+            label_map: list[str],
     ):
         """
         Parameters
@@ -43,7 +43,7 @@ class MulticlassClassification(BaseObject):
                 'For multiclass classification, the label map must have more than two values. If there are only two values, use the `BinaryClassification` class')
         self._label_map = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

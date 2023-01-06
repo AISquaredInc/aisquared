@@ -1,3 +1,4 @@
+from typing import Union
 from aisquared.base import BaseObject
 
 
@@ -25,15 +26,15 @@ class DocumentRendering(BaseObject):
 
     def __init__(
         self,
-        prediction_key='className',
-        words=None,
-        documents=None,
-        include_probability=False,
-        probability_key='probability',
-        underline_color='blue',
-        classes=None,
-        threshold_key=None,
-        threshold_value=None
+        prediction_key: str = 'className',
+        words: Union[None, list[str], dict, str] = None,
+        documents: Union[None, list[str], dict, str] = None,
+        include_probability: bool = False,
+        probability_key: str = 'probability',
+        underline_color: str = 'blue',
+        classes: Union[None, list[str]] = None,
+        threshold_key: Union[None, str] = None,
+        threshold_value: Union[None, int, float] = None
     ):
         """
         Parameters
@@ -140,7 +141,7 @@ class DocumentRendering(BaseObject):
     def threshold_value(self, value):
         self._threshold_value = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

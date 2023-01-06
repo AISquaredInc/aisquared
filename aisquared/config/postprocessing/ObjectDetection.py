@@ -19,8 +19,8 @@ class ObjectDetection(BaseObject):
 
     def __init__(
         self,
-        label_map,
-        threshold=0.5
+        label_map: list[str],
+        threshold: float = 0.5
     ):
         """
         Parameters
@@ -56,7 +56,7 @@ class ObjectDetection(BaseObject):
             raise ValueError('threshold must be between 0 and 1')
         self._threshold = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

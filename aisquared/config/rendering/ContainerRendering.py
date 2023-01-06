@@ -30,16 +30,16 @@ class ContainerRendering(BaseObject):
 
     def __init__(
         self,
-        label,
-        id,
-        query_selector,
-        width='auto',
-        height='auto',
-        display='flex',
-        xOffset='0',
-        yOffset='0',
-        position='',
-        orientation='column'
+        label: str,
+        id: str,
+        query_selector: str,
+        width: str = 'auto',
+        height: str = 'auto',
+        display: str = 'flex',
+        xOffset: str = '0',
+        yOffset: str = '0',
+        position: str = '',
+        orientation: str = 'column'
     ):
         """
         Parameters
@@ -155,7 +155,7 @@ class ContainerRendering(BaseObject):
     def orientation(self, value):
         self._orientation = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

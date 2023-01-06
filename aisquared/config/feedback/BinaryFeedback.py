@@ -14,7 +14,7 @@ class BinaryFeedback(BaseObject):
 
     """
 
-    def __init__(self, label_map):
+    def __init__(self, label_map: list[str]):
         """
         Parameters
         ----------
@@ -34,7 +34,7 @@ class BinaryFeedback(BaseObject):
             raise ValueError('label_map must be list of length 2')
         self._label_map = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Return the object as a dictionary
         """

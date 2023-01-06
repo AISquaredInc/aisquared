@@ -16,8 +16,8 @@ class SOSRendering(BaseObject):
 
     def __init__(
         self,
-        can_toggle,
-        label=''
+        can_toggle: bool,
+        label: str = ''
     ):
         """
         Parameters
@@ -51,7 +51,7 @@ class SOSRendering(BaseObject):
             raise TypeError('label must be str')
         self._label = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

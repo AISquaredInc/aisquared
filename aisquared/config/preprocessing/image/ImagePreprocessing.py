@@ -26,7 +26,7 @@ class ImagePreprocessor(BaseObject):
 
     def __init__(
             self,
-            steps=None
+            steps: list = None
     ):
         """
         Parameters
@@ -60,7 +60,7 @@ class ImagePreprocessor(BaseObject):
         else:
             self.steps = self.steps + [step]
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

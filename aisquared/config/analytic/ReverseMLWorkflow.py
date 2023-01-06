@@ -1,3 +1,4 @@
+from typing import Union
 from aisquared.base import BaseObject
 
 
@@ -27,12 +28,12 @@ class ReverseMLWorkflow(BaseObject):
 
     def __init__(
         self,
-        bucket,
-        filename,
-        column,
-        input_type,
-        period=None,
-        secret=''
+        bucket: str,
+        filename: str,
+        column: str,
+        input_type: str,
+        period: Union[None, int] = None,
+        secret: str = ''
     ):
         """
         Parameters
@@ -117,7 +118,7 @@ class ReverseMLWorkflow(BaseObject):
     def secret(self, value):
         self._secret = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

@@ -1,3 +1,4 @@
+from typing import Union
 from aisquared.base import BaseObject, QUALIFIERS
 
 _ALLOWED_SOURCES = [
@@ -27,10 +28,10 @@ class FilterRendering(BaseObject):
 
     def __init__(
         self,
-        source,
-        key,
-        qualifier,
-        value
+        source: str,
+        key: str,
+        qualifier: str,
+        value: Union[list, str, int, float]
     ):
         """
         Parameters
@@ -90,7 +91,7 @@ class FilterRendering(BaseObject):
             raise TypeError('value must be list, string, or numeric')
         self._value = val
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

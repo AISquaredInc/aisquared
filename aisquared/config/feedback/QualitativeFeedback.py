@@ -24,9 +24,9 @@ class QualitativeFeedback(BaseObject):
 
     def add_question(
         self,
-        question,
-        answer_type='singleChoice',
-        choices=[]
+        question: str,
+        answer_type: str = 'singleChoice',
+        choices: list = []
     ):
         """
         Add a question to be asked.
@@ -51,7 +51,7 @@ class QualitativeFeedback(BaseObject):
         self.questions.append(_create_question_dict(
             question, answer_type, choices))
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Return the object as a dictionary
         """

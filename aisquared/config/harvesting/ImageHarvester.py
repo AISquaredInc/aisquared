@@ -16,7 +16,7 @@ class ImageHarvester(BaseObject):
 
     def __init__(
         self,
-        how='all'
+        how: str = 'all'
     ):
         """
         Parameters
@@ -38,7 +38,7 @@ class ImageHarvester(BaseObject):
                 "Currently the only value supported for how is 'all'")
         self._how = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

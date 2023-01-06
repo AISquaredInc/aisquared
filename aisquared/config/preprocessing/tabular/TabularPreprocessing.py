@@ -1,3 +1,4 @@
+from typing import Union
 from .Steps import ZScore, MinMax, OneHot, DropColumn
 from aisquared.base import BaseObject
 
@@ -29,7 +30,7 @@ class TabularPreprocessor(BaseObject):
 
     def __init__(
             self,
-            steps=None
+            steps: Union[None, list] = None
     ):
         """
         Parameters

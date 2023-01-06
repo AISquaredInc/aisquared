@@ -1,3 +1,5 @@
+from typing import Union
+
 from aisquared.base import BaseObject
 
 
@@ -22,10 +24,10 @@ class DeployedAnalytic(BaseObject):
 
     def __init__(
         self,
-        url,
-        input_type,
-        secret='request',
-        header=None
+        url: str,
+        input_type: str,
+        secret: str = 'request',
+        header: Union[None, dict] = None
     ):
         """
         Parameters
@@ -78,7 +80,7 @@ class DeployedAnalytic(BaseObject):
     def header(self, value):
         self._header = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         return {
             'className': 'DeployedAnalytic',
             'params': {

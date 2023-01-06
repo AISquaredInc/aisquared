@@ -30,13 +30,13 @@ class TableRendering(BaseObject):
 
     def __init__(
         self,
-        label,
-        id,
-        container_id,
-        prediction_name_key,
-        prediction_value_key,
-        prediction_name_values,
-        table_name='',
+        label: str,
+        id: str,
+        container_id: str,
+        prediction_name_key: str,
+        prediction_value_key: str,
+        prediction_name_values: str,
+        table_name: str = '',
     ):
         """
         Parameters
@@ -64,7 +64,7 @@ class TableRendering(BaseObject):
         self.prediction_name_values = prediction_name_values
         self.table_name = table_name
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
