@@ -91,53 +91,72 @@
 </span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>
 </span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>
 </span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a><span class="k">class</span> <span class="nc">ModelFeedback</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
-</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a><span class="sd">    Feedback object for questions and answers for an individual model.</span>
-</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a>
-</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">questions</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a>
-</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a>    <span class="k">def</span> <span class="nf">add_question</span><span class="p">(</span>
-</span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a>        <span class="bp">self</span><span class="p">,</span>
-</span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a>        <span class="n">question</span><span class="p">,</span>
-</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a>        <span class="n">answer_type</span><span class="o">=</span><span class="s1">&#39;singleChoice&#39;</span><span class="p">,</span>
-</span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a>        <span class="n">choices</span><span class="o">=</span><span class="p">[]</span>
-</span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a>    <span class="p">):</span>
-</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a><span class="sd">        Add a question to be asked.</span>
-</span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a>
-</span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a><span class="sd">        Parameters</span>
-</span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a><span class="sd">        ----------</span>
-</span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a><span class="sd">        question : str</span>
-</span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a><span class="sd">            The question to be asked.</span>
-</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a><span class="sd">        answer_type : str (default &#39;singleChoice&#39;)</span>
-</span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a><span class="sd">            One of either &#39;singleChoice&#39;, &#39;multiChoice&#39;, or &#39;text&#39;</span>
-</span><span id="L-49"><a href="#L-49"><span class="linenos">49</span></a><span class="sd">        choices : list (default [])</span>
-</span><span id="L-50"><a href="#L-50"><span class="linenos">50</span></a><span class="sd">            The choices to be provided, if `answer_type` is &#39;singleChoice&#39; or &#39;multiChoice&#39;</span>
-</span><span id="L-51"><a href="#L-51"><span class="linenos">51</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-52"><a href="#L-52"><span class="linenos">52</span></a>        <span class="k">if</span> <span class="n">answer_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;singleChoice&#39;</span><span class="p">,</span> <span class="s1">&#39;multiChoice&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">choices</span> <span class="o">==</span> <span class="p">[]:</span>
-</span><span id="L-53"><a href="#L-53"><span class="linenos">53</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-</span><span id="L-54"><a href="#L-54"><span class="linenos">54</span></a>                <span class="s1">&#39;If singleChoice or multiChoice is indicated, choices must be provided&#39;</span><span class="p">)</span>
-</span><span id="L-55"><a href="#L-55"><span class="linenos">55</span></a>
-</span><span id="L-56"><a href="#L-56"><span class="linenos">56</span></a>        <span class="k">if</span> <span class="n">answer_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;singleChoice&#39;</span><span class="p">,</span> <span class="s1">&#39;multiChoice&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">]:</span>
-</span><span id="L-57"><a href="#L-57"><span class="linenos">57</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-</span><span id="L-58"><a href="#L-58"><span class="linenos">58</span></a>                <span class="s1">&#39;answer_type must be one of &quot;singleChoice&quot;, &quot;multiChoice&quot;, or &quot;text&quot;&#39;</span><span class="p">)</span>
-</span><span id="L-59"><a href="#L-59"><span class="linenos">59</span></a>
-</span><span id="L-60"><a href="#L-60"><span class="linenos">60</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">questions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_create_question_dict</span><span class="p">(</span>
-</span><span id="L-61"><a href="#L-61"><span class="linenos">61</span></a>            <span class="n">question</span><span class="p">,</span> <span class="n">answer_type</span><span class="p">,</span> <span class="n">choices</span><span class="p">))</span>
-</span><span id="L-62"><a href="#L-62"><span class="linenos">62</span></a>
-</span><span id="L-63"><a href="#L-63"><span class="linenos">63</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-64"><a href="#L-64"><span class="linenos">64</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-65"><a href="#L-65"><span class="linenos">65</span></a><span class="sd">        Return the object as a dictionary</span>
-</span><span id="L-66"><a href="#L-66"><span class="linenos">66</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-67"><a href="#L-67"><span class="linenos">67</span></a>        <span class="k">return</span> <span class="p">{</span>
-</span><span id="L-68"><a href="#L-68"><span class="linenos">68</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;ModelFeedback&#39;</span><span class="p">,</span>
-</span><span id="L-69"><a href="#L-69"><span class="linenos">69</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
-</span><span id="L-70"><a href="#L-70"><span class="linenos">70</span></a>                <span class="s1">&#39;questions&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">questions</span>
-</span><span id="L-71"><a href="#L-71"><span class="linenos">71</span></a>            <span class="p">}</span>
-</span><span id="L-72"><a href="#L-72"><span class="linenos">72</span></a>        <span class="p">}</span>
+</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a>
+</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a><span class="sd">    Example usage:</span>
+</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>
+</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a><span class="sd">    &gt;&gt;&gt; import aisquared</span>
+</span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a><span class="sd">    &gt;&gt;&gt; my_obj = aisquared.config.feedback.ModelFeedback()</span>
+</span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a><span class="sd">    &gt;&gt;&gt; my_obj.add_question(</span>
+</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a><span class="sd">        &#39;How is the model performing?&#39;,</span>
+</span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a><span class="sd">        choices = [&#39;very poorly&#39;, &#39;poorly&#39;, &#39;neutral&#39;, &#39;well&#39;, &#39;very well&#39;]</span>
+</span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a><span class="sd">    )</span>
+</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a><span class="sd">    &gt;&gt;&gt; my_obj.add_question(</span>
+</span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a><span class="sd">        &#39;Any additional feedback?&#39;,</span>
+</span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a><span class="sd">        &#39;text&#39;</span>
+</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a><span class="sd">    )</span>
+</span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a><span class="sd">    &gt;&gt;&gt; my_obj.to_dict()</span>
+</span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a><span class="sd">    {&#39;className&#39;: &#39;ModelFeedback&#39;,</span>
+</span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a><span class="sd">    &#39;params&#39;: {&#39;questions&#39;: [{&#39;question&#39;: &#39;How is the model performing?&#39;,</span>
+</span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a><span class="sd">    &#39;answerType&#39;: &#39;singleChoice&#39;,</span>
+</span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a><span class="sd">    &#39;choices&#39;: [&#39;very poorly&#39;, &#39;poorly&#39;, &#39;neutral&#39;, &#39;well&#39;, &#39;very well&#39;]},</span>
+</span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a><span class="sd">    {&#39;question&#39;: &#39;Any additional feedback?&#39;, &#39;answerType&#39;: &#39;text&#39;}]}}</span>
+</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a>
+</span><span id="L-49"><a href="#L-49"><span class="linenos">49</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-50"><a href="#L-50"><span class="linenos">50</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="L-51"><a href="#L-51"><span class="linenos">51</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">questions</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="L-52"><a href="#L-52"><span class="linenos">52</span></a>
+</span><span id="L-53"><a href="#L-53"><span class="linenos">53</span></a>    <span class="k">def</span> <span class="nf">add_question</span><span class="p">(</span>
+</span><span id="L-54"><a href="#L-54"><span class="linenos">54</span></a>        <span class="bp">self</span><span class="p">,</span>
+</span><span id="L-55"><a href="#L-55"><span class="linenos">55</span></a>        <span class="n">question</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span><span id="L-56"><a href="#L-56"><span class="linenos">56</span></a>        <span class="n">answer_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;singleChoice&#39;</span><span class="p">,</span>
+</span><span id="L-57"><a href="#L-57"><span class="linenos">57</span></a>        <span class="n">choices</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="L-58"><a href="#L-58"><span class="linenos">58</span></a>    <span class="p">):</span>
+</span><span id="L-59"><a href="#L-59"><span class="linenos">59</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-60"><a href="#L-60"><span class="linenos">60</span></a><span class="sd">        Add a question to be asked.</span>
+</span><span id="L-61"><a href="#L-61"><span class="linenos">61</span></a>
+</span><span id="L-62"><a href="#L-62"><span class="linenos">62</span></a><span class="sd">        Parameters</span>
+</span><span id="L-63"><a href="#L-63"><span class="linenos">63</span></a><span class="sd">        ----------</span>
+</span><span id="L-64"><a href="#L-64"><span class="linenos">64</span></a><span class="sd">        question : str</span>
+</span><span id="L-65"><a href="#L-65"><span class="linenos">65</span></a><span class="sd">            The question to be asked.</span>
+</span><span id="L-66"><a href="#L-66"><span class="linenos">66</span></a><span class="sd">        answer_type : str (default &#39;singleChoice&#39;)</span>
+</span><span id="L-67"><a href="#L-67"><span class="linenos">67</span></a><span class="sd">            One of either &#39;singleChoice&#39;, &#39;multiChoice&#39;, or &#39;text&#39;</span>
+</span><span id="L-68"><a href="#L-68"><span class="linenos">68</span></a><span class="sd">        choices : list (default [])</span>
+</span><span id="L-69"><a href="#L-69"><span class="linenos">69</span></a><span class="sd">            The choices to be provided, if `answer_type` is &#39;singleChoice&#39; or &#39;multiChoice&#39;</span>
+</span><span id="L-70"><a href="#L-70"><span class="linenos">70</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-71"><a href="#L-71"><span class="linenos">71</span></a>        <span class="k">if</span> <span class="n">answer_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;singleChoice&#39;</span><span class="p">,</span> <span class="s1">&#39;multiChoice&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">choices</span> <span class="o">==</span> <span class="p">[]:</span>
+</span><span id="L-72"><a href="#L-72"><span class="linenos">72</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="L-73"><a href="#L-73"><span class="linenos">73</span></a>                <span class="s1">&#39;If singleChoice or multiChoice is indicated, choices must be provided&#39;</span><span class="p">)</span>
+</span><span id="L-74"><a href="#L-74"><span class="linenos">74</span></a>
+</span><span id="L-75"><a href="#L-75"><span class="linenos">75</span></a>        <span class="k">if</span> <span class="n">answer_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;singleChoice&#39;</span><span class="p">,</span> <span class="s1">&#39;multiChoice&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">]:</span>
+</span><span id="L-76"><a href="#L-76"><span class="linenos">76</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="L-77"><a href="#L-77"><span class="linenos">77</span></a>                <span class="s1">&#39;answer_type must be one of &quot;singleChoice&quot;, &quot;multiChoice&quot;, or &quot;text&quot;&#39;</span><span class="p">)</span>
+</span><span id="L-78"><a href="#L-78"><span class="linenos">78</span></a>
+</span><span id="L-79"><a href="#L-79"><span class="linenos">79</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">questions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_create_question_dict</span><span class="p">(</span>
+</span><span id="L-80"><a href="#L-80"><span class="linenos">80</span></a>            <span class="n">question</span><span class="p">,</span> <span class="n">answer_type</span><span class="p">,</span> <span class="n">choices</span><span class="p">))</span>
+</span><span id="L-81"><a href="#L-81"><span class="linenos">81</span></a>
+</span><span id="L-82"><a href="#L-82"><span class="linenos">82</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="L-83"><a href="#L-83"><span class="linenos">83</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-84"><a href="#L-84"><span class="linenos">84</span></a><span class="sd">        Return the object as a dictionary</span>
+</span><span id="L-85"><a href="#L-85"><span class="linenos">85</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-86"><a href="#L-86"><span class="linenos">86</span></a>        <span class="k">return</span> <span class="p">{</span>
+</span><span id="L-87"><a href="#L-87"><span class="linenos">87</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;ModelFeedback&#39;</span><span class="p">,</span>
+</span><span id="L-88"><a href="#L-88"><span class="linenos">88</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="L-89"><a href="#L-89"><span class="linenos">89</span></a>                <span class="s1">&#39;questions&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">questions</span>
+</span><span id="L-90"><a href="#L-90"><span class="linenos">90</span></a>            <span class="p">}</span>
+</span><span id="L-91"><a href="#L-91"><span class="linenos">91</span></a>        <span class="p">}</span>
 </span></pre></div>
 
 
@@ -154,57 +173,98 @@
     </div>
     <a class="headerlink" href="#ModelFeedback"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="ModelFeedback-26"><a href="#ModelFeedback-26"><span class="linenos">26</span></a><span class="k">class</span> <span class="nc">ModelFeedback</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
-</span><span id="ModelFeedback-27"><a href="#ModelFeedback-27"><span class="linenos">27</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="ModelFeedback-27"><a href="#ModelFeedback-27"><span class="linenos">27</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="ModelFeedback-28"><a href="#ModelFeedback-28"><span class="linenos">28</span></a><span class="sd">    Feedback object for questions and answers for an individual model.</span>
-</span><span id="ModelFeedback-29"><a href="#ModelFeedback-29"><span class="linenos">29</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="ModelFeedback-30"><a href="#ModelFeedback-30"><span class="linenos">30</span></a>
-</span><span id="ModelFeedback-31"><a href="#ModelFeedback-31"><span class="linenos">31</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="ModelFeedback-32"><a href="#ModelFeedback-32"><span class="linenos">32</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="ModelFeedback-33"><a href="#ModelFeedback-33"><span class="linenos">33</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">questions</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="ModelFeedback-34"><a href="#ModelFeedback-34"><span class="linenos">34</span></a>
-</span><span id="ModelFeedback-35"><a href="#ModelFeedback-35"><span class="linenos">35</span></a>    <span class="k">def</span> <span class="nf">add_question</span><span class="p">(</span>
-</span><span id="ModelFeedback-36"><a href="#ModelFeedback-36"><span class="linenos">36</span></a>        <span class="bp">self</span><span class="p">,</span>
-</span><span id="ModelFeedback-37"><a href="#ModelFeedback-37"><span class="linenos">37</span></a>        <span class="n">question</span><span class="p">,</span>
-</span><span id="ModelFeedback-38"><a href="#ModelFeedback-38"><span class="linenos">38</span></a>        <span class="n">answer_type</span><span class="o">=</span><span class="s1">&#39;singleChoice&#39;</span><span class="p">,</span>
-</span><span id="ModelFeedback-39"><a href="#ModelFeedback-39"><span class="linenos">39</span></a>        <span class="n">choices</span><span class="o">=</span><span class="p">[]</span>
-</span><span id="ModelFeedback-40"><a href="#ModelFeedback-40"><span class="linenos">40</span></a>    <span class="p">):</span>
-</span><span id="ModelFeedback-41"><a href="#ModelFeedback-41"><span class="linenos">41</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="ModelFeedback-42"><a href="#ModelFeedback-42"><span class="linenos">42</span></a><span class="sd">        Add a question to be asked.</span>
-</span><span id="ModelFeedback-43"><a href="#ModelFeedback-43"><span class="linenos">43</span></a>
-</span><span id="ModelFeedback-44"><a href="#ModelFeedback-44"><span class="linenos">44</span></a><span class="sd">        Parameters</span>
-</span><span id="ModelFeedback-45"><a href="#ModelFeedback-45"><span class="linenos">45</span></a><span class="sd">        ----------</span>
-</span><span id="ModelFeedback-46"><a href="#ModelFeedback-46"><span class="linenos">46</span></a><span class="sd">        question : str</span>
-</span><span id="ModelFeedback-47"><a href="#ModelFeedback-47"><span class="linenos">47</span></a><span class="sd">            The question to be asked.</span>
-</span><span id="ModelFeedback-48"><a href="#ModelFeedback-48"><span class="linenos">48</span></a><span class="sd">        answer_type : str (default &#39;singleChoice&#39;)</span>
-</span><span id="ModelFeedback-49"><a href="#ModelFeedback-49"><span class="linenos">49</span></a><span class="sd">            One of either &#39;singleChoice&#39;, &#39;multiChoice&#39;, or &#39;text&#39;</span>
-</span><span id="ModelFeedback-50"><a href="#ModelFeedback-50"><span class="linenos">50</span></a><span class="sd">        choices : list (default [])</span>
-</span><span id="ModelFeedback-51"><a href="#ModelFeedback-51"><span class="linenos">51</span></a><span class="sd">            The choices to be provided, if `answer_type` is &#39;singleChoice&#39; or &#39;multiChoice&#39;</span>
-</span><span id="ModelFeedback-52"><a href="#ModelFeedback-52"><span class="linenos">52</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="ModelFeedback-53"><a href="#ModelFeedback-53"><span class="linenos">53</span></a>        <span class="k">if</span> <span class="n">answer_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;singleChoice&#39;</span><span class="p">,</span> <span class="s1">&#39;multiChoice&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">choices</span> <span class="o">==</span> <span class="p">[]:</span>
-</span><span id="ModelFeedback-54"><a href="#ModelFeedback-54"><span class="linenos">54</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-</span><span id="ModelFeedback-55"><a href="#ModelFeedback-55"><span class="linenos">55</span></a>                <span class="s1">&#39;If singleChoice or multiChoice is indicated, choices must be provided&#39;</span><span class="p">)</span>
-</span><span id="ModelFeedback-56"><a href="#ModelFeedback-56"><span class="linenos">56</span></a>
-</span><span id="ModelFeedback-57"><a href="#ModelFeedback-57"><span class="linenos">57</span></a>        <span class="k">if</span> <span class="n">answer_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;singleChoice&#39;</span><span class="p">,</span> <span class="s1">&#39;multiChoice&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">]:</span>
-</span><span id="ModelFeedback-58"><a href="#ModelFeedback-58"><span class="linenos">58</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-</span><span id="ModelFeedback-59"><a href="#ModelFeedback-59"><span class="linenos">59</span></a>                <span class="s1">&#39;answer_type must be one of &quot;singleChoice&quot;, &quot;multiChoice&quot;, or &quot;text&quot;&#39;</span><span class="p">)</span>
-</span><span id="ModelFeedback-60"><a href="#ModelFeedback-60"><span class="linenos">60</span></a>
-</span><span id="ModelFeedback-61"><a href="#ModelFeedback-61"><span class="linenos">61</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">questions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_create_question_dict</span><span class="p">(</span>
-</span><span id="ModelFeedback-62"><a href="#ModelFeedback-62"><span class="linenos">62</span></a>            <span class="n">question</span><span class="p">,</span> <span class="n">answer_type</span><span class="p">,</span> <span class="n">choices</span><span class="p">))</span>
-</span><span id="ModelFeedback-63"><a href="#ModelFeedback-63"><span class="linenos">63</span></a>
-</span><span id="ModelFeedback-64"><a href="#ModelFeedback-64"><span class="linenos">64</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="ModelFeedback-65"><a href="#ModelFeedback-65"><span class="linenos">65</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="ModelFeedback-66"><a href="#ModelFeedback-66"><span class="linenos">66</span></a><span class="sd">        Return the object as a dictionary</span>
-</span><span id="ModelFeedback-67"><a href="#ModelFeedback-67"><span class="linenos">67</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="ModelFeedback-68"><a href="#ModelFeedback-68"><span class="linenos">68</span></a>        <span class="k">return</span> <span class="p">{</span>
-</span><span id="ModelFeedback-69"><a href="#ModelFeedback-69"><span class="linenos">69</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;ModelFeedback&#39;</span><span class="p">,</span>
-</span><span id="ModelFeedback-70"><a href="#ModelFeedback-70"><span class="linenos">70</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
-</span><span id="ModelFeedback-71"><a href="#ModelFeedback-71"><span class="linenos">71</span></a>                <span class="s1">&#39;questions&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">questions</span>
-</span><span id="ModelFeedback-72"><a href="#ModelFeedback-72"><span class="linenos">72</span></a>            <span class="p">}</span>
-</span><span id="ModelFeedback-73"><a href="#ModelFeedback-73"><span class="linenos">73</span></a>        <span class="p">}</span>
+</span><span id="ModelFeedback-29"><a href="#ModelFeedback-29"><span class="linenos">29</span></a>
+</span><span id="ModelFeedback-30"><a href="#ModelFeedback-30"><span class="linenos">30</span></a><span class="sd">    Example usage:</span>
+</span><span id="ModelFeedback-31"><a href="#ModelFeedback-31"><span class="linenos">31</span></a>
+</span><span id="ModelFeedback-32"><a href="#ModelFeedback-32"><span class="linenos">32</span></a><span class="sd">    &gt;&gt;&gt; import aisquared</span>
+</span><span id="ModelFeedback-33"><a href="#ModelFeedback-33"><span class="linenos">33</span></a><span class="sd">    &gt;&gt;&gt; my_obj = aisquared.config.feedback.ModelFeedback()</span>
+</span><span id="ModelFeedback-34"><a href="#ModelFeedback-34"><span class="linenos">34</span></a><span class="sd">    &gt;&gt;&gt; my_obj.add_question(</span>
+</span><span id="ModelFeedback-35"><a href="#ModelFeedback-35"><span class="linenos">35</span></a><span class="sd">        &#39;How is the model performing?&#39;,</span>
+</span><span id="ModelFeedback-36"><a href="#ModelFeedback-36"><span class="linenos">36</span></a><span class="sd">        choices = [&#39;very poorly&#39;, &#39;poorly&#39;, &#39;neutral&#39;, &#39;well&#39;, &#39;very well&#39;]</span>
+</span><span id="ModelFeedback-37"><a href="#ModelFeedback-37"><span class="linenos">37</span></a><span class="sd">    )</span>
+</span><span id="ModelFeedback-38"><a href="#ModelFeedback-38"><span class="linenos">38</span></a><span class="sd">    &gt;&gt;&gt; my_obj.add_question(</span>
+</span><span id="ModelFeedback-39"><a href="#ModelFeedback-39"><span class="linenos">39</span></a><span class="sd">        &#39;Any additional feedback?&#39;,</span>
+</span><span id="ModelFeedback-40"><a href="#ModelFeedback-40"><span class="linenos">40</span></a><span class="sd">        &#39;text&#39;</span>
+</span><span id="ModelFeedback-41"><a href="#ModelFeedback-41"><span class="linenos">41</span></a><span class="sd">    )</span>
+</span><span id="ModelFeedback-42"><a href="#ModelFeedback-42"><span class="linenos">42</span></a><span class="sd">    &gt;&gt;&gt; my_obj.to_dict()</span>
+</span><span id="ModelFeedback-43"><a href="#ModelFeedback-43"><span class="linenos">43</span></a><span class="sd">    {&#39;className&#39;: &#39;ModelFeedback&#39;,</span>
+</span><span id="ModelFeedback-44"><a href="#ModelFeedback-44"><span class="linenos">44</span></a><span class="sd">    &#39;params&#39;: {&#39;questions&#39;: [{&#39;question&#39;: &#39;How is the model performing?&#39;,</span>
+</span><span id="ModelFeedback-45"><a href="#ModelFeedback-45"><span class="linenos">45</span></a><span class="sd">    &#39;answerType&#39;: &#39;singleChoice&#39;,</span>
+</span><span id="ModelFeedback-46"><a href="#ModelFeedback-46"><span class="linenos">46</span></a><span class="sd">    &#39;choices&#39;: [&#39;very poorly&#39;, &#39;poorly&#39;, &#39;neutral&#39;, &#39;well&#39;, &#39;very well&#39;]},</span>
+</span><span id="ModelFeedback-47"><a href="#ModelFeedback-47"><span class="linenos">47</span></a><span class="sd">    {&#39;question&#39;: &#39;Any additional feedback?&#39;, &#39;answerType&#39;: &#39;text&#39;}]}}</span>
+</span><span id="ModelFeedback-48"><a href="#ModelFeedback-48"><span class="linenos">48</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="ModelFeedback-49"><a href="#ModelFeedback-49"><span class="linenos">49</span></a>
+</span><span id="ModelFeedback-50"><a href="#ModelFeedback-50"><span class="linenos">50</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="ModelFeedback-51"><a href="#ModelFeedback-51"><span class="linenos">51</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="ModelFeedback-52"><a href="#ModelFeedback-52"><span class="linenos">52</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">questions</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="ModelFeedback-53"><a href="#ModelFeedback-53"><span class="linenos">53</span></a>
+</span><span id="ModelFeedback-54"><a href="#ModelFeedback-54"><span class="linenos">54</span></a>    <span class="k">def</span> <span class="nf">add_question</span><span class="p">(</span>
+</span><span id="ModelFeedback-55"><a href="#ModelFeedback-55"><span class="linenos">55</span></a>        <span class="bp">self</span><span class="p">,</span>
+</span><span id="ModelFeedback-56"><a href="#ModelFeedback-56"><span class="linenos">56</span></a>        <span class="n">question</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span><span id="ModelFeedback-57"><a href="#ModelFeedback-57"><span class="linenos">57</span></a>        <span class="n">answer_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;singleChoice&#39;</span><span class="p">,</span>
+</span><span id="ModelFeedback-58"><a href="#ModelFeedback-58"><span class="linenos">58</span></a>        <span class="n">choices</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="ModelFeedback-59"><a href="#ModelFeedback-59"><span class="linenos">59</span></a>    <span class="p">):</span>
+</span><span id="ModelFeedback-60"><a href="#ModelFeedback-60"><span class="linenos">60</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="ModelFeedback-61"><a href="#ModelFeedback-61"><span class="linenos">61</span></a><span class="sd">        Add a question to be asked.</span>
+</span><span id="ModelFeedback-62"><a href="#ModelFeedback-62"><span class="linenos">62</span></a>
+</span><span id="ModelFeedback-63"><a href="#ModelFeedback-63"><span class="linenos">63</span></a><span class="sd">        Parameters</span>
+</span><span id="ModelFeedback-64"><a href="#ModelFeedback-64"><span class="linenos">64</span></a><span class="sd">        ----------</span>
+</span><span id="ModelFeedback-65"><a href="#ModelFeedback-65"><span class="linenos">65</span></a><span class="sd">        question : str</span>
+</span><span id="ModelFeedback-66"><a href="#ModelFeedback-66"><span class="linenos">66</span></a><span class="sd">            The question to be asked.</span>
+</span><span id="ModelFeedback-67"><a href="#ModelFeedback-67"><span class="linenos">67</span></a><span class="sd">        answer_type : str (default &#39;singleChoice&#39;)</span>
+</span><span id="ModelFeedback-68"><a href="#ModelFeedback-68"><span class="linenos">68</span></a><span class="sd">            One of either &#39;singleChoice&#39;, &#39;multiChoice&#39;, or &#39;text&#39;</span>
+</span><span id="ModelFeedback-69"><a href="#ModelFeedback-69"><span class="linenos">69</span></a><span class="sd">        choices : list (default [])</span>
+</span><span id="ModelFeedback-70"><a href="#ModelFeedback-70"><span class="linenos">70</span></a><span class="sd">            The choices to be provided, if `answer_type` is &#39;singleChoice&#39; or &#39;multiChoice&#39;</span>
+</span><span id="ModelFeedback-71"><a href="#ModelFeedback-71"><span class="linenos">71</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="ModelFeedback-72"><a href="#ModelFeedback-72"><span class="linenos">72</span></a>        <span class="k">if</span> <span class="n">answer_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;singleChoice&#39;</span><span class="p">,</span> <span class="s1">&#39;multiChoice&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">choices</span> <span class="o">==</span> <span class="p">[]:</span>
+</span><span id="ModelFeedback-73"><a href="#ModelFeedback-73"><span class="linenos">73</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="ModelFeedback-74"><a href="#ModelFeedback-74"><span class="linenos">74</span></a>                <span class="s1">&#39;If singleChoice or multiChoice is indicated, choices must be provided&#39;</span><span class="p">)</span>
+</span><span id="ModelFeedback-75"><a href="#ModelFeedback-75"><span class="linenos">75</span></a>
+</span><span id="ModelFeedback-76"><a href="#ModelFeedback-76"><span class="linenos">76</span></a>        <span class="k">if</span> <span class="n">answer_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;singleChoice&#39;</span><span class="p">,</span> <span class="s1">&#39;multiChoice&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">]:</span>
+</span><span id="ModelFeedback-77"><a href="#ModelFeedback-77"><span class="linenos">77</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="ModelFeedback-78"><a href="#ModelFeedback-78"><span class="linenos">78</span></a>                <span class="s1">&#39;answer_type must be one of &quot;singleChoice&quot;, &quot;multiChoice&quot;, or &quot;text&quot;&#39;</span><span class="p">)</span>
+</span><span id="ModelFeedback-79"><a href="#ModelFeedback-79"><span class="linenos">79</span></a>
+</span><span id="ModelFeedback-80"><a href="#ModelFeedback-80"><span class="linenos">80</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">questions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_create_question_dict</span><span class="p">(</span>
+</span><span id="ModelFeedback-81"><a href="#ModelFeedback-81"><span class="linenos">81</span></a>            <span class="n">question</span><span class="p">,</span> <span class="n">answer_type</span><span class="p">,</span> <span class="n">choices</span><span class="p">))</span>
+</span><span id="ModelFeedback-82"><a href="#ModelFeedback-82"><span class="linenos">82</span></a>
+</span><span id="ModelFeedback-83"><a href="#ModelFeedback-83"><span class="linenos">83</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="ModelFeedback-84"><a href="#ModelFeedback-84"><span class="linenos">84</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="ModelFeedback-85"><a href="#ModelFeedback-85"><span class="linenos">85</span></a><span class="sd">        Return the object as a dictionary</span>
+</span><span id="ModelFeedback-86"><a href="#ModelFeedback-86"><span class="linenos">86</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="ModelFeedback-87"><a href="#ModelFeedback-87"><span class="linenos">87</span></a>        <span class="k">return</span> <span class="p">{</span>
+</span><span id="ModelFeedback-88"><a href="#ModelFeedback-88"><span class="linenos">88</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;ModelFeedback&#39;</span><span class="p">,</span>
+</span><span id="ModelFeedback-89"><a href="#ModelFeedback-89"><span class="linenos">89</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="ModelFeedback-90"><a href="#ModelFeedback-90"><span class="linenos">90</span></a>                <span class="s1">&#39;questions&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">questions</span>
+</span><span id="ModelFeedback-91"><a href="#ModelFeedback-91"><span class="linenos">91</span></a>            <span class="p">}</span>
+</span><span id="ModelFeedback-92"><a href="#ModelFeedback-92"><span class="linenos">92</span></a>        <span class="p">}</span>
 </span></pre></div>
 
 
             <div class="docstring"><p>Feedback object for questions and answers for an individual model.</p>
+
+<p>Example usage:</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span> <span class="o">=</span> <span class="n"><a href="">aisquared.config.feedback.ModelFeedback</a></span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span><span class="o">.</span><span class="n">add_question</span><span class="p">(</span>
+<span class="go">    &#39;How is the model performing?&#39;,</span>
+<span class="go">    choices = [&#39;very poorly&#39;, &#39;poorly&#39;, &#39;neutral&#39;, &#39;well&#39;, &#39;very well&#39;]</span>
+<span class="go">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span><span class="o">.</span><span class="n">add_question</span><span class="p">(</span>
+<span class="go">    &#39;Any additional feedback?&#39;,</span>
+<span class="go">    &#39;text&#39;</span>
+<span class="go">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="go">{&#39;className&#39;: &#39;ModelFeedback&#39;,</span>
+<span class="go">&#39;params&#39;: {&#39;questions&#39;: [{&#39;question&#39;: &#39;How is the model performing?&#39;,</span>
+<span class="go">&#39;answerType&#39;: &#39;singleChoice&#39;,</span>
+<span class="go">&#39;choices&#39;: [&#39;very poorly&#39;, &#39;poorly&#39;, &#39;neutral&#39;, &#39;well&#39;, &#39;very well&#39;]},</span>
+<span class="go">{&#39;question&#39;: &#39;Any additional feedback?&#39;, &#39;answerType&#39;: &#39;text&#39;}]}}</span>
+</code></pre>
+</div>
 </div>
 
 
@@ -218,9 +278,9 @@
 
     </div>
     <a class="headerlink" href="#ModelFeedback.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="ModelFeedback.__init__-31"><a href="#ModelFeedback.__init__-31"><span class="linenos">31</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="ModelFeedback.__init__-32"><a href="#ModelFeedback.__init__-32"><span class="linenos">32</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="ModelFeedback.__init__-33"><a href="#ModelFeedback.__init__-33"><span class="linenos">33</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">questions</span> <span class="o">=</span> <span class="p">[]</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="ModelFeedback.__init__-50"><a href="#ModelFeedback.__init__-50"><span class="linenos">50</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="ModelFeedback.__init__-51"><a href="#ModelFeedback.__init__-51"><span class="linenos">51</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="ModelFeedback.__init__-52"><a href="#ModelFeedback.__init__-52"><span class="linenos">52</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">questions</span> <span class="o">=</span> <span class="p">[]</span>
 </span></pre></div>
 
 
@@ -232,40 +292,40 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">add_question</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">question</span>, </span><span class="param"><span class="n">answer_type</span><span class="o">=</span><span class="s1">&#39;singleChoice&#39;</span>, </span><span class="param"><span class="n">choices</span><span class="o">=</span><span class="p">[]</span></span><span class="return-annotation">):</span></span>
+        <span class="name">add_question</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">question</span><span class="p">:</span> <span class="nb">str</span>,</span><span class="param">	<span class="n">answer_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;singleChoice&#39;</span>,</span><span class="param">	<span class="n">choices</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span></span><span class="return-annotation">):</span></span>
 
                 <label class="view-source-button" for="ModelFeedback.add_question-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#ModelFeedback.add_question"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="ModelFeedback.add_question-35"><a href="#ModelFeedback.add_question-35"><span class="linenos">35</span></a>    <span class="k">def</span> <span class="nf">add_question</span><span class="p">(</span>
-</span><span id="ModelFeedback.add_question-36"><a href="#ModelFeedback.add_question-36"><span class="linenos">36</span></a>        <span class="bp">self</span><span class="p">,</span>
-</span><span id="ModelFeedback.add_question-37"><a href="#ModelFeedback.add_question-37"><span class="linenos">37</span></a>        <span class="n">question</span><span class="p">,</span>
-</span><span id="ModelFeedback.add_question-38"><a href="#ModelFeedback.add_question-38"><span class="linenos">38</span></a>        <span class="n">answer_type</span><span class="o">=</span><span class="s1">&#39;singleChoice&#39;</span><span class="p">,</span>
-</span><span id="ModelFeedback.add_question-39"><a href="#ModelFeedback.add_question-39"><span class="linenos">39</span></a>        <span class="n">choices</span><span class="o">=</span><span class="p">[]</span>
-</span><span id="ModelFeedback.add_question-40"><a href="#ModelFeedback.add_question-40"><span class="linenos">40</span></a>    <span class="p">):</span>
-</span><span id="ModelFeedback.add_question-41"><a href="#ModelFeedback.add_question-41"><span class="linenos">41</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="ModelFeedback.add_question-42"><a href="#ModelFeedback.add_question-42"><span class="linenos">42</span></a><span class="sd">        Add a question to be asked.</span>
-</span><span id="ModelFeedback.add_question-43"><a href="#ModelFeedback.add_question-43"><span class="linenos">43</span></a>
-</span><span id="ModelFeedback.add_question-44"><a href="#ModelFeedback.add_question-44"><span class="linenos">44</span></a><span class="sd">        Parameters</span>
-</span><span id="ModelFeedback.add_question-45"><a href="#ModelFeedback.add_question-45"><span class="linenos">45</span></a><span class="sd">        ----------</span>
-</span><span id="ModelFeedback.add_question-46"><a href="#ModelFeedback.add_question-46"><span class="linenos">46</span></a><span class="sd">        question : str</span>
-</span><span id="ModelFeedback.add_question-47"><a href="#ModelFeedback.add_question-47"><span class="linenos">47</span></a><span class="sd">            The question to be asked.</span>
-</span><span id="ModelFeedback.add_question-48"><a href="#ModelFeedback.add_question-48"><span class="linenos">48</span></a><span class="sd">        answer_type : str (default &#39;singleChoice&#39;)</span>
-</span><span id="ModelFeedback.add_question-49"><a href="#ModelFeedback.add_question-49"><span class="linenos">49</span></a><span class="sd">            One of either &#39;singleChoice&#39;, &#39;multiChoice&#39;, or &#39;text&#39;</span>
-</span><span id="ModelFeedback.add_question-50"><a href="#ModelFeedback.add_question-50"><span class="linenos">50</span></a><span class="sd">        choices : list (default [])</span>
-</span><span id="ModelFeedback.add_question-51"><a href="#ModelFeedback.add_question-51"><span class="linenos">51</span></a><span class="sd">            The choices to be provided, if `answer_type` is &#39;singleChoice&#39; or &#39;multiChoice&#39;</span>
-</span><span id="ModelFeedback.add_question-52"><a href="#ModelFeedback.add_question-52"><span class="linenos">52</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="ModelFeedback.add_question-53"><a href="#ModelFeedback.add_question-53"><span class="linenos">53</span></a>        <span class="k">if</span> <span class="n">answer_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;singleChoice&#39;</span><span class="p">,</span> <span class="s1">&#39;multiChoice&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">choices</span> <span class="o">==</span> <span class="p">[]:</span>
-</span><span id="ModelFeedback.add_question-54"><a href="#ModelFeedback.add_question-54"><span class="linenos">54</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-</span><span id="ModelFeedback.add_question-55"><a href="#ModelFeedback.add_question-55"><span class="linenos">55</span></a>                <span class="s1">&#39;If singleChoice or multiChoice is indicated, choices must be provided&#39;</span><span class="p">)</span>
-</span><span id="ModelFeedback.add_question-56"><a href="#ModelFeedback.add_question-56"><span class="linenos">56</span></a>
-</span><span id="ModelFeedback.add_question-57"><a href="#ModelFeedback.add_question-57"><span class="linenos">57</span></a>        <span class="k">if</span> <span class="n">answer_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;singleChoice&#39;</span><span class="p">,</span> <span class="s1">&#39;multiChoice&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">]:</span>
-</span><span id="ModelFeedback.add_question-58"><a href="#ModelFeedback.add_question-58"><span class="linenos">58</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-</span><span id="ModelFeedback.add_question-59"><a href="#ModelFeedback.add_question-59"><span class="linenos">59</span></a>                <span class="s1">&#39;answer_type must be one of &quot;singleChoice&quot;, &quot;multiChoice&quot;, or &quot;text&quot;&#39;</span><span class="p">)</span>
-</span><span id="ModelFeedback.add_question-60"><a href="#ModelFeedback.add_question-60"><span class="linenos">60</span></a>
-</span><span id="ModelFeedback.add_question-61"><a href="#ModelFeedback.add_question-61"><span class="linenos">61</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">questions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_create_question_dict</span><span class="p">(</span>
-</span><span id="ModelFeedback.add_question-62"><a href="#ModelFeedback.add_question-62"><span class="linenos">62</span></a>            <span class="n">question</span><span class="p">,</span> <span class="n">answer_type</span><span class="p">,</span> <span class="n">choices</span><span class="p">))</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="ModelFeedback.add_question-54"><a href="#ModelFeedback.add_question-54"><span class="linenos">54</span></a>    <span class="k">def</span> <span class="nf">add_question</span><span class="p">(</span>
+</span><span id="ModelFeedback.add_question-55"><a href="#ModelFeedback.add_question-55"><span class="linenos">55</span></a>        <span class="bp">self</span><span class="p">,</span>
+</span><span id="ModelFeedback.add_question-56"><a href="#ModelFeedback.add_question-56"><span class="linenos">56</span></a>        <span class="n">question</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span><span id="ModelFeedback.add_question-57"><a href="#ModelFeedback.add_question-57"><span class="linenos">57</span></a>        <span class="n">answer_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;singleChoice&#39;</span><span class="p">,</span>
+</span><span id="ModelFeedback.add_question-58"><a href="#ModelFeedback.add_question-58"><span class="linenos">58</span></a>        <span class="n">choices</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="ModelFeedback.add_question-59"><a href="#ModelFeedback.add_question-59"><span class="linenos">59</span></a>    <span class="p">):</span>
+</span><span id="ModelFeedback.add_question-60"><a href="#ModelFeedback.add_question-60"><span class="linenos">60</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="ModelFeedback.add_question-61"><a href="#ModelFeedback.add_question-61"><span class="linenos">61</span></a><span class="sd">        Add a question to be asked.</span>
+</span><span id="ModelFeedback.add_question-62"><a href="#ModelFeedback.add_question-62"><span class="linenos">62</span></a>
+</span><span id="ModelFeedback.add_question-63"><a href="#ModelFeedback.add_question-63"><span class="linenos">63</span></a><span class="sd">        Parameters</span>
+</span><span id="ModelFeedback.add_question-64"><a href="#ModelFeedback.add_question-64"><span class="linenos">64</span></a><span class="sd">        ----------</span>
+</span><span id="ModelFeedback.add_question-65"><a href="#ModelFeedback.add_question-65"><span class="linenos">65</span></a><span class="sd">        question : str</span>
+</span><span id="ModelFeedback.add_question-66"><a href="#ModelFeedback.add_question-66"><span class="linenos">66</span></a><span class="sd">            The question to be asked.</span>
+</span><span id="ModelFeedback.add_question-67"><a href="#ModelFeedback.add_question-67"><span class="linenos">67</span></a><span class="sd">        answer_type : str (default &#39;singleChoice&#39;)</span>
+</span><span id="ModelFeedback.add_question-68"><a href="#ModelFeedback.add_question-68"><span class="linenos">68</span></a><span class="sd">            One of either &#39;singleChoice&#39;, &#39;multiChoice&#39;, or &#39;text&#39;</span>
+</span><span id="ModelFeedback.add_question-69"><a href="#ModelFeedback.add_question-69"><span class="linenos">69</span></a><span class="sd">        choices : list (default [])</span>
+</span><span id="ModelFeedback.add_question-70"><a href="#ModelFeedback.add_question-70"><span class="linenos">70</span></a><span class="sd">            The choices to be provided, if `answer_type` is &#39;singleChoice&#39; or &#39;multiChoice&#39;</span>
+</span><span id="ModelFeedback.add_question-71"><a href="#ModelFeedback.add_question-71"><span class="linenos">71</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="ModelFeedback.add_question-72"><a href="#ModelFeedback.add_question-72"><span class="linenos">72</span></a>        <span class="k">if</span> <span class="n">answer_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;singleChoice&#39;</span><span class="p">,</span> <span class="s1">&#39;multiChoice&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">choices</span> <span class="o">==</span> <span class="p">[]:</span>
+</span><span id="ModelFeedback.add_question-73"><a href="#ModelFeedback.add_question-73"><span class="linenos">73</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="ModelFeedback.add_question-74"><a href="#ModelFeedback.add_question-74"><span class="linenos">74</span></a>                <span class="s1">&#39;If singleChoice or multiChoice is indicated, choices must be provided&#39;</span><span class="p">)</span>
+</span><span id="ModelFeedback.add_question-75"><a href="#ModelFeedback.add_question-75"><span class="linenos">75</span></a>
+</span><span id="ModelFeedback.add_question-76"><a href="#ModelFeedback.add_question-76"><span class="linenos">76</span></a>        <span class="k">if</span> <span class="n">answer_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;singleChoice&#39;</span><span class="p">,</span> <span class="s1">&#39;multiChoice&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">]:</span>
+</span><span id="ModelFeedback.add_question-77"><a href="#ModelFeedback.add_question-77"><span class="linenos">77</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="ModelFeedback.add_question-78"><a href="#ModelFeedback.add_question-78"><span class="linenos">78</span></a>                <span class="s1">&#39;answer_type must be one of &quot;singleChoice&quot;, &quot;multiChoice&quot;, or &quot;text&quot;&#39;</span><span class="p">)</span>
+</span><span id="ModelFeedback.add_question-79"><a href="#ModelFeedback.add_question-79"><span class="linenos">79</span></a>
+</span><span id="ModelFeedback.add_question-80"><a href="#ModelFeedback.add_question-80"><span class="linenos">80</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">questions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_create_question_dict</span><span class="p">(</span>
+</span><span id="ModelFeedback.add_question-81"><a href="#ModelFeedback.add_question-81"><span class="linenos">81</span></a>            <span class="n">question</span><span class="p">,</span> <span class="n">answer_type</span><span class="p">,</span> <span class="n">choices</span><span class="p">))</span>
 </span></pre></div>
 
 
@@ -290,22 +350,22 @@ The choices to be provided, if <code>answer_type</code> is 'singleChoice' or 'mu
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">to_dict</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
+        <span class="name">to_dict</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="nb">dict</span>:</span></span>
 
                 <label class="view-source-button" for="ModelFeedback.to_dict-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#ModelFeedback.to_dict"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="ModelFeedback.to_dict-64"><a href="#ModelFeedback.to_dict-64"><span class="linenos">64</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="ModelFeedback.to_dict-65"><a href="#ModelFeedback.to_dict-65"><span class="linenos">65</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="ModelFeedback.to_dict-66"><a href="#ModelFeedback.to_dict-66"><span class="linenos">66</span></a><span class="sd">        Return the object as a dictionary</span>
-</span><span id="ModelFeedback.to_dict-67"><a href="#ModelFeedback.to_dict-67"><span class="linenos">67</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="ModelFeedback.to_dict-68"><a href="#ModelFeedback.to_dict-68"><span class="linenos">68</span></a>        <span class="k">return</span> <span class="p">{</span>
-</span><span id="ModelFeedback.to_dict-69"><a href="#ModelFeedback.to_dict-69"><span class="linenos">69</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;ModelFeedback&#39;</span><span class="p">,</span>
-</span><span id="ModelFeedback.to_dict-70"><a href="#ModelFeedback.to_dict-70"><span class="linenos">70</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
-</span><span id="ModelFeedback.to_dict-71"><a href="#ModelFeedback.to_dict-71"><span class="linenos">71</span></a>                <span class="s1">&#39;questions&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">questions</span>
-</span><span id="ModelFeedback.to_dict-72"><a href="#ModelFeedback.to_dict-72"><span class="linenos">72</span></a>            <span class="p">}</span>
-</span><span id="ModelFeedback.to_dict-73"><a href="#ModelFeedback.to_dict-73"><span class="linenos">73</span></a>        <span class="p">}</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="ModelFeedback.to_dict-83"><a href="#ModelFeedback.to_dict-83"><span class="linenos">83</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="ModelFeedback.to_dict-84"><a href="#ModelFeedback.to_dict-84"><span class="linenos">84</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="ModelFeedback.to_dict-85"><a href="#ModelFeedback.to_dict-85"><span class="linenos">85</span></a><span class="sd">        Return the object as a dictionary</span>
+</span><span id="ModelFeedback.to_dict-86"><a href="#ModelFeedback.to_dict-86"><span class="linenos">86</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="ModelFeedback.to_dict-87"><a href="#ModelFeedback.to_dict-87"><span class="linenos">87</span></a>        <span class="k">return</span> <span class="p">{</span>
+</span><span id="ModelFeedback.to_dict-88"><a href="#ModelFeedback.to_dict-88"><span class="linenos">88</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;ModelFeedback&#39;</span><span class="p">,</span>
+</span><span id="ModelFeedback.to_dict-89"><a href="#ModelFeedback.to_dict-89"><span class="linenos">89</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="ModelFeedback.to_dict-90"><a href="#ModelFeedback.to_dict-90"><span class="linenos">90</span></a>                <span class="s1">&#39;questions&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">questions</span>
+</span><span id="ModelFeedback.to_dict-91"><a href="#ModelFeedback.to_dict-91"><span class="linenos">91</span></a>            <span class="p">}</span>
+</span><span id="ModelFeedback.to_dict-92"><a href="#ModelFeedback.to_dict-92"><span class="linenos">92</span></a>        <span class="p">}</span>
 </span></pre></div>
 
 

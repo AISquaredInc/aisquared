@@ -67,58 +67,66 @@
 </span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a>
 </span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a>
 </span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="k">class</span> <span class="nc">SOSRendering</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
-</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="sd">    Rendering of an SOS dashboard</span>
-</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a>
-</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a>        <span class="bp">self</span><span class="p">,</span>
-</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a>        <span class="n">can_toggle</span><span class="p">,</span>
-</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
-</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>    <span class="p">):</span>
-</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="sd">        Parameters</span>
-</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a><span class="sd">        ----------</span>
-</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a><span class="sd">        can_toggle : bool</span>
-</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="sd">            Whether the dashboard can be toggled on and off</span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a><span class="sd">        label : str (default &#39;&#39;)</span>
-</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a><span class="sd">            The label for the rendering</span>
-</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">can_toggle</span> <span class="o">=</span> <span class="n">can_toggle</span>
-</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label</span>
-</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>
-</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>    <span class="nd">@property</span>
-</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a>    <span class="k">def</span> <span class="nf">can_toggle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_can_toggle</span>
-</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a>
-</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>    <span class="nd">@can_toggle</span><span class="o">.</span><span class="n">setter</span>
-</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>    <span class="k">def</span> <span class="nf">can_toggle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-</span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="ow">and</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;can_toggle must be boolean or None&#39;</span><span class="p">)</span>
-</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_can_toggle</span> <span class="o">=</span> <span class="n">value</span>
-</span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a>
-</span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a>    <span class="nd">@property</span>
-</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a>    <span class="k">def</span> <span class="nf">label</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_label</span>
-</span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a>
-</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a>    <span class="nd">@label</span><span class="o">.</span><span class="n">setter</span>
-</span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a>    <span class="k">def</span> <span class="nf">label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-</span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;label must be str&#39;</span><span class="p">)</span>
-</span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_label</span> <span class="o">=</span> <span class="n">value</span>
-</span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a>
-</span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a><span class="sd">        Get the configuration object as a dictionary</span>
-</span><span id="L-49"><a href="#L-49"><span class="linenos">49</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-50"><a href="#L-50"><span class="linenos">50</span></a>        <span class="k">return</span> <span class="p">{</span>
-</span><span id="L-51"><a href="#L-51"><span class="linenos">51</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;SOSRendering&#39;</span><span class="p">,</span>
-</span><span id="L-52"><a href="#L-52"><span class="linenos">52</span></a>            <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">,</span>
-</span><span id="L-53"><a href="#L-53"><span class="linenos">53</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
-</span><span id="L-54"><a href="#L-54"><span class="linenos">54</span></a>                <span class="s1">&#39;canToggle&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">can_toggle</span>
-</span><span id="L-55"><a href="#L-55"><span class="linenos">55</span></a>            <span class="p">}</span>
-</span><span id="L-56"><a href="#L-56"><span class="linenos">56</span></a>        <span class="p">}</span>
+</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a>
+</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a><span class="sd">    Example usage:</span>
+</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a>
+</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a><span class="sd">    &gt;&gt;&gt; import aisquared</span>
+</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a><span class="sd">    &gt;&gt;&gt; my_obj = aisquared.config.rendering.SOSRendering(True)</span>
+</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a><span class="sd">    &gt;&gt;&gt; my_obj.to_dict()</span>
+</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a><span class="sd">    {&#39;className&#39;: &#39;SOSRendering&#39;, &#39;label&#39;: &#39;&#39;, &#39;params&#39;: {&#39;canToggle&#39;: True}}</span>
+</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>
+</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>
+</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>        <span class="bp">self</span><span class="p">,</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>        <span class="n">can_toggle</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>        <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>    <span class="p">):</span>
+</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a><span class="sd">        Parameters</span>
+</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a><span class="sd">        ----------</span>
+</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a><span class="sd">        can_toggle : bool</span>
+</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a><span class="sd">            Whether the dashboard can be toggled on and off</span>
+</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a><span class="sd">        label : str (default &#39;&#39;)</span>
+</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a><span class="sd">            The label for the rendering</span>
+</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">can_toggle</span> <span class="o">=</span> <span class="n">can_toggle</span>
+</span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label</span>
+</span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a>
+</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a>    <span class="nd">@property</span>
+</span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a>    <span class="k">def</span> <span class="nf">can_toggle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_can_toggle</span>
+</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a>
+</span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a>    <span class="nd">@can_toggle</span><span class="o">.</span><span class="n">setter</span>
+</span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a>    <span class="k">def</span> <span class="nf">can_toggle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="ow">and</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;can_toggle must be boolean or None&#39;</span><span class="p">)</span>
+</span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_can_toggle</span> <span class="o">=</span> <span class="n">value</span>
+</span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a>
+</span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a>    <span class="nd">@property</span>
+</span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a>    <span class="k">def</span> <span class="nf">label</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_label</span>
+</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a>
+</span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a>    <span class="nd">@label</span><span class="o">.</span><span class="n">setter</span>
+</span><span id="L-49"><a href="#L-49"><span class="linenos">49</span></a>    <span class="k">def</span> <span class="nf">label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+</span><span id="L-50"><a href="#L-50"><span class="linenos">50</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="L-51"><a href="#L-51"><span class="linenos">51</span></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;label must be str&#39;</span><span class="p">)</span>
+</span><span id="L-52"><a href="#L-52"><span class="linenos">52</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_label</span> <span class="o">=</span> <span class="n">value</span>
+</span><span id="L-53"><a href="#L-53"><span class="linenos">53</span></a>
+</span><span id="L-54"><a href="#L-54"><span class="linenos">54</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="L-55"><a href="#L-55"><span class="linenos">55</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-56"><a href="#L-56"><span class="linenos">56</span></a><span class="sd">        Get the configuration object as a dictionary</span>
+</span><span id="L-57"><a href="#L-57"><span class="linenos">57</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-58"><a href="#L-58"><span class="linenos">58</span></a>        <span class="k">return</span> <span class="p">{</span>
+</span><span id="L-59"><a href="#L-59"><span class="linenos">59</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;SOSRendering&#39;</span><span class="p">,</span>
+</span><span id="L-60"><a href="#L-60"><span class="linenos">60</span></a>            <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">,</span>
+</span><span id="L-61"><a href="#L-61"><span class="linenos">61</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="L-62"><a href="#L-62"><span class="linenos">62</span></a>                <span class="s1">&#39;canToggle&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">can_toggle</span>
+</span><span id="L-63"><a href="#L-63"><span class="linenos">63</span></a>            <span class="p">}</span>
+</span><span id="L-64"><a href="#L-64"><span class="linenos">64</span></a>        <span class="p">}</span>
 </span></pre></div>
 
 
@@ -135,62 +143,80 @@
     </div>
     <a class="headerlink" href="#SOSRendering"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="SOSRendering-5"><a href="#SOSRendering-5"><span class="linenos"> 5</span></a><span class="k">class</span> <span class="nc">SOSRendering</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
-</span><span id="SOSRendering-6"><a href="#SOSRendering-6"><span class="linenos"> 6</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="SOSRendering-6"><a href="#SOSRendering-6"><span class="linenos"> 6</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="SOSRendering-7"><a href="#SOSRendering-7"><span class="linenos"> 7</span></a><span class="sd">    Rendering of an SOS dashboard</span>
-</span><span id="SOSRendering-8"><a href="#SOSRendering-8"><span class="linenos"> 8</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="SOSRendering-9"><a href="#SOSRendering-9"><span class="linenos"> 9</span></a>
-</span><span id="SOSRendering-10"><a href="#SOSRendering-10"><span class="linenos">10</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-</span><span id="SOSRendering-11"><a href="#SOSRendering-11"><span class="linenos">11</span></a>        <span class="bp">self</span><span class="p">,</span>
-</span><span id="SOSRendering-12"><a href="#SOSRendering-12"><span class="linenos">12</span></a>        <span class="n">can_toggle</span><span class="p">,</span>
-</span><span id="SOSRendering-13"><a href="#SOSRendering-13"><span class="linenos">13</span></a>        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
-</span><span id="SOSRendering-14"><a href="#SOSRendering-14"><span class="linenos">14</span></a>    <span class="p">):</span>
-</span><span id="SOSRendering-15"><a href="#SOSRendering-15"><span class="linenos">15</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="SOSRendering-16"><a href="#SOSRendering-16"><span class="linenos">16</span></a><span class="sd">        Parameters</span>
-</span><span id="SOSRendering-17"><a href="#SOSRendering-17"><span class="linenos">17</span></a><span class="sd">        ----------</span>
-</span><span id="SOSRendering-18"><a href="#SOSRendering-18"><span class="linenos">18</span></a><span class="sd">        can_toggle : bool</span>
-</span><span id="SOSRendering-19"><a href="#SOSRendering-19"><span class="linenos">19</span></a><span class="sd">            Whether the dashboard can be toggled on and off</span>
-</span><span id="SOSRendering-20"><a href="#SOSRendering-20"><span class="linenos">20</span></a><span class="sd">        label : str (default &#39;&#39;)</span>
-</span><span id="SOSRendering-21"><a href="#SOSRendering-21"><span class="linenos">21</span></a><span class="sd">            The label for the rendering</span>
-</span><span id="SOSRendering-22"><a href="#SOSRendering-22"><span class="linenos">22</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="SOSRendering-23"><a href="#SOSRendering-23"><span class="linenos">23</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="SOSRendering-24"><a href="#SOSRendering-24"><span class="linenos">24</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">can_toggle</span> <span class="o">=</span> <span class="n">can_toggle</span>
-</span><span id="SOSRendering-25"><a href="#SOSRendering-25"><span class="linenos">25</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label</span>
-</span><span id="SOSRendering-26"><a href="#SOSRendering-26"><span class="linenos">26</span></a>
-</span><span id="SOSRendering-27"><a href="#SOSRendering-27"><span class="linenos">27</span></a>    <span class="nd">@property</span>
-</span><span id="SOSRendering-28"><a href="#SOSRendering-28"><span class="linenos">28</span></a>    <span class="k">def</span> <span class="nf">can_toggle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="SOSRendering-29"><a href="#SOSRendering-29"><span class="linenos">29</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_can_toggle</span>
-</span><span id="SOSRendering-30"><a href="#SOSRendering-30"><span class="linenos">30</span></a>
-</span><span id="SOSRendering-31"><a href="#SOSRendering-31"><span class="linenos">31</span></a>    <span class="nd">@can_toggle</span><span class="o">.</span><span class="n">setter</span>
-</span><span id="SOSRendering-32"><a href="#SOSRendering-32"><span class="linenos">32</span></a>    <span class="k">def</span> <span class="nf">can_toggle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-</span><span id="SOSRendering-33"><a href="#SOSRendering-33"><span class="linenos">33</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="ow">and</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="SOSRendering-34"><a href="#SOSRendering-34"><span class="linenos">34</span></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;can_toggle must be boolean or None&#39;</span><span class="p">)</span>
-</span><span id="SOSRendering-35"><a href="#SOSRendering-35"><span class="linenos">35</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_can_toggle</span> <span class="o">=</span> <span class="n">value</span>
-</span><span id="SOSRendering-36"><a href="#SOSRendering-36"><span class="linenos">36</span></a>
-</span><span id="SOSRendering-37"><a href="#SOSRendering-37"><span class="linenos">37</span></a>    <span class="nd">@property</span>
-</span><span id="SOSRendering-38"><a href="#SOSRendering-38"><span class="linenos">38</span></a>    <span class="k">def</span> <span class="nf">label</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="SOSRendering-39"><a href="#SOSRendering-39"><span class="linenos">39</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_label</span>
-</span><span id="SOSRendering-40"><a href="#SOSRendering-40"><span class="linenos">40</span></a>
-</span><span id="SOSRendering-41"><a href="#SOSRendering-41"><span class="linenos">41</span></a>    <span class="nd">@label</span><span class="o">.</span><span class="n">setter</span>
-</span><span id="SOSRendering-42"><a href="#SOSRendering-42"><span class="linenos">42</span></a>    <span class="k">def</span> <span class="nf">label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-</span><span id="SOSRendering-43"><a href="#SOSRendering-43"><span class="linenos">43</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="SOSRendering-44"><a href="#SOSRendering-44"><span class="linenos">44</span></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;label must be str&#39;</span><span class="p">)</span>
-</span><span id="SOSRendering-45"><a href="#SOSRendering-45"><span class="linenos">45</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_label</span> <span class="o">=</span> <span class="n">value</span>
-</span><span id="SOSRendering-46"><a href="#SOSRendering-46"><span class="linenos">46</span></a>
-</span><span id="SOSRendering-47"><a href="#SOSRendering-47"><span class="linenos">47</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="SOSRendering-48"><a href="#SOSRendering-48"><span class="linenos">48</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="SOSRendering-49"><a href="#SOSRendering-49"><span class="linenos">49</span></a><span class="sd">        Get the configuration object as a dictionary</span>
-</span><span id="SOSRendering-50"><a href="#SOSRendering-50"><span class="linenos">50</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="SOSRendering-51"><a href="#SOSRendering-51"><span class="linenos">51</span></a>        <span class="k">return</span> <span class="p">{</span>
-</span><span id="SOSRendering-52"><a href="#SOSRendering-52"><span class="linenos">52</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;SOSRendering&#39;</span><span class="p">,</span>
-</span><span id="SOSRendering-53"><a href="#SOSRendering-53"><span class="linenos">53</span></a>            <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">,</span>
-</span><span id="SOSRendering-54"><a href="#SOSRendering-54"><span class="linenos">54</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
-</span><span id="SOSRendering-55"><a href="#SOSRendering-55"><span class="linenos">55</span></a>                <span class="s1">&#39;canToggle&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">can_toggle</span>
-</span><span id="SOSRendering-56"><a href="#SOSRendering-56"><span class="linenos">56</span></a>            <span class="p">}</span>
-</span><span id="SOSRendering-57"><a href="#SOSRendering-57"><span class="linenos">57</span></a>        <span class="p">}</span>
+</span><span id="SOSRendering-8"><a href="#SOSRendering-8"><span class="linenos"> 8</span></a>
+</span><span id="SOSRendering-9"><a href="#SOSRendering-9"><span class="linenos"> 9</span></a><span class="sd">    Example usage:</span>
+</span><span id="SOSRendering-10"><a href="#SOSRendering-10"><span class="linenos">10</span></a>
+</span><span id="SOSRendering-11"><a href="#SOSRendering-11"><span class="linenos">11</span></a><span class="sd">    &gt;&gt;&gt; import aisquared</span>
+</span><span id="SOSRendering-12"><a href="#SOSRendering-12"><span class="linenos">12</span></a><span class="sd">    &gt;&gt;&gt; my_obj = aisquared.config.rendering.SOSRendering(True)</span>
+</span><span id="SOSRendering-13"><a href="#SOSRendering-13"><span class="linenos">13</span></a><span class="sd">    &gt;&gt;&gt; my_obj.to_dict()</span>
+</span><span id="SOSRendering-14"><a href="#SOSRendering-14"><span class="linenos">14</span></a><span class="sd">    {&#39;className&#39;: &#39;SOSRendering&#39;, &#39;label&#39;: &#39;&#39;, &#39;params&#39;: {&#39;canToggle&#39;: True}}</span>
+</span><span id="SOSRendering-15"><a href="#SOSRendering-15"><span class="linenos">15</span></a>
+</span><span id="SOSRendering-16"><a href="#SOSRendering-16"><span class="linenos">16</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="SOSRendering-17"><a href="#SOSRendering-17"><span class="linenos">17</span></a>
+</span><span id="SOSRendering-18"><a href="#SOSRendering-18"><span class="linenos">18</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+</span><span id="SOSRendering-19"><a href="#SOSRendering-19"><span class="linenos">19</span></a>        <span class="bp">self</span><span class="p">,</span>
+</span><span id="SOSRendering-20"><a href="#SOSRendering-20"><span class="linenos">20</span></a>        <span class="n">can_toggle</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+</span><span id="SOSRendering-21"><a href="#SOSRendering-21"><span class="linenos">21</span></a>        <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span><span id="SOSRendering-22"><a href="#SOSRendering-22"><span class="linenos">22</span></a>    <span class="p">):</span>
+</span><span id="SOSRendering-23"><a href="#SOSRendering-23"><span class="linenos">23</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="SOSRendering-24"><a href="#SOSRendering-24"><span class="linenos">24</span></a><span class="sd">        Parameters</span>
+</span><span id="SOSRendering-25"><a href="#SOSRendering-25"><span class="linenos">25</span></a><span class="sd">        ----------</span>
+</span><span id="SOSRendering-26"><a href="#SOSRendering-26"><span class="linenos">26</span></a><span class="sd">        can_toggle : bool</span>
+</span><span id="SOSRendering-27"><a href="#SOSRendering-27"><span class="linenos">27</span></a><span class="sd">            Whether the dashboard can be toggled on and off</span>
+</span><span id="SOSRendering-28"><a href="#SOSRendering-28"><span class="linenos">28</span></a><span class="sd">        label : str (default &#39;&#39;)</span>
+</span><span id="SOSRendering-29"><a href="#SOSRendering-29"><span class="linenos">29</span></a><span class="sd">            The label for the rendering</span>
+</span><span id="SOSRendering-30"><a href="#SOSRendering-30"><span class="linenos">30</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="SOSRendering-31"><a href="#SOSRendering-31"><span class="linenos">31</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="SOSRendering-32"><a href="#SOSRendering-32"><span class="linenos">32</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">can_toggle</span> <span class="o">=</span> <span class="n">can_toggle</span>
+</span><span id="SOSRendering-33"><a href="#SOSRendering-33"><span class="linenos">33</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label</span>
+</span><span id="SOSRendering-34"><a href="#SOSRendering-34"><span class="linenos">34</span></a>
+</span><span id="SOSRendering-35"><a href="#SOSRendering-35"><span class="linenos">35</span></a>    <span class="nd">@property</span>
+</span><span id="SOSRendering-36"><a href="#SOSRendering-36"><span class="linenos">36</span></a>    <span class="k">def</span> <span class="nf">can_toggle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="SOSRendering-37"><a href="#SOSRendering-37"><span class="linenos">37</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_can_toggle</span>
+</span><span id="SOSRendering-38"><a href="#SOSRendering-38"><span class="linenos">38</span></a>
+</span><span id="SOSRendering-39"><a href="#SOSRendering-39"><span class="linenos">39</span></a>    <span class="nd">@can_toggle</span><span class="o">.</span><span class="n">setter</span>
+</span><span id="SOSRendering-40"><a href="#SOSRendering-40"><span class="linenos">40</span></a>    <span class="k">def</span> <span class="nf">can_toggle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+</span><span id="SOSRendering-41"><a href="#SOSRendering-41"><span class="linenos">41</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="ow">and</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="SOSRendering-42"><a href="#SOSRendering-42"><span class="linenos">42</span></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;can_toggle must be boolean or None&#39;</span><span class="p">)</span>
+</span><span id="SOSRendering-43"><a href="#SOSRendering-43"><span class="linenos">43</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_can_toggle</span> <span class="o">=</span> <span class="n">value</span>
+</span><span id="SOSRendering-44"><a href="#SOSRendering-44"><span class="linenos">44</span></a>
+</span><span id="SOSRendering-45"><a href="#SOSRendering-45"><span class="linenos">45</span></a>    <span class="nd">@property</span>
+</span><span id="SOSRendering-46"><a href="#SOSRendering-46"><span class="linenos">46</span></a>    <span class="k">def</span> <span class="nf">label</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="SOSRendering-47"><a href="#SOSRendering-47"><span class="linenos">47</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_label</span>
+</span><span id="SOSRendering-48"><a href="#SOSRendering-48"><span class="linenos">48</span></a>
+</span><span id="SOSRendering-49"><a href="#SOSRendering-49"><span class="linenos">49</span></a>    <span class="nd">@label</span><span class="o">.</span><span class="n">setter</span>
+</span><span id="SOSRendering-50"><a href="#SOSRendering-50"><span class="linenos">50</span></a>    <span class="k">def</span> <span class="nf">label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+</span><span id="SOSRendering-51"><a href="#SOSRendering-51"><span class="linenos">51</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="SOSRendering-52"><a href="#SOSRendering-52"><span class="linenos">52</span></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;label must be str&#39;</span><span class="p">)</span>
+</span><span id="SOSRendering-53"><a href="#SOSRendering-53"><span class="linenos">53</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_label</span> <span class="o">=</span> <span class="n">value</span>
+</span><span id="SOSRendering-54"><a href="#SOSRendering-54"><span class="linenos">54</span></a>
+</span><span id="SOSRendering-55"><a href="#SOSRendering-55"><span class="linenos">55</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="SOSRendering-56"><a href="#SOSRendering-56"><span class="linenos">56</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="SOSRendering-57"><a href="#SOSRendering-57"><span class="linenos">57</span></a><span class="sd">        Get the configuration object as a dictionary</span>
+</span><span id="SOSRendering-58"><a href="#SOSRendering-58"><span class="linenos">58</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="SOSRendering-59"><a href="#SOSRendering-59"><span class="linenos">59</span></a>        <span class="k">return</span> <span class="p">{</span>
+</span><span id="SOSRendering-60"><a href="#SOSRendering-60"><span class="linenos">60</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;SOSRendering&#39;</span><span class="p">,</span>
+</span><span id="SOSRendering-61"><a href="#SOSRendering-61"><span class="linenos">61</span></a>            <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">,</span>
+</span><span id="SOSRendering-62"><a href="#SOSRendering-62"><span class="linenos">62</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="SOSRendering-63"><a href="#SOSRendering-63"><span class="linenos">63</span></a>                <span class="s1">&#39;canToggle&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">can_toggle</span>
+</span><span id="SOSRendering-64"><a href="#SOSRendering-64"><span class="linenos">64</span></a>            <span class="p">}</span>
+</span><span id="SOSRendering-65"><a href="#SOSRendering-65"><span class="linenos">65</span></a>        <span class="p">}</span>
 </span></pre></div>
 
 
             <div class="docstring"><p>Rendering of an SOS dashboard</p>
+
+<p>Example usage:</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span> <span class="o">=</span> <span class="n"><a href="">aisquared.config.rendering.SOSRendering</a></span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="go">{&#39;className&#39;: &#39;SOSRendering&#39;, &#39;label&#39;: &#39;&#39;, &#39;params&#39;: {&#39;canToggle&#39;: True}}</span>
+</code></pre>
+</div>
 </div>
 
 
@@ -198,28 +224,28 @@
                                         <input id="SOSRendering.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
-        <span class="name">SOSRendering</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">can_toggle</span>, </span><span class="param"><span class="n">label</span><span class="o">=</span><span class="s1">&#39;&#39;</span></span>)</span>
+        <span class="name">SOSRendering</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">can_toggle</span><span class="p">:</span> <span class="nb">bool</span>, </span><span class="param"><span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span></span>)</span>
 
                 <label class="view-source-button" for="SOSRendering.__init__-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#SOSRendering.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="SOSRendering.__init__-10"><a href="#SOSRendering.__init__-10"><span class="linenos">10</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-</span><span id="SOSRendering.__init__-11"><a href="#SOSRendering.__init__-11"><span class="linenos">11</span></a>        <span class="bp">self</span><span class="p">,</span>
-</span><span id="SOSRendering.__init__-12"><a href="#SOSRendering.__init__-12"><span class="linenos">12</span></a>        <span class="n">can_toggle</span><span class="p">,</span>
-</span><span id="SOSRendering.__init__-13"><a href="#SOSRendering.__init__-13"><span class="linenos">13</span></a>        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
-</span><span id="SOSRendering.__init__-14"><a href="#SOSRendering.__init__-14"><span class="linenos">14</span></a>    <span class="p">):</span>
-</span><span id="SOSRendering.__init__-15"><a href="#SOSRendering.__init__-15"><span class="linenos">15</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="SOSRendering.__init__-16"><a href="#SOSRendering.__init__-16"><span class="linenos">16</span></a><span class="sd">        Parameters</span>
-</span><span id="SOSRendering.__init__-17"><a href="#SOSRendering.__init__-17"><span class="linenos">17</span></a><span class="sd">        ----------</span>
-</span><span id="SOSRendering.__init__-18"><a href="#SOSRendering.__init__-18"><span class="linenos">18</span></a><span class="sd">        can_toggle : bool</span>
-</span><span id="SOSRendering.__init__-19"><a href="#SOSRendering.__init__-19"><span class="linenos">19</span></a><span class="sd">            Whether the dashboard can be toggled on and off</span>
-</span><span id="SOSRendering.__init__-20"><a href="#SOSRendering.__init__-20"><span class="linenos">20</span></a><span class="sd">        label : str (default &#39;&#39;)</span>
-</span><span id="SOSRendering.__init__-21"><a href="#SOSRendering.__init__-21"><span class="linenos">21</span></a><span class="sd">            The label for the rendering</span>
-</span><span id="SOSRendering.__init__-22"><a href="#SOSRendering.__init__-22"><span class="linenos">22</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="SOSRendering.__init__-23"><a href="#SOSRendering.__init__-23"><span class="linenos">23</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="SOSRendering.__init__-24"><a href="#SOSRendering.__init__-24"><span class="linenos">24</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">can_toggle</span> <span class="o">=</span> <span class="n">can_toggle</span>
-</span><span id="SOSRendering.__init__-25"><a href="#SOSRendering.__init__-25"><span class="linenos">25</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="SOSRendering.__init__-18"><a href="#SOSRendering.__init__-18"><span class="linenos">18</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+</span><span id="SOSRendering.__init__-19"><a href="#SOSRendering.__init__-19"><span class="linenos">19</span></a>        <span class="bp">self</span><span class="p">,</span>
+</span><span id="SOSRendering.__init__-20"><a href="#SOSRendering.__init__-20"><span class="linenos">20</span></a>        <span class="n">can_toggle</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+</span><span id="SOSRendering.__init__-21"><a href="#SOSRendering.__init__-21"><span class="linenos">21</span></a>        <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span><span id="SOSRendering.__init__-22"><a href="#SOSRendering.__init__-22"><span class="linenos">22</span></a>    <span class="p">):</span>
+</span><span id="SOSRendering.__init__-23"><a href="#SOSRendering.__init__-23"><span class="linenos">23</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="SOSRendering.__init__-24"><a href="#SOSRendering.__init__-24"><span class="linenos">24</span></a><span class="sd">        Parameters</span>
+</span><span id="SOSRendering.__init__-25"><a href="#SOSRendering.__init__-25"><span class="linenos">25</span></a><span class="sd">        ----------</span>
+</span><span id="SOSRendering.__init__-26"><a href="#SOSRendering.__init__-26"><span class="linenos">26</span></a><span class="sd">        can_toggle : bool</span>
+</span><span id="SOSRendering.__init__-27"><a href="#SOSRendering.__init__-27"><span class="linenos">27</span></a><span class="sd">            Whether the dashboard can be toggled on and off</span>
+</span><span id="SOSRendering.__init__-28"><a href="#SOSRendering.__init__-28"><span class="linenos">28</span></a><span class="sd">        label : str (default &#39;&#39;)</span>
+</span><span id="SOSRendering.__init__-29"><a href="#SOSRendering.__init__-29"><span class="linenos">29</span></a><span class="sd">            The label for the rendering</span>
+</span><span id="SOSRendering.__init__-30"><a href="#SOSRendering.__init__-30"><span class="linenos">30</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="SOSRendering.__init__-31"><a href="#SOSRendering.__init__-31"><span class="linenos">31</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="SOSRendering.__init__-32"><a href="#SOSRendering.__init__-32"><span class="linenos">32</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">can_toggle</span> <span class="o">=</span> <span class="n">can_toggle</span>
+</span><span id="SOSRendering.__init__-33"><a href="#SOSRendering.__init__-33"><span class="linenos">33</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label</span>
 </span></pre></div>
 
 
@@ -240,23 +266,23 @@ The label for the rendering</li>
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">to_dict</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
+        <span class="name">to_dict</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="nb">dict</span>:</span></span>
 
                 <label class="view-source-button" for="SOSRendering.to_dict-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#SOSRendering.to_dict"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="SOSRendering.to_dict-47"><a href="#SOSRendering.to_dict-47"><span class="linenos">47</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="SOSRendering.to_dict-48"><a href="#SOSRendering.to_dict-48"><span class="linenos">48</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="SOSRendering.to_dict-49"><a href="#SOSRendering.to_dict-49"><span class="linenos">49</span></a><span class="sd">        Get the configuration object as a dictionary</span>
-</span><span id="SOSRendering.to_dict-50"><a href="#SOSRendering.to_dict-50"><span class="linenos">50</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="SOSRendering.to_dict-51"><a href="#SOSRendering.to_dict-51"><span class="linenos">51</span></a>        <span class="k">return</span> <span class="p">{</span>
-</span><span id="SOSRendering.to_dict-52"><a href="#SOSRendering.to_dict-52"><span class="linenos">52</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;SOSRendering&#39;</span><span class="p">,</span>
-</span><span id="SOSRendering.to_dict-53"><a href="#SOSRendering.to_dict-53"><span class="linenos">53</span></a>            <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">,</span>
-</span><span id="SOSRendering.to_dict-54"><a href="#SOSRendering.to_dict-54"><span class="linenos">54</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
-</span><span id="SOSRendering.to_dict-55"><a href="#SOSRendering.to_dict-55"><span class="linenos">55</span></a>                <span class="s1">&#39;canToggle&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">can_toggle</span>
-</span><span id="SOSRendering.to_dict-56"><a href="#SOSRendering.to_dict-56"><span class="linenos">56</span></a>            <span class="p">}</span>
-</span><span id="SOSRendering.to_dict-57"><a href="#SOSRendering.to_dict-57"><span class="linenos">57</span></a>        <span class="p">}</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="SOSRendering.to_dict-55"><a href="#SOSRendering.to_dict-55"><span class="linenos">55</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="SOSRendering.to_dict-56"><a href="#SOSRendering.to_dict-56"><span class="linenos">56</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="SOSRendering.to_dict-57"><a href="#SOSRendering.to_dict-57"><span class="linenos">57</span></a><span class="sd">        Get the configuration object as a dictionary</span>
+</span><span id="SOSRendering.to_dict-58"><a href="#SOSRendering.to_dict-58"><span class="linenos">58</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="SOSRendering.to_dict-59"><a href="#SOSRendering.to_dict-59"><span class="linenos">59</span></a>        <span class="k">return</span> <span class="p">{</span>
+</span><span id="SOSRendering.to_dict-60"><a href="#SOSRendering.to_dict-60"><span class="linenos">60</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;SOSRendering&#39;</span><span class="p">,</span>
+</span><span id="SOSRendering.to_dict-61"><a href="#SOSRendering.to_dict-61"><span class="linenos">61</span></a>            <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">,</span>
+</span><span id="SOSRendering.to_dict-62"><a href="#SOSRendering.to_dict-62"><span class="linenos">62</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="SOSRendering.to_dict-63"><a href="#SOSRendering.to_dict-63"><span class="linenos">63</span></a>                <span class="s1">&#39;canToggle&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">can_toggle</span>
+</span><span id="SOSRendering.to_dict-64"><a href="#SOSRendering.to_dict-64"><span class="linenos">64</span></a>            <span class="p">}</span>
+</span><span id="SOSRendering.to_dict-65"><a href="#SOSRendering.to_dict-65"><span class="linenos">65</span></a>        <span class="p">}</span>
 </span></pre></div>
 
 

@@ -70,24 +70,26 @@
 </span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a>
 </span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a>
 </span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="k">class</span> <span class="nc">BaseObject</span><span class="p">:</span>
-</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a>    <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="sd">    Base class used for all other classes within the aisquared package</span>
-</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a>
-</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a>        <span class="k">pass</span>
-</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a>
-</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a><span class="sd">        Get the object as a dictionary</span>
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
-</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>
-</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>    <span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a><span class="sd">        Return the object as a json string</span>
-</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="sd">    Base class used for all other classes within the aisquared package. This class is not meant</span>
+</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="sd">    to be used by any end user of this package, but is rather used throughout this package as a</span>
+</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a><span class="sd">    parent class.</span>
+</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a>
+</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>        <span class="k">pass</span>
+</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>
+</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a><span class="sd">        Get the object as a dictionary</span>
+</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>
+</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>    <span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a><span class="sd">        Return the object as a json string</span>
+</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
 </span></pre></div>
 
 
@@ -104,28 +106,32 @@
     </div>
     <a class="headerlink" href="#BaseObject"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="BaseObject-5"><a href="#BaseObject-5"><span class="linenos"> 5</span></a><span class="k">class</span> <span class="nc">BaseObject</span><span class="p">:</span>
-</span><span id="BaseObject-6"><a href="#BaseObject-6"><span class="linenos"> 6</span></a>    <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="BaseObject-7"><a href="#BaseObject-7"><span class="linenos"> 7</span></a><span class="sd">    Base class used for all other classes within the aisquared package</span>
-</span><span id="BaseObject-8"><a href="#BaseObject-8"><span class="linenos"> 8</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="BaseObject-9"><a href="#BaseObject-9"><span class="linenos"> 9</span></a>
-</span><span id="BaseObject-10"><a href="#BaseObject-10"><span class="linenos">10</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="BaseObject-11"><a href="#BaseObject-11"><span class="linenos">11</span></a>        <span class="k">pass</span>
-</span><span id="BaseObject-12"><a href="#BaseObject-12"><span class="linenos">12</span></a>
-</span><span id="BaseObject-13"><a href="#BaseObject-13"><span class="linenos">13</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="BaseObject-14"><a href="#BaseObject-14"><span class="linenos">14</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="BaseObject-15"><a href="#BaseObject-15"><span class="linenos">15</span></a><span class="sd">        Get the object as a dictionary</span>
-</span><span id="BaseObject-16"><a href="#BaseObject-16"><span class="linenos">16</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="BaseObject-17"><a href="#BaseObject-17"><span class="linenos">17</span></a>        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
-</span><span id="BaseObject-18"><a href="#BaseObject-18"><span class="linenos">18</span></a>
-</span><span id="BaseObject-19"><a href="#BaseObject-19"><span class="linenos">19</span></a>    <span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="BaseObject-20"><a href="#BaseObject-20"><span class="linenos">20</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="BaseObject-21"><a href="#BaseObject-21"><span class="linenos">21</span></a><span class="sd">        Return the object as a json string</span>
-</span><span id="BaseObject-22"><a href="#BaseObject-22"><span class="linenos">22</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="BaseObject-23"><a href="#BaseObject-23"><span class="linenos">23</span></a>        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+</span><span id="BaseObject-6"><a href="#BaseObject-6"><span class="linenos"> 6</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="BaseObject-7"><a href="#BaseObject-7"><span class="linenos"> 7</span></a><span class="sd">    Base class used for all other classes within the aisquared package. This class is not meant</span>
+</span><span id="BaseObject-8"><a href="#BaseObject-8"><span class="linenos"> 8</span></a><span class="sd">    to be used by any end user of this package, but is rather used throughout this package as a</span>
+</span><span id="BaseObject-9"><a href="#BaseObject-9"><span class="linenos"> 9</span></a><span class="sd">    parent class.</span>
+</span><span id="BaseObject-10"><a href="#BaseObject-10"><span class="linenos">10</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="BaseObject-11"><a href="#BaseObject-11"><span class="linenos">11</span></a>
+</span><span id="BaseObject-12"><a href="#BaseObject-12"><span class="linenos">12</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="BaseObject-13"><a href="#BaseObject-13"><span class="linenos">13</span></a>        <span class="k">pass</span>
+</span><span id="BaseObject-14"><a href="#BaseObject-14"><span class="linenos">14</span></a>
+</span><span id="BaseObject-15"><a href="#BaseObject-15"><span class="linenos">15</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="BaseObject-16"><a href="#BaseObject-16"><span class="linenos">16</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="BaseObject-17"><a href="#BaseObject-17"><span class="linenos">17</span></a><span class="sd">        Get the object as a dictionary</span>
+</span><span id="BaseObject-18"><a href="#BaseObject-18"><span class="linenos">18</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="BaseObject-19"><a href="#BaseObject-19"><span class="linenos">19</span></a>        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+</span><span id="BaseObject-20"><a href="#BaseObject-20"><span class="linenos">20</span></a>
+</span><span id="BaseObject-21"><a href="#BaseObject-21"><span class="linenos">21</span></a>    <span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="BaseObject-22"><a href="#BaseObject-22"><span class="linenos">22</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="BaseObject-23"><a href="#BaseObject-23"><span class="linenos">23</span></a><span class="sd">        Return the object as a json string</span>
+</span><span id="BaseObject-24"><a href="#BaseObject-24"><span class="linenos">24</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="BaseObject-25"><a href="#BaseObject-25"><span class="linenos">25</span></a>        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Base class used for all other classes within the aisquared package</p>
+            <div class="docstring"><p>Base class used for all other classes within the aisquared package. This class is not meant
+to be used by any end user of this package, but is rather used throughout this package as a
+parent class.</p>
 </div>
 
 
@@ -139,8 +145,8 @@
 
     </div>
     <a class="headerlink" href="#BaseObject.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="BaseObject.__init__-10"><a href="#BaseObject.__init__-10"><span class="linenos">10</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="BaseObject.__init__-11"><a href="#BaseObject.__init__-11"><span class="linenos">11</span></a>        <span class="k">pass</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="BaseObject.__init__-12"><a href="#BaseObject.__init__-12"><span class="linenos">12</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="BaseObject.__init__-13"><a href="#BaseObject.__init__-13"><span class="linenos">13</span></a>        <span class="k">pass</span>
 </span></pre></div>
 
 
@@ -152,17 +158,17 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">to_dict</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
+        <span class="name">to_dict</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="nb">dict</span>:</span></span>
 
                 <label class="view-source-button" for="BaseObject.to_dict-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#BaseObject.to_dict"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="BaseObject.to_dict-13"><a href="#BaseObject.to_dict-13"><span class="linenos">13</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="BaseObject.to_dict-14"><a href="#BaseObject.to_dict-14"><span class="linenos">14</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="BaseObject.to_dict-15"><a href="#BaseObject.to_dict-15"><span class="linenos">15</span></a><span class="sd">        Get the object as a dictionary</span>
-</span><span id="BaseObject.to_dict-16"><a href="#BaseObject.to_dict-16"><span class="linenos">16</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="BaseObject.to_dict-17"><a href="#BaseObject.to_dict-17"><span class="linenos">17</span></a>        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="BaseObject.to_dict-15"><a href="#BaseObject.to_dict-15"><span class="linenos">15</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="BaseObject.to_dict-16"><a href="#BaseObject.to_dict-16"><span class="linenos">16</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="BaseObject.to_dict-17"><a href="#BaseObject.to_dict-17"><span class="linenos">17</span></a><span class="sd">        Get the object as a dictionary</span>
+</span><span id="BaseObject.to_dict-18"><a href="#BaseObject.to_dict-18"><span class="linenos">18</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="BaseObject.to_dict-19"><a href="#BaseObject.to_dict-19"><span class="linenos">19</span></a>        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 </span></pre></div>
 
 
@@ -176,17 +182,17 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">to_json</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
+        <span class="name">to_json</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
 
                 <label class="view-source-button" for="BaseObject.to_json-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#BaseObject.to_json"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="BaseObject.to_json-19"><a href="#BaseObject.to_json-19"><span class="linenos">19</span></a>    <span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="BaseObject.to_json-20"><a href="#BaseObject.to_json-20"><span class="linenos">20</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="BaseObject.to_json-21"><a href="#BaseObject.to_json-21"><span class="linenos">21</span></a><span class="sd">        Return the object as a json string</span>
-</span><span id="BaseObject.to_json-22"><a href="#BaseObject.to_json-22"><span class="linenos">22</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="BaseObject.to_json-23"><a href="#BaseObject.to_json-23"><span class="linenos">23</span></a>        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="BaseObject.to_json-21"><a href="#BaseObject.to_json-21"><span class="linenos">21</span></a>    <span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="BaseObject.to_json-22"><a href="#BaseObject.to_json-22"><span class="linenos">22</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="BaseObject.to_json-23"><a href="#BaseObject.to_json-23"><span class="linenos">23</span></a><span class="sd">        Return the object as a json string</span>
+</span><span id="BaseObject.to_json-24"><a href="#BaseObject.to_json-24"><span class="linenos">24</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="BaseObject.to_json-25"><a href="#BaseObject.to_json-25"><span class="linenos">25</span></a>        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
 </span></pre></div>
 
 

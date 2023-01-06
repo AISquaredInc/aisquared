@@ -67,21 +67,28 @@
 </span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a>
 </span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a>
 </span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="k">class</span> <span class="nc">SimpleFeedback</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
-</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="sd">    Simple thumbs-up/thumbs-down feedback for predictions</span>
-</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a>
-</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a>
-</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a><span class="sd">        Return the object as a dictionary</span>
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>        <span class="k">return</span> <span class="p">{</span>
-</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;SimpleFeedback&#39;</span><span class="p">,</span>
-</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">()</span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>        <span class="p">}</span>
+</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a>
+</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a><span class="sd">    Example usage:</span>
+</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a>
+</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a><span class="sd">    &gt;&gt;&gt; import aisquared</span>
+</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a><span class="sd">    &gt;&gt;&gt; my_obj = aisquared.config.feedback.SimpleFeedback()</span>
+</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a><span class="sd">    &gt;&gt;&gt; my_obj.to_dict()</span>
+</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a><span class="sd">    {&#39;className&#39;: &#39;SimpleFeedback&#39;, &#39;params&#39;: {}}</span>
+</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>
+</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>
+</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a><span class="sd">        Return the object as a dictionary</span>
+</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>        <span class="k">return</span> <span class="p">{</span>
+</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;SimpleFeedback&#39;</span><span class="p">,</span>
+</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">()</span>
+</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>        <span class="p">}</span>
 </span></pre></div>
 
 
@@ -98,25 +105,42 @@
     </div>
     <a class="headerlink" href="#SimpleFeedback"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="SimpleFeedback-5"><a href="#SimpleFeedback-5"><span class="linenos"> 5</span></a><span class="k">class</span> <span class="nc">SimpleFeedback</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
-</span><span id="SimpleFeedback-6"><a href="#SimpleFeedback-6"><span class="linenos"> 6</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="SimpleFeedback-6"><a href="#SimpleFeedback-6"><span class="linenos"> 6</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="SimpleFeedback-7"><a href="#SimpleFeedback-7"><span class="linenos"> 7</span></a><span class="sd">    Simple thumbs-up/thumbs-down feedback for predictions</span>
-</span><span id="SimpleFeedback-8"><a href="#SimpleFeedback-8"><span class="linenos"> 8</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="SimpleFeedback-9"><a href="#SimpleFeedback-9"><span class="linenos"> 9</span></a>
-</span><span id="SimpleFeedback-10"><a href="#SimpleFeedback-10"><span class="linenos">10</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="SimpleFeedback-11"><a href="#SimpleFeedback-11"><span class="linenos">11</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="SimpleFeedback-12"><a href="#SimpleFeedback-12"><span class="linenos">12</span></a>
-</span><span id="SimpleFeedback-13"><a href="#SimpleFeedback-13"><span class="linenos">13</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="SimpleFeedback-14"><a href="#SimpleFeedback-14"><span class="linenos">14</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="SimpleFeedback-15"><a href="#SimpleFeedback-15"><span class="linenos">15</span></a><span class="sd">        Return the object as a dictionary</span>
-</span><span id="SimpleFeedback-16"><a href="#SimpleFeedback-16"><span class="linenos">16</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="SimpleFeedback-17"><a href="#SimpleFeedback-17"><span class="linenos">17</span></a>        <span class="k">return</span> <span class="p">{</span>
-</span><span id="SimpleFeedback-18"><a href="#SimpleFeedback-18"><span class="linenos">18</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;SimpleFeedback&#39;</span><span class="p">,</span>
-</span><span id="SimpleFeedback-19"><a href="#SimpleFeedback-19"><span class="linenos">19</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">()</span>
-</span><span id="SimpleFeedback-20"><a href="#SimpleFeedback-20"><span class="linenos">20</span></a>        <span class="p">}</span>
+</span><span id="SimpleFeedback-8"><a href="#SimpleFeedback-8"><span class="linenos"> 8</span></a>
+</span><span id="SimpleFeedback-9"><a href="#SimpleFeedback-9"><span class="linenos"> 9</span></a><span class="sd">    Example usage:</span>
+</span><span id="SimpleFeedback-10"><a href="#SimpleFeedback-10"><span class="linenos">10</span></a>
+</span><span id="SimpleFeedback-11"><a href="#SimpleFeedback-11"><span class="linenos">11</span></a><span class="sd">    &gt;&gt;&gt; import aisquared</span>
+</span><span id="SimpleFeedback-12"><a href="#SimpleFeedback-12"><span class="linenos">12</span></a><span class="sd">    &gt;&gt;&gt; my_obj = aisquared.config.feedback.SimpleFeedback()</span>
+</span><span id="SimpleFeedback-13"><a href="#SimpleFeedback-13"><span class="linenos">13</span></a><span class="sd">    &gt;&gt;&gt; my_obj.to_dict()</span>
+</span><span id="SimpleFeedback-14"><a href="#SimpleFeedback-14"><span class="linenos">14</span></a><span class="sd">    {&#39;className&#39;: &#39;SimpleFeedback&#39;, &#39;params&#39;: {}}</span>
+</span><span id="SimpleFeedback-15"><a href="#SimpleFeedback-15"><span class="linenos">15</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="SimpleFeedback-16"><a href="#SimpleFeedback-16"><span class="linenos">16</span></a>
+</span><span id="SimpleFeedback-17"><a href="#SimpleFeedback-17"><span class="linenos">17</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="SimpleFeedback-18"><a href="#SimpleFeedback-18"><span class="linenos">18</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="SimpleFeedback-19"><a href="#SimpleFeedback-19"><span class="linenos">19</span></a>
+</span><span id="SimpleFeedback-20"><a href="#SimpleFeedback-20"><span class="linenos">20</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="SimpleFeedback-21"><a href="#SimpleFeedback-21"><span class="linenos">21</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="SimpleFeedback-22"><a href="#SimpleFeedback-22"><span class="linenos">22</span></a><span class="sd">        Return the object as a dictionary</span>
+</span><span id="SimpleFeedback-23"><a href="#SimpleFeedback-23"><span class="linenos">23</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="SimpleFeedback-24"><a href="#SimpleFeedback-24"><span class="linenos">24</span></a>        <span class="k">return</span> <span class="p">{</span>
+</span><span id="SimpleFeedback-25"><a href="#SimpleFeedback-25"><span class="linenos">25</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;SimpleFeedback&#39;</span><span class="p">,</span>
+</span><span id="SimpleFeedback-26"><a href="#SimpleFeedback-26"><span class="linenos">26</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">()</span>
+</span><span id="SimpleFeedback-27"><a href="#SimpleFeedback-27"><span class="linenos">27</span></a>        <span class="p">}</span>
 </span></pre></div>
 
 
             <div class="docstring"><p>Simple thumbs-up/thumbs-down feedback for predictions</p>
+
+<p>Example usage:</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span> <span class="o">=</span> <span class="n"><a href="">aisquared.config.feedback.SimpleFeedback</a></span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="go">{&#39;className&#39;: &#39;SimpleFeedback&#39;, &#39;params&#39;: {}}</span>
+</code></pre>
+</div>
 </div>
 
 
@@ -130,8 +154,8 @@
 
     </div>
     <a class="headerlink" href="#SimpleFeedback.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="SimpleFeedback.__init__-10"><a href="#SimpleFeedback.__init__-10"><span class="linenos">10</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="SimpleFeedback.__init__-11"><a href="#SimpleFeedback.__init__-11"><span class="linenos">11</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="SimpleFeedback.__init__-17"><a href="#SimpleFeedback.__init__-17"><span class="linenos">17</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="SimpleFeedback.__init__-18"><a href="#SimpleFeedback.__init__-18"><span class="linenos">18</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 </span></pre></div>
 
 
@@ -143,20 +167,20 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">to_dict</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
+        <span class="name">to_dict</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="nb">dict</span>:</span></span>
 
                 <label class="view-source-button" for="SimpleFeedback.to_dict-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#SimpleFeedback.to_dict"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="SimpleFeedback.to_dict-13"><a href="#SimpleFeedback.to_dict-13"><span class="linenos">13</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="SimpleFeedback.to_dict-14"><a href="#SimpleFeedback.to_dict-14"><span class="linenos">14</span></a>        <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="SimpleFeedback.to_dict-15"><a href="#SimpleFeedback.to_dict-15"><span class="linenos">15</span></a><span class="sd">        Return the object as a dictionary</span>
-</span><span id="SimpleFeedback.to_dict-16"><a href="#SimpleFeedback.to_dict-16"><span class="linenos">16</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="SimpleFeedback.to_dict-17"><a href="#SimpleFeedback.to_dict-17"><span class="linenos">17</span></a>        <span class="k">return</span> <span class="p">{</span>
-</span><span id="SimpleFeedback.to_dict-18"><a href="#SimpleFeedback.to_dict-18"><span class="linenos">18</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;SimpleFeedback&#39;</span><span class="p">,</span>
-</span><span id="SimpleFeedback.to_dict-19"><a href="#SimpleFeedback.to_dict-19"><span class="linenos">19</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">()</span>
-</span><span id="SimpleFeedback.to_dict-20"><a href="#SimpleFeedback.to_dict-20"><span class="linenos">20</span></a>        <span class="p">}</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="SimpleFeedback.to_dict-20"><a href="#SimpleFeedback.to_dict-20"><span class="linenos">20</span></a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="SimpleFeedback.to_dict-21"><a href="#SimpleFeedback.to_dict-21"><span class="linenos">21</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="SimpleFeedback.to_dict-22"><a href="#SimpleFeedback.to_dict-22"><span class="linenos">22</span></a><span class="sd">        Return the object as a dictionary</span>
+</span><span id="SimpleFeedback.to_dict-23"><a href="#SimpleFeedback.to_dict-23"><span class="linenos">23</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="SimpleFeedback.to_dict-24"><a href="#SimpleFeedback.to_dict-24"><span class="linenos">24</span></a>        <span class="k">return</span> <span class="p">{</span>
+</span><span id="SimpleFeedback.to_dict-25"><a href="#SimpleFeedback.to_dict-25"><span class="linenos">25</span></a>            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;SimpleFeedback&#39;</span><span class="p">,</span>
+</span><span id="SimpleFeedback.to_dict-26"><a href="#SimpleFeedback.to_dict-26"><span class="linenos">26</span></a>            <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">()</span>
+</span><span id="SimpleFeedback.to_dict-27"><a href="#SimpleFeedback.to_dict-27"><span class="linenos">27</span></a>        <span class="p">}</span>
 </span></pre></div>
 
 
