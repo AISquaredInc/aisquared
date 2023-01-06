@@ -1,17 +1,33 @@
+from typing import Union
+
 from aisquared.base import BaseObject
 
 
 class DeployedAnalytic(BaseObject):
     """
     Interaction with a remote analytic
+
+    Example usage:
+
+    >>> import aisquared
+    >>> analytic = aisquared.config.analytic.DeployedAnalytic(
+        'analytic_url',
+        'text'
+    )
+    >>> analytic.to_dict()
+    {'className': 'DeployedAnalytic',
+    'params': {'url': 'analytic_url',
+    'inputType': 'text',
+    'secret': 'request',
+    'header': None}}
     """
 
     def __init__(
         self,
-        url,
-        input_type,
-        secret='request',
-        header=None
+        url: str,
+        input_type: str,
+        secret: str = 'request',
+        header: Union[None, dict] = None
     ):
         """
         Parameters
@@ -64,7 +80,7 @@ class DeployedAnalytic(BaseObject):
     def header(self, value):
         self._header = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         return {
             'className': 'DeployedAnalytic',
             'params': {

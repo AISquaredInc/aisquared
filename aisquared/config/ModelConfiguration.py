@@ -1,11 +1,12 @@
+from typing import Union
 from aisquared.base import BaseObject, CustomObject, ALLOWED_STAGES
-from aisquared.config.harvesting import ImageHarvester, TextHarvester, InputHarvester
+from aisquared.config.harvesting import ImageHarvester, TextHarvester, InputHarvester, QueryParameterHarvester
 from aisquared.config.preprocessing.tabular import TabularPreprocessor
 from aisquared.config.preprocessing.image import ImagePreprocessor
 from aisquared.config.preprocessing.text import TextPreprocessor
 from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel, LocalAnalytic, ReverseMLWorkflow
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, ObjectDetection, Regression
-from aisquared.config.rendering import ImageRendering, ObjectRendering, DocumentRendering, WordRendering, FilterRendering
+from aisquared.config.rendering import ImageRendering, ObjectRendering, DocumentRendering, WordRendering, FilterRendering, ContainerRendering, HTMLTagRendering, DoughnutChartRendering, TableRendering, BarChartRendering, LineChartRendering, DashboardReplacementRendering, PieChartRendering, SOSRendering
 from aisquared.config.feedback import SimpleFeedback, BinaryFeedback, MulticlassFeedback, RegressionFeedback, ModelFeedback, QualitativeFeedback
 
 import tensorflowjs as tfjs
@@ -18,6 +19,7 @@ HARVESTING_CLASSES = (
     ImageHarvester,
     TextHarvester,
     InputHarvester,
+    QueryParameterHarvester,
     CustomObject
 )
 
@@ -51,6 +53,15 @@ RENDERING_CLASSES = (
     DocumentRendering,
     WordRendering,
     FilterRendering,
+    ContainerRendering,
+    HTMLTagRendering,
+    DoughnutChartRendering,
+    TableRendering,
+    BarChartRendering,
+    LineChartRendering,
+    DashboardReplacementRendering,
+    PieChartRendering,
+    SOSRendering,
     CustomObject
 )
 
@@ -77,22 +88,22 @@ class ModelConfiguration(BaseObject):
 
     def __init__(
             self,
-            name,
-            harvesting_steps,
-            preprocessing_steps,
-            analytic,
-            postprocessing_steps,
-            rendering_steps,
-            feedback_steps=None,
-            stage=ALLOWED_STAGES[0],
-            version=None,
-            description='',
-            mlflow_uri=None,
-            mlflow_user=None,
-            mlflow_token=None,
-            owner=None,
-            url='*',
-            auto_run=False
+            name: str,
+            harvesting_steps: Union[None, BaseObject, list[BaseObject]],
+            preprocessing_steps: Union[None, BaseObject, list[BaseObject]],
+            analytic: Union[BaseObject, list[BaseObject]],
+            postprocessing_steps: Union[None, BaseObject, list[BaseObject]],
+            rendering_steps: Union[None, BaseObject, list[BaseObject]],
+            feedback_steps: Union[None, BaseObject, list[BaseObject]] = None,
+            stage: str = ALLOWED_STAGES[0],
+            version: int = None,
+            description: str = '',
+            mlflow_uri: Union[None, str] = None,
+            mlflow_user: Union[None, str] = None,
+            mlflow_token: Union[None, str] = None,
+            owner: Union[None, str] = None,
+            url: str = '*',
+            auto_run: bool = False
     ):
         """
         Parameters
@@ -432,7 +443,7 @@ class ModelConfiguration(BaseObject):
                 [v.to_dict() for v in val] for val in self.feedback_steps
             ]
 
-    def get_model_filenames(self):
+    def get_model_filenames(self) -> list[str]:
         """
         Get filenames for all models in the configuration
         """
@@ -465,7 +476,7 @@ class ModelConfiguration(BaseObject):
                             pass
         return [f for f in filenames if f is not None]
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the object as a dictionary
         """
@@ -491,7 +502,7 @@ class ModelConfiguration(BaseObject):
             }
         }
 
-    def compile(self, filename=None, dtype=None):
+    def compile(self, filename: Union[None, str] = None, dtype: Union[None, str] = None) -> None:
         """
         Compile the object into a '.air' file, which can then be dragged and
         dropped into applications using the AI Squared JavaScript SDK

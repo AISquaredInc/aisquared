@@ -1,3 +1,4 @@
+from typing import Union
 from aisquared.base import BaseObject, QUALIFIERS
 
 _ALLOWED_SOURCES = [
@@ -9,14 +10,28 @@ _ALLOWED_SOURCES = [
 class FilterRendering(BaseObject):
     """
     Object which dictates how predictions are to be passed to downstream analytics
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.rendering.FilterRendering(
+        'inputs',
+        'key',
+        'gt',
+        0.2
+    )
+    >>> my_obj.to_dict()
+    {'className': 'FilterRendering',
+    'params': {'source': 'inputs', 'key': 'key', 'qualifier': 'gt', 'value': 0.2}}
+
     """
 
     def __init__(
         self,
-        source,
-        key,
-        qualifier,
-        value
+        source: str,
+        key: str,
+        qualifier: str,
+        value: Union[list, str, int, float]
     ):
         """
         Parameters
@@ -76,7 +91,7 @@ class FilterRendering(BaseObject):
             raise TypeError('value must be list, string, or numeric')
         self._value = val
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

@@ -1,16 +1,28 @@
+from typing import Union
 from aisquared.base import BaseObject
 
 
 class Regression(BaseObject):
     """
     Postprocessing configuration object for Regression
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.postprocessing.Regression(
+        10,
+        100
+    )
+    >>> my_obj.to_dict()
+    {'className': 'Regression', 'params': {'min': 10, 'max': 100, 'round': False}}
+
     """
 
     def __init__(
         self,
-        min=None,
-        max=None,
-        round=False
+        min: Union[None, int, float] = None,
+        max: Union[None, int, float] = None,
+        round: bool = False
     ):
         """
         Parameters
@@ -57,7 +69,7 @@ class Regression(BaseObject):
             raise TypeError('round must be Boolean valued')
         self._round = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

@@ -1,14 +1,23 @@
+from typing import Union
 from aisquared.base import BaseObject
 
 
 class AddValue(BaseObject):
     """
     Preprocessing step to add a value to all pixels in an image
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.image.AddValue(255.0)
+    )
     """
 
     def __init__(
             self,
-            value
+            value: Union[int, float]
     ):
         """
         Parameters
@@ -29,7 +38,7 @@ class AddValue(BaseObject):
             raise TypeError('value must be int or float')
         self._value = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -44,11 +53,19 @@ class AddValue(BaseObject):
 class SubtractValue(BaseObject):
     """
     Preprocessing step to subtract a value from all pixels in an image
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.image.SubtractValue(255.0)
+    )
     """
 
     def __init__(
             self,
-            value
+            value: Union[int, float]
     ):
         """
         Parameters
@@ -69,7 +86,7 @@ class SubtractValue(BaseObject):
             raise TypeError('value must be int or float')
         self._value = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -84,11 +101,19 @@ class SubtractValue(BaseObject):
 class MultiplyValue(BaseObject):
     """
     Preprocessing step to multiply all pixels in an image by a value
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.image.MultiplyValue(2.0)
+    )
     """
 
     def __init__(
             self,
-            value
+            value: Union[int, float]
     ):
         """
         Parameters
@@ -109,7 +134,7 @@ class MultiplyValue(BaseObject):
             raise TypeError('value must be int or float')
         self._value = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -124,11 +149,19 @@ class MultiplyValue(BaseObject):
 class DivideValue(BaseObject):
     """
     Preprocessing step to divide all pixels in an image by a value
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.image.DivideValue(255.0)
+    )
     """
 
     def __init__(
             self,
-            value
+            value: Union[int, float]
     ):
         """
         Parameters
@@ -149,7 +182,7 @@ class DivideValue(BaseObject):
             raise TypeError('value must be int or float')
         self._value = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -164,9 +197,17 @@ class DivideValue(BaseObject):
 class ConvertToColor(BaseObject):
     """
     Preprocessing step to convert images to a color scheme
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.image.ConvertToColor('RGB')
+    )
     """
 
-    def __init__(self, color):
+    def __init__(self, color: str):
         """
         Parameters
         ----------
@@ -188,7 +229,7 @@ class ConvertToColor(BaseObject):
             raise ValueError('color must be one of `RGB` or `B+W`')
         self._color = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -203,13 +244,19 @@ class ConvertToColor(BaseObject):
 class Resize(BaseObject):
     """
     Preprocessing step to resize an image
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.image.Resize([100, 100])
+    )
     """
 
     def __init__(
             self,
-            size,
-            method='bilinear',
-            preserve_aspect_ratio=False
+            size: list[int],
+            method: str = 'bilinear',
+            preserve_aspect_ratio: bool = False
     ):
         """
         Parameters
@@ -269,7 +316,7 @@ class Resize(BaseObject):
             raise TypeError('preserve_aspect_ratio must be bool')
         self._preserve_aspect_ratio = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

@@ -4,17 +4,32 @@ from aisquared.base import LOCATIONS, COLORS, BaseObject
 class ObjectRendering(BaseObject):
     """
     Object which dictates how to render object detection in images
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.rendering.ObjectRendering()
+    >>> my_obj.to_dict()
+    {'className': 'ObjectRendering',
+    'params': {'color': 'blue',
+    'thickness': '5px',
+    'placement': 'bottomleft',
+    'includeProbability': False,
+    'badgeColor': 'white',
+    'fontColor': 'black',
+    'fontSize': '5px'}}
+
     """
 
     def __init__(
         self,
-        color=COLORS[-1],
-        thickness='5px',
-        placement=LOCATIONS[-1],
-        include_probability=False,
-        badge_color=COLORS[-2],
-        font_color=COLORS[-4],
-        font_size='5px'
+        color: str = COLORS[-1],
+        thickness: str = '5px',
+        placement: str = LOCATIONS[-1],
+        include_probability: bool = False,
+        badge_color: str = COLORS[-2],
+        font_color: str = COLORS[-4],
+        font_size: str = '5px'
     ):
         """
         Parameters
@@ -107,7 +122,7 @@ class ObjectRendering(BaseObject):
     def font_size(self, value):
         self._font_size = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """

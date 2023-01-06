@@ -13,9 +13,7 @@ setup(
     url='https://github.com/AISquaredInc/aisquared',
     packages=[
         'aisquared',
-        'aisquared.cli',
         'aisquared.base',
-        'aisquared.remote',
         'aisquared.config',
         'aisquared.logging',
         'aisquared.serving',
@@ -28,7 +26,8 @@ setup(
         'aisquared.config.postprocessing',
         'aisquared.config.rendering',
         'aisquared.config.feedback',
-        'aisquared.utils'
+        'aisquared.utils',
+        'aisquared.platform'
     ],
     author='The AI Squared Team',
     author_email='staff@squared.ai',
@@ -41,10 +40,5 @@ setup(
     extras_require={'full': additional_requirements},
     classifiers=[
         'License :: Other/Proprietary License'
-    ],
-    entry_points={
-        'console_scripts': [
-            'aisquared = aisquared.cli.cli:aisquared'
-        ]
-    }
+    ]
 )

@@ -4,7 +4,7 @@
 ![Tests](https://github.com/aisquaredinc/aisquared/actions/workflows/python-package.yml/badge.svg)
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
 
-This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Browser Extension or other applications developed through the AI Squared JavaScript SDK.
+This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.
 
 ## Installation
 
@@ -24,7 +24,7 @@ pip install git+https://github.com/AISquaredInc/aisquared
 
 This package is currently in a state of constant development, so it is likely that breaking changes can be made at any time.  We will work diligently to document changes and make stable releases in the future.
 
-The `aisquared` package currently contains five subpackages, the `aisquared.config` package, the `aisquared.base` subpackage, the `aisquared.logging` subpackage, the `aisquared.serving` subpackage, and the `aisquared.remote` package. The `config` package holds objects for building the configuration files that need to be included with converted model files for use within the AI Squared Extension. The contents of the config subpackage contain both pre- and postprocessing steps as well as harvesting, analytic, rendering, and feedback objects to use with the model. The following will explain the functionality of the config package:
+The `aisquared` package currently contains five subpackages, the `aisquared.config` package, the `aisquared.base` subpackage, the `aisquared.logging` subpackage, the `aisquared.serving` subpackage, and the `aisquared.platform` package. The `config` package holds objects for building the configuration files that need to be included with converted model files for use within the AI Squared Extension. The contents of the config subpackage contain both pre- and postprocessing steps as well as harvesting, analytic, rendering, and feedback objects to use with the model. The following will explain the functionality of the config package:
 
 ### `aisquared.config`
 
@@ -45,6 +45,8 @@ The `aisquared.config.harvesting` subpackage contains the following objects:
   - The `TextHarvester` class indicates the harvesting of text within the DOM to perform prediction on
 - `InputHarvester`
   - The `InputHarvester` class configures harvesting of different kinds of user-defined inputs
+- `QueryParameterHarvester`
+  - The `QueryParameterHarvester` class configures harvesting based on query parameters
 
 #### `aisquared.config.preprocessing`
 
@@ -69,8 +71,8 @@ The `aisquared.config.analytic` subpackage contains the following objects:
   - The `DeployedAnalytic` class indicates the use of an analytic or lookup table from a remote resource
 - `DeployedModel`
   - The `DeployedModel` class indicates the use of a model deployed to a remote resource
-- `S3Connector`
-  - The `S3Connector` class indicates the use of data from S3
+- `ReverseMLWorkflow`
+  - The `ReverseMLWorkflow` class indicates the use of a Reverse ML Workflow, pulling predictions from a remote source
 
 #### `aisquared.config.postprocessing`
 
@@ -97,6 +99,24 @@ The `aisquared.config.rendering` subpackage contains the following objects:
   - The `WordRendering` object is a rendering class for rendering highlights, underlines, or badges on individual words.
 - `DocumentRendering`
   - The `DocumentRendering` object is a rendering class for rendering document predictions.
+- `BarChartRendering`
+  - The `BarChartRendering` object is a rendering class for rendering bar charts.
+- `ContainerRendering`
+  - The `ContainerRendering` object is a rendering class for rendering containers.
+- `DashboardReplacementRendering`
+  - The `DashboardReplacementRendering` object is a rendering class for rendering complete dashboard replacements
+- `DoughnutChartRendering`
+  - The `DoughnutChartRendering` object is a class for rendering doughnut charts
+- `FilterRendering`
+  - The `FilterRendering` object is a class for pass data in a model chain
+- `HTMLTagRendering`
+  - The `HTMLTagRendering` object is a class for rendering HTML tags
+- `PieChartRendering`
+  - The `PieChartRendering` object is a class for rendering pie charts
+- `SOSRendering`
+  - The `SOSRendering` object is a class for rendering SOS dashboards
+- `TableRendering`
+  - The `TableRendering` object is a class for rendering tables
 
 #### `aisquared.config.feedback`
 
@@ -162,16 +182,23 @@ Once the `ModelConfiguration` object has been created with the required paramete
 
 The `aisquared.base` subpackage contains base utilities not designed to be directly called by the end user.
 
-### `aisquared.remote` (requires installing aisquared\[full\])
+### `aisquared.platform`
 
-The `aisquared.remote` subpackage contains utilities and classes for interacting with cloud-based resources for deploying and managing models and results.  Currently, we have the following client objects:
+The `aisquared.platform` subpackage contains classes and utilities for interacting with the AI Squared Platform. It primarily contains the `AISquaredPlatformClient` with the following capabilities:
 
-- `AWSClient`
-  - This client facilitates the interaction with AWS cloud storage
-- `AzureClient`
-  - This client facilitates the interaction with Azure cloud storage
+- The ability to securely log in to an instance of the AI Squared Platform
+- The ability to check whether the connection is healthy
+- The ability to list `.air` files deployed to the platform
+- The ability to retrieve the configuration for a `.air` file deployed in the platform
+- The ability to delete a `.air` file deployed in the platform
+- The ability to list users who have a `.air` file shared with them
+- The ability to share a `.air` file with users
+- The ability to unshare a `.air` file with users
+- The ability to list all users of the platform
+- The ability to list all groups in the platform
+- The ability to list all users in a group in the platform
 
-### aisquared.serving (requires installing aisquared\[full\])
+### `aisquared.serving` (requires installing aisquared\[full\])
 
 The `aisquared.serving` subpackage contains utilities for serving models locally or remotely using [MLflow](https://mlflow.org) or locally using [Flask](https://flask.palletsprojects.com/en/2.1.x/).
 
@@ -180,17 +207,6 @@ The `aisquared.serving` subpackage contains utilities for serving models locally
 The `aisquared.logging` subpackage is powered by [MLflow](https://mlflow.org), a powerful open-source platform for the machine learning lifecycle. The `logging` subpackage inherits nearly all functionality from mlflow, so we highly recommend users refer to the [MLflow documentation site](https://mlflow.org/docs/latest/index.html) for additional information.
 
 In this subpackage, we have additionally added implementations of individual functions to save TensorFlow, Keras, Scikit-Learn, and PyTorch models in a format that can be deployed quickly using MLflow.
-
-## The `aisquared` CLI (requires installing aisquared\[full\])
-
-The `aisquared` CLI, which is installed with the package, contains command-line functions that provide some high-level functionality the `aisquared` package provides, including:
-
-- `aisquared airfiles`
-  - This command contains functionality to list, delete, upload, and download `.air` files
-- `aisquared deploy`
-  - This command contains functionality to deploy models
-- `aisquared predict`
-  - This command contains functionality to get predictions from deployed models
 
 ## Contributing
 
@@ -251,3 +267,16 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Small documentation changes
 - Changed the required imports for the package to streamline installation process, and created two installation options
 `aisquared` and `aisquared[full]`
+
+## Version 0.2.3
+- Added functionality to add custom preprocessing and postprocessing functions to the model deployment pipeline
+- Added `all` parameter to `LocalAnalytic` class
+- Changed under-the-hood functionality of `mimic_model` function in line with updates to `BeyondML`
+- Altered the `ReverseMLWorkflow` analytic
+- Added the `BarChartRendering`, `ContainerRendering`, `DashboardReplacementRendering`, `DoughnutChartRendering`, `HTMLTagRendering`, `LineChartRendering`, `PieChartRendering`, `SOSRendering`, and `TableRendering` rendering classes
+- Added the `QueryParameterHarvester` harvester class
+- Added the `limit` parameter to the TextHarvester class
+
+## Version 0.3.0
+- Added type hinting to documentation strings
+- Revamped documentation to use Sphinx

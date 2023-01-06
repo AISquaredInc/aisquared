@@ -1,3 +1,4 @@
+from typing import Union
 from aisquared.base import BaseObject
 
 _ALLOWED_HOWS = [
@@ -10,15 +11,32 @@ _ALLOWED_HOWS = [
 class TextHarvester(BaseObject):
     """
     Object to harvest text
+
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.harvesting.TextHarvester(
+        how = 'all',
+        body_only = True
+    )
+    >>> my_obj.to_dict()
+    {'className': 'TextHarvester',
+    'params': {'how': 'all',
+    'regex': None,
+    'flags': 'gu',
+    'bodyOnly': True,
+    'limit': None}}
+
     """
 
     def __init__(
         self,
-        how=_ALLOWED_HOWS[0],
-        regex=None,
-        flags='gu',
-        body_only=False,
-        keywords=None
+        how: str = _ALLOWED_HOWS[0],
+        regex: Union[None, str] = None,
+        flags: str = 'gu',
+        body_only: bool = False,
+        keywords: Union[None, str, list[str]] = None,
+        limit: Union[None, int] = None
     ):
         """
         Parameters
@@ -33,6 +51,8 @@ class TextHarvester(BaseObject):
             Whether to only harvest text from the body of the webpage
         keywords : list of str or None (default None)
             If provided, keywords to search for
+        limit : int or None (default None)
+            The limit to the number of times to perform the harvesting, if provided
         """
         super().__init__()
         self.how = how
@@ -40,6 +60,7 @@ class TextHarvester(BaseObject):
         self.flags = flags
         self.body_only = body_only
         self.keywords = keywords
+        self.limit = limit
 
     @property
     def how(self):
@@ -78,7 +99,17 @@ class TextHarvester(BaseObject):
             raise TypeError('body_only must be Boolean')
         self._body_only = value
 
-    def to_dict(self):
+    @property
+    def limit(self):
+        return self._limit
+
+    @limit.setter
+    def limit(self, value):
+        if not isinstance(value, int) and value is not None:
+            raise TypeError('limit must be int or None')
+        self._limit = value
+
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -89,7 +120,8 @@ class TextHarvester(BaseObject):
                     'how': 'regex',
                     'regex': '|'.join(self.keywords),
                     'flags': self.flags,
-                    'bodyOnly': self.body_only
+                    'bodyOnly': self.body_only,
+                    'limit': self.limit
                 }
             }
 
@@ -99,6 +131,7 @@ class TextHarvester(BaseObject):
                 'how': self.how,
                 'regex': self.regex,
                 'flags': self.flags,
-                'bodyOnly': self.body_only
+                'bodyOnly': self.body_only,
+                'limit': self.limit
             }
         }

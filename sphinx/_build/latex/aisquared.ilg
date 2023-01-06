@@ -1,0 +1,7 @@
+This is makeindex, version 2.16 [TeX Live 2022] (kpathsea + Thai support).
+Scanning style file ./python.ist.......done (7 attributes redefined, 0 ignored).
+Scanning input file aisquared.idx....done (446 entries accepted, 0 rejected).
+Sorting entries......done (4188 comparisons).
+Generating output file aisquared.ind....done (899 lines written, 0 warnings).
+Output written in aisquared.ind.
+Transcript written in aisquared.ilg.

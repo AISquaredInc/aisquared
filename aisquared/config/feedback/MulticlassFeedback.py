@@ -4,9 +4,17 @@ from aisquared.base import BaseObject
 class MulticlassFeedback(BaseObject):
     """
     Feedback for multiclass classification
+
+    Example Usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.feedback.MulticlassFeedback(['class1', 'class2', 'class3'])
+    >>> my_obj.to_dict()
+    {'className': 'MulticlassFeedback',
+    'params': {'labelMap': ['class1', 'class2', 'class3']}}
     """
 
-    def __init__(self, label_map):
+    def __init__(self, label_map: list[str]):
         """
         Parameters
         ----------
@@ -26,7 +34,7 @@ class MulticlassFeedback(BaseObject):
             raise TypeError('label_map must be list')
         self._label_map = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Return the object as a dictionary
         """

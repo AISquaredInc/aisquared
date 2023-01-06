@@ -25,7 +25,8 @@ def test_text_harvester():
             'how': 'all',
             'regex': None,
             'flags': 'gu',
-            'bodyOnly': False
+            'bodyOnly': False,
+            'limit': None
         }
     }
     harvester = aisquared.config.harvesting.TextHarvester(
@@ -39,7 +40,8 @@ def test_text_harvester():
             'how': 'regex',
             'regex': 'test',
             'flags': 'gu',
-            'bodyOnly': True
+            'bodyOnly': True,
+            'limit': None
         }
     }
 
@@ -55,7 +57,8 @@ def test_text_harvester_regex():
             'how': 'regex',
             'regex': '\D(\d{5})\D',
             'flags': 'gu',
-            'bodyOnly': False
+            'bodyOnly': False,
+            'limit': None
         }
     }
 
@@ -118,6 +121,23 @@ def test_keyword_harvester():
             'bodyOnly': False,
             'how': 'regex',
             'regex': 'foo|bar',
-            'flags': 'gui'
+            'flags': 'gui',
+            'limit': None
+        }
+    }
+
+
+def test_queryparameter_harvester():
+    harvester = aisquared.config.harvesting.QueryParameterHarvester(
+        'test',
+        '*',
+        'test'
+    )
+    assert harvester.to_dict() == {
+        'className': 'QueryParameterHarvester',
+        'params': {
+            'queryKeys': ['test'],
+            'urlLocations': ['*'],
+            'attributes': ['test']
         }
     }

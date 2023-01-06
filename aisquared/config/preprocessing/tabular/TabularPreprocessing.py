@@ -1,3 +1,4 @@
+from typing import Union
 from .Steps import ZScore, MinMax, OneHot, DropColumn
 from aisquared.base import BaseObject
 
@@ -12,11 +13,24 @@ ALLOWED_STEPS = (
 class TabularPreprocessor(BaseObject):
     """
     Preprocessor object for tabular data
+
+    Example usage:
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.tabular.ZScore(
+            [0, 1, 2],
+            [0.2, 0.4, 0.6]
+        )
+    )
     """
 
     def __init__(
             self,
-            steps=None
+            steps: Union[None, list] = None
     ):
         """
         Parameters

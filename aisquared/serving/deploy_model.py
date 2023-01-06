@@ -1,3 +1,5 @@
+from typing import Union
+
 try:
     from mlflow.tensorflow import load_model as load_tensorflow_model
     from mlflow.sklearn import load_model as load_sklearn_model
@@ -24,8 +26,9 @@ try:
 except ImportError:
     pass
 
+from importlib import import_module
 import json
-
+import os
 
 _ALLOWED_TYPES = [
     'tensorflow',
@@ -36,7 +39,7 @@ _ALLOWED_TYPES = [
 ]
 
 
-def load_mann_model(model, custom_objects):
+def load_mann_model(model: str, custom_objects: dict):
     """
     Load a MANN model with custom objects
     """
@@ -47,11 +50,12 @@ def load_mann_model(model, custom_objects):
 
 
 def deploy_model(
-        saved_model,
-        model_type,
-        host='127.0.0.1',
-        port=2244,
-        custom_objects=None
+        saved_model: str,
+        model_type: str,
+        host: str = '127.0.0.1',
+        port: int = 2244,
+        custom_objects: Union[None, dict] = None,
+        additional_functions_file: Union[None, str] = None
 ):
     """
     Deploy a model to a Flask server on the specified host
@@ -68,6 +72,9 @@ def deploy_model(
         The port to deploy to
     custom_objects : dict or None (default None)
         Any custom objects to load when using a MANN model
+    additional_functions_file : file-like or None (default None)
+        File name containing additional functions (which have to be named `preprocess` and `postprocess`, if created)
+        that are used during the prediction process
     """
     if model_type not in _ALLOWED_TYPES:
         raise ValueError(
@@ -84,6 +91,23 @@ def deploy_model(
     elif model_type == 'mann':
         model = load_mann_model(saved_model, custom_objects)
 
+    # Import preprocessing and postprocessing steps, if provided
+    if additional_functions_file:
+        file_name = os.path.splitext(
+            os.path.basename(additional_functions_file))[0]
+        dir_name = os.path.dirname(os.path.abspath(additional_functions_file))
+        module = import_module(file_name, dir_name)
+
+        try:
+            preprocess = module.preprocess
+        except AttributeError:
+            preprocess = None
+
+        try:
+            postprocess = module.postprocess
+        except AttributeError:
+            postprocess = None
+
     # Create the Flask app
     app = Flask(__name__)
 
@@ -95,6 +119,8 @@ def deploy_model(
         try:
             data = request.get_json()
             to_predict = data['data']
+            if preprocess:
+                to_predict = preprocess(to_predict)
         except Exception:
             return Response(
                 'Data appears to be incorrectly formatted',
@@ -118,12 +144,20 @@ def deploy_model(
         # try to return the actual predictions
         try:
             if model_type != 'pytorch':
-                return json.dumps({
-                    'predictions': np.asarray(model.predict(to_predict)).tolist()
-                })
+                predictions = np.asarray(model.predict(to_predict)).tolist()
             elif model_type == 'pytorch':
-                return json.dumps({
-                    'predictions': model(torch.Tensor(to_predict)).detach().numpy().tolist()})
+                predictions = model(torch.Tensor(to_predict)
+                                    ).detach().numpy().tolist()
+
+            if postprocess:
+                try:
+                    predictions = postprocess(predictions)
+                except Exception as e:
+                    print(e)
+            return json.dumps({
+                'predictions': predictions
+            })
+
         except Exception:
             return Response(
                 'Error in performing prediction',

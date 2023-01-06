@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>aisquared.config.preprocessing.tabular package &mdash; aisquared  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="aisquared.config.preprocessing.text package" href="aisquared.config.preprocessing.text.html" />
+    <link rel="prev" title="aisquared.config.preprocessing.image package" href="aisquared.config.preprocessing.image.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> aisquared
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">aisquared</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="aisquared.html">aisquared package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="aisquared.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="aisquared.base.html">aisquared.base package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="aisquared.config.html">aisquared.config package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.logging.html">aisquared.logging package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html">aisquared.platform package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.serving.html">aisquared.serving package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.utils.html">aisquared.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.html#module-aisquared">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">aisquared</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">aisquared</a></li>
+          <li class="breadcrumb-item"><a href="aisquared.html">aisquared package</a></li>
+          <li class="breadcrumb-item"><a href="aisquared.config.html">aisquared.config package</a></li>
+          <li class="breadcrumb-item"><a href="aisquared.config.preprocessing.html">aisquared.config.preprocessing package</a></li>
+      <li class="breadcrumb-item active">aisquared.config.preprocessing.tabular package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/aisquared.config.preprocessing.tabular.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="aisquared-config-preprocessing-tabular-package">
+<h1>aisquared.config.preprocessing.tabular package<a class="headerlink" href="#aisquared-config-preprocessing-tabular-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-aisquared.config.preprocessing.tabular.Steps">
+<span id="aisquared-config-preprocessing-tabular-steps-module"></span><h2>aisquared.config.preprocessing.tabular.Steps module<a class="headerlink" href="#module-aisquared.config.preprocessing.tabular.Steps" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.tabular.Steps.DropColumn">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.preprocessing.tabular.Steps.</span></span><span class="sig-name descname"><span class="pre">DropColumn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/preprocessing/tabular/Steps.html#DropColumn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.preprocessing.tabular.Steps.DropColumn" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
+<p>Drop a column from tabular data</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">tabular</span><span class="o">.</span><span class="n">TabularPreprocessor</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span><span class="o">.</span><span class="n">add_step</span><span class="p">(</span>
+<span class="go">    aisquared.config.preprocessing.tabular.DropColumn(</span>
+<span class="go">        3</span>
+<span class="go">    )</span>
+<span class="go">)</span>
+</pre></div>
+</div>
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.tabular.Steps.DropColumn.column">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">column</span></span><a class="headerlink" href="#aisquared.config.preprocessing.tabular.Steps.DropColumn.column" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.tabular.Steps.DropColumn.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/config/preprocessing/tabular/Steps.html#DropColumn.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.preprocessing.tabular.Steps.DropColumn.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Get the configuration object as a dictionary</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.tabular.Steps.MinMax">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.preprocessing.tabular.Steps.</span></span><span class="sig-name descname"><span class="pre">MinMax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mins</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/preprocessing/tabular/Steps.html#MinMax"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.preprocessing.tabular.Steps.MinMax" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
+<p>Min-Max Scaling preprocessing step</p>
+<p>Min-Max Scaling takes all associated columns and maps values relative to the minimum and maximum values
+of the training data.</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">tabular</span><span class="o">.</span><span class="n">TabularPreprocessor</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span><span class="o">.</span><span class="n">add_step</span><span class="p">(</span>
+<span class="go">    aisquared.config.preprocessing.tabular.MinMax(</span>
+<span class="go">        [0, 1.1, 2],</span>
+<span class="go">        [0.2, 14, 18.3]</span>
+<span class="go">    )</span>
+<span class="go">)</span>
+</pre></div>
+</div>
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.tabular.Steps.MinMax.columns">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">columns</span></span><a class="headerlink" href="#aisquared.config.preprocessing.tabular.Steps.MinMax.columns" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.tabular.Steps.MinMax.maxs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">maxs</span></span><a class="headerlink" href="#aisquared.config.preprocessing.tabular.Steps.MinMax.maxs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.tabular.Steps.MinMax.mins">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mins</span></span><a class="headerlink" href="#aisquared.config.preprocessing.tabular.Steps.MinMax.mins" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.tabular.Steps.MinMax.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/config/preprocessing/tabular/Steps.html#MinMax.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.preprocessing.tabular.Steps.MinMax.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Get the configuration object as a dictionary</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.tabular.Steps.OneHot">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.preprocessing.tabular.Steps.</span></span><span class="sig-name descname"><span class="pre">OneHot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/preprocessing/tabular/Steps.html#OneHot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.preprocessing.tabular.Steps.OneHot" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
+<p>One Hot encoding preprocessing step</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">tabular</span><span class="o">.</span><span class="n">TabularPreprocessor</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span><span class="o">.</span><span class="n">add_step</span><span class="p">(</span>
+<span class="go">    aisquared.config.preprocessing.tabular.OneHot(</span>
+<span class="go">        6,</span>
+<span class="go">        [&#39;one&#39;, &#39;two&#39;, &#39;three&#39;]</span>
+<span class="go">    )</span>
+<span class="go">)</span>
+</pre></div>
+</div>
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.tabular.Steps.OneHot.column">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">column</span></span><a class="headerlink" href="#aisquared.config.preprocessing.tabular.Steps.OneHot.column" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.tabular.Steps.OneHot.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/config/preprocessing/tabular/Steps.html#OneHot.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.preprocessing.tabular.Steps.OneHot.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Get the configuration object as a dictionary</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.tabular.Steps.OneHot.values">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">values</span></span><a class="headerlink" href="#aisquared.config.preprocessing.tabular.Steps.OneHot.values" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.tabular.Steps.ZScore">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.preprocessing.tabular.Steps.</span></span><span class="sig-name descname"><span class="pre">ZScore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">means</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/preprocessing/tabular/Steps.html#ZScore"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.preprocessing.tabular.Steps.ZScore" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
+<p>Z-Score normalization preprocessing step</p>
+<p>Z-Score normalization takes each supplied column value, subtracts that column’s provided mean, and divides
+by the provided standard deviation.</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">tabular</span><span class="o">.</span><span class="n">TabularPreprocessor</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span><span class="o">.</span><span class="n">add_step</span><span class="p">(</span>
+<span class="go">    aisquared.config.preprocessing.tabular.ZScore(</span>
+<span class="go">        [0, 1, 2],</span>
+<span class="go">        [0.2, 0.4, 0.6]</span>
+<span class="go">    )</span>
+<span class="go">)</span>
+</pre></div>
+</div>
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.tabular.Steps.ZScore.columns">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">columns</span></span><a class="headerlink" href="#aisquared.config.preprocessing.tabular.Steps.ZScore.columns" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.tabular.Steps.ZScore.means">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">means</span></span><a class="headerlink" href="#aisquared.config.preprocessing.tabular.Steps.ZScore.means" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.tabular.Steps.ZScore.stds">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stds</span></span><a class="headerlink" href="#aisquared.config.preprocessing.tabular.Steps.ZScore.stds" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.tabular.Steps.ZScore.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/config/preprocessing/tabular/Steps.html#ZScore.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.preprocessing.tabular.Steps.ZScore.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Get the configuration object as a dictionary</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-aisquared.config.preprocessing.tabular.TabularPreprocessing">
+<span id="aisquared-config-preprocessing-tabular-tabularpreprocessing-module"></span><h2>aisquared.config.preprocessing.tabular.TabularPreprocessing module<a class="headerlink" href="#module-aisquared.config.preprocessing.tabular.TabularPreprocessing" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.preprocessing.tabular.TabularPreprocessing.</span></span><span class="sig-name descname"><span class="pre">TabularPreprocessor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/preprocessing/tabular/TabularPreprocessing.html#TabularPreprocessor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
+<p>Preprocessor object for tabular data</p>
+<p>Example usage:</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">tabular</span><span class="o">.</span><span class="n">TabularPreprocessor</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span><span class="o">.</span><span class="n">add_step</span><span class="p">(</span>
+<span class="go">    aisquared.config.preprocessing.tabular.ZScore(</span>
+<span class="go">        [0, 1, 2],</span>
+<span class="go">        [0.2, 0.4, 0.6]</span>
+<span class="go">    )</span>
+<span class="go">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor.add_step">
+<span class="sig-name descname"><span class="pre">add_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">step</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/preprocessing/tabular/TabularPreprocessing.html#TabularPreprocessor.add_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor.add_step" title="Permalink to this definition"></a></dt>
+<dd><p>Add a step to the preprocessor object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/preprocessing/tabular/TabularPreprocessing.html#TabularPreprocessor.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Get the configuration object as a dictionary</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-aisquared.config.preprocessing.tabular">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-aisquared.config.preprocessing.tabular" title="Permalink to this heading"></a></h2>
+<p>The aisquared.config.preprocessing.tabular subpackage contains objects for preprocessing tabular data.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="aisquared.config.preprocessing.image.html" class="btn btn-neutral float-left" title="aisquared.config.preprocessing.image package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="aisquared.config.preprocessing.text.html" class="btn btn-neutral float-right" title="aisquared.config.preprocessing.text package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, The AI Squared Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

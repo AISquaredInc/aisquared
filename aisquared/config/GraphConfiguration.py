@@ -1,3 +1,4 @@
+from typing import Union
 from aisquared.base import BaseObject, CustomObject, ALLOWED_STAGES
 import tensorflowjs as tfjs
 import tensorflow as tf
@@ -15,16 +16,16 @@ class GraphConfiguration(BaseObject):
 
     def __init__(
             self,
-            name,
-            stage=ALLOWED_STAGES[0],
-            version=None,
-            description='',
-            mlflow_uri=None,
-            mlflow_user=None,
-            mlflow_token=None,
-            owner=None,
-            url='*',
-            auto_run=False
+            name: str,
+            stage: str = ALLOWED_STAGES[0],
+            version: Union[None, int] = None,
+            description: str = '',
+            mlflow_uri: Union[None, str] = None,
+            mlflow_user: Union[None, str] = None,
+            mlflow_token: Union[None, str] = None,
+            owner: Union[None, str] = None,
+            url: str = '*',
+            auto_run: bool = False
     ):
         """
         Parameters
@@ -160,7 +161,7 @@ class GraphConfiguration(BaseObject):
             raise TypeError('auto_run must be Boolean valued')
         self._auto_run = value
 
-    def add_node(self, step, dependencies=None):
+    def add_node(self, step: BaseObject, dependencies: Union[None, int, list[int]] = None) -> int:
         """
         Add a node to the configuration graph
 
@@ -195,7 +196,7 @@ class GraphConfiguration(BaseObject):
         )
         return id
 
-    def get_filenames(self):
+    def get_filenames(self) -> list[str]:
         """
         Get filenames for all models in the configuration
         """
@@ -205,7 +206,7 @@ class GraphConfiguration(BaseObject):
                 filenames.append(node['step']['params']['path'])
         return filenames
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the object as a dictionary
         """
@@ -226,7 +227,7 @@ class GraphConfiguration(BaseObject):
             'nodes': self.nodes
         }
 
-    def compile(self, filename=None, dtype=None):
+    def compile(self, filename: Union[None, str] = None, dtype: Union[None, str] = None) -> None:
         """
         Compile the object into a '.air' file, which can then be dragged and dropped into applications using the AI Squared JavaScript SDK
 

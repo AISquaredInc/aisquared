@@ -5,12 +5,26 @@ class LocalAnalytic(BaseObject):
     """
     Interaction with an analytic (lookup table) saved to the
     local file system
+
+    Example usage:
+
+    >>> import aisquared
+    >>> analytic = aisquared.config.analytic.LocalAnalytic(
+        'analytic_path',
+        'text'
+    )
+    >>> analytic.to_dict()
+    {'className': 'LocalAnalytic',
+    'params': {'path': 'analytic_path',
+    'inputType': 'text',
+    'all': False}}
     """
 
     def __init__(
         self,
-        path,
-        input_type,
+        path: str,
+        input_type: str,
+        all: bool = False
     ):
         """
         Parameters
@@ -19,10 +33,13 @@ class LocalAnalytic(BaseObject):
             The path to the analytic saved on disk
         input_type : str
             The input type to the analytic. Either one of 'cv', 'text', or 'tabular'
+        all : bool (default False)
+            Whether the entire analytic will be returned for every call
         """
         super().__init__()
         self.path = path
         self.input_type = input_type
+        self.all = all
 
     @property
     def path(self):
@@ -40,7 +57,17 @@ class LocalAnalytic(BaseObject):
     def input_type(self, value):
         self._input_type = value
 
-    def to_dict(self):
+    @property
+    def all(self):
+        return self._all
+
+    @all.setter
+    def all(self, value):
+        if not isinstance(value, bool):
+            raise TypeError('all must be Boolean')
+        self._all = value
+
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -48,6 +75,7 @@ class LocalAnalytic(BaseObject):
             'className': 'LocalAnalytic',
             'params': {
                 'path': self.path,
-                'inputType': self.input_type
+                'inputType': self.input_type,
+                'all': self.all
             }
         }

@@ -1,13 +1,14 @@
+from typing import Union
 import numpy as np
 import requests
 import json
 
 
 def get_remote_prediction(
-    data,
-    host='127.0.0.1',
-    port=2244
-):
+    data: Union[dict, str, np.ndarray, list],
+    host: str = '127.0.0.1',
+    port: int = 2244
+) -> list:
     """
     Send data to use for prediction
 

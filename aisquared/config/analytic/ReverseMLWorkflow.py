@@ -1,17 +1,39 @@
+from typing import Union
 from aisquared.base import BaseObject
 
 
 class ReverseMLWorkflow(BaseObject):
     """
     Interaction with a ReverseML CSV stored in S3
+
+    Example usage:
+
+    >>> import aisquared
+    >>> analytic = aisquared.config.analytic.ReverseMLWorkflow(
+        'bucket_name',
+        'file_name',
+        'column_name',
+        'text'
+    )
+    >>> analytic.to_dict()
+    {'className': 'ReverseMLWorkflow',
+    'params': {'bucket': 'bucket_name',
+    'fileName': 'file_name',
+    'inputType': 'text',
+    'column': 'column_name',
+    'period': None,
+    'secret': ''}}
+
     """
 
     def __init__(
         self,
-        bucket,
-        filename,
-        column,
-        period=None
+        bucket: str,
+        filename: str,
+        column: str,
+        input_type: str,
+        period: Union[None, int] = None,
+        secret: str = ''
     ):
         """
         Parameters
@@ -22,14 +44,20 @@ class ReverseMLWorkflow(BaseObject):
             The name for the specific file
         column : str
             The column name in the CSV file
+        input_type : str
+            Either one of 'text' or 'cv'
         period : None or int (default None)
             The period for this to run
+        secret : str (default '')
+            A secret, if needed
         """
         super().__init__()
         self.bucket = bucket
         self.filename = filename
         self.column = column
+        self.input_type = input_type
         self.period = period
+        self.secret = secret
 
     @property
     def bucket(self):
@@ -62,6 +90,14 @@ class ReverseMLWorkflow(BaseObject):
         self._column = value
 
     @property
+    def input_type(self):
+        return self._input_type
+
+    @input_type.setter
+    def input_type(self, value):
+        self._input_type = value
+
+    @property
     def period(self):
         return self._period
 
@@ -74,7 +110,15 @@ class ReverseMLWorkflow(BaseObject):
                 raise ValueError('period must be greater than or equal to 1')
         self._period = value
 
-    def to_dict(self):
+    @property
+    def secret(self):
+        return self._secret
+
+    @secret.setter
+    def secret(self, value):
+        self._secret = value
+
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -83,7 +127,9 @@ class ReverseMLWorkflow(BaseObject):
             'params': {
                 'bucket': self.bucket,
                 'fileName': self.filename,
+                'inputType': self.input_type,
                 'column': self.column,
-                'period': self.period
+                'period': self.period,
+                'secret': self.secret
             }
         }

@@ -1,3 +1,4 @@
+from typing import Union
 from aisquared.base import BaseObject
 
 
@@ -7,13 +8,24 @@ class ZScore(BaseObject):
 
     Z-Score normalization takes each supplied column value, subtracts that column's provided mean, and divides
     by the provided standard deviation.
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.tabular.ZScore(
+            [0, 1, 2],
+            [0.2, 0.4, 0.6]
+        )
+    )
     """
 
     def __init__(
             self,
-            means,
-            stds,
-            columns=None
+            means: list[Union[int, float]],
+            stds: list[Union[int, float]],
+            columns: Union[None, int, list[int]] = None
     ):
         """
         means : list
@@ -71,7 +83,7 @@ class ZScore(BaseObject):
             raise TypeError('Each value of columns must be an int')
         self._columns = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -91,13 +103,24 @@ class MinMax(BaseObject):
 
     Min-Max Scaling takes all associated columns and maps values relative to the minimum and maximum values
     of the training data.
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.tabular.MinMax(
+            [0, 1.1, 2],
+            [0.2, 14, 18.3]
+        )
+    )
     """
 
     def __init__(
             self,
-            mins,
-            maxs,
-            columns=None
+            mins: list[Union[int, float]],
+            maxs: list[Union[int, float]],
+            columns: Union[None, list[int]] = None
     ):
         """
         Parameters
@@ -158,7 +181,7 @@ class MinMax(BaseObject):
                     'If passed, each value in columns must be an int')
         self._columns = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -175,12 +198,23 @@ class MinMax(BaseObject):
 class OneHot(BaseObject):
     """
     One Hot encoding preprocessing step
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.tabular.OneHot(
+            6,
+            ['one', 'two', 'three']
+        )
+    )
     """
 
     def __init__(
             self,
-            column,
-            values
+            column: int,
+            values: list
     ):
         """
         Parameters
@@ -215,7 +249,7 @@ class OneHot(BaseObject):
             raise TypeError('values must be list')
         self._values = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
@@ -231,11 +265,21 @@ class OneHot(BaseObject):
 class DropColumn(BaseObject):
     """
     Drop a column from tabular data
+
+    Example usage:
+
+    >>> import aisquared
+    >>> preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocessor()
+    >>> preprocesser.add_step(
+        aisquared.config.preprocessing.tabular.DropColumn(
+            3
+        )
+    )
     """
 
     def __init__(
             self,
-            column
+            column: int
     ):
         """
         Parameters
@@ -256,7 +300,7 @@ class DropColumn(BaseObject):
             raise ValueError('column must be integer valued')
         self._column = value
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
         """
