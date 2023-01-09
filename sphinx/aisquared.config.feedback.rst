@@ -1,6 +1,15 @@
 aisquared.config.feedback package
 =================================
 
+Module contents
+---------------
+
+.. automodule:: aisquared.config.feedback
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
 Submodules
 ----------
 
@@ -48,14 +57,6 @@ aisquared.config.feedback.SimpleFeedback module
 -----------------------------------------------
 
 .. automodule:: aisquared.config.feedback.SimpleFeedback
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: aisquared.config.feedback
    :members:
    :undoc-members:
    :show-inheritance:

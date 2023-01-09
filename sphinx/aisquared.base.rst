@@ -1,6 +1,14 @@
 aisquared.base package
 ======================
 
+Module contents
+---------------
+
+.. automodule:: aisquared.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -32,14 +40,6 @@ aisquared.base.stages module
 ----------------------------
 
 .. automodule:: aisquared.base.stages
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: aisquared.base
    :members:
    :undoc-members:
    :show-inheritance:

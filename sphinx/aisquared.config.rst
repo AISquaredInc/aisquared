@@ -1,6 +1,15 @@
 aisquared.config package
 ========================
 
+Module contents
+---------------
+
+.. automodule:: aisquared.config
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
 Subpackages
 -----------
 
@@ -29,14 +38,6 @@ aisquared.config.ModelConfiguration module
 ------------------------------------------
 
 .. automodule:: aisquared.config.ModelConfiguration
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: aisquared.config
    :members:
    :undoc-members:
    :show-inheritance:
