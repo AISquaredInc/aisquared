@@ -475,19 +475,39 @@ class AISquaredPlatformClient:
         """Not yet implemented"""
         raise NotImplementedError('Functionality not yet implemented')
 
-    # TODO
-    def list_model_predictions(self, model_id, port=8080):
-        """Not yet implemented"""
-        raise NotImplementedError('Functionality not yet implemented')
+    def list_model_predictions(self, model_id: str, as_df: bool = True, port: int = 8080) -> Union[pd.DataFrame, dict]:
+        """
+        Retrieve model predictions
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.list_model_predictions('model_id')
+        *DataFrame with results*
+
+        Parameters
+        ----------
+        model_id : str
+            The model ID
+        port : int (default 8080)
+            The API port to use
+
+        Returns
+        -------
+        results : pandas DataFrame or dict
+            The response from the API
+        """
+
         with requests.Session() as sess:
             resp = sess.get(
-                f'{self.base_url}:{port}/api/v1/predictions?modelID={model_id}',
+                f'{self.base_url}:{port}/api/v1/predictions?modelId={model_id}',
                 headers=self.headers
             )
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
         else:
-            return resp
+            if as_df:
+                return pd.DataFrame(resp.json()['data'])
+            return resp.json()
 
     # TODO
     def list_model_prediction_feedback(self, model_id):
