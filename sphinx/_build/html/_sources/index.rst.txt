@@ -15,7 +15,7 @@ Welcome to the documentation for the `aisquared` python package!
 
 This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.
 
-**Current Production Version:** ``0.3.0``
+**Current Production Version:** ``0.3.1``
 
 |
 
@@ -101,4 +101,6 @@ Changelog
 - Version 0.3.0
    - Added type hinting to documentation strings
    - Revamped documentation to use Sphinx
+- Version 0.3.1
+   - Changed Python type hints to allow for backwards compatibility with older versions of Python
 

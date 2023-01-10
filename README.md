@@ -280,3 +280,6 @@ Below are a list of additional features, bug fixes, and other changes made for e
 ## Version 0.3.0
 - Added type hinting to documentation strings
 - Revamped documentation to use Sphinx
+
+## Version 0.3.1
+- Changed Python type hints to allow for backwards compatibility with older versions of Python

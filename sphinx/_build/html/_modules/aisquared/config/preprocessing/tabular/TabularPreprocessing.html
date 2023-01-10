@@ -66,8 +66,7 @@
            <div itemprop="articleBody">
              
   <h1>Source code for aisquared.config.preprocessing.tabular.TabularPreprocessing</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
-<span class="kn">from</span> <span class="nn">.Steps</span> <span class="kn">import</span> <span class="n">ZScore</span><span class="p">,</span> <span class="n">MinMax</span><span class="p">,</span> <span class="n">OneHot</span><span class="p">,</span> <span class="n">DropColumn</span>
+<span></span><span class="kn">from</span> <span class="nn">.Steps</span> <span class="kn">import</span> <span class="n">ZScore</span><span class="p">,</span> <span class="n">MinMax</span><span class="p">,</span> <span class="n">OneHot</span><span class="p">,</span> <span class="n">DropColumn</span>
 <span class="kn">from</span> <span class="nn">aisquared.base</span> <span class="kn">import</span> <span class="n">BaseObject</span>
 
 <span class="n">ALLOWED_STEPS</span> <span class="o">=</span> <span class="p">(</span>
@@ -98,7 +97,7 @@
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
-            <span class="n">steps</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">steps</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
