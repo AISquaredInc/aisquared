@@ -720,9 +720,42 @@ class AISquaredPlatformClient:
         raise NotImplementedError('Functionality not yet implemented')
         with requests.Session() as sess:
             resp = sess.get(
-                f'{self.base_url}:{port}/api/v1/usage_metrics?period=hourly&entityId={user_id}',
+                f'{self.base_url}:{port}/api/v1/usage-metrics?period=hourly&entityId={user_id}',
                 headers=self.headers
             )
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
+        return resp.json()
+
+    # BUG: Malformed request
+    def get_model_usage_metrics(self, model_id : str, port : int = 8080) -> dict:
+        """
+        Get usage metrics for a model
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.get_model_usage_metrics('model_id')
+        *Results*
+
+        Parameters
+        ----------
+        model_id : str
+            The ID of the model
+        port : int (default 8080)
+            The API port to use
+
+        Returns
+        -------
+        results : dict
+            The results from the platform
+
+        """
+        with requests.Session() as sess:
+            resp = sess.get(
+                f'{self.base_url}:{port}/api/v1/usage-metrics?modelId={model_id}&action=run',
+                headers = self.headers
+            )
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+
         return resp.json()
