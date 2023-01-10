@@ -20,8 +20,8 @@ class Regression(BaseObject):
 
     def __init__(
         self,
-        min: Union[None, int, float] = None,
-        max: Union[None, int, float] = None,
+        min: Union[int, float] = None,
+        max: Union[int, float] = None,
         round: bool = False
     ):
         """

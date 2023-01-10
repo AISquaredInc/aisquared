@@ -1,4 +1,3 @@
-from typing import Union
 from aisquared.base import BaseObject
 
 
@@ -19,8 +18,8 @@ class InputHarvester(BaseObject):
     def __init__(
             self,
             input_type: str = 'text',
-            max_length: Union[None, int] = None,
-            features: Union[None, list] = None
+            max_length: int = None,
+            features: list = None
     ):
         """
         Parameters

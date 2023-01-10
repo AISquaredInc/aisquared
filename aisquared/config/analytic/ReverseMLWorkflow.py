@@ -1,4 +1,3 @@
-from typing import Union
 from aisquared.base import BaseObject
 
 
@@ -32,7 +31,7 @@ class ReverseMLWorkflow(BaseObject):
         filename: str,
         column: str,
         input_type: str,
-        period: Union[None, int] = None,
+        period: int = None,
         secret: str = ''
     ):
         """

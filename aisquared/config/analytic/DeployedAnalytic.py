@@ -1,5 +1,3 @@
-from typing import Union
-
 from aisquared.base import BaseObject
 
 
@@ -27,7 +25,7 @@ class DeployedAnalytic(BaseObject):
         url: str,
         input_type: str,
         secret: str = 'request',
-        header: Union[None, dict] = None
+        header: dict = None
     ):
         """
         Parameters

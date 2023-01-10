@@ -18,12 +18,12 @@ class GraphConfiguration(BaseObject):
             self,
             name: str,
             stage: str = ALLOWED_STAGES[0],
-            version: Union[None, int] = None,
+            version: int = None,
             description: str = '',
-            mlflow_uri: Union[None, str] = None,
-            mlflow_user: Union[None, str] = None,
-            mlflow_token: Union[None, str] = None,
-            owner: Union[None, str] = None,
+            mlflow_uri: str = None,
+            mlflow_user: str = None,
+            mlflow_token: str = None,
+            owner: str = None,
             url: str = '*',
             auto_run: bool = False
     ):
@@ -161,7 +161,7 @@ class GraphConfiguration(BaseObject):
             raise TypeError('auto_run must be Boolean valued')
         self._auto_run = value
 
-    def add_node(self, step: BaseObject, dependencies: Union[None, int, list[int]] = None) -> int:
+    def add_node(self, step: BaseObject, dependencies: Union[int, list[int]] = None) -> int:
         """
         Add a node to the configuration graph
 
@@ -227,7 +227,7 @@ class GraphConfiguration(BaseObject):
             'nodes': self.nodes
         }
 
-    def compile(self, filename: Union[None, str] = None, dtype: Union[None, str] = None) -> None:
+    def compile(self, filename: str = None, dtype: str = None) -> None:
         """
         Compile the object into a '.air' file, which can then be dragged and dropped into applications using the AI Squared JavaScript SDK
 

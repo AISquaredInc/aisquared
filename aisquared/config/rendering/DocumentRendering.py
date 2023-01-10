@@ -27,14 +27,14 @@ class DocumentRendering(BaseObject):
     def __init__(
         self,
         prediction_key: str = 'className',
-        words: Union[None, list[str], dict, str] = None,
-        documents: Union[None, list[str], dict, str] = None,
+        words: Union[list[str], dict, str] = None,
+        documents: Union[list[str], dict, str] = None,
         include_probability: bool = False,
         probability_key: str = 'probability',
         underline_color: str = 'blue',
-        classes: Union[None, list[str]] = None,
-        threshold_key: Union[None, str] = None,
-        threshold_value: Union[None, int, float] = None
+        classes: list[str] = None,
+        threshold_key: str = None,
+        threshold_value: Union[int, float] = None
     ):
         """
         Parameters

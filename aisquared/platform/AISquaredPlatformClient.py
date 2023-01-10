@@ -47,10 +47,10 @@ class AISquaredPlatformClient:
 
     def login(
         self,
-        url: Union[None, str] = None,
+        url: str = None,
         port: int = 8080,
-        username: Union[None, str] = None,
-        password: Union[None, str] = None
+        username: str = None,
+        password: str = None
     ) -> None:
         """
         Log in to the platform programmatically.  If no url, username, or password are provided, logs in interactively

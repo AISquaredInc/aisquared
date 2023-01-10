@@ -1,5 +1,3 @@
-from typing import Union
-
 try:
     from mlflow.tensorflow import load_model as load_tensorflow_model
     from mlflow.sklearn import load_model as load_sklearn_model
@@ -54,8 +52,8 @@ def deploy_model(
         model_type: str,
         host: str = '127.0.0.1',
         port: int = 2244,
-        custom_objects: Union[None, dict] = None,
-        additional_functions_file: Union[None, str] = None
+        custom_objects: dict = None,
+        additional_functions_file: str = None
 ):
     """
     Deploy a model to a Flask server on the specified host

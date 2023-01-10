@@ -26,13 +26,13 @@ class WordRendering(BaseObject):
     def __init__(
             self,
             word_list: str = WORD_LISTS[0],
-            result_key: Union[None, str] = None,
-            content_key: Union[None, str] = None,
+            result_key: str = None,
+            content_key: str = None,
             badge_shape: str = BADGES[-2],
             badge_color: str = 'blue',
-            classes: Union[None, list[str]] = None,
-            threshold_key: Union[None, str] = None,
-            threshold_value: Union[None, int, float] = None
+            classes: list[str] = None,
+            threshold_key: str = None,
+            threshold_value: Union[int, float] = None
     ):
         """
         Parameters

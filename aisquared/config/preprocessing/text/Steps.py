@@ -216,7 +216,7 @@ class ConvertToVocabulary(BaseObject):
         vocabulary: dict,
         start_character: int = 1,
         oov_character: int = 2,
-        max_vocab: Union[None, int] = None
+        max_vocab: int = None
     ):
         """
         Parameters

@@ -32,11 +32,11 @@ class TextHarvester(BaseObject):
     def __init__(
         self,
         how: str = _ALLOWED_HOWS[0],
-        regex: Union[None, str] = None,
+        regex: str = None,
         flags: str = 'gu',
         body_only: bool = False,
-        keywords: Union[None, str, list[str]] = None,
-        limit: Union[None, int] = None
+        keywords: Union[str, list[str]] = None,
+        limit: int = None
     ):
         """
         Parameters

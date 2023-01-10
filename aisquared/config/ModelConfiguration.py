@@ -89,19 +89,19 @@ class ModelConfiguration(BaseObject):
     def __init__(
             self,
             name: str,
-            harvesting_steps: Union[None, BaseObject, list[BaseObject]],
-            preprocessing_steps: Union[None, BaseObject, list[BaseObject]],
+            harvesting_steps: Union[BaseObject, list[BaseObject]],
+            preprocessing_steps: Union[BaseObject, list[BaseObject]],
             analytic: Union[BaseObject, list[BaseObject]],
-            postprocessing_steps: Union[None, BaseObject, list[BaseObject]],
-            rendering_steps: Union[None, BaseObject, list[BaseObject]],
-            feedback_steps: Union[None, BaseObject, list[BaseObject]] = None,
+            postprocessing_steps: Union[BaseObject, list[BaseObject]],
+            rendering_steps: Union[BaseObject, list[BaseObject]],
+            feedback_steps: Union[BaseObject, list[BaseObject]] = None,
             stage: str = ALLOWED_STAGES[0],
             version: int = None,
             description: str = '',
-            mlflow_uri: Union[None, str] = None,
-            mlflow_user: Union[None, str] = None,
-            mlflow_token: Union[None, str] = None,
-            owner: Union[None, str] = None,
+            mlflow_uri: str = None,
+            mlflow_user: str = None,
+            mlflow_token: str = None,
+            owner: str = None,
             url: str = '*',
             auto_run: bool = False
     ):
@@ -502,7 +502,7 @@ class ModelConfiguration(BaseObject):
             }
         }
 
-    def compile(self, filename: Union[None, str] = None, dtype: Union[None, str] = None) -> None:
+    def compile(self, filename: str = None, dtype: str = None) -> None:
         """
         Compile the object into a '.air' file, which can then be dragged and
         dropped into applications using the AI Squared JavaScript SDK

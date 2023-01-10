@@ -25,7 +25,7 @@ class ZScore(BaseObject):
             self,
             means: list[Union[int, float]],
             stds: list[Union[int, float]],
-            columns: Union[None, int, list[int]] = None
+            columns: Union[int, list[int]] = None
     ):
         """
         means : list
@@ -120,7 +120,7 @@ class MinMax(BaseObject):
             self,
             mins: list[Union[int, float]],
             maxs: list[Union[int, float]],
-            columns: Union[None, list[int]] = None
+            columns: list[int] = None
     ):
         """
         Parameters

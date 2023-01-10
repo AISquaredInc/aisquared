@@ -34,9 +34,9 @@ class ImageRendering(BaseObject):
         badge_color: str = 'white',
         font_color: str = 'black',
         font_size: str = '5px',
-        classes: Union[None, list] = None,
-        threshold_key: Union[None, str] = None,
-        threshold_value: Union[None, Union[int, float]] = None
+        classes: list = None,
+        threshold_key: str = None,
+        threshold_value: Union[int, float] = None
     ):
         """
         Parameters
