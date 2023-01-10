@@ -443,7 +443,7 @@ class ModelConfiguration(BaseObject):
                 [v.to_dict() for v in val] for val in self.feedback_steps
             ]
 
-    def get_model_filenames(self) -> list[str]:
+    def get_model_filenames(self) -> list:
         """
         Get filenames for all models in the configuration
         """
