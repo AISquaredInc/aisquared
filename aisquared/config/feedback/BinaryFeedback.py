@@ -14,7 +14,7 @@ class BinaryFeedback(BaseObject):
 
     """
 
-    def __init__(self, label_map: list[str]):
+    def __init__(self, label_map: list):
         """
         Parameters
         ----------

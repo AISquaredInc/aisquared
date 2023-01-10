@@ -19,7 +19,7 @@ class BinaryClassification(BaseObject):
 
     def __init__(
         self,
-        label_map: list[str],
+        label_map: list,
         threshold: float = 0.5
     ):
         """

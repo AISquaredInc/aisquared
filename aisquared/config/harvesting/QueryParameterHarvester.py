@@ -24,9 +24,9 @@ class QueryParameterHarvester(BaseObject):
 
     def __init__(
         self,
-        query_keys: Union[str, list[str]],
-        url_locations: Union[str, list[str]],
-        attributes: Union[str, list[str]]
+        query_keys: Union[str, list],
+        url_locations: Union[str, list],
+        attributes: Union[str, list]
     ):
         """
         Parameters

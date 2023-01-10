@@ -27,12 +27,12 @@ class DocumentRendering(BaseObject):
     def __init__(
         self,
         prediction_key: str = 'className',
-        words: Union[list[str], dict, str] = None,
-        documents: Union[list[str], dict, str] = None,
+        words: Union[list, dict, str] = None,
+        documents: Union[list, dict, str] = None,
         include_probability: bool = False,
         probability_key: str = 'probability',
         underline_color: str = 'blue',
-        classes: list[str] = None,
+        classes: list = None,
         threshold_key: str = None,
         threshold_value: Union[int, float] = None
     ):

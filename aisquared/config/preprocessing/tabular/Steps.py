@@ -23,9 +23,9 @@ class ZScore(BaseObject):
 
     def __init__(
             self,
-            means: list[Union[int, float]],
-            stds: list[Union[int, float]],
-            columns: Union[int, list[int]] = None
+            means: list,
+            stds: list,
+            columns: Union[int, list] = None
     ):
         """
         means : list
@@ -118,9 +118,9 @@ class MinMax(BaseObject):
 
     def __init__(
             self,
-            mins: list[Union[int, float]],
-            maxs: list[Union[int, float]],
-            columns: list[int] = None
+            mins: list,
+            maxs: list,
+            columns: list = None
     ):
         """
         Parameters

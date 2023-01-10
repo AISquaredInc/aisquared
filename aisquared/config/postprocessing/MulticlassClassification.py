@@ -19,7 +19,7 @@ class MulticlassClassification(BaseObject):
 
     def __init__(
             self,
-            label_map: list[str],
+            label_map: list,
     ):
         """
         Parameters

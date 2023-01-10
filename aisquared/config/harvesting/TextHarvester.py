@@ -35,7 +35,7 @@ class TextHarvester(BaseObject):
         regex: str = None,
         flags: str = 'gu',
         body_only: bool = False,
-        keywords: Union[str, list[str]] = None,
+        keywords: Union[str, list] = None,
         limit: int = None
     ):
         """

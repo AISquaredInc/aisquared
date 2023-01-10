@@ -30,7 +30,7 @@ class WordRendering(BaseObject):
             content_key: str = None,
             badge_shape: str = BADGES[-2],
             badge_color: str = 'blue',
-            classes: list[str] = None,
+            classes: list = None,
             threshold_key: str = None,
             threshold_value: Union[int, float] = None
     ):

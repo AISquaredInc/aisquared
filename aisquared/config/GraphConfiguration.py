@@ -161,7 +161,7 @@ class GraphConfiguration(BaseObject):
             raise TypeError('auto_run must be Boolean valued')
         self._auto_run = value
 
-    def add_node(self, step: BaseObject, dependencies: Union[int, list[int]] = None) -> int:
+    def add_node(self, step: BaseObject, dependencies: Union[int, list] = None) -> int:
         """
         Add a node to the configuration graph
 
@@ -196,7 +196,7 @@ class GraphConfiguration(BaseObject):
         )
         return id
 
-    def get_filenames(self) -> list[str]:
+    def get_filenames(self) -> list:
         """
         Get filenames for all models in the configuration
         """

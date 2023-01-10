@@ -254,7 +254,7 @@ class Resize(BaseObject):
 
     def __init__(
             self,
-            size: list[int],
+            size: list,
             method: str = 'bilinear',
             preserve_aspect_ratio: bool = False
     ):

@@ -153,7 +153,7 @@ def mimic_model(
     test_labels: np.ndarray,
     problem_type: str,
     loss: str,
-    metrics: Union[str, list[str]],
+    metrics: Union[str, list],
     optimizer: str,
     mimic_proba: bool = False,
     retention: float = 0.9,

@@ -14,7 +14,7 @@ class MulticlassFeedback(BaseObject):
     'params': {'labelMap': ['class1', 'class2', 'class3']}}
     """
 
-    def __init__(self, label_map: list[str]):
+    def __init__(self, label_map: list):
         """
         Parameters
         ----------
