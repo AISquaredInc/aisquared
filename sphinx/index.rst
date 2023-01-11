@@ -17,6 +17,8 @@ This package contains utilities to interact with the AI Squared technology stack
 
 **Current Production Version:** ``0.3.1``
 
+:download:`View this Documentation in PDF Format <./_build/latex/aisquared.pdf>`.
+
 |
 
 Installation

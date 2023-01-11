@@ -210,6 +210,32 @@ client will ask for any required information interactively.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_model_usage_metrics">
+<span class="sig-name descname"><span class="pre">get_model_usage_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'hourly'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8080</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/platform/AISquaredPlatformClient.html#AISquaredPlatformClient.get_model_usage_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_model_usage_metrics" title="Permalink to this definition"></a></dt>
+<dd><p>Get usage metrics for a model</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">platform</span><span class="o">.</span><span class="n">AISquaredPlatformClient</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span><span class="o">.</span><span class="n">get_model_usage_metrics</span><span class="p">(</span><span class="s1">&#39;model_id&#39;</span><span class="p">)</span>
+<span class="go">*Results*</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_id</strong> (<em>str</em>) – The ID of the model</p></li>
+<li><p><strong>port</strong> (<em>int</em><em> (</em><em>default 8080</em><em>)</em>) – The API port to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>results</strong> – The results from the platform</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_user_id_by_name">
 <span class="sig-name descname"><span class="pre">get_user_id_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/aisquared/platform/AISquaredPlatformClient.html#AISquaredPlatformClient.get_user_id_by_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_user_id_by_name" title="Permalink to this definition"></a></dt>
 <dd><p>Get a user’s ID from their display name</p>
@@ -234,7 +260,7 @@ client will ask for any required information interactively.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_user_usage_metrics">
-<span class="sig-name descname"><span class="pre">get_user_usage_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8080</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/platform/AISquaredPlatformClient.html#AISquaredPlatformClient.get_user_usage_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_user_usage_metrics" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_user_usage_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hourly'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8080</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/platform/AISquaredPlatformClient.html#AISquaredPlatformClient.get_user_usage_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_user_usage_metrics" title="Permalink to this definition"></a></dt>
 <dd><p>Not yet implemented</p>
 </dd></dl>
 
@@ -311,8 +337,28 @@ client will ask for any required information interactively.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_model_predictions">
-<span class="sig-name descname"><span class="pre">list_model_predictions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8080</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/platform/AISquaredPlatformClient.html#AISquaredPlatformClient.list_model_predictions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_model_predictions" title="Permalink to this definition"></a></dt>
-<dd><p>Not yet implemented</p>
+<span class="sig-name descname"><span class="pre">list_model_predictions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8080</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">DataFrame</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/aisquared/platform/AISquaredPlatformClient.html#AISquaredPlatformClient.list_model_predictions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_model_predictions" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieve model predictions</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">platform</span><span class="o">.</span><span class="n">AISquaredPlatformClient</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span><span class="o">.</span><span class="n">list_model_predictions</span><span class="p">(</span><span class="s1">&#39;model_id&#39;</span><span class="p">)</span>
+<span class="go">*DataFrame with results*</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_id</strong> (<em>str</em>) – The model ID</p></li>
+<li><p><strong>port</strong> (<em>int</em><em> (</em><em>default 8080</em><em>)</em>) – The API port to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>results</strong> – The response from the API</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas DataFrame or dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -370,8 +416,29 @@ client will ask for any required information interactively.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_prediction_feedback">
-<span class="sig-name descname"><span class="pre">list_prediction_feedback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8080</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/platform/AISquaredPlatformClient.html#AISquaredPlatformClient.list_prediction_feedback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_prediction_feedback" title="Permalink to this definition"></a></dt>
-<dd><p>Not yet implemented</p>
+<span class="sig-name descname"><span class="pre">list_prediction_feedback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8080</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">DataFrame</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/aisquared/platform/AISquaredPlatformClient.html#AISquaredPlatformClient.list_prediction_feedback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_prediction_feedback" title="Permalink to this definition"></a></dt>
+<dd><p>List prediction feedback given a prediction ID</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">platform</span><span class="o">.</span><span class="n">AISquaredPlatformClient</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span><span class="o">.</span><span class="n">list_prediction_feedback</span><span class="p">(</span><span class="s1">&#39;prediction_id&#39;</span><span class="p">)</span>
+<span class="go">*DataFrame with results*</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prediction_id</strong> (<em>str</em>) – The prediction ID</p></li>
+<li><p><strong>as_df</strong> (<em>bool</em><em> (</em><em>default True</em><em>)</em>) – Whether to return the results as a pandas DataFrame</p></li>
+<li><p><strong>port</strong> (<em>int</em><em> (</em><em>default 8080</em><em>)</em>) – The API port to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>results</strong> – The results from the platform</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas DataFrame or dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">

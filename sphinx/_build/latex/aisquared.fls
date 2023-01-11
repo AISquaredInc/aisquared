@@ -1105,6 +1105,11 @@ INPUT ./aisquared.png
 INPUT ./aisquared.png
 INPUT aisquared.png
 INPUT ./aisquared.png
+INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/tex-gyre/ts1qtm.fd
+INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/tex-gyre/ts1qtm.fd
+INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/tex-gyre/ts1qtm.fd
+INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/tex-gyre/ts1qtm.fd
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/tex-gyre/ts1-qtmr.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/txfonts/t1xtt.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/tex-gyre/ec-qtmr.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/tex-gyre/ec-qhvr.tfm
@@ -1116,13 +1121,8 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/txfonts/ts1txtt.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/txfonts/ts1txtt.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/txfonts/ts1txtt.fd
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/txfonts/tcxtt.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/tex-gyre/ts1qtm.fd
-INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/tex-gyre/ts1qtm.fd
-INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/tex-gyre/ts1qtm.fd
-INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/tex-gyre/ts1qtm.fd
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/tex-gyre/ts1-qtmri.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/tex-gyre/ec-qtmr.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/tex-gyre/ts1-qtmr.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/txfonts/tcxsl.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/vf/public/txfonts/tcxsl.vf
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/txfonts/rtxptmro.tfm
