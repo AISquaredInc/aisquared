@@ -715,12 +715,11 @@ class AISquaredPlatformClient:
         raise NotImplementedError('Functionality not yet implemented')
 
     # TODO
-    def get_user_usage_metrics(self, user_id, port=8080):
+    def get_user_usage_metrics(self, user_id, period = 'hourly', port=8080):
         """Not yet implemented"""
-        raise NotImplementedError('Functionality not yet implemented')
         with requests.Session() as sess:
             resp = sess.get(
-                f'{self.base_url}:{port}/api/v1/usage-metrics?period=hourly&entityId={user_id}',
+                f'{self.base_url}:{port}/api/v1/usage-metrics?period={period}&entityId={user_id}&entity=user&action=run',
                 headers=self.headers
             )
         if resp.status_code != 200:
@@ -728,7 +727,7 @@ class AISquaredPlatformClient:
         return resp.json()
 
     # BUG: Malformed request
-    def get_model_usage_metrics(self, model_id : str, port : int = 8080) -> dict:
+    def get_model_usage_metrics(self, model_id : str, period : str = 'hourly', port : int = 8080) -> dict:
         """
         Get usage metrics for a model
 
@@ -752,7 +751,7 @@ class AISquaredPlatformClient:
         """
         with requests.Session() as sess:
             resp = sess.get(
-                f'{self.base_url}:{port}/api/v1/usage-metrics?modelId={model_id}&action=run',
+                f'{self.base_url}:{port}/api/v1/usage-metrics?period={period}&entity=model&entityId={model_id}&action=run',
                 headers = self.headers
             )
         if resp.status_code != 200:
