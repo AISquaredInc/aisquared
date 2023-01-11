@@ -18,7 +18,7 @@ class CustomObject(BaseObject):
     )
     """
 
-    def __init__(self, class_name: str, **kwargs):
+    def __init__(self, class_name: str, top_level_kwargs: dict = None, **kwargs):
         """
         Parameters
         ----------
@@ -31,12 +31,17 @@ class CustomObject(BaseObject):
         self.class_name = class_name
         self.params = kwargs
         self.path = kwargs.get('path')
+        self.top_level_kwargs = top_level_kwargs
 
     def to_dict(self) -> dict:
         """
         Get the object as a dictionary
         """
-        return {
+        config = {
             'className': self.class_name,
             'params': self.params
         }
+        if isinstance(self.top_level_kwargs, dict):
+            for k, v in self.top_level_kwargs.items():
+                config[k] = v
+        return config
