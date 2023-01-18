@@ -287,3 +287,4 @@ Below are a list of additional features, bug fixes, and other changes made for e
 ## Version 0.3.2
 - Added functionality to the `AISquaredPlatformClient`
 - Added `top_level_kwargs` parameter to the `CustomObject` class
+- Added `DashboardRendering` class
