@@ -50,7 +50,7 @@ class ContainerRendering(BaseObject):
             The id for the object
         width : str (default 'auto')
             The width of the rendering
-        height : str (default '75')
+        height : str (default 'auto')
             The height of the rendering
         display : str (default 'flex')
             The type of display
