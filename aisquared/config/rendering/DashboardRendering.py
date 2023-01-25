@@ -11,6 +11,7 @@ from .LineChartRendering import LineChartRendering
 from .PieChartRendering import PieChartRendering
 from .TableRendering import TableRendering
 
+
 class DashboardRendering(BaseObject):
 
     def __init__(self):
@@ -35,22 +36,22 @@ class DashboardRendering(BaseObject):
         label: str = None
     ):
         if id is None:
-            id = ''.join(random.choices(string.ascii_lowercase, k = 10))
+            id = ''.join(random.choices(string.ascii_lowercase, k=10))
         if label is None:
             label = id
-        
+
         self._steps.append(
             ContainerRendering(
-                label = label,
-                id = id,
-                query_selector = query_selector,
-                width = width,
-                height = height,
-                display = display,
+                label=label,
+                id=id,
+                query_selector=query_selector,
+                width=width,
+                height=height,
+                display=display,
                 xOffset=xOffset,
                 yOffset=yOffset,
-                position = position,
-                orientation = orientation
+                position=position,
+                orientation=orientation
             )
         )
 
@@ -73,7 +74,7 @@ class DashboardRendering(BaseObject):
         chart_name: str = None
     ):
         if id is None:
-            id = ''.join(random.choices(string.ascii_lowercase, k = 20))
+            id = ''.join(random.choices(string.ascii_lowercase, k=20))
         if label is None:
             label = id
         if chart_name is None:
@@ -81,17 +82,17 @@ class DashboardRendering(BaseObject):
 
         self._steps.append(
             BarChartRendering(
-                label = label,
-                id = id,
-                chart_name = chart_name,
-                chart_colors = chart_colors,
-                chart_labels = chart_labels,
-                container_id = container_id,
+                label=label,
+                id=id,
+                chart_name=chart_name,
+                chart_colors=chart_colors,
+                chart_labels=chart_labels,
+                container_id=container_id,
                 prediction_name_key=prediction_name_key,
                 prediction_value_key=prediction_value_key,
                 prediction_name_value=prediction_name_value,
-                width = width,
-                height = height,
+                width=width,
+                height=height,
                 xOffset=xOffset,
                 yOffset=yOffset
             )
@@ -116,7 +117,7 @@ class DashboardRendering(BaseObject):
         chart_name: str = None
     ):
         if id is None:
-            id = ''.join(random.choices(string.ascii_lowercase, k = 30))
+            id = ''.join(random.choices(string.ascii_lowercase, k=30))
         if label is None:
             label = id
         if chart_name is None:
@@ -124,19 +125,19 @@ class DashboardRendering(BaseObject):
 
         self._steps.append(
             DoughnutChartRendering(
-                label = label,
-                id = id,
-                chart_name = chart_name,
-                chart_colors = chart_colors,
-                chart_labels = chart_labels,
-                container_id = container_id,
-                prediction_name_key = prediction_name_key,
-                prediction_value_key = prediction_value_key,
-                prediction_name_value = prediction_name_value,
-                display_legend = display_legend,
-                legend_icon = legend_icon,
-                width = width,
-                height = height,
+                label=label,
+                id=id,
+                chart_name=chart_name,
+                chart_colors=chart_colors,
+                chart_labels=chart_labels,
+                container_id=container_id,
+                prediction_name_key=prediction_name_key,
+                prediction_value_key=prediction_value_key,
+                prediction_name_value=prediction_name_value,
+                display_legend=display_legend,
+                legend_icon=legend_icon,
+                width=width,
+                height=height,
                 xOffset=xOffset,
                 yOffset=yOffset
             )
@@ -156,22 +157,22 @@ class DashboardRendering(BaseObject):
         label: str = None
     ):
         if id is None:
-            id = ''.join(random.choices(string.ascii_lowercase, k = 40))
+            id = ''.join(random.choices(string.ascii_lowercase, k=40))
         if label is None:
             label = id
 
         self._steps.append(
             HTMLTagRendering(
-                label = label,
-                id = id,
-                container_id = container_id,
-                html_content = html_content,
-                extra_content_tag = extra_content_tag,
-                injection_action = injection_action,
-                prediction_name_key = prediction_name_key,
-                prediction_value_key = prediction_value_key,
-                prediction_name_value = prediction_name_value,
-                content = content
+                label=label,
+                id=id,
+                container_id=container_id,
+                html_content=html_content,
+                extra_content_tag=extra_content_tag,
+                injection_action=injection_action,
+                prediction_name_key=prediction_name_key,
+                prediction_value_key=prediction_value_key,
+                prediction_name_value=prediction_name_value,
+                content=content
             )
         )
 
@@ -192,7 +193,7 @@ class DashboardRendering(BaseObject):
         chart_name: str = None
     ):
         if id is None:
-            id = ''.join(random.choices(string.ascii_lowercase, k = 50))
+            id = ''.join(random.choices(string.ascii_lowercase, k=50))
         if label is None:
             label = id
         if chart_name is None:
@@ -200,17 +201,17 @@ class DashboardRendering(BaseObject):
 
         self._steps.append(
             LineChartRendering(
-                label = label,
-                id = id,
-                chart_name = chart_name,
-                chart_colors = chart_colors,
-                chart_labels = chart_labels,
-                container_id = container_id,
-                prediction_name_key = prediction_name_key,
-                prediction_value_key = prediction_value_key,
-                prediction_name_value = prediction_name_value,
-                width = width,
-                height = height,
+                label=label,
+                id=id,
+                chart_name=chart_name,
+                chart_colors=chart_colors,
+                chart_labels=chart_labels,
+                container_id=container_id,
+                prediction_name_key=prediction_name_key,
+                prediction_value_key=prediction_value_key,
+                prediction_name_value=prediction_name_value,
+                width=width,
+                height=height,
                 xOffset=xOffset,
                 yOffset=yOffset
             )
@@ -230,12 +231,12 @@ class DashboardRendering(BaseObject):
         height: str = 'auto',
         xOffset: str = '0',
         yOffset: str = '0',
-        id = None,
+        id=None,
         label: str = None,
         chart_name: str = None
     ):
         if id is None:
-            id = ''.join(random.choices(string.ascii_lowercase, k = 60))
+            id = ''.join(random.choices(string.ascii_lowercase, k=60))
         if label is None:
             label = id
         if chart_name is None:
@@ -243,19 +244,19 @@ class DashboardRendering(BaseObject):
 
         self._steps.append(
             PieChartRendering(
-                label = label,
-                id = id,
-                chart_name = chart_name,
-                chart_colors = chart_colors,
-                chart_labels = chart_labels,
-                container_id = container_id,
-                prediction_name_key = prediction_name_key,
-                prediction_value_key = prediction_value_key,
-                prediction_name_value = prediction_name_value,
-                display_legend = display_legend,
-                legend_icon = legend_icon,
-                width = width,
-                height = height,
+                label=label,
+                id=id,
+                chart_name=chart_name,
+                chart_colors=chart_colors,
+                chart_labels=chart_labels,
+                container_id=container_id,
+                prediction_name_key=prediction_name_key,
+                prediction_value_key=prediction_value_key,
+                prediction_name_value=prediction_name_value,
+                display_legend=display_legend,
+                legend_icon=legend_icon,
+                width=width,
+                height=height,
                 xOffset=xOffset,
                 yOffset=yOffset
             )
@@ -272,19 +273,19 @@ class DashboardRendering(BaseObject):
         label: str = None
     ):
         if id is None:
-            id = ''.join(random.choices(string.ascii_lowercase, k = 70))
+            id = ''.join(random.choices(string.ascii_lowercase, k=70))
         if label is None:
             label = id
-        
+
         self._steps.append(
             TableRendering(
-                label = label,
-                id = id,
-                container_id = container_id,
-                prediction_name_key = prediction_name_key,
-                prediction_value_key = prediction_value_key,
-                prediction_name_values = prediction_name_values,
-                table_name = table_name
+                label=label,
+                id=id,
+                container_id=container_id,
+                prediction_name_key=prediction_name_key,
+                prediction_value_key=prediction_value_key,
+                prediction_name_values=prediction_name_values,
+                table_name=table_name
             )
         )
 

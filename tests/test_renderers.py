@@ -49,12 +49,12 @@ def test_image_rendering():
         'className': 'ImageRendering',
         'params': {
             'color': 'blue',
-            'thickness': '5px',
+            'thickness': '5',
             'placement': 'bottomleft',
             'includeProbability': False,
             'badgeColor': 'white',
             'fontColor': 'black',
-            'fontSize': '5px',
+            'fontSize': '5',
             'classes': None,
             'thresholdKey': None,
             'thresholdValue': None
@@ -83,12 +83,12 @@ def test_object_rendering():
         'className': 'ObjectRendering',
         'params': {
             'color': 'blue',
-            'thickness': '5px',
+            'thickness': '5',
             'placement': 'bottomleft',
             'includeProbability': False,
             'badgeColor': 'white',
             'fontColor': 'black',
-            'fontSize': '5px'
+            'fontSize': '5'
         }
     }
 

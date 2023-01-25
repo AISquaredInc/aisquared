@@ -470,7 +470,7 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()
 
-    def list_prediction_feedback(self, prediction_id: str, as_df : bool = True, port : int =8080) -> Union[pd.DataFrame, dict]:
+    def list_prediction_feedback(self, prediction_id: str, as_df: bool = True, port: int = 8080) -> Union[pd.DataFrame, dict]:
         """
         List prediction feedback given a prediction ID
 
@@ -498,12 +498,12 @@ class AISquaredPlatformClient:
         with requests.Session() as sess:
             resp = sess.get(
                 f'{self.base_url}:{port}/api/v1/feedback/predictions?predictionId={prediction_id}',
-                headers = self.headers
+                headers=self.headers
             )
 
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
-        
+
         if as_df:
             return pd.DataFrame(resp.json()['data'])
         return resp.json()
@@ -715,7 +715,7 @@ class AISquaredPlatformClient:
         raise NotImplementedError('Functionality not yet implemented')
 
     # TODO
-    def get_user_usage_metrics(self, user_id, period = 'hourly', port=8080):
+    def get_user_usage_metrics(self, user_id, period='hourly', port=8080):
         """Not yet implemented"""
         with requests.Session() as sess:
             resp = sess.get(
@@ -727,7 +727,7 @@ class AISquaredPlatformClient:
         return resp.json()
 
     # BUG: Malformed request
-    def get_model_usage_metrics(self, model_id : str, period : str = 'hourly', port : int = 8080) -> dict:
+    def get_model_usage_metrics(self, model_id: str, period: str = 'hourly', port: int = 8080) -> dict:
         """
         Get usage metrics for a model
 
@@ -752,7 +752,7 @@ class AISquaredPlatformClient:
         with requests.Session() as sess:
             resp = sess.get(
                 f'{self.base_url}:{port}/api/v1/usage-metrics?period={period}&entity=model&entityId={model_id}&action=run',
-                headers = self.headers
+                headers=self.headers
             )
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())

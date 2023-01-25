@@ -288,3 +288,4 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Added functionality to the `AISquaredPlatformClient`
 - Added `top_level_kwargs` parameter to the `CustomObject` class
 - Added `DashboardRendering` class
+- Removed 'px' from default values in ImageRendering and ObjectRendering classes
