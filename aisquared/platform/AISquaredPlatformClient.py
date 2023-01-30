@@ -146,38 +146,8 @@ class AISquaredPlatformClient:
         """The base URL associated with the client"""
         return self._base_url
 
-    def test_connection(self, port: int = 8080) -> int:
-        """
-        Test whether there is a healthy connection to the platform
 
-        >>> import aisquared
-        >>> client = aisquared.platform.AISquaredPlatformClient()
-        >>> client.test_connection()
-        Connection successful
-        200
-
-        Parameters
-        ----------
-        port : int (default 8080)
-            The API port for the call
-
-        Returns
-        -------
-        status_code : int
-            The status code when checking the health API
-
-        """
-        with requests.Session() as sess:
-            resp = sess.get(
-                f'{self.base_url}:{port}/api/v1/health'
-            )
-        if resp.status_code == 200:
-            print('Connection successful')
-        else:
-            print(
-                f'There may be connection issues: status code {resp.status_code}')
-
-        return resp.status_code
+    # CRUDL operations for models
 
     def list_models(self, as_df: bool = True, port: int = 8080) -> Union[pd.DataFrame, dict]:
         """
@@ -318,6 +288,9 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()['success']
 
+
+    # Sharing operations for models
+
     def list_model_users(self, id: str, as_df: bool = True, port: int = 8080) -> Union[pd.DataFrame, dict]:
         """
         List users for a model
@@ -422,39 +395,18 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()['success']
 
-    def get_model_id_by_name(self, model_name: str) -> str:
-        """
-        Retrieve a model's ID using the name of the model
-
-        >>> import aisquared
-        >>> client = aisquared.platform.AISquaredPlatformClient()
-        >>> client.get_model_id_by_name('my_awesome_model')
-        *model_id*
-
-        Parameters
-        ----------
-        model_name : str
-            The name of the model
-
-        Returns
-        -------
-        model_id : str
-            The model's ID
-
-        """
-
-        models = self.list_models()
-        this_model = models[models.name == model_name]
-
-        if this_model.shape[0] == 0:
-            raise ValueError('No model with that name appears to exist')
-
-        return this_model.id.iloc[0]
-
     # TODO
     def share_model_with_group(self, model_id, group_id, port=8083):
         """Not yet implemented"""
         raise NotImplementedError('Functionality not yet implemented')
+    
+    # TODO
+    def unshare_model_with_group(self, model_id, group_id, port=8083):
+        """Not yet implemented"""
+        raise NotImplementedError('Functionality not yet implemented')
+
+
+    # Feedback operations
 
     # TODO
     def list_model_feedback(self, model_id, port=8080):
@@ -544,6 +496,62 @@ class AISquaredPlatformClient:
 
     # TODO
     def list_model_prediction_feedback(self, model_id):
+        """Not yet implemented"""
+        raise NotImplementedError('Functionality not yet implemented')
+
+    # User and group management
+
+    # TODO
+    def create_user(self, username, role):
+        raise NotImplementedError('Functionality not yet implemented')
+    
+    # TODO - need to test
+    def delete_user(self, user_id, port = 8085):
+        with requests.Session() as sess:
+            resp = sess.delete(
+                f'{self.base_url}:{port}/userservice/v1/user/{user_id}',
+                headers = self.headers
+            )
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+        else:
+            return True
+    
+    # TODO
+    def get_user(self, user_id, port = 8085):
+        with requests.Session() as sess:
+            resp = sess.get(
+                f'{self.base_url}:{port}/userservice/v1/user/{user_id}',
+                headers = self.headers
+            )
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+        else:
+            return resp.json()['data']
+
+    # TODO
+    def assign_user_role(self, username, role):
+        raise NotImplementedError('Functionality not yet implemented')
+
+    # TODO
+    def create_group(self, group_name, group_role):
+        raise NotImplementedError('Functionality not yet implemented')
+    
+    # TODO
+    def delete_group(self, group_name):
+        raise NotImplementedError('Functionality not yet implemented')
+    
+    # TODO
+    def assign_group_role(self, group_name):
+        raise NotImplementedError('Functionality not yet implemented')
+
+    # TODO
+    def add_user_to_group(self, group_id, user_id):
+        """Not yet implemented"""
+        raise NotImplementedError('Functionality not yet implemented')
+
+    # TODO
+    def remove_user_from_group(self, group_id, user_id):
         """Not yet implemented"""
         raise NotImplementedError('Functionality not yet implemented')
 
@@ -675,44 +683,8 @@ class AISquaredPlatformClient:
             return pd.DataFrame({'id': ids, 'displayName': names})
         return resp.json()
 
-    def get_user_id_by_name(self, name: str) -> str:
-        """
-        Get a user's ID from their display name
 
-        >>> import aisquared
-        >>> client = aisquared.platform.AISquaredPlatformClient()
-        >>> client.get_user_id_by_name('User Name')
-        *user_id*
-
-        Parameters
-        ----------
-        name : str
-            The display name of the user
-
-        Returns
-        -------
-        id : str
-            The ID of the user
-
-        """
-
-        users = self.list_users()
-        this_user = users[users.displayName == name]
-
-        if this_user.shape[0] == 0:
-            raise ValueError('No user of that name appears to exist')
-
-        return this_user.id.iloc[0]
-
-    # TODO
-    def add_user_to_group(self, group_id, user_id):
-        """Not yet implemented"""
-        raise NotImplementedError('Functionality not yet implemented')
-
-    # TODO
-    def remove_user_from_group(self, group_id, user_id):
-        """Not yet implemented"""
-        raise NotImplementedError('Functionality not yet implemented')
+    # Metrics
 
     # TODO
     def get_user_usage_metrics(self, user_id, period='hourly', port=8080):
@@ -758,3 +730,96 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
 
         return resp.json()
+
+    # Additional utilities
+
+    def get_user_id_by_name(self, name: str) -> str:
+        """
+        Get a user's ID from their display name
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.get_user_id_by_name('User Name')
+        *user_id*
+
+        Parameters
+        ----------
+        name : str
+            The display name of the user
+
+        Returns
+        -------
+        id : str
+            The ID of the user
+
+        """
+
+        users = self.list_users()
+        this_user = users[users.displayName == name]
+
+        if this_user.shape[0] == 0:
+            raise ValueError('No user of that name appears to exist')
+
+        return this_user.id.iloc[0]
+    
+    def get_model_id_by_name(self, model_name: str) -> str:
+        """
+        Retrieve a model's ID using the name of the model
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.get_model_id_by_name('my_awesome_model')
+        *model_id*
+
+        Parameters
+        ----------
+        model_name : str
+            The name of the model
+
+        Returns
+        -------
+        model_id : str
+            The model's ID
+
+        """
+
+        models = self.list_models()
+        this_model = models[models.name == model_name]
+
+        if this_model.shape[0] == 0:
+            raise ValueError('No model with that name appears to exist')
+
+        return this_model.id.iloc[0]
+    
+    def test_connection(self, port: int = 8080) -> int:
+        """
+        Test whether there is a healthy connection to the platform
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.test_connection()
+        Connection successful
+        200
+
+        Parameters
+        ----------
+        port : int (default 8080)
+            The API port for the call
+
+        Returns
+        -------
+        status_code : int
+            The status code when checking the health API
+
+        """
+        with requests.Session() as sess:
+            resp = sess.get(
+                f'{self.base_url}:{port}/api/v1/health'
+            )
+        if resp.status_code == 200:
+            print('Connection successful')
+        else:
+            print(
+                f'There may be connection issues: status code {resp.status_code}')
+
+        return resp.status_code
