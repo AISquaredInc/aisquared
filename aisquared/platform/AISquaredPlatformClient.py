@@ -396,14 +396,31 @@ class AISquaredPlatformClient:
         return resp.json()['success']
 
     # TODO
-    def share_model_with_group(self, model_id, group_id, port=8083):
+    def share_model_with_group(self, model_id, group_id, port=8080):
         """Not yet implemented"""
         raise NotImplementedError('Functionality not yet implemented')
+        with requests.Session() as sess:
+            resp = sess.put(
+                f'{self.base_url}:{port}/api/v1/models/{model_id}/users/{group_id}',
+                headers=self.headers
+            )
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+        return resp.json()['success']
+
     
     # TODO
-    def unshare_model_with_group(self, model_id, group_id, port=8083):
+    def unshare_model_with_group(self, model_id, group_id, port=8080):
         """Not yet implemented"""
         raise NotImplementedError('Functionality not yet implemented')
+        with requests.Session() as sess:
+            resp = sess.delete(
+                f'{self.base_url}:{port}/api/v1/models/{model_id}/users/{group_id}',
+                headers=self.headers
+            )
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+        return resp.json()['success']
 
 
     # Feedback operations
@@ -501,11 +518,92 @@ class AISquaredPlatformClient:
 
     # User and group management
 
-    # TODO
-    def create_user(self, username, role):
-        raise NotImplementedError('Functionality not yet implemented')
+    # TODO - needs to be tested
+    def create_user(self,
+                    user_name: str,
+                    first_name: str,
+                    last_name: str,
+                    email: str,
+                    role_id: str,
+                    active = True,
+                    middle_name = None,
+                    company_id = None,
+                    password = None,
+                    port = 8085
+                    ):
+        
+        json_data = {
+            'active': active,
+            'userName' : user_name,
+            'firstName': first_name,
+            'lastName': last_name,
+            'email' : email,
+            'roleId' : role_id
+        }
+
+        if middle_name:
+            json_data['middleName'] = middle_name
+        if company_id:
+            json_data['companyId'] = company_id
+        if password:
+            json_data['password'] = password
+
+        with requests.Session() as sess:
+            resp = sess.post(
+                f'{self.base_url}:{port}/userservice/v1/user',
+                json = json_data,
+                headers = self.headers
+            )
+        
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+        else:
+            return resp.json()
     
-    # TODO - need to test
+    # TODO - needs to be tested
+    def update_user(
+            self,
+            user_id,
+            user_name,
+            first_name,
+            last_name,
+            email,
+            role_id,
+            active = True,
+            middle_name = None,
+            company_id = None,
+            password = None,
+            port = 8085
+    ):
+        json_data = {
+            'active': active,
+            'userName' : user_name,
+            'firstName': first_name,
+            'lastName': last_name,
+            'email' : email,
+            'roleId' : role_id
+        }
+
+        if middle_name:
+            json_data['middleName'] = middle_name
+        if company_id:
+            json_data['companyId'] = company_id
+        if password:
+            json_data['password'] = password
+
+        with requests.Session() as sess:
+            resp = sess.put(
+                f'{self.base_url}:{port}/userservice/v1/user/{user_id}',
+                json = json_data,
+                headers = self.headers
+            )
+
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+        else:
+            return resp.json()
+    
+    # TODO - needs to be tested
     def delete_user(self, user_id, port = 8085):
         with requests.Session() as sess:
             resp = sess.delete(
@@ -515,9 +613,9 @@ class AISquaredPlatformClient:
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
         else:
-            return True
+            return resp.json()['success']
     
-    # TODO
+    # TODO - needs to be tested
     def get_user(self, user_id, port = 8085):
         with requests.Session() as sess:
             resp = sess.get(
@@ -529,31 +627,74 @@ class AISquaredPlatformClient:
         else:
             return resp.json()['data']
 
-    # TODO
-    def assign_user_role(self, username, role):
-        raise NotImplementedError('Functionality not yet implemented')
+    # TODO - needs to be tested
+    def create_group(self, group_name, role_id, port = 8086):
+        with requests.Session() as sess:
+            resp = sess.post(
+                f'{self.base_url}:{port}/groupservice/v1/group',
+                json = {
+                    'displayName' : group_name,
+                    'roleId' : role_id
+                },
+                headers = self.headers
+            )
 
-    # TODO
-    def create_group(self, group_name, group_role):
-        raise NotImplementedError('Functionality not yet implemented')
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+        return resp.json()['data']
     
-    # TODO
-    def delete_group(self, group_name):
-        raise NotImplementedError('Functionality not yet implemented')
-    
-    # TODO
-    def assign_group_role(self, group_name):
-        raise NotImplementedError('Functionality not yet implemented')
+    # TODO - needs to be tested
+    def delete_group(self, group_id, port = 8086):
+        with requests.Session() as sess:
+            resp = sess.delete(
+                f'{self.base_url}:{port}/groupservice/v1/group/{group_id}',
+                headers = self.headers
+            )
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+        return resp.json()['success']
 
-    # TODO
-    def add_user_to_group(self, group_id, user_id):
-        """Not yet implemented"""
-        raise NotImplementedError('Functionality not yet implemented')
+    # TODO - needs to be tested
+    def update_group(self, group_id, display_name, role_id, port = 8086):
+        with requests.Session() as sess:
+            resp = sess.put(
+                f'{self.base_url}:{port}/groupservice/v1/group/{group_id}',
+                json = {
+                    'displayName' : display_name,
+                    'roleId' : role_id
+                },
+                headers = self.headers
+            )
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+        return resp.json()['success']
 
-    # TODO
-    def remove_user_from_group(self, group_id, user_id):
-        """Not yet implemented"""
-        raise NotImplementedError('Functionality not yet implemented')
+    # TODO - need to be tested
+    def add_users_to_group(self, group_id, user_ids, port = 8086):
+        with requests.Session() as sess:
+            resp = sess.put(
+                f'{self.base_url}:{port}/groupservice/v1/membership',
+                json = {
+                    'groupId' : group_id,
+                    'userIds' : user_ids
+                },
+                headers = self.headers
+            )
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+        return resp.json()['success']
+
+    # TODO - need to be tested
+    def remove_users_from_group(self, group_id, user_ids, port = 8086):
+        with requests.Session() as sess:
+            resp = sess.delete(
+                f'{self.base_url}:{port}/groupservice/v1/membership',
+                json = {
+                    'groupId' : group_id,
+                    'userIds' : user_ids
+                },
+                headers = self.headers
+            )
 
     def list_users(self, as_df: bool = True, port: int = 8080) -> Union[pd.DataFrame, dict]:
         """
@@ -682,7 +823,6 @@ class AISquaredPlatformClient:
 
             return pd.DataFrame({'id': ids, 'displayName': names})
         return resp.json()
-
 
     # Metrics
 
