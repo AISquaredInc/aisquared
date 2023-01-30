@@ -669,7 +669,7 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()['success']
 
-    # TODO - need to be tested
+    # TODO - needs to be tested
     def add_users_to_group(self, group_id, user_ids, port = 8086):
         with requests.Session() as sess:
             resp = sess.put(
