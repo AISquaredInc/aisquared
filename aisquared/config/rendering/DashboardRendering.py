@@ -36,7 +36,7 @@ class DashboardRendering(BaseObject):
         label: str = None
     ):
         if id is None:
-            id = ''.join(random.choices(string.ascii_lowercase, k=10))
+            id = ''.join(random.choices(string.ascii_letters, k=10))
         if label is None:
             label = id
 
@@ -74,7 +74,7 @@ class DashboardRendering(BaseObject):
         chart_name: str = None
     ):
         if id is None:
-            id = ''.join(random.choices(string.ascii_lowercase, k=20))
+            id = ''.join(random.choices(string.ascii_letters, k=10))
         if label is None:
             label = id
         if chart_name is None:
@@ -117,7 +117,7 @@ class DashboardRendering(BaseObject):
         chart_name: str = None
     ):
         if id is None:
-            id = ''.join(random.choices(string.ascii_lowercase, k=30))
+            id = ''.join(random.choices(string.ascii_letters, k=10))
         if label is None:
             label = id
         if chart_name is None:
@@ -157,7 +157,7 @@ class DashboardRendering(BaseObject):
         label: str = None
     ):
         if id is None:
-            id = ''.join(random.choices(string.ascii_lowercase, k=40))
+            id = ''.join(random.choices(string.ascii_letters, k=10))
         if label is None:
             label = id
 
@@ -193,7 +193,7 @@ class DashboardRendering(BaseObject):
         chart_name: str = None
     ):
         if id is None:
-            id = ''.join(random.choices(string.ascii_lowercase, k=50))
+            id = ''.join(random.choices(string.ascii_letters, k=10))
         if label is None:
             label = id
         if chart_name is None:
@@ -236,7 +236,7 @@ class DashboardRendering(BaseObject):
         chart_name: str = None
     ):
         if id is None:
-            id = ''.join(random.choices(string.ascii_lowercase, k=60))
+            id = ''.join(random.choices(string.ascii_letters, k=10))
         if label is None:
             label = id
         if chart_name is None:
@@ -273,7 +273,7 @@ class DashboardRendering(BaseObject):
         label: str = None
     ):
         if id is None:
-            id = ''.join(random.choices(string.ascii_lowercase, k=70))
+            id = ''.join(random.choices(string.ascii_letters, k=10))
         if label is None:
             label = id
 
