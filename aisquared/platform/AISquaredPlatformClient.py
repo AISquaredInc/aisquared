@@ -393,31 +393,31 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()['success']
 
-    # TODO
+    # TODO - endpoint not yet implemented
     def share_model_with_group(self, model_id, group_id, port=8080):
         """Not yet implemented"""
-        raise NotImplementedError('Functionality not yet implemented')
         with requests.Session() as sess:
             resp = sess.put(
-                f'{self.base_url}:{port}/api/v1/models/{model_id}/users/{group_id}',
+                f'{self.base_url}:{port}/api/v1/models/{model_id}/groups/{group_id}',
                 headers=self.headers
             )
-        if resp.status_code != 200:
+        return resp
+        if resp.status_code != 204:
             raise AISquaredAPIException(resp.json())
-        return resp.json()['success']
+        return resp
 
-    # TODO
+    # TODO - endpoint not yet implemented
     def unshare_model_with_group(self, model_id, group_id, port=8080):
         """Not yet implemented"""
-        raise NotImplementedError('Functionality not yet implemented')
         with requests.Session() as sess:
             resp = sess.delete(
-                f'{self.base_url}:{port}/api/v1/models/{model_id}/users/{group_id}',
+                f'{self.base_url}:{port}/api/v1/models/{model_id}/groups/{group_id}',
                 headers=self.headers
             )
-        if resp.status_code != 200:
+        return resp
+        if resp.status_code != 204:
             raise AISquaredAPIException(resp.json())
-        return resp.json()['success']
+        return resp
 
     # Feedback operations
 
@@ -474,6 +474,7 @@ class AISquaredPlatformClient:
             return pd.DataFrame(resp.json()['data'])
         return resp.json()
 
+    # TODO - malformed request
     def list_model_predictions(self, model_id: str, as_df: bool = True, port: int = 8080) -> Union[pd.DataFrame, dict]:
         """
         Retrieve model predictions
@@ -923,7 +924,7 @@ class AISquaredPlatformClient:
 
     # Metrics
 
-    # TODO
+    # TODO - add documentation
     def get_user_usage_metrics(self, user_id, period='hourly', port=8080):
         """Not yet implemented"""
         with requests.Session() as sess:
@@ -935,7 +936,6 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()
 
-    # BUG: Malformed request
     def get_model_usage_metrics(self, model_id: str, period: str = 'hourly', port: int = 8080) -> dict:
         """
         Get usage metrics for a model
