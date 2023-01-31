@@ -925,8 +925,22 @@ class AISquaredPlatformClient:
     # Metrics
 
     # TODO - add documentation
-    def get_user_usage_metrics(self, user_id, period='hourly', port=8080):
-        """Not yet implemented"""
+    def get_user_usage_metrics(self, user_id: str, period: str='hourly', port: int=8080) -> dict:
+        """
+        Get usage metrics for a user
+
+        Parameters
+        ----------
+        user_id : str
+            The ID of the user
+        port : int (default 8080)
+            The API port to use
+
+        Returns
+        -------
+        results : dict
+            The results from the platform
+        """
         with requests.Session() as sess:
             resp = sess.get(
                 f'{self.base_url}:{port}/api/v1/usage-metrics?period={period}&entityId={user_id}&entity=user&action=run',
