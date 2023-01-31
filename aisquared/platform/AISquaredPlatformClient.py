@@ -407,7 +407,6 @@ class AISquaredPlatformClient:
         return resp.json()['success']
 
     # TODO
-
     def unshare_model_with_group(self, model_id, group_id, port=8080):
         """Not yet implemented"""
         raise NotImplementedError('Functionality not yet implemented')
@@ -516,7 +515,6 @@ class AISquaredPlatformClient:
 
     # User and group management
 
-    # TODO - needs to be tested
     def create_user(self,
                     user_name: str,
                     first_name: str,
@@ -558,20 +556,19 @@ class AISquaredPlatformClient:
         else:
             return resp.json()
 
-    # TODO - needs to be tested
     def update_user(
             self,
-            user_id,
-            user_name,
-            first_name,
-            last_name,
-            email,
-            role_id,
-            active=True,
-            middle_name=None,
-            company_id=None,
-            password=None,
-            port=8085
+            user_id: str,
+            user_name: str,
+            first_name: str,
+            last_name: str,
+            email: str,
+            role_id: str,
+            active: bool=True,
+            middle_name: str=None,
+            company_id: str=None,
+            password: str=None,
+            port: int=8085
     ):
         json_data = {
             'active': active,
@@ -596,25 +593,53 @@ class AISquaredPlatformClient:
                 headers=self.headers
             )
 
-        if resp.status_code != 200:
-            raise AISquaredAPIException(resp.json())
+        if resp.status_code != 204:
+            return resp
         else:
             return resp.json()
 
-    # TODO - needs to be tested
-    def delete_user(self, user_id, port=8085):
+    def delete_user(self, user_id: str, port: int=8085) -> bool:
+        """
+        Delete a user from the system
+
+        Parameters
+        ----------
+        user_id : str
+            The user's ID
+        port : int (default 8085)
+            The API port to use
+
+        Returns
+        -------
+        result : bool
+            Returns True if the call is successful
+        """
         with requests.Session() as sess:
             resp = sess.delete(
                 f'{self.base_url}:{port}/userservice/v1/user/{user_id}',
                 headers=self.headers
             )
-        if resp.status_code != 200:
+        if resp.status_code != 204:
             raise AISquaredAPIException(resp.json())
         else:
-            return resp.json()['success']
+            return True
 
-    # TODO - needs to be tested
-    def get_user(self, user_id, port=8085):
+    def get_user(self, user_id: str, port: int=8085) -> dict:
+        """
+        Retrieve a user's information from the platform
+
+        Parameters
+        ----------
+        user_id: str
+            The ID of the user
+        port : int (default 8085)
+            The API port to use
+        
+        Returns
+        -------
+        user_info : dict
+            The information about the user
+        """
         with requests.Session() as sess:
             resp = sess.get(
                 f'{self.base_url}:{port}/userservice/v1/user/{user_id}',
@@ -623,10 +648,52 @@ class AISquaredPlatformClient:
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
         else:
-            return resp.json()['data']
+            return resp.json()
 
-    # TODO - needs to be tested
-    def create_group(self, group_name, role_id, port=8086):
+    def get_group(self, group_id: str, port: int = 8086) -> dict:
+        """
+        Retrieve information about a group
+
+        Parameters
+        ----------
+        group_id : str
+            The ID of the group requested
+        port : int (default 8086)
+            The API port to use
+
+        Returns
+        -------
+        group_info : dict
+            The information about the group
+        """
+        with requests.Session() as sess:
+            resp = sess.get(
+                f'{self.base_url}:{port}/groupservice/v1/group/{group_id}',
+                headers = self.headers
+            )
+        
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+        return resp.json()
+
+    def create_group(self, group_name: str, role_id: str, port: int=8086) -> dict:
+        """
+        Create a group in the platform
+
+        Parameters
+        ----------
+        group_name : str
+            The display name of the group
+        role_id : str
+            The role ID for the group
+        port : int (default 8086)
+            The API port to use
+
+        Returns
+        -------
+        group_info : dict
+            Metadata about the created group
+        """
         with requests.Session() as sess:
             resp = sess.post(
                 f'{self.base_url}:{port}/groupservice/v1/group',
@@ -639,10 +706,24 @@ class AISquaredPlatformClient:
 
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
-        return resp.json()['data']
+        return resp.json()
 
-    # TODO - needs to be tested
-    def delete_group(self, group_id, port=8086):
+    def delete_group(self, group_id, port=8086) -> bool:
+        """
+        Delete a group from the platform
+
+        Parameters
+        ----------
+        group_id : str
+            The ID of the group to delete
+        port : int (default 8086)
+            The API port to use
+
+        Returns
+        -------
+        result : bool
+            Returns True if successful
+        """
         with requests.Session() as sess:
             resp = sess.delete(
                 f'{self.base_url}:{port}/groupservice/v1/group/{group_id}',
@@ -650,10 +731,28 @@ class AISquaredPlatformClient:
             )
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
-        return resp.json()['success']
+        return resp.ok
 
-    # TODO - needs to be tested
-    def update_group(self, group_id, display_name, role_id, port=8086):
+    def update_group(self, group_id: str, display_name: str, role_id: str, port: int=8086) -> bool:
+        """
+        Update information about a group
+
+        Parameters
+        ----------
+        group_id : str
+            The ID of the group to update
+        display_name : str
+            The display name of the group
+        role_id : str
+            The ID of the role for the group
+        port : int (default 8086)
+            The API port to use
+
+        Returns
+        -------
+        success : bool
+            Returns True if successful
+        """
         with requests.Session() as sess:
             resp = sess.put(
                 f'{self.base_url}:{port}/groupservice/v1/group/{group_id}',
@@ -665,9 +764,9 @@ class AISquaredPlatformClient:
             )
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
-        return resp.json()['success']
+        return resp.ok
 
-    # TODO - needs to be tested
+    # TODO - needs to be tested - FORBIDDEN
     def add_users_to_group(self, group_id, user_ids, port=8086):
         with requests.Session() as sess:
             resp = sess.put(
@@ -680,9 +779,9 @@ class AISquaredPlatformClient:
             )
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
-        return resp.json()['success']
+        return resp
 
-    # TODO - need to be tested
+    # TODO - need to be tested - FORBIDDEN
     def remove_users_from_group(self, group_id, user_ids, port=8086):
         with requests.Session() as sess:
             resp = sess.delete(
@@ -928,6 +1027,28 @@ class AISquaredPlatformClient:
             raise ValueError('No model with that name appears to exist')
 
         return this_model.id.iloc[0]
+
+    def get_group_id_by_name(self, group_name: str) -> str:
+        """
+        Get the ID of a group by searching for its display name
+
+        Parameters
+        ----------
+        group_name : str
+            The display name of the group
+
+        Returns
+        -------
+        group_id : str
+            The ID of the group
+        """
+        groups = self.list_groups()
+        this_group = groups[groups.name == group_name]
+
+        if this_group.shape[0] == 0:
+            raise ValueError('No group with that name appears to exist')
+        
+        return this_group.id.iloc[0]
 
     def test_connection(self, port: int = 8080) -> int:
         """
