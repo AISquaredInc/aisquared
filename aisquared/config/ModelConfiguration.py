@@ -427,6 +427,8 @@ class ModelConfiguration(BaseObject):
             return []
         elif isinstance(self.rendering_steps, list) and all([isinstance(val, RENDERING_CLASSES) for val in self.rendering_steps]):
             return [val.to_dict() for val in self.rendering_steps]
+        elif isinstance(self.rendering_steps, DashboardRendering):
+            return self.rendering_steps.to_dict()
         else:
             return [
                 [v.to_dict() for v in val] for val in self.rendering_steps
