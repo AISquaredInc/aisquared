@@ -90,11 +90,11 @@ class ModelConfiguration(BaseObject):
     def __init__(
             self,
             name: str,
-            harvesting_steps: Union[BaseObject, list],
-            preprocessing_steps: Union[BaseObject, list],
-            analytic: Union[BaseObject, list],
-            postprocessing_steps: Union[BaseObject, list],
-            rendering_steps: Union[BaseObject, list],
+            harvesting_steps: Union[BaseObject, list] = None,
+            preprocessing_steps: Union[BaseObject, list] = None,
+            analytic: Union[BaseObject, list] = None,
+            postprocessing_steps: Union[BaseObject, list] = None,
+            rendering_steps: Union[BaseObject, list] = None,
             feedback_steps: Union[BaseObject, list] = None,
             stage: str = ALLOWED_STAGES[0],
             version: int = None,
@@ -217,7 +217,9 @@ class ModelConfiguration(BaseObject):
 
     @analytic.setter
     def analytic(self, value):
-        if isinstance(value, ANALYTIC_CLASSES):
+        if value is None:
+            self._analytic = value
+        elif isinstance(value, ANALYTIC_CLASSES):
             self._analytic = [value]
         elif isinstance(value, list) and all([isinstance(val, ANALYTIC_CLASSES) for val in value]):
             self._analytic = value
@@ -371,7 +373,7 @@ class ModelConfiguration(BaseObject):
     def auto_run(self, value):
         if not isinstance(value, bool):
             raise TypeError('auto_run must be Boolean valued')
-        self._auto_run = value
+        self._auto_run = str(value).lower()
 
     # harvester_dict
     @property
@@ -424,17 +426,24 @@ class ModelConfiguration(BaseObject):
     @property
     def render_dict(self):
         if self.rendering_steps[0] is None:
-            return []
+            render_list = []
         elif isinstance(self.rendering_steps, list) and all([isinstance(val, RENDERING_CLASSES) for val in self.rendering_steps]):
-            return [val.to_dict() for val in self.rendering_steps]
-        elif isinstance(self.rendering_steps, DashboardRendering):
-            return self.rendering_steps.to_dict()
+            render_list = [val.to_dict() for val in self.rendering_steps]
         else:
-            return [
+            render_list = [
                 [v.to_dict() for v in val] for val in self.rendering_steps
             ]
+        to_ret = []
+        for val in render_list:
+            if isinstance(val, list):
+                for v in val:
+                    to_ret.append(v)
+            else:
+                to_ret.append(val)
+        return to_ret
 
     # feedback_dict
+
     @property
     def feedback_dict(self):
         if self.feedback_steps is None:
