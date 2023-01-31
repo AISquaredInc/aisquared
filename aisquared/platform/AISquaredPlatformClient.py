@@ -924,7 +924,6 @@ class AISquaredPlatformClient:
 
     # Metrics
 
-    # TODO - add documentation
     def get_user_usage_metrics(self, user_id: str, period: str='hourly', port: int=8080) -> dict:
         """
         Get usage metrics for a user
