@@ -375,7 +375,7 @@
 \indexentry{compile() (aisquared.config.ModelConfiguration.ModelConfiguration method)@\spxentry{compile()}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration method}|hyperpage}{39}
 \indexentry{description (aisquared.config.ModelConfiguration.ModelConfiguration property)@\spxentry{description}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}|hyperpage}{39}
 \indexentry{feedback\_dict (aisquared.config.ModelConfiguration.ModelConfiguration property)@\spxentry{feedback\_dict}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}|hyperpage}{39}
-\indexentry{feedback\_steps (aisquared.config.ModelConfiguration.ModelConfiguration property)@\spxentry{feedback\_steps}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}|hyperpage}{39}
+\indexentry{feedback\_steps (aisquared.config.ModelConfiguration.ModelConfiguration property)@\spxentry{feedback\_steps}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}|hyperpage}{40}
 \indexentry{get\_model\_filenames() (aisquared.config.ModelConfiguration.ModelConfiguration method)@\spxentry{get\_model\_filenames()}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration method}|hyperpage}{40}
 \indexentry{harvester\_dict (aisquared.config.ModelConfiguration.ModelConfiguration property)@\spxentry{harvester\_dict}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}|hyperpage}{40}
 \indexentry{harvesting\_steps (aisquared.config.ModelConfiguration.ModelConfiguration property)@\spxentry{harvesting\_steps}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}|hyperpage}{40}
@@ -396,52 +396,62 @@
 \indexentry{version (aisquared.config.ModelConfiguration.ModelConfiguration property)@\spxentry{version}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}|hyperpage}{40}
 \indexentry{module@\spxentry{module}!aisquared.logging@\spxentry{aisquared.logging}|hyperpage}{40}
 \indexentry{aisquared.logging@\spxentry{aisquared.logging}!module@\spxentry{module}|hyperpage}{40}
-\indexentry{module@\spxentry{module}!aisquared.platform@\spxentry{aisquared.platform}|hyperpage}{40}
-\indexentry{aisquared.platform@\spxentry{aisquared.platform}!module@\spxentry{module}|hyperpage}{40}
+\indexentry{module@\spxentry{module}!aisquared.platform@\spxentry{aisquared.platform}|hyperpage}{41}
+\indexentry{aisquared.platform@\spxentry{aisquared.platform}!module@\spxentry{module}|hyperpage}{41}
 \indexentry{module@\spxentry{module}!aisquared.platform.AISquaredPlatformClient@\spxentry{aisquared.platform.AISquaredPlatformClient}|hyperpage}{41}
 \indexentry{aisquared.platform.AISquaredPlatformClient@\spxentry{aisquared.platform.AISquaredPlatformClient}!module@\spxentry{module}|hyperpage}{41}
 \indexentry{AISquaredAPIException@\spxentry{AISquaredAPIException}|hyperpage}{41}
 \indexentry{AISquaredPlatformClient (class in aisquared.platform.AISquaredPlatformClient)@\spxentry{AISquaredPlatformClient}\spxextra{class in aisquared.platform.AISquaredPlatformClient}|hyperpage}{41}
-\indexentry{add\_user\_to\_group() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{add\_user\_to\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{41}
+\indexentry{add\_users\_to\_group() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{add\_users\_to\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{41}
 \indexentry{base\_url (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property)@\spxentry{base\_url}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}|hyperpage}{41}
-\indexentry{delete\_model() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{delete\_model()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{41}
-\indexentry{get\_model() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_model()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{41}
-\indexentry{get\_model\_id\_by\_name() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_model\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{42}
-\indexentry{get\_model\_usage\_metrics() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_model\_usage\_metrics()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{42}
-\indexentry{get\_user\_id\_by\_name() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_user\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{42}
-\indexentry{get\_user\_usage\_metrics() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_user\_usage\_metrics()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{43}
-\indexentry{headers (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property)@\spxentry{headers}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}|hyperpage}{43}
-\indexentry{list\_group\_users() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_group\_users()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{43}
-\indexentry{list\_groups() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_groups()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{43}
-\indexentry{list\_model\_feedback() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_model\_feedback()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{44}
-\indexentry{list\_model\_prediction\_feedback() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_model\_prediction\_feedback()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{44}
-\indexentry{list\_model\_predictions() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_model\_predictions()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{44}
-\indexentry{list\_model\_users() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_model\_users()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{44}
-\indexentry{list\_models() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_models()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{44}
-\indexentry{list\_prediction\_feedback() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_prediction\_feedback()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{45}
-\indexentry{list\_users() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_users()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{45}
-\indexentry{login() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{login()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{46}
-\indexentry{password (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property)@\spxentry{password}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}|hyperpage}{46}
-\indexentry{remove\_user\_from\_group() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{remove\_user\_from\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{46}
-\indexentry{share\_model\_with\_group() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{share\_model\_with\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{46}
-\indexentry{share\_model\_with\_user() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{share\_model\_with\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{46}
-\indexentry{test\_connection() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{test\_connection()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{46}
-\indexentry{token (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property)@\spxentry{token}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}|hyperpage}{47}
-\indexentry{unshare\_model\_with\_user() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{unshare\_model\_with\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{47}
-\indexentry{upload\_model() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{upload\_model()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{47}
-\indexentry{username (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property)@\spxentry{username}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}|hyperpage}{48}
-\indexentry{module@\spxentry{module}!aisquared.serving@\spxentry{aisquared.serving}|hyperpage}{48}
-\indexentry{aisquared.serving@\spxentry{aisquared.serving}!module@\spxentry{module}|hyperpage}{48}
-\indexentry{module@\spxentry{module}!aisquared.serving.deploy\_model@\spxentry{aisquared.serving.deploy\_model}|hyperpage}{48}
-\indexentry{aisquared.serving.deploy\_model@\spxentry{aisquared.serving.deploy\_model}!module@\spxentry{module}|hyperpage}{48}
-\indexentry{deploy\_model() (in module aisquared.serving.deploy\_model)@\spxentry{deploy\_model()}\spxextra{in module aisquared.serving.deploy\_model}|hyperpage}{48}
-\indexentry{load\_mann\_model() (in module aisquared.serving.deploy\_model)@\spxentry{load\_mann\_model()}\spxextra{in module aisquared.serving.deploy\_model}|hyperpage}{49}
-\indexentry{module@\spxentry{module}!aisquared.serving.get\_remote\_prediction@\spxentry{aisquared.serving.get\_remote\_prediction}|hyperpage}{49}
-\indexentry{aisquared.serving.get\_remote\_prediction@\spxentry{aisquared.serving.get\_remote\_prediction}!module@\spxentry{module}|hyperpage}{49}
-\indexentry{get\_remote\_prediction() (in module aisquared.serving.get\_remote\_prediction)@\spxentry{get\_remote\_prediction()}\spxextra{in module aisquared.serving.get\_remote\_prediction}|hyperpage}{49}
-\indexentry{module@\spxentry{module}!aisquared.utils@\spxentry{aisquared.utils}|hyperpage}{49}
-\indexentry{aisquared.utils@\spxentry{aisquared.utils}!module@\spxentry{module}|hyperpage}{49}
-\indexentry{module@\spxentry{module}!aisquared.utils.utils@\spxentry{aisquared.utils.utils}|hyperpage}{50}
-\indexentry{aisquared.utils.utils@\spxentry{aisquared.utils.utils}!module@\spxentry{module}|hyperpage}{50}
-\indexentry{get\_model() (in module aisquared.utils.utils)@\spxentry{get\_model()}\spxextra{in module aisquared.utils.utils}|hyperpage}{50}
-\indexentry{mimic\_model() (in module aisquared.utils.utils)@\spxentry{mimic\_model()}\spxextra{in module aisquared.utils.utils}|hyperpage}{50}
+\indexentry{create\_group() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{create\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{41}
+\indexentry{create\_user() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{create\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{41}
+\indexentry{delete\_group() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{delete\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{42}
+\indexentry{delete\_model() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{delete\_model()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{42}
+\indexentry{delete\_user() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{delete\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{42}
+\indexentry{get\_group() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{42}
+\indexentry{get\_group\_id\_by\_name() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_group\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{43}
+\indexentry{get\_model() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_model()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{43}
+\indexentry{get\_model\_id\_by\_name() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_model\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{43}
+\indexentry{get\_model\_usage\_metrics() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_model\_usage\_metrics()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{43}
+\indexentry{get\_user() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{44}
+\indexentry{get\_user\_id\_by\_name() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_user\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{44}
+\indexentry{get\_user\_usage\_metrics() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_user\_usage\_metrics()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{44}
+\indexentry{headers (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property)@\spxentry{headers}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}|hyperpage}{44}
+\indexentry{list\_group\_users() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_group\_users()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{44}
+\indexentry{list\_groups() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_groups()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{45}
+\indexentry{list\_model\_feedback() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_model\_feedback()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{45}
+\indexentry{list\_model\_prediction\_feedback() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_model\_prediction\_feedback()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{45}
+\indexentry{list\_model\_predictions() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_model\_predictions()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{45}
+\indexentry{list\_model\_users() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_model\_users()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{46}
+\indexentry{list\_models() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_models()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{46}
+\indexentry{list\_prediction\_feedback() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_prediction\_feedback()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{46}
+\indexentry{list\_users() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_users()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{47}
+\indexentry{login() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{login()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{47}
+\indexentry{password (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property)@\spxentry{password}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}|hyperpage}{47}
+\indexentry{remove\_users\_from\_group() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{remove\_users\_from\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{47}
+\indexentry{share\_model\_with\_group() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{share\_model\_with\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{47}
+\indexentry{share\_model\_with\_user() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{share\_model\_with\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{48}
+\indexentry{test\_connection() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{test\_connection()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{48}
+\indexentry{token (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property)@\spxentry{token}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}|hyperpage}{48}
+\indexentry{unshare\_model\_with\_group() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{unshare\_model\_with\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{48}
+\indexentry{unshare\_model\_with\_user() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{unshare\_model\_with\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{48}
+\indexentry{update\_group() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{update\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{49}
+\indexentry{update\_user() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{update\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{49}
+\indexentry{upload\_model() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{upload\_model()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{49}
+\indexentry{username (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property)@\spxentry{username}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}|hyperpage}{49}
+\indexentry{module@\spxentry{module}!aisquared.serving@\spxentry{aisquared.serving}|hyperpage}{50}
+\indexentry{aisquared.serving@\spxentry{aisquared.serving}!module@\spxentry{module}|hyperpage}{50}
+\indexentry{module@\spxentry{module}!aisquared.serving.deploy\_model@\spxentry{aisquared.serving.deploy\_model}|hyperpage}{50}
+\indexentry{aisquared.serving.deploy\_model@\spxentry{aisquared.serving.deploy\_model}!module@\spxentry{module}|hyperpage}{50}
+\indexentry{deploy\_model() (in module aisquared.serving.deploy\_model)@\spxentry{deploy\_model()}\spxextra{in module aisquared.serving.deploy\_model}|hyperpage}{50}
+\indexentry{load\_mann\_model() (in module aisquared.serving.deploy\_model)@\spxentry{load\_mann\_model()}\spxextra{in module aisquared.serving.deploy\_model}|hyperpage}{50}
+\indexentry{module@\spxentry{module}!aisquared.serving.get\_remote\_prediction@\spxentry{aisquared.serving.get\_remote\_prediction}|hyperpage}{51}
+\indexentry{aisquared.serving.get\_remote\_prediction@\spxentry{aisquared.serving.get\_remote\_prediction}!module@\spxentry{module}|hyperpage}{51}
+\indexentry{get\_remote\_prediction() (in module aisquared.serving.get\_remote\_prediction)@\spxentry{get\_remote\_prediction()}\spxextra{in module aisquared.serving.get\_remote\_prediction}|hyperpage}{51}
+\indexentry{module@\spxentry{module}!aisquared.utils@\spxentry{aisquared.utils}|hyperpage}{51}
+\indexentry{aisquared.utils@\spxentry{aisquared.utils}!module@\spxentry{module}|hyperpage}{51}
+\indexentry{module@\spxentry{module}!aisquared.utils.utils@\spxentry{aisquared.utils.utils}|hyperpage}{51}
+\indexentry{aisquared.utils.utils@\spxentry{aisquared.utils.utils}!module@\spxentry{module}|hyperpage}{51}
+\indexentry{get\_model() (in module aisquared.utils.utils)@\spxentry{get\_model()}\spxextra{in module aisquared.utils.utils}|hyperpage}{51}
+\indexentry{mimic\_model() (in module aisquared.utils.utils)@\spxentry{mimic\_model()}\spxextra{in module aisquared.utils.utils}|hyperpage}{52}
