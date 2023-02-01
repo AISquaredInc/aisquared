@@ -782,7 +782,7 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp
 
-    # TODO - need to be tested - FORBIDDEN
+    # TODO - needs to be tested
     def remove_users_from_group(self, group_id, user_ids, port=8086):
         with requests.Session() as sess:
             resp = sess.delete(
@@ -793,6 +793,10 @@ class AISquaredPlatformClient:
                 },
                 headers=self.headers
             )
+        if resp.ok:
+            return resp.ok
+        else:
+            raise AISquaredAPIException(resp.json())
 
     def list_users(self, as_df: bool = True, port: int = 8080) -> Union[pd.DataFrame, dict]:
         """
