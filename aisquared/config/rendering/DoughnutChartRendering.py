@@ -12,7 +12,6 @@ class DoughnutChartRendering(BaseObject):
         label: str,
         id: str,
         chart_name: str,
-        chart_colors: list,
         container_id: str,
         prediction_name_key: str,
         prediction_value_key: str,
@@ -73,7 +72,6 @@ class DoughnutChartRendering(BaseObject):
         self.label = label
         self.id = id
         self.chart_name = chart_name
-        self.chart_colors = chart_colors
         self.labels = labels
         self.container_id = container_id
         self.prediction_name_key = prediction_name_key
@@ -98,7 +96,6 @@ class DoughnutChartRendering(BaseObject):
             'params': {
                 'id': self.id,
                 'chartName': self.chart_name,
-                'chartColors': self.chart_colors,
                 'containerId': self.container_id,
                 'displayLegend': self.display_legend,
                 'legendIcon': self.legend_icon,
@@ -106,7 +103,7 @@ class DoughnutChartRendering(BaseObject):
                 'height': self.height,
                 'xOffset': self.xOffset,
                 'yOffset': self.yOffset,
-                'dataSource': [
+                'datasource': [
                     {
                         'labels': self.labels,
                         'labelsKey': self.labels_key,
