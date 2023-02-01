@@ -924,7 +924,7 @@ class AISquaredPlatformClient:
 
     # Metrics
 
-    def get_user_usage_metrics(self, user_id: str, period: str='hourly', port: int=8080) -> dict:
+    def get_user_usage_metrics(self, user_id: str, period: str = 'hourly', as_df: bool = True, port: int = 8080) -> Union[dict, pd.DataFrame]:
         """
         Get usage metrics for a user
 
@@ -932,12 +932,16 @@ class AISquaredPlatformClient:
         ----------
         user_id : str
             The ID of the user
+        period : str (default 'hourly')
+            The period to group metrics into
+        as_df : bool (default True)
+            Whether to return results as a pandas DataFrame
         port : int (default 8080)
             The API port to use
 
         Returns
         -------
-        results : dict
+        results : pandas DataFrame or dict
             The results from the platform
         """
         with requests.Session() as sess:
@@ -947,9 +951,11 @@ class AISquaredPlatformClient:
             )
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
+        if as_df:
+            return pd.DataFrame(resp.json()['data']['plotXYData'])
         return resp.json()
 
-    def get_model_usage_metrics(self, model_id: str, period: str = 'hourly', port: int = 8080) -> dict:
+    def get_model_usage_metrics(self, model_id: str, period: str = 'hourly', as_df: bool = True, port: int = 8080) -> Union[dict, pd.DataFrame]:
         """
         Get usage metrics for a model
 
@@ -962,12 +968,16 @@ class AISquaredPlatformClient:
         ----------
         model_id : str
             The ID of the model
+        period : str (default 'hourly')
+            The period to group metrics into
+        as_df : bool (default True)
+            Whether to return results as a pandas DataFrame
         port : int (default 8080)
             The API port to use
 
         Returns
         -------
-        results : dict
+        results : pandas DataFrame or dict
             The results from the platform
 
         """
@@ -978,6 +988,9 @@ class AISquaredPlatformClient:
             )
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
+
+        if as_df:
+            return pd.DataFrame(resp.json()['data']['plotXYData'])
 
         return resp.json()
 
