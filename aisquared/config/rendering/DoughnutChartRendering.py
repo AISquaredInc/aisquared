@@ -36,10 +36,6 @@ class DoughnutChartRendering(BaseObject):
             The ID for the chart
         chart_name : str
             The name for the chart
-        chart_colors : list of str
-            List of colors to use
-        chart_labels : list of str
-            List of labels to use
         container_id : str
             The ID of the container to use
         prediction_name_key : str
