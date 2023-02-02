@@ -93,17 +93,17 @@ class LineChartRendering(BaseObject):
                 'id': self.id,
                 'chartName': self.chart_name,
                 'containerId': self.container_id,
-                'displayLegend' : self.display_legend,
-                'legendIcon' : self.legend_icon,
+                'displayLegend': self.display_legend,
+                'legendIcon': self.legend_icon,
                 'width': self.width,
                 'height': self.height,
                 'xOffset': self.xOffset,
                 'yOffset': self.yOffset,
-                'datasource' : [
+                'datasource': [
                     {
-                        'labels' : self.labels,
-                        'labelsKey' : self.labels_key,
-                        'consolidateRows' : self.consolidate_rows,
+                        'labels': self.labels,
+                        'labelsKey': self.labels_key,
+                        'consolidateRows': self.consolidate_rows,
                         'predictionNameKey': self.prediction_name_key,
                         'predictionValueKey': self.prediction_value_key,
                         'predictionNameValue': self.prediction_name_value,
