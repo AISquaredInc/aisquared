@@ -159,9 +159,9 @@ def test_bar_chart_rendering():
         prediction_name_key='',
         prediction_value_key='',
         prediction_name_value='',
-        display_legend = True,
-        legend_icon = 'circle',
-        labels_key = 'labels'
+        display_legend=True,
+        legend_icon='circle',
+        labels_key='labels'
     )
     assert renderer.to_dict() == {
         'className': 'BarChartRendering',
@@ -171,19 +171,19 @@ def test_bar_chart_rendering():
             'chartName': 'test',
             'containerId': 'test',
             'displayLegend': True,
-            'legendIcon' : 'circle',
+            'legendIcon': 'circle',
             'width': 'auto',
             'height': 'auto',
             'xOffset': '0',
             'yOffset': '0',
-            'datasource' : [
+            'datasource': [
                 {
-                    'labels' : None,
-                    'labelsKey' : 'labels',
-                    'consolidateRows' : True,
-                    'predictionNameKey' : '',
+                    'labels': None,
+                    'labelsKey': 'labels',
+                    'consolidateRows': True,
+                    'predictionNameKey': '',
                     'predictionValueKey': '',
-                    'predictionNameValue' : ''
+                    'predictionNameValue': ''
                 }
             ]
         }
@@ -199,9 +199,9 @@ def test_line_chart_rendering():
         prediction_name_key='',
         prediction_value_key='',
         prediction_name_value='',
-        display_legend = True,
-        legend_icon = 'circle',
-        labels_key = 'labels'
+        display_legend=True,
+        legend_icon='circle',
+        labels_key='labels'
     )
     assert renderer.to_dict() == {
         'className': 'LineChartRendering',
@@ -210,17 +210,17 @@ def test_line_chart_rendering():
             'id': 'test',
             'chartName': 'test',
             'containerId': 'test',
-            'displayLegend' : True,
-            'legendIcon' : 'circle',
+            'displayLegend': True,
+            'legendIcon': 'circle',
             'width': 'auto',
             'height': 'auto',
             'xOffset': '0',
             'yOffset': '0',
-            'datasource' : [
+            'datasource': [
                 {
                     'labels': None,
-                    'labelsKey' : 'labels',
-                    'consolidateRows' : True,
+                    'labelsKey': 'labels',
+                    'consolidateRows': True,
                     'predictionNameKey': '',
                     'predictionValueKey': '',
                     'predictionNameValue': '',
@@ -241,7 +241,7 @@ def test_doughnut_chart_rendering():
         prediction_name_value='',
         display_legend=True,
         legend_icon='circle',
-        labels_key = 'labels'
+        labels_key='labels'
     )
     assert renderer.to_dict() == {
         'className': 'DoughnutChartRendering',
@@ -250,17 +250,17 @@ def test_doughnut_chart_rendering():
             'id': 'test',
             'chartName': 'test',
             'containerId': 'test',
-            'displayLegend' : True,
-            'legendIcon' : 'circle',
+            'displayLegend': True,
+            'legendIcon': 'circle',
             'width': 'auto',
             'height': 'auto',
             'xOffset': '0',
             'yOffset': '0',
-            'datasource' : [
+            'datasource': [
                 {
-                    'labels' : None,
-                    'labelsKey' : 'labels',
-                    'consolidateRows' : True,
+                    'labels': None,
+                    'labelsKey': 'labels',
+                    'consolidateRows': True,
                     'predictionNameKey': '',
                     'predictionValueKey': '',
                     'predictionNameValue': '',
@@ -281,7 +281,7 @@ def test_pie_chart_rendering():
         prediction_name_value='',
         display_legend=True,
         legend_icon='circle',
-        labels_key = 'labels'
+        labels_key='labels'
     )
     assert renderer.to_dict() == {
         'className': 'PieChartRendering',
@@ -290,17 +290,17 @@ def test_pie_chart_rendering():
             'id': 'test',
             'chartName': 'test',
             'containerId': 'test',
-            'displayLegend' : True,
-            'legendIcon' : 'circle',
+            'displayLegend': True,
+            'legendIcon': 'circle',
             'width': 'auto',
             'height': 'auto',
             'xOffset': '0',
             'yOffset': '0',
-            'datasource' : [
+            'datasource': [
                 {
-                    'labels' : None,
-                    'labelsKey' : 'labels',
-                    'consolidateRows' : True,
+                    'labels': None,
+                    'labelsKey': 'labels',
+                    'consolidateRows': True,
                     'predictionNameKey': '',
                     'predictionValueKey': '',
                     'predictionNameValue': '',
