@@ -90,7 +90,7 @@ class AISquaredPlatformClient:
                 }
             )
         if resp.status_code != 200:
-            raise ValueError('Authentication failed')
+            raise AISquaredAPIException('Authentication failed')
         else:
             token = resp.json()['token']['access_token']
 
