@@ -155,12 +155,13 @@ def test_bar_chart_rendering():
         label='test',
         id='test',
         chart_name='test',
-        chart_colors=['blue', 'red'],
-        chart_labels=['label1', 'label2'],
         container_id='test',
         prediction_name_key='',
         prediction_value_key='',
-        prediction_name_value=''
+        prediction_name_value='',
+        display_legend = True,
+        legend_icon = 'circle',
+        labels_key = 'labels'
     )
     assert renderer.to_dict() == {
         'className': 'BarChartRendering',
@@ -168,16 +169,23 @@ def test_bar_chart_rendering():
         'params': {
             'id': 'test',
             'chartName': 'test',
-            'chartColors': ['blue', 'red'],
-            'chartLabels': ['label1', 'label2'],
             'containerId': 'test',
-            'predictionNameKey': '',
-            'predictionValueKey': '',
-            'predictionNameValue': '',
+            'displayLegend': True,
+            'legendIcon' : 'circle',
             'width': 'auto',
             'height': 'auto',
             'xOffset': '0',
-            'yOffset': '0'
+            'yOffset': '0',
+            'datasource' : [
+                {
+                    'labels' : None,
+                    'labelsKey' : 'labels',
+                    'consolidateRows' : True,
+                    'predictionNameKey' : '',
+                    'predictionValueKey': '',
+                    'predictionNameValue' : ''
+                }
+            ]
         }
     }
 
@@ -187,12 +195,13 @@ def test_line_chart_rendering():
         label='test',
         id='test',
         chart_name='test',
-        chart_colors=['blue', 'red'],
-        chart_labels=['label1', 'label2'],
         container_id='test',
         prediction_name_key='',
         prediction_value_key='',
-        prediction_name_value=''
+        prediction_name_value='',
+        display_legend = True,
+        legend_icon = 'circle',
+        labels_key = 'labels'
     )
     assert renderer.to_dict() == {
         'className': 'LineChartRendering',
@@ -200,16 +209,23 @@ def test_line_chart_rendering():
         'params': {
             'id': 'test',
             'chartName': 'test',
-            'chartColors': ['blue', 'red'],
-            'chartLabels': ['label1', 'label2'],
             'containerId': 'test',
-            'predictionNameKey': '',
-            'predictionValueKey': '',
-            'predictionNameValue': '',
+            'displayLegend' : True,
+            'legendIcon' : 'circle',
             'width': 'auto',
             'height': 'auto',
             'xOffset': '0',
-            'yOffset': '0'
+            'yOffset': '0',
+            'datasource' : [
+                {
+                    'labels': None,
+                    'labelsKey' : 'labels',
+                    'consolidateRows' : True,
+                    'predictionNameKey': '',
+                    'predictionValueKey': '',
+                    'predictionNameValue': '',
+                }
+            ]
         }
     }
 
@@ -219,14 +235,13 @@ def test_doughnut_chart_rendering():
         label='test',
         id='test',
         chart_name='test',
-        chart_colors=['blue', 'red'],
-        chart_labels=['label1', 'label2'],
         container_id='test',
         prediction_name_key='',
         prediction_value_key='',
         prediction_name_value='',
         display_legend=True,
-        legend_icon='circle'
+        legend_icon='circle',
+        labels_key = 'labels'
     )
     assert renderer.to_dict() == {
         'className': 'DoughnutChartRendering',
@@ -234,18 +249,23 @@ def test_doughnut_chart_rendering():
         'params': {
             'id': 'test',
             'chartName': 'test',
-            'chartColors': ['blue', 'red'],
-            'chartLabels': ['label1', 'label2'],
             'containerId': 'test',
-            'predictionNameKey': '',
-            'predictionValueKey': '',
-            'predictionNameValue': '',
-            'displayLegend': True,
-            'legendIcon': 'circle',
+            'displayLegend' : True,
+            'legendIcon' : 'circle',
             'width': 'auto',
             'height': 'auto',
             'xOffset': '0',
-            'yOffset': '0'
+            'yOffset': '0',
+            'datasource' : [
+                {
+                    'labels' : None,
+                    'labelsKey' : 'labels',
+                    'consolidateRows' : True,
+                    'predictionNameKey': '',
+                    'predictionValueKey': '',
+                    'predictionNameValue': '',
+                }
+            ]
         }
     }
 
@@ -255,14 +275,13 @@ def test_pie_chart_rendering():
         label='test',
         id='test',
         chart_name='test',
-        chart_colors=['blue', 'red'],
-        chart_labels=['label1', 'label2'],
         container_id='test',
         prediction_name_key='',
         prediction_value_key='',
         prediction_name_value='',
         display_legend=True,
-        legend_icon='circle'
+        legend_icon='circle',
+        labels_key = 'labels'
     )
     assert renderer.to_dict() == {
         'className': 'PieChartRendering',
@@ -270,18 +289,23 @@ def test_pie_chart_rendering():
         'params': {
             'id': 'test',
             'chartName': 'test',
-            'chartColors': ['blue', 'red'],
-            'chartLabels': ['label1', 'label2'],
             'containerId': 'test',
-            'predictionNameKey': '',
-            'predictionValueKey': '',
-            'predictionNameValue': '',
-            'displayLegend': True,
-            'legendIcon': 'circle',
+            'displayLegend' : True,
+            'legendIcon' : 'circle',
             'width': 'auto',
             'height': 'auto',
             'xOffset': '0',
-            'yOffset': '0'
+            'yOffset': '0',
+            'datasource' : [
+                {
+                    'labels' : None,
+                    'labelsKey' : 'labels',
+                    'consolidateRows' : True,
+                    'predictionNameKey': '',
+                    'predictionValueKey': '',
+                    'predictionNameValue': '',
+                }
+            ]
         }
     }
 
