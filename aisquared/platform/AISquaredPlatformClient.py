@@ -393,18 +393,32 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()['success']
 
-    # TODO - endpoint not yet implemented
-    def share_model_with_group(self, model_id, group_id, port=8080):
-        """Not yet implemented"""
+    def share_model_with_group(self, model_id: str, group_id: str, port: int = 8080) -> bool:
+        """
+        Share a model with a group
+
+        Parameters
+        ----------
+        model_id : str
+            The ID for the model to be shared
+        group_id : str
+            The ID for the group to be shared with
+        port : int (default 8080)
+            The API port to use
+
+        Returns
+        -------
+        success : bool
+            Returns True if successful
+        """
         with requests.Session() as sess:
             resp = sess.put(
                 f'{self.base_url}:{port}/api/v1/models/{model_id}/groups/{group_id}',
                 headers=self.headers
             )
-        return resp
-        if resp.status_code != 204:
+        if not resp.ok:
             raise AISquaredAPIException(resp.json())
-        return resp
+        return resp.ok
 
     # TODO - endpoint not yet implemented
     def unshare_model_with_group(self, model_id, group_id, port=8080):
