@@ -702,8 +702,8 @@ class AISquaredPlatformClient:
                 headers=self.headers
             )
 
-        if resp.status_code != 204:
-            return resp
+        if not resp.ok:
+            raise AISquaredAPIException(resp.json())
         else:
             return resp.ok
 
