@@ -110,7 +110,7 @@ class AISquaredPlatformClient:
 
         self._load_info()
 
-    def _load_info(self, config_file: str=CONFIG_FILE) -> None:
+    def _load_info(self, config_file: str = CONFIG_FILE) -> None:
         with open(config_file, 'r') as f:
             data = json.load(f)
         self._base_url = data['url']
@@ -421,7 +421,7 @@ class AISquaredPlatformClient:
         return resp.ok
 
     # TODO - endpoint not yet implemented
-    def unshare_model_with_group(self, model_id: str, group_id: str, port: int=8080) -> bool:
+    def unshare_model_with_group(self, model_id: str, group_id: str, port: int = 8080) -> bool:
         """
         Unshare a model with a group
 
@@ -452,7 +452,7 @@ class AISquaredPlatformClient:
     # Feedback operations
 
     # TODO - Still needs to be tested
-    def list_model_feedback(self, model_id: str, port: int=8080) -> dict:
+    def list_model_feedback(self, model_id: str, port: int = 8080) -> dict:
         """
         List feedback on a model
 
@@ -565,11 +565,11 @@ class AISquaredPlatformClient:
             last_name: str,
             email: str,
             role_id: str,
-            active: bool=True,
-            middle_name: str=None,
-            company_id: str=None,
-            password: str=None,
-            port: int=8085
+            active: bool = True,
+            middle_name: str = None,
+            company_id: str = None,
+            password: str = None,
+            port: int = 8085
     ) -> dict:
         """
         Create a user within the platform
@@ -877,7 +877,7 @@ class AISquaredPlatformClient:
         return resp.ok
 
     # TODO - needs to be documented
-    def add_users_to_group(self, group_id: str, user_ids: list, port: int=8086) -> bool:
+    def add_users_to_group(self, group_id: str, user_ids: list, port: int = 8086) -> bool:
         """
         Add users to a group
 
@@ -909,7 +909,7 @@ class AISquaredPlatformClient:
         return resp.ok
 
     # TODO - needs to be tested
-    def remove_users_from_group(self, group_id: str, user_ids: list, port: int=8086) -> bool:
+    def remove_users_from_group(self, group_id: str, user_ids: list, port: int = 8086) -> bool:
         """
         Remove users from a group
 
