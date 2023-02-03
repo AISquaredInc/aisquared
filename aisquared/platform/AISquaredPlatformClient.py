@@ -110,7 +110,7 @@ class AISquaredPlatformClient:
 
         self._load_info()
 
-    def _load_info(self, config_file=CONFIG_FILE):
+    def _load_info(self, config_file: str=CONFIG_FILE) -> None:
         with open(config_file, 'r') as f:
             data = json.load(f)
         self._base_url = data['url']
@@ -421,30 +421,58 @@ class AISquaredPlatformClient:
         return resp.ok
 
     # TODO - endpoint not yet implemented
-    def unshare_model_with_group(self, model_id, group_id, port=8080):
-        """Not yet implemented"""
+    def unshare_model_with_group(self, model_id: str, group_id: str, port: int=8080) -> bool:
+        """
+        Unshare a model with a group
+
+        Parameters
+        ----------
+        model_id : str
+            The ID of the model
+        group_id : str
+            The ID of the group
+        port : int (default 8080)
+            The API port to use
+
+        Returns
+        -------
+        success : bool
+            Returns True if successful
+        """
         with requests.Session() as sess:
             resp = sess.delete(
                 f'{self.base_url}:{port}/api/v1/models/{model_id}/groups/{group_id}',
                 headers=self.headers
             )
-        return resp
-        if resp.status_code != 204:
+
+        if not resp.ok:
             raise AISquaredAPIException(resp.json())
-        return resp
+        return resp.ok
 
     # Feedback operations
 
-    # TODO
+    # TODO - Still needs to be tested
+    def list_model_feedback(self, model_id: str, port: int=8080) -> dict:
+        """
+        List feedback on a model
 
-    def list_model_feedback(self, model_id, port=8080):
-        """Not yet implemented"""
-        raise NotImplementedError('Functionality not yet implemented')
+        Parameters
+        ----------
+        model_id : str
+            The ID of the model
+        port : int (default 8080)
+            The API port to use
+
+        Returns
+        -------
+        feedback : dict
+            The feedback
+        """
         with requests.Session() as sess:
             resp = sess.get(f'{self.base_url}:{port}/api/v1/feedback/models/{model_id}',
                             headers=self.headers
                             )
-        if resp.status_code != 200:
+        if not resp.ok:
             if resp.status_code == 404:
                 return None
             raise AISquaredAPIException(resp.json())
@@ -523,26 +551,57 @@ class AISquaredPlatformClient:
                 return pd.DataFrame(resp.json()['data'])
             return resp.json()
 
-    # TODO
-    def list_model_prediction_feedback(self, model_id):
+    # TODO - Needs to be built and documented
+    def list_model_prediction_feedback(self, model_id: str) -> dict:
         """Not yet implemented"""
         raise NotImplementedError('Functionality not yet implemented')
 
     # User and group management
 
-    def create_user(self,
-                    user_name: str,
-                    first_name: str,
-                    last_name: str,
-                    email: str,
-                    role_id: str,
-                    active=True,
-                    middle_name=None,
-                    company_id=None,
-                    password=None,
-                    port=8085
-                    ):
+    def create_user(
+            self,
+            user_name: str,
+            first_name: str,
+            last_name: str,
+            email: str,
+            role_id: str,
+            active: bool=True,
+            middle_name: str=None,
+            company_id: str=None,
+            password: str=None,
+            port: int=8085
+    ) -> dict:
+        """
+        Create a user within the platform
 
+        Parameters
+        ----------
+        user_name : str
+            The display name of the user
+        first_name : str
+            The user's first name
+        last_name : str
+            The user's last name
+        email : str
+            The user's email
+        role_id : str
+            The ID of the role to be given to the user
+        active : bool (default True)
+            Whether the user is active
+        middle_name : str or None (default None)
+            The user's middle name
+        company_id : str or None (default None)
+            The user's company ID
+        password : str or None (default None)
+            The user's password
+        port : int (default 8085)
+            The API port to use
+
+        Returns
+        -------
+        user_data : dict
+            Metadata about the user
+        """
         json_data = {
             'active': active,
             'userName': user_name,
@@ -584,7 +643,40 @@ class AISquaredPlatformClient:
             company_id: str = None,
             password: str = None,
             port: int = 8085
-    ):
+    ) -> bool:
+        """
+        Update information about a user
+
+        Parameters
+        ----------
+        user_id : str
+            The ID of the user to update
+        user_name : str
+            The display name of the user
+        first_name : str
+            The first name of the user
+        last_name : str
+            The last name of the user
+        email : str
+            The user's email
+        role_id : str
+            The ID of the user's role
+        active : bool (default True)
+            Whether the user is active
+        middle_name : str or None (default None)
+            The user's middle name
+        company_id : str or None (default None)
+            The user's company ID
+        password : str or None (default None)
+            The user's password
+        port : int (default 8085)
+            The API port to use
+
+        Returns
+        -------
+        success : bool
+            Returns True if update is successful
+        """
         json_data = {
             'active': active,
             'userName': user_name,
@@ -594,6 +686,8 @@ class AISquaredPlatformClient:
             'roleId': role_id
         }
 
+        if active:
+            json_data['active'] = active
         if middle_name:
             json_data['middleName'] = middle_name
         if company_id:
@@ -611,7 +705,7 @@ class AISquaredPlatformClient:
         if resp.status_code != 204:
             return resp
         else:
-            return resp.json()
+            return resp.ok
 
     def delete_user(self, user_id: str, port: int = 8085) -> bool:
         """
@@ -723,6 +817,7 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()
 
+    # BUG: Internal server error
     def delete_group(self, group_id, port=8086) -> bool:
         """
         Delete a group from the platform
@@ -781,8 +876,25 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.ok
 
-    # TODO - needs to be tested - FORBIDDEN
-    def add_users_to_group(self, group_id, user_ids, port=8086):
+    # TODO - needs to be documented
+    def add_users_to_group(self, group_id: str, user_ids: list, port: int=8086) -> bool:
+        """
+        Add users to a group
+
+        Parameters
+        ----------
+        group_id : str
+            The group to add the users to
+        user_ids : list of str
+            The IDs of the users to add
+        port : int (default 8086)
+            The API port to use
+
+        Returns
+        -------
+        success : bool
+            Returns True if operation was successful
+        """
         with requests.Session() as sess:
             resp = sess.put(
                 f'{self.base_url}:{port}/groupservice/v1/membership',
@@ -792,12 +904,29 @@ class AISquaredPlatformClient:
                 },
                 headers=self.headers
             )
-        if resp.status_code != 200:
+        if not resp.ok:
             raise AISquaredAPIException(resp.json())
-        return resp
+        return resp.ok
 
     # TODO - needs to be tested
-    def remove_users_from_group(self, group_id, user_ids, port=8086):
+    def remove_users_from_group(self, group_id: str, user_ids: list, port: int=8086) -> bool:
+        """
+        Remove users from a group
+
+        Parameters
+        ----------
+        group_id : str
+            The ID of the group
+        user_ids : list of str
+            The IDs of the users to remove
+        port : int (default = 8086)
+            The API port to use
+
+        Returns
+        -------
+        success : bool
+            Returns True if successful
+        """
         with requests.Session() as sess:
             resp = sess.delete(
                 f'{self.base_url}:{port}/groupservice/v1/membership',
