@@ -451,8 +451,7 @@ class AISquaredPlatformClient:
 
     # Feedback operations
 
-    # TODO - Still needs to be tested
-    def list_model_feedback(self, model_id: str, port: int = 8080) -> dict:
+    def list_model_feedback(self, model_id: str, limit: int = 10, as_df: bool = True, port: int = 8080) -> Union[dict, pd.DataFrame]:
         """
         List feedback on a model
 
@@ -460,23 +459,27 @@ class AISquaredPlatformClient:
         ----------
         model_id : str
             The ID of the model
+        limit : int (default 10)
+            The maximum number of feedback items to return
         port : int (default 8080)
             The API port to use
 
         Returns
         -------
-        feedback : dict
+        feedback : dict or pandas DataFrame
             The feedback
         """
         with requests.Session() as sess:
-            resp = sess.get(f'{self.base_url}:{port}/api/v1/feedback/models/{model_id}',
+            resp = sess.get(f'{self.base_url}:{port}/api/v1/feedback/models?modelId={model_id}&page=1&pageSize={limit}',
                             headers=self.headers
                             )
         if not resp.ok:
             if resp.status_code == 404:
                 return None
             raise AISquaredAPIException(resp.json())
-        return resp.json()
+        if as_df:
+            return pd.DataFrame(resp.json()['data']['modelFeedback'])
+        return resp.json()['data']
 
     def list_prediction_feedback(self, prediction_id: str, as_df: bool = True, port: int = 8080) -> Union[pd.DataFrame, dict]:
         """
@@ -505,7 +508,7 @@ class AISquaredPlatformClient:
 
         with requests.Session() as sess:
             resp = sess.get(
-                f'{self.base_url}:{port}/api/v1/feedback/predictions?predictionId={prediction_id}',
+                f'{self.base_url}:{port}/api/v1/feedback/predictions?modelId={prediction_id}',
                 headers=self.headers
             )
 
@@ -516,45 +519,30 @@ class AISquaredPlatformClient:
             return pd.DataFrame(resp.json()['data'])
         return resp.json()
 
-    # TODO - malformed request
-    def list_model_predictions(self, model_id: str, as_df: bool = True, port: int = 8080) -> Union[pd.DataFrame, dict]:
+    def list_model_prediction_feedback(self, model_id: str, port: int = 8080) -> dict:
         """
-        Retrieve model predictions
-
-        >>> import aisquared
-        >>> client = aisquared.platform.AISquaredPlatformClient()
-        >>> client.list_model_predictions('model_id')
-        *DataFrame with results*
+        List all feedback for a model
 
         Parameters
         ----------
         model_id : str
-            The model ID
+            The ID of the model requested
         port : int (default 8080)
             The API port to use
 
         Returns
         -------
-        results : pandas DataFrame or dict
-            The response from the API
+        results : dict
+            The results from the platform
         """
-
         with requests.Session() as sess:
             resp = sess.get(
-                f'{self.base_url}:{port}/api/v1/predictions?modelId={model_id}',
+                f'{self.base_url}:{port}/api/v1/feedback/predictions?modelId={model_id}',
                 headers=self.headers
             )
-        if resp.status_code != 200:
+        if not resp.ok:
             raise AISquaredAPIException(resp.json())
-        else:
-            if as_df:
-                return pd.DataFrame(resp.json()['data'])
-            return resp.json()
-
-    # TODO - Needs to be built and documented
-    def list_model_prediction_feedback(self, model_id: str) -> dict:
-        """Not yet implemented"""
-        raise NotImplementedError('Functionality not yet implemented')
+        return resp.json()
 
     # User and group management
 
@@ -817,7 +805,6 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()
 
-    # BUG: Internal server error
     def delete_group(self, group_id, port=8086) -> bool:
         """
         Delete a group from the platform
