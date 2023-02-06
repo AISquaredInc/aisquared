@@ -420,7 +420,6 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.ok
 
-    # TODO - NOT WORKING
     def unshare_model_with_group(self, model_id: str, group_id: str, port: int = 8080) -> bool:
         """
         Unshare a model with a group
