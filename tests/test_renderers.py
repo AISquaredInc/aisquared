@@ -326,9 +326,10 @@ def test_container_rendering():
             'display': 'flex',
             'xOffset': '0',
             'yOffset': '0',
-            'position': '',
             'orientation': 'column',
-            'querySelector': 'test'
+            'querySelector': 'test',
+            'position': 'absolute',
+            'staticPosition': None
         }
     }
 
