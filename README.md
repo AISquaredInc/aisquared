@@ -294,3 +294,4 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Fixed bug related to requiring `auto_run` parameter to be string (fix involves casting as string)
 - Altered schemas for different "Chart" Rendering classes to conform to JavaScript standards
 - Streamlined the `ModelConfiguration` class to allow a more functional interface to build `.air` files
+- Updated `ContainerRendering` class with parameters for `position` and `static_position`
