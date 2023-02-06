@@ -420,7 +420,7 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.ok
 
-    # TODO - endpoint not yet implemented
+    # TODO - NOT WORKING
     def unshare_model_with_group(self, model_id: str, group_id: str, port: int = 8080) -> bool:
         """
         Unshare a model with a group
@@ -876,7 +876,6 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.ok
 
-    # TODO - needs to be documented
     def add_users_to_group(self, group_id: str, user_ids: list, port: int = 8086) -> bool:
         """
         Add users to a group
@@ -908,7 +907,6 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.ok
 
-    # TODO - needs to be tested
     def remove_users_from_group(self, group_id: str, user_ids: list, port: int = 8086) -> bool:
         """
         Remove users from a group
