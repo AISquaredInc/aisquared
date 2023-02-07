@@ -111,6 +111,11 @@ class AISquaredPlatformClient:
         self._load_info()
 
     def _load_info(self, config_file: str = CONFIG_FILE) -> None:
+        """
+        NOT MEANT TO BE CALLED BY THE USER
+
+        Function to load configuration information for the client
+        """
         with open(config_file, 'r') as f:
             data = json.load(f)
         self._base_url = data['url']
@@ -397,6 +402,11 @@ class AISquaredPlatformClient:
         """
         Share a model with a group
 
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.share_model_with_group('model_id', 'group_id')
+        True
+
         Parameters
         ----------
         model_id : str
@@ -423,6 +433,11 @@ class AISquaredPlatformClient:
     def unshare_model_with_group(self, model_id: str, group_id: str, port: int = 8080) -> bool:
         """
         Unshare a model with a group
+
+        >>> import aisquared
+        >>> client = aisquared.client.AISquaredPlatformClient()
+        >>> client.unshare_model_with_group('model_id', 'group_id')
+        True
 
         Parameters
         ----------
@@ -453,6 +468,11 @@ class AISquaredPlatformClient:
     def list_model_feedback(self, model_id: str, limit: int = 10, as_df: bool = True, port: int = 8080) -> Union[dict, pd.DataFrame]:
         """
         List feedback on a model
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.list_model_feedback('model_id')
+        *DataFrame with Results*
 
         Parameters
         ----------
@@ -522,6 +542,11 @@ class AISquaredPlatformClient:
         """
         List all feedback for a model
 
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.list_model_prediction_feedback('model_id')
+        *DataFrame with Results*
+
         Parameters
         ----------
         model_id : str
@@ -567,6 +592,17 @@ class AISquaredPlatformClient:
     ) -> dict:
         """
         Create a user within the platform
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.create_user(
+            'user name',
+            'first_name',
+            'last_name',
+            'user_email',
+            'role_id'
+        )
+        *Dictionary with user information*
 
         Parameters
         ----------
@@ -641,6 +677,18 @@ class AISquaredPlatformClient:
         """
         Update information about a user
 
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.update_user(
+            'user_id',
+            'user name',
+            'first_name',
+            'last_name',
+            'user_email',
+            'role_id'
+        )
+        True
+
         Parameters
         ----------
         user_id : str
@@ -705,6 +753,11 @@ class AISquaredPlatformClient:
         """
         Delete a user from the system
 
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.delete_user('user_id')
+        True
+
         Parameters
         ----------
         user_id : str
@@ -730,6 +783,11 @@ class AISquaredPlatformClient:
     def get_user(self, user_id: str, port: int = 8085) -> dict:
         """
         Retrieve a user's information from the platform
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.get_user('user_id')
+        *dictionary with results*
 
         Parameters
         ----------
@@ -757,6 +815,11 @@ class AISquaredPlatformClient:
         """
         Retrieve information about a group
 
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.get_group('group_id')
+        *dictionary containing group data*
+
         Parameters
         ----------
         group_id : str
@@ -782,6 +845,14 @@ class AISquaredPlatformClient:
     def create_group(self, group_name: str, role_id: str, port: int = 8086) -> dict:
         """
         Create a group in the platform
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.create_group(
+            'group_name',
+            'role_id'
+        )
+        *dictionary containing group information*
 
         Parameters
         ----------
@@ -815,6 +886,11 @@ class AISquaredPlatformClient:
         """
         Delete a group from the platform
 
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.delete_group('group_id')
+        True
+
         Parameters
         ----------
         group_id : str
@@ -839,6 +915,15 @@ class AISquaredPlatformClient:
     def update_group(self, group_id: str, display_name: str, role_id: str, port: int = 8086) -> bool:
         """
         Update information about a group
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.update_group(
+            'group_id',
+            'group display name',
+            'role_id'
+        )
+        True
 
         Parameters
         ----------
@@ -873,6 +958,11 @@ class AISquaredPlatformClient:
         """
         Add users to a group
 
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.add_users_to_group('group_id', ['user_id_1', 'user_id_2'])
+        True
+
         Parameters
         ----------
         group_id : str
@@ -903,6 +993,11 @@ class AISquaredPlatformClient:
     def remove_users_from_group(self, group_id: str, user_ids: list, port: int = 8086) -> bool:
         """
         Remove users from a group
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.remove_users_from_group('group_id', ['user_id_1', 'user_id_2'])
+        True
 
         Parameters
         ----------
@@ -1066,6 +1161,11 @@ class AISquaredPlatformClient:
         """
         Get usage metrics for a user
 
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.get_user_usage_metrics('user_id')
+        *DataFrame with results*
+
         Parameters
         ----------
         user_id : str
@@ -1100,7 +1200,7 @@ class AISquaredPlatformClient:
         >>> import aisquared
         >>> client = aisquared.platform.AISquaredPlatformClient()
         >>> client.get_model_usage_metrics('model_id')
-        *Results*
+        *DataFrame with results*
 
         Parameters
         ----------
@@ -1195,6 +1295,11 @@ class AISquaredPlatformClient:
     def get_group_id_by_name(self, group_name: str) -> str:
         """
         Get the ID of a group by searching for its display name
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.get_group_id_by_name('Group Name')
+        *group_id*
 
         Parameters
         ----------
