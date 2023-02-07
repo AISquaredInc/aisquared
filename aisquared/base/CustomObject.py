@@ -24,6 +24,8 @@ class CustomObject(BaseObject):
         ----------
         class_name : str
             The name for the class
+        top_level_kwargs : dict or None (default None)
+            Any top-level keyword arguments to place above the `params` dictionary
         **kwargs : additional keyword arguments
             Other parameters to be used
         """

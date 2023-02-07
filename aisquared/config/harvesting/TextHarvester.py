@@ -1,11 +1,6 @@
 from typing import Union
-from aisquared.base import BaseObject
+from aisquared.base import BaseObject, ALLOWED_HOWS
 
-_ALLOWED_HOWS = [
-    'all',
-    'regex',
-    'keywords'
-]
 
 
 class TextHarvester(BaseObject):
@@ -31,7 +26,7 @@ class TextHarvester(BaseObject):
 
     def __init__(
         self,
-        how: str = _ALLOWED_HOWS[0],
+        how: str = ALLOWED_HOWS[0],
         regex: str = None,
         flags: str = 'gu',
         body_only: bool = False,
@@ -68,9 +63,9 @@ class TextHarvester(BaseObject):
 
     @how.setter
     def how(self, value):
-        if value not in _ALLOWED_HOWS:
+        if value not in ALLOWED_HOWS:
             raise ValueError(
-                f"how must be one of {_ALLOWED_HOWS}, got {value}")
+                f"how must be one of {ALLOWED_HOWS}, got {value}")
         self._how = value
 
     @property

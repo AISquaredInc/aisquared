@@ -1,4 +1,4 @@
-from aisquared.base import BaseObject
+from aisquared.base import BaseObject, ALLOWED_INPUT_TYPES
 
 
 class InputHarvester(BaseObject):
@@ -45,7 +45,7 @@ class InputHarvester(BaseObject):
 
     @input_type.setter
     def input_type(self, value):
-        if value not in ['text', 'image', 'tabular']:
+        if value not in ALLOWED_INPUT_TYPES:
             raise ValueError(
                 "InputHarvester supports 'text', 'image', or 'tabular' input")
         self._input_type = value
