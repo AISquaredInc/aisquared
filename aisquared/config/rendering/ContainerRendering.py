@@ -22,9 +22,9 @@ class ContainerRendering(BaseObject):
     'display': 'flex',
     'xOffset': '0',
     'yOffset': '0',
-    'orientation': 'column',
-    'querySelector': "[data-id='tabpanel-general']"
     'position': 'absolute',
+    'orientation': 'column',
+    'querySelector': "[data-id='tabpanel-general']",
     'staticPosition': None}}
 
     """

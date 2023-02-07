@@ -6,6 +6,40 @@ class LineChartRendering(BaseObject):
     """
     Rendering class for rendering a Line Chart
 
+    Example usage:
+
+    >>> import aisquared
+    >>> my_obj = aisquared.config.rendering.LineChartRendering(
+        'my_label',
+        'my_id',
+        'my_line_chart',
+        'my_container_id',
+        'name',
+        'value',
+        'name_value',
+        True,
+        'circle',
+        'labels'
+    )
+    >>> my_obj.to_dict()
+    {'className': 'LineChartRendering',
+    'label': 'my_label',
+    'params': {'id': 'my_id',
+    'chartName': 'my_line_chart',
+    'containerId': 'my_container_id',
+    'displayLegend': True,
+    'legendIcon': 'circle',
+    'width': 'auto',
+    'height': 'auto',
+    'xOffset': '0',
+    'yOffset': '0',
+    'datasource': [{'labels': None,
+        'labelsKey': 'labels',
+        'consolidateRows': True,
+        'predictionNameKey': 'name',
+        'predictionValueKey': 'value',
+        'predictionNameValue': 'name_value'}]}}
+
     """
 
     def __init__(
