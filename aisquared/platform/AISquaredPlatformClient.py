@@ -518,7 +518,7 @@ class AISquaredPlatformClient:
             return pd.DataFrame(resp.json()['data'])
         return resp.json()
 
-    def list_model_prediction_feedback(self, model_id: str, port: int = 8080) -> dict:
+    def list_model_prediction_feedback(self, model_id: str, as_df: bool = True, port: int = 8080) -> Union[dict, pd.DataFrame]:
         """
         List all feedback for a model
 
@@ -526,12 +526,14 @@ class AISquaredPlatformClient:
         ----------
         model_id : str
             The ID of the model requested
+        as_df : bool (default True)
+            Whether to return the results as a pandas DataFrame
         port : int (default 8080)
             The API port to use
 
         Returns
         -------
-        results : dict
+        results : dict or pandas DataFrame
             The results from the platform
         """
         with requests.Session() as sess:
@@ -541,6 +543,11 @@ class AISquaredPlatformClient:
             )
         if not resp.ok:
             raise AISquaredAPIException(resp.json())
+    
+        if as_df:
+            data = resp.json()['data']
+            return pd.concat([pd.json_normalize(v) for v in data.values()]).reset_index(drop = True)
+
         return resp.json()
 
     # User and group management
@@ -1055,7 +1062,7 @@ class AISquaredPlatformClient:
 
     # Metrics
 
-    def get_user_usage_metrics(self, user_id: str, period: str = 'hourly', as_df: bool = True, port: int = 8080) -> Union[dict, pd.DataFrame]:
+    def list_user_usage_metrics(self, user_id: str, period: str = 'hourly', as_df: bool = True, port: int = 8080) -> Union[dict, pd.DataFrame]:
         """
         Get usage metrics for a user
 
@@ -1086,7 +1093,7 @@ class AISquaredPlatformClient:
             return pd.DataFrame(resp.json()['data']['plotXYData'])
         return resp.json()
 
-    def get_model_usage_metrics(self, model_id: str, period: str = 'hourly', as_df: bool = True, port: int = 8080) -> Union[dict, pd.DataFrame]:
+    def list_model_usage_metrics(self, model_id: str, period: str = 'hourly', as_df: bool = True, port: int = 8080) -> Union[dict, pd.DataFrame]:
         """
         Get usage metrics for a model
 
