@@ -68,6 +68,7 @@
   <h1>Source code for aisquared.config.rendering.ContainerRendering</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">aisquared.base</span> <span class="kn">import</span> <span class="n">BaseObject</span><span class="p">,</span> <span class="n">POSITIONS</span><span class="p">,</span> <span class="n">STATIC_POSITIONS</span>
 
+
 <div class="viewcode-block" id="ContainerRendering"><a class="viewcode-back" href="../../../../aisquared.config.rendering.html#aisquared.config.rendering.ContainerRendering.ContainerRendering">[docs]</a><span class="k">class</span> <span class="nc">ContainerRendering</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Rendering for a container</span>
@@ -89,9 +90,9 @@
 <span class="sd">    &#39;display&#39;: &#39;flex&#39;,</span>
 <span class="sd">    &#39;xOffset&#39;: &#39;0&#39;,</span>
 <span class="sd">    &#39;yOffset&#39;: &#39;0&#39;,</span>
-<span class="sd">    &#39;orientation&#39;: &#39;column&#39;,</span>
-<span class="sd">    &#39;querySelector&#39;: &quot;[data-id=&#39;tabpanel-general&#39;]&quot;</span>
 <span class="sd">    &#39;position&#39;: &#39;absolute&#39;,</span>
+<span class="sd">    &#39;orientation&#39;: &#39;column&#39;,</span>
+<span class="sd">    &#39;querySelector&#39;: &quot;[data-id=&#39;tabpanel-general&#39;]&quot;,</span>
 <span class="sd">    &#39;staticPosition&#39;: None}}</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -220,7 +221,8 @@
     <span class="nd">@position</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">position</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">POSITIONS</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;position must be one of </span><span class="si">{</span><span class="n">POSITIONS</span><span class="si">}</span><span class="s1">, got </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;position must be one of </span><span class="si">{</span><span class="n">POSITIONS</span><span class="si">}</span><span class="s1">, got </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_position</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="nd">@property</span>
@@ -241,11 +243,13 @@
             <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
                 <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;If not None, static_position must be str&#39;</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">STATIC_POSITIONS</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;static_position must be one of </span><span class="si">{</span><span class="n">STATIC_POSITIONS</span><span class="si">}</span><span class="s1">, got </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s1">&#39;static_position must be one of </span><span class="si">{</span><span class="n">STATIC_POSITIONS</span><span class="si">}</span><span class="s1">, got </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">==</span> <span class="s1">&#39;static&#39;</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;If position is &quot;static&quot;, static_position must be provided&#39;</span><span class="p">)</span>
-        
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s1">&#39;If position is &quot;static&quot;, static_position must be provided&#39;</span><span class="p">)</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">_static_position</span> <span class="o">=</span> <span class="n">value</span>
 
 <div class="viewcode-block" id="ContainerRendering.to_dict"><a class="viewcode-back" href="../../../../aisquared.config.rendering.html#aisquared.config.rendering.ContainerRendering.ContainerRendering.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
@@ -265,8 +269,8 @@
                 <span class="s1">&#39;position&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">,</span>
                 <span class="s1">&#39;orientation&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">orientation</span><span class="p">,</span>
                 <span class="s1">&#39;querySelector&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_selector</span><span class="p">,</span>
-                <span class="s1">&#39;position&#39;</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">,</span>
-                <span class="s1">&#39;staticPosition&#39;</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">static_position</span>
+                <span class="s1">&#39;position&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">,</span>
+                <span class="s1">&#39;staticPosition&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">static_position</span>
             <span class="p">}</span>
         <span class="p">}</span></div></div>
 </pre></div>

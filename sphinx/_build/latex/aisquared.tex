@@ -62,7 +62,7 @@
 
 
 \title{aisquared}
-\date{Feb 06, 2023}
+\date{Feb 07, 2023}
 \release{}
 \author{The AI Squared Team}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -2784,6 +2784,42 @@ Bases: {\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObjec
 
 \sphinxAtStartPar
 Rendering class for rendering a Bar Chart
+
+\sphinxAtStartPar
+Example usage:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{my\PYGZus{}obj} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{rendering}\PYG{o}{.}\PYG{n}{BarChartRendering}\PYG{p}{(}
+\PYG{g+go}{    \PYGZsq{}my\PYGZus{}label\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}my\PYGZus{}id\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}my\PYGZus{}bar\PYGZus{}chart\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}my\PYGZus{}container\PYGZus{}id\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}name\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}value\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}name\PYGZus{}value\PYGZsq{},}
+\PYG{g+go}{    True,}
+\PYG{g+go}{    \PYGZsq{}circle\PYGZsq{}}
+\PYG{g+go}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{my\PYGZus{}obj}\PYG{o}{.}\PYG{n}{to\PYGZus{}dict}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+go}{\PYGZob{}\PYGZsq{}className\PYGZsq{}: \PYGZsq{}BarChartRendering\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}label\PYGZsq{}: \PYGZsq{}my\PYGZus{}label\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}params\PYGZsq{}: \PYGZob{}\PYGZsq{}id\PYGZsq{}: \PYGZsq{}my\PYGZus{}id\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}chartName\PYGZsq{}: \PYGZsq{}my\PYGZus{}bar\PYGZus{}chart\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}containerId\PYGZsq{}: \PYGZsq{}my\PYGZus{}container\PYGZus{}id\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}displayLegend\PYGZsq{}: True,}
+\PYG{g+go}{    \PYGZsq{}legendIcon\PYGZsq{}: \PYGZsq{}circle\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}width\PYGZsq{}: \PYGZsq{}auto\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}height\PYGZsq{}: \PYGZsq{}auto\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}xOffset\PYGZsq{}: \PYGZsq{}0\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}yOffset\PYGZsq{}: \PYGZsq{}0\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}datasource\PYGZsq{}: [\PYGZob{}\PYGZsq{}labels\PYGZsq{}: None,}
+\PYG{g+go}{        \PYGZsq{}labelsKey\PYGZsq{}: None,}
+\PYG{g+go}{        \PYGZsq{}consolidateRows\PYGZsq{}: True,}
+\PYG{g+go}{        \PYGZsq{}predictionNameKey\PYGZsq{}: \PYGZsq{}name\PYGZsq{},}
+\PYG{g+go}{        \PYGZsq{}predictionValueKey\PYGZsq{}: \PYGZsq{}value\PYGZsq{},}
+\PYG{g+go}{        \PYGZsq{}predictionNameValue\PYGZsq{}: \PYGZsq{}name\PYGZus{}value\PYGZsq{}\PYGZcb{}]\PYGZcb{}\PYGZcb{}}
+\end{sphinxVerbatim}
 \index{to\_dict() (aisquared.config.rendering.BarChartRendering.BarChartRendering method)@\spxentry{to\_dict()}\spxextra{aisquared.config.rendering.BarChartRendering.BarChartRendering method}}
 
 \begin{fulllineitems}
@@ -2834,9 +2870,9 @@ Example usage:
 \PYG{g+go}{\PYGZsq{}display\PYGZsq{}: \PYGZsq{}flex\PYGZsq{},}
 \PYG{g+go}{\PYGZsq{}xOffset\PYGZsq{}: \PYGZsq{}0\PYGZsq{},}
 \PYG{g+go}{\PYGZsq{}yOffset\PYGZsq{}: \PYGZsq{}0\PYGZsq{},}
-\PYG{g+go}{\PYGZsq{}orientation\PYGZsq{}: \PYGZsq{}column\PYGZsq{},}
-\PYG{g+go}{\PYGZsq{}querySelector\PYGZsq{}: \PYGZdq{}[data\PYGZhy{}id=\PYGZsq{}tabpanel\PYGZhy{}general\PYGZsq{}]\PYGZdq{}}
 \PYG{g+go}{\PYGZsq{}position\PYGZsq{}: \PYGZsq{}absolute\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}orientation\PYGZsq{}: \PYGZsq{}column\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}querySelector\PYGZsq{}: \PYGZdq{}[data\PYGZhy{}id=\PYGZsq{}tabpanel\PYGZhy{}general\PYGZsq{}]\PYGZdq{},}
 \PYG{g+go}{\PYGZsq{}staticPosition\PYGZsq{}: None\PYGZcb{}\PYGZcb{}}
 \end{sphinxVerbatim}
 \index{display (aisquared.config.rendering.ContainerRendering.ContainerRendering property)@\spxentry{display}\spxextra{aisquared.config.rendering.ContainerRendering.ContainerRendering property}}
@@ -3169,6 +3205,42 @@ Bases: {\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObjec
 
 \sphinxAtStartPar
 Rendering class for rendering a Doughnut Chart
+
+\sphinxAtStartPar
+Example usage:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{my\PYGZus{}obj} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{rendering}\PYG{o}{.}\PYG{n}{DoughnutChartRendering}\PYG{p}{(}
+\PYG{g+go}{    \PYGZsq{}my\PYGZus{}label\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}my\PYGZus{}id\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}my\PYGZus{}doughnut\PYGZus{}chart\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}my\PYGZus{}container\PYGZus{}id\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}name\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}value\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}name\PYGZus{}value\PYGZsq{},}
+\PYG{g+go}{    True,}
+\PYG{g+go}{    \PYGZsq{}circle\PYGZsq{}}
+\PYG{g+go}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{my\PYGZus{}obj}\PYG{o}{.}\PYG{n}{to\PYGZus{}dict}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+go}{\PYGZob{}\PYGZsq{}className\PYGZsq{}: \PYGZsq{}DoughnutChartRendering\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}label\PYGZsq{}: \PYGZsq{}my\PYGZus{}label\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}params\PYGZsq{}: \PYGZob{}\PYGZsq{}id\PYGZsq{}: \PYGZsq{}my\PYGZus{}id\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}chartName\PYGZsq{}: \PYGZsq{}my\PYGZus{}doughnut\PYGZus{}chart\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}containerId\PYGZsq{}: \PYGZsq{}my\PYGZus{}container\PYGZus{}id\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}displayLegend\PYGZsq{}: True,}
+\PYG{g+go}{\PYGZsq{}legendIcon\PYGZsq{}: \PYGZsq{}circle\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}width\PYGZsq{}: \PYGZsq{}auto\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}height\PYGZsq{}: \PYGZsq{}auto\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}xOffset\PYGZsq{}: \PYGZsq{}0\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}yOffset\PYGZsq{}: \PYGZsq{}0\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}datasource\PYGZsq{}: [\PYGZob{}\PYGZsq{}labels\PYGZsq{}: None,}
+\PYG{g+go}{    \PYGZsq{}labelsKey\PYGZsq{}: None,}
+\PYG{g+go}{    \PYGZsq{}consolidateRows\PYGZsq{}: True,}
+\PYG{g+go}{    \PYGZsq{}predictionNameKey\PYGZsq{}: \PYGZsq{}name\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}predictionValueKey\PYGZsq{}: \PYGZsq{}value\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}predictionNameValue\PYGZsq{}: \PYGZsq{}name\PYGZus{}value\PYGZsq{}\PYGZcb{}]\PYGZcb{}\PYGZcb{}}
+\end{sphinxVerbatim}
 \index{to\_dict() (aisquared.config.rendering.DoughnutChartRendering.DoughnutChartRendering method)@\spxentry{to\_dict()}\spxextra{aisquared.config.rendering.DoughnutChartRendering.DoughnutChartRendering method}}
 
 \begin{fulllineitems}
@@ -3481,6 +3553,43 @@ Bases: {\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObjec
 
 \sphinxAtStartPar
 Rendering class for rendering a Line Chart
+
+\sphinxAtStartPar
+Example usage:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{my\PYGZus{}obj} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{rendering}\PYG{o}{.}\PYG{n}{LineChartRendering}\PYG{p}{(}
+\PYG{g+go}{    \PYGZsq{}my\PYGZus{}label\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}my\PYGZus{}id\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}my\PYGZus{}line\PYGZus{}chart\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}my\PYGZus{}container\PYGZus{}id\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}name\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}value\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}name\PYGZus{}value\PYGZsq{},}
+\PYG{g+go}{    True,}
+\PYG{g+go}{    \PYGZsq{}circle\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}labels\PYGZsq{}}
+\PYG{g+go}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{my\PYGZus{}obj}\PYG{o}{.}\PYG{n}{to\PYGZus{}dict}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+go}{\PYGZob{}\PYGZsq{}className\PYGZsq{}: \PYGZsq{}LineChartRendering\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}label\PYGZsq{}: \PYGZsq{}my\PYGZus{}label\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}params\PYGZsq{}: \PYGZob{}\PYGZsq{}id\PYGZsq{}: \PYGZsq{}my\PYGZus{}id\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}chartName\PYGZsq{}: \PYGZsq{}my\PYGZus{}line\PYGZus{}chart\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}containerId\PYGZsq{}: \PYGZsq{}my\PYGZus{}container\PYGZus{}id\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}displayLegend\PYGZsq{}: True,}
+\PYG{g+go}{\PYGZsq{}legendIcon\PYGZsq{}: \PYGZsq{}circle\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}width\PYGZsq{}: \PYGZsq{}auto\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}height\PYGZsq{}: \PYGZsq{}auto\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}xOffset\PYGZsq{}: \PYGZsq{}0\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}yOffset\PYGZsq{}: \PYGZsq{}0\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}datasource\PYGZsq{}: [\PYGZob{}\PYGZsq{}labels\PYGZsq{}: None,}
+\PYG{g+go}{    \PYGZsq{}labelsKey\PYGZsq{}: \PYGZsq{}labels\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}consolidateRows\PYGZsq{}: True,}
+\PYG{g+go}{    \PYGZsq{}predictionNameKey\PYGZsq{}: \PYGZsq{}name\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}predictionValueKey\PYGZsq{}: \PYGZsq{}value\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}predictionNameValue\PYGZsq{}: \PYGZsq{}name\PYGZus{}value\PYGZsq{}\PYGZcb{}]\PYGZcb{}\PYGZcb{}}
+\end{sphinxVerbatim}
 \index{to\_dict() (aisquared.config.rendering.LineChartRendering.LineChartRendering method)@\spxentry{to\_dict()}\spxextra{aisquared.config.rendering.LineChartRendering.LineChartRendering method}}
 
 \begin{fulllineitems}
@@ -3621,6 +3730,42 @@ Bases: {\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObjec
 
 \sphinxAtStartPar
 Rendering class for rendering a Pie Chart
+
+\sphinxAtStartPar
+Example usage:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{my\PYGZus{}obj} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{rendering}\PYG{o}{.}\PYG{n}{PieChartRendering}\PYG{p}{(}
+\PYG{g+go}{        \PYGZsq{}my\PYGZus{}label\PYGZsq{},}
+\PYG{g+go}{        \PYGZsq{}my\PYGZus{}id\PYGZsq{},}
+\PYG{g+go}{        \PYGZsq{}my\PYGZus{}doughnut\PYGZus{}chart\PYGZsq{},}
+\PYG{g+go}{        \PYGZsq{}my\PYGZus{}container\PYGZus{}id\PYGZsq{},}
+\PYG{g+go}{        \PYGZsq{}name\PYGZsq{},}
+\PYG{g+go}{        \PYGZsq{}value\PYGZsq{},}
+\PYG{g+go}{        \PYGZsq{}name\PYGZus{}value\PYGZsq{},}
+\PYG{g+go}{        True,}
+\PYG{g+go}{        \PYGZsq{}circle\PYGZsq{}}
+\PYG{g+go}{    )}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{my\PYGZus{}obj}\PYG{o}{.}\PYG{n}{to\PYGZus{}dict}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+go}{\PYGZob{}\PYGZsq{}className\PYGZsq{}: \PYGZsq{}PieChartRendering\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}label\PYGZsq{}: \PYGZsq{}my\PYGZus{}label\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}params\PYGZsq{}: \PYGZob{}\PYGZsq{}id\PYGZsq{}: \PYGZsq{}my\PYGZus{}id\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}chartName\PYGZsq{}: \PYGZsq{}my\PYGZus{}doughnut\PYGZus{}chart\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}containerId\PYGZsq{}: \PYGZsq{}my\PYGZus{}container\PYGZus{}id\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}displayLegend\PYGZsq{}: True,}
+\PYG{g+go}{\PYGZsq{}legendIcon\PYGZsq{}: \PYGZsq{}circle\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}width\PYGZsq{}: \PYGZsq{}auto\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}height\PYGZsq{}: \PYGZsq{}auto\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}xOffset\PYGZsq{}: \PYGZsq{}0\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}yOffset\PYGZsq{}: \PYGZsq{}0\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}datasource\PYGZsq{}: [\PYGZob{}\PYGZsq{}labels\PYGZsq{}: None,}
+\PYG{g+go}{    \PYGZsq{}labelsKey\PYGZsq{}: None,}
+\PYG{g+go}{    \PYGZsq{}consolidateRows\PYGZsq{}: True,}
+\PYG{g+go}{    \PYGZsq{}predictionNameKey\PYGZsq{}: \PYGZsq{}name\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}predictionValueKey\PYGZsq{}: \PYGZsq{}value\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}predictionNameValue\PYGZsq{}: \PYGZsq{}name\PYGZus{}value\PYGZsq{}\PYGZcb{}]\PYGZcb{}\PYGZcb{}}
+\end{sphinxVerbatim}
 \index{to\_dict() (aisquared.config.rendering.PieChartRendering.PieChartRendering method)@\spxentry{to\_dict()}\spxextra{aisquared.config.rendering.PieChartRendering.PieChartRendering method}}
 
 \begin{fulllineitems}
@@ -4413,6 +4558,13 @@ client will ask for any required information interactively.
 \pysigstopsignatures
 \sphinxAtStartPar
 Add users to a group
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{platform}\PYG{o}{.}\PYG{n}{AISquaredPlatformClient}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{add\PYGZus{}users\PYGZus{}to\PYGZus{}group}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{group\PYGZus{}id}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{user\PYGZus{}id\PYGZus{}1}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{user\PYGZus{}id\PYGZus{}2}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}
+\PYG{g+go}{True}
+\end{sphinxVerbatim}
 \begin{quote}\begin{description}
 \sphinxlineitem{Parameters}\begin{itemize}
 \item {} 
@@ -4462,6 +4614,16 @@ The base URL associated with the client
 \pysigstopsignatures
 \sphinxAtStartPar
 Create a group in the platform
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{platform}\PYG{o}{.}\PYG{n}{AISquaredPlatformClient}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{create\PYGZus{}group}\PYG{p}{(}
+\PYG{g+go}{    \PYGZsq{}group\PYGZus{}name\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}role\PYGZus{}id\PYGZsq{}}
+\PYG{g+go}{)}
+\PYG{g+go}{*dictionary containing group information*}
+\end{sphinxVerbatim}
 \begin{quote}\begin{description}
 \sphinxlineitem{Parameters}\begin{itemize}
 \item {} 
@@ -4499,6 +4661,19 @@ dict
 \pysigstopsignatures
 \sphinxAtStartPar
 Create a user within the platform
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{platform}\PYG{o}{.}\PYG{n}{AISquaredPlatformClient}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{create\PYGZus{}user}\PYG{p}{(}
+\PYG{g+go}{    \PYGZsq{}user name\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}first\PYGZus{}name\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}last\PYGZus{}name\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}user\PYGZus{}email\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}role\PYGZus{}id\PYGZsq{}}
+\PYG{g+go}{)}
+\PYG{g+go}{*Dictionary with user information*}
+\end{sphinxVerbatim}
 \begin{quote}\begin{description}
 \sphinxlineitem{Parameters}\begin{itemize}
 \item {} 
@@ -4564,6 +4739,13 @@ dict
 \pysigstopsignatures
 \sphinxAtStartPar
 Delete a group from the platform
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{platform}\PYG{o}{.}\PYG{n}{AISquaredPlatformClient}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{delete\PYGZus{}group}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{group\PYGZus{}id}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{g+go}{True}
+\end{sphinxVerbatim}
 \begin{quote}\begin{description}
 \sphinxlineitem{Parameters}\begin{itemize}
 \item {} 
@@ -4637,6 +4819,13 @@ bool
 \pysigstopsignatures
 \sphinxAtStartPar
 Delete a user from the system
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{platform}\PYG{o}{.}\PYG{n}{AISquaredPlatformClient}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{delete\PYGZus{}user}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{user\PYGZus{}id}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{g+go}{True}
+\end{sphinxVerbatim}
 \begin{quote}\begin{description}
 \sphinxlineitem{Parameters}\begin{itemize}
 \item {} 
@@ -4670,6 +4859,13 @@ bool
 \pysigstopsignatures
 \sphinxAtStartPar
 Retrieve information about a group
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{platform}\PYG{o}{.}\PYG{n}{AISquaredPlatformClient}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{get\PYGZus{}group}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{group\PYGZus{}id}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{g+go}{*dictionary containing group data*}
+\end{sphinxVerbatim}
 \begin{quote}\begin{description}
 \sphinxlineitem{Parameters}\begin{itemize}
 \item {} 
@@ -4703,6 +4899,13 @@ dict
 \pysigstopsignatures
 \sphinxAtStartPar
 Get the ID of a group by searching for its display name
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{platform}\PYG{o}{.}\PYG{n}{AISquaredPlatformClient}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{get\PYGZus{}group\PYGZus{}id\PYGZus{}by\PYGZus{}name}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Group Name}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{g+go}{*group\PYGZus{}id*}
+\end{sphinxVerbatim}
 \begin{quote}\begin{description}
 \sphinxlineitem{Parameters}
 \sphinxAtStartPar
@@ -4793,54 +4996,6 @@ str
 
 \end{fulllineitems}
 
-\index{get\_model\_usage\_metrics() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_model\_usage\_metrics()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_model_usage_metrics}}
-\pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_model\_usage\_metrics}}}{\emph{\DUrole{n}{model\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{period}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}hourly\textquotesingle{}}}, \emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}dict\DUrole{p}{,}\DUrole{w}{  }DataFrame\DUrole{p}{{]}}}}
-\pysigstopsignatures
-\sphinxAtStartPar
-Get usage metrics for a model
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{platform}\PYG{o}{.}\PYG{n}{AISquaredPlatformClient}\PYG{p}{(}\PYG{p}{)}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{get\PYGZus{}model\PYGZus{}usage\PYGZus{}metrics}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{model\PYGZus{}id}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
-\PYG{g+go}{*Results*}
-\end{sphinxVerbatim}
-\begin{quote}\begin{description}
-\sphinxlineitem{Parameters}\begin{itemize}
-\item {} 
-\sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{model\_id}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The ID of the model
-
-\item {} 
-\sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{period}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default \textquotesingle{}hourly\textquotesingle{}}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The period to group metrics into
-
-\item {} 
-\sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{as\_df}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default True}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to return results as a pandas DataFrame
-
-\item {} 
-\sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
-
-\end{itemize}
-
-\sphinxlineitem{Returns}
-\sphinxAtStartPar
-\sphinxstylestrong{results} \textendash{} The results from the platform
-
-\sphinxlineitem{Return type}
-\sphinxAtStartPar
-pandas DataFrame or dict
-
-\end{description}\end{quote}
-
-\end{fulllineitems}
-
 \index{get\_user() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}}
 
 \begin{fulllineitems}
@@ -4850,6 +5005,13 @@ pandas DataFrame or dict
 \pysigstopsignatures
 \sphinxAtStartPar
 Retrieve a user’s information from the platform
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{platform}\PYG{o}{.}\PYG{n}{AISquaredPlatformClient}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{get\PYGZus{}user}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{user\PYGZus{}id}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{g+go}{*dictionary with results*}
+\end{sphinxVerbatim}
 \begin{quote}\begin{description}
 \sphinxlineitem{Parameters}\begin{itemize}
 \item {} 
@@ -4902,47 +5064,6 @@ Get a user’s ID from their display name
 \sphinxlineitem{Return type}
 \sphinxAtStartPar
 str
-
-\end{description}\end{quote}
-
-\end{fulllineitems}
-
-\index{get\_user\_usage\_metrics() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_user\_usage\_metrics()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_user_usage_metrics}}
-\pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_user\_usage\_metrics}}}{\emph{\DUrole{n}{user\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{period}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}hourly\textquotesingle{}}}, \emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}dict\DUrole{p}{,}\DUrole{w}{  }DataFrame\DUrole{p}{{]}}}}
-\pysigstopsignatures
-\sphinxAtStartPar
-Get usage metrics for a user
-\begin{quote}\begin{description}
-\sphinxlineitem{Parameters}\begin{itemize}
-\item {} 
-\sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{user\_id}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The ID of the user
-
-\item {} 
-\sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{period}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default \textquotesingle{}hourly\textquotesingle{}}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The period to group metrics into
-
-\item {} 
-\sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{as\_df}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default True}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to return results as a pandas DataFrame
-
-\item {} 
-\sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
-
-\end{itemize}
-
-\sphinxlineitem{Returns}
-\sphinxAtStartPar
-\sphinxstylestrong{results} \textendash{} The results from the platform
-
-\sphinxlineitem{Return type}
-\sphinxAtStartPar
-pandas DataFrame or dict
 
 \end{description}\end{quote}
 
@@ -5049,15 +5170,26 @@ pandas DataFrame or dictionary
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_model_feedback}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_model\_feedback}}}{\emph{\DUrole{n}{model\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ dict}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_model\_feedback}}}{\emph{\DUrole{n}{model\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{limit}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{10}}, \emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}dict\DUrole{p}{,}\DUrole{w}{  }DataFrame\DUrole{p}{{]}}}}
 \pysigstopsignatures
 \sphinxAtStartPar
 List feedback on a model
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{platform}\PYG{o}{.}\PYG{n}{AISquaredPlatformClient}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{list\PYGZus{}model\PYGZus{}feedback}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{model\PYGZus{}id}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{g+go}{*DataFrame with Results*}
+\end{sphinxVerbatim}
 \begin{quote}\begin{description}
 \sphinxlineitem{Parameters}\begin{itemize}
 \item {} 
 \sphinxAtStartPar
 \sphinxstyleliteralstrong{\sphinxupquote{model\_id}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The ID of the model
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{limit}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 10}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The maximum number of feedback items to return
 
 \item {} 
 \sphinxAtStartPar
@@ -5071,7 +5203,7 @@ List feedback on a model
 
 \sphinxlineitem{Return type}
 \sphinxAtStartPar
-dict
+dict or pandas DataFrame
 
 \end{description}\end{quote}
 
@@ -5082,34 +5214,26 @@ dict
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_model_prediction_feedback}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_model\_prediction\_feedback}}}{\emph{\DUrole{n}{model\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}}{{ $\rightarrow$ dict}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_model\_prediction\_feedback}}}{\emph{\DUrole{n}{model\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}dict\DUrole{p}{,}\DUrole{w}{  }DataFrame\DUrole{p}{{]}}}}
 \pysigstopsignatures
 \sphinxAtStartPar
-Not yet implemented
-
-\end{fulllineitems}
-
-\index{list\_model\_predictions() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_model\_predictions()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_model_predictions}}
-\pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_model\_predictions}}}{\emph{\DUrole{n}{model\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}DataFrame\DUrole{p}{,}\DUrole{w}{  }dict\DUrole{p}{{]}}}}
-\pysigstopsignatures
-\sphinxAtStartPar
-Retrieve model predictions
+List all feedback for a model
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{platform}\PYG{o}{.}\PYG{n}{AISquaredPlatformClient}\PYG{p}{(}\PYG{p}{)}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{list\PYGZus{}model\PYGZus{}predictions}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{model\PYGZus{}id}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
-\PYG{g+go}{*DataFrame with results*}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{list\PYGZus{}model\PYGZus{}prediction\PYGZus{}feedback}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{model\PYGZus{}id}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{g+go}{*DataFrame with Results*}
 \end{sphinxVerbatim}
 \begin{quote}\begin{description}
 \sphinxlineitem{Parameters}\begin{itemize}
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{model\_id}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The model ID
+\sphinxstyleliteralstrong{\sphinxupquote{model\_id}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The ID of the model requested
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{as\_df}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default True}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to return the results as a pandas DataFrame
 
 \item {} 
 \sphinxAtStartPar
@@ -5119,7 +5243,55 @@ Retrieve model predictions
 
 \sphinxlineitem{Returns}
 \sphinxAtStartPar
-\sphinxstylestrong{results} \textendash{} The response from the API
+\sphinxstylestrong{results} \textendash{} The results from the platform
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+dict or pandas DataFrame
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{list\_model\_usage\_metrics() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_model\_usage\_metrics()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_model_usage_metrics}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_model\_usage\_metrics}}}{\emph{\DUrole{n}{model\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{period}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}hourly\textquotesingle{}}}, \emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}dict\DUrole{p}{,}\DUrole{w}{  }DataFrame\DUrole{p}{{]}}}}
+\pysigstopsignatures
+\sphinxAtStartPar
+Get usage metrics for a model
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{platform}\PYG{o}{.}\PYG{n}{AISquaredPlatformClient}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{get\PYGZus{}model\PYGZus{}usage\PYGZus{}metrics}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{model\PYGZus{}id}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{g+go}{*DataFrame with results*}
+\end{sphinxVerbatim}
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{model\_id}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The ID of the model
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{period}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default \textquotesingle{}hourly\textquotesingle{}}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The period to group metrics into
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{as\_df}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default True}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to return results as a pandas DataFrame
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+
+\end{itemize}
+
+\sphinxlineitem{Returns}
+\sphinxAtStartPar
+\sphinxstylestrong{results} \textendash{} The results from the platform
 
 \sphinxlineitem{Return type}
 \sphinxAtStartPar
@@ -5257,6 +5429,54 @@ pandas DataFrame or dict
 
 \end{fulllineitems}
 
+\index{list\_user\_usage\_metrics() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_user\_usage\_metrics()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_user_usage_metrics}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_user\_usage\_metrics}}}{\emph{\DUrole{n}{user\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{period}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}hourly\textquotesingle{}}}, \emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}dict\DUrole{p}{,}\DUrole{w}{  }DataFrame\DUrole{p}{{]}}}}
+\pysigstopsignatures
+\sphinxAtStartPar
+Get usage metrics for a user
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{platform}\PYG{o}{.}\PYG{n}{AISquaredPlatformClient}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{get\PYGZus{}user\PYGZus{}usage\PYGZus{}metrics}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{user\PYGZus{}id}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{g+go}{*DataFrame with results*}
+\end{sphinxVerbatim}
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{user\_id}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The ID of the user
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{period}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default \textquotesingle{}hourly\textquotesingle{}}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The period to group metrics into
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{as\_df}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default True}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to return results as a pandas DataFrame
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+
+\end{itemize}
+
+\sphinxlineitem{Returns}
+\sphinxAtStartPar
+\sphinxstylestrong{results} \textendash{} The results from the platform
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+pandas DataFrame or dict
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
 \index{list\_users() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_users()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}}
 
 \begin{fulllineitems}
@@ -5360,6 +5580,13 @@ The password associated with the client
 \pysigstopsignatures
 \sphinxAtStartPar
 Remove users from a group
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{platform}\PYG{o}{.}\PYG{n}{AISquaredPlatformClient}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{remove\PYGZus{}users\PYGZus{}from\PYGZus{}group}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{group\PYGZus{}id}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{user\PYGZus{}id\PYGZus{}1}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{user\PYGZus{}id\PYGZus{}2}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}
+\PYG{g+go}{True}
+\end{sphinxVerbatim}
 \begin{quote}\begin{description}
 \sphinxlineitem{Parameters}\begin{itemize}
 \item {} 
@@ -5397,6 +5624,13 @@ bool
 \pysigstopsignatures
 \sphinxAtStartPar
 Share a model with a group
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{platform}\PYG{o}{.}\PYG{n}{AISquaredPlatformClient}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{share\PYGZus{}model\PYGZus{}with\PYGZus{}group}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{model\PYGZus{}id}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{group\PYGZus{}id}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{g+go}{True}
+\end{sphinxVerbatim}
 \begin{quote}\begin{description}
 \sphinxlineitem{Parameters}\begin{itemize}
 \item {} 
@@ -5524,6 +5758,13 @@ The token associated with the client
 \pysigstopsignatures
 \sphinxAtStartPar
 Unshare a model with a group
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{client}\PYG{o}{.}\PYG{n}{AISquaredPlatformClient}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{unshare\PYGZus{}model\PYGZus{}with\PYGZus{}group}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{model\PYGZus{}id}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{group\PYGZus{}id}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{g+go}{True}
+\end{sphinxVerbatim}
 \begin{quote}\begin{description}
 \sphinxlineitem{Parameters}\begin{itemize}
 \item {} 
@@ -5605,6 +5846,17 @@ bool
 \pysigstopsignatures
 \sphinxAtStartPar
 Update information about a group
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{platform}\PYG{o}{.}\PYG{n}{AISquaredPlatformClient}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{update\PYGZus{}group}\PYG{p}{(}
+\PYG{g+go}{    \PYGZsq{}group\PYGZus{}id\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}group display name\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}role\PYGZus{}id\PYGZsq{}}
+\PYG{g+go}{)}
+\PYG{g+go}{True}
+\end{sphinxVerbatim}
 \begin{quote}\begin{description}
 \sphinxlineitem{Parameters}\begin{itemize}
 \item {} 
@@ -5646,6 +5898,20 @@ bool
 \pysigstopsignatures
 \sphinxAtStartPar
 Update information about a user
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{platform}\PYG{o}{.}\PYG{n}{AISquaredPlatformClient}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{update\PYGZus{}user}\PYG{p}{(}
+\PYG{g+go}{    \PYGZsq{}user\PYGZus{}id\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}user name\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}first\PYGZus{}name\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}last\PYGZus{}name\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}user\PYGZus{}email\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}role\PYGZus{}id\PYGZsq{}}
+\PYG{g+go}{)}
+\PYG{g+go}{True}
+\end{sphinxVerbatim}
 \begin{quote}\begin{description}
 \sphinxlineitem{Parameters}\begin{itemize}
 \item {} 

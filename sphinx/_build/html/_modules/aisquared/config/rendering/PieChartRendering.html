@@ -73,6 +73,39 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Rendering class for rendering a Pie Chart</span>
 
+<span class="sd">    Example usage:</span>
+
+<span class="sd">    &gt;&gt;&gt; import aisquared</span>
+<span class="sd">    &gt;&gt;&gt; my_obj = aisquared.config.rendering.PieChartRendering(</span>
+<span class="sd">            &#39;my_label&#39;,</span>
+<span class="sd">            &#39;my_id&#39;,</span>
+<span class="sd">            &#39;my_doughnut_chart&#39;,</span>
+<span class="sd">            &#39;my_container_id&#39;,</span>
+<span class="sd">            &#39;name&#39;,</span>
+<span class="sd">            &#39;value&#39;,</span>
+<span class="sd">            &#39;name_value&#39;,</span>
+<span class="sd">            True,</span>
+<span class="sd">            &#39;circle&#39;</span>
+<span class="sd">        )</span>
+<span class="sd">    &gt;&gt;&gt; my_obj.to_dict()</span>
+<span class="sd">    {&#39;className&#39;: &#39;PieChartRendering&#39;,</span>
+<span class="sd">    &#39;label&#39;: &#39;my_label&#39;,</span>
+<span class="sd">    &#39;params&#39;: {&#39;id&#39;: &#39;my_id&#39;,</span>
+<span class="sd">    &#39;chartName&#39;: &#39;my_doughnut_chart&#39;,</span>
+<span class="sd">    &#39;containerId&#39;: &#39;my_container_id&#39;,</span>
+<span class="sd">    &#39;displayLegend&#39;: True,</span>
+<span class="sd">    &#39;legendIcon&#39;: &#39;circle&#39;,</span>
+<span class="sd">    &#39;width&#39;: &#39;auto&#39;,</span>
+<span class="sd">    &#39;height&#39;: &#39;auto&#39;,</span>
+<span class="sd">    &#39;xOffset&#39;: &#39;0&#39;,</span>
+<span class="sd">    &#39;yOffset&#39;: &#39;0&#39;,</span>
+<span class="sd">    &#39;datasource&#39;: [{&#39;labels&#39;: None,</span>
+<span class="sd">        &#39;labelsKey&#39;: None,</span>
+<span class="sd">        &#39;consolidateRows&#39;: True,</span>
+<span class="sd">        &#39;predictionNameKey&#39;: &#39;name&#39;,</span>
+<span class="sd">        &#39;predictionValueKey&#39;: &#39;value&#39;,</span>
+<span class="sd">        &#39;predictionNameValue&#39;: &#39;name_value&#39;}]}}</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
