@@ -568,10 +568,10 @@ class AISquaredPlatformClient:
             )
         if not resp.ok:
             raise AISquaredAPIException(resp.json())
-    
+
         if as_df:
             data = resp.json()['data']
-            return pd.concat([pd.json_normalize(v) for v in data.values()]).reset_index(drop = True)
+            return pd.concat([pd.json_normalize(v) for v in data.values()]).reset_index(drop=True)
 
         return resp.json()
 

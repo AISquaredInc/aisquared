@@ -2,7 +2,6 @@ from typing import Union
 from aisquared.base import BaseObject, ALLOWED_HOWS
 
 
-
 class TextHarvester(BaseObject):
     """
     Object to harvest text
