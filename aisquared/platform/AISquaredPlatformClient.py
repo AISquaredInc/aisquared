@@ -1155,6 +1155,15 @@ class AISquaredPlatformClient:
             return pd.DataFrame({'id': ids, 'displayName': names})
         return resp.json()
 
+    # TODO: Needs to be tested and finalized
+    def list_roles(self, port: int = 8086) -> Union[pd.DataFrame, dict]:
+        with requests.Session() as sess:
+            resp = sess.get(
+                f'{self.base_url}:{port}/groupservice/v1/role',
+                headers=self.headers
+            )
+        return resp
+
     # Metrics
 
     def list_user_usage_metrics(self, user_id: str, period: str = 'hourly', as_df: bool = True, port: int = 8080) -> Union[dict, pd.DataFrame]:
