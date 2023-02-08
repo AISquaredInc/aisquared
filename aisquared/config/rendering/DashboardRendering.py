@@ -22,6 +22,7 @@ class DashboardRendering(BaseObject):
     """
     THIS CLASS IS IN DEVELOPMENT AND IS NOT STABLE. PLEASE USE WITH CAUTION AND DO NOT USE FOR ANY PRODUCTION WORKLOADS
     """
+
     def __init__(self):
         super().__init__()
         self._steps = []
