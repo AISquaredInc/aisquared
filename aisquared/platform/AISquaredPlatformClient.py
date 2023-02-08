@@ -1157,6 +1157,26 @@ class AISquaredPlatformClient:
 
     # TODO: Needs to be tested and finalized
     def list_roles(self, port: int = 8086) -> Union[pd.DataFrame, dict]:
+        """
+        List the roles available in the platform
+
+        Example usage:
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.list_roles()
+        *DataFrame with results*
+
+        Parameters
+        ----------
+        port : int (default 8086)
+            The API port to use
+        
+        Returns
+        -------
+        roles : pandas DataFrame or dict
+            The roles
+        """
         with requests.Session() as sess:
             resp = sess.get(
                 f'{self.base_url}:{port}/groupservice/v1/role',
@@ -1243,7 +1263,7 @@ class AISquaredPlatformClient:
 
     # Additional utilities
 
-    def get_user_id_by_name(self, name: str) -> str:
+    def get_user_id_by_name(self, name: str, port: int = 8080) -> str:
         """
         Get a user's ID from their display name
 
@@ -1256,6 +1276,8 @@ class AISquaredPlatformClient:
         ----------
         name : str
             The display name of the user
+        port : int (default 8080)
+            The API port to use
 
         Returns
         -------
@@ -1264,7 +1286,7 @@ class AISquaredPlatformClient:
 
         """
 
-        users = self.list_users()
+        users = self.list_users(port = port)
         this_user = users[users.displayName == name]
 
         if this_user.shape[0] == 0:
@@ -1272,7 +1294,7 @@ class AISquaredPlatformClient:
 
         return this_user.id.iloc[0]
 
-    def get_model_id_by_name(self, model_name: str) -> str:
+    def get_model_id_by_name(self, model_name: str, port: int = 8080) -> str:
         """
         Retrieve a model's ID using the name of the model
 
@@ -1285,6 +1307,8 @@ class AISquaredPlatformClient:
         ----------
         model_name : str
             The name of the model
+        port : int (default 8080)
+            The API port to use
 
         Returns
         -------
@@ -1293,7 +1317,7 @@ class AISquaredPlatformClient:
 
         """
 
-        models = self.list_models()
+        models = self.list_models(port = port)
         this_model = models[models.name == model_name]
 
         if this_model.shape[0] == 0:
@@ -1301,7 +1325,7 @@ class AISquaredPlatformClient:
 
         return this_model.id.iloc[0]
 
-    def get_group_id_by_name(self, group_name: str) -> str:
+    def get_group_id_by_name(self, group_name: str, port: int = 8083) -> str:
         """
         Get the ID of a group by searching for its display name
 
@@ -1314,19 +1338,50 @@ class AISquaredPlatformClient:
         ----------
         group_name : str
             The display name of the group
+        port : int (default 8083)
+            The API port to use
 
         Returns
         -------
         group_id : str
             The ID of the group
         """
-        groups = self.list_groups()
+        groups = self.list_groups(port = port)
         this_group = groups[groups.name == group_name]
 
         if this_group.shape[0] == 0:
             raise ValueError('No group with that name appears to exist')
 
         return this_group.id.iloc[0]
+    
+    def get_role_id_by_name(self, role_name: str, port: int = 8086) -> str:
+        """
+        Get the ID of a role by searching for its display name
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.get_role_id_by_name('Role Name')
+        *role_id*
+
+        Parameters
+        ----------
+        role_name : str
+            The name of the role
+        port : int (default 8086)
+            The API port to use
+
+        Returns
+        -------
+        role_id : str
+            The ID of the role
+        """
+        roles = self.list_roles(port = port)
+        this_role = roles[roles.name == role_name]
+    
+        if this_role.shape[0] == 0:
+            raise ValueError('No role with that name appears to exist')
+        
+        return this_role.id.iloc[0]
 
     def test_connection(self, port: int = 8080) -> int:
         """
