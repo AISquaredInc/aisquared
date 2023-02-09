@@ -15,7 +15,7 @@ Welcome to the documentation for the `aisquared` python package!
 
 This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.
 
-**Current Production Version:** ``0.3.1``
+**Current Production Version:** ``0.3.2``
 
 :download:`View this Documentation in PDF Format <./_build/latex/aisquared.pdf>`.
 
