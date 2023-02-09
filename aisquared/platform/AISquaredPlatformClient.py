@@ -580,8 +580,8 @@ class AISquaredPlatformClient:
     def create_user(
             self,
             user_name: str,
-            first_name: str,
-            last_name: str,
+            given_name: str,
+            family_name: str,
             email: str,
             role_id: str,
             active: bool = True,
@@ -597,8 +597,8 @@ class AISquaredPlatformClient:
         >>> client = aisquared.platform.AISquaredPlatformClient()
         >>> client.create_user(
             'user name',
-            'first_name',
-            'last_name',
+            'given_name',
+            'family_name',
             'user_email',
             'role_id'
         )
@@ -608,9 +608,9 @@ class AISquaredPlatformClient:
         ----------
         user_name : str
             The display name of the user
-        first_name : str
+        given_name : str
             The user's first name
-        last_name : str
+        family_name : str
             The user's last name
         email : str
             The user's email
@@ -635,8 +635,8 @@ class AISquaredPlatformClient:
         json_data = {
             'active': active,
             'userName': user_name,
-            'firstName': first_name,
-            'lastName': last_name,
+            'givenName': given_name,
+            'familyName': family_name,
             'email': email,
             'roleId': role_id
         }
@@ -664,8 +664,8 @@ class AISquaredPlatformClient:
             self,
             user_id: str,
             user_name: str,
-            first_name: str,
-            last_name: str,
+            given_name: str,
+            family_name: str,
             email: str,
             role_id: str,
             active: bool = True,
@@ -682,8 +682,8 @@ class AISquaredPlatformClient:
         >>> client.update_user(
             'user_id',
             'user name',
-            'first_name',
-            'last_name',
+            'given_name',
+            'family_name',
             'user_email',
             'role_id'
         )
@@ -695,9 +695,9 @@ class AISquaredPlatformClient:
             The ID of the user to update
         user_name : str
             The display name of the user
-        first_name : str
+        given_name : str
             The first name of the user
-        last_name : str
+        family_name : str
             The last name of the user
         email : str
             The user's email
@@ -722,8 +722,8 @@ class AISquaredPlatformClient:
         json_data = {
             'active': active,
             'userName': user_name,
-            'firstName': first_name,
-            'lastName': last_name,
+            'givenName': given_name,
+            'familyName': family_name,
             'email': email,
             'roleId': role_id
         }
