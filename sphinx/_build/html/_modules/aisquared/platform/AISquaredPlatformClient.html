@@ -1223,6 +1223,35 @@
             <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">ids</span><span class="p">,</span> <span class="s1">&#39;displayName&#39;</span><span class="p">:</span> <span class="n">names</span><span class="p">})</span>
         <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span></div>
 
+    <span class="c1"># TODO: Needs to be tested and finalized</span>
+<div class="viewcode-block" id="AISquaredPlatformClient.list_roles"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_roles">[docs]</a>    <span class="k">def</span> <span class="nf">list_roles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8086</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        List the roles available in the platform</span>
+
+<span class="sd">        Example usage:</span>
+
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.list_roles()</span>
+<span class="sd">        *DataFrame with results*</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        port : int (default 8086)</span>
+<span class="sd">            The API port to use</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        roles : pandas DataFrame or dict</span>
+<span class="sd">            The roles</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/groupservice/v1/role&#39;</span><span class="p">,</span>
+                <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">resp</span></div>
+
     <span class="c1"># Metrics</span>
 
 <div class="viewcode-block" id="AISquaredPlatformClient.list_user_usage_metrics"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_user_usage_metrics">[docs]</a>    <span class="k">def</span> <span class="nf">list_user_usage_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">period</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;hourly&#39;</span><span class="p">,</span> <span class="n">as_df</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
@@ -1302,7 +1331,7 @@
 
     <span class="c1"># Additional utilities</span>
 
-<div class="viewcode-block" id="AISquaredPlatformClient.get_user_id_by_name"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_user_id_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_user_id_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="AISquaredPlatformClient.get_user_id_by_name"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_user_id_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_user_id_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a user&#39;s ID from their display name</span>
 
@@ -1315,6 +1344,8 @@
 <span class="sd">        ----------</span>
 <span class="sd">        name : str</span>
 <span class="sd">            The display name of the user</span>
+<span class="sd">        port : int (default 8080)</span>
+<span class="sd">            The API port to use</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -1323,7 +1354,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">users</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_users</span><span class="p">()</span>
+        <span class="n">users</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_users</span><span class="p">(</span><span class="n">port</span> <span class="o">=</span> <span class="n">port</span><span class="p">)</span>
         <span class="n">this_user</span> <span class="o">=</span> <span class="n">users</span><span class="p">[</span><span class="n">users</span><span class="o">.</span><span class="n">displayName</span> <span class="o">==</span> <span class="n">name</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">this_user</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -1331,7 +1362,7 @@
 
         <span class="k">return</span> <span class="n">this_user</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="AISquaredPlatformClient.get_model_id_by_name"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_model_id_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_model_id_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="AISquaredPlatformClient.get_model_id_by_name"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_model_id_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_model_id_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Retrieve a model&#39;s ID using the name of the model</span>
 
@@ -1344,6 +1375,8 @@
 <span class="sd">        ----------</span>
 <span class="sd">        model_name : str</span>
 <span class="sd">            The name of the model</span>
+<span class="sd">        port : int (default 8080)</span>
+<span class="sd">            The API port to use</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -1352,7 +1385,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">models</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_models</span><span class="p">()</span>
+        <span class="n">models</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_models</span><span class="p">(</span><span class="n">port</span> <span class="o">=</span> <span class="n">port</span><span class="p">)</span>
         <span class="n">this_model</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span><span class="n">models</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">model_name</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">this_model</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -1360,7 +1393,7 @@
 
         <span class="k">return</span> <span class="n">this_model</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="AISquaredPlatformClient.get_group_id_by_name"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_group_id_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_group_id_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="AISquaredPlatformClient.get_group_id_by_name"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_group_id_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_group_id_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8083</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the ID of a group by searching for its display name</span>
 
@@ -1373,19 +1406,50 @@
 <span class="sd">        ----------</span>
 <span class="sd">        group_name : str</span>
 <span class="sd">            The display name of the group</span>
+<span class="sd">        port : int (default 8083)</span>
+<span class="sd">            The API port to use</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        group_id : str</span>
 <span class="sd">            The ID of the group</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_groups</span><span class="p">()</span>
+        <span class="n">groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_groups</span><span class="p">(</span><span class="n">port</span> <span class="o">=</span> <span class="n">port</span><span class="p">)</span>
         <span class="n">this_group</span> <span class="o">=</span> <span class="n">groups</span><span class="p">[</span><span class="n">groups</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">group_name</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">this_group</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;No group with that name appears to exist&#39;</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">this_group</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+    
+<div class="viewcode-block" id="AISquaredPlatformClient.get_role_id_by_name"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_role_id_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_role_id_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">role_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8086</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the ID of a role by searching for its display name</span>
+
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.get_role_id_by_name(&#39;Role Name&#39;)</span>
+<span class="sd">        *role_id*</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        role_name : str</span>
+<span class="sd">            The name of the role</span>
+<span class="sd">        port : int (default 8086)</span>
+<span class="sd">            The API port to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        role_id : str</span>
+<span class="sd">            The ID of the role</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">roles</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_roles</span><span class="p">(</span><span class="n">port</span> <span class="o">=</span> <span class="n">port</span><span class="p">)</span>
+        <span class="n">this_role</span> <span class="o">=</span> <span class="n">roles</span><span class="p">[</span><span class="n">roles</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">role_name</span><span class="p">]</span>
+    
+        <span class="k">if</span> <span class="n">this_role</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;No role with that name appears to exist&#39;</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">this_role</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="AISquaredPlatformClient.test_connection"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.test_connection">[docs]</a>    <span class="k">def</span> <span class="nf">test_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>

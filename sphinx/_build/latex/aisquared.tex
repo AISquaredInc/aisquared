@@ -62,7 +62,7 @@
 
 
 \title{aisquared}
-\date{Feb 07, 2023}
+\date{Feb 09, 2023}
 \release{}
 \author{The AI Squared Team}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -4895,7 +4895,7 @@ dict
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_group_id_by_name}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_group\_id\_by\_name}}}{\emph{\DUrole{n}{group\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}}{{ $\rightarrow$ str}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_group\_id\_by\_name}}}{\emph{\DUrole{n}{group\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8083}}}{{ $\rightarrow$ str}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Get the ID of a group by searching for its display name
@@ -4907,9 +4907,16 @@ Get the ID of a group by searching for its display name
 \PYG{g+go}{*group\PYGZus{}id*}
 \end{sphinxVerbatim}
 \begin{quote}\begin{description}
-\sphinxlineitem{Parameters}
+\sphinxlineitem{Parameters}\begin{itemize}
+\item {} 
 \sphinxAtStartPar
 \sphinxstyleliteralstrong{\sphinxupquote{group\_name}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The display name of the group
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8083}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+
+\end{itemize}
 
 \sphinxlineitem{Returns}
 \sphinxAtStartPar
@@ -4968,7 +4975,7 @@ dictionary
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_model_id_by_name}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_model\_id\_by\_name}}}{\emph{\DUrole{n}{model\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}}{{ $\rightarrow$ str}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_model\_id\_by\_name}}}{\emph{\DUrole{n}{model\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ str}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Retrieve a model’s ID using the name of the model
@@ -4980,13 +4987,60 @@ Retrieve a model’s ID using the name of the model
 \PYG{g+go}{*model\PYGZus{}id*}
 \end{sphinxVerbatim}
 \begin{quote}\begin{description}
-\sphinxlineitem{Parameters}
+\sphinxlineitem{Parameters}\begin{itemize}
+\item {} 
 \sphinxAtStartPar
 \sphinxstyleliteralstrong{\sphinxupquote{model\_name}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The name of the model
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+
+\end{itemize}
 
 \sphinxlineitem{Returns}
 \sphinxAtStartPar
 \sphinxstylestrong{model\_id} \textendash{} The model’s ID
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+str
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{get\_role\_id\_by\_name() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_role\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_role_id_by_name}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_role\_id\_by\_name}}}{\emph{\DUrole{n}{role\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8086}}}{{ $\rightarrow$ str}}
+\pysigstopsignatures
+\sphinxAtStartPar
+Get the ID of a role by searching for its display name
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{platform}\PYG{o}{.}\PYG{n}{AISquaredPlatformClient}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{get\PYGZus{}role\PYGZus{}id\PYGZus{}by\PYGZus{}name}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Role Name}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{g+go}{*role\PYGZus{}id*}
+\end{sphinxVerbatim}
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{role\_name}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The name of the role
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8086}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+
+\end{itemize}
+
+\sphinxlineitem{Returns}
+\sphinxAtStartPar
+\sphinxstylestrong{role\_id} \textendash{} The ID of the role
 
 \sphinxlineitem{Return type}
 \sphinxAtStartPar
@@ -5041,7 +5095,7 @@ dict
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_user_id_by_name}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_user\_id\_by\_name}}}{\emph{\DUrole{n}{name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}}{{ $\rightarrow$ str}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_user\_id\_by\_name}}}{\emph{\DUrole{n}{name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ str}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Get a user’s ID from their display name
@@ -5053,9 +5107,16 @@ Get a user’s ID from their display name
 \PYG{g+go}{*user\PYGZus{}id*}
 \end{sphinxVerbatim}
 \begin{quote}\begin{description}
-\sphinxlineitem{Parameters}
+\sphinxlineitem{Parameters}\begin{itemize}
+\item {} 
 \sphinxAtStartPar
 \sphinxstyleliteralstrong{\sphinxupquote{name}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The display name of the user
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+
+\end{itemize}
 
 \sphinxlineitem{Returns}
 \sphinxAtStartPar
@@ -5420,6 +5481,42 @@ List prediction feedback given a prediction ID
 \sphinxlineitem{Returns}
 \sphinxAtStartPar
 \sphinxstylestrong{results} \textendash{} The results from the platform
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+pandas DataFrame or dict
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{list\_roles() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_roles()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_roles}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_roles}}}{\emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8086}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}DataFrame\DUrole{p}{,}\DUrole{w}{  }dict\DUrole{p}{{]}}}}
+\pysigstopsignatures
+\sphinxAtStartPar
+List the roles available in the platform
+
+\sphinxAtStartPar
+Example usage:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{platform}\PYG{o}{.}\PYG{n}{AISquaredPlatformClient}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{list\PYGZus{}roles}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+go}{*DataFrame with results*}
+\end{sphinxVerbatim}
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8086}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+
+\sphinxlineitem{Returns}
+\sphinxAtStartPar
+\sphinxstylestrong{roles} \textendash{} The roles
 
 \sphinxlineitem{Return type}
 \sphinxAtStartPar
@@ -6641,6 +6738,10 @@ Streamlined the \sphinxtitleref{ModelConfiguration} class to allow a more functi
 \item {} 
 \sphinxAtStartPar
 Updated \sphinxtitleref{ContainerRendering} class with parameters for \sphinxtitleref{position} and \sphinxtitleref{static\_position}
+
+\item {} 
+\sphinxAtStartPar
+Updated across\sphinxhyphen{}the\sphinxhyphen{}board functionality of the \sphinxtitleref{AISquaredPlatformClient}
 
 \end{itemize}
 

@@ -1171,7 +1171,7 @@ class AISquaredPlatformClient:
         ----------
         port : int (default 8086)
             The API port to use
-        
+
         Returns
         -------
         roles : pandas DataFrame or dict
@@ -1286,7 +1286,7 @@ class AISquaredPlatformClient:
 
         """
 
-        users = self.list_users(port = port)
+        users = self.list_users(port=port)
         this_user = users[users.displayName == name]
 
         if this_user.shape[0] == 0:
@@ -1317,7 +1317,7 @@ class AISquaredPlatformClient:
 
         """
 
-        models = self.list_models(port = port)
+        models = self.list_models(port=port)
         this_model = models[models.name == model_name]
 
         if this_model.shape[0] == 0:
@@ -1346,14 +1346,14 @@ class AISquaredPlatformClient:
         group_id : str
             The ID of the group
         """
-        groups = self.list_groups(port = port)
+        groups = self.list_groups(port=port)
         this_group = groups[groups.name == group_name]
 
         if this_group.shape[0] == 0:
             raise ValueError('No group with that name appears to exist')
 
         return this_group.id.iloc[0]
-    
+
     def get_role_id_by_name(self, role_name: str, port: int = 8086) -> str:
         """
         Get the ID of a role by searching for its display name
@@ -1375,12 +1375,12 @@ class AISquaredPlatformClient:
         role_id : str
             The ID of the role
         """
-        roles = self.list_roles(port = port)
+        roles = self.list_roles(port=port)
         this_role = roles[roles.name == role_name]
-    
+
         if this_role.shape[0] == 0:
             raise ValueError('No role with that name appears to exist')
-        
+
         return this_role.id.iloc[0]
 
     def test_connection(self, port: int = 8080) -> int:

@@ -277,6 +277,7 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Added the `QueryParameterHarvester` harvester class
 - Added the `limit` parameter to the TextHarvester class
 
+
 ## Version 0.3.0
 - Added type hinting to documentation strings
 - Revamped documentation to use Sphinx
@@ -295,3 +296,4 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Altered schemas for different "Chart" Rendering classes to conform to JavaScript standards
 - Streamlined the `ModelConfiguration` class to allow a more functional interface to build `.air` files
 - Updated `ContainerRendering` class with parameters for `position` and `static_position`
+- Updated across-the-board functionality of the `AISquaredPlatformClient`

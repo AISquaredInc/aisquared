@@ -142,11 +142,11 @@
   \item \spxentry{aisquared.platform.AISquaredPlatformClient}
     \subitem \spxentry{module}, \hyperpage{41}
   \item \spxentry{aisquared.serving}
-    \subitem \spxentry{module}, \hyperpage{54}
+    \subitem \spxentry{module}, \hyperpage{55}
   \item \spxentry{aisquared.serving.deploy\_model}
     \subitem \spxentry{module}, \hyperpage{55}
   \item \spxentry{aisquared.serving.get\_remote\_prediction}
-    \subitem \spxentry{module}, \hyperpage{55}
+    \subitem \spxentry{module}, \hyperpage{56}
   \item \spxentry{aisquared.utils}
     \subitem \spxentry{module}, \hyperpage{56}
   \item \spxentry{aisquared.utils.utils}
@@ -311,11 +311,13 @@
   \item \spxentry{get\_model\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{45}
   \item \spxentry{get\_remote\_prediction()}\spxextra{in module aisquared.serving.get\_remote\_prediction}, 
-		\hyperpage{55}
+		\hyperpage{56}
+  \item \spxentry{get\_role\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
+		\hyperpage{45}
   \item \spxentry{get\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{45}
   \item \spxentry{get\_user\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
-		\hyperpage{45}
+		\hyperpage{46}
   \item \spxentry{GraphConfiguration}\spxextra{class in aisquared.config.GraphConfiguration}, 
 		\hyperpage{38}
 
@@ -405,29 +407,31 @@
   \item \spxentry{list\_groups()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{46}
   \item \spxentry{list\_model\_feedback()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
-		\hyperpage{46}
+		\hyperpage{47}
   \item \spxentry{list\_model\_prediction\_feedback()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{47}
   \item \spxentry{list\_model\_usage\_metrics()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
-		\hyperpage{47}
+		\hyperpage{48}
   \item \spxentry{list\_model\_users()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{48}
   \item \spxentry{list\_models()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{48}
   \item \spxentry{list\_prediction\_feedback()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
-		\hyperpage{48}
+		\hyperpage{49}
+  \item \spxentry{list\_roles()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
+		\hyperpage{49}
   \item \spxentry{list\_user\_usage\_metrics()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
-		\hyperpage{49}
+		\hyperpage{50}
   \item \spxentry{list\_users()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
-		\hyperpage{49}
+		\hyperpage{50}
   \item \spxentry{load\_mann\_model()}\spxextra{in module aisquared.serving.deploy\_model}, 
-		\hyperpage{55}
+		\hyperpage{56}
   \item \spxentry{LocalAnalytic}\spxextra{class in aisquared.config.analytic.LocalAnalytic}, 
 		\hyperpage{6}
   \item \spxentry{LocalModel}\spxextra{class in aisquared.config.analytic.LocalModel}, 
 		\hyperpage{7}
   \item \spxentry{login()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
-		\hyperpage{49}
+		\hyperpage{50}
   \item \spxentry{lowercase}\spxextra{aisquared.config.preprocessing.text.Steps.ConvertToCase property}, 
 		\hyperpage{21}
 
@@ -445,7 +449,7 @@
 		\hyperpage{20}
   \item \spxentry{method}\spxextra{aisquared.config.preprocessing.image.Steps.Resize property}, 
 		\hyperpage{18}
-  \item \spxentry{mimic\_model()}\spxextra{in module aisquared.utils.utils}, \hyperpage{56}
+  \item \spxentry{mimic\_model()}\spxextra{in module aisquared.utils.utils}, \hyperpage{57}
   \item \spxentry{min}\spxextra{aisquared.config.postprocessing.Regression.Regression property}, 
 		\hyperpage{15}
   \item \spxentry{MinMax}\spxextra{class in aisquared.config.preprocessing.tabular.Steps}, 
@@ -529,9 +533,9 @@
     \subitem \spxentry{aisquared.logging}, \hyperpage{40}
     \subitem \spxentry{aisquared.platform}, \hyperpage{41}
     \subitem \spxentry{aisquared.platform.AISquaredPlatformClient}, \hyperpage{41}
-    \subitem \spxentry{aisquared.serving}, \hyperpage{54}
+    \subitem \spxentry{aisquared.serving}, \hyperpage{55}
     \subitem \spxentry{aisquared.serving.deploy\_model}, \hyperpage{55}
-    \subitem \spxentry{aisquared.serving.get\_remote\_prediction}, \hyperpage{55}
+    \subitem \spxentry{aisquared.serving.get\_remote\_prediction}, \hyperpage{56}
     \subitem \spxentry{aisquared.utils}, \hyperpage{56}
     \subitem \spxentry{aisquared.utils.utils}, \hyperpage{56}
   \item \spxentry{MulticlassClassification}\spxextra{class in aisquared.config.postprocessing.MulticlassClassification}, 
@@ -574,7 +578,7 @@
   \item \spxentry{PadSequences}\spxextra{class in aisquared.config.preprocessing.text.Steps}, 
 		\hyperpage{22}
   \item \spxentry{password}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}, 
-		\hyperpage{50}
+		\hyperpage{51}
   \item \spxentry{path}\spxextra{aisquared.config.analytic.LocalAnalytic.LocalAnalytic property}, 
 		\hyperpage{7}
   \item \spxentry{path}\spxextra{aisquared.config.analytic.LocalModel.LocalModel property}, 
@@ -630,7 +634,7 @@
   \item \spxentry{remove\_punctuation}\spxextra{aisquared.config.preprocessing.text.Steps.RemoveCharacters property}, 
 		\hyperpage{23}
   \item \spxentry{remove\_users\_from\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
-		\hyperpage{50}
+		\hyperpage{51}
   \item \spxentry{RemoveCharacters}\spxextra{class in aisquared.config.preprocessing.text.Steps}, 
 		\hyperpage{23}
   \item \spxentry{render\_dict}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}, 
@@ -655,7 +659,7 @@
   \item \spxentry{secret}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}, 
 		\hyperpage{8}
   \item \spxentry{share\_model\_with\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
-		\hyperpage{50}
+		\hyperpage{51}
   \item \spxentry{share\_model\_with\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{51}
   \item \spxentry{SimpleFeedback}\spxextra{class in aisquared.config.feedback.SimpleFeedback}, 
@@ -694,7 +698,7 @@
   \item \spxentry{TabularPreprocessor}\spxextra{class in aisquared.config.preprocessing.tabular.TabularPreprocessing}, 
 		\hyperpage{21}
   \item \spxentry{test\_connection()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
-		\hyperpage{51}
+		\hyperpage{52}
   \item \spxentry{TextHarvester}\spxextra{class in aisquared.config.harvesting.TextHarvester}, 
 		\hyperpage{13}
   \item \spxentry{TextPreprocessor}\spxextra{class in aisquared.config.preprocessing.text.TextPreprocessing}, 
@@ -832,7 +836,7 @@
 		\hyperpage{37}
   \item \spxentry{to\_json()}\spxextra{aisquared.base.BaseObject.BaseObject method}, \hyperpage{4}
   \item \spxentry{token}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}, 
-		\hyperpage{51}
+		\hyperpage{52}
   \item \spxentry{token\_pattern}\spxextra{aisquared.config.preprocessing.text.Steps.Tokenize property}, 
 		\hyperpage{23}
   \item \spxentry{Tokenize}\spxextra{class in aisquared.config.preprocessing.text.Steps}, 
@@ -847,15 +851,15 @@
   \item \spxentry{underline\_color}\spxextra{aisquared.config.rendering.DocumentRendering.DocumentRendering property}, 
 		\hyperpage{28}
   \item \spxentry{unshare\_model\_with\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
-		\hyperpage{51}
+		\hyperpage{52}
   \item \spxentry{unshare\_model\_with\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
-		\hyperpage{52}
+		\hyperpage{53}
   \item \spxentry{update\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
-		\hyperpage{52}
+		\hyperpage{53}
   \item \spxentry{update\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{53}
   \item \spxentry{upload\_model()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
-		\hyperpage{53}
+		\hyperpage{54}
   \item \spxentry{url}\spxextra{aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic property}, 
 		\hyperpage{5}
   \item \spxentry{url}\spxextra{aisquared.config.analytic.DeployedModel.DeployedModel property}, 
@@ -867,7 +871,7 @@
   \item \spxentry{url\_locations}\spxextra{aisquared.config.harvesting.QueryParameterHarvester.QueryParameterHarvester property}, 
 		\hyperpage{13}
   \item \spxentry{username}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}, 
-		\hyperpage{54}
+		\hyperpage{55}
 
   \indexspace
   \bigletter V
