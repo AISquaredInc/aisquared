@@ -1155,7 +1155,6 @@ class AISquaredPlatformClient:
             return pd.DataFrame({'id': ids, 'displayName': names})
         return resp.json()
 
-    # TODO: Needs to be tested and finalized
     def list_roles(self, as_df: bool = True, port: int = 8086) -> Union[pd.DataFrame, dict]:
         """
         List the roles available in the platform
