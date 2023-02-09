@@ -67,12 +67,7 @@
              
   <h1>Source code for aisquared.config.preprocessing.text.Steps</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
-<span class="kn">from</span> <span class="nn">aisquared.base</span> <span class="kn">import</span> <span class="n">BaseObject</span>
-
-<span class="n">_ALLOWED_PADS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;pre&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;post&#39;</span>
-<span class="p">]</span>
+<span class="kn">from</span> <span class="nn">aisquared.base</span> <span class="kn">import</span> <span class="n">BaseObject</span><span class="p">,</span> <span class="n">ALLOWED_PADS</span>
 
 
 <div class="viewcode-block" id="Tokenize"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.text.html#aisquared.config.preprocessing.text.Steps.Tokenize">[docs]</a><span class="k">class</span> <span class="nc">Tokenize</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
@@ -433,8 +428,8 @@
     <span class="k">def</span> <span class="nf">pad_location</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;pad_location must be str&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_ALLOWED_PADS</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;pad_location must be one of </span><span class="si">{</span><span class="n">_ALLOWED_PADS</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ALLOWED_PADS</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;pad_location must be one of </span><span class="si">{</span><span class="n">ALLOWED_PADS</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_pad_location</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="nd">@property</span>
@@ -445,9 +440,9 @@
     <span class="k">def</span> <span class="nf">truncate_location</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;truncate_location must be str&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_ALLOWED_PADS</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ALLOWED_PADS</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s1">&#39;truncate_location must be one of </span><span class="si">{</span><span class="n">_ALLOWED_PADS</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="sa">f</span><span class="s1">&#39;truncate_location must be one of </span><span class="si">{</span><span class="n">ALLOWED_PADS</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_truncate_location</span> <span class="o">=</span> <span class="n">value</span>
 
 <div class="viewcode-block" id="PadSequences.to_dict"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.text.html#aisquared.config.preprocessing.text.Steps.PadSequences.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>

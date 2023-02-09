@@ -75,7 +75,8 @@
 <section id="welcome-to-the-documentation-for-the-aisquared-python-package">
 <h1>Welcome to the documentation for the <cite>aisquared</cite> python package!<a class="headerlink" href="#welcome-to-the-documentation-for-the-aisquared-python-package" title="Permalink to this heading"></a></h1>
 <p>This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.</p>
-<p><strong>Current Production Version:</strong> <code class="docutils literal notranslate"><span class="pre">0.3.1</span></code></p>
+<p><strong>Current Production Version:</strong> <code class="docutils literal notranslate"><span class="pre">0.3.2</span></code></p>
+<p><a class="reference download internal" download="" href="_downloads/daf57d0c6cf12d409803efeee6f67e68/aisquared.pdf"><code class="xref download docutils literal notranslate"><span class="pre">View</span> <span class="pre">this</span> <span class="pre">Documentation</span> <span class="pre">in</span> <span class="pre">PDF</span> <span class="pre">Format</span></code></a>.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -215,6 +216,23 @@
 <li><dl class="simple">
 <dt>Version 0.3.1</dt><dd><ul>
 <li><p>Changed Python type hints to allow for backwards compatibility with older versions of Python</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Version 0.3.2</dt><dd><ul>
+<li><p>Added functionality to the <cite>AISquaredPlatformClient</cite></p></li>
+<li><p>Added <cite>top_level_kwargs</cite> parameter to the <cite>CustomObject</cite> class</p></li>
+<li><p>Added <cite>DashboardRendering</cite> class</p></li>
+<li><p>Removed ‘px’ from default values in ImageRendering and ObjectRendering classes</p></li>
+<li><p>Added functionality for creating, updating, and deleting users to <cite>AISquaredPlatformClient</cite></p></li>
+<li><p>Added functionality for creating, updating, and delting groups to <cite>AISquaredPlatformClient</cite></p></li>
+<li><p>Fixed bug related to requiring <cite>auto_run</cite> parameter to be string (fix involves casting as string)</p></li>
+<li><p>Altered schemas for different “Chart” Rendering classes to conform to JavaScript standards</p></li>
+<li><p>Streamlined the <cite>ModelConfiguration</cite> class to allow a more functional interface to build <cite>.air</cite> files</p></li>
+<li><p>Updated <cite>ContainerRendering</cite> class with parameters for <cite>position</cite> and <cite>static_position</cite></p></li>
+<li><p>Updated across-the-board functionality of the <cite>AISquaredPlatformClient</cite></p></li>
 </ul>
 </dd>
 </dl>
