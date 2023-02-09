@@ -1156,7 +1156,7 @@ class AISquaredPlatformClient:
         return resp.json()
 
     # TODO: Needs to be tested and finalized
-    def list_roles(self, port: int = 8086) -> Union[pd.DataFrame, dict]:
+    def list_roles(self, as_df: bool = True, port: int = 8086) -> Union[pd.DataFrame, dict]:
         """
         List the roles available in the platform
 
@@ -1169,6 +1169,8 @@ class AISquaredPlatformClient:
 
         Parameters
         ----------
+        as_df : bool (default True)
+            Whether to return the results as a pandas DataFrame
         port : int (default 8086)
             The API port to use
 
@@ -1182,7 +1184,9 @@ class AISquaredPlatformClient:
                 f'{self.base_url}:{port}/groupservice/v1/role',
                 headers=self.headers
             )
-        return resp
+        if as_df:
+            return pd.DataFrame(resp.json()['content'])
+        return resp.json()['content']
 
     # Metrics
 
