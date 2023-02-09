@@ -150,7 +150,7 @@
   \item \spxentry{aisquared.utils}
     \subitem \spxentry{module}, \hyperpage{56}
   \item \spxentry{aisquared.utils.utils}
-    \subitem \spxentry{module}, \hyperpage{56}
+    \subitem \spxentry{module}, \hyperpage{57}
   \item \spxentry{AISquaredAPIException}, \hyperpage{41}
   \item \spxentry{AISquaredPlatformClient}\spxextra{class in aisquared.platform.AISquaredPlatformClient}, 
 		\hyperpage{41}
@@ -305,7 +305,7 @@
 		\hyperpage{44}
   \item \spxentry{get\_model()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{44}
-  \item \spxentry{get\_model()}\spxextra{in module aisquared.utils.utils}, \hyperpage{56}
+  \item \spxentry{get\_model()}\spxextra{in module aisquared.utils.utils}, \hyperpage{57}
   \item \spxentry{get\_model\_filenames()}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration method}, 
 		\hyperpage{40}
   \item \spxentry{get\_model\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
@@ -537,7 +537,7 @@
     \subitem \spxentry{aisquared.serving.deploy\_model}, \hyperpage{55}
     \subitem \spxentry{aisquared.serving.get\_remote\_prediction}, \hyperpage{56}
     \subitem \spxentry{aisquared.utils}, \hyperpage{56}
-    \subitem \spxentry{aisquared.utils.utils}, \hyperpage{56}
+    \subitem \spxentry{aisquared.utils.utils}, \hyperpage{57}
   \item \spxentry{MulticlassClassification}\spxextra{class in aisquared.config.postprocessing.MulticlassClassification}, 
 		\hyperpage{14}
   \item \spxentry{MulticlassFeedback}\spxextra{class in aisquared.config.feedback.MulticlassFeedback}, 
@@ -661,7 +661,7 @@
   \item \spxentry{share\_model\_with\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{51}
   \item \spxentry{share\_model\_with\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
-		\hyperpage{51}
+		\hyperpage{52}
   \item \spxentry{SimpleFeedback}\spxextra{class in aisquared.config.feedback.SimpleFeedback}, 
 		\hyperpage{11}
   \item \spxentry{size}\spxextra{aisquared.config.preprocessing.image.Steps.Resize property}, 

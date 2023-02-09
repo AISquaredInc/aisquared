@@ -96,8 +96,8 @@
 \contentsline {subparagraph}{aisquared.serving.get\_remote\_prediction module}{56}{subparagraph*.418}%
 \contentsline {paragraph}{aisquared.utils package}{56}{paragraph*.420}%
 \contentsline {subparagraph}{Module contents}{56}{subparagraph*.421}%
-\contentsline {subparagraph}{Submodules}{56}{subparagraph*.422}%
-\contentsline {subparagraph}{aisquared.utils.utils module}{56}{subparagraph*.423}%
+\contentsline {subparagraph}{Submodules}{57}{subparagraph*.422}%
+\contentsline {subparagraph}{aisquared.utils.utils module}{57}{subparagraph*.423}%
 \contentsline {chapter}{\numberline {2}Changelog}{59}{chapter.2}%
 \contentsline {chapter}{Python Module Index}{63}{section*.426}%
 \contentsline {chapter}{Index}{65}{section*.427}%

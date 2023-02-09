@@ -5495,7 +5495,7 @@ pandas DataFrame or dict
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_roles}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_roles}}}{\emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8086}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}DataFrame\DUrole{p}{,}\DUrole{w}{  }dict\DUrole{p}{{]}}}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_roles}}}{\emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8086}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}DataFrame\DUrole{p}{,}\DUrole{w}{  }dict\DUrole{p}{{]}}}}
 \pysigstopsignatures
 \sphinxAtStartPar
 List the roles available in the platform
@@ -5510,9 +5510,16 @@ Example usage:
 \PYG{g+go}{*DataFrame with results*}
 \end{sphinxVerbatim}
 \begin{quote}\begin{description}
-\sphinxlineitem{Parameters}
+\sphinxlineitem{Parameters}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{as\_df}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default True}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to return the results as a pandas DataFrame
+
+\item {} 
 \sphinxAtStartPar
 \sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8086}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+
+\end{itemize}
 
 \sphinxlineitem{Returns}
 \sphinxAtStartPar

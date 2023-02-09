@@ -433,7 +433,7 @@
 \indexentry{password (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property)@\spxentry{password}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}|hyperpage}{51}
 \indexentry{remove\_users\_from\_group() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{remove\_users\_from\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{51}
 \indexentry{share\_model\_with\_group() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{share\_model\_with\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{51}
-\indexentry{share\_model\_with\_user() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{share\_model\_with\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{51}
+\indexentry{share\_model\_with\_user() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{share\_model\_with\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{52}
 \indexentry{test\_connection() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{test\_connection()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{52}
 \indexentry{token (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property)@\spxentry{token}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}|hyperpage}{52}
 \indexentry{unshare\_model\_with\_group() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{unshare\_model\_with\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{52}
@@ -453,7 +453,7 @@
 \indexentry{get\_remote\_prediction() (in module aisquared.serving.get\_remote\_prediction)@\spxentry{get\_remote\_prediction()}\spxextra{in module aisquared.serving.get\_remote\_prediction}|hyperpage}{56}
 \indexentry{module@\spxentry{module}!aisquared.utils@\spxentry{aisquared.utils}|hyperpage}{56}
 \indexentry{aisquared.utils@\spxentry{aisquared.utils}!module@\spxentry{module}|hyperpage}{56}
-\indexentry{module@\spxentry{module}!aisquared.utils.utils@\spxentry{aisquared.utils.utils}|hyperpage}{56}
-\indexentry{aisquared.utils.utils@\spxentry{aisquared.utils.utils}!module@\spxentry{module}|hyperpage}{56}
-\indexentry{get\_model() (in module aisquared.utils.utils)@\spxentry{get\_model()}\spxextra{in module aisquared.utils.utils}|hyperpage}{56}
+\indexentry{module@\spxentry{module}!aisquared.utils.utils@\spxentry{aisquared.utils.utils}|hyperpage}{57}
+\indexentry{aisquared.utils.utils@\spxentry{aisquared.utils.utils}!module@\spxentry{module}|hyperpage}{57}
+\indexentry{get\_model() (in module aisquared.utils.utils)@\spxentry{get\_model()}\spxextra{in module aisquared.utils.utils}|hyperpage}{57}
 \indexentry{mimic\_model() (in module aisquared.utils.utils)@\spxentry{mimic\_model()}\spxextra{in module aisquared.utils.utils}|hyperpage}{57}
