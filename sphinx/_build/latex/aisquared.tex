@@ -4657,7 +4657,7 @@ dict
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.create_user}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{create\_user}}}{\emph{\DUrole{n}{user\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{first\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{last\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{email}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{role\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{active}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{middle\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{company\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{password}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8085}}}{{ $\rightarrow$ dict}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{create\_user}}}{\emph{\DUrole{n}{user\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{given\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{family\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{email}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{role\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{active}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{middle\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{company\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{password}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8085}}}{{ $\rightarrow$ dict}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Create a user within the platform
@@ -4667,8 +4667,8 @@ Create a user within the platform
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{platform}\PYG{o}{.}\PYG{n}{AISquaredPlatformClient}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{create\PYGZus{}user}\PYG{p}{(}
 \PYG{g+go}{    \PYGZsq{}user name\PYGZsq{},}
-\PYG{g+go}{    \PYGZsq{}first\PYGZus{}name\PYGZsq{},}
-\PYG{g+go}{    \PYGZsq{}last\PYGZus{}name\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}given\PYGZus{}name\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}family\PYGZus{}name\PYGZsq{},}
 \PYG{g+go}{    \PYGZsq{}user\PYGZus{}email\PYGZsq{},}
 \PYG{g+go}{    \PYGZsq{}role\PYGZus{}id\PYGZsq{}}
 \PYG{g+go}{)}
@@ -4682,11 +4682,11 @@ Create a user within the platform
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{first\_name}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The user’s first name
+\sphinxstyleliteralstrong{\sphinxupquote{given\_name}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The user’s first name
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{last\_name}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The user’s last name
+\sphinxstyleliteralstrong{\sphinxupquote{family\_name}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The user’s last name
 
 \item {} 
 \sphinxAtStartPar
@@ -5998,7 +5998,7 @@ bool
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.update_user}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{update\_user}}}{\emph{\DUrole{n}{user\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{user\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{first\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{last\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{email}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{role\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{active}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{middle\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{company\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{password}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8085}}}{{ $\rightarrow$ bool}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{update\_user}}}{\emph{\DUrole{n}{user\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{user\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{given\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{family\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{email}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{role\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{active}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{middle\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{company\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{password}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8085}}}{{ $\rightarrow$ bool}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Update information about a user
@@ -6009,8 +6009,8 @@ Update information about a user
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{client}\PYG{o}{.}\PYG{n}{update\PYGZus{}user}\PYG{p}{(}
 \PYG{g+go}{    \PYGZsq{}user\PYGZus{}id\PYGZsq{},}
 \PYG{g+go}{    \PYGZsq{}user name\PYGZsq{},}
-\PYG{g+go}{    \PYGZsq{}first\PYGZus{}name\PYGZsq{},}
-\PYG{g+go}{    \PYGZsq{}last\PYGZus{}name\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}given\PYGZus{}name\PYGZsq{},}
+\PYG{g+go}{    \PYGZsq{}family\PYGZus{}name\PYGZsq{},}
 \PYG{g+go}{    \PYGZsq{}user\PYGZus{}email\PYGZsq{},}
 \PYG{g+go}{    \PYGZsq{}role\PYGZus{}id\PYGZsq{}}
 \PYG{g+go}{)}
@@ -6028,11 +6028,11 @@ Update information about a user
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{first\_name}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The first name of the user
+\sphinxstyleliteralstrong{\sphinxupquote{given\_name}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The first name of the user
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{last\_name}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The last name of the user
+\sphinxstyleliteralstrong{\sphinxupquote{family\_name}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The last name of the user
 
 \item {} 
 \sphinxAtStartPar

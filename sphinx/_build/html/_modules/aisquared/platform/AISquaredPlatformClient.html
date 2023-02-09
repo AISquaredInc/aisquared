@@ -648,8 +648,8 @@
 <div class="viewcode-block" id="AISquaredPlatformClient.create_user"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.create_user">[docs]</a>    <span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
             <span class="n">user_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-            <span class="n">first_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-            <span class="n">last_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">given_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">family_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
             <span class="n">email</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
             <span class="n">role_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
             <span class="n">active</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
@@ -665,8 +665,8 @@
 <span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
 <span class="sd">        &gt;&gt;&gt; client.create_user(</span>
 <span class="sd">            &#39;user name&#39;,</span>
-<span class="sd">            &#39;first_name&#39;,</span>
-<span class="sd">            &#39;last_name&#39;,</span>
+<span class="sd">            &#39;given_name&#39;,</span>
+<span class="sd">            &#39;family_name&#39;,</span>
 <span class="sd">            &#39;user_email&#39;,</span>
 <span class="sd">            &#39;role_id&#39;</span>
 <span class="sd">        )</span>
@@ -676,9 +676,9 @@
 <span class="sd">        ----------</span>
 <span class="sd">        user_name : str</span>
 <span class="sd">            The display name of the user</span>
-<span class="sd">        first_name : str</span>
+<span class="sd">        given_name : str</span>
 <span class="sd">            The user&#39;s first name</span>
-<span class="sd">        last_name : str</span>
+<span class="sd">        family_name : str</span>
 <span class="sd">            The user&#39;s last name</span>
 <span class="sd">        email : str</span>
 <span class="sd">            The user&#39;s email</span>
@@ -703,8 +703,8 @@
         <span class="n">json_data</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s1">&#39;active&#39;</span><span class="p">:</span> <span class="n">active</span><span class="p">,</span>
             <span class="s1">&#39;userName&#39;</span><span class="p">:</span> <span class="n">user_name</span><span class="p">,</span>
-            <span class="s1">&#39;firstName&#39;</span><span class="p">:</span> <span class="n">first_name</span><span class="p">,</span>
-            <span class="s1">&#39;lastName&#39;</span><span class="p">:</span> <span class="n">last_name</span><span class="p">,</span>
+            <span class="s1">&#39;givenName&#39;</span><span class="p">:</span> <span class="n">given_name</span><span class="p">,</span>
+            <span class="s1">&#39;familyName&#39;</span><span class="p">:</span> <span class="n">family_name</span><span class="p">,</span>
             <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="n">email</span><span class="p">,</span>
             <span class="s1">&#39;roleId&#39;</span><span class="p">:</span> <span class="n">role_id</span>
         <span class="p">}</span>
@@ -732,8 +732,8 @@
             <span class="bp">self</span><span class="p">,</span>
             <span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
             <span class="n">user_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-            <span class="n">first_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-            <span class="n">last_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">given_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">family_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
             <span class="n">email</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
             <span class="n">role_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
             <span class="n">active</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
@@ -750,8 +750,8 @@
 <span class="sd">        &gt;&gt;&gt; client.update_user(</span>
 <span class="sd">            &#39;user_id&#39;,</span>
 <span class="sd">            &#39;user name&#39;,</span>
-<span class="sd">            &#39;first_name&#39;,</span>
-<span class="sd">            &#39;last_name&#39;,</span>
+<span class="sd">            &#39;given_name&#39;,</span>
+<span class="sd">            &#39;family_name&#39;,</span>
 <span class="sd">            &#39;user_email&#39;,</span>
 <span class="sd">            &#39;role_id&#39;</span>
 <span class="sd">        )</span>
@@ -763,9 +763,9 @@
 <span class="sd">            The ID of the user to update</span>
 <span class="sd">        user_name : str</span>
 <span class="sd">            The display name of the user</span>
-<span class="sd">        first_name : str</span>
+<span class="sd">        given_name : str</span>
 <span class="sd">            The first name of the user</span>
-<span class="sd">        last_name : str</span>
+<span class="sd">        family_name : str</span>
 <span class="sd">            The last name of the user</span>
 <span class="sd">        email : str</span>
 <span class="sd">            The user&#39;s email</span>
@@ -790,8 +790,8 @@
         <span class="n">json_data</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s1">&#39;active&#39;</span><span class="p">:</span> <span class="n">active</span><span class="p">,</span>
             <span class="s1">&#39;userName&#39;</span><span class="p">:</span> <span class="n">user_name</span><span class="p">,</span>
-            <span class="s1">&#39;firstName&#39;</span><span class="p">:</span> <span class="n">first_name</span><span class="p">,</span>
-            <span class="s1">&#39;lastName&#39;</span><span class="p">:</span> <span class="n">last_name</span><span class="p">,</span>
+            <span class="s1">&#39;givenName&#39;</span><span class="p">:</span> <span class="n">given_name</span><span class="p">,</span>
+            <span class="s1">&#39;familyName&#39;</span><span class="p">:</span> <span class="n">family_name</span><span class="p">,</span>
             <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="n">email</span><span class="p">,</span>
             <span class="s1">&#39;roleId&#39;</span><span class="p">:</span> <span class="n">role_id</span>
         <span class="p">}</span>
@@ -1223,7 +1223,6 @@
             <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">ids</span><span class="p">,</span> <span class="s1">&#39;displayName&#39;</span><span class="p">:</span> <span class="n">names</span><span class="p">})</span>
         <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span></div>
 
-    <span class="c1"># TODO: Needs to be tested and finalized</span>
 <div class="viewcode-block" id="AISquaredPlatformClient.list_roles"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_roles">[docs]</a>    <span class="k">def</span> <span class="nf">list_roles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">as_df</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8086</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List the roles available in the platform</span>
