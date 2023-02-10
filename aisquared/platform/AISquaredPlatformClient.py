@@ -90,7 +90,7 @@ class AISquaredPlatformClient:
                 }
             )
         if resp.status_code != 200:
-            raise ValueError('Authentication failed')
+            raise AISquaredAPIException('Authentication failed')
         else:
             token = resp.json()['token']['access_token']
 
@@ -110,7 +110,12 @@ class AISquaredPlatformClient:
 
         self._load_info()
 
-    def _load_info(self, config_file=CONFIG_FILE):
+    def _load_info(self, config_file: str = CONFIG_FILE) -> None:
+        """
+        NOT MEANT TO BE CALLED BY THE USER
+
+        Function to load configuration information for the client
+        """
         with open(config_file, 'r') as f:
             data = json.load(f)
         self._base_url = data['url']
@@ -146,38 +151,7 @@ class AISquaredPlatformClient:
         """The base URL associated with the client"""
         return self._base_url
 
-    def test_connection(self, port: int = 8080) -> int:
-        """
-        Test whether there is a healthy connection to the platform
-
-        >>> import aisquared
-        >>> client = aisquared.platform.AISquaredPlatformClient()
-        >>> client.test_connection()
-        Connection successful
-        200
-
-        Parameters
-        ----------
-        port : int (default 8080)
-            The API port for the call
-
-        Returns
-        -------
-        status_code : int
-            The status code when checking the health API
-
-        """
-        with requests.Session() as sess:
-            resp = sess.get(
-                f'{self.base_url}:{port}/api/v1/health'
-            )
-        if resp.status_code == 200:
-            print('Connection successful')
-        else:
-            print(
-                f'There may be connection issues: status code {resp.status_code}')
-
-        return resp.status_code
+    # CRUDL operations for models
 
     def list_models(self, as_df: bool = True, port: int = 8080) -> Union[pd.DataFrame, dict]:
         """
@@ -318,6 +292,8 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()['success']
 
+    # Sharing operations for models
+
     def list_model_users(self, id: str, as_df: bool = True, port: int = 8080) -> Union[pd.DataFrame, dict]:
         """
         List users for a model
@@ -422,77 +398,634 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()['success']
 
-    def get_model_id_by_name(self, model_name: str) -> str:
+    def share_model_with_group(self, model_id: str, group_id: str, port: int = 8080) -> bool:
         """
-        Retrieve a model's ID using the name of the model
+        Share a model with a group
 
         >>> import aisquared
         >>> client = aisquared.platform.AISquaredPlatformClient()
-        >>> client.get_model_id_by_name('my_awesome_model')
-        *model_id*
+        >>> client.share_model_with_group('model_id', 'group_id')
+        True
 
         Parameters
         ----------
-        model_name : str
-            The name of the model
+        model_id : str
+            The ID for the model to be shared
+        group_id : str
+            The ID for the group to be shared with
+        port : int (default 8080)
+            The API port to use
 
         Returns
         -------
-        model_id : str
-            The model's ID
-
+        success : bool
+            Returns True if successful
         """
-
-        models = self.list_models()
-        this_model = models[models.name == model_name]
-
-        if this_model.shape[0] == 0:
-            raise ValueError('No model with that name appears to exist')
-
-        return this_model.id.iloc[0]
-
-    # TODO
-    def share_model_with_group(self, model_id, group_id, port=8083):
-        """Not yet implemented"""
-        raise NotImplementedError('Functionality not yet implemented')
-
-    # TODO
-    def list_model_feedback(self, model_id, port=8080):
-        """Not yet implemented"""
-        raise NotImplementedError('Functionality not yet implemented')
         with requests.Session() as sess:
-            resp = sess.get(f'{self.base_url}:{port}/api/v1/feedback/models/{model_id}',
+            resp = sess.put(
+                f'{self.base_url}:{port}/api/v1/models/{model_id}/groups/{group_id}',
+                headers=self.headers
+            )
+        if not resp.ok:
+            raise AISquaredAPIException(resp.json())
+        return resp.ok
+
+    def unshare_model_with_group(self, model_id: str, group_id: str, port: int = 8080) -> bool:
+        """
+        Unshare a model with a group
+
+        >>> import aisquared
+        >>> client = aisquared.client.AISquaredPlatformClient()
+        >>> client.unshare_model_with_group('model_id', 'group_id')
+        True
+
+        Parameters
+        ----------
+        model_id : str
+            The ID of the model
+        group_id : str
+            The ID of the group
+        port : int (default 8080)
+            The API port to use
+
+        Returns
+        -------
+        success : bool
+            Returns True if successful
+        """
+        with requests.Session() as sess:
+            resp = sess.delete(
+                f'{self.base_url}:{port}/api/v1/models/{model_id}/groups/{group_id}',
+                headers=self.headers
+            )
+
+        if not resp.ok:
+            raise AISquaredAPIException(resp.json())
+        return resp.ok
+
+    # Feedback operations
+
+    def list_model_feedback(self, model_id: str, limit: int = 10, as_df: bool = True, port: int = 8080) -> Union[dict, pd.DataFrame]:
+        """
+        List feedback on a model
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.list_model_feedback('model_id')
+        *DataFrame with Results*
+
+        Parameters
+        ----------
+        model_id : str
+            The ID of the model
+        limit : int (default 10)
+            The maximum number of feedback items to return
+        port : int (default 8080)
+            The API port to use
+
+        Returns
+        -------
+        feedback : dict or pandas DataFrame
+            The feedback
+        """
+        with requests.Session() as sess:
+            resp = sess.get(f'{self.base_url}:{port}/api/v1/feedback/models?modelId={model_id}&page=1&pageSize={limit}',
                             headers=self.headers
                             )
-        if resp.status_code != 200:
+        if not resp.ok:
             if resp.status_code == 404:
                 return None
             raise AISquaredAPIException(resp.json())
-        return resp.json()
+        if as_df:
+            return pd.DataFrame(resp.json()['data']['modelFeedback'])
+        return resp.json()['data']
 
-    # TODO
-    def list_prediction_feedback(self, prediction_id, port=8080):
-        """Not yet implemented"""
-        raise NotImplementedError('Functionality not yet implemented')
+    def list_prediction_feedback(self, prediction_id: str, as_df: bool = True, port: int = 8080) -> Union[pd.DataFrame, dict]:
+        """
+        List prediction feedback given a prediction ID
 
-    # TODO
-    def list_model_predictions(self, model_id, port=8080):
-        """Not yet implemented"""
-        raise NotImplementedError('Functionality not yet implemented')
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.list_prediction_feedback('prediction_id')
+        *DataFrame with results*
+
+        Parameters
+        ----------
+        prediction_id : str
+            The prediction ID
+        as_df : bool (default True)
+            Whether to return the results as a pandas DataFrame
+        port : int (default 8080)
+            The API port to use
+
+        Returns
+        -------
+        results : pandas DataFrame or dict
+            The results from the platform
+
+        """
+
         with requests.Session() as sess:
             resp = sess.get(
-                f'{self.base_url}:{port}/api/v1/predictions?modelID={model_id}',
+                f'{self.base_url}:{port}/api/v1/feedback/predictions?modelId={prediction_id}',
+                headers=self.headers
+            )
+
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+
+        if as_df:
+            return pd.DataFrame(resp.json()['data'])
+        return resp.json()
+
+    def list_model_prediction_feedback(self, model_id: str, as_df: bool = True, port: int = 8080) -> Union[dict, pd.DataFrame]:
+        """
+        List all feedback for a model
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.list_model_prediction_feedback('model_id')
+        *DataFrame with Results*
+
+        Parameters
+        ----------
+        model_id : str
+            The ID of the model requested
+        as_df : bool (default True)
+            Whether to return the results as a pandas DataFrame
+        port : int (default 8080)
+            The API port to use
+
+        Returns
+        -------
+        results : dict or pandas DataFrame
+            The results from the platform
+        """
+        with requests.Session() as sess:
+            resp = sess.get(
+                f'{self.base_url}:{port}/api/v1/feedback/predictions?modelId={model_id}',
+                headers=self.headers
+            )
+        if not resp.ok:
+            raise AISquaredAPIException(resp.json())
+
+        if as_df:
+            data = resp.json()['data']
+            return pd.concat([pd.json_normalize(v) for v in data.values()]).reset_index(drop=True)
+
+        return resp.json()
+
+    # User and group management
+
+    def create_user(
+            self,
+            user_name: str,
+            given_name: str,
+            family_name: str,
+            email: str,
+            role_id: str,
+            active: bool = True,
+            middle_name: str = None,
+            company_id: str = None,
+            password: str = None,
+            port: int = 8085
+    ) -> dict:
+        """
+        Create a user within the platform
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.create_user(
+            'user name',
+            'given_name',
+            'family_name',
+            'user_email',
+            'role_id'
+        )
+        *Dictionary with user information*
+
+        Parameters
+        ----------
+        user_name : str
+            The display name of the user
+        given_name : str
+            The user's first name
+        family_name : str
+            The user's last name
+        email : str
+            The user's email
+        role_id : str
+            The ID of the role to be given to the user
+        active : bool (default True)
+            Whether the user is active
+        middle_name : str or None (default None)
+            The user's middle name
+        company_id : str or None (default None)
+            The user's company ID
+        password : str or None (default None)
+            The user's password
+        port : int (default 8085)
+            The API port to use
+
+        Returns
+        -------
+        user_data : dict
+            Metadata about the user
+        """
+        json_data = {
+            'active': active,
+            'userName': user_name,
+            'givenName': given_name,
+            'familyName': family_name,
+            'email': email,
+            'roleId': role_id
+        }
+
+        if middle_name:
+            json_data['middleName'] = middle_name
+        if company_id:
+            json_data['companyId'] = company_id
+        if password:
+            json_data['password'] = password
+
+        with requests.Session() as sess:
+            resp = sess.post(
+                f'{self.base_url}:{port}/userservice/v1/user',
+                json=json_data,
+                headers=self.headers
+            )
+
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+        else:
+            return resp.json()
+
+    def update_user(
+            self,
+            user_id: str,
+            user_name: str,
+            given_name: str,
+            family_name: str,
+            email: str,
+            role_id: str,
+            active: bool = True,
+            middle_name: str = None,
+            company_id: str = None,
+            password: str = None,
+            port: int = 8085
+    ) -> bool:
+        """
+        Update information about a user
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.update_user(
+            'user_id',
+            'user name',
+            'given_name',
+            'family_name',
+            'user_email',
+            'role_id'
+        )
+        True
+
+        Parameters
+        ----------
+        user_id : str
+            The ID of the user to update
+        user_name : str
+            The display name of the user
+        given_name : str
+            The first name of the user
+        family_name : str
+            The last name of the user
+        email : str
+            The user's email
+        role_id : str
+            The ID of the user's role
+        active : bool (default True)
+            Whether the user is active
+        middle_name : str or None (default None)
+            The user's middle name
+        company_id : str or None (default None)
+            The user's company ID
+        password : str or None (default None)
+            The user's password
+        port : int (default 8085)
+            The API port to use
+
+        Returns
+        -------
+        success : bool
+            Returns True if update is successful
+        """
+        json_data = {
+            'active': active,
+            'userName': user_name,
+            'givenName': given_name,
+            'familyName': family_name,
+            'email': email,
+            'roleId': role_id
+        }
+
+        if active:
+            json_data['active'] = active
+        if middle_name:
+            json_data['middleName'] = middle_name
+        if company_id:
+            json_data['companyId'] = company_id
+        if password:
+            json_data['password'] = password
+
+        with requests.Session() as sess:
+            resp = sess.put(
+                f'{self.base_url}:{port}/userservice/v1/user/{user_id}',
+                json=json_data,
+                headers=self.headers
+            )
+
+        if not resp.ok:
+            raise AISquaredAPIException(resp.json())
+        else:
+            return resp.ok
+
+    def delete_user(self, user_id: str, port: int = 8085) -> bool:
+        """
+        Delete a user from the system
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.delete_user('user_id')
+        True
+
+        Parameters
+        ----------
+        user_id : str
+            The user's ID
+        port : int (default 8085)
+            The API port to use
+
+        Returns
+        -------
+        result : bool
+            Returns True if the call is successful
+        """
+        with requests.Session() as sess:
+            resp = sess.delete(
+                f'{self.base_url}:{port}/userservice/v1/user/{user_id}',
+                headers=self.headers
+            )
+        if resp.status_code != 204:
+            raise AISquaredAPIException(resp.json())
+        else:
+            return True
+
+    def get_user(self, user_id: str, port: int = 8085) -> dict:
+        """
+        Retrieve a user's information from the platform
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.get_user('user_id')
+        *dictionary with results*
+
+        Parameters
+        ----------
+        user_id: str
+            The ID of the user
+        port : int (default 8085)
+            The API port to use
+
+        Returns
+        -------
+        user_info : dict
+            The information about the user
+        """
+        with requests.Session() as sess:
+            resp = sess.get(
+                f'{self.base_url}:{port}/userservice/v1/user/{user_id}',
                 headers=self.headers
             )
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
         else:
-            return resp
+            return resp.json()
 
-    # TODO
-    def list_model_prediction_feedback(self, model_id):
-        """Not yet implemented"""
-        raise NotImplementedError('Functionality not yet implemented')
+    def get_group(self, group_id: str, port: int = 8086) -> dict:
+        """
+        Retrieve information about a group
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.get_group('group_id')
+        *dictionary containing group data*
+
+        Parameters
+        ----------
+        group_id : str
+            The ID of the group requested
+        port : int (default 8086)
+            The API port to use
+
+        Returns
+        -------
+        group_info : dict
+            The information about the group
+        """
+        with requests.Session() as sess:
+            resp = sess.get(
+                f'{self.base_url}:{port}/groupservice/v1/group/{group_id}',
+                headers=self.headers
+            )
+
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+        return resp.json()
+
+    def create_group(self, group_name: str, role_id: str, port: int = 8086) -> dict:
+        """
+        Create a group in the platform
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.create_group(
+            'group_name',
+            'role_id'
+        )
+        *dictionary containing group information*
+
+        Parameters
+        ----------
+        group_name : str
+            The display name of the group
+        role_id : str
+            The role ID for the group
+        port : int (default 8086)
+            The API port to use
+
+        Returns
+        -------
+        group_info : dict
+            Metadata about the created group
+        """
+        with requests.Session() as sess:
+            resp = sess.post(
+                f'{self.base_url}:{port}/groupservice/v1/group',
+                json={
+                    'displayName': group_name,
+                    'roleId': role_id
+                },
+                headers=self.headers
+            )
+
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+        return resp.json()
+
+    def delete_group(self, group_id, port=8086) -> bool:
+        """
+        Delete a group from the platform
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.delete_group('group_id')
+        True
+
+        Parameters
+        ----------
+        group_id : str
+            The ID of the group to delete
+        port : int (default 8086)
+            The API port to use
+
+        Returns
+        -------
+        result : bool
+            Returns True if successful
+        """
+        with requests.Session() as sess:
+            resp = sess.delete(
+                f'{self.base_url}:{port}/groupservice/v1/group/{group_id}',
+                headers=self.headers
+            )
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+        return resp.ok
+
+    def update_group(self, group_id: str, display_name: str, role_id: str, port: int = 8086) -> bool:
+        """
+        Update information about a group
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.update_group(
+            'group_id',
+            'group display name',
+            'role_id'
+        )
+        True
+
+        Parameters
+        ----------
+        group_id : str
+            The ID of the group to update
+        display_name : str
+            The display name of the group
+        role_id : str
+            The ID of the role for the group
+        port : int (default 8086)
+            The API port to use
+
+        Returns
+        -------
+        success : bool
+            Returns True if successful
+        """
+        with requests.Session() as sess:
+            resp = sess.put(
+                f'{self.base_url}:{port}/groupservice/v1/group/{group_id}',
+                json={
+                    'displayName': display_name,
+                    'roleId': role_id
+                },
+                headers=self.headers
+            )
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+        return resp.ok
+
+    def add_users_to_group(self, group_id: str, user_ids: list, port: int = 8086) -> bool:
+        """
+        Add users to a group
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.add_users_to_group('group_id', ['user_id_1', 'user_id_2'])
+        True
+
+        Parameters
+        ----------
+        group_id : str
+            The group to add the users to
+        user_ids : list of str
+            The IDs of the users to add
+        port : int (default 8086)
+            The API port to use
+
+        Returns
+        -------
+        success : bool
+            Returns True if operation was successful
+        """
+        with requests.Session() as sess:
+            resp = sess.put(
+                f'{self.base_url}:{port}/groupservice/v1/membership',
+                json={
+                    'groupId': group_id,
+                    'userIds': user_ids
+                },
+                headers=self.headers
+            )
+        if not resp.ok:
+            raise AISquaredAPIException(resp.json())
+        return resp.ok
+
+    def remove_users_from_group(self, group_id: str, user_ids: list, port: int = 8086) -> bool:
+        """
+        Remove users from a group
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.remove_users_from_group('group_id', ['user_id_1', 'user_id_2'])
+        True
+
+        Parameters
+        ----------
+        group_id : str
+            The ID of the group
+        user_ids : list of str
+            The IDs of the users to remove
+        port : int (default = 8086)
+            The API port to use
+
+        Returns
+        -------
+        success : bool
+            Returns True if successful
+        """
+        with requests.Session() as sess:
+            resp = sess.delete(
+                f'{self.base_url}:{port}/groupservice/v1/membership',
+                json={
+                    'groupId': group_id,
+                    'userIds': user_ids
+                },
+                headers=self.headers
+            )
+        if resp.ok:
+            return resp.ok
+        else:
+            raise AISquaredAPIException(resp.json())
 
     def list_users(self, as_df: bool = True, port: int = 8080) -> Union[pd.DataFrame, dict]:
         """
@@ -622,7 +1155,118 @@ class AISquaredPlatformClient:
             return pd.DataFrame({'id': ids, 'displayName': names})
         return resp.json()
 
-    def get_user_id_by_name(self, name: str) -> str:
+    def list_roles(self, as_df: bool = True, port: int = 8086) -> Union[pd.DataFrame, dict]:
+        """
+        List the roles available in the platform
+
+        Example usage:
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.list_roles()
+        *DataFrame with results*
+
+        Parameters
+        ----------
+        as_df : bool (default True)
+            Whether to return the results as a pandas DataFrame
+        port : int (default 8086)
+            The API port to use
+
+        Returns
+        -------
+        roles : pandas DataFrame or dict
+            The roles
+        """
+        with requests.Session() as sess:
+            resp = sess.get(
+                f'{self.base_url}:{port}/groupservice/v1/role',
+                headers=self.headers
+            )
+        if as_df:
+            return pd.DataFrame(resp.json()['content'])
+        return resp.json()['content']
+
+    # Metrics
+
+    def list_user_usage_metrics(self, user_id: str, period: str = 'hourly', as_df: bool = True, port: int = 8080) -> Union[dict, pd.DataFrame]:
+        """
+        Get usage metrics for a user
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.get_user_usage_metrics('user_id')
+        *DataFrame with results*
+
+        Parameters
+        ----------
+        user_id : str
+            The ID of the user
+        period : str (default 'hourly')
+            The period to group metrics into
+        as_df : bool (default True)
+            Whether to return results as a pandas DataFrame
+        port : int (default 8080)
+            The API port to use
+
+        Returns
+        -------
+        results : pandas DataFrame or dict
+            The results from the platform
+        """
+        with requests.Session() as sess:
+            resp = sess.get(
+                f'{self.base_url}:{port}/api/v1/usage-metrics?period={period}&entityId={user_id}&entity=user&action=run',
+                headers=self.headers
+            )
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+        if as_df:
+            return pd.DataFrame(resp.json()['data']['plotXYData'])
+        return resp.json()
+
+    def list_model_usage_metrics(self, model_id: str, period: str = 'hourly', as_df: bool = True, port: int = 8080) -> Union[dict, pd.DataFrame]:
+        """
+        Get usage metrics for a model
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.get_model_usage_metrics('model_id')
+        *DataFrame with results*
+
+        Parameters
+        ----------
+        model_id : str
+            The ID of the model
+        period : str (default 'hourly')
+            The period to group metrics into
+        as_df : bool (default True)
+            Whether to return results as a pandas DataFrame
+        port : int (default 8080)
+            The API port to use
+
+        Returns
+        -------
+        results : pandas DataFrame or dict
+            The results from the platform
+
+        """
+        with requests.Session() as sess:
+            resp = sess.get(
+                f'{self.base_url}:{port}/api/v1/usage-metrics?period={period}&entity=model&entityId={model_id}&action=run',
+                headers=self.headers
+            )
+        if resp.status_code != 200:
+            raise AISquaredAPIException(resp.json())
+
+        if as_df:
+            return pd.DataFrame(resp.json()['data']['plotXYData'])
+
+        return resp.json()
+
+    # Additional utilities
+
+    def get_user_id_by_name(self, name: str, port: int = 8080) -> str:
         """
         Get a user's ID from their display name
 
@@ -635,6 +1279,8 @@ class AISquaredPlatformClient:
         ----------
         name : str
             The display name of the user
+        port : int (default 8080)
+            The API port to use
 
         Returns
         -------
@@ -643,7 +1289,7 @@ class AISquaredPlatformClient:
 
         """
 
-        users = self.list_users()
+        users = self.list_users(port=port)
         this_user = users[users.displayName == name]
 
         if this_user.shape[0] == 0:
@@ -651,25 +1297,124 @@ class AISquaredPlatformClient:
 
         return this_user.id.iloc[0]
 
-    # TODO
-    def add_user_to_group(self, group_id, user_id):
-        """Not yet implemented"""
-        raise NotImplementedError('Functionality not yet implemented')
+    def get_model_id_by_name(self, model_name: str, port: int = 8080) -> str:
+        """
+        Retrieve a model's ID using the name of the model
 
-    # TODO
-    def remove_user_from_group(self, group_id, user_id):
-        """Not yet implemented"""
-        raise NotImplementedError('Functionality not yet implemented')
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.get_model_id_by_name('my_awesome_model')
+        *model_id*
 
-    # TODO
-    def get_user_usage_metrics(self, user_id, port=8080):
-        """Not yet implemented"""
-        raise NotImplementedError('Functionality not yet implemented')
+        Parameters
+        ----------
+        model_name : str
+            The name of the model
+        port : int (default 8080)
+            The API port to use
+
+        Returns
+        -------
+        model_id : str
+            The model's ID
+
+        """
+
+        models = self.list_models(port=port)
+        this_model = models[models.name == model_name]
+
+        if this_model.shape[0] == 0:
+            raise ValueError('No model with that name appears to exist')
+
+        return this_model.id.iloc[0]
+
+    def get_group_id_by_name(self, group_name: str, port: int = 8083) -> str:
+        """
+        Get the ID of a group by searching for its display name
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.get_group_id_by_name('Group Name')
+        *group_id*
+
+        Parameters
+        ----------
+        group_name : str
+            The display name of the group
+        port : int (default 8083)
+            The API port to use
+
+        Returns
+        -------
+        group_id : str
+            The ID of the group
+        """
+        groups = self.list_groups(port=port)
+        this_group = groups[groups.name == group_name]
+
+        if this_group.shape[0] == 0:
+            raise ValueError('No group with that name appears to exist')
+
+        return this_group.id.iloc[0]
+
+    def get_role_id_by_name(self, role_name: str, port: int = 8086) -> str:
+        """
+        Get the ID of a role by searching for its display name
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.get_role_id_by_name('Role Name')
+        *role_id*
+
+        Parameters
+        ----------
+        role_name : str
+            The name of the role
+        port : int (default 8086)
+            The API port to use
+
+        Returns
+        -------
+        role_id : str
+            The ID of the role
+        """
+        roles = self.list_roles(port=port)
+        this_role = roles[roles.name == role_name]
+
+        if this_role.shape[0] == 0:
+            raise ValueError('No role with that name appears to exist')
+
+        return this_role.id.iloc[0]
+
+    def test_connection(self, port: int = 8080) -> int:
+        """
+        Test whether there is a healthy connection to the platform
+
+        >>> import aisquared
+        >>> client = aisquared.platform.AISquaredPlatformClient()
+        >>> client.test_connection()
+        Connection successful
+        200
+
+        Parameters
+        ----------
+        port : int (default 8080)
+            The API port for the call
+
+        Returns
+        -------
+        status_code : int
+            The status code when checking the health API
+
+        """
         with requests.Session() as sess:
             resp = sess.get(
-                f'{self.base_url}:{port}/api/v1/usage_metrics?period=hourly&entityId={user_id}',
-                headers=self.headers
+                f'{self.base_url}:{port}/api/v1/health'
             )
-        if resp.status_code != 200:
-            raise AISquaredAPIException(resp.json())
-        return resp.json()
+        if resp.status_code == 200:
+            print('Connection successful')
+        else:
+            print(
+                f'There may be connection issues: status code {resp.status_code}')
+
+        return resp.status_code

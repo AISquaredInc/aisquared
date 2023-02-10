@@ -1,4 +1,4 @@
-from aisquared.base import BaseObject
+from aisquared.base import BaseObject, POSITIONS, STATIC_POSITIONS
 
 
 class ContainerRendering(BaseObject):
@@ -22,9 +22,10 @@ class ContainerRendering(BaseObject):
     'display': 'flex',
     'xOffset': '0',
     'yOffset': '0',
-    'position': '',
+    'position': 'absolute',
     'orientation': 'column',
-    'querySelector': "[data-id='tabpanel-general']"}}
+    'querySelector': "[data-id='tabpanel-general']",
+    'staticPosition': None}}
 
     """
 
@@ -33,12 +34,13 @@ class ContainerRendering(BaseObject):
         label: str,
         id: str,
         query_selector: str,
+        position: str = 'absolute',
+        static_position: str = None,
         width: str = 'auto',
         height: str = 'auto',
         display: str = 'flex',
         xOffset: str = '0',
         yOffset: str = '0',
-        position: str = '',
         orientation: str = 'column'
     ):
         """
@@ -48,9 +50,15 @@ class ContainerRendering(BaseObject):
             The label for the object
         id : str
             The id for the object
+        query_selector : str
+            Query selector for which panel to place the container in
+        position : str (default 'absolute')
+            The position to place the container in, either 'absolute' or 'static'
+        static_position : str or None (default None)
+            If `position` is 'static', must be provided, either 'prepend' or 'append'
         width : str (default 'auto')
             The width of the rendering
-        height : str (default '75')
+        height : str (default 'auto')
             The height of the rendering
         display : str (default 'flex')
             The type of display
@@ -58,8 +66,6 @@ class ContainerRendering(BaseObject):
             The x offset of the rendering
         yOffset : str (default '0')
             The y offset of the rendering
-        position : str (default '')
-            The position of the rendering
         orientation : str (default 'column')
             The orientation of the rendering
         """
@@ -67,12 +73,13 @@ class ContainerRendering(BaseObject):
         self.label = label
         self.id = id
         self.query_selector = query_selector
+        self.position = position
+        self.static_position = static_position
         self.width = width
         self.height = height
         self.display = display
         self.xOffset = xOffset
         self.yOffset = yOffset
-        self.position = position
         self.orientation = orientation
 
     @property
@@ -145,6 +152,9 @@ class ContainerRendering(BaseObject):
 
     @position.setter
     def position(self, value):
+        if value not in POSITIONS:
+            raise ValueError(
+                f'position must be one of {POSITIONS}, got {value}')
         self._position = value
 
     @property
@@ -154,6 +164,25 @@ class ContainerRendering(BaseObject):
     @orientation.setter
     def orientation(self, value):
         self._orientation = value
+
+    @property
+    def static_position(self):
+        return self._static_position
+
+    @static_position.setter
+    def static_position(self, value):
+        if value is not None:
+            if not isinstance(value, str):
+                raise TypeError('If not None, static_position must be str')
+            if value not in STATIC_POSITIONS:
+                raise ValueError(
+                    f'static_position must be one of {STATIC_POSITIONS}, got {value}')
+        else:
+            if self.position == 'static':
+                raise ValueError(
+                    'If position is "static", static_position must be provided')
+
+        self._static_position = value
 
     def to_dict(self) -> dict:
         """
@@ -171,6 +200,8 @@ class ContainerRendering(BaseObject):
                 'yOffset': self.yOffset,
                 'position': self.position,
                 'orientation': self.orientation,
-                'querySelector': self.query_selector
+                'querySelector': self.query_selector,
+                'position': self.position,
+                'staticPosition': self.static_position
             }
         }

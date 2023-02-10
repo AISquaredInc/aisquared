@@ -80,31 +80,31 @@
 <span class="sd">    &gt;&gt;&gt; my_obj.to_dict()</span>
 <span class="sd">    {&#39;className&#39;: &#39;ObjectRendering&#39;,</span>
 <span class="sd">    &#39;params&#39;: {&#39;color&#39;: &#39;blue&#39;,</span>
-<span class="sd">    &#39;thickness&#39;: &#39;5px&#39;,</span>
+<span class="sd">    &#39;thickness&#39;: &#39;5&#39;,</span>
 <span class="sd">    &#39;placement&#39;: &#39;bottomleft&#39;,</span>
 <span class="sd">    &#39;includeProbability&#39;: False,</span>
 <span class="sd">    &#39;badgeColor&#39;: &#39;white&#39;,</span>
 <span class="sd">    &#39;fontColor&#39;: &#39;black&#39;,</span>
-<span class="sd">    &#39;fontSize&#39;: &#39;5px&#39;}}</span>
+<span class="sd">    &#39;fontSize&#39;: &#39;5&#39;}}</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">color</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">COLORS</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
-        <span class="n">thickness</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;5px&#39;</span><span class="p">,</span>
+        <span class="n">thickness</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span>
         <span class="n">placement</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">LOCATIONS</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
         <span class="n">include_probability</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">badge_color</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">COLORS</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span>
         <span class="n">font_color</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">COLORS</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">],</span>
-        <span class="n">font_size</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;5px&#39;</span>
+        <span class="n">font_size</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;5&#39;</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        color : str (default &#39;blue&#39;)</span>
 <span class="sd">            The color of the box around images</span>
-<span class="sd">        thickness : str (default &#39;5px&#39;)</span>
+<span class="sd">        thickness : str (default &#39;5&#39;)</span>
 <span class="sd">            The thickness of the box around images</span>
 <span class="sd">        placement : str (default &#39;bottomleft&#39;)</span>
 <span class="sd">            The placement of the prediction text</span>
@@ -114,7 +114,7 @@
 <span class="sd">            Background color for the text region</span>
 <span class="sd">        font_color : str (default &#39;black&#39;)</span>
 <span class="sd">            Color of the text</span>
-<span class="sd">        font_size : str (default &#39;5px&#39;)</span>
+<span class="sd">        font_size : str (default &#39;5&#39;)</span>
 <span class="sd">            Text size</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>

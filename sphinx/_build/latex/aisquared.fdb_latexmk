@@ -1,10 +1,19 @@
 # Fdb version 3
+<<<<<<< HEAD
+["makeindex aisquared.idx"] 1675956419 "aisquared.idx" "aisquared.ind" "aisquared" 1676040102
+  "aisquared.idx" 1676040102 85641 0951bf18b85e161e6d903c5906bfc8ba "pdflatex"
+  (generated)
+  "aisquared.ilg"
+  "aisquared.ind"
+["pdflatex"] 1676040100 "aisquared.tex" "aisquared.pdf" "aisquared" 1676040102
+=======
 ["makeindex aisquared.idx"] 1673448642 "aisquared.idx" "aisquared.ind" "aisquared" 1673448643
   "aisquared.idx" 1673448643 82591 892c9c9119e15256a7de6ed39706a163 "pdflatex"
   (generated)
   "aisquared.ilg"
   "aisquared.ind"
 ["pdflatex"] 1673448642 "aisquared.tex" "aisquared.pdf" "aisquared" 1673448643
+>>>>>>> main
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc" 1529098226 2457 aaabbccba4df2a7f7371410ee4e075a3 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc" 1529098226 3124 3813fd4c981d99822890a2861b0d274c ""
@@ -152,6 +161,16 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1649176482 2826445 c2aba4764508839c35a10e64d69cd3f2 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
+<<<<<<< HEAD
+  "aisquared.aux" 1676040102 101941 d69346ae4102fc5b7379a012bc81da39 "pdflatex"
+  "aisquared.ind" 1675956419 54054 374ede462bc5aa81c70fec57044cb71b "makeindex aisquared.idx"
+  "aisquared.out" 1676040102 23497 5a14172f8c176768da58b7a336ec7a93 "pdflatex"
+  "aisquared.png" 1673445497 9725 22c078647e34215baa5d32705d708483 ""
+  "aisquared.tex" 1676040099 437643 d4c30c6783533d5202032033767bb7c9 ""
+  "aisquared.toc" 1676040102 8937 656b13524680361729ffbe587e75d0b1 "pdflatex"
+  "sphinx.sty" 1673445497 36948 4c5348dcae5ec5bcf690d6226a2c6721 ""
+  "sphinxhighlight.sty" 1676040098 7490 72d023191655734567e0798eade2a1f7 ""
+=======
   "aisquared.aux" 1673448643 99413 cf1768ea7a0c89ae6505c8e8a315f07c "pdflatex"
   "aisquared.ind" 1673448642 52230 f0f17c7a7f1491db6b6955622e0ff2d5 "makeindex aisquared.idx"
   "aisquared.out" 1673448643 23497 ad208cc303318fe1ff9af20d8f2983ed "pdflatex"
@@ -160,6 +179,7 @@
   "aisquared.toc" 1673448643 8937 24ebdf149c95f8a00d9fd389e0319a36 "pdflatex"
   "sphinx.sty" 1673445497 36948 4c5348dcae5ec5bcf690d6226a2c6721 ""
   "sphinxhighlight.sty" 1673448640 7490 72d023191655734567e0798eade2a1f7 ""
+>>>>>>> main
   "sphinxlatexadmonitions.sty" 1673445497 10155 37f3cbe6b251ec0f2ce20d0b8c4fa3d7 ""
   "sphinxlatexcontainers.sty" 1673445497 901 d3a3a1b7b2547f47ade2499350b5c420 ""
   "sphinxlatexgraphics.sty" 1673445497 4840 a9578332b6f3b35e198751fb632c9b79 ""
@@ -174,7 +194,11 @@
   "sphinxlatexstyletext.sty" 1673445497 6310 230e9c67ef82453e767773679e1f6816 ""
   "sphinxlatextables.sty" 1673445497 57830 6dde33374ef653202d83f31844e4f3c5 ""
   "sphinxmanual.cls" 1673445497 4241 7b0d7a37df7b5715fb0dbd585c52ecdb ""
+<<<<<<< HEAD
+  "sphinxmessages.sty" 1676040099 745 3f5fcd6cdd7964ed608767954a8ced6f ""
+=======
   "sphinxmessages.sty" 1673448640 745 3f5fcd6cdd7964ed608767954a8ced6f ""
+>>>>>>> main
   "sphinxoptionsgeometry.sty" 1673445497 2061 47bb34b8ed8a78823eb0c886abfb9f4d ""
   "sphinxoptionshyperref.sty" 1673445497 1094 79beb8b8a3f10784f8cce804e0f9d3aa ""
   "sphinxpackageboxes.sty" 1673445497 18408 cacf96116848f46194438f1e659006ed ""

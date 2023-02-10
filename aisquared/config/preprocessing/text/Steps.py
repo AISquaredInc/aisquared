@@ -1,10 +1,5 @@
 from typing import Union
-from aisquared.base import BaseObject
-
-_ALLOWED_PADS = [
-    'pre',
-    'post'
-]
+from aisquared.base import BaseObject, ALLOWED_PADS
 
 
 class Tokenize(BaseObject):
@@ -365,8 +360,8 @@ class PadSequences(BaseObject):
     def pad_location(self, value):
         if not isinstance(value, str):
             raise TypeError('pad_location must be str')
-        if value not in _ALLOWED_PADS:
-            raise ValueError(f'pad_location must be one of {_ALLOWED_PADS}')
+        if value not in ALLOWED_PADS:
+            raise ValueError(f'pad_location must be one of {ALLOWED_PADS}')
         self._pad_location = value
 
     @property
@@ -377,9 +372,9 @@ class PadSequences(BaseObject):
     def truncate_location(self, value):
         if not isinstance(value, str):
             raise TypeError('truncate_location must be str')
-        if value not in _ALLOWED_PADS:
+        if value not in ALLOWED_PADS:
             raise ValueError(
-                f'truncate_location must be one of {_ALLOWED_PADS}')
+                f'truncate_location must be one of {ALLOWED_PADS}')
         self._truncate_location = value
 
     def to_dict(self) -> dict:

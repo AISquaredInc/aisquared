@@ -16,3 +16,5 @@ from .LineChartRendering import LineChartRendering
 from .DashboardReplacementRendering import DashboardReplacementRendering
 from .PieChartRendering import PieChartRendering
 from .SOSRendering import SOSRendering
+
+# from .DashboardRendering import DashboardRendering
