@@ -68,7 +68,6 @@
 \contentsline {subparagraph}{Submodules}{24}{subparagraph*.224}%
 \contentsline {subparagraph}{aisquared.config.rendering.BarChartRendering module}{24}{subparagraph*.225}%
 \contentsline {subparagraph}{aisquared.config.rendering.ContainerRendering module}{26}{subparagraph*.228}%
-<<<<<<< HEAD
 \contentsline {subparagraph}{aisquared.config.rendering.DashboardReplacementRendering module}{27}{subparagraph*.242}%
 \contentsline {subparagraph}{aisquared.config.rendering.DocumentRendering module}{28}{subparagraph*.248}%
 \contentsline {subparagraph}{aisquared.config.rendering.DoughnutChartRendering module}{29}{subparagraph*.260}%
@@ -102,38 +101,3 @@
 \contentsline {chapter}{\numberline {2}Changelog}{59}{chapter.2}%
 \contentsline {chapter}{Python Module Index}{63}{section*.426}%
 \contentsline {chapter}{Index}{65}{section*.427}%
-=======
-\contentsline {subparagraph}{aisquared.config.rendering.DashboardReplacementRendering module}{27}{subparagraph*.241}%
-\contentsline {subparagraph}{aisquared.config.rendering.DocumentRendering module}{27}{subparagraph*.247}%
-\contentsline {subparagraph}{aisquared.config.rendering.DoughnutChartRendering module}{29}{subparagraph*.259}%
-\contentsline {subparagraph}{aisquared.config.rendering.FilterRendering module}{30}{subparagraph*.262}%
-\contentsline {subparagraph}{aisquared.config.rendering.HTMLTagRendering module}{31}{subparagraph*.269}%
-\contentsline {subparagraph}{aisquared.config.rendering.ImageRendering module}{32}{subparagraph*.272}%
-\contentsline {subparagraph}{aisquared.config.rendering.LineChartRendering module}{33}{subparagraph*.285}%
-\contentsline {subparagraph}{aisquared.config.rendering.ObjectRendering module}{34}{subparagraph*.288}%
-\contentsline {subparagraph}{aisquared.config.rendering.PieChartRendering module}{34}{subparagraph*.298}%
-\contentsline {subparagraph}{aisquared.config.rendering.SOSRendering module}{36}{subparagraph*.301}%
-\contentsline {subparagraph}{aisquared.config.rendering.TableRendering module}{36}{subparagraph*.306}%
-\contentsline {subparagraph}{aisquared.config.rendering.WordRendering module}{37}{subparagraph*.309}%
-\contentsline {subparagraph}{Submodules}{38}{subparagraph*.320}%
-\contentsline {subparagraph}{aisquared.config.GraphConfiguration module}{38}{subparagraph*.321}%
-\contentsline {subparagraph}{aisquared.config.ModelConfiguration module}{39}{subparagraph*.337}%
-\contentsline {paragraph}{aisquared.logging package}{40}{paragraph*.364}%
-\contentsline {subparagraph}{Module contents}{40}{subparagraph*.365}%
-\contentsline {paragraph}{aisquared.platform package}{40}{paragraph*.366}%
-\contentsline {subparagraph}{Module contents}{40}{subparagraph*.367}%
-\contentsline {subparagraph}{Submodules}{41}{subparagraph*.368}%
-\contentsline {subparagraph}{aisquared.platform.AISquaredPlatformClient module}{41}{subparagraph*.369}%
-\contentsline {paragraph}{aisquared.serving package}{47}{paragraph*.399}%
-\contentsline {subparagraph}{Module contents}{47}{subparagraph*.400}%
-\contentsline {subparagraph}{Submodules}{47}{subparagraph*.401}%
-\contentsline {subparagraph}{aisquared.serving.deploy\_model module}{47}{subparagraph*.402}%
-\contentsline {subparagraph}{aisquared.serving.get\_remote\_prediction module}{48}{subparagraph*.405}%
-\contentsline {paragraph}{aisquared.utils package}{48}{paragraph*.407}%
-\contentsline {subparagraph}{Module contents}{48}{subparagraph*.408}%
-\contentsline {subparagraph}{Submodules}{49}{subparagraph*.409}%
-\contentsline {subparagraph}{aisquared.utils.utils module}{49}{subparagraph*.410}%
-\contentsline {chapter}{\numberline {2}Changelog}{51}{chapter.2}%
-\contentsline {chapter}{Python Module Index}{55}{section*.413}%
-\contentsline {chapter}{Index}{57}{section*.414}%
->>>>>>> main
