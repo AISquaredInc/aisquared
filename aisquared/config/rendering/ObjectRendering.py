@@ -12,31 +12,31 @@ class ObjectRendering(BaseObject):
     >>> my_obj.to_dict()
     {'className': 'ObjectRendering',
     'params': {'color': 'blue',
-    'thickness': '5px',
+    'thickness': '5',
     'placement': 'bottomleft',
     'includeProbability': False,
     'badgeColor': 'white',
     'fontColor': 'black',
-    'fontSize': '5px'}}
+    'fontSize': '5'}}
 
     """
 
     def __init__(
         self,
         color: str = COLORS[-1],
-        thickness: str = '5px',
+        thickness: str = '5',
         placement: str = LOCATIONS[-1],
         include_probability: bool = False,
         badge_color: str = COLORS[-2],
         font_color: str = COLORS[-4],
-        font_size: str = '5px'
+        font_size: str = '5'
     ):
         """
         Parameters
         ----------
         color : str (default 'blue')
             The color of the box around images
-        thickness : str (default '5px')
+        thickness : str (default '5')
             The thickness of the box around images
         placement : str (default 'bottomleft')
             The placement of the prediction text
@@ -46,7 +46,7 @@ class ObjectRendering(BaseObject):
             Background color for the text region
         font_color : str (default 'black')
             Color of the text
-        font_size : str (default '5px')
+        font_size : str (default '5')
             Text size
         """
         super().__init__()

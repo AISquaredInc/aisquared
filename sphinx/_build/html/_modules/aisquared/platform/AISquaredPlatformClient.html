@@ -158,7 +158,7 @@
                 <span class="p">}</span>
             <span class="p">)</span>
         <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Authentication failed&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">AISquaredAPIException</span><span class="p">(</span><span class="s1">&#39;Authentication failed&#39;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">token</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;token&#39;</span><span class="p">][</span><span class="s1">&#39;access_token&#39;</span><span class="p">]</span>
 
@@ -178,7 +178,12 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_load_info</span><span class="p">()</span></div>
 
-    <span class="k">def</span> <span class="nf">_load_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_file</span><span class="o">=</span><span class="n">CONFIG_FILE</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_load_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">CONFIG_FILE</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        NOT MEANT TO BE CALLED BY THE USER</span>
+
+<span class="sd">        Function to load configuration information for the client</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_base_url</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span>
@@ -214,38 +219,7 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;The base URL associated with the client&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_base_url</span>
 
-<div class="viewcode-block" id="AISquaredPlatformClient.test_connection"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.test_connection">[docs]</a>    <span class="k">def</span> <span class="nf">test_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Test whether there is a healthy connection to the platform</span>
-
-<span class="sd">        &gt;&gt;&gt; import aisquared</span>
-<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
-<span class="sd">        &gt;&gt;&gt; client.test_connection()</span>
-<span class="sd">        Connection successful</span>
-<span class="sd">        200</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        port : int (default 8080)</span>
-<span class="sd">            The API port for the call</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        status_code : int</span>
-<span class="sd">            The status code when checking the health API</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
-            <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/api/v1/health&#39;</span>
-            <span class="p">)</span>
-        <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Connection successful&#39;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s1">&#39;There may be connection issues: status code </span><span class="si">{</span><span class="n">resp</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span></div>
+    <span class="c1"># CRUDL operations for models</span>
 
 <div class="viewcode-block" id="AISquaredPlatformClient.list_models"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_models">[docs]</a>    <span class="k">def</span> <span class="nf">list_models</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">as_df</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -386,6 +360,8 @@
             <span class="k">raise</span> <span class="n">AISquaredAPIException</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
         <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;success&#39;</span><span class="p">]</span></div>
 
+    <span class="c1"># Sharing operations for models</span>
+
 <div class="viewcode-block" id="AISquaredPlatformClient.list_model_users"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_model_users">[docs]</a>    <span class="k">def</span> <span class="nf">list_model_users</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">as_df</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List users for a model</span>
@@ -490,77 +466,634 @@
             <span class="k">raise</span> <span class="n">AISquaredAPIException</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
         <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;success&#39;</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="AISquaredPlatformClient.get_model_id_by_name"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_model_id_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_model_id_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="AISquaredPlatformClient.share_model_with_group"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.share_model_with_group">[docs]</a>    <span class="k">def</span> <span class="nf">share_model_with_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">group_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Retrieve a model&#39;s ID using the name of the model</span>
+<span class="sd">        Share a model with a group</span>
 
 <span class="sd">        &gt;&gt;&gt; import aisquared</span>
 <span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
-<span class="sd">        &gt;&gt;&gt; client.get_model_id_by_name(&#39;my_awesome_model&#39;)</span>
-<span class="sd">        *model_id*</span>
+<span class="sd">        &gt;&gt;&gt; client.share_model_with_group(&#39;model_id&#39;, &#39;group_id&#39;)</span>
+<span class="sd">        True</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        model_name : str</span>
-<span class="sd">            The name of the model</span>
+<span class="sd">        model_id : str</span>
+<span class="sd">            The ID for the model to be shared</span>
+<span class="sd">        group_id : str</span>
+<span class="sd">            The ID for the group to be shared with</span>
+<span class="sd">        port : int (default 8080)</span>
+<span class="sd">            The API port to use</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        model_id : str</span>
-<span class="sd">            The model&#39;s ID</span>
-
+<span class="sd">        success : bool</span>
+<span class="sd">            Returns True if successful</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">models</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_models</span><span class="p">()</span>
-        <span class="n">this_model</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span><span class="n">models</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">model_name</span><span class="p">]</span>
-
-        <span class="k">if</span> <span class="n">this_model</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;No model with that name appears to exist&#39;</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">this_model</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
-
-    <span class="c1"># TODO</span>
-<div class="viewcode-block" id="AISquaredPlatformClient.share_model_with_group"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.share_model_with_group">[docs]</a>    <span class="k">def</span> <span class="nf">share_model_with_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">,</span> <span class="n">group_id</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8083</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Not yet implemented&quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Functionality not yet implemented&#39;</span><span class="p">)</span></div>
-
-    <span class="c1"># TODO</span>
-<div class="viewcode-block" id="AISquaredPlatformClient.list_model_feedback"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_model_feedback">[docs]</a>    <span class="k">def</span> <span class="nf">list_model_feedback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Not yet implemented&quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Functionality not yet implemented&#39;</span><span class="p">)</span>
         <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
-            <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/api/v1/feedback/models/</span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">put</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/api/v1/models/</span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s1">/groups/</span><span class="si">{</span><span class="n">group_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">resp</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">AISquaredAPIException</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">ok</span></div>
+
+<div class="viewcode-block" id="AISquaredPlatformClient.unshare_model_with_group"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.unshare_model_with_group">[docs]</a>    <span class="k">def</span> <span class="nf">unshare_model_with_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">group_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Unshare a model with a group</span>
+
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.client.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.unshare_model_with_group(&#39;model_id&#39;, &#39;group_id&#39;)</span>
+<span class="sd">        True</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        model_id : str</span>
+<span class="sd">            The ID of the model</span>
+<span class="sd">        group_id : str</span>
+<span class="sd">            The ID of the group</span>
+<span class="sd">        port : int (default 8080)</span>
+<span class="sd">            The API port to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        success : bool</span>
+<span class="sd">            Returns True if successful</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/api/v1/models/</span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s1">/groups/</span><span class="si">{</span><span class="n">group_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">resp</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">AISquaredAPIException</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">ok</span></div>
+
+    <span class="c1"># Feedback operations</span>
+
+<div class="viewcode-block" id="AISquaredPlatformClient.list_model_feedback"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_model_feedback">[docs]</a>    <span class="k">def</span> <span class="nf">list_model_feedback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">as_df</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        List feedback on a model</span>
+
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.list_model_feedback(&#39;model_id&#39;)</span>
+<span class="sd">        *DataFrame with Results*</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        model_id : str</span>
+<span class="sd">            The ID of the model</span>
+<span class="sd">        limit : int (default 10)</span>
+<span class="sd">            The maximum number of feedback items to return</span>
+<span class="sd">        port : int (default 8080)</span>
+<span class="sd">            The API port to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        feedback : dict or pandas DataFrame</span>
+<span class="sd">            The feedback</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/api/v1/feedback/models?modelId=</span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s1">&amp;page=1&amp;pageSize=</span><span class="si">{</span><span class="n">limit</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
                             <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span>
                             <span class="p">)</span>
-        <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">resp</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">404</span><span class="p">:</span>
                 <span class="k">return</span> <span class="kc">None</span>
             <span class="k">raise</span> <span class="n">AISquaredAPIException</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
-        <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span></div>
+        <span class="k">if</span> <span class="n">as_df</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;modelFeedback&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span></div>
 
-    <span class="c1"># TODO</span>
-<div class="viewcode-block" id="AISquaredPlatformClient.list_prediction_feedback"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_prediction_feedback">[docs]</a>    <span class="k">def</span> <span class="nf">list_prediction_feedback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prediction_id</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Not yet implemented&quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Functionality not yet implemented&#39;</span><span class="p">)</span></div>
+<div class="viewcode-block" id="AISquaredPlatformClient.list_prediction_feedback"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_prediction_feedback">[docs]</a>    <span class="k">def</span> <span class="nf">list_prediction_feedback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prediction_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">as_df</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        List prediction feedback given a prediction ID</span>
 
-    <span class="c1"># TODO</span>
-<div class="viewcode-block" id="AISquaredPlatformClient.list_model_predictions"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_model_predictions">[docs]</a>    <span class="k">def</span> <span class="nf">list_model_predictions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Not yet implemented&quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Functionality not yet implemented&#39;</span><span class="p">)</span>
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.list_prediction_feedback(&#39;prediction_id&#39;)</span>
+<span class="sd">        *DataFrame with results*</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        prediction_id : str</span>
+<span class="sd">            The prediction ID</span>
+<span class="sd">        as_df : bool (default True)</span>
+<span class="sd">            Whether to return the results as a pandas DataFrame</span>
+<span class="sd">        port : int (default 8080)</span>
+<span class="sd">            The API port to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        results : pandas DataFrame or dict</span>
+<span class="sd">            The results from the platform</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
             <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/api/v1/predictions?modelID=</span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/api/v1/feedback/predictions?modelId=</span><span class="si">{</span><span class="n">prediction_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">AISquaredAPIException</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+
+        <span class="k">if</span> <span class="n">as_df</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="AISquaredPlatformClient.list_model_prediction_feedback"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_model_prediction_feedback">[docs]</a>    <span class="k">def</span> <span class="nf">list_model_prediction_feedback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">as_df</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        List all feedback for a model</span>
+
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.list_model_prediction_feedback(&#39;model_id&#39;)</span>
+<span class="sd">        *DataFrame with Results*</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        model_id : str</span>
+<span class="sd">            The ID of the model requested</span>
+<span class="sd">        as_df : bool (default True)</span>
+<span class="sd">            Whether to return the results as a pandas DataFrame</span>
+<span class="sd">        port : int (default 8080)</span>
+<span class="sd">            The API port to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        results : dict or pandas DataFrame</span>
+<span class="sd">            The results from the platform</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/api/v1/feedback/predictions?modelId=</span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">resp</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">AISquaredAPIException</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+
+        <span class="k">if</span> <span class="n">as_df</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">json_normalize</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span></div>
+
+    <span class="c1"># User and group management</span>
+
+<div class="viewcode-block" id="AISquaredPlatformClient.create_user"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.create_user">[docs]</a>    <span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">user_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">given_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">family_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">email</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">role_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">active</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">middle_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">company_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8085</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a user within the platform</span>
+
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.create_user(</span>
+<span class="sd">            &#39;user name&#39;,</span>
+<span class="sd">            &#39;given_name&#39;,</span>
+<span class="sd">            &#39;family_name&#39;,</span>
+<span class="sd">            &#39;user_email&#39;,</span>
+<span class="sd">            &#39;role_id&#39;</span>
+<span class="sd">        )</span>
+<span class="sd">        *Dictionary with user information*</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        user_name : str</span>
+<span class="sd">            The display name of the user</span>
+<span class="sd">        given_name : str</span>
+<span class="sd">            The user&#39;s first name</span>
+<span class="sd">        family_name : str</span>
+<span class="sd">            The user&#39;s last name</span>
+<span class="sd">        email : str</span>
+<span class="sd">            The user&#39;s email</span>
+<span class="sd">        role_id : str</span>
+<span class="sd">            The ID of the role to be given to the user</span>
+<span class="sd">        active : bool (default True)</span>
+<span class="sd">            Whether the user is active</span>
+<span class="sd">        middle_name : str or None (default None)</span>
+<span class="sd">            The user&#39;s middle name</span>
+<span class="sd">        company_id : str or None (default None)</span>
+<span class="sd">            The user&#39;s company ID</span>
+<span class="sd">        password : str or None (default None)</span>
+<span class="sd">            The user&#39;s password</span>
+<span class="sd">        port : int (default 8085)</span>
+<span class="sd">            The API port to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        user_data : dict</span>
+<span class="sd">            Metadata about the user</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">json_data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;active&#39;</span><span class="p">:</span> <span class="n">active</span><span class="p">,</span>
+            <span class="s1">&#39;userName&#39;</span><span class="p">:</span> <span class="n">user_name</span><span class="p">,</span>
+            <span class="s1">&#39;givenName&#39;</span><span class="p">:</span> <span class="n">given_name</span><span class="p">,</span>
+            <span class="s1">&#39;familyName&#39;</span><span class="p">:</span> <span class="n">family_name</span><span class="p">,</span>
+            <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="n">email</span><span class="p">,</span>
+            <span class="s1">&#39;roleId&#39;</span><span class="p">:</span> <span class="n">role_id</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="n">middle_name</span><span class="p">:</span>
+            <span class="n">json_data</span><span class="p">[</span><span class="s1">&#39;middleName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">middle_name</span>
+        <span class="k">if</span> <span class="n">company_id</span><span class="p">:</span>
+            <span class="n">json_data</span><span class="p">[</span><span class="s1">&#39;companyId&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">company_id</span>
+        <span class="k">if</span> <span class="n">password</span><span class="p">:</span>
+            <span class="n">json_data</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">password</span>
+
+        <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/userservice/v1/user&#39;</span><span class="p">,</span>
+                <span class="n">json</span><span class="o">=</span><span class="n">json_data</span><span class="p">,</span>
+                <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">AISquaredAPIException</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="AISquaredPlatformClient.update_user"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.update_user">[docs]</a>    <span class="k">def</span> <span class="nf">update_user</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">user_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">given_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">family_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">email</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">role_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">active</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">middle_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">company_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8085</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update information about a user</span>
+
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.update_user(</span>
+<span class="sd">            &#39;user_id&#39;,</span>
+<span class="sd">            &#39;user name&#39;,</span>
+<span class="sd">            &#39;given_name&#39;,</span>
+<span class="sd">            &#39;family_name&#39;,</span>
+<span class="sd">            &#39;user_email&#39;,</span>
+<span class="sd">            &#39;role_id&#39;</span>
+<span class="sd">        )</span>
+<span class="sd">        True</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        user_id : str</span>
+<span class="sd">            The ID of the user to update</span>
+<span class="sd">        user_name : str</span>
+<span class="sd">            The display name of the user</span>
+<span class="sd">        given_name : str</span>
+<span class="sd">            The first name of the user</span>
+<span class="sd">        family_name : str</span>
+<span class="sd">            The last name of the user</span>
+<span class="sd">        email : str</span>
+<span class="sd">            The user&#39;s email</span>
+<span class="sd">        role_id : str</span>
+<span class="sd">            The ID of the user&#39;s role</span>
+<span class="sd">        active : bool (default True)</span>
+<span class="sd">            Whether the user is active</span>
+<span class="sd">        middle_name : str or None (default None)</span>
+<span class="sd">            The user&#39;s middle name</span>
+<span class="sd">        company_id : str or None (default None)</span>
+<span class="sd">            The user&#39;s company ID</span>
+<span class="sd">        password : str or None (default None)</span>
+<span class="sd">            The user&#39;s password</span>
+<span class="sd">        port : int (default 8085)</span>
+<span class="sd">            The API port to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        success : bool</span>
+<span class="sd">            Returns True if update is successful</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">json_data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;active&#39;</span><span class="p">:</span> <span class="n">active</span><span class="p">,</span>
+            <span class="s1">&#39;userName&#39;</span><span class="p">:</span> <span class="n">user_name</span><span class="p">,</span>
+            <span class="s1">&#39;givenName&#39;</span><span class="p">:</span> <span class="n">given_name</span><span class="p">,</span>
+            <span class="s1">&#39;familyName&#39;</span><span class="p">:</span> <span class="n">family_name</span><span class="p">,</span>
+            <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="n">email</span><span class="p">,</span>
+            <span class="s1">&#39;roleId&#39;</span><span class="p">:</span> <span class="n">role_id</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="n">active</span><span class="p">:</span>
+            <span class="n">json_data</span><span class="p">[</span><span class="s1">&#39;active&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">active</span>
+        <span class="k">if</span> <span class="n">middle_name</span><span class="p">:</span>
+            <span class="n">json_data</span><span class="p">[</span><span class="s1">&#39;middleName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">middle_name</span>
+        <span class="k">if</span> <span class="n">company_id</span><span class="p">:</span>
+            <span class="n">json_data</span><span class="p">[</span><span class="s1">&#39;companyId&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">company_id</span>
+        <span class="k">if</span> <span class="n">password</span><span class="p">:</span>
+            <span class="n">json_data</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">password</span>
+
+        <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">put</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/userservice/v1/user/</span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="n">json</span><span class="o">=</span><span class="n">json_data</span><span class="p">,</span>
+                <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">resp</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">AISquaredAPIException</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">ok</span></div>
+
+<div class="viewcode-block" id="AISquaredPlatformClient.delete_user"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.delete_user">[docs]</a>    <span class="k">def</span> <span class="nf">delete_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8085</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete a user from the system</span>
+
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.delete_user(&#39;user_id&#39;)</span>
+<span class="sd">        True</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        user_id : str</span>
+<span class="sd">            The user&#39;s ID</span>
+<span class="sd">        port : int (default 8085)</span>
+<span class="sd">            The API port to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        result : bool</span>
+<span class="sd">            Returns True if the call is successful</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/userservice/v1/user/</span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">204</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">AISquaredAPIException</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="AISquaredPlatformClient.get_user"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_user">[docs]</a>    <span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8085</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieve a user&#39;s information from the platform</span>
+
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.get_user(&#39;user_id&#39;)</span>
+<span class="sd">        *dictionary with results*</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        user_id: str</span>
+<span class="sd">            The ID of the user</span>
+<span class="sd">        port : int (default 8085)</span>
+<span class="sd">            The API port to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        user_info : dict</span>
+<span class="sd">            The information about the user</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/userservice/v1/user/</span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
                 <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span>
             <span class="p">)</span>
         <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">AISquaredAPIException</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">resp</span></div>
+            <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span></div>
 
-    <span class="c1"># TODO</span>
-<div class="viewcode-block" id="AISquaredPlatformClient.list_model_prediction_feedback"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_model_prediction_feedback">[docs]</a>    <span class="k">def</span> <span class="nf">list_model_prediction_feedback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Not yet implemented&quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Functionality not yet implemented&#39;</span><span class="p">)</span></div>
+<div class="viewcode-block" id="AISquaredPlatformClient.get_group"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_group">[docs]</a>    <span class="k">def</span> <span class="nf">get_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8086</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieve information about a group</span>
+
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.get_group(&#39;group_id&#39;)</span>
+<span class="sd">        *dictionary containing group data*</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        group_id : str</span>
+<span class="sd">            The ID of the group requested</span>
+<span class="sd">        port : int (default 8086)</span>
+<span class="sd">            The API port to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        group_info : dict</span>
+<span class="sd">            The information about the group</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/groupservice/v1/group/</span><span class="si">{</span><span class="n">group_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">AISquaredAPIException</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="AISquaredPlatformClient.create_group"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.create_group">[docs]</a>    <span class="k">def</span> <span class="nf">create_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">role_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8086</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a group in the platform</span>
+
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.create_group(</span>
+<span class="sd">            &#39;group_name&#39;,</span>
+<span class="sd">            &#39;role_id&#39;</span>
+<span class="sd">        )</span>
+<span class="sd">        *dictionary containing group information*</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        group_name : str</span>
+<span class="sd">            The display name of the group</span>
+<span class="sd">        role_id : str</span>
+<span class="sd">            The role ID for the group</span>
+<span class="sd">        port : int (default 8086)</span>
+<span class="sd">            The API port to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        group_info : dict</span>
+<span class="sd">            Metadata about the created group</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/groupservice/v1/group&#39;</span><span class="p">,</span>
+                <span class="n">json</span><span class="o">=</span><span class="p">{</span>
+                    <span class="s1">&#39;displayName&#39;</span><span class="p">:</span> <span class="n">group_name</span><span class="p">,</span>
+                    <span class="s1">&#39;roleId&#39;</span><span class="p">:</span> <span class="n">role_id</span>
+                <span class="p">},</span>
+                <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">AISquaredAPIException</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="AISquaredPlatformClient.delete_group"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.delete_group">[docs]</a>    <span class="k">def</span> <span class="nf">delete_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_id</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8086</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete a group from the platform</span>
+
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.delete_group(&#39;group_id&#39;)</span>
+<span class="sd">        True</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        group_id : str</span>
+<span class="sd">            The ID of the group to delete</span>
+<span class="sd">        port : int (default 8086)</span>
+<span class="sd">            The API port to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        result : bool</span>
+<span class="sd">            Returns True if successful</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/groupservice/v1/group/</span><span class="si">{</span><span class="n">group_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">AISquaredAPIException</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">ok</span></div>
+
+<div class="viewcode-block" id="AISquaredPlatformClient.update_group"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.update_group">[docs]</a>    <span class="k">def</span> <span class="nf">update_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">display_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">role_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8086</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update information about a group</span>
+
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.update_group(</span>
+<span class="sd">            &#39;group_id&#39;,</span>
+<span class="sd">            &#39;group display name&#39;,</span>
+<span class="sd">            &#39;role_id&#39;</span>
+<span class="sd">        )</span>
+<span class="sd">        True</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        group_id : str</span>
+<span class="sd">            The ID of the group to update</span>
+<span class="sd">        display_name : str</span>
+<span class="sd">            The display name of the group</span>
+<span class="sd">        role_id : str</span>
+<span class="sd">            The ID of the role for the group</span>
+<span class="sd">        port : int (default 8086)</span>
+<span class="sd">            The API port to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        success : bool</span>
+<span class="sd">            Returns True if successful</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">put</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/groupservice/v1/group/</span><span class="si">{</span><span class="n">group_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="n">json</span><span class="o">=</span><span class="p">{</span>
+                    <span class="s1">&#39;displayName&#39;</span><span class="p">:</span> <span class="n">display_name</span><span class="p">,</span>
+                    <span class="s1">&#39;roleId&#39;</span><span class="p">:</span> <span class="n">role_id</span>
+                <span class="p">},</span>
+                <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">AISquaredAPIException</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">ok</span></div>
+
+<div class="viewcode-block" id="AISquaredPlatformClient.add_users_to_group"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.add_users_to_group">[docs]</a>    <span class="k">def</span> <span class="nf">add_users_to_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">user_ids</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8086</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add users to a group</span>
+
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.add_users_to_group(&#39;group_id&#39;, [&#39;user_id_1&#39;, &#39;user_id_2&#39;])</span>
+<span class="sd">        True</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        group_id : str</span>
+<span class="sd">            The group to add the users to</span>
+<span class="sd">        user_ids : list of str</span>
+<span class="sd">            The IDs of the users to add</span>
+<span class="sd">        port : int (default 8086)</span>
+<span class="sd">            The API port to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        success : bool</span>
+<span class="sd">            Returns True if operation was successful</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">put</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/groupservice/v1/membership&#39;</span><span class="p">,</span>
+                <span class="n">json</span><span class="o">=</span><span class="p">{</span>
+                    <span class="s1">&#39;groupId&#39;</span><span class="p">:</span> <span class="n">group_id</span><span class="p">,</span>
+                    <span class="s1">&#39;userIds&#39;</span><span class="p">:</span> <span class="n">user_ids</span>
+                <span class="p">},</span>
+                <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">resp</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">AISquaredAPIException</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">ok</span></div>
+
+<div class="viewcode-block" id="AISquaredPlatformClient.remove_users_from_group"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.remove_users_from_group">[docs]</a>    <span class="k">def</span> <span class="nf">remove_users_from_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">user_ids</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8086</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove users from a group</span>
+
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.remove_users_from_group(&#39;group_id&#39;, [&#39;user_id_1&#39;, &#39;user_id_2&#39;])</span>
+<span class="sd">        True</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        group_id : str</span>
+<span class="sd">            The ID of the group</span>
+<span class="sd">        user_ids : list of str</span>
+<span class="sd">            The IDs of the users to remove</span>
+<span class="sd">        port : int (default = 8086)</span>
+<span class="sd">            The API port to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        success : bool</span>
+<span class="sd">            Returns True if successful</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/groupservice/v1/membership&#39;</span><span class="p">,</span>
+                <span class="n">json</span><span class="o">=</span><span class="p">{</span>
+                    <span class="s1">&#39;groupId&#39;</span><span class="p">:</span> <span class="n">group_id</span><span class="p">,</span>
+                    <span class="s1">&#39;userIds&#39;</span><span class="p">:</span> <span class="n">user_ids</span>
+                <span class="p">},</span>
+                <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">ok</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">AISquaredAPIException</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span></div>
 
 <div class="viewcode-block" id="AISquaredPlatformClient.list_users"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_users">[docs]</a>    <span class="k">def</span> <span class="nf">list_users</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">as_df</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -690,7 +1223,118 @@
             <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">ids</span><span class="p">,</span> <span class="s1">&#39;displayName&#39;</span><span class="p">:</span> <span class="n">names</span><span class="p">})</span>
         <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="AISquaredPlatformClient.get_user_id_by_name"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_user_id_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_user_id_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="AISquaredPlatformClient.list_roles"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_roles">[docs]</a>    <span class="k">def</span> <span class="nf">list_roles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">as_df</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8086</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        List the roles available in the platform</span>
+
+<span class="sd">        Example usage:</span>
+
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.list_roles()</span>
+<span class="sd">        *DataFrame with results*</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        as_df : bool (default True)</span>
+<span class="sd">            Whether to return the results as a pandas DataFrame</span>
+<span class="sd">        port : int (default 8086)</span>
+<span class="sd">            The API port to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        roles : pandas DataFrame or dict</span>
+<span class="sd">            The roles</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/groupservice/v1/role&#39;</span><span class="p">,</span>
+                <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">as_df</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;content&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;content&#39;</span><span class="p">]</span></div>
+
+    <span class="c1"># Metrics</span>
+
+<div class="viewcode-block" id="AISquaredPlatformClient.list_user_usage_metrics"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_user_usage_metrics">[docs]</a>    <span class="k">def</span> <span class="nf">list_user_usage_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">period</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;hourly&#39;</span><span class="p">,</span> <span class="n">as_df</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get usage metrics for a user</span>
+
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.get_user_usage_metrics(&#39;user_id&#39;)</span>
+<span class="sd">        *DataFrame with results*</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        user_id : str</span>
+<span class="sd">            The ID of the user</span>
+<span class="sd">        period : str (default &#39;hourly&#39;)</span>
+<span class="sd">            The period to group metrics into</span>
+<span class="sd">        as_df : bool (default True)</span>
+<span class="sd">            Whether to return results as a pandas DataFrame</span>
+<span class="sd">        port : int (default 8080)</span>
+<span class="sd">            The API port to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        results : pandas DataFrame or dict</span>
+<span class="sd">            The results from the platform</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/api/v1/usage-metrics?period=</span><span class="si">{</span><span class="n">period</span><span class="si">}</span><span class="s1">&amp;entityId=</span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s1">&amp;entity=user&amp;action=run&#39;</span><span class="p">,</span>
+                <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">AISquaredAPIException</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">as_df</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;plotXYData&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="AISquaredPlatformClient.list_model_usage_metrics"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_model_usage_metrics">[docs]</a>    <span class="k">def</span> <span class="nf">list_model_usage_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">period</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;hourly&#39;</span><span class="p">,</span> <span class="n">as_df</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get usage metrics for a model</span>
+
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.get_model_usage_metrics(&#39;model_id&#39;)</span>
+<span class="sd">        *DataFrame with results*</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        model_id : str</span>
+<span class="sd">            The ID of the model</span>
+<span class="sd">        period : str (default &#39;hourly&#39;)</span>
+<span class="sd">            The period to group metrics into</span>
+<span class="sd">        as_df : bool (default True)</span>
+<span class="sd">            Whether to return results as a pandas DataFrame</span>
+<span class="sd">        port : int (default 8080)</span>
+<span class="sd">            The API port to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        results : pandas DataFrame or dict</span>
+<span class="sd">            The results from the platform</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/api/v1/usage-metrics?period=</span><span class="si">{</span><span class="n">period</span><span class="si">}</span><span class="s1">&amp;entity=model&amp;entityId=</span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s1">&amp;action=run&#39;</span><span class="p">,</span>
+                <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">AISquaredAPIException</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+
+        <span class="k">if</span> <span class="n">as_df</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;plotXYData&#39;</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span></div>
+
+    <span class="c1"># Additional utilities</span>
+
+<div class="viewcode-block" id="AISquaredPlatformClient.get_user_id_by_name"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_user_id_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_user_id_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a user&#39;s ID from their display name</span>
 
@@ -703,6 +1347,8 @@
 <span class="sd">        ----------</span>
 <span class="sd">        name : str</span>
 <span class="sd">            The display name of the user</span>
+<span class="sd">        port : int (default 8080)</span>
+<span class="sd">            The API port to use</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -711,7 +1357,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">users</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_users</span><span class="p">()</span>
+        <span class="n">users</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_users</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">)</span>
         <span class="n">this_user</span> <span class="o">=</span> <span class="n">users</span><span class="p">[</span><span class="n">users</span><span class="o">.</span><span class="n">displayName</span> <span class="o">==</span> <span class="n">name</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">this_user</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -719,28 +1365,127 @@
 
         <span class="k">return</span> <span class="n">this_user</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
 
-    <span class="c1"># TODO</span>
-<div class="viewcode-block" id="AISquaredPlatformClient.add_user_to_group"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.add_user_to_group">[docs]</a>    <span class="k">def</span> <span class="nf">add_user_to_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Not yet implemented&quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Functionality not yet implemented&#39;</span><span class="p">)</span></div>
+<div class="viewcode-block" id="AISquaredPlatformClient.get_model_id_by_name"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_model_id_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_model_id_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieve a model&#39;s ID using the name of the model</span>
 
-    <span class="c1"># TODO</span>
-<div class="viewcode-block" id="AISquaredPlatformClient.remove_user_from_group"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.remove_user_from_group">[docs]</a>    <span class="k">def</span> <span class="nf">remove_user_from_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Not yet implemented&quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Functionality not yet implemented&#39;</span><span class="p">)</span></div>
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.get_model_id_by_name(&#39;my_awesome_model&#39;)</span>
+<span class="sd">        *model_id*</span>
 
-    <span class="c1"># TODO</span>
-<div class="viewcode-block" id="AISquaredPlatformClient.get_user_usage_metrics"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_user_usage_metrics">[docs]</a>    <span class="k">def</span> <span class="nf">get_user_usage_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Not yet implemented&quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Functionality not yet implemented&#39;</span><span class="p">)</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        model_name : str</span>
+<span class="sd">            The name of the model</span>
+<span class="sd">        port : int (default 8080)</span>
+<span class="sd">            The API port to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        model_id : str</span>
+<span class="sd">            The model&#39;s ID</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">models</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_models</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">)</span>
+        <span class="n">this_model</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span><span class="n">models</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">model_name</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">this_model</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;No model with that name appears to exist&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">this_model</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="AISquaredPlatformClient.get_group_id_by_name"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_group_id_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_group_id_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8083</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the ID of a group by searching for its display name</span>
+
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.get_group_id_by_name(&#39;Group Name&#39;)</span>
+<span class="sd">        *group_id*</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        group_name : str</span>
+<span class="sd">            The display name of the group</span>
+<span class="sd">        port : int (default 8083)</span>
+<span class="sd">            The API port to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        group_id : str</span>
+<span class="sd">            The ID of the group</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_groups</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">)</span>
+        <span class="n">this_group</span> <span class="o">=</span> <span class="n">groups</span><span class="p">[</span><span class="n">groups</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">group_name</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">this_group</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;No group with that name appears to exist&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">this_group</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="AISquaredPlatformClient.get_role_id_by_name"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_role_id_by_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_role_id_by_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">role_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8086</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the ID of a role by searching for its display name</span>
+
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.get_role_id_by_name(&#39;Role Name&#39;)</span>
+<span class="sd">        *role_id*</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        role_name : str</span>
+<span class="sd">            The name of the role</span>
+<span class="sd">        port : int (default 8086)</span>
+<span class="sd">            The API port to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        role_id : str</span>
+<span class="sd">            The ID of the role</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">roles</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_roles</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">)</span>
+        <span class="n">this_role</span> <span class="o">=</span> <span class="n">roles</span><span class="p">[</span><span class="n">roles</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">role_name</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">this_role</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;No role with that name appears to exist&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">this_role</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="AISquaredPlatformClient.test_connection"><a class="viewcode-back" href="../../../aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.test_connection">[docs]</a>    <span class="k">def</span> <span class="nf">test_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test whether there is a healthy connection to the platform</span>
+
+<span class="sd">        &gt;&gt;&gt; import aisquared</span>
+<span class="sd">        &gt;&gt;&gt; client = aisquared.platform.AISquaredPlatformClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.test_connection()</span>
+<span class="sd">        Connection successful</span>
+<span class="sd">        200</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        port : int (default 8080)</span>
+<span class="sd">            The API port for the call</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        status_code : int</span>
+<span class="sd">            The status code when checking the health API</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
             <span class="n">resp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/api/v1/usage_metrics?period=hourly&amp;entityId=</span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
-                <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s1">/api/v1/health&#39;</span>
             <span class="p">)</span>
-        <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">AISquaredAPIException</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
-        <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span></div></div>
+        <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Connection successful&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;There may be connection issues: status code </span><span class="si">{</span><span class="n">resp</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span></div></div>
 </pre></div>
 
            </div>

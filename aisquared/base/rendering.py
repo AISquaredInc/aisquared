@@ -48,3 +48,13 @@ QUALIFIERS = [
     'ne',
     'nin'
 ]
+
+POSITIONS = [
+    'absolute',
+    'static'
+]
+
+STATIC_POSITIONS = [
+    'append',
+    'prepend'
+]

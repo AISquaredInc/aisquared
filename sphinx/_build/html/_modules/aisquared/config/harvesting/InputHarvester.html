@@ -66,7 +66,7 @@
            <div itemprop="articleBody">
              
   <h1>Source code for aisquared.config.harvesting.InputHarvester</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">aisquared.base</span> <span class="kn">import</span> <span class="n">BaseObject</span>
+<span></span><span class="kn">from</span> <span class="nn">aisquared.base</span> <span class="kn">import</span> <span class="n">BaseObject</span><span class="p">,</span> <span class="n">ALLOWED_INPUT_TYPES</span>
 
 
 <div class="viewcode-block" id="InputHarvester"><a class="viewcode-back" href="../../../../aisquared.config.harvesting.html#aisquared.config.harvesting.InputHarvester.InputHarvester">[docs]</a><span class="k">class</span> <span class="nc">InputHarvester</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
@@ -113,7 +113,7 @@
 
     <span class="nd">@input_type</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">input_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="s1">&#39;tabular&#39;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ALLOWED_INPUT_TYPES</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                 <span class="s2">&quot;InputHarvester supports &#39;text&#39;, &#39;image&#39;, or &#39;tabular&#39; input&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_input_type</span> <span class="o">=</span> <span class="n">value</span>

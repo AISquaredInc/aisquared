@@ -87,92 +87,17 @@
              
   <section id="aisquared-serving-package">
 <h1>aisquared.serving package<a class="headerlink" href="#aisquared-serving-package" title="Permalink to this heading"></a></h1>
-<section id="module-aisquared.serving">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-aisquared.serving" title="Permalink to this heading"></a></h2>
-<p>The aisquared.serving package contains utilities to serve models to a local REST endpoint.</p>
-<p>Here is an example of how to serve a simple keras model using these utilities:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Assume model is already trained and stored in memory as model</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">aisquared</span> <span class="kn">import</span> <span class="n">serving</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">serving</span><span class="o">.</span><span class="n">save_keras_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;my_model&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">serving</span><span class="o">.</span><span class="n">deploy_model</span><span class="p">(</span>
-<span class="go">    &#39;my_model&#39;,</span>
-<span class="go">    &#39;keras&#39;,</span>
-<span class="go">    additional_functions_file = &#39;&lt;optional file containing `preprocess` and `postprocess` functions, if applicable&gt;&#39;</span>
-<span class="go">)</span>
-<span class="go">App created successfullly. Serving and awaiting requests</span>
-</pre></div>
-</div>
-<p>And to retrieve predictions from the model:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># From a separate terminal, assume data is already loaded</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">aisquared</span> <span class="kn">import</span> <span class="n">serving</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">serving</span><span class="o">.</span><span class="n">get_remote_predictions</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="c1"># Do not need to change host or port if predicting from the same machine</span>
-<span class="go">*predictions*</span>
-</pre></div>
-</div>
+<section id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
 </section>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
-<section id="module-aisquared.serving.deploy_model">
-<span id="aisquared-serving-deploy-model-module"></span><h2>aisquared.serving.deploy_model module<a class="headerlink" href="#module-aisquared.serving.deploy_model" title="Permalink to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="aisquared.serving.deploy_model.deploy_model">
-<span class="sig-prename descclassname"><span class="pre">aisquared.serving.deploy_model.</span></span><span class="sig-name descname"><span class="pre">deploy_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">saved_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'127.0.0.1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2244</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_objects</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">additional_functions_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/serving/deploy_model.html#deploy_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.serving.deploy_model.deploy_model" title="Permalink to this definition"></a></dt>
-<dd><p>Deploy a model to a Flask server on the specified host</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>saved_model</strong> (<em>Path-like</em>) – The path to the saved model directory or model file</p></li>
-<li><p><strong>model_type</strong> (<em>str</em>) – The type of model</p></li>
-<li><p><strong>host</strong> (<em>str</em><em> (</em><em>default '127.0.0.1'</em><em>)</em>) – The host to deploy to</p></li>
-<li><p><strong>port</strong> (<em>int</em><em> (</em><em>default 2244</em><em>)</em>) – The port to deploy to</p></li>
-<li><p><strong>custom_objects</strong> (<em>dict</em><em> or </em><em>None</em><em> (</em><em>default None</em><em>)</em>) – Any custom objects to load when using a MANN model</p></li>
-<li><p><strong>additional_functions_file</strong> (<em>file-like</em><em> or </em><em>None</em><em> (</em><em>default None</em><em>)</em>) – File name containing additional functions (which have to be named <cite>preprocess</cite> and <cite>postprocess</cite>, if created)
-that are used during the prediction process</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="aisquared.serving.deploy_model.load_mann_model">
-<span class="sig-prename descclassname"><span class="pre">aisquared.serving.deploy_model.</span></span><span class="sig-name descname"><span class="pre">load_mann_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_objects</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/serving/deploy_model.html#load_mann_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.serving.deploy_model.load_mann_model" title="Permalink to this definition"></a></dt>
-<dd><p>Load a MANN model with custom objects</p>
-</dd></dl>
-
+<section id="aisquared-serving-deploy-model-module">
+<h2>aisquared.serving.deploy_model module<a class="headerlink" href="#aisquared-serving-deploy-model-module" title="Permalink to this heading"></a></h2>
 </section>
-<section id="module-aisquared.serving.get_remote_prediction">
-<span id="aisquared-serving-get-remote-prediction-module"></span><h2>aisquared.serving.get_remote_prediction module<a class="headerlink" href="#module-aisquared.serving.get_remote_prediction" title="Permalink to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="aisquared.serving.get_remote_prediction.get_remote_prediction">
-<span class="sig-prename descclassname"><span class="pre">aisquared.serving.get_remote_prediction.</span></span><span class="sig-name descname"><span class="pre">get_remote_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'127.0.0.1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2244</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/aisquared/serving/get_remote_prediction.html#get_remote_prediction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.serving.get_remote_prediction.get_remote_prediction" title="Permalink to this definition"></a></dt>
-<dd><p>Send data to use for prediction</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<em>dict</em><em>, </em><em>str</em><em>, </em><em>np.ndarray</em><em>, or </em><em>list</em>) – The data to be predicted on</p></li>
-<li><p><strong>host</strong> (<em>str</em><em> (</em><em>default '127.0.0.1'</em><em>)</em>) – The host to use</p></li>
-<li><p><strong>port</strong> (<em>int</em><em> (</em><em>default '2244'</em><em>)</em>) – The port to use</p></li>
-</ul>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<ul class="simple">
-<li><p>If data is a dictionary, it is expected to already be
-correctly formatted</p></li>
-<li><p>If data is a string, it is expected to already be
-correctly formatted</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>predictions</strong> – The predictions from the deployed model</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>list</p>
-</dd>
-</dl>
-</dd></dl>
-
+<section id="aisquared-serving-get-remote-prediction-module">
+<h2>aisquared.serving.get_remote_prediction module<a class="headerlink" href="#aisquared-serving-get-remote-prediction-module" title="Permalink to this heading"></a></h2>
 </section>
 </section>
 

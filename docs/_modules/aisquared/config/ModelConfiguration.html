@@ -74,7 +74,7 @@
 <span class="kn">from</span> <span class="nn">aisquared.config.preprocessing.text</span> <span class="kn">import</span> <span class="n">TextPreprocessor</span>
 <span class="kn">from</span> <span class="nn">aisquared.config.analytic</span> <span class="kn">import</span> <span class="n">DeployedAnalytic</span><span class="p">,</span> <span class="n">DeployedModel</span><span class="p">,</span> <span class="n">LocalModel</span><span class="p">,</span> <span class="n">LocalAnalytic</span><span class="p">,</span> <span class="n">ReverseMLWorkflow</span>
 <span class="kn">from</span> <span class="nn">aisquared.config.postprocessing</span> <span class="kn">import</span> <span class="n">BinaryClassification</span><span class="p">,</span> <span class="n">MulticlassClassification</span><span class="p">,</span> <span class="n">ObjectDetection</span><span class="p">,</span> <span class="n">Regression</span>
-<span class="kn">from</span> <span class="nn">aisquared.config.rendering</span> <span class="kn">import</span> <span class="n">ImageRendering</span><span class="p">,</span> <span class="n">ObjectRendering</span><span class="p">,</span> <span class="n">DocumentRendering</span><span class="p">,</span> <span class="n">WordRendering</span><span class="p">,</span> <span class="n">FilterRendering</span><span class="p">,</span> <span class="n">ContainerRendering</span><span class="p">,</span> <span class="n">HTMLTagRendering</span><span class="p">,</span> <span class="n">DoughnutChartRendering</span><span class="p">,</span> <span class="n">TableRendering</span><span class="p">,</span> <span class="n">BarChartRendering</span><span class="p">,</span> <span class="n">LineChartRendering</span><span class="p">,</span> <span class="n">DashboardReplacementRendering</span><span class="p">,</span> <span class="n">PieChartRendering</span><span class="p">,</span> <span class="n">SOSRendering</span>
+<span class="kn">from</span> <span class="nn">aisquared.config.rendering</span> <span class="kn">import</span> <span class="n">ImageRendering</span><span class="p">,</span> <span class="n">ObjectRendering</span><span class="p">,</span> <span class="n">DocumentRendering</span><span class="p">,</span> <span class="n">WordRendering</span><span class="p">,</span> <span class="n">FilterRendering</span><span class="p">,</span> <span class="n">ContainerRendering</span><span class="p">,</span> <span class="n">HTMLTagRendering</span><span class="p">,</span> <span class="n">DoughnutChartRendering</span><span class="p">,</span> <span class="n">TableRendering</span><span class="p">,</span> <span class="n">BarChartRendering</span><span class="p">,</span> <span class="n">LineChartRendering</span><span class="p">,</span> <span class="n">DashboardReplacementRendering</span><span class="p">,</span> <span class="n">PieChartRendering</span><span class="p">,</span> <span class="n">SOSRendering</span><span class="p">,</span> <span class="n">DashboardRendering</span>
 <span class="kn">from</span> <span class="nn">aisquared.config.feedback</span> <span class="kn">import</span> <span class="n">SimpleFeedback</span><span class="p">,</span> <span class="n">BinaryFeedback</span><span class="p">,</span> <span class="n">MulticlassFeedback</span><span class="p">,</span> <span class="n">RegressionFeedback</span><span class="p">,</span> <span class="n">ModelFeedback</span><span class="p">,</span> <span class="n">QualitativeFeedback</span>
 
 <span class="kn">import</span> <span class="nn">tensorflowjs</span> <span class="k">as</span> <span class="nn">tfjs</span>
@@ -130,7 +130,8 @@
     <span class="n">DashboardReplacementRendering</span><span class="p">,</span>
     <span class="n">PieChartRendering</span><span class="p">,</span>
     <span class="n">SOSRendering</span><span class="p">,</span>
-    <span class="n">CustomObject</span>
+    <span class="n">CustomObject</span><span class="p">,</span>
+    <span class="n">DashboardRendering</span>
 <span class="p">)</span>
 
 <span class="n">FEEDBACK_CLASSES</span> <span class="o">=</span> <span class="p">(</span>
@@ -157,11 +158,11 @@
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
             <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-            <span class="n">harvesting_steps</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">BaseObject</span><span class="p">,</span> <span class="nb">list</span><span class="p">],</span>
-            <span class="n">preprocessing_steps</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">BaseObject</span><span class="p">,</span> <span class="nb">list</span><span class="p">],</span>
-            <span class="n">analytic</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">BaseObject</span><span class="p">,</span> <span class="nb">list</span><span class="p">],</span>
-            <span class="n">postprocessing_steps</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">BaseObject</span><span class="p">,</span> <span class="nb">list</span><span class="p">],</span>
-            <span class="n">rendering_steps</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">BaseObject</span><span class="p">,</span> <span class="nb">list</span><span class="p">],</span>
+            <span class="n">harvesting_steps</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">BaseObject</span><span class="p">,</span> <span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">preprocessing_steps</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">BaseObject</span><span class="p">,</span> <span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">analytic</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">BaseObject</span><span class="p">,</span> <span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">postprocessing_steps</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">BaseObject</span><span class="p">,</span> <span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">rendering_steps</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">BaseObject</span><span class="p">,</span> <span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
             <span class="n">feedback_steps</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">BaseObject</span><span class="p">,</span> <span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
             <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">ALLOWED_STAGES</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
             <span class="n">version</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -284,7 +285,9 @@
 
     <span class="nd">@analytic</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">analytic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">ANALYTIC_CLASSES</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_analytic</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">ANALYTIC_CLASSES</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_analytic</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span><span class="p">]</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">([</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">ANALYTIC_CLASSES</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_analytic</span> <span class="o">=</span> <span class="n">value</span>
@@ -438,7 +441,7 @@
     <span class="k">def</span> <span class="nf">auto_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;auto_run must be Boolean valued&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_auto_run</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_auto_run</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 
     <span class="c1"># harvester_dict</span>
     <span class="nd">@property</span>
@@ -491,15 +494,24 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">render_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rendering_steps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">[]</span>
+            <span class="n">render_list</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rendering_steps</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">([</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">RENDERING_CLASSES</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rendering_steps</span><span class="p">]):</span>
-            <span class="k">return</span> <span class="p">[</span><span class="n">val</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rendering_steps</span><span class="p">]</span>
+            <span class="n">render_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">val</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rendering_steps</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">[</span>
+            <span class="n">render_list</span> <span class="o">=</span> <span class="p">[</span>
                 <span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">val</span><span class="p">]</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rendering_steps</span>
             <span class="p">]</span>
+        <span class="n">to_ret</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">render_list</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">val</span><span class="p">:</span>
+                    <span class="n">to_ret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">to_ret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">to_ret</span>
 
     <span class="c1"># feedback_dict</span>
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">feedback_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">feedback_steps</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>

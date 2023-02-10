@@ -13,12 +13,12 @@ class ImageRendering(BaseObject):
     >>> my_obj.to_dict()
     {'className': 'ImageRendering',
     'params': {'color': 'blue',
-    'thickness': '5px',
+    'thickness': '5',
     'placement': 'bottomleft',
     'includeProbability': False,
     'badgeColor': 'white',
     'fontColor': 'black',
-    'fontSize': '5px',
+    'fontSize': '5',
     'classes': None,
     'thresholdKey': None,
     'thresholdValue': None}}
@@ -28,12 +28,12 @@ class ImageRendering(BaseObject):
     def __init__(
         self,
         color: str = 'blue',
-        thickness: str = '5px',
+        thickness: str = '5',
         placement: str = LOCATIONS[-1],
         include_probability: bool = False,
         badge_color: str = 'white',
         font_color: str = 'black',
-        font_size: str = '5px',
+        font_size: str = '5',
         classes: list = None,
         threshold_key: str = None,
         threshold_value: Union[int, float] = None
@@ -43,7 +43,7 @@ class ImageRendering(BaseObject):
         ----------
         color : str (default 'blue')
             The color of the box around images
-        thickness : str (default '5px')
+        thickness : str (default '5')
             The thickness of the box around images
         placement : str (default 'bottomleft')
             The placement of the predicted value in the box
@@ -54,7 +54,7 @@ class ImageRendering(BaseObject):
             Background color of the text region
         font_color : str (default 'black')
             Color of the text
-        font_size : str (default '5px')
+        font_size : str (default '5')
             Text size
         classes : None or list (default None)
             If provided, list of classes that will be rendered

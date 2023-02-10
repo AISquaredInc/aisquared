@@ -15,7 +15,9 @@ Welcome to the documentation for the `aisquared` python package!
 
 This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.
 
-**Current Production Version:** ``0.3.1``
+**Current Production Version:** ``0.3.2``
+
+:download:`View this Documentation in PDF Format <./_build/latex/aisquared.pdf>`.
 
 |
 
@@ -103,4 +105,15 @@ Changelog
    - Revamped documentation to use Sphinx
 - Version 0.3.1
    - Changed Python type hints to allow for backwards compatibility with older versions of Python
-
+- Version 0.3.2
+   - Added functionality to the `AISquaredPlatformClient`
+   - Added `top_level_kwargs` parameter to the `CustomObject` class
+   - Added `DashboardRendering` class
+   - Removed 'px' from default values in ImageRendering and ObjectRendering classes
+   - Added functionality for creating, updating, and deleting users to `AISquaredPlatformClient`
+   - Added functionality for creating, updating, and delting groups to `AISquaredPlatformClient`
+   - Fixed bug related to requiring `auto_run` parameter to be string (fix involves casting as string)
+   - Altered schemas for different "Chart" Rendering classes to conform to JavaScript standards
+   - Streamlined the `ModelConfiguration` class to allow a more functional interface to build `.air` files
+   - Updated `ContainerRendering` class with parameters for `position` and `static_position`
+   - Updated across-the-board functionality of the `AISquaredPlatformClient`
