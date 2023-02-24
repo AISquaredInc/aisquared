@@ -33,13 +33,13 @@ _ALLOWED_TYPES = [
     'sklearn',
     'pytorch',
     'keras',
-    'mann'
+    'beyondml'
 ]
 
 
-def load_mann_model(model: str, custom_objects: dict):
+def load_beyondml_model(model: str, custom_objects: dict):
     """
-    Load a MANN model with custom objects
+    Load a BeyondML model with custom objects
     """
     return tf.keras.models.load_model(
         model,
@@ -69,7 +69,7 @@ def deploy_model(
     port : int (default 2244)
         The port to deploy to
     custom_objects : dict or None (default None)
-        Any custom objects to load when using a MANN model
+        Any custom objects to load when using a BeyondML model
     additional_functions_file : file-like or None (default None)
         File name containing additional functions (which have to be named `preprocess` and `postprocess`, if created)
         that are used during the prediction process
@@ -86,8 +86,8 @@ def deploy_model(
         model = load_pytorch_model(saved_model)
     elif model_type == 'keras':
         model = load_keras_model(saved_model)
-    elif model_type == 'mann':
-        model = load_mann_model(saved_model, custom_objects)
+    elif model_type == 'beyondml':
+        model = load_beyondml_model(saved_model, custom_objects)
 
     # Import preprocessing and postprocessing steps, if provided
     if additional_functions_file:
@@ -127,7 +127,7 @@ def deploy_model(
 
         # try to get the data correctly formatted for prediction
         try:
-            if model_type == 'mann':
+            if model_type == 'beyondml':
                 to_predict = [
                     np.asarray(d) for d in to_predict
                 ]

@@ -34,11 +34,8 @@ setup(
     description='Utilities for interacting with the AI Squared Technology Stack',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    license='AI Squared Developer License Agreement',
+    license='Apache 2.0',
     license_files='LICENSE',
     install_requires=requirements,
     extras_require={'full': additional_requirements},
-    classifiers=[
-        'License :: Other/Proprietary License'
-    ]
 )

@@ -2,7 +2,6 @@ mlflow
 flask
 waitress
 click
-numpy
 beyondml
 scikit-learn
 torch

@@ -62,7 +62,7 @@
 
 
 \title{aisquared}
-\date{Feb 10, 2023}
+\date{Feb 24, 2023}
 \release{}
 \author{The AI Squared Team}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -94,7 +94,7 @@
 This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.
 
 \sphinxAtStartPar
-\sphinxstylestrong{Current Production Version:} \sphinxcode{\sphinxupquote{0.3.2}}
+\sphinxstylestrong{Current Production Version:} \sphinxcode{\sphinxupquote{0.3.3}}
 
 \sphinxAtStartPar
 \sphinxcode{\sphinxupquote{View this Documentation in PDF Format}}.
@@ -4527,7 +4527,7 @@ Bases: \sphinxcode{\sphinxupquote{Exception}}
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient}}
 \pysigstartsignatures
-\pysigline{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.platform.AISquaredPlatformClient.}}\sphinxbfcode{\sphinxupquote{AISquaredPlatformClient}}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.platform.AISquaredPlatformClient.}}\sphinxbfcode{\sphinxupquote{AISquaredPlatformClient}}}{\emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{False}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Bases: \sphinxcode{\sphinxupquote{object}}
@@ -4554,7 +4554,7 @@ client will ask for any required information interactively.
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.add_users_to_group}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{add\_users\_to\_group}}}{\emph{\DUrole{n}{group\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{user\_ids}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{list}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8086}}}{{ $\rightarrow$ bool}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{add\_users\_to\_group}}}{\emph{\DUrole{n}{group\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{user\_ids}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{list}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8086}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ bool}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Add users to a group
@@ -4577,7 +4577,11 @@ Add users to a group
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8086}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8086}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -4610,7 +4614,7 @@ The base URL associated with the client
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.create_group}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{create\_group}}}{\emph{\DUrole{n}{group\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{role\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8086}}}{{ $\rightarrow$ dict}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{create\_group}}}{\emph{\DUrole{n}{group\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{role\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8086}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ dict}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Create a group in the platform
@@ -4636,7 +4640,11 @@ Create a group in the platform
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8086}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8086}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -4657,7 +4665,7 @@ dict
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.create_user}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{create\_user}}}{\emph{\DUrole{n}{user\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{given\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{family\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{email}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{role\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{active}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{middle\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{company\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{password}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8085}}}{{ $\rightarrow$ dict}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{create\_user}}}{\emph{\DUrole{n}{user\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{given\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{family\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{email}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{role\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{active}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{middle\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{company\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{password}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8085}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ dict}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Create a user within the platform
@@ -4714,7 +4722,11 @@ Create a user within the platform
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8085}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8085}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -4735,7 +4747,7 @@ dict
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.delete_group}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{delete\_group}}}{\emph{\DUrole{n}{group\_id}}, \emph{\DUrole{n}{port}\DUrole{o}{=}\DUrole{default_value}{8086}}}{{ $\rightarrow$ bool}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{delete\_group}}}{\emph{\DUrole{n}{group\_id}}, \emph{\DUrole{n}{port}\DUrole{o}{=}\DUrole{default_value}{8086}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ bool}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Delete a group from the platform
@@ -4754,7 +4766,11 @@ Delete a group from the platform
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8086}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8086}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -4775,7 +4791,7 @@ bool
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.delete_model}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{delete\_model}}}{\emph{\DUrole{n}{id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ bool}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{delete\_model}}}{\emph{\DUrole{n}{id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ bool}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Delete a model
@@ -4794,7 +4810,11 @@ Delete a model
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the model
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the model. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -4815,7 +4835,7 @@ bool
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.delete_user}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{delete\_user}}}{\emph{\DUrole{n}{user\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8085}}}{{ $\rightarrow$ bool}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{delete\_user}}}{\emph{\DUrole{n}{user\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8085}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ bool}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Delete a user from the system
@@ -4834,7 +4854,11 @@ Delete a user from the system
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8085}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8085}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -4855,7 +4879,7 @@ bool
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_group}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_group}}}{\emph{\DUrole{n}{group\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8086}}}{{ $\rightarrow$ dict}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_group}}}{\emph{\DUrole{n}{group\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8086}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ dict}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Retrieve information about a group
@@ -4874,7 +4898,11 @@ Retrieve information about a group
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8086}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8086}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -4895,7 +4923,7 @@ dict
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_group_id_by_name}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_group\_id\_by\_name}}}{\emph{\DUrole{n}{group\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8083}}}{{ $\rightarrow$ str}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_group\_id\_by\_name}}}{\emph{\DUrole{n}{group\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8083}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ str}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Get the ID of a group by searching for its display name
@@ -4914,7 +4942,11 @@ Get the ID of a group by searching for its display name
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8083}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8083}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -4935,7 +4967,7 @@ str
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_model}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_model}}}{\emph{\DUrole{n}{id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ dict}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_model}}}{\emph{\DUrole{n}{id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ dict}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Retrieve a model configuration
@@ -4954,13 +4986,17 @@ Retrieve a model configuration
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
 \sphinxlineitem{Returns}
 \sphinxAtStartPar
-\sphinxstylestrong{data} \textendash{} Metadata about the model coupled with the model’s configuration information
+\sphinxstylestrong{model} \textendash{} Metadata about the model coupled with the model’s configuration information
 
 \sphinxlineitem{Return type}
 \sphinxAtStartPar
@@ -4975,7 +5011,7 @@ dictionary
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_model_id_by_name}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_model\_id\_by\_name}}}{\emph{\DUrole{n}{model\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ str}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_model\_id\_by\_name}}}{\emph{\DUrole{n}{model\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ str}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Retrieve a model’s ID using the name of the model
@@ -4994,7 +5030,11 @@ Retrieve a model’s ID using the name of the model
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -5015,7 +5055,7 @@ str
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_role_id_by_name}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_role\_id\_by\_name}}}{\emph{\DUrole{n}{role\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8086}}}{{ $\rightarrow$ str}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_role\_id\_by\_name}}}{\emph{\DUrole{n}{role\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8086}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ str}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Get the ID of a role by searching for its display name
@@ -5034,7 +5074,11 @@ Get the ID of a role by searching for its display name
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8086}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8086}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -5055,7 +5099,7 @@ str
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_user}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_user}}}{\emph{\DUrole{n}{user\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8085}}}{{ $\rightarrow$ dict}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_user}}}{\emph{\DUrole{n}{user\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8085}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ dict}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Retrieve a user’s information from the platform
@@ -5074,7 +5118,11 @@ Retrieve a user’s information from the platform
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8085}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8085}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -5095,7 +5143,7 @@ dict
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_user_id_by_name}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_user\_id\_by\_name}}}{\emph{\DUrole{n}{name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ str}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_user\_id\_by\_name}}}{\emph{\DUrole{n}{name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ str}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Get a user’s ID from their display name
@@ -5114,7 +5162,11 @@ Get a user’s ID from their display name
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -5147,7 +5199,7 @@ Headers used for authentication with the AI Squared Platform
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_group_users}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_group\_users}}}{\emph{\DUrole{n}{group\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8083}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}DataFrame\DUrole{p}{,}\DUrole{w}{  }dict\DUrole{p}{{]}}}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_group\_users}}}{\emph{\DUrole{n}{group\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8083}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}DataFrame\DUrole{p}{,}\DUrole{w}{  }dict\DUrole{p}{{]}}}}
 \pysigstopsignatures
 \sphinxAtStartPar
 List users in a group
@@ -5170,7 +5222,11 @@ List users in a group
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8083}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8083}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -5191,7 +5247,7 @@ pandas DataFrame or dictionary
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_groups}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_groups}}}{\emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8083}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}DataFrame\DUrole{p}{,}\DUrole{w}{  }dict\DUrole{p}{{]}}}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_groups}}}{\emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8083}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}DataFrame\DUrole{p}{,}\DUrole{w}{  }dict\DUrole{p}{{]}}}}
 \pysigstopsignatures
 \sphinxAtStartPar
 List all groups
@@ -5210,7 +5266,11 @@ List all groups
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8083}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8083}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -5231,7 +5291,7 @@ pandas DataFrame or dictionary
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_model_feedback}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_model\_feedback}}}{\emph{\DUrole{n}{model\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{limit}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{10}}, \emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}dict\DUrole{p}{,}\DUrole{w}{  }DataFrame\DUrole{p}{{]}}}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_model\_feedback}}}{\emph{\DUrole{n}{model\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{limit}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{10}}, \emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}dict\DUrole{p}{,}\DUrole{w}{  }DataFrame\DUrole{p}{{]}}}}
 \pysigstopsignatures
 \sphinxAtStartPar
 List feedback on a model
@@ -5254,7 +5314,11 @@ List feedback on a model
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -5275,7 +5339,7 @@ dict or pandas DataFrame
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_model_prediction_feedback}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_model\_prediction\_feedback}}}{\emph{\DUrole{n}{model\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}dict\DUrole{p}{,}\DUrole{w}{  }DataFrame\DUrole{p}{{]}}}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_model\_prediction\_feedback}}}{\emph{\DUrole{n}{model\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}dict\DUrole{p}{,}\DUrole{w}{  }DataFrame\DUrole{p}{{]}}}}
 \pysigstopsignatures
 \sphinxAtStartPar
 List all feedback for a model
@@ -5298,7 +5362,11 @@ List all feedback for a model
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -5319,7 +5387,7 @@ dict or pandas DataFrame
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_model_usage_metrics}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_model\_usage\_metrics}}}{\emph{\DUrole{n}{model\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{period}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}hourly\textquotesingle{}}}, \emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}dict\DUrole{p}{,}\DUrole{w}{  }DataFrame\DUrole{p}{{]}}}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_model\_usage\_metrics}}}{\emph{\DUrole{n}{model\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{period}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}hourly\textquotesingle{}}}, \emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}dict\DUrole{p}{,}\DUrole{w}{  }DataFrame\DUrole{p}{{]}}}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Get usage metrics for a model
@@ -5346,7 +5414,11 @@ Get usage metrics for a model
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -5367,7 +5439,7 @@ pandas DataFrame or dict
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_model_users}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_model\_users}}}{\emph{\DUrole{n}{id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}DataFrame\DUrole{p}{,}\DUrole{w}{  }dict\DUrole{p}{{]}}}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_model\_users}}}{\emph{\DUrole{n}{id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}DataFrame\DUrole{p}{,}\DUrole{w}{  }dict\DUrole{p}{{]}}}}
 \pysigstopsignatures
 \sphinxAtStartPar
 List users for a model
@@ -5390,7 +5462,11 @@ List users for a model
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -5411,7 +5487,7 @@ pandas DataFrame or dictionary
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_models}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_models}}}{\emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}DataFrame\DUrole{p}{,}\DUrole{w}{  }dict\DUrole{p}{{]}}}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_models}}}{\emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}DataFrame\DUrole{p}{,}\DUrole{w}{  }dict\DUrole{p}{{]}}}}
 \pysigstopsignatures
 \sphinxAtStartPar
 List models within the platform
@@ -5430,7 +5506,11 @@ List models within the platform
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{default None}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -5451,7 +5531,7 @@ pandas DataFrame or dictionary
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_prediction_feedback}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_prediction\_feedback}}}{\emph{\DUrole{n}{prediction\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}DataFrame\DUrole{p}{,}\DUrole{w}{  }dict\DUrole{p}{{]}}}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_prediction\_feedback}}}{\emph{\DUrole{n}{prediction\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}DataFrame\DUrole{p}{,}\DUrole{w}{  }dict\DUrole{p}{{]}}}}
 \pysigstopsignatures
 \sphinxAtStartPar
 List prediction feedback given a prediction ID
@@ -5474,7 +5554,11 @@ List prediction feedback given a prediction ID
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -5495,7 +5579,7 @@ pandas DataFrame or dict
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_roles}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_roles}}}{\emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8086}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}DataFrame\DUrole{p}{,}\DUrole{w}{  }dict\DUrole{p}{{]}}}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_roles}}}{\emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8086}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}DataFrame\DUrole{p}{,}\DUrole{w}{  }dict\DUrole{p}{{]}}}}
 \pysigstopsignatures
 \sphinxAtStartPar
 List the roles available in the platform
@@ -5517,7 +5601,11 @@ Example usage:
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8086}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8086}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -5538,7 +5626,7 @@ pandas DataFrame or dict
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_user_usage_metrics}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_user\_usage\_metrics}}}{\emph{\DUrole{n}{user\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{period}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}hourly\textquotesingle{}}}, \emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}dict\DUrole{p}{,}\DUrole{w}{  }DataFrame\DUrole{p}{{]}}}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_user\_usage\_metrics}}}{\emph{\DUrole{n}{user\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{period}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}hourly\textquotesingle{}}}, \emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}dict\DUrole{p}{,}\DUrole{w}{  }DataFrame\DUrole{p}{{]}}}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Get usage metrics for a user
@@ -5565,7 +5653,11 @@ Get usage metrics for a user
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -5586,7 +5678,7 @@ pandas DataFrame or dict
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_users}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_users}}}{\emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}DataFrame\DUrole{p}{,}\DUrole{w}{  }dict\DUrole{p}{{]}}}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{list\_users}}}{\emph{\DUrole{n}{as\_df}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ Union\DUrole{p}{{[}}DataFrame\DUrole{p}{,}\DUrole{w}{  }dict\DUrole{p}{{]}}}}
 \pysigstopsignatures
 \sphinxAtStartPar
 List all users
@@ -5605,7 +5697,11 @@ List all users
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -5626,7 +5722,7 @@ pandas DataFrame or dictionary
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.login}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{login}}}{\emph{\DUrole{n}{url}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}, \emph{\DUrole{n}{username}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{password}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ None}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{login}}}{\emph{\DUrole{n}{url}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}, \emph{\DUrole{n}{username}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{password}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ None}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Log in to the platform programmatically.  If no url, username, or password are provided, logs in interactively
@@ -5647,7 +5743,7 @@ Log in to the platform programmatically.  If no url, username, or password are p
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
 
 \item {} 
 \sphinxAtStartPar
@@ -5656,6 +5752,10 @@ Log in to the platform programmatically.  If no url, username, or password are p
 \item {} 
 \sphinxAtStartPar
 \sphinxstyleliteralstrong{\sphinxupquote{password}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The password
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -5680,7 +5780,7 @@ The password associated with the client
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.remove_users_from_group}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{remove\_users\_from\_group}}}{\emph{\DUrole{n}{group\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{user\_ids}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{list}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8086}}}{{ $\rightarrow$ bool}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{remove\_users\_from\_group}}}{\emph{\DUrole{n}{group\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{user\_ids}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{list}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8086}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ bool}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Remove users from a group
@@ -5703,7 +5803,11 @@ Remove users from a group
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default = 8086}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default = 8086}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -5724,7 +5828,7 @@ bool
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.share_model_with_group}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{share\_model\_with\_group}}}{\emph{\DUrole{n}{model\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{group\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ bool}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{share\_model\_with\_group}}}{\emph{\DUrole{n}{model\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{group\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ bool}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Share a model with a group
@@ -5743,11 +5847,15 @@ Share a model with a group
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{group\_id}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The ID for the group to be shared with
+\sphinxstyleliteralstrong{\sphinxupquote{group\_id}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The ID for the group to be shared with. This can be handled automatically by the platform ALB
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -5768,7 +5876,7 @@ bool
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.share_model_with_user}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{share\_model\_with\_user}}}{\emph{\DUrole{n}{model\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{user\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ bool}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{share\_model\_with\_user}}}{\emph{\DUrole{n}{model\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{user\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ bool}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Share a model with a user
@@ -5791,7 +5899,11 @@ Share a model with a user
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -5812,7 +5924,7 @@ bool
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.test_connection}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{test\_connection}}}{\emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ int}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{test\_connection}}}{\emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ int}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Test whether there is a healthy connection to the platform
@@ -5825,9 +5937,16 @@ Test whether there is a healthy connection to the platform
 \PYG{g+go}{200}
 \end{sphinxVerbatim}
 \begin{quote}\begin{description}
-\sphinxlineitem{Parameters}
+\sphinxlineitem{Parameters}\begin{itemize}
+\item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
+
+\end{itemize}
 
 \sphinxlineitem{Returns}
 \sphinxAtStartPar
@@ -5858,7 +5977,7 @@ The token associated with the client
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.unshare_model_with_group}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{unshare\_model\_with\_group}}}{\emph{\DUrole{n}{model\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{group\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ bool}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{unshare\_model\_with\_group}}}{\emph{\DUrole{n}{model\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{group\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ bool}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Unshare a model with a group
@@ -5881,7 +6000,11 @@ Unshare a model with a group
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -5902,7 +6025,7 @@ bool
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.unshare_model_with_user}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{unshare\_model\_with\_user}}}{\emph{\DUrole{n}{model\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{user\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}}{{ $\rightarrow$ bool}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{unshare\_model\_with\_user}}}{\emph{\DUrole{n}{model\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{user\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8080}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ bool}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Unshare a model with a user
@@ -5925,7 +6048,11 @@ Unshare a model with a user
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8080}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -5946,7 +6073,7 @@ bool
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.update_group}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{update\_group}}}{\emph{\DUrole{n}{group\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{display\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{role\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8086}}}{{ $\rightarrow$ bool}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{update\_group}}}{\emph{\DUrole{n}{group\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{display\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{role\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8086}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ bool}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Update information about a group
@@ -5977,7 +6104,11 @@ Update information about a group
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8086}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8086}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -5998,7 +6129,7 @@ bool
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.update_user}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{update\_user}}}{\emph{\DUrole{n}{user\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{user\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{given\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{family\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{email}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{role\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{active}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{middle\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{company\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{password}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8085}}}{{ $\rightarrow$ bool}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{update\_user}}}{\emph{\DUrole{n}{user\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{user\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{given\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{family\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{email}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{role\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{active}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{middle\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{company\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{password}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8085}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ bool}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Update information about a user
@@ -6060,7 +6191,11 @@ Update information about a user
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8085}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8085}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port for the call. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -6081,7 +6216,7 @@ bool
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.upload_model}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{upload\_model}}}{\emph{\DUrole{n}{model\_file}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8081}}}{{ $\rightarrow$ str}}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{upload\_model}}}{\emph{\DUrole{n}{model\_file}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{int}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{8081}}, \emph{\DUrole{n}{use\_port}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}bool\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ str}}
 \pysigstopsignatures
 \sphinxAtStartPar
 Upload a model to the platform
@@ -6100,7 +6235,11 @@ Upload a model to the platform
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8081}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use
+\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default 8081}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The API port to use. This can be handled automatically by the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{use\_port}} (\sphinxstyleliteralemphasis{\sphinxupquote{bool}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Whether to use port in URL formatting. If None, defaults to class value
 
 \end{itemize}
 
@@ -6114,6 +6253,15 @@ bool
 
 \end{description}\end{quote}
 
+\end{fulllineitems}
+
+\index{use\_port (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property)@\spxentry{use\_port}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.use_port}}
+\pysigstartsignatures
+\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w}{  }}}\sphinxbfcode{\sphinxupquote{use\_port}}}
+\pysigstopsignatures
 \end{fulllineitems}
 
 \index{username (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property)@\spxentry{username}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}}
@@ -6202,7 +6350,7 @@ Deploy a model to a Flask server on the specified host
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{custom\_objects}} (\sphinxstyleliteralemphasis{\sphinxupquote{dict}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Any custom objects to load when using a MANN model
+\sphinxstyleliteralstrong{\sphinxupquote{custom\_objects}} (\sphinxstyleliteralemphasis{\sphinxupquote{dict}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} Any custom objects to load when using a BeyondML model
 
 \item {} 
 \sphinxAtStartPar
@@ -6215,15 +6363,15 @@ that are used during the prediction process
 
 \end{fulllineitems}
 
-\index{load\_mann\_model() (in module aisquared.serving.deploy\_model)@\spxentry{load\_mann\_model()}\spxextra{in module aisquared.serving.deploy\_model}}
+\index{load\_beyondml\_model() (in module aisquared.serving.deploy\_model)@\spxentry{load\_beyondml\_model()}\spxextra{in module aisquared.serving.deploy\_model}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.serving:aisquared.serving.deploy_model.load_mann_model}}
+\phantomsection\label{\detokenize{aisquared.serving:aisquared.serving.deploy_model.load_beyondml_model}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxcode{\sphinxupquote{aisquared.serving.deploy\_model.}}\sphinxbfcode{\sphinxupquote{load\_mann\_model}}}{\emph{\DUrole{n}{model}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{custom\_objects}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{dict}}}{}
+\pysiglinewithargsret{\sphinxcode{\sphinxupquote{aisquared.serving.deploy\_model.}}\sphinxbfcode{\sphinxupquote{load\_beyondml\_model}}}{\emph{\DUrole{n}{model}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{custom\_objects}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{dict}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
-Load a MANN model with custom objects
+Load a BeyondML model with custom objects
 
 \end{fulllineitems}
 
@@ -6749,6 +6897,28 @@ Updated \sphinxtitleref{ContainerRendering} class with parameters for \sphinxtit
 \item {} 
 \sphinxAtStartPar
 Updated across\sphinxhyphen{}the\sphinxhyphen{}board functionality of the \sphinxtitleref{AISquaredPlatformClient}
+
+\end{itemize}
+
+\end{description}
+
+\item {} \begin{description}
+\sphinxlineitem{Version 0.3.3}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Updated functionality of the \sphinxtitleref{AISquaredPlatformClient} to interact directly with the platform ALB
+
+\item {} 
+\sphinxAtStartPar
+Changed function names in support of change from MANN to BeyondML
+
+\item {} 
+\sphinxAtStartPar
+Added documentation surrounding global configuration objects
+
+\item {} 
+\sphinxAtStartPar
+Removed redundant additional dependencies
 
 \end{itemize}
 
