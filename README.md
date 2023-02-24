@@ -1,5 +1,6 @@
 # AISquared
 
+[![Documentation](https://badgen.net/badge/icon/Documentation?icon=chrome&label)](https://aisquaredinc.github.io/aisquared/index.html)
 [![PyPI version](https://badge.fury.io/py/aisquared.svg)](https://badge.fury.io/py/aisquared)
 ![Tests](https://github.com/aisquaredinc/aisquared/actions/workflows/python-package.yml/badge.svg)
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
