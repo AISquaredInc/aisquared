@@ -38,19 +38,25 @@ class AISquaredPlatformClient:
 
     """
 
-    def __init__(self):
+    def __init__(
+        self,
+        use_port = False
+        ):
 
         try:
             self._load_info(CONFIG_FILE)
         except Exception as e:
             print('It appears you are not authenticated to the AI Squared Platform. Please run Client.login() before performing any action')
+        
+        self.use_port = use_port
 
     def login(
         self,
         url: str = None,
         port: int = 8080,
         username: str = None,
-        password: str = None
+        password: str = None,
+        _use_port = None
     ) -> None:
         """
         Log in to the platform programmatically.  If no url, username, or password are provided, logs in interactively
@@ -66,12 +72,14 @@ class AISquaredPlatformClient:
         ----------
         url : str or None (default None)
             The URL for the platform API
-        port : int (default 8080)
-            The API port for the call
+        port : int or None (default 8080)
+            The API port for the call. This can be handled automatically by the platform ALB
         username : str or None (default None)
             The username
         password : str or None (default None)
             The password
+        _use_port : None
+            Adopts value of global variable
 
         """
         if url is None:
@@ -81,14 +89,24 @@ class AISquaredPlatformClient:
         if password is None:
             password = getpass('Enter Password: ')
 
+        _use_port = self.use_port
+        if _use_port == False:
+            url = f'{url}'
+        else:
+            if type(port) == int: 
+                url = f'{url}:{port}'
+            else: 
+                raise TypeError("The port number must be an integer")
+            
         with requests.Session() as sess:
             resp = sess.post(
-                f'{url}:{port}/api/v1/auth/login',
+                f'{url}/api/v1/auth/login',
                 data={
                     'username': username,
                     'password': password
                 }
             )
+
         if resp.status_code != 200:
             raise AISquaredAPIException('Authentication failed')
         else:
@@ -153,7 +171,7 @@ class AISquaredPlatformClient:
 
     # CRUDL operations for models
 
-    def list_models(self, as_df: bool = True, port: int = 8080) -> Union[pd.DataFrame, dict]:
+    def list_models(self, as_df: bool = True, port: int = 8080, _use_port = None) -> Union[pd.DataFrame, dict]:
         """
         List models within the platform
 
@@ -166,8 +184,10 @@ class AISquaredPlatformClient:
         ----------
         as_df : bool (default True)
             Whether to return the response as a pandas DataFrame
-        port : int (default 8080)
-            The API port for the call
+        port : default None
+            The API port for the call. This can be handled automatically by the platform ALB
+        _use_port : None
+            Adopts value of global variable
 
         Returns
         -------
@@ -175,8 +195,17 @@ class AISquaredPlatformClient:
             The models
 
         """
+        _use_port = self.use_port
+        if _use_port == False:
+            url = f'{self.base_url}'
+        else:
+            if type(port) == int: 
+                url = f'{self.base_url}:{port}'
+            else: 
+                raise TypeError("The port number must be an integer")
+
         with requests.Session() as sess:
-            url = f'{self.base_url}:{port}/api/v1/models?userOnly=true'
+            url = f'{url}/api/v1/models?userOnly=true'
             resp = sess.get(
                 url,
                 headers=self.headers
@@ -194,7 +223,7 @@ class AISquaredPlatformClient:
 
             return resp.json()['data']['models']
 
-    def upload_model(self, model_file: str, port: int = 8081) -> str:
+    def upload_model(self, model_file: str, port: int = 8081, _use_port = None) -> str:
         """
         Upload a model to the platform
 
@@ -208,7 +237,9 @@ class AISquaredPlatformClient:
         model_file : path or path-like
             The path to the model file
         port : int (default 8081)
-            The API port to use
+            The API port to use. This can be handled automatically by the platform ALB
+        _use_port : None
+            Adopts value of global variable
 
         Returns
         -------
@@ -216,11 +247,19 @@ class AISquaredPlatformClient:
             Whether the action was successful
 
         """
+        _use_port = self.use_port
+        if _use_port == False:
+            url = f'{self.base_url}'
+        else:
+            if type(port) == int: 
+                url = f'{self.base_url}:{port}'
+            else: 
+                raise TypeError("The port number must be an integer")
         with open(model_file, 'rb') as f:
 
             with requests.Session() as sess:
                 resp = sess.post(
-                    f'{self.base_url}:{port}/upload/v1/models',
+                    f'{url}/upload/v1/models',
                     headers=self.headers,
                     files={'model': f}
                 )
@@ -230,7 +269,7 @@ class AISquaredPlatformClient:
 
         return resp.json()['data']['id']
 
-    def get_model(self, id: str, port: int = 8080) -> dict:
+    def get_model(self, id: str, port: int = 8080, _use_port = None) -> dict:
         """
         Retrieve a model configuration
 
@@ -244,7 +283,9 @@ class AISquaredPlatformClient:
         id : str
             The ID for the model
         port : int (default 8080)
-            The API port for the call
+            The API port for the call. This can be handled automatically by the platform ALB
+        _use_port : None
+            Adopts value of global variable
 
         Returns
         -------
@@ -252,16 +293,24 @@ class AISquaredPlatformClient:
             Metadata about the model coupled with the model's configuration information
 
         """
+        _use_port = self.use_port
+        if _use_port == False:
+            url = f'{self.base_url}'
+        else:
+            if type(port) == int: 
+                url = f'{self.base_url}:{port}'
+            else: 
+                raise TypeError("The port number must be an integer")
         with requests.Session() as sess:
             resp = sess.get(
-                f'{self.base_url}:{port}/api/v1/models/{id}',
+                f'{url}/api/v1/models/{id}',
                 headers=self.headers
             )
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
         return resp.json()['data']
 
-    def delete_model(self, id: str, port: int = 8080) -> bool:
+    def delete_model(self, id: str, port: int = 8080, _use_port = None) -> bool:
         """
         Delete a model
 
@@ -275,7 +324,9 @@ class AISquaredPlatformClient:
         id : str
             The ID for the model
         port : int (default 8080)
-            The API port for the model
+            The API port for the model. This can be handled automatically by the platform ALB
+        _use_port : None
+            Adopts value of global variable
 
         Returns
         -------
@@ -283,9 +334,17 @@ class AISquaredPlatformClient:
             Whether the action was successful
 
         """
+        _use_port = self.use_port
+        if _use_port == False:
+            url = f'{self.base_url}'
+        else:
+            if type(port) == int: 
+                url = f'{self.base_url}:{port}'
+            else: 
+                raise TypeError("The port number must be an integer")
         with requests.Session() as sess:
             resp = sess.delete(
-                f'{self.base_url}:{port}/api/v1/models/{id}',
+                f'{url}/api/v1/models/{id}',
                 headers=self.headers
             )
         if resp.status_code != 200:
@@ -294,7 +353,7 @@ class AISquaredPlatformClient:
 
     # Sharing operations for models
 
-    def list_model_users(self, id: str, as_df: bool = True, port: int = 8080) -> Union[pd.DataFrame, dict]:
+    def list_model_users(self, id: str, as_df: bool = True, port: int = 8080, _use_port = None) -> Union[pd.DataFrame, dict]:
         """
         List users for a model
 
@@ -310,7 +369,9 @@ class AISquaredPlatformClient:
         as_df : bool (default True)
             Whether to return the response as a Pandas DataFrame
         port : int (default 8080)
-            The API port for the call
+            The API port for the call. This can be handled automatically by the platform ALB
+        _use_port : None
+            Adopts value of global variable
 
         Returns
         -------
@@ -318,9 +379,18 @@ class AISquaredPlatformClient:
             The users for the model
 
         """
+        _use_port = self.use_port
+        if _use_port == False:
+            url = f'{self.base_url}'
+        else:
+            if type(port) == int: 
+                url = f'{self.base_url}:{port}'
+            else: 
+                raise TypeError("The port number must be an integer")
+
         with requests.Session() as sess:
             resp = sess.get(
-                f'{self.base_url}:{port}/api/v1/models/{id}/users',
+                f'{url}/api/v1/models/{id}/users',
                 headers=self.headers
             )
         if resp.status_code != 200:
@@ -332,7 +402,7 @@ class AISquaredPlatformClient:
 
             return resp.json()
 
-    def share_model_with_user(self, model_id: str, user_id: str, port: int = 8080) -> bool:
+    def share_model_with_user(self, model_id: str, user_id: str, port: int = 8080, _use_port = None) -> bool:
         """
         Share a model with a user
 
@@ -348,7 +418,9 @@ class AISquaredPlatformClient:
         user_id : str
             The ID for the user
         port : int (default 8080)
-            The API port for the call
+            The API port for the call. This can be handled automatically by the platform ALB
+        _use_port : None
+            Adopts value of global variable    
 
         Returns
         -------
@@ -356,16 +428,26 @@ class AISquaredPlatformClient:
             Whether the action was successful
 
         """
+
+        _use_port = self.use_port
+        if _use_port == False:
+            url = f'{self.base_url}'
+        else:
+            if type(port) == int: 
+                url = f'{self.base_url}:{port}'
+            else: 
+                raise TypeError("The port number must be an integer")
+
         with requests.Session() as sess:
             resp = sess.put(
-                f'{self.base_url}:{port}/api/v1/models/{model_id}/users/{user_id}',
+                f'{url}/api/v1/models/{model_id}/users/{user_id}',
                 headers=self.headers
             )
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
         return resp.json()['success']
 
-    def unshare_model_with_user(self, model_id: str, user_id: str, port: int = 8080) -> bool:
+    def unshare_model_with_user(self, model_id: str, user_id: str, port: int = 8080, _use_port = None) -> bool:
         """
         Unshare a model with a user
 
@@ -381,7 +463,9 @@ class AISquaredPlatformClient:
         user_id : str
             The ID for the user
         port : int (default 8080)
-            The API port for the call
+            The API port for the call. This can be handled automatically by the platform ALB
+        _use_port : None
+            Adopts value of global variable
 
         Returns
         -------
@@ -389,16 +473,25 @@ class AISquaredPlatformClient:
             Whether the action was successful
 
         """
+        _use_port = self.use_port
+        if _use_port == False:
+            url = f'{self.base_url}'
+        else:
+            if type(port) == int: 
+                        url = f'{self.base_url}:{port}'
+            else: 
+                    raise TypeError("The port number must be an integer")
+            
         with requests.Session() as sess:
             resp = sess.delete(
-                f'{self.base_url}:{port}/api/v1/models/{model_id}/users/{user_id}',
+                f'{url}/api/v1/models/{model_id}/users/{user_id}',
                 headers=self.headers
             )
         if resp.status_code != 200:
             raise AISquaredAPIException(resp.json())
         return resp.json()['success']
 
-    def share_model_with_group(self, model_id: str, group_id: str, port: int = 8080) -> bool:
+    def share_model_with_group(self, model_id: str, group_id: str, port: int = 8080, _use_port = None) -> bool:
         """
         Share a model with a group
 
@@ -412,25 +505,37 @@ class AISquaredPlatformClient:
         model_id : str
             The ID for the model to be shared
         group_id : str
-            The ID for the group to be shared with
+            The ID for the group to be shared with. This can be handled automatically by the platform ALB
         port : int (default 8080)
-            The API port to use
+            The API port to use. This can be handled automatically by the platform ALB
+        _use_port : None
+            Adopts value of global variable
+
 
         Returns
         -------
         success : bool
             Returns True if successful
         """
+        _use_port = self.use_port
+        if _use_port == False:
+            url = f'{self.base_url}'
+        else:
+            if type(port) == int: 
+                        url = f'{self.base_url}:{port}'
+            else: 
+                    raise TypeError("The port number must be an integer")
+
         with requests.Session() as sess:
             resp = sess.put(
-                f'{self.base_url}:{port}/api/v1/models/{model_id}/groups/{group_id}',
+                f'{url}/api/v1/models/{model_id}/groups/{group_id}',
                 headers=self.headers
             )
         if not resp.ok:
             raise AISquaredAPIException(resp.json())
         return resp.ok
 
-    def unshare_model_with_group(self, model_id: str, group_id: str, port: int = 8080) -> bool:
+    def unshare_model_with_group(self, model_id: str, group_id: str, port: int = 8080, _use_port = None) -> bool:
         """
         Unshare a model with a group
 
@@ -446,16 +551,27 @@ class AISquaredPlatformClient:
         group_id : str
             The ID of the group
         port : int (default 8080)
-            The API port to use
+            The API port to use. This can be handled automatically by the platform ALB
+        _use_port : None
+            Adopts value of global variable
 
         Returns
         -------
         success : bool
             Returns True if successful
         """
+        _use_port = self.use_port
+        if _use_port == False:
+            url = f'{self.base_url}'
+        else:
+            if type(port) == int: 
+                        url = f'{self.base_url}:{port}'
+            else: 
+                    raise TypeError("The port number must be an integer")
+                    
         with requests.Session() as sess:
             resp = sess.delete(
-                f'{self.base_url}:{port}/api/v1/models/{model_id}/groups/{group_id}',
+                f'{url}/api/v1/models/{model_id}/groups/{group_id}',
                 headers=self.headers
             )
 
@@ -465,7 +581,7 @@ class AISquaredPlatformClient:
 
     # Feedback operations
 
-    def list_model_feedback(self, model_id: str, limit: int = 10, as_df: bool = True, port: int = 8080) -> Union[dict, pd.DataFrame]:
+    def list_model_feedback(self, model_id: str, limit: int = 10, as_df: bool = True, port: int = 8080, _use_port = None) -> Union[dict, pd.DataFrame]:
         """
         List feedback on a model
 
@@ -481,15 +597,26 @@ class AISquaredPlatformClient:
         limit : int (default 10)
             The maximum number of feedback items to return
         port : int (default 8080)
-            The API port to use
+            The API port to use. This can be handled automatically by the platform ALB
+        _use_port : None
+            Adopts value of global variable
 
         Returns
         -------
         feedback : dict or pandas DataFrame
             The feedback
         """
+        _use_port = self.use_port
+        if _use_port == False:
+            url = f'{self.base_url}'
+        else:
+            if type(port) == int: 
+                        url = f'{self.base_url}:{port}'
+            else: 
+                    raise TypeError("The port number must be an integer")
+                    
         with requests.Session() as sess:
-            resp = sess.get(f'{self.base_url}:{port}/api/v1/feedback/models?modelId={model_id}&page=1&pageSize={limit}',
+            resp = sess.get(f'{url}/api/v1/feedback/models?modelId={model_id}&page=1&pageSize={limit}',
                             headers=self.headers
                             )
         if not resp.ok:
@@ -500,7 +627,7 @@ class AISquaredPlatformClient:
             return pd.DataFrame(resp.json()['data']['modelFeedback'])
         return resp.json()['data']
 
-    def list_prediction_feedback(self, prediction_id: str, as_df: bool = True, port: int = 8080) -> Union[pd.DataFrame, dict]:
+    def list_prediction_feedback(self, prediction_id: str, as_df: bool = True, port: int = 8080, _use_port = None) -> Union[pd.DataFrame, dict]:
         """
         List prediction feedback given a prediction ID
 
@@ -516,7 +643,9 @@ class AISquaredPlatformClient:
         as_df : bool (default True)
             Whether to return the results as a pandas DataFrame
         port : int (default 8080)
-            The API port to use
+            The API port to use. This can be handled automatically by the platform ALB
+        _use_port : None
+            Adopts value of global variable
 
         Returns
         -------
@@ -524,10 +653,18 @@ class AISquaredPlatformClient:
             The results from the platform
 
         """
+        _use_port = self.use_port
+        if _use_port == False:
+            url = f'{self.base_url}'
+        else:
+            if type(port) == int: 
+                        url = f'{self.base_url}:{port}'
+            else: 
+                    raise TypeError("The port number must be an integer")
 
         with requests.Session() as sess:
             resp = sess.get(
-                f'{self.base_url}:{port}/api/v1/feedback/predictions?modelId={prediction_id}',
+                f'{url}/api/v1/feedback/predictions?modelId={prediction_id}',
                 headers=self.headers
             )
 
@@ -538,7 +675,7 @@ class AISquaredPlatformClient:
             return pd.DataFrame(resp.json()['data'])
         return resp.json()
 
-    def list_model_prediction_feedback(self, model_id: str, as_df: bool = True, port: int = 8080) -> Union[dict, pd.DataFrame]:
+    def list_model_prediction_feedback(self, model_id: str, as_df: bool = True, port: int = 8080, _use_port = None) -> Union[dict, pd.DataFrame]:
         """
         List all feedback for a model
 
@@ -554,16 +691,27 @@ class AISquaredPlatformClient:
         as_df : bool (default True)
             Whether to return the results as a pandas DataFrame
         port : int (default 8080)
-            The API port to use
+            The API port to use. This can be handled automatically by the platform ALB
+        _use_port : None
+            Adopts value of global variable
 
         Returns
         -------
         results : dict or pandas DataFrame
             The results from the platform
         """
+        _use_port = self.use_port
+        if _use_port == False:
+            url = f'{self.base_url}'
+        else:
+            if type(port) == int: 
+                        url = f'{self.base_url}:{port}'
+            else: 
+                    raise TypeError("The port number must be an integer")
+
         with requests.Session() as sess:
             resp = sess.get(
-                f'{self.base_url}:{port}/api/v1/feedback/predictions?modelId={model_id}',
+                f'{url}/api/v1/feedback/predictions?modelId={model_id}',
                 headers=self.headers
             )
         if not resp.ok:
