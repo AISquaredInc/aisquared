@@ -2,6 +2,7 @@ from typing import Union
 
 from getpass import getpass
 import pandas as pd
+import warnings
 import requests
 import platform
 import json
@@ -40,15 +41,26 @@ class AISquaredPlatformClient:
 
     def __init__(
         self,
-        use_port = False
-        ):
+        use_port=False
+    ):
 
         try:
             self._load_info(CONFIG_FILE)
         except Exception as e:
-            print('It appears you are not authenticated to the AI Squared Platform. Please run Client.login() before performing any action')
-        
+            warnings.warn(
+                'It appears you are not authenticated to the AI Squared Platform. Please run Client.login() before performing any action')
+
         self.use_port = use_port
+
+    @property
+    def use_port(self):
+        return self._use_port
+
+    @use_port.setter
+    def use_port(self, value):
+        if not isinstance(value, bool):
+            raise TypeError('use_port must be Boolean')
+        self._use_port = value
 
     def login(
         self,
@@ -56,7 +68,7 @@ class AISquaredPlatformClient:
         port: int = 8080,
         username: str = None,
         password: str = None,
-        _use_port = None
+        use_port: bool = None
     ) -> None:
         """
         Log in to the platform programmatically.  If no url, username, or password are provided, logs in interactively
@@ -78,8 +90,8 @@ class AISquaredPlatformClient:
             The username
         password : str or None (default None)
             The password
-        _use_port : None
-            Adopts value of global variable
+        use_port : bool or None (default None)
+            Whether to use port in URL formatting. If None, defaults to class value
 
         """
         if url is None:
@@ -89,18 +101,14 @@ class AISquaredPlatformClient:
         if password is None:
             password = getpass('Enter Password: ')
 
-        _use_port = self.use_port
-        if _use_port == False:
-            url = f'{url}'
-        else:
-            if type(port) == int: 
-                url = f'{url}:{port}'
-            else: 
-                raise TypeError("The port number must be an integer")
-            
+        if use_port is None:
+            use_port = self.use_port
+
+        call_url = self._format_url(url, port, use_port)
+
         with requests.Session() as sess:
             resp = sess.post(
-                f'{url}/api/v1/auth/login',
+                f'{call_url}/api/v1/auth/login',
                 data={
                     'username': username,
                     'password': password
@@ -141,6 +149,12 @@ class AISquaredPlatformClient:
         self._password = data['password']
         self._token = data['token']
 
+    def _format_url(self, url, port, use_port):
+        if use_port:
+            return f'{url}:{port}'
+        else:
+            return url
+
     @property
     def headers(self):
         """Headers used for authentication with the AI Squared Platform"""
@@ -171,7 +185,7 @@ class AISquaredPlatformClient:
 
     # CRUDL operations for models
 
-    def list_models(self, as_df: bool = True, port: int = 8080, _use_port = None) -> Union[pd.DataFrame, dict]:
+    def list_models(self, as_df: bool = True, port: int = 8080, use_port: bool = None) -> Union[pd.DataFrame, dict]:
         """
         List models within the platform
 
@@ -195,14 +209,11 @@ class AISquaredPlatformClient:
             The models
 
         """
-        _use_port = self.use_port
-        if _use_port == False:
-            url = f'{self.base_url}'
-        else:
-            if type(port) == int: 
-                url = f'{self.base_url}:{port}'
-            else: 
-                raise TypeError("The port number must be an integer")
+
+        if use_port is None:
+            use_port = self.use_port
+
+        url = self._format_url(self.base_url, port, use_port)
 
         with requests.Session() as sess:
             url = f'{url}/api/v1/models?userOnly=true'
@@ -223,7 +234,7 @@ class AISquaredPlatformClient:
 
             return resp.json()['data']['models']
 
-    def upload_model(self, model_file: str, port: int = 8081, _use_port = None) -> str:
+    def upload_model(self, model_file: str, port: int = 8081, _use_port=None) -> str:
         """
         Upload a model to the platform
 
@@ -247,14 +258,12 @@ class AISquaredPlatformClient:
             Whether the action was successful
 
         """
-        _use_port = self.use_port
-        if _use_port == False:
-            url = f'{self.base_url}'
-        else:
-            if type(port) == int: 
-                url = f'{self.base_url}:{port}'
-            else: 
-                raise TypeError("The port number must be an integer")
+
+        if use_port is None:
+            use_port = self.use_port
+
+        url = self._format_url(self.base_url, port, use_port)
+
         with open(model_file, 'rb') as f:
 
             with requests.Session() as sess:
@@ -269,7 +278,7 @@ class AISquaredPlatformClient:
 
         return resp.json()['data']['id']
 
-    def get_model(self, id: str, port: int = 8080, _use_port = None) -> dict:
+    def get_model(self, id: str, port: int = 8080, _use_port=None) -> dict:
         """
         Retrieve a model configuration
 
@@ -293,14 +302,12 @@ class AISquaredPlatformClient:
             Metadata about the model coupled with the model's configuration information
 
         """
-        _use_port = self.use_port
-        if _use_port == False:
-            url = f'{self.base_url}'
-        else:
-            if type(port) == int: 
-                url = f'{self.base_url}:{port}'
-            else: 
-                raise TypeError("The port number must be an integer")
+
+        if use_port is None:
+            use_port = self.use_port
+
+        url = self._format_url(self.base_url, port, use_port)
+
         with requests.Session() as sess:
             resp = sess.get(
                 f'{url}/api/v1/models/{id}',
@@ -310,7 +317,7 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()['data']
 
-    def delete_model(self, id: str, port: int = 8080, _use_port = None) -> bool:
+    def delete_model(self, id: str, port: int = 8080, use_port=None) -> bool:
         """
         Delete a model
 
@@ -334,14 +341,12 @@ class AISquaredPlatformClient:
             Whether the action was successful
 
         """
-        _use_port = self.use_port
-        if _use_port == False:
-            url = f'{self.base_url}'
-        else:
-            if type(port) == int: 
-                url = f'{self.base_url}:{port}'
-            else: 
-                raise TypeError("The port number must be an integer")
+
+        if use_port is None:
+            use_port = self.use_port
+
+        url = self._format_url(self.base_url, port, use_port)
+
         with requests.Session() as sess:
             resp = sess.delete(
                 f'{url}/api/v1/models/{id}',
@@ -353,7 +358,7 @@ class AISquaredPlatformClient:
 
     # Sharing operations for models
 
-    def list_model_users(self, id: str, as_df: bool = True, port: int = 8080, _use_port = None) -> Union[pd.DataFrame, dict]:
+    def list_model_users(self, id: str, as_df: bool = True, port: int = 8080, use_port=None) -> Union[pd.DataFrame, dict]:
         """
         List users for a model
 
@@ -379,14 +384,11 @@ class AISquaredPlatformClient:
             The users for the model
 
         """
-        _use_port = self.use_port
-        if _use_port == False:
-            url = f'{self.base_url}'
-        else:
-            if type(port) == int: 
-                url = f'{self.base_url}:{port}'
-            else: 
-                raise TypeError("The port number must be an integer")
+
+        if use_port is None:
+            use_port = self.use_port
+
+        url = self._format_url(self.base_url, port, use_port)
 
         with requests.Session() as sess:
             resp = sess.get(
@@ -402,7 +404,7 @@ class AISquaredPlatformClient:
 
             return resp.json()
 
-    def share_model_with_user(self, model_id: str, user_id: str, port: int = 8080, _use_port = None) -> bool:
+    def share_model_with_user(self, model_id: str, user_id: str, port: int = 8080, _use_port=None) -> bool:
         """
         Share a model with a user
 
@@ -433,9 +435,9 @@ class AISquaredPlatformClient:
         if _use_port == False:
             url = f'{self.base_url}'
         else:
-            if type(port) == int: 
+            if type(port) == int:
                 url = f'{self.base_url}:{port}'
-            else: 
+            else:
                 raise TypeError("The port number must be an integer")
 
         with requests.Session() as sess:
@@ -447,7 +449,7 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()['success']
 
-    def unshare_model_with_user(self, model_id: str, user_id: str, port: int = 8080, _use_port = None) -> bool:
+    def unshare_model_with_user(self, model_id: str, user_id: str, port: int = 8080, _use_port=None) -> bool:
         """
         Unshare a model with a user
 
@@ -477,11 +479,11 @@ class AISquaredPlatformClient:
         if _use_port == False:
             url = f'{self.base_url}'
         else:
-            if type(port) == int: 
-                        url = f'{self.base_url}:{port}'
-            else: 
-                    raise TypeError("The port number must be an integer")
-            
+            if type(port) == int:
+                url = f'{self.base_url}:{port}'
+            else:
+                raise TypeError("The port number must be an integer")
+
         with requests.Session() as sess:
             resp = sess.delete(
                 f'{url}/api/v1/models/{model_id}/users/{user_id}',
@@ -491,7 +493,7 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.json()['success']
 
-    def share_model_with_group(self, model_id: str, group_id: str, port: int = 8080, _use_port = None) -> bool:
+    def share_model_with_group(self, model_id: str, group_id: str, port: int = 8080, _use_port=None) -> bool:
         """
         Share a model with a group
 
@@ -521,10 +523,10 @@ class AISquaredPlatformClient:
         if _use_port == False:
             url = f'{self.base_url}'
         else:
-            if type(port) == int: 
-                        url = f'{self.base_url}:{port}'
-            else: 
-                    raise TypeError("The port number must be an integer")
+            if type(port) == int:
+                url = f'{self.base_url}:{port}'
+            else:
+                raise TypeError("The port number must be an integer")
 
         with requests.Session() as sess:
             resp = sess.put(
@@ -535,7 +537,7 @@ class AISquaredPlatformClient:
             raise AISquaredAPIException(resp.json())
         return resp.ok
 
-    def unshare_model_with_group(self, model_id: str, group_id: str, port: int = 8080, _use_port = None) -> bool:
+    def unshare_model_with_group(self, model_id: str, group_id: str, port: int = 8080, _use_port=None) -> bool:
         """
         Unshare a model with a group
 
@@ -564,11 +566,11 @@ class AISquaredPlatformClient:
         if _use_port == False:
             url = f'{self.base_url}'
         else:
-            if type(port) == int: 
-                        url = f'{self.base_url}:{port}'
-            else: 
-                    raise TypeError("The port number must be an integer")
-                    
+            if type(port) == int:
+                url = f'{self.base_url}:{port}'
+            else:
+                raise TypeError("The port number must be an integer")
+
         with requests.Session() as sess:
             resp = sess.delete(
                 f'{url}/api/v1/models/{model_id}/groups/{group_id}',
@@ -581,7 +583,7 @@ class AISquaredPlatformClient:
 
     # Feedback operations
 
-    def list_model_feedback(self, model_id: str, limit: int = 10, as_df: bool = True, port: int = 8080, _use_port = None) -> Union[dict, pd.DataFrame]:
+    def list_model_feedback(self, model_id: str, limit: int = 10, as_df: bool = True, port: int = 8080, _use_port=None) -> Union[dict, pd.DataFrame]:
         """
         List feedback on a model
 
@@ -610,11 +612,11 @@ class AISquaredPlatformClient:
         if _use_port == False:
             url = f'{self.base_url}'
         else:
-            if type(port) == int: 
-                        url = f'{self.base_url}:{port}'
-            else: 
-                    raise TypeError("The port number must be an integer")
-                    
+            if type(port) == int:
+                url = f'{self.base_url}:{port}'
+            else:
+                raise TypeError("The port number must be an integer")
+
         with requests.Session() as sess:
             resp = sess.get(f'{url}/api/v1/feedback/models?modelId={model_id}&page=1&pageSize={limit}',
                             headers=self.headers
@@ -627,7 +629,7 @@ class AISquaredPlatformClient:
             return pd.DataFrame(resp.json()['data']['modelFeedback'])
         return resp.json()['data']
 
-    def list_prediction_feedback(self, prediction_id: str, as_df: bool = True, port: int = 8080, _use_port = None) -> Union[pd.DataFrame, dict]:
+    def list_prediction_feedback(self, prediction_id: str, as_df: bool = True, port: int = 8080, _use_port=None) -> Union[pd.DataFrame, dict]:
         """
         List prediction feedback given a prediction ID
 
@@ -657,10 +659,10 @@ class AISquaredPlatformClient:
         if _use_port == False:
             url = f'{self.base_url}'
         else:
-            if type(port) == int: 
-                        url = f'{self.base_url}:{port}'
-            else: 
-                    raise TypeError("The port number must be an integer")
+            if type(port) == int:
+                url = f'{self.base_url}:{port}'
+            else:
+                raise TypeError("The port number must be an integer")
 
         with requests.Session() as sess:
             resp = sess.get(
@@ -675,7 +677,7 @@ class AISquaredPlatformClient:
             return pd.DataFrame(resp.json()['data'])
         return resp.json()
 
-    def list_model_prediction_feedback(self, model_id: str, as_df: bool = True, port: int = 8080, _use_port = None) -> Union[dict, pd.DataFrame]:
+    def list_model_prediction_feedback(self, model_id: str, as_df: bool = True, port: int = 8080, _use_port=None) -> Union[dict, pd.DataFrame]:
         """
         List all feedback for a model
 
@@ -704,10 +706,10 @@ class AISquaredPlatformClient:
         if _use_port == False:
             url = f'{self.base_url}'
         else:
-            if type(port) == int: 
-                        url = f'{self.base_url}:{port}'
-            else: 
-                    raise TypeError("The port number must be an integer")
+            if type(port) == int:
+                url = f'{self.base_url}:{port}'
+            else:
+                raise TypeError("The port number must be an integer")
 
         with requests.Session() as sess:
             resp = sess.get(
