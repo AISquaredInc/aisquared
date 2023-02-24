@@ -101,13 +101,13 @@
     <span class="s1">&#39;sklearn&#39;</span><span class="p">,</span>
     <span class="s1">&#39;pytorch&#39;</span><span class="p">,</span>
     <span class="s1">&#39;keras&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;mann&#39;</span>
+    <span class="s1">&#39;beyondml&#39;</span>
 <span class="p">]</span>
 
 
-<div class="viewcode-block" id="load_mann_model"><a class="viewcode-back" href="../../../aisquared.serving.html#aisquared.serving.deploy_model.load_mann_model">[docs]</a><span class="k">def</span> <span class="nf">load_mann_model</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">custom_objects</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+<div class="viewcode-block" id="load_beyondml_model"><a class="viewcode-back" href="../../../aisquared.serving.html#aisquared.serving.deploy_model.load_beyondml_model">[docs]</a><span class="k">def</span> <span class="nf">load_beyondml_model</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">custom_objects</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Load a MANN model with custom objects</span>
+<span class="sd">    Load a BeyondML model with custom objects</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span>
         <span class="n">model</span><span class="p">,</span>
@@ -137,7 +137,7 @@
 <span class="sd">    port : int (default 2244)</span>
 <span class="sd">        The port to deploy to</span>
 <span class="sd">    custom_objects : dict or None (default None)</span>
-<span class="sd">        Any custom objects to load when using a MANN model</span>
+<span class="sd">        Any custom objects to load when using a BeyondML model</span>
 <span class="sd">    additional_functions_file : file-like or None (default None)</span>
 <span class="sd">        File name containing additional functions (which have to be named `preprocess` and `postprocess`, if created)</span>
 <span class="sd">        that are used during the prediction process</span>
@@ -154,8 +154,8 @@
         <span class="n">model</span> <span class="o">=</span> <span class="n">load_pytorch_model</span><span class="p">(</span><span class="n">saved_model</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">model_type</span> <span class="o">==</span> <span class="s1">&#39;keras&#39;</span><span class="p">:</span>
         <span class="n">model</span> <span class="o">=</span> <span class="n">load_keras_model</span><span class="p">(</span><span class="n">saved_model</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">model_type</span> <span class="o">==</span> <span class="s1">&#39;mann&#39;</span><span class="p">:</span>
-        <span class="n">model</span> <span class="o">=</span> <span class="n">load_mann_model</span><span class="p">(</span><span class="n">saved_model</span><span class="p">,</span> <span class="n">custom_objects</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">model_type</span> <span class="o">==</span> <span class="s1">&#39;beyondml&#39;</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">load_beyondml_model</span><span class="p">(</span><span class="n">saved_model</span><span class="p">,</span> <span class="n">custom_objects</span><span class="p">)</span>
 
     <span class="c1"># Import preprocessing and postprocessing steps, if provided</span>
     <span class="k">if</span> <span class="n">additional_functions_file</span><span class="p">:</span>
@@ -195,7 +195,7 @@
 
         <span class="c1"># try to get the data correctly formatted for prediction</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">model_type</span> <span class="o">==</span> <span class="s1">&#39;mann&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">model_type</span> <span class="o">==</span> <span class="s1">&#39;beyondml&#39;</span><span class="p">:</span>
                 <span class="n">to_predict</span> <span class="o">=</span> <span class="p">[</span>
                     <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">to_predict</span>
                 <span class="p">]</span>
