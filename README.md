@@ -298,3 +298,9 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Streamlined the `ModelConfiguration` class to allow a more functional interface to build `.air` files
 - Updated `ContainerRendering` class with parameters for `position` and `static_position`
 - Updated across-the-board functionality of the `AISquaredPlatformClient`
+
+## Version 0.3.3
+- Updated functionality of the `AISquaredPlatformClient` to interact directly with the platform ALB
+- Changed function names in support of change from MANN to BeyondML
+- Added documentation surrounding global configuration objects
+- Removed redundant additional dependencies
