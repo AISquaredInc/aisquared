@@ -1,5 +1,6 @@
 # AISquared
 
+[![Documentation](https://badgen.net/badge/icon/Documentation?icon=chrome&label)](https://aisquaredinc.github.io/aisquared/index.html)
 [![PyPI version](https://badge.fury.io/py/aisquared.svg)](https://badge.fury.io/py/aisquared)
 ![Tests](https://github.com/aisquaredinc/aisquared/actions/workflows/python-package.yml/badge.svg)
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
@@ -297,3 +298,9 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Streamlined the `ModelConfiguration` class to allow a more functional interface to build `.air` files
 - Updated `ContainerRendering` class with parameters for `position` and `static_position`
 - Updated across-the-board functionality of the `AISquaredPlatformClient`
+
+## Version 0.3.3
+- Updated functionality of the `AISquaredPlatformClient` to interact directly with the platform ALB
+- Changed function names in support of change from MANN to BeyondML
+- Added documentation surrounding global configuration objects
+- Removed redundant additional dependencies

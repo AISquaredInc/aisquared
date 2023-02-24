@@ -28,5 +28,5 @@ try:
 except ImportError:
     pass
 
-from .deploy_model import deploy_model, load_mann_model, load_keras_model, load_pytorch_model, load_sklearn_model, load_tensorflow_model
+from .deploy_model import deploy_model, load_beyondml_model, load_keras_model, load_pytorch_model, load_sklearn_model, load_tensorflow_model
 from .get_remote_prediction import get_remote_prediction

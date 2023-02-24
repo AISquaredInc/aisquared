@@ -15,7 +15,7 @@ Welcome to the documentation for the `aisquared` python package!
 
 This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.
 
-**Current Production Version:** ``0.3.2``
+**Current Production Version:** ``0.3.3``
 
 :download:`View this Documentation in PDF Format <./_build/latex/aisquared.pdf>`.
 
@@ -117,3 +117,8 @@ Changelog
    - Streamlined the `ModelConfiguration` class to allow a more functional interface to build `.air` files
    - Updated `ContainerRendering` class with parameters for `position` and `static_position`
    - Updated across-the-board functionality of the `AISquaredPlatformClient`
+- Version 0.3.3
+   - Updated functionality of the `AISquaredPlatformClient` to interact directly with the platform ALB
+   - Changed function names in support of change from MANN to BeyondML
+   - Added documentation surrounding global configuration objects
+   - Removed redundant additional dependencies
