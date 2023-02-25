@@ -12,6 +12,7 @@ from .AISquaredAPIException import AISquaredAPIException
 
 from .crudl import _list_models, _upload_model, _get_model, _delete_model
 from .sharing import _list_model_users, _model_share_with_user, _model_share_with_group
+from .feedback import _list_model_feedback, _list_prediction_feedback, _list_model_prediction_feedback
 
 if platform.system() == 'Windows':
     basedir = os.getenv('HOMEPATH')
@@ -574,17 +575,13 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.get(f'{url}/api/v1/feedback/models?modelId={model_id}&page=1&pageSize={limit}',
-                            headers=self.headers
-                            )
-        if not resp.ok:
-            if resp.status_code == 404:
-                return None
-            raise AISquaredAPIException(resp.json())
-        if as_df:
-            return pd.DataFrame(resp.json()['data']['modelFeedback'])
-        return resp.json()['data']
+        return _list_model_feedback(
+            url,
+            self.headers,
+            model_id,
+            limit,
+            as_df
+        )
 
     def list_prediction_feedback(self, prediction_id: str, as_df: bool = True, port: int = 8080, use_port: bool = None) -> Union[pd.DataFrame, dict]:
         """
@@ -618,18 +615,12 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.get(
-                f'{url}/api/v1/feedback/predictions?modelId={prediction_id}',
-                headers=self.headers
-            )
-
-        if resp.status_code != 200:
-            raise AISquaredAPIException(resp.json())
-
-        if as_df:
-            return pd.DataFrame(resp.json()['data'])
-        return resp.json()
+        return _list_prediction_feedback(
+            url,
+            self.headers,
+            prediction_id,
+            as_df
+        )
 
     def list_model_prediction_feedback(self, model_id: str, as_df: bool = True, port: int = 8080, use_port: bool = None) -> Union[dict, pd.DataFrame]:
         """
@@ -662,19 +653,12 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.get(
-                f'{url}/api/v1/feedback/predictions?modelId={model_id}',
-                headers=self.headers
-            )
-        if not resp.ok:
-            raise AISquaredAPIException(resp.json())
-
-        if as_df:
-            data = resp.json()['data']
-            return pd.concat([pd.json_normalize(v) for v in data.values()]).reset_index(drop=True)
-
-        return resp.json()
+        return _list_model_prediction_feedback(
+            url,
+            self.headers,
+            model_id,
+            as_df
+        )
 
     # User and group management
 

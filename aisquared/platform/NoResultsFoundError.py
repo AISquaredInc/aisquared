@@ -1,0 +1,2 @@
+class NoResultsFounderror(Exception):
+    pass
