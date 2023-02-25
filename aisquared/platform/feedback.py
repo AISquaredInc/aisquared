@@ -1,5 +1,5 @@
 from .AISquaredAPIException import AISquaredAPIException
-from .NoResultsFoundError import NoResultsFounderror
+from .NoResultsFoundError import NoResultsFoundError
 from .endpoints import endpoints
 import pandas as pd
 import requests
@@ -22,7 +22,7 @@ def _list_model_feedback(
 
     if not resp.ok:
         if resp.status_code == 404:
-            raise NoResultsFounderror('No Results Found')
+            raise NoResultsFoundError('No Results Found')
         raise AISquaredAPIException(resp.json())
     
     if as_df:

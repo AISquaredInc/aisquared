@@ -1,2 +1,2 @@
-class NoResultsFounderror(Exception):
+class NoResultsFoundError(Exception):
     pass
