@@ -8,6 +8,10 @@ import platform
 import json
 import os
 
+from .AISquaredAPIException import AISquaredAPIException
+
+from .crudl import _list_models, _upload_model, _get_model, _delete_model
+
 if platform.system() == 'Windows':
     basedir = os.getenv('HOMEPATH')
 else:
@@ -15,10 +19,6 @@ else:
 
 DIRECTORY = os.path.join(basedir, '.aisquared')
 CONFIG_FILE = os.path.join(DIRECTORY, '.aisquared.json')
-
-
-class AISquaredAPIException(Exception):
-    pass
 
 
 class AISquaredPlatformClient:
@@ -242,24 +242,8 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            url = f'{url}/api/v1/models?userOnly=true'
-            resp = sess.get(
-                url,
-                headers=self.headers
-            )
-        if resp.status_code != 200:
-            raise AISquaredAPIException(json.dumps(resp.json()))
+        return _list_models(url, self.headers, as_df)
 
-        else:
-            if as_df:
-                df = pd.DataFrame(resp.json()['data']['models'])
-                df['name'] = df.config.apply(lambda c: c['params']['name'])
-                new_cols = ['name', 'id']
-                new_cols += [c for c in df.columns if c not in new_cols]
-                return df[new_cols]
-
-            return resp.json()['data']['models']
 
     def upload_model(self, model_file: str, port: int = 8081, use_port: bool = None) -> str:
         """
@@ -291,19 +275,11 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with open(model_file, 'rb') as f:
-
-            with requests.Session() as sess:
-                resp = sess.post(
-                    f'{url}/upload/v1/models',
-                    headers=self.headers,
-                    files={'model': f}
-                )
-
-        if resp.status_code != 200:
-            raise AISquaredAPIException(resp.json())
-
-        return resp.json()['data']['id']
+        return _upload_model(
+            url,
+            self.headers,
+            model_file
+        )
 
     def get_model(self, id: str, port: int = 8080, use_port: bool = None) -> dict:
         """
@@ -335,14 +311,7 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.get(
-                f'{url}/api/v1/models/{id}',
-                headers=self.headers
-            )
-        if resp.status_code != 200:
-            raise AISquaredAPIException(resp.json())
-        return resp.json()['data']
+        return _get_model(url, self.headers, id)
 
     def delete_model(self, id: str, port: int = 8080, use_port: bool = None) -> bool:
         """
@@ -374,14 +343,7 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.delete(
-                f'{url}/api/v1/models/{id}',
-                headers=self.headers
-            )
-        if resp.status_code != 200:
-            raise AISquaredAPIException(resp.json())
-        return resp.json()['success']
+        return _delete_model(url, self.headers, id)
 
     # Sharing operations for models
 
