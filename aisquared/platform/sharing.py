@@ -2,7 +2,6 @@ from .AISquaredAPIException import AISquaredAPIException
 from .endpoints import endpoints
 import pandas as pd
 import requests
-import json
 
 def _list_model_users(
         url,
