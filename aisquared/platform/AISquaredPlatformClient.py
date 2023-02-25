@@ -11,6 +11,7 @@ import os
 from .AISquaredAPIException import AISquaredAPIException
 
 from .crudl import _list_models, _upload_model, _get_model, _delete_model
+from .sharing import _list_model_users, _model_share_with_user, _model_share_with_group
 
 if platform.system() == 'Windows':
     basedir = os.getenv('HOMEPATH')
@@ -379,19 +380,7 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.get(
-                f'{url}/api/v1/models/{id}/users',
-                headers=self.headers
-            )
-        if resp.status_code != 200:
-            raise AISquaredAPIException(resp.json())
-
-        else:
-            if as_df:
-                return pd.DataFrame(resp.json()['data']).sort_values(by='shared', ascending=False).reset_index(drop=True)
-
-            return resp.json()
+        return _list_model_users(url, self.headers, id, as_df)
 
     def share_model_with_user(self, model_id: str, user_id: str, port: int = 8080, use_port: bool = None) -> bool:
         """
@@ -425,14 +414,13 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.put(
-                f'{url}/api/v1/models/{model_id}/users/{user_id}',
-                headers=self.headers
-            )
-        if resp.status_code != 200:
-            raise AISquaredAPIException(resp.json())
-        return resp.json()['success']
+        return _model_share_with_user(
+            url,
+            self.headers,
+            model_id,
+            user_id,
+            True
+        )
 
     def unshare_model_with_user(self, model_id: str, user_id: str, port: int = 8080, use_port: bool = None) -> bool:
         """
@@ -466,14 +454,13 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.delete(
-                f'{url}/api/v1/models/{model_id}/users/{user_id}',
-                headers=self.headers
-            )
-        if resp.status_code != 200:
-            raise AISquaredAPIException(resp.json())
-        return resp.json()['success']
+        return _model_share_with_user(
+            url,
+            self.headers,
+            model_id,
+            user_id,
+            False
+        )
 
     def share_model_with_group(self, model_id: str, group_id: str, port: int = 8080, use_port: bool = None) -> bool:
         """
@@ -507,14 +494,13 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.put(
-                f'{url}/api/v1/models/{model_id}/groups/{group_id}',
-                headers=self.headers
-            )
-        if not resp.ok:
-            raise AISquaredAPIException(resp.json())
-        return resp.ok
+        return _model_share_with_group(
+            url,
+            self.headers,
+            model_id,
+            group_id,
+            True
+        )
 
     def unshare_model_with_group(self, model_id: str, group_id: str, port: int = 8080, use_port: bool = None) -> bool:
         """
@@ -547,15 +533,13 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.delete(
-                f'{url}/api/v1/models/{model_id}/groups/{group_id}',
-                headers=self.headers
-            )
-
-        if not resp.ok:
-            raise AISquaredAPIException(resp.json())
-        return resp.ok
+        return _model_share_with_group(
+            url,
+            self.headers,
+            model_id,
+            group_id,
+            False
+        )
 
     # Feedback operations
 
