@@ -15,6 +15,7 @@ from .sharing import _list_model_users, _model_share_with_user, _model_share_wit
 from .feedback import _list_model_feedback, _list_prediction_feedback, _list_model_prediction_feedback
 from .user_group import _create_user, _update_user, _delete_user, _get_user, _get_group, _create_group, _delete_group, _update_group, _users_to_group, _list_users, _list_groups, _list_group_users, _list_roles
 from .metrics import _list_user_usage_metrics, _list_model_usage_metrics
+from .additional_utils import _test_connection
 
 if platform.system() == 'Windows':
     basedir = os.getenv('HOMEPATH')
@@ -1537,14 +1538,4 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.get(
-                f'{url}/api/v1/health'
-            )
-        if resp.ok:
-            print('Connection successful')
-        else:
-            print(
-                f'There may be connection issues: status code {resp.status_code}')
-
-        return resp.status_code
+        return _test_connection(self.base_url)
