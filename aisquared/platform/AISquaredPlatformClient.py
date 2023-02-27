@@ -1508,7 +1508,7 @@ class AISquaredPlatformClient:
 
         return this_role.id.iloc[0]
 
-    def test_connection(self, port: int = 8080, use_port: bool = None) -> int:
+    def test_connection(self, port: int = 8080, use_port: bool = None) -> bool:
         """
         Test whether there is a healthy connection to the platform
 
