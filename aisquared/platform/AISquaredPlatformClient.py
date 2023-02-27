@@ -14,6 +14,7 @@ from .crudl import _list_models, _upload_model, _get_model, _delete_model
 from .sharing import _list_model_users, _model_share_with_user, _model_share_with_group
 from .feedback import _list_model_feedback, _list_prediction_feedback, _list_model_prediction_feedback
 from .user_group import _create_user, _update_user, _delete_user, _get_user, _get_group, _create_group, _delete_group, _update_group, _users_to_group, _list_users, _list_groups, _list_group_users, _list_roles
+from .metrics import _list_user_usage_metrics, _list_model_usage_metrics
 
 if platform.system() == 'Windows':
     basedir = os.getenv('HOMEPATH')
@@ -1323,16 +1324,13 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.get(
-                f'{url}/api/v1/usage-metrics?period={period}&entityId={user_id}&entity=user&action=run',
-                headers=self.headers
-            )
-        if resp.status_code != 200:
-            raise AISquaredAPIException(resp.json())
-        if as_df:
-            return pd.DataFrame(resp.json()['data']['plotXYData'])
-        return resp.json()
+        return _list_user_usage_metrics(
+            url,
+            self.headers,
+            user_id,
+            period,
+            as_df
+        )
 
     def list_model_usage_metrics(self, model_id: str, period: str = 'hourly', as_df: bool = True, port: int = 8080, use_port: bool = None) -> Union[dict, pd.DataFrame]:
         """
@@ -1369,18 +1367,13 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.get(
-                f'{url}/api/v1/usage-metrics?period={period}&entity=model&entityId={model_id}&action=run',
-                headers=self.headers
-            )
-        if resp.status_code != 200:
-            raise AISquaredAPIException(resp.json())
-
-        if as_df:
-            return pd.DataFrame(resp.json()['data']['plotXYData'])
-
-        return resp.json()
+        return _list_model_usage_metrics(
+            url,
+            self.headers,
+            model_id,
+            period,
+            as_df
+        )
 
     # Additional utilities
 
@@ -1548,7 +1541,7 @@ class AISquaredPlatformClient:
             resp = sess.get(
                 f'{url}/api/v1/health'
             )
-        if resp.status_code == 200:
+        if resp.ok:
             print('Connection successful')
         else:
             print(
