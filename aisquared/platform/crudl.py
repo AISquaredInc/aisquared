@@ -17,7 +17,7 @@ def _list_models(
             url,
             headers=headers
         )
-    if resp.status_code != 200:
+    if not resp.ok:
         raise AISquaredAPIException(json.dumps(resp.json()))
 
     else:
@@ -47,7 +47,7 @@ def _upload_model(
                 files={'model': f}
             )
 
-    if resp.status_code != 200:
+    if not resp.ok:
         raise AISquaredAPIException(resp.json())
 
     return resp.json()['data']['id']
@@ -67,7 +67,7 @@ def _get_model(
             headers=headers
         )
 
-    if resp.status_code != 200:
+    if not resp.ok:
         raise AISquaredAPIException(resp.json())
 
     return resp.json()['data']

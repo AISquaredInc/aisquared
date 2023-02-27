@@ -19,7 +19,7 @@ def _list_model_users(
             headers=headers
         )
 
-    if resp.status_code != 200:
+    if not resp.ok:
         raise AISquaredAPIException(resp.json())
 
     else:
@@ -50,7 +50,7 @@ def _model_share_with_user(
                 headers=headers
             )
 
-    if resp.status_code != 200:
+    if not resp.ok:
         raise AISquaredAPIException(resp.json())
     return resp.ok
 
