@@ -4,6 +4,7 @@ from .endpoints import endpoints
 import pandas as pd
 import requests
 
+
 def _list_user_usage_metrics(
         url,
         headers,
@@ -16,16 +17,17 @@ def _list_user_usage_metrics(
     with requests.Session() as sess:
         resp = sess.get(
             url,
-            headers = headers
+            headers=headers
         )
 
     if not resp.ok:
         raise AISquaredAPIException(resp.json())
-    
+
     if as_df:
         return pd.DataFrame(resp.json()['data']['plotXYData'])
-    
+
     return resp.json()
+
 
 def _list_model_usage_metrics(
         url,
@@ -39,13 +41,13 @@ def _list_model_usage_metrics(
     with requests.Session() as sess:
         resp = sess.get(
             url,
-            headers = headers
+            headers=headers
         )
 
         if not resp.ok:
             raise AISquaredAPIException(resp.json())
-        
+
         if as_df:
             return pd.DataFrame(resp.json()['data']['plotXYData'])
-        
+
         return resp.json()

@@ -4,6 +4,7 @@ from .endpoints import endpoints
 import pandas as pd
 import requests
 
+
 def _test_connection(
         url
 ):
@@ -17,4 +18,5 @@ def _test_connection(
     if resp.ok:
         return resp.ok
     else:
-        raise AISquaredAPIException(f'Connection could not be established. Status code {resp.status_code}')
+        raise AISquaredAPIException(
+            f'Connection could not be established. Status code {resp.status_code}')

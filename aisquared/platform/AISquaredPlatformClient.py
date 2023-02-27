@@ -249,7 +249,6 @@ class AISquaredPlatformClient:
 
         return _list_models(url, self.headers, as_df)
 
-
     def upload_model(self, model_file: str, port: int = 8081, use_port: bool = None) -> str:
         """
         Upload a model to the platform
@@ -728,7 +727,7 @@ class AISquaredPlatformClient:
             use_port = self.use_port
 
         url = self._format_url(self.base_url, port, use_port)
-        
+
         return _create_user(
             url,
             self.headers,
