@@ -10,6 +10,7 @@ import os
 
 from aisquared.base import DIRECTORY, CLIENT_CONFIG_FILE
 
+
 class AISquaredAPIException(Exception):
     pass
 

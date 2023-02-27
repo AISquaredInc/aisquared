@@ -216,6 +216,6 @@ class ContainerRendering(BaseObject):
                 'querySelector': self.query_selector,
                 'position': self.position,
                 'staticPosition': self.static_position,
-                'style' : self.css_params['style']
+                'style': self.css_params['style']
             }
         }

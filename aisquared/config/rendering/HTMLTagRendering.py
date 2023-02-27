@@ -113,6 +113,6 @@ class HTMLTagRendering(BaseObject):
                 'predictionValueKey': self.prediction_value_key,
                 'predictionNameValue': self.prediction_name_value,
                 'content': self.content,
-                'style' : self.css_params['style']
+                'style': self.css_params['style']
             }
         }

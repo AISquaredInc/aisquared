@@ -150,4 +150,5 @@ DIRECTORY = os.path.join(basedir, '.aisquared')
 
 TABLE_RENDERING_CSS_FILE = os.path.join(DIRECTORY, 'TableRendering.json')
 HTML_TAG_RENDERING_CSS_FILE = os.path.join(DIRECTORY, 'HTMLTagRendering.json')
-CONTAINER_RENDERING_CSS_FILE = os.path.join(DIRECTORY, 'ContainerRendering.json')
+CONTAINER_RENDERING_CSS_FILE = os.path.join(
+    DIRECTORY, 'ContainerRendering.json')
