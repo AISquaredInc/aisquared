@@ -1516,8 +1516,7 @@ class AISquaredPlatformClient:
         >>> import aisquared
         >>> client = aisquared.platform.AISquaredPlatformClient()
         >>> client.test_connection()
-        Connection successful
-        200
+        True
 
         Parameters
         ----------
