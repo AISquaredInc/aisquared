@@ -1,6 +1,6 @@
 from .AISquaredAPIException import AISquaredAPIException
 from .NoResultsFoundError import NoResultsFoundError
-from .endpoints import endpoints
+from .endpoints import ENDPOINTS
 import pandas as pd
 import requests
 
@@ -34,7 +34,7 @@ def _create_user(
     if password:
         json_data['password'] = password
 
-    url = f'{url}/{endpoints["user"]}'
+    url = f'{url}/{ENDPOINTS["user"]}'
 
     with requests.Session() as sess:
         resp = sess.post(
@@ -78,7 +78,7 @@ def _update_user(
     if password:
         json_data['password'] = password
 
-    url = f'{url}/{endpoints["user"]}/{user_id}'
+    url = f'{url}/{ENDPOINTS["user"]}/{user_id}'
 
     with requests.Session() as sess:
         resp = sess.put(
@@ -97,7 +97,7 @@ def _delete_user(
         headers,
         user_id
 ):
-    url = f'{url}/{endpoints["user"]}/{user_id}'
+    url = f'{url}/{ENDPOINTS["user"]}/{user_id}'
 
     with requests.Session() as sess:
         resp = sess.delete(
@@ -115,7 +115,7 @@ def _get_user(
         headers,
         user_id
 ):
-    url = f'{url}/{endpoints["user"]}/{user_id}'
+    url = f'{url}/{ENDPOINTS["user"]}/{user_id}'
 
     with requests.Session() as sess:
         resp = sess.get(
@@ -133,7 +133,7 @@ def _get_group(
         headers,
         group_id
 ):
-    url = f'{url}/{endpoints["group"]}/{group_id}'
+    url = f'{url}/{ENDPOINTS["group"]}/{group_id}'
 
     with requests.Session() as sess:
         resp = sess.get(
@@ -152,7 +152,7 @@ def _create_group(
         display_name,
         role_id
 ):
-    url = f'{url}/{endpoints["group"]}'
+    url = f'{url}/{ENDPOINTS["group"]}'
 
     json_data = {
         'displayName': display_name,
@@ -176,7 +176,7 @@ def _delete_group(
         headers,
         group_id
 ):
-    url = f'{url}/{endpoints["group"]}/{group_id}'
+    url = f'{url}/{ENDPOINTS["group"]}/{group_id}'
 
     with requests.Session() as sess:
         resp = sess.delete(
@@ -196,7 +196,7 @@ def _update_group(
         display_name,
         role_id
 ):
-    url = f'{url}/{endpoints["group"]}/{group_id}'
+    url = f'{url}/{ENDPOINTS["group"]}/{group_id}'
 
     json_data = {
         'displayName': display_name,
@@ -222,7 +222,7 @@ def _users_to_group(
         user_ids,
         add
 ):
-    url = f'{url}/{endpoints["group_memebership"]}'
+    url = f'{url}/{ENDPOINTS["group_memebership"]}'
     json_data = {
         'groupId': group_id,
         'userIds': user_ids
@@ -253,7 +253,7 @@ def _list_users(
         max_count,
         as_df
 ):
-    url = f'{url}/{endpoints["user_list"]}?count={max_count}&startIndex=1'
+    url = f'{url}/{ENDPOINTS["user_list"]}?count={max_count}&startIndex=1'
 
     with requests.Session() as sess:
         resp = sess.get(
@@ -278,7 +278,7 @@ def _list_groups(
         max_count,
         as_df
 ):
-    url = f'{url}/{endpoints["group_list"]}?count={max_count}&startIndex=1'
+    url = f'{url}/{ENDPOINTS["group_list"]}?count={max_count}&startIndex=1'
 
     with requests.Session() as sess:
         resp = sess.get(
@@ -308,7 +308,7 @@ def _list_group_users(
         as_df,
         group_id
 ):
-    url = f'{url}/{endpoints["group_list"]}/{group_id}'
+    url = f'{url}/{ENDPOINTS["group_list"]}/{group_id}'
 
     with requests.Session() as sess:
         resp = sess.get(
@@ -337,7 +337,7 @@ def _list_roles(
         as_df
 ):
 
-    url = f'{url}/{endpoints["roles"]}'
+    url = f'{url}/{ENDPOINTS["roles"]}'
 
     with requests.Session() as sess:
         resp = sess.get(

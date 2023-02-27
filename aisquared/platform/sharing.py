@@ -1,5 +1,5 @@
 from .AISquaredAPIException import AISquaredAPIException
-from .endpoints import endpoints
+from .endpoints import ENDPOINTS
 import pandas as pd
 import requests
 
@@ -11,7 +11,7 @@ def _list_model_users(
         as_df
 ):
 
-    url = f'{url}/{endpoints["model"]}/{model_id}/users'
+    url = f'{url}/{ENDPOINTS["model"]}/{model_id}/users'
 
     with requests.Session() as sess:
         resp = sess.get(
@@ -36,7 +36,7 @@ def _model_share_with_user(
         share
 ):
 
-    url = f'{url}/{endpoints["model"]}/{model_id}/users/{user_id}'
+    url = f'{url}/{ENDPOINTS["model"]}/{model_id}/users/{user_id}'
 
     with requests.Session() as sess:
         if share:
@@ -63,7 +63,7 @@ def _model_share_with_group(
         share
 ):
 
-    url = f'{url}/{endpoints["model"]}/{model_id}/groups/{group_id}'
+    url = f'{url}/{ENDPOINTS["model"]}/{model_id}/groups/{group_id}'
 
     with requests.Session() as sess:
         if share:

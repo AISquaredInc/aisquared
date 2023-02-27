@@ -1,4 +1,4 @@
-endpoints = {
+ENDPOINTS = {
     'login': 'api/v1/auth/login',
     'upload_model': 'upload/v1/models',
     'model': 'api/v1/models',

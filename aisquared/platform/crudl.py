@@ -1,5 +1,5 @@
 from .AISquaredAPIException import AISquaredAPIException
-from .endpoints import endpoints
+from .endpoints import ENDPOINTS
 import pandas as pd
 import requests
 import json
@@ -10,7 +10,7 @@ def _list_models(
         headers,
         as_df=True
 ):
-    url = f'{url}/{endpoints["model"]}?userOnly=true'
+    url = f'{url}/{ENDPOINTS["model"]}?userOnly=true'
 
     with requests.Session() as sess:
         resp = sess.get(
@@ -36,7 +36,7 @@ def _upload_model(
         headers,
         model_file
 ):
-    url = f'{url}/{endpoints["upload_model"]}'
+    url = f'{url}/{ENDPOINTS["upload_model"]}'
 
     with open(model_file, 'rb') as f:
 
@@ -59,7 +59,7 @@ def _get_model(
         model_id
 ):
 
-    url = f'{url}/{endpoints["model"]}/{model_id}'
+    url = f'{url}/{ENDPOINTS["model"]}/{model_id}'
 
     with requests.Session() as sess:
         resp = sess.get(
@@ -79,7 +79,7 @@ def _delete_model(
         model_id
 ):
 
-    url = f'{url}/{endpoints["model"]}/{model_id}'
+    url = f'{url}/{ENDPOINTS["model"]}/{model_id}'
 
     with requests.Session() as sess:
         resp = sess.delete(

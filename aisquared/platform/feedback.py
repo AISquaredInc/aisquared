@@ -1,6 +1,6 @@
 from .AISquaredAPIException import AISquaredAPIException
 from .NoResultsFoundError import NoResultsFoundError
-from .endpoints import endpoints
+from .endpoints import ENDPOINTS
 import pandas as pd
 import requests
 
@@ -13,7 +13,7 @@ def _list_model_feedback(
         as_df
 ):
 
-    url = f'{url}/{endpoints["feedback"]}/models?modelId={model_id}&page=1&pageSize={limit}'
+    url = f'{url}/{ENDPOINTS["feedback"]}/models?modelId={model_id}&page=1&pageSize={limit}'
 
     with requests.Session() as sess:
         resp = sess.get(
@@ -38,7 +38,7 @@ def _list_prediction_feedback(
         as_df
 ):
 
-    url = f'{url}/{endpoints["feedback"]}/predictions?modelId={prediction_id}'
+    url = f'{url}/{ENDPOINTS["feedback"]}/predictions?modelId={prediction_id}'
 
     with requests.Session() as sess:
         resp = sess.get(
@@ -61,7 +61,7 @@ def _list_model_prediction_feedback(
         as_df
 ):
 
-    url = f'{url}/{endpoints["feedback"]}/predictions?modelId={model_id}'
+    url = f'{url}/{ENDPOINTS["feedback"]}/predictions?modelId={model_id}'
 
     with requests.Session() as sess:
         resp = sess.get(

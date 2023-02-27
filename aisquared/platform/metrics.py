@@ -1,6 +1,6 @@
 from .AISquaredAPIException import AISquaredAPIException
 from .NoResultsFoundError import NoResultsFoundError
-from .endpoints import endpoints
+from .endpoints import ENDPOINTS
 import pandas as pd
 import requests
 
@@ -12,7 +12,7 @@ def _list_user_usage_metrics(
         period,
         as_df
 ):
-    url = f'{url}/{endpoints["usage_metrics"]}?period={period}&entityId={user_id}&entity=user&action=run'
+    url = f'{url}/{ENDPOINTS["usage_metrics"]}?period={period}&entityId={user_id}&entity=user&action=run'
 
     with requests.Session() as sess:
         resp = sess.get(
@@ -36,7 +36,7 @@ def _list_model_usage_metrics(
         period,
         as_df
 ):
-    url = f'{url}/{endpoints["usage_metrics"]}?period={period}&entity=model&entityId={model_id}&action=run'
+    url = f'{url}/{ENDPOINTS["usage_metrics"]}?period={period}&entity=model&entityId={model_id}&action=run'
 
     with requests.Session() as sess:
         resp = sess.get(
