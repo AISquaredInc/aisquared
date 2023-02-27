@@ -6,6 +6,7 @@ endpoints = {
     'user' : 'userservice/v1/user',                    # For creating, updating, deleting, or getting a user
     'group' : 'groupservice/v1/group',                 # For creating, deleting, or updating groups
     'group_membership' : 'groupservice/v1/membership', # For group user membership operations
+    'user_list' : 'scim/v2/Users',                     # For listing users
     'group_list' : 'scim/v2/Groups',                   # For listing groups
     'roles' : 'groupservice/v1/role',                  # For listing roles
     'usage_metrics' : 'api/v1/usage-metrics',          # For usage metrics

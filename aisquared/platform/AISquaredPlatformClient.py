@@ -13,6 +13,7 @@ from .AISquaredAPIException import AISquaredAPIException
 from .crudl import _list_models, _upload_model, _get_model, _delete_model
 from .sharing import _list_model_users, _model_share_with_user, _model_share_with_group
 from .feedback import _list_model_feedback, _list_prediction_feedback, _list_model_prediction_feedback
+from .user_group import _create_user, _update_user, _delete_user, _get_user, _get_group, _create_group, _delete_group, _update_group, _users_to_group, _list_users, _list_groups, _list_group_users, _list_roles
 
 if platform.system() == 'Windows':
     basedir = os.getenv('HOMEPATH')
@@ -721,37 +722,24 @@ class AISquaredPlatformClient:
             Metadata about the user
         """
 
-        json_data = {
-            'active': active,
-            'userName': user_name,
-            'givenName': given_name,
-            'familyName': family_name,
-            'email': email,
-            'roleId': role_id
-        }
-
         if use_port is None:
             use_port = self.use_port
 
         url = self._format_url(self.base_url, port, use_port)
-        if middle_name:
-            json_data['middleName'] = middle_name
-        if company_id:
-            json_data['companyId'] = company_id
-        if password:
-            json_data['password'] = password
-
-        with requests.Session() as sess:
-            resp = sess.post(
-                f'{url}/userservice/v1/user',
-                json=json_data,
-                headers=self.headers
-            )
-
-        if resp.status_code != 200:
-            raise AISquaredAPIException(resp.json())
-        else:
-            return resp.json()
+        
+        return _create_user(
+            url,
+            self.headers,
+            user_name,
+            given_name,
+            family_name,
+            email,
+            role_id,
+            active,
+            middle_name,
+            company_id,
+            password
+        )
 
     def update_user(
             self,
@@ -830,26 +818,20 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        if active:
-            json_data['active'] = active
-        if middle_name:
-            json_data['middleName'] = middle_name
-        if company_id:
-            json_data['companyId'] = company_id
-        if password:
-            json_data['password'] = password
-
-        with requests.Session() as sess:
-            resp = sess.put(
-                f'{url}/userservice/v1/user/{user_id}',
-                json=json_data,
-                headers=self.headers
-            )
-
-        if not resp.ok:
-            raise AISquaredAPIException(resp.json())
-        else:
-            return resp.ok
+        return _update_user(
+            url,
+            self.headers,
+            user_id,
+            user_name,
+            given_name,
+            family_name,
+            email,
+            role_id,
+            active,
+            middle_name,
+            company_id,
+            password
+        )
 
     def delete_user(self, user_id: str, port: int = 8085, use_port: bool = None) -> bool:
         """
@@ -880,15 +862,11 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.delete(
-                f'{url}/userservice/v1/user/{user_id}',
-                headers=self.headers
-            )
-        if resp.status_code != 204:
-            raise AISquaredAPIException(resp.json())
-        else:
-            return True
+        return _delete_user(
+            url,
+            self.headers,
+            user_id
+        )
 
     def get_user(self, user_id: str, port: int = 8085, use_port: bool = None) -> dict:
         """
@@ -919,15 +897,7 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.get(
-                f'{url}/userservice/v1/user/{user_id}',
-                headers=self.headers
-            )
-        if resp.status_code != 200:
-            raise AISquaredAPIException(resp.json())
-        else:
-            return resp.json()
+        return _get_user(url, self.headers, user_id)
 
     def get_group(self, group_id: str, port: int = 8086, use_port: bool = None) -> dict:
         """
@@ -958,31 +928,27 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.get(
-                f'{url}/groupservice/v1/group/{group_id}',
-                headers=self.headers
-            )
+        return _get_group(
+            url,
+            self.headers,
+            group_id
+        )
 
-        if resp.status_code != 200:
-            raise AISquaredAPIException(resp.json())
-        return resp.json()
-
-    def create_group(self, group_name: str, role_id: str, port: int = 8086, use_port: bool = None) -> dict:
+    def create_group(self, display_name: str, role_id: str, port: int = 8086, use_port: bool = None) -> dict:
         """
         Create a group in the platform
 
         >>> import aisquared
         >>> client = aisquared.platform.AISquaredPlatformClient()
         >>> client.create_group(
-            'group_name',
+            'group display name',
             'role_id'
         )
         *dictionary containing group information*
 
         Parameters
         ----------
-        group_name : str
+        display_name : str
             The display name of the group
         role_id : str
             The role ID for the group
@@ -1003,19 +969,12 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.post(
-                f'{url}/groupservice/v1/group',
-                json={
-                    'displayName': group_name,
-                    'roleId': role_id
-                },
-                headers=self.headers
-            )
-
-        if resp.status_code != 200:
-            raise AISquaredAPIException(resp.json())
-        return resp.json()
+        return _create_group(
+            url,
+            self.headers,
+            display_name,
+            role_id
+        )
 
     def delete_group(self, group_id, port=8086, use_port: bool = None) -> bool:
         """
@@ -1046,14 +1005,11 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.delete(
-                f'{url}/groupservice/v1/group/{group_id}',
-                headers=self.headers
-            )
-        if resp.status_code != 200:
-            raise AISquaredAPIException(resp.json())
-        return resp.ok
+        return _delete_group(
+            url,
+            self.headers,
+            group_id
+        )
 
     def update_group(self, group_id: str, display_name: str, role_id: str, port: int = 8086, use_port: bool = None) -> bool:
         """
@@ -1092,18 +1048,13 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.put(
-                f'{url}/groupservice/v1/group/{group_id}',
-                json={
-                    'displayName': display_name,
-                    'roleId': role_id
-                },
-                headers=self.headers
-            )
-        if resp.status_code != 200:
-            raise AISquaredAPIException(resp.json())
-        return resp.ok
+        return _update_group(
+            url,
+            self.headers,
+            group_id,
+            display_name,
+            role_id
+        )
 
     def add_users_to_group(self, group_id: str, user_ids: list, port: int = 8086, use_port: bool = None) -> bool:
         """
@@ -1136,18 +1087,13 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.put(
-                f'{url}/groupservice/v1/membership',
-                json={
-                    'groupId': group_id,
-                    'userIds': user_ids
-                },
-                headers=self.headers
-            )
-        if not resp.ok:
-            raise AISquaredAPIException(resp.json())
-        return resp.ok
+        return _users_to_group(
+            url,
+            self.headers,
+            group_id,
+            user_ids,
+            True
+        )
 
     def remove_users_from_group(self, group_id: str, user_ids: list, port: int = 8086, use_port: bool = None) -> bool:
         """
@@ -1180,21 +1126,15 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.delete(
-                f'{url}/groupservice/v1/membership',
-                json={
-                    'groupId': group_id,
-                    'userIds': user_ids
-                },
-                headers=self.headers
-            )
-        if resp.ok:
-            return resp.ok
-        else:
-            raise AISquaredAPIException(resp.json())
+        return _users_to_group(
+            url,
+            self.headers,
+            group_id,
+            user_ids,
+            False
+        )
 
-    def list_users(self, as_df: bool = True, port: int = 8080, use_port: bool = None) -> Union[pd.DataFrame, dict]:
+    def list_users(self, max_count: int = 100, as_df: bool = True, port: int = 8080, use_port: bool = None) -> Union[pd.DataFrame, dict]:
         """
         List all users
 
@@ -1205,6 +1145,8 @@ class AISquaredPlatformClient:
 
         Parameters
         ----------
+        max_count : int (default 100)
+            The maximum number of users to return
         as_df : bool (default True)
             Whether to return the data as a Pandas DataFrame
         port : int (default 8080)
@@ -1224,28 +1166,14 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            model_resp = sess.get(
-                f'{url}/api/v1/models?page=1',
-                headers=self.headers
-            )
-            if model_resp.status_code != 200:
-                raise AISquaredAPIException('There was an error')
-            model_id = pd.DataFrame(
-                model_resp.json()['data']['models']).id.iloc[0]
-            user_resp = sess.get(
-                f'{url}/api/v1/models/{model_id}/users',
-                headers=self.headers
-            )
+        return _list_users(
+            url,
+            self.headers,
+            max_count,
+            as_df
+        )
 
-        if user_resp.status_code != 200:
-            raise AISquaredAPIException(user_resp.json())
-
-        if as_df:
-            return pd.DataFrame(user_resp.json()['data']).iloc[:, :-1].sort_values(by='displayName').reset_index(drop=True)
-        return user_resp.json()
-
-    def list_groups(self, as_df: bool = True, port: int = 8083, use_port: bool = None) -> Union[pd.DataFrame, dict]:
+    def list_groups(self, max_count: int = 100, as_df: bool = True, port: int = 8083, use_port: bool = None) -> Union[pd.DataFrame, dict]:
         """
         List all groups
 
@@ -1256,6 +1184,8 @@ class AISquaredPlatformClient:
 
         Parameters
         ----------
+        max_count : int (default 100)
+            The maximum number of groups to return
         as_df : bool (default True)
             Whether to return the result as a pandas DataFrame
         port : int (default 8083)
@@ -1275,25 +1205,12 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.get(
-                f'{url}/scim/v2/Groups?count=10&startIndex=1',
-                headers=self.headers
-            )
-        if resp.status_code != 200:
-            raise AISquaredAPIException(resp.json())
-
-        if as_df:
-            resp = resp.json()
-            ids = [i['id'] for i in resp['Resources']]
-            names = [i['displayName'] for i in resp['Resources']]
-            members = []
-
-            members = [[(u['value'], u['display'])
-                        for u in i['members'] if i != []] for i in resp['Resources']]
-            return pd.DataFrame({'id': ids, 'name': names, 'members': members})
-
-        return resp.json()
+        return _list_groups(
+            url,
+            self.headers,
+            max_count,
+            as_df
+        )
 
     def list_group_users(self, group_id: str, as_df: bool = True, port: int = 8083, use_port: bool = None) -> Union[pd.DataFrame, dict]:
         """
@@ -1327,24 +1244,12 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.get(
-                f'{url}/scim/v2/Groups/{group_id}',
-                headers=self.headers
-            )
-        if resp.status_code != 200:
-            raise AISquaredAPIException(resp.json())
-
-        if as_df:
-            resp = resp.json()
-            ids = []
-            names = []
-            for d in resp['members']:
-                ids.append(d['value'])
-                names.append(d['display'])
-
-            return pd.DataFrame({'id': ids, 'displayName': names})
-        return resp.json()
+        return _list_group_users(
+            url,
+            self.headers,
+            as_df,
+            group_id
+        )
 
     def list_roles(self, as_df: bool = True, port: int = 8086, use_port: bool = None) -> Union[pd.DataFrame, dict]:
         """
@@ -1377,14 +1282,11 @@ class AISquaredPlatformClient:
 
         url = self._format_url(self.base_url, port, use_port)
 
-        with requests.Session() as sess:
-            resp = sess.get(
-                f'{url}/groupservice/v1/role',
-                headers=self.headers
-            )
-        if as_df:
-            return pd.DataFrame(resp.json()['content'])
-        return resp.json()['content']
+        return _list_roles(
+            url,
+            self.headers,
+            as_df
+        )
 
     # Metrics
 
