@@ -8,14 +8,7 @@ import platform
 import json
 import os
 
-if platform.system() == 'Windows':
-    basedir = os.getenv('HOMEPATH')
-else:
-    basedir = os.getenv('HOME')
-
-DIRECTORY = os.path.join(basedir, '.aisquared')
-CONFIG_FILE = os.path.join(DIRECTORY, '.aisquared.json')
-
+from aisquared.base import DIRECTORY, CLIENT_CONFIG_FILE
 
 class AISquaredAPIException(Exception):
     pass
@@ -51,7 +44,7 @@ class AISquaredPlatformClient:
         """
 
         try:
-            self._load_info(CONFIG_FILE)
+            self._load_info(CLIENT_CONFIG_FILE)
         except Exception as e:
             warnings.warn(
                 'It appears you are not authenticated to the AI Squared Platform. Please run Client.login() before performing any action'
@@ -130,7 +123,7 @@ class AISquaredPlatformClient:
         if not os.path.exists(DIRECTORY):
             os.makedirs(DIRECTORY)
 
-        with open(CONFIG_FILE, 'w') as f:
+        with open(CLIENT_CONFIG_FILE, 'w') as f:
             json.dump(
                 {
                     'url': url,
@@ -143,7 +136,7 @@ class AISquaredPlatformClient:
 
         self._load_info()
 
-    def _load_info(self, config_file: str = CONFIG_FILE) -> None:
+    def _load_info(self, config_file: str = CLIENT_CONFIG_FILE) -> None:
         """
         NOT MEANT TO BE CALLED BY THE USER
 
