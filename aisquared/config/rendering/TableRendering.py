@@ -90,6 +90,7 @@ class TableRendering(BaseObject):
                 'predictionNameKey': self.prediction_name_key,
                 'predictionValueKey': self.prediction_value_key,
                 'predictionNameValues': self.prediction_name_values,
-                'tableName': self.table_name
+                'tableName': self.table_name,
+                'style' : self.css_params['style']
             }
         }
