@@ -1476,13 +1476,13 @@ class AISquaredPlatformClient:
 
         return this_group.id.iloc[0]
 
-    def get_role_id_by_name(self, role_name: str, port: int = 8086, use_port: bool = None) -> str:
+    def get_role_id_by_role_name(self, role_name: str, port: int = 8086, use_port: bool = None) -> str:
         """
         Get the ID of a role by searching for its display name
 
         >>> import aisquared
         >>> client = aisquared.platform.AISquaredPlatformClient()
-        >>> client.get_role_id_by_name('Role Name')
+        >>> client.get_role_id_by_role_name('Role Name')
         *role_id*
 
         Parameters

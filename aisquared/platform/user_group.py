@@ -1,5 +1,4 @@
 from .AISquaredAPIException import AISquaredAPIException
-from .NoResultsFoundError import NoResultsFoundError
 from .additional_utils import _check_results_length
 from aisquared.base import ENDPOINTS
 import pandas as pd
@@ -223,7 +222,7 @@ def _users_to_group(
         user_ids,
         add
 ):
-    url = f'{url}/{ENDPOINTS["group_memebership"]}'
+    url = f'{url}/{ENDPOINTS["group_membership"]}'
     json_data = {
         'groupId': group_id,
         'userIds': user_ids
@@ -270,7 +269,9 @@ def _list_users(
         _check_results_length(df)
         columns = ['id', 'userName', 'emails', 'active', 'groups',
                    'name.givenName', 'name.middleName', 'name.familyName']
-        return df[columns]
+        df = df[columns]
+        df['displayName'] = df['name.givenName'].astype(str) + ' ' + df['name.familyName']
+        return df
     return resp.json()
 
 
@@ -331,7 +332,7 @@ def _list_group_users(
             ids.append(d['value'])
             names.append(d['display'])
 
-        df = pd.DataFrame({'id': ids, 'displayName': names})
+        df = pd.DataFrame({'id': ids, 'username': names})
         _check_results_length(df)
         return df
 
