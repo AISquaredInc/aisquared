@@ -68,7 +68,7 @@ def _update_user(
         'givenName': given_name,
         'familyName': family_name,
         'email': email,
-        'roleID': role_id
+        'roleId': role_id
     }
 
     if middle_name:
