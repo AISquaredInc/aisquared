@@ -8,3 +8,4 @@ from .rendering import LOCATIONS, COLORS, BADGES, WORD_LISTS, QUALIFIERS, POSITI
 from .stages import ALLOWED_STAGES
 from .harvesting import ALLOWED_INPUT_TYPES, ALLOWED_HOWS
 from .preprocessing import ALLOWED_PADS
+from .endpoints import ENDPOINTS

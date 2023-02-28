@@ -1,5 +1,6 @@
 from .AISquaredAPIException import AISquaredAPIException
-from .endpoints import ENDPOINTS
+from .additional_utils import _check_results_length
+from aisquared.base import ENDPOINTS
 import pandas as pd
 import requests
 import json
@@ -23,11 +24,16 @@ def _list_models(
     else:
         if as_df:
             df = pd.DataFrame(resp.json()['data']['models'])
-            df['name'] = df.config.apply(lambda c: c['params']['name'])
-            new_cols = ['name', 'id']
-            new_cols += [c for c in df.columns if c not in new_cols]
-            return df[new_cols]
+            if df.shape[0] == 0:
+                   print('foo') 
+            else:
+                df['name'] = df.config.apply(lambda c: c['params']['name']) # used to be = f.config.apply(lambda c: c['params']['name'])
+                new_cols = ['name', 'id']
+                new_cols += [c for c in df.columns if c not in new_cols]
 
+    
+                return df[new_cols]
+       # _check_results_length(df)
         return resp.json()['data']['models']
 
 

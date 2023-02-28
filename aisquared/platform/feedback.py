@@ -1,6 +1,7 @@
 from .AISquaredAPIException import AISquaredAPIException
+from .additional_utils import _check_results_length
 from .NoResultsFoundError import NoResultsFoundError
-from .endpoints import ENDPOINTS
+from aisquared.base import ENDPOINTS
 import pandas as pd
 import requests
 
@@ -27,7 +28,9 @@ def _list_model_feedback(
         raise AISquaredAPIException(resp.json())
 
     if as_df:
-        return pd.DataFrame(resp.json()['data']['modelFeedback'])
+        df = pd.DataFrame(resp.json()['data']['modelFeedback'])
+        _check_results_length(df)
+        return df
     return resp.json()['data']
 
 
@@ -50,7 +53,9 @@ def _list_prediction_feedback(
         raise AISquaredAPIException(resp.json())
 
     if as_df:
-        return pd.DataFrame(resp.json()['data'])
+        df = pd.DataFrame(resp.json()['data'])
+        _check_results_length(df)
+        return df
     return resp.json()['data']
 
 
@@ -74,6 +79,8 @@ def _list_model_prediction_feedback(
 
     if as_df:
         data = resp.json()['data']
-        return pd.concat([pd.json_normalize(v) for v in data.values()]).reset_index(drop=True)
+        df = pd.concat([pd.json_normalize(v) for v in data.values()]).reset_index(drop=True)
+        _check_results_length(df)
+        return df
 
     return resp.json()

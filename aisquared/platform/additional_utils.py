@@ -1,6 +1,6 @@
 from .AISquaredAPIException import AISquaredAPIException
 from .NoResultsFoundError import NoResultsFoundError
-from .endpoints import ENDPOINTS
+from aisquared.base import ENDPOINTS
 import pandas as pd
 import requests
 
@@ -20,3 +20,9 @@ def _test_connection(
     else:
         raise AISquaredAPIException(
             f'Connection could not be established. Status code {resp.status_code}')
+
+def _check_results_length(
+        df
+):
+    if df.shape[0] == 0:
+        return NoResultsFoundError('No results found.')

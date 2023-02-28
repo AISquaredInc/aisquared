@@ -1,6 +1,6 @@
 from .AISquaredAPIException import AISquaredAPIException
-from .NoResultsFoundError import NoResultsFoundError
-from .endpoints import ENDPOINTS
+from .additional_utils import _check_results_length
+from aisquared.base import ENDPOINTS
 import pandas as pd
 import requests
 
