@@ -24,7 +24,7 @@ def _create_user(
         'givenName': given_name,
         'familyName': family_name,
         'email': email,
-        'roleID': role_id
+        'roleId': role_id
     }
 
     if middle_name:
@@ -270,6 +270,9 @@ def _list_users(
         columns = ['id', 'userName', 'emails', 'active', 'groups',
                    'name.givenName', 'name.middleName', 'name.familyName']
         df = df[columns]
+
+        #This is a change that should be fixed on the database side
+
         df['displayName'] = df['name.givenName'].astype(str) + ' ' + df['name.familyName']
         return df
     return resp.json()
