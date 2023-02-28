@@ -79,7 +79,8 @@ def _list_model_prediction_feedback(
 
     if as_df:
         data = resp.json()['data']
-        df = pd.concat([pd.json_normalize(v) for v in data.values()]).reset_index(drop=True)
+        df = pd.concat([pd.json_normalize(v)
+                       for v in data.values()]).reset_index(drop=True)
         _check_results_length(df)
         return df
 

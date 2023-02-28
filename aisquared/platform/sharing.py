@@ -25,7 +25,10 @@ def _list_model_users(
 
     else:
         if as_df:
-            return pd.DataFrame(resp.json()['data']).sort_values(by='shared', ascending=False).reset_index(drop=True)
+            df = pd.DataFrame(resp.json()['data'])
+            _check_results_length(df)
+            return df.sort_values(by='shared', ascending=False).reset_index(drop=True)
+
         return resp.json()
 
 

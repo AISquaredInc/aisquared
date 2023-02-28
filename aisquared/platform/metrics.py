@@ -24,7 +24,9 @@ def _list_user_usage_metrics(
         raise AISquaredAPIException(resp.json())
 
     if as_df:
-        return pd.DataFrame(resp.json()['data']['plotXYData'])
+        df = pd.DataFrame(resp.json()['data']['plotXYData'])
+        _check_results_length(df)
+        return df
 
     return resp.json()
 
@@ -48,6 +50,8 @@ def _list_model_usage_metrics(
             raise AISquaredAPIException(resp.json())
 
         if as_df:
-            return pd.DataFrame(resp.json()['data']['plotXYData'])
+            df = pd.DataFrame(resp.json()['data']['plotXYData'])
+            _check_results_length(df)
+            return df
 
         return resp.json()

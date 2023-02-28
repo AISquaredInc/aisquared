@@ -24,16 +24,13 @@ def _list_models(
     else:
         if as_df:
             df = pd.DataFrame(resp.json()['data']['models'])
-            if df.shape[0] == 0:
-                   print('foo') 
-            else:
-                df['name'] = df.config.apply(lambda c: c['params']['name']) # used to be = f.config.apply(lambda c: c['params']['name'])
-                new_cols = ['name', 'id']
-                new_cols += [c for c in df.columns if c not in new_cols]
+            _check_results_length(df)
+            df['name'] = df.config.apply(lambda c: c['params']['name'])
+            new_cols = ['name', 'id']
+            new_cols += [c for c in df.columns if c not in new_cols]
 
-    
-                return df[new_cols]
-       # _check_results_length(df)
+            return df[new_cols]
+
         return resp.json()['data']['models']
 
 

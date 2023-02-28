@@ -1,5 +1,6 @@
 from .AISquaredAPIException import AISquaredAPIException
 from .NoResultsFoundError import NoResultsFoundError
+from .additional_utils import _check_results_length
 from aisquared.base import ENDPOINTS
 import pandas as pd
 import requests
@@ -266,6 +267,7 @@ def _list_users(
 
     if as_df:
         df = pd.json_normalize(resp.json()['Resources'])
+        _check_results_length(df)
         columns = ['id', 'userName', 'emails', 'active', 'groups',
                    'name.givenName', 'name.middleName', 'name.familyName']
         return df[columns]
@@ -297,7 +299,9 @@ def _list_groups(
 
         members = [[(u['value'], u['display'])
                     for u in i['members'] if i != []] for i in resp['Resources']]
-        return pd.DataFrame({'id': ids, 'name': names, 'members': members})
+        df = pd.DataFrame({'id': ids, 'name': names, 'members': members})
+        _check_results_length(df)
+        return df
 
     return resp.json()
 
@@ -327,7 +331,10 @@ def _list_group_users(
             ids.append(d['value'])
             names.append(d['display'])
 
-        return pd.DataFrame({'id': ids, 'displayName': names})
+        df = pd.DataFrame({'id': ids, 'displayName': names})
+        _check_results_length(df)
+        return df
+
     return resp.json()
 
 
@@ -349,5 +356,7 @@ def _list_roles(
         raise AISquaredAPIException(resp.json())
 
     if as_df:
-        return pd.DataFrame(resp.json()['content'])
+        df = pd.DataFrame(resp.json()['content'])
+        _check_results_length(df)
+        return df
     return resp.json()['content']
