@@ -7,12 +7,30 @@ import requests
 
 
 def _list_model_feedback(
-        url,
-        headers,
-        model_id,
-        limit,
-        as_df
+        url : str,
+        headers : dict,
+        model_id : str,
+        limit : int,
+        as_df : bool
 ):
+    """
+    NOT MEANT TO BE CALLED BY THE END USER
+
+    List feedback from a model
+
+    Parameters
+    ----------
+    url : string
+        The base url to format
+    headers : dict
+        The headers used for authentication within the AI Squared platform
+    model_id : str
+        The ID of the model
+    limit : int
+        The maximum number of feedback items to return    
+    as_df : bool
+        Whether to return the data as a Pandas DataFrame
+    """       
 
     url = f'{url}/{ENDPOINTS["feedback"]}/models?modelId={model_id}&page=1&pageSize={limit}'
 
@@ -35,11 +53,27 @@ def _list_model_feedback(
 
 
 def _list_prediction_feedback(
-        url,
-        headers,
-        prediction_id,
-        as_df
+        url : str,
+        headers : dict,
+        prediction_id : str,
+        as_df : bool
 ):
+    """
+    NOT MEANT TO BE CALLED BY THE END USER
+
+    List prediction feedback for a prediction ID
+
+    Parameters
+    ----------
+    url : string
+        The base url to format
+    headers : dict
+        The headers used for authentication within the AI Squared platform
+    prediction_id : str
+        The prediction ID 
+    as_df : bool
+        Whether to return the data as a Pandas DataFrame
+    """   
 
     url = f'{url}/{ENDPOINTS["feedback"]}/predictions?modelId={prediction_id}'
 
@@ -60,11 +94,27 @@ def _list_prediction_feedback(
 
 
 def _list_model_prediction_feedback(
-        url,
-        headers,
-        model_id,
-        as_df
+        url : int,
+        headers : dict,
+        model_id : str,
+        as_df : bool
 ):
+    """
+    NOT MEANT TO BE CALLED BY THE END USER
+
+    List prediction feedback from a model
+
+    Parameters
+    ----------
+    url : string
+        The base url to format
+    headers : dict
+        The headers used for authentication within the AI Squared platform
+    model_id : str
+        The ID of the model  
+    as_df : bool
+        Whether to return the data as a Pandas DataFrame
+    """       
 
     url = f'{url}/{ENDPOINTS["feedback"]}/predictions?modelId={model_id}'
 

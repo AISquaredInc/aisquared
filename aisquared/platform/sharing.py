@@ -6,11 +6,27 @@ import requests
 
 
 def _list_model_users(
-        url,
-        headers,
-        model_id,
-        as_df
+        url : str,
+        headers : dict,
+        model_id : str,
+        as_df : bool
 ):
+    """
+    NOT MEANT TO BE CALLED BY THE END USER
+
+    List users of a model
+
+    Parameters
+    ----------
+    url : string
+        The base url to format
+    headers : dict
+        The headers used for authentication within the AI Squared platform
+    model_id : str
+        The ID of the model
+    as_df : bool
+        Whether to return the data as a Pandas DataFrame
+    """       
 
     url = f'{url}/{ENDPOINTS["model"]}/{model_id}/users'
 
@@ -33,12 +49,30 @@ def _list_model_users(
 
 
 def _model_share_with_user(
-        url,
-        headers,
-        model_id,
-        user_id,
-        share
+        url : str,
+        headers : dict,
+        model_id : str,
+        user_id : str,
+        share : bool
 ):
+    """
+    NOT MEANT TO BE CALLED BY THE END USER
+
+    Share or unshare a model with a user
+
+    Parameters
+    ----------
+    url : string
+        The base url to format
+    headers : dict
+        The headers used for authentication within the AI Squared platform
+    model_id : str
+        The ID of the model
+    user_id : str
+        The ID for the user
+    share : bool
+        Whether to share (share = True) or unshare (share = False) a model with a user
+    """   
 
     url = f'{url}/{ENDPOINTS["model"]}/{model_id}/users/{user_id}'
 
@@ -60,12 +94,30 @@ def _model_share_with_user(
 
 
 def _model_share_with_group(
-        url,
-        headers,
-        model_id,
-        group_id,
-        share
+        url: str,
+        headers : dict,
+        model_id : str,
+        group_id : str,
+        share : bool
 ):
+    """
+    NOT MEANT TO BE CALLED BY THE END USER
+
+    Share or unshare a model with a group
+
+    Parameters
+    ----------
+    url : string
+        The base url to format
+    headers : dict
+        The headers used for authentication within the AI Squared platform
+    model_id : str
+        The ID of the model
+    group_id : str
+        The ID for the user
+    share : bool
+        Whether to share (share = True) or unshare (share = False) a model with a group
+    """ 
 
     url = f'{url}/{ENDPOINTS["model"]}/{model_id}/groups/{group_id}'
 

@@ -6,12 +6,31 @@ import requests
 
 
 def _list_user_usage_metrics(
-        url,
-        headers,
-        user_id,
-        period,
-        as_df
+        url = str,
+        headers = dict,
+        user_id = str,
+        period = str,
+        as_df = bool
 ):
+    """
+    NOT MEANT TO BE CALLED BY THE END USER
+
+    List the usage of the platform by a user
+
+    Parameters
+    ----------
+    url : string
+        The base url to format
+    headers : dict
+        The headers used for authentication within the AI Squared platform
+    user_id : str
+        The ID of the user
+    period : int
+        The period to group metrics into (e.g. 'hourly')    
+    as_df : bool
+        Whether to return the data as a Pandas DataFrame
+    """    
+
     url = f'{url}/{ENDPOINTS["usage_metrics"]}?period={period}&entityId={user_id}&entity=user&action=run'
 
     with requests.Session() as sess:
@@ -38,6 +57,25 @@ def _list_model_usage_metrics(
         period,
         as_df
 ):
+    """
+    NOT MEANT TO BE CALLED BY THE END USER
+
+    List the usage of a model
+
+    Parameters
+    ----------
+    url : string
+        The base url to format
+    headers : dict
+        The headers used for authentication within the AI Squared platform
+    model_id : str
+        The ID of the user
+    period : int
+        The period to group metrics into (e.g. 'hourly')    
+    as_df : bool
+        Whether to return the data as a Pandas DataFrame
+    """        
+
     url = f'{url}/{ENDPOINTS["usage_metrics"]}?period={period}&entity=model&entityId={model_id}&action=run'
 
     with requests.Session() as sess:
