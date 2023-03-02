@@ -1,3 +1,5 @@
+"""NOT MEANT TO BE CALLED BY THE END USER - configuration parameters for the different endpoints in the platform"""
+
 ENDPOINTS = {
     'login': 'api/v1/auth/login',
     'upload_model': 'upload/v1/models',

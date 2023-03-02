@@ -30,8 +30,7 @@ class AISquaredPlatformClient:
     >>> client.login()
     >>> # Test connection
     >>> client.test_connection()
-    Connection successful
-    200
+    True
 
     """
 
@@ -118,7 +117,7 @@ class AISquaredPlatformClient:
                 }
             )
 
-        if resp.status_code != 200:
+        if not resp.ok:
             raise AISquaredAPIException('Authentication failed')
         else:
             token = resp.json()['token']['access_token']
@@ -1517,8 +1516,8 @@ class AISquaredPlatformClient:
 
         Returns
         -------
-        status_code : int
-            The status code when checking the health API
+        success : bool
+            True if connection was successful
 
         """
 
