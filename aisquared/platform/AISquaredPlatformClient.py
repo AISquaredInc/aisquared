@@ -4,12 +4,12 @@ from getpass import getpass
 import pandas as pd
 import warnings
 import requests
-import platform
 import json
 import os
 
-from aisquared.base import DIRECTORY, CLIENT_CONFIG_FILE
+from aisquared.base import DIRECTORY, CLIENT_CONFIG_FILE, ENDPOINTS
 
+from .AISquaredAPIException import AISquaredAPIException
 from .crudl import _list_models, _upload_model, _get_model, _delete_model
 from .sharing import _list_model_users, _model_share_with_user, _model_share_with_group
 from .feedback import _list_model_feedback, _list_prediction_feedback, _list_model_prediction_feedback
@@ -111,7 +111,7 @@ class AISquaredPlatformClient:
 
         with requests.Session() as sess:
             resp = sess.post(
-                f'{call_url}/api/v1/auth/login',
+                f'{call_url}/{ENDPOINTS["login"]}',
                 data={
                     'username': username,
                     'password': password
