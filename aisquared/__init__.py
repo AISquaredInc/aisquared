@@ -8,3 +8,10 @@ __dev__ = True
 import aisquared.config
 import aisquared.base
 import aisquared.platform
+
+try:
+    import aisquared.logging
+    import aisquared.serving
+    import aisquared.utils
+except ImportError:
+    pass
