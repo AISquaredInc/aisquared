@@ -94,7 +94,7 @@ class HTMLTagRendering(BaseObject):
                 with open(HTML_TAG_RENDERING_CSS_FILE, 'r') as f:
                     self.css_params = json.load(f)
             else:
-                css_params = DEFAULT_HTML_TAG_RENDERING_CSS
+                self.css_params = DEFAULT_HTML_TAG_RENDERING_CSS
 
     def to_dict(self) -> dict:
         """

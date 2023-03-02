@@ -93,7 +93,7 @@ class ContainerRendering(BaseObject):
                 with open(CONTAINER_RENDERING_CSS_FILE, 'r') as f:
                     self.css_params = json.load(f)
             else:
-                css_params = DEFAULT_CONTAINER_RENDERING_CSS
+                self.css_params = DEFAULT_CONTAINER_RENDERING_CSS
 
     @property
     def label(self):

@@ -75,7 +75,7 @@ class TableRendering(BaseObject):
                 with open(TABLE_RENDERING_CSS_FILE, 'r') as f:
                     self.css_params = json.load(f)
             else:
-                css_params = DEFAULT_TABLE_RENDERING_CSS
+                self.css_params = DEFAULT_TABLE_RENDERING_CSS
 
     def to_dict(self) -> dict:
         """
