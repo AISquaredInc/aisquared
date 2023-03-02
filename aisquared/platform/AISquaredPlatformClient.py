@@ -10,6 +10,12 @@ import os
 
 from aisquared.base import DIRECTORY, CLIENT_CONFIG_FILE
 
+from .crudl import _list_models, _upload_model, _get_model, _delete_model
+from .sharing import _list_model_users, _model_share_with_user, _model_share_with_group
+from .feedback import _list_model_feedback, _list_prediction_feedback, _list_model_prediction_feedback
+from .user_group import _create_user, _update_user, _delete_user, _get_user, _get_group, _create_group, _delete_group, _update_group, _users_to_group, _list_users, _list_groups, _list_group_users, _list_roles
+from .metrics import _list_user_usage_metrics, _list_model_usage_metrics
+from .additional_utils import _test_connection
 
 class AISquaredPlatformClient:
     """
