@@ -26,7 +26,7 @@ def _list_user_usage_metrics(
     user_id : str
         The ID of the user
     period : int
-        The period to group metrics into (e.g. 'hourly')    
+        The period to group metrics into (e.g. 'hourly')
     as_df : bool
         Whether to return the data as a Pandas DataFrame
     """
@@ -71,7 +71,7 @@ def _list_model_usage_metrics(
     model_id : str
         The ID of the user
     period : int
-        The period to group metrics into (e.g. 'hourly')    
+        The period to group metrics into (e.g. 'hourly')
     as_df : bool
         Whether to return the data as a Pandas DataFrame
     """

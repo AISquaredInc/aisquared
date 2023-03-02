@@ -27,7 +27,7 @@ def _list_model_feedback(
     model_id : str
         The ID of the model
     limit : int
-        The maximum number of feedback items to return    
+        The maximum number of feedback items to return
     as_df : bool
         Whether to return the data as a Pandas DataFrame
     """
@@ -70,7 +70,7 @@ def _list_prediction_feedback(
     headers : dict
         The headers used for authentication within the AI Squared platform
     prediction_id : str
-        The prediction ID 
+        The prediction ID
     as_df : bool
         Whether to return the data as a Pandas DataFrame
     """
@@ -111,7 +111,7 @@ def _list_model_prediction_feedback(
     headers : dict
         The headers used for authentication within the AI Squared platform
     model_id : str
-        The ID of the model  
+        The ID of the model
     as_df : bool
         Whether to return the data as a Pandas DataFrame
     """

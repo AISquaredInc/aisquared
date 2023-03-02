@@ -162,7 +162,7 @@ def _delete_user(
         The base url to format
     headers : dict
         The headers used for authentication within the AI Squared platform
-    user_id : string 
+    user_id : string
         The id of the user you want to interact with
     """
 
@@ -195,7 +195,7 @@ def _get_user(
         The base url to format
     headers : dict
         The headers used for authentication within the AI Squared platform
-    user_id : string 
+    user_id : string
         The id of the user you want to interact with
     """
 
@@ -228,7 +228,7 @@ def _get_group(
         The base url to format
     headers : dict
         The headers used for authentication within the AI Squared platform
-    group_id : string 
+    group_id : string
         The id of the group you want to interact with
     """
 
@@ -264,7 +264,7 @@ def _create_group(
         The headers used for authentication within the AI Squared platform
     display_name : string
         The display name of the group
-    group_id : string 
+    group_id : string
         The role id for the group
     """
 
@@ -303,7 +303,7 @@ def _delete_group(
         The base url to format
     headers : dict
         The headers used for authentication within the AI Squared platform
-    group_id : string 
+    group_id : string
         The id of the group
     """
 
@@ -340,7 +340,7 @@ def _update_group(
         The headers used for authentication within the AI Squared platform
     display_name : string
         The display name of the group
-    role_id : string 
+    role_id : string
         The role id for the group
     """
 

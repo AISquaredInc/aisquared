@@ -102,7 +102,7 @@ def _get_model(
         The base url to format
     headers : dict
         The headers used for authentication within the AI Squared platform
-    model_id : string 
+    model_id : string
         The id of the model you want to interact with
     """
 
@@ -136,7 +136,7 @@ def _delete_model(
         The base url to format
     headers : dict
         The headers used for authentication within the AI Squared platform
-    model_id : string 
+    model_id : string
         The id of the model you want to interact with
     """
 
