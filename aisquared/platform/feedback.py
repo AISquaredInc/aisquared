@@ -7,11 +7,11 @@ import requests
 
 
 def _list_model_feedback(
-        url : str,
-        headers : dict,
-        model_id : str,
-        limit : int,
-        as_df : bool
+        url: str,
+        headers: dict,
+        model_id: str,
+        limit: int,
+        as_df: bool
 ):
     """
     NOT MEANT TO BE CALLED BY THE END USER
@@ -30,7 +30,7 @@ def _list_model_feedback(
         The maximum number of feedback items to return    
     as_df : bool
         Whether to return the data as a Pandas DataFrame
-    """       
+    """
 
     url = f'{url}/{ENDPOINTS["feedback"]}/models?modelId={model_id}&page=1&pageSize={limit}'
 
@@ -53,10 +53,10 @@ def _list_model_feedback(
 
 
 def _list_prediction_feedback(
-        url : str,
-        headers : dict,
-        prediction_id : str,
-        as_df : bool
+        url: str,
+        headers: dict,
+        prediction_id: str,
+        as_df: bool
 ):
     """
     NOT MEANT TO BE CALLED BY THE END USER
@@ -73,7 +73,7 @@ def _list_prediction_feedback(
         The prediction ID 
     as_df : bool
         Whether to return the data as a Pandas DataFrame
-    """   
+    """
 
     url = f'{url}/{ENDPOINTS["feedback"]}/predictions?modelId={prediction_id}'
 
@@ -94,10 +94,10 @@ def _list_prediction_feedback(
 
 
 def _list_model_prediction_feedback(
-        url : int,
-        headers : dict,
-        model_id : str,
-        as_df : bool
+        url: int,
+        headers: dict,
+        model_id: str,
+        as_df: bool
 ):
     """
     NOT MEANT TO BE CALLED BY THE END USER
@@ -114,7 +114,7 @@ def _list_model_prediction_feedback(
         The ID of the model  
     as_df : bool
         Whether to return the data as a Pandas DataFrame
-    """       
+    """
 
     url = f'{url}/{ENDPOINTS["feedback"]}/predictions?modelId={model_id}'
 

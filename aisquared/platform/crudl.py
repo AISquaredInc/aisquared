@@ -7,9 +7,9 @@ import json
 
 
 def _list_models(
-        url : str,
-        headers : dict,
-        as_df : bool
+        url: str,
+        headers: dict,
+        as_df: bool
 ):
     """
     NOT MEANT TO BE CALLED BY THE END USER
@@ -50,9 +50,9 @@ def _list_models(
 
 
 def _upload_model(
-        url : str,
-        headers : dict,
-        model_file : str
+        url: str,
+        headers: dict,
+        model_file: str
 ):
     """
     NOT MEANT TO BE CALLED BY THE END USER
@@ -87,9 +87,9 @@ def _upload_model(
 
 
 def _get_model(
-        url : str,
-        headers : dict,
-        model_id : str
+        url: str,
+        headers: dict,
+        model_id: str
 ):
     """
     NOT MEANT TO BE CALLED BY THE END USER
@@ -121,9 +121,9 @@ def _get_model(
 
 
 def _delete_model(
-        url : str,
-        headers : dict,
-        model_id : str
+        url: str,
+        headers: dict,
+        model_id: str
 ):
     """
     NOT MEANT TO BE CALLED BY THE END USER

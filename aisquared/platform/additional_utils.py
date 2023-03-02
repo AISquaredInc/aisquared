@@ -1,11 +1,12 @@
 from .AISquaredAPIException import AISquaredAPIException
 from .NoResultsFoundError import NoResultsFoundError
 from aisquared.base import ENDPOINTS
+import pandas as pd
 import requests
 
 
 def _test_connection(
-        url
+        url: str
 ):
     url = f'{url}/{ENDPOINTS["health"]}'
 
@@ -22,7 +23,7 @@ def _test_connection(
 
 
 def _check_results_length(
-        df
+        df: pd.DataFrame
 ):
     if df.shape[0] == 0:
         return NoResultsFoundError('No results found.')

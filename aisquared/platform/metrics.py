@@ -6,11 +6,11 @@ import requests
 
 
 def _list_user_usage_metrics(
-        url = str,
-        headers = dict,
-        user_id = str,
-        period = str,
-        as_df = bool
+        url: str,
+        headers: dict,
+        user_id: str,
+        period: str,
+        as_df: bool
 ):
     """
     NOT MEANT TO BE CALLED BY THE END USER
@@ -29,7 +29,7 @@ def _list_user_usage_metrics(
         The period to group metrics into (e.g. 'hourly')    
     as_df : bool
         Whether to return the data as a Pandas DataFrame
-    """    
+    """
 
     url = f'{url}/{ENDPOINTS["usage_metrics"]}?period={period}&entityId={user_id}&entity=user&action=run'
 
@@ -74,7 +74,7 @@ def _list_model_usage_metrics(
         The period to group metrics into (e.g. 'hourly')    
     as_df : bool
         Whether to return the data as a Pandas DataFrame
-    """        
+    """
 
     url = f'{url}/{ENDPOINTS["usage_metrics"]}?period={period}&entity=model&entityId={model_id}&action=run'
 

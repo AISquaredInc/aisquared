@@ -6,17 +6,17 @@ import requests
 
 
 def _create_user(
-        url : str,
-        headers : dict,
-        user_name : str,
-        given_name : str,
-        family_name : str,
-        email : str,
-        role_id : str,
-        active : bool,
-        middle_name : str ,
-        company_id : str,
-        password : str
+        url: str,
+        headers: dict,
+        user_name: str,
+        given_name: str,
+        family_name: str,
+        email: str,
+        role_id: str,
+        active: bool,
+        middle_name: str,
+        company_id: str,
+        password: str
 ):
     """
     NOT MEANT TO BE CALLED BY THE END USER
@@ -76,18 +76,18 @@ def _create_user(
 
 
 def _update_user(
-        url : str,
-        headers : dict,
-        user_id : str,
-        user_name : str,
-        given_name : str,
-        family_name : str,
-        email : str,
-        role_id : str,
-        active : bool,
-        middle_name : str,
-        company_id : str,
-        password : str
+        url: str,
+        headers: dict,
+        user_id: str,
+        user_name: str,
+        given_name: str,
+        family_name: str,
+        email: str,
+        role_id: str,
+        active: bool,
+        middle_name: str,
+        company_id: str,
+        password: str
 ):
     """
     NOT MEANT TO BE CALLED BY THE END USER
@@ -114,7 +114,7 @@ def _update_user(
         The user's company ID
     password : str or None
         The user's password
-    """    
+    """
 
     json_data = {
         'active': active,
@@ -147,9 +147,9 @@ def _update_user(
 
 
 def _delete_user(
-        url : str,
-        headers : dict,
-        user_id : str
+        url: str,
+        headers: dict,
+        user_id: str
 ):
     """
     NOT MEANT TO BE CALLED BY THE END USER
@@ -164,7 +164,7 @@ def _delete_user(
         The headers used for authentication within the AI Squared platform
     user_id : string 
         The id of the user you want to interact with
-    """   
+    """
 
     url = f'{url}/{ENDPOINTS["user"]}/{user_id}'
 
@@ -180,9 +180,9 @@ def _delete_user(
 
 
 def _get_user(
-        url : str,
-        headers : dict,
-        user_id : str
+        url: str,
+        headers: dict,
+        user_id: str
 ):
     """
     NOT MEANT TO BE CALLED BY THE END USER
@@ -197,7 +197,7 @@ def _get_user(
         The headers used for authentication within the AI Squared platform
     user_id : string 
         The id of the user you want to interact with
-    """  
+    """
 
     url = f'{url}/{ENDPOINTS["user"]}/{user_id}'
 
@@ -213,9 +213,9 @@ def _get_user(
 
 
 def _get_group(
-        url = str,
-        headers = dict,
-        group_id = str
+        url=str,
+        headers=dict,
+        group_id=str
 ):
     """
     NOT MEANT TO BE CALLED BY THE END USER
@@ -230,7 +230,7 @@ def _get_group(
         The headers used for authentication within the AI Squared platform
     group_id : string 
         The id of the group you want to interact with
-    """     
+    """
 
     url = f'{url}/{ENDPOINTS["group"]}/{group_id}'
 
@@ -246,10 +246,10 @@ def _get_group(
 
 
 def _create_group(
-        url : str,
-        headers : dict,
-        display_name : str,
-        role_id : str
+        url: str,
+        headers: dict,
+        display_name: str,
+        role_id: str
 ):
     """
     NOT MEANT TO BE CALLED BY THE END USER
@@ -266,8 +266,8 @@ def _create_group(
         The display name of the group
     group_id : string 
         The role id for the group
-    """     
-    
+    """
+
     url = f'{url}/{ENDPOINTS["group"]}'
 
     json_data = {
@@ -288,9 +288,9 @@ def _create_group(
 
 
 def _delete_group(
-        url : str,
-        headers : dict,
-        group_id : str
+        url: str,
+        headers: dict,
+        group_id: str
 ):
     """
     NOT MEANT TO BE CALLED BY THE END USER
@@ -305,7 +305,7 @@ def _delete_group(
         The headers used for authentication within the AI Squared platform
     group_id : string 
         The id of the group
-    """     
+    """
 
     url = f'{url}/{ENDPOINTS["group"]}/{group_id}'
 
@@ -321,11 +321,11 @@ def _delete_group(
 
 
 def _update_group(
-        url : str,
-        headers : dict,
-        group_id : str,
-        display_name : str,
-        role_id : str
+        url: str,
+        headers: dict,
+        group_id: str,
+        display_name: str,
+        role_id: str
 ):
     """
     NOT MEANT TO BE CALLED BY THE END USER
@@ -342,8 +342,7 @@ def _update_group(
         The display name of the group
     role_id : string 
         The role id for the group
-    """     
-    
+    """
 
     url = f'{url}/{ENDPOINTS["group"]}/{group_id}'
 
@@ -365,11 +364,11 @@ def _update_group(
 
 
 def _users_to_group(
-        url : str,
-        headers : dict,
-        group_id : str,
-        user_ids : list,
-        add : bool
+        url: str,
+        headers: dict,
+        group_id: str,
+        user_ids: list,
+        add: bool
 ):
     """
     NOT MEANT TO BE CALLED BY THE END USER
@@ -416,10 +415,10 @@ def _users_to_group(
 
 
 def _list_users(
-        url : str,
-        headers : dict,
-        max_count : int,
-        as_df : bool
+        url: str,
+        headers: dict,
+        max_count: int,
+        as_df: bool
 ):
     """
     NOT MEANT TO BE CALLED BY THE END USER
@@ -436,7 +435,7 @@ def _list_users(
         The maximum number of users to return
     as_df : bool
         Whether to return the data as a Pandas DataFrame
-    """    
+    """
 
     url = f'{url}/{ENDPOINTS["user_list"]}?count={max_count}&startIndex=1'
 
@@ -456,18 +455,19 @@ def _list_users(
                    'name.givenName', 'name.middleName', 'name.familyName']
         df = df[columns]
 
-        #This is a change that should be fixed on the database side
+        # This is a change that should be fixed on the database side
 
-        df['displayName'] = df['name.givenName'].astype(str) + ' ' + df['name.familyName']
+        df['displayName'] = df['name.givenName'].astype(
+            str) + ' ' + df['name.familyName']
         return df
     return resp.json()
 
 
 def _list_groups(
-        url : str,
-        headers : dict,
-        max_count : int,
-        as_df : bool
+        url: str,
+        headers: dict,
+        max_count: int,
+        as_df: bool
 ):
     """
     NOT MEANT TO BE CALLED BY THE END USER
@@ -484,7 +484,7 @@ def _list_groups(
         The maximum number of users to return
     as_df : bool
         Whether to return the data as a Pandas DataFrame
-    """        
+    """
 
     url = f'{url}/{ENDPOINTS["group_list"]}?count={max_count}&startIndex=1'
 
@@ -513,11 +513,11 @@ def _list_groups(
 
 
 def _list_group_users(
-        url : str,
-        headers : dict,
-        as_df : bool,
-        group_id : str
-    ):
+    url: str,
+    headers: dict,
+    as_df: bool,
+    group_id: str
+):
     """
     NOT MEANT TO BE CALLED BY THE END USER
 
@@ -533,7 +533,7 @@ def _list_group_users(
         The maximum number of users to return
     as_df : bool
         Whether to return the data as a Pandas DataFrame
-    """        
+    """
 
     url = f'{url}/{ENDPOINTS["group_list"]}/{group_id}'
 
@@ -562,9 +562,9 @@ def _list_group_users(
 
 
 def _list_roles(
-        url : str,
-        headers : dict,
-        as_df : bool
+        url: str,
+        headers: dict,
+        as_df: bool
 ):
     """
     NOT MEANT TO BE CALLED BY THE END USER
@@ -579,7 +579,7 @@ def _list_roles(
         The headers used for authentication within the AI Squared platform
     as_df : bool
         Whether to return the data as a Pandas DataFrame
-    """       
+    """
 
     url = f'{url}/{ENDPOINTS["roles"]}'
 

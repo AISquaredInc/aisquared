@@ -17,6 +17,7 @@ from .user_group import _create_user, _update_user, _delete_user, _get_user, _ge
 from .metrics import _list_user_usage_metrics, _list_model_usage_metrics
 from .additional_utils import _test_connection
 
+
 class AISquaredPlatformClient:
     """
     Client for interacting with the AI Squared platform programmatically
