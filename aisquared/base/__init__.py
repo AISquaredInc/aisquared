@@ -3,7 +3,6 @@ The aisquared.base package contains both some basic objects that are used across
 """
 
 from .BaseObject import BaseObject
-from .CustomObject import CustomObject
 from .rendering import LOCATIONS, COLORS, BADGES, WORD_LISTS, QUALIFIERS, POSITIONS, STATIC_POSITIONS
 from .stages import ALLOWED_STAGES
 from .harvesting import ALLOWED_INPUT_TYPES, ALLOWED_HOWS

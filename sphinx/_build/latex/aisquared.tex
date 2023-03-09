@@ -62,7 +62,7 @@
 
 
 \title{aisquared}
-\date{Mar 02, 2023}
+\date{Mar 09, 2023}
 \release{}
 \author{The AI Squared Team}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -94,7 +94,7 @@
 This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.
 
 \sphinxAtStartPar
-\sphinxstylestrong{Current Production Version:} \sphinxcode{\sphinxupquote{0.3.3}}
+\sphinxstylestrong{Current Production Version:} \sphinxcode{\sphinxupquote{0.3.4}}
 
 \sphinxAtStartPar
 \sphinxcode{\sphinxupquote{View this Documentation in PDF Format}}.
@@ -6913,6 +6913,40 @@ Added documentation surrounding global configuration objects
 \item {} 
 \sphinxAtStartPar
 Removed redundant additional dependencies
+
+\end{itemize}
+
+\end{description}
+
+\item {} \begin{description}
+\sphinxlineitem{Version 0.3.4}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Added support for custom CSS strings to appropriate rendering classes
+
+\item {} 
+\sphinxAtStartPar
+Refactored \sphinxtitleref{AISquaredPlatformClient} to import functions from support files
+
+\item {} 
+\sphinxAtStartPar
+Fixed documentation errors for the documentation site
+
+\item {} 
+\sphinxAtStartPar
+Checked whether responses returned OK status code rather than 200
+
+\item {} 
+\sphinxAtStartPar
+Moved \sphinxtitleref{CustomObject} to \sphinxtitleref{aisquared.config} from \sphinxtitleref{aisquared.base}
+
+\item {} 
+\sphinxAtStartPar
+Changed endpoint used to list platform users
+
+\item {} 
+\sphinxAtStartPar
+Fixed response behaviors where no data was returned from \sphinxtitleref{AISquaredPlatformClient}
 
 \end{itemize}
 

@@ -3,7 +3,7 @@ import aisquared
 
 
 def test_custom():
-    obj = aisquared.base.CustomObject(
+    obj = aisquared.config.CustomObject(
         'TestClass',
         test='foo',
         otherTest='bar'

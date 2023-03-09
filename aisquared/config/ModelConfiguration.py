@@ -1,5 +1,6 @@
 from typing import Union
-from aisquared.base import BaseObject, CustomObject, ALLOWED_STAGES
+from aisquared.base import BaseObject, ALLOWED_STAGES
+from aisquared.config import CustomObject
 from aisquared.config.harvesting import ImageHarvester, TextHarvester, InputHarvester, QueryParameterHarvester
 from aisquared.config.preprocessing.tabular import TabularPreprocessor
 from aisquared.config.preprocessing.image import ImagePreprocessor
