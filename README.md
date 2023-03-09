@@ -304,3 +304,12 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Changed function names in support of change from MANN to BeyondML
 - Added documentation surrounding global configuration objects
 - Removed redundant additional dependencies
+
+## Version 0.3.4
+- Added support for custom CSS strings to appropriate rendering classes
+- Refactored `AISquaredPlatformClient` to import functions from support files
+- Fixed documentation errors for the documentation site
+- Checked whether responses returned OK status code rather than 200
+- Moved `CustomObject` to `aisquared.config` from `aisquared.base`
+- Changed endpoint used to list platform users
+- Fixed response behaviors where no data was returned from `AISquaredPlatformClient`
