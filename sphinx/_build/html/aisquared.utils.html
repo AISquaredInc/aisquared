@@ -86,14 +86,76 @@
              
   <section id="aisquared-utils-package">
 <h1>aisquared.utils package<a class="headerlink" href="#aisquared-utils-package" title="Permalink to this heading"></a></h1>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
+<section id="module-aisquared.utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-aisquared.utils" title="Permalink to this heading"></a></h2>
+<p>Additional utilities to use with the <cite>aisquared</cite> package. These utilities currently consist of two functions, the
+<cite>mimic_model</cite> and <cite>get_model</cite> functions. They utilize functionality that exists in our open source package BeyondML
+to train teacher-student models</p>
+<p>To see in-depth examples of how to use these functions, please visit our GitHub repository at <a class="reference external" href="https://github.com/AISquaredInc/MimicModelExamples">https://github.com/AISquaredInc/MimicModelExamples</a></p>
 </section>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
-<section id="aisquared-utils-utils-module">
-<h2>aisquared.utils.utils module<a class="headerlink" href="#aisquared-utils-utils-module" title="Permalink to this heading"></a></h2>
+<section id="module-aisquared.utils.utils">
+<span id="aisquared-utils-utils-module"></span><h2>aisquared.utils.utils module<a class="headerlink" href="#module-aisquared.utils.utils" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="aisquared.utils.utils.get_model">
+<span class="sig-prename descclassname"><span class="pre">aisquared.utils.utils.</span></span><span class="sig-name descname"><span class="pre">get_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_activation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'small'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vocab_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/utils/utils.html#get_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.utils.utils.get_model" title="Permalink to this definition"></a></dt>
+<dd><p>Get a pre-configured model for different use cases</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_type</strong> (<em>str</em>) – Either ‘cv’, ‘nlp_embedding’, or ‘fc’, defining the model type</p></li>
+<li><p><strong>input_shape</strong> (<em>int</em><em> or </em><em>tuple</em><em> of </em><em>int</em>) – The input shape to the model</p></li>
+<li><p><strong>num_outputs</strong> (<em>int</em>) – The output shape of the model</p></li>
+<li><p><strong>output_activation</strong> (<em>str</em><em> or </em><em>keras activation function</em>) – The activation of the final layer of the model</p></li>
+<li><p><strong>size</strong> (<em>str</em><em> (</em><em>default 'small'</em><em>)</em>) – One of either ‘small’, ‘medium’, or ‘large’</p></li>
+<li><p><strong>vocab_size</strong> (<em>str</em><em> or </em><em>None</em><em> (</em><em>default None</em><em>)</em>) – Size of the vocab, if model_type is ‘nlp_embedding’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>model</strong> – The model</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>TensorFlow Keras model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="aisquared.utils.utils.mimic_model">
+<span class="sig-prename descclassname"><span class="pre">aisquared.utils.utils.</span></span><span class="sig-name descname"><span class="pre">mimic_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trained_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BaseEstimator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nnet</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">problem_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mimic_proba</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retention</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epochs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">starting_sparsification</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_sparsification</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sparsification_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="reference internal" href="_modules/aisquared/utils/utils.html#mimic_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.utils.utils.mimic_model" title="Permalink to this definition"></a></dt>
+<dd><p>Train a sparse neural network to mimic a scikit-learn model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trained_model</strong> (<em>sklearn model</em>) – The model that is already trained</p></li>
+<li><p><strong>nnet</strong> (<em>TensorFlow keras Model</em>) – The neural network to train to mimic the trained model</p></li>
+<li><p><strong>training_data</strong> (<em>array</em><em> or </em><em>array-like</em>) – The input data that was used to train the trained model</p></li>
+<li><p><strong>test_data</strong> (<em>array</em><em> or </em><em>array-like</em>) – The input data to be used for testing</p></li>
+<li><p><strong>test_labels</strong> (<em>array</em><em> or </em><em>array-like</em>) – The output data used in testing</p></li>
+<li><p><strong>problem_type</strong> (<em>str</em>) – The type of problem, either ‘classification’ or ‘regression’</p></li>
+<li><p><strong>loss</strong> (<em>str</em><em> or </em><em>keras loss function</em>) – The loss to use</p></li>
+<li><p><strong>metrics</strong> (<em>str</em><em>, </em><em>function</em><em> or </em><em>list</em><em> of </em><em>str</em><em>, </em><em>function</em>) – Metrics to measure</p></li>
+<li><p><strong>optimizer</strong> (<em>str</em><em> or </em><em>keras optimizer</em>) – The optimizer to use</p></li>
+<li><p><strong>mimic_proba</strong> (<em>bool</em><em> (</em><em>default False</em><em>)</em>) – For classification, mimic the probability outputs</p></li>
+<li><p><strong>retention</strong> (<em>float</em><em> (</em><em>default 0.9</em><em>)</em>) – The retention of performance to allow further pruning</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em><em> (</em><em>default 32</em><em>)</em>) – The batch size to use while training</p></li>
+<li><p><strong>epochs</strong> (<em>int</em><em> (</em><em>default 100</em><em>)</em>) – The number of epochs (if early stopping is not met beforehand)</p></li>
+<li><p><strong>starting_sparsification</strong> (<em>int</em><em> (</em><em>default 0</em><em>)</em>) – The starting model sparsification</p></li>
+<li><p><strong>max_sparsification</strong> (<em>int</em><em> (</em><em>default 99</em><em>)</em>) – The maximum sparsification to allow</p></li>
+<li><p><strong>sparsification_rate</strong> (<em>int</em><em> (</em><em>default 5</em><em>)</em>) – The sparsification rate when invoked</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>nnet</strong> – The trained model</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>TensorFlow keras Model</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 </section>
 

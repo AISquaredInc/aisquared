@@ -1,4 +1,7 @@
-from aisquared.base import BaseObject
+from aisquared.base import BaseObject, DEFAULT_HTML_TAG_RENDERING_CSS, HTML_TAG_RENDERING_CSS_FILE
+import platform
+import json
+import os
 
 
 class HTMLTagRendering(BaseObject):
@@ -45,7 +48,8 @@ class HTMLTagRendering(BaseObject):
         prediction_name_key: str,
         prediction_value_key: str,
         prediction_name_value: str,
-        content: str = ''
+        content: str = '',
+        css_params: dict = None
     ):
         """
         Parameters
@@ -70,6 +74,8 @@ class HTMLTagRendering(BaseObject):
             The value for the prediction name
         content : str (default '')
             The content
+        css_params : dict or None (default None)
+            Additional CSS parameters
         """
         super().__init__()
         self.label = label
@@ -82,6 +88,13 @@ class HTMLTagRendering(BaseObject):
         self.prediction_value_key = prediction_value_key
         self.prediction_name_value = prediction_name_value
         self.content = content
+
+        if css_params is None:
+            if os.path.exists(HTML_TAG_RENDERING_CSS_FILE):
+                with open(HTML_TAG_RENDERING_CSS_FILE, 'r') as f:
+                    self.css_params = json.load(f)
+            else:
+                self.css_params = DEFAULT_HTML_TAG_RENDERING_CSS
 
     def to_dict(self) -> dict:
         """
@@ -99,6 +112,7 @@ class HTMLTagRendering(BaseObject):
                 'predictionNameKey': self.prediction_name_key,
                 'predictionValueKey': self.prediction_value_key,
                 'predictionNameValue': self.prediction_name_value,
-                'content': self.content
+                'content': self.content,
+                'style': self.css_params['style']
             }
         }

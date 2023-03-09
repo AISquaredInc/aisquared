@@ -18,3 +18,5 @@ from .PieChartRendering import PieChartRendering
 from .SOSRendering import SOSRendering
 
 # from .DashboardRendering import DashboardRendering
+
+from .utils import save_default_css

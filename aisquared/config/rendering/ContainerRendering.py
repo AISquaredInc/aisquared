@@ -1,4 +1,7 @@
-from aisquared.base import BaseObject, POSITIONS, STATIC_POSITIONS
+from aisquared.base import BaseObject, POSITIONS, STATIC_POSITIONS, DEFAULT_CONTAINER_RENDERING_CSS, CONTAINER_RENDERING_CSS_FILE
+import platform
+import json
+import os
 
 
 class ContainerRendering(BaseObject):
@@ -41,7 +44,8 @@ class ContainerRendering(BaseObject):
         display: str = 'flex',
         xOffset: str = '0',
         yOffset: str = '0',
-        orientation: str = 'column'
+        orientation: str = 'column',
+        css_params: dict = None
     ):
         """
         Parameters
@@ -68,6 +72,8 @@ class ContainerRendering(BaseObject):
             The y offset of the rendering
         orientation : str (default 'column')
             The orientation of the rendering
+        css_params : dict or None (default None)
+            Additional CSS parameters
         """
         super().__init__()
         self.label = label
@@ -81,6 +87,13 @@ class ContainerRendering(BaseObject):
         self.xOffset = xOffset
         self.yOffset = yOffset
         self.orientation = orientation
+
+        if css_params is None:
+            if os.path.exists(CONTAINER_RENDERING_CSS_FILE):
+                with open(CONTAINER_RENDERING_CSS_FILE, 'r') as f:
+                    self.css_params = json.load(f)
+            else:
+                self.css_params = DEFAULT_CONTAINER_RENDERING_CSS
 
     @property
     def label(self):
@@ -202,6 +215,7 @@ class ContainerRendering(BaseObject):
                 'orientation': self.orientation,
                 'querySelector': self.query_selector,
                 'position': self.position,
-                'staticPosition': self.static_position
+                'staticPosition': self.static_position,
+                'style': self.css_params['style']
             }
         }

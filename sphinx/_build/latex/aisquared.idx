@@ -255,7 +255,7 @@
 \indexentry{position (aisquared.config.rendering.ContainerRendering.ContainerRendering property)@\spxentry{position}\spxextra{aisquared.config.rendering.ContainerRendering.ContainerRendering property}|hyperpage}{26}
 \indexentry{query\_selector (aisquared.config.rendering.ContainerRendering.ContainerRendering property)@\spxentry{query\_selector}\spxextra{aisquared.config.rendering.ContainerRendering.ContainerRendering property}|hyperpage}{26}
 \indexentry{static\_position (aisquared.config.rendering.ContainerRendering.ContainerRendering property)@\spxentry{static\_position}\spxextra{aisquared.config.rendering.ContainerRendering.ContainerRendering property}|hyperpage}{26}
-\indexentry{to\_dict() (aisquared.config.rendering.ContainerRendering.ContainerRendering method)@\spxentry{to\_dict()}\spxextra{aisquared.config.rendering.ContainerRendering.ContainerRendering method}|hyperpage}{26}
+\indexentry{to\_dict() (aisquared.config.rendering.ContainerRendering.ContainerRendering method)@\spxentry{to\_dict()}\spxextra{aisquared.config.rendering.ContainerRendering.ContainerRendering method}|hyperpage}{27}
 \indexentry{width (aisquared.config.rendering.ContainerRendering.ContainerRendering property)@\spxentry{width}\spxextra{aisquared.config.rendering.ContainerRendering.ContainerRendering property}|hyperpage}{27}
 \indexentry{xOffset (aisquared.config.rendering.ContainerRendering.ContainerRendering property)@\spxentry{xOffset}\spxextra{aisquared.config.rendering.ContainerRendering.ContainerRendering property}|hyperpage}{27}
 \indexentry{yOffset (aisquared.config.rendering.ContainerRendering.ContainerRendering property)@\spxentry{yOffset}\spxextra{aisquared.config.rendering.ContainerRendering.ContainerRendering property}|hyperpage}{27}
@@ -401,7 +401,6 @@
 \indexentry{aisquared.platform@\spxentry{aisquared.platform}!module@\spxentry{module}|hyperpage}{41}
 \indexentry{module@\spxentry{module}!aisquared.platform.AISquaredPlatformClient@\spxentry{aisquared.platform.AISquaredPlatformClient}|hyperpage}{41}
 \indexentry{aisquared.platform.AISquaredPlatformClient@\spxentry{aisquared.platform.AISquaredPlatformClient}!module@\spxentry{module}|hyperpage}{41}
-\indexentry{AISquaredAPIException@\spxentry{AISquaredAPIException}|hyperpage}{41}
 \indexentry{AISquaredPlatformClient (class in aisquared.platform.AISquaredPlatformClient)@\spxentry{AISquaredPlatformClient}\spxextra{class in aisquared.platform.AISquaredPlatformClient}|hyperpage}{41}
 \indexentry{add\_users\_to\_group() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{add\_users\_to\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{41}
 \indexentry{base\_url (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property)@\spxentry{base\_url}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}|hyperpage}{42}
@@ -411,10 +410,10 @@
 \indexentry{delete\_model() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{delete\_model()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{43}
 \indexentry{delete\_user() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{delete\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{44}
 \indexentry{get\_group() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{44}
-\indexentry{get\_group\_id\_by\_name() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_group\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{45}
+\indexentry{get\_group\_id\_by\_name() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_group\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{44}
 \indexentry{get\_model() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_model()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{45}
 \indexentry{get\_model\_id\_by\_name() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_model\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{45}
-\indexentry{get\_role\_id\_by\_name() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_role\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{46}
+\indexentry{get\_role\_id\_by\_role\_name() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_role\_id\_by\_role\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{46}
 \indexentry{get\_user() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{46}
 \indexentry{get\_user\_id\_by\_name() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_user\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{47}
 \indexentry{headers (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property)@\spxentry{headers}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}|hyperpage}{47}

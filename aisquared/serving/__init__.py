@@ -20,6 +20,7 @@ And to retrieve predictions from the model:
 >>> serving.get_remote_predictions(data) # Do not need to change host or port if predicting from the same machine
 *predictions*
 """
+
 try:
     from mlflow.tensorflow import save_model as save_tensorflow_model
     from mlflow.sklearn import save_model as save_sklearn_model

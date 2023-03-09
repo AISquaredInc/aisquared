@@ -66,7 +66,10 @@
            <div itemprop="articleBody">
              
   <h1>Source code for aisquared.config.rendering.HTMLTagRendering</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">aisquared.base</span> <span class="kn">import</span> <span class="n">BaseObject</span>
+<span></span><span class="kn">from</span> <span class="nn">aisquared.base</span> <span class="kn">import</span> <span class="n">BaseObject</span><span class="p">,</span> <span class="n">DEFAULT_HTML_TAG_RENDERING_CSS</span><span class="p">,</span> <span class="n">HTML_TAG_RENDERING_CSS_FILE</span>
+<span class="kn">import</span> <span class="nn">platform</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
 
 
 <div class="viewcode-block" id="HTMLTagRendering"><a class="viewcode-back" href="../../../../aisquared.config.rendering.html#aisquared.config.rendering.HTMLTagRendering.HTMLTagRendering">[docs]</a><span class="k">class</span> <span class="nc">HTMLTagRendering</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
@@ -113,7 +116,8 @@
         <span class="n">prediction_name_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">prediction_value_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">prediction_name_value</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">content</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">content</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="n">css_params</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
@@ -138,6 +142,8 @@
 <span class="sd">            The value for the prediction name</span>
 <span class="sd">        content : str (default &#39;&#39;)</span>
 <span class="sd">            The content</span>
+<span class="sd">        css_params : dict or None (default None)</span>
+<span class="sd">            Additional CSS parameters</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label</span>
@@ -150,6 +156,13 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">prediction_value_key</span> <span class="o">=</span> <span class="n">prediction_value_key</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">prediction_name_value</span> <span class="o">=</span> <span class="n">prediction_name_value</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="n">content</span>
+
+        <span class="k">if</span> <span class="n">css_params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">HTML_TAG_RENDERING_CSS_FILE</span><span class="p">):</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">HTML_TAG_RENDERING_CSS_FILE</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">css_params</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">css_params</span> <span class="o">=</span> <span class="n">DEFAULT_HTML_TAG_RENDERING_CSS</span>
 
 <div class="viewcode-block" id="HTMLTagRendering.to_dict"><a class="viewcode-back" href="../../../../aisquared.config.rendering.html#aisquared.config.rendering.HTMLTagRendering.HTMLTagRendering.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -167,7 +180,8 @@
                 <span class="s1">&#39;predictionNameKey&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">prediction_name_key</span><span class="p">,</span>
                 <span class="s1">&#39;predictionValueKey&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">prediction_value_key</span><span class="p">,</span>
                 <span class="s1">&#39;predictionNameValue&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">prediction_name_value</span><span class="p">,</span>
-                <span class="s1">&#39;content&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span>
+                <span class="s1">&#39;content&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">,</span>
+                <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">css_params</span><span class="p">[</span><span class="s1">&#39;style&#39;</span><span class="p">]</span>
             <span class="p">}</span>
         <span class="p">}</span></div></div>
 </pre></div>

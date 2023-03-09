@@ -263,7 +263,7 @@ def mimic_model(
 
 def get_model(
     model_type: str,
-    input_shape: Union[int, tuple[int]],
+    input_shape: Union[int, tuple],
     num_outputs: int,
     output_activation: str,
     size: str = 'small',

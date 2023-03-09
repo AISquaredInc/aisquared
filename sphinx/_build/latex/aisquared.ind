@@ -151,7 +151,6 @@
     \subitem \spxentry{module}, \hyperpage{59}
   \item \spxentry{aisquared.utils.utils}
     \subitem \spxentry{module}, \hyperpage{59}
-  \item \spxentry{AISquaredAPIException}, \hyperpage{41}
   \item \spxentry{AISquaredPlatformClient}\spxextra{class in aisquared.platform.AISquaredPlatformClient}, 
 		\hyperpage{41}
   \item \spxentry{all}\spxextra{aisquared.config.analytic.LocalAnalytic.LocalAnalytic property}, 
@@ -302,7 +301,7 @@
   \item \spxentry{get\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{44}
   \item \spxentry{get\_group\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
-		\hyperpage{45}
+		\hyperpage{44}
   \item \spxentry{get\_model()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{45}
   \item \spxentry{get\_model()}\spxextra{in module aisquared.utils.utils}, \hyperpage{59}
@@ -312,7 +311,7 @@
 		\hyperpage{45}
   \item \spxentry{get\_remote\_prediction()}\spxextra{in module aisquared.serving.get\_remote\_prediction}, 
 		\hyperpage{59}
-  \item \spxentry{get\_role\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
+  \item \spxentry{get\_role\_id\_by\_role\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{46}
   \item \spxentry{get\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{46}
@@ -809,7 +808,7 @@
   \item \spxentry{to\_dict()}\spxextra{aisquared.config.rendering.BarChartRendering.BarChartRendering method}, 
 		\hyperpage{25}
   \item \spxentry{to\_dict()}\spxextra{aisquared.config.rendering.ContainerRendering.ContainerRendering method}, 
-		\hyperpage{26}
+		\hyperpage{27}
   \item \spxentry{to\_dict()}\spxextra{aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering method}, 
 		\hyperpage{27}
   \item \spxentry{to\_dict()}\spxextra{aisquared.config.rendering.DocumentRendering.DocumentRendering method}, 

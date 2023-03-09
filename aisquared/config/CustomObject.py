@@ -1,4 +1,4 @@
-from .BaseObject import BaseObject
+from aisquared.base import BaseObject
 
 
 class CustomObject(BaseObject):

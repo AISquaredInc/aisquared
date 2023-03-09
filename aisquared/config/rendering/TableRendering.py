@@ -1,4 +1,7 @@
-from aisquared.base import BaseObject
+from aisquared.base import BaseObject, DEFAULT_TABLE_RENDERING_CSS, TABLE_RENDERING_CSS_FILE
+import platform
+import json
+import os
 
 
 class TableRendering(BaseObject):
@@ -37,6 +40,7 @@ class TableRendering(BaseObject):
         prediction_value_key: str,
         prediction_name_values: str,
         table_name: str = '',
+        css_params: dict = None
     ):
         """
         Parameters
@@ -53,6 +57,8 @@ class TableRendering(BaseObject):
             The key to use for the prediction value
         prediction_name_values : list of str
             The name of the values for the prediction
+        css_params : dict or None (default None)
+            Additional CSS parameters
         """
 
         super().__init__()
@@ -63,6 +69,13 @@ class TableRendering(BaseObject):
         self.prediction_value_key = prediction_value_key
         self.prediction_name_values = prediction_name_values
         self.table_name = table_name
+
+        if css_params is None:
+            if os.path.exists(TABLE_RENDERING_CSS_FILE):
+                with open(TABLE_RENDERING_CSS_FILE, 'r') as f:
+                    self.css_params = json.load(f)
+            else:
+                self.css_params = DEFAULT_TABLE_RENDERING_CSS
 
     def to_dict(self) -> dict:
         """
@@ -77,6 +90,7 @@ class TableRendering(BaseObject):
                 'predictionNameKey': self.prediction_name_key,
                 'predictionValueKey': self.prediction_value_key,
                 'predictionNameValues': self.prediction_name_values,
-                'tableName': self.table_name
+                'tableName': self.table_name,
+                'style': self.css_params['style']
             }
         }
