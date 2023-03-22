@@ -17,7 +17,7 @@ class ReverseMLWorkflow(BaseObject):
     >>> analytic.to_dict()
     {'className': 'ReverseMLWorkflow',
     'params': {'bucket': 'bucket_name',
-    'fileName': 'file_name',
+    'fileNames': ['file_name'],
     'inputType': 'text',
     'column': 'column_name',
     'period': None,
@@ -28,7 +28,7 @@ class ReverseMLWorkflow(BaseObject):
     def __init__(
         self,
         bucket: str,
-        filename: str,
+        filenames: list,
         column: str,
         input_type: str,
         period: int = None,
@@ -39,8 +39,8 @@ class ReverseMLWorkflow(BaseObject):
         ----------
         bucket : str
             The bucket the file lives in
-        filename : str
-            The name for the specific file
+        filenames : list of str
+            The names for any specific files
         column : str
             The column name in the CSV file
         input_type : str
@@ -52,7 +52,7 @@ class ReverseMLWorkflow(BaseObject):
         """
         super().__init__()
         self.bucket = bucket
-        self.filename = filename
+        self.filenames = filenames
         self.column = column
         self.input_type = input_type
         self.period = period
@@ -69,14 +69,18 @@ class ReverseMLWorkflow(BaseObject):
         self._bucket = value
 
     @property
-    def filename(self):
-        return self._filename
+    def filenames(self):
+        return self._filenames
 
-    @filename.setter
-    def filename(self, value):
-        if not isinstance(value, str):
-            raise TypeError('filename must be string')
-        self._filename = value
+    @filenames.setter
+    def filenames(self, value):
+        if isinstance(value, str):
+            value = [value]
+        if not isinstance(value, list):
+            raise TypeError('filenames must be a list')
+        if not all([isinstance(v, str) for v in value]):
+            raise TypeError('filenames must all be strings')
+        self._filenames = value
 
     @property
     def column(self):
@@ -125,7 +129,7 @@ class ReverseMLWorkflow(BaseObject):
             'className': 'ReverseMLWorkflow',
             'params': {
                 'bucket': self.bucket,
-                'fileName': self.filename,
+                'fileNames': self.filenames,
                 'inputType': self.input_type,
                 'column': self.column,
                 'period': self.period,

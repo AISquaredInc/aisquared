@@ -384,7 +384,7 @@ class ModelConfiguration(BaseObject):
     @property
     def documentation_link(self):
         return self._documentation_link
-    
+
     @documentation_link.setter
     def documentation_link(self, value):
         if not isinstance(value, str):
