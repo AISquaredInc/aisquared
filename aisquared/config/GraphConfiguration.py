@@ -26,7 +26,8 @@ class GraphConfiguration(BaseObject):
             mlflow_token: str = None,
             owner: str = None,
             url: str = '*',
-            auto_run: bool = False
+            auto_run: bool = False,
+            documentation_link: str = ''
     ):
         """
         Parameters
@@ -51,6 +52,8 @@ class GraphConfiguration(BaseObject):
             URL or URL pattern to match
         auto_run : bool (default False)
             Whether to automatically run this file when on a valid page
+        documentation_link : str (default '')
+            If provided, a URL to the model card for the .air file
         """
         super().__init__()
         self.name = name
@@ -63,6 +66,7 @@ class GraphConfiguration(BaseObject):
         self.owner = owner
         self.url = url
         self.auto_run = auto_run
+        self.documentation_link = documentation_link
         self.nodes = []
 
     # name
@@ -162,6 +166,17 @@ class GraphConfiguration(BaseObject):
             raise TypeError('auto_run must be Boolean valued')
         self._auto_run = value
 
+    # documentation_link
+    @property
+    def documentation_link(self):
+        return self._documentation_link
+    
+    @documentation_link.setter
+    def documentation_link(self, value):
+        if not isinstance(value, str):
+            raise TypeError('documentation_link must be str')
+        self._documentation_link = value
+
     def add_node(self, step: BaseObject, dependencies: Union[int, list] = None) -> int:
         """
         Add a node to the configuration graph
@@ -223,7 +238,8 @@ class GraphConfiguration(BaseObject):
                 'mlflowToken': self.mlflow_token,
                 'owner': self.owner,
                 'url': self.url,
-                'autoRun': self.auto_run
+                'autoRun': self.auto_run,
+                'documentationLink': self.documentation_link
             },
             'nodes': self.nodes
         }

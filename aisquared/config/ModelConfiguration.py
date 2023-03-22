@@ -105,7 +105,8 @@ class ModelConfiguration(BaseObject):
             mlflow_token: str = None,
             owner: str = None,
             url: str = '*',
-            auto_run: bool = False
+            auto_run: bool = False,
+            documentation_link: str = ''
     ):
         """
         Parameters
@@ -142,6 +143,8 @@ class ModelConfiguration(BaseObject):
             URL or URL pattern to match
         auto_run : bool (default False)
             Whether to automatically run this file when on a valid page
+        documentation_link : str (default '')
+            If provided, a URL to the model card for the .air file
         """
         super().__init__()
         self.name = name
@@ -160,6 +163,7 @@ class ModelConfiguration(BaseObject):
         self.owner = owner
         self.url = url
         self.auto_run = auto_run
+        self.documentation_link = documentation_link
 
     # name
     @property
@@ -376,6 +380,17 @@ class ModelConfiguration(BaseObject):
             raise TypeError('auto_run must be Boolean valued')
         self._auto_run = str(value).lower()
 
+    # documentation_link
+    @property
+    def documentation_link(self):
+        return self._documentation_link
+    
+    @documentation_link.setter
+    def documentation_link(self, value):
+        if not isinstance(value, str):
+            raise TypeError('documentation_link must be str')
+        self._documentation_link = value
+
     # harvester_dict
     @property
     def harvester_dict(self):
@@ -511,7 +526,8 @@ class ModelConfiguration(BaseObject):
                 'mlflowToken': self.mlflow_token,
                 'owner': self.owner,
                 'url': self.url,
-                'autoRun': self.auto_run
+                'autoRun': self.auto_run,
+                'documentationLink': self.documentation_link
             }
         }
 
