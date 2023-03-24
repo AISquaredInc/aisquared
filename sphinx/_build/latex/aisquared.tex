@@ -62,7 +62,7 @@
 
 
 \title{aisquared}
-\date{Mar 09, 2023}
+\date{Mar 24, 2023}
 \release{}
 \author{The AI Squared Team}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -94,7 +94,7 @@
 This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.
 
 \sphinxAtStartPar
-\sphinxstylestrong{Current Production Version:} \sphinxcode{\sphinxupquote{0.3.4}}
+\sphinxstylestrong{Current Production Version:} \sphinxcode{\sphinxupquote{0.3.5}}
 
 \sphinxAtStartPar
 \sphinxcode{\sphinxupquote{View this Documentation in PDF Format}}.
@@ -199,49 +199,7 @@ Return the object as a json string
 
 
 \subparagraph{aisquared.base.CustomObject module}
-\label{\detokenize{aisquared.base:module-aisquared.base.CustomObject}}\label{\detokenize{aisquared.base:aisquared-base-customobject-module}}\index{module@\spxentry{module}!aisquared.base.CustomObject@\spxentry{aisquared.base.CustomObject}}\index{aisquared.base.CustomObject@\spxentry{aisquared.base.CustomObject}!module@\spxentry{module}}\index{CustomObject (class in aisquared.base.CustomObject)@\spxentry{CustomObject}\spxextra{class in aisquared.base.CustomObject}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.base:aisquared.base.CustomObject.CustomObject}}
-\pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.base.CustomObject.}}\sphinxbfcode{\sphinxupquote{CustomObject}}}{\emph{\DUrole{n}{class\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{top\_level\_kwargs}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}dict\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{o}{**}\DUrole{n}{kwargs}}}{}
-\pysigstopsignatures
-\sphinxAtStartPar
-Bases: {\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{BaseObject}}}}}
-
-\sphinxAtStartPar
-Custom class that allows the user to define custom classes for configuration
-
-\sphinxAtStartPar
-Example usage:
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{my\PYGZus{}obj} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{base}\PYG{o}{.}\PYG{n}{CustomObject}\PYG{p}{(}
-\PYG{g+go}{    \PYGZsq{}MyClass\PYGZsq{},}
-\PYG{g+go}{    key1 = \PYGZsq{}foo\PYGZsq{},}
-\PYG{g+go}{    key2 = \PYGZsq{}bar\PYGZsq{}}
-\PYG{g+go}{    )}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{my\PYGZus{}obj}\PYG{o}{.}\PYG{n}{to\PYGZus{}dict}\PYG{p}{(}\PYG{p}{)}
-\PYG{g+go}{\PYGZob{}\PYGZsq{}className\PYGZsq{}: \PYGZsq{}MyClass\PYGZsq{}, \PYGZsq{}params\PYGZsq{}: \PYGZob{}\PYGZsq{}key1\PYGZsq{}: \PYGZsq{}foo\PYGZsq{}, \PYGZsq{}key2\PYGZsq{}: \PYGZsq{}bar\PYGZsq{}\PYGZcb{}\PYGZcb{}}
-\PYG{g+go}{)}
-\end{sphinxVerbatim}
-\index{to\_dict() (aisquared.base.CustomObject.CustomObject method)@\spxentry{to\_dict()}\spxextra{aisquared.base.CustomObject.CustomObject method}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.base:aisquared.base.CustomObject.CustomObject.to_dict}}
-\pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{to\_dict}}}{}{{ $\rightarrow$ dict}}
-\pysigstopsignatures
-\sphinxAtStartPar
-Get the object as a dictionary
-
-\end{fulllineitems}
-
-
-\end{fulllineitems}
-
-
+\label{\detokenize{aisquared.base:aisquared-base-customobject-module}}
 
 \subparagraph{aisquared.base.rendering module}
 \label{\detokenize{aisquared.base:module-aisquared.base.rendering}}\label{\detokenize{aisquared.base:aisquared-base-rendering-module}}\index{module@\spxentry{module}!aisquared.base.rendering@\spxentry{aisquared.base.rendering}}\index{aisquared.base.rendering@\spxentry{aisquared.base.rendering}!module@\spxentry{module}}
@@ -597,7 +555,7 @@ Get the configuration object as a dictionary
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.config.analytic:aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.analytic.ReverseMLWorkflow.}}\sphinxbfcode{\sphinxupquote{ReverseMLWorkflow}}}{\emph{\DUrole{n}{bucket}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{filename}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{column}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{input\_type}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{period}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}int\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{secret}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.analytic.ReverseMLWorkflow.}}\sphinxbfcode{\sphinxupquote{ReverseMLWorkflow}}}{\emph{\DUrole{n}{bucket}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{filenames}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{list}}, \emph{\DUrole{n}{column}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{input\_type}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{period}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}int\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{secret}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Bases: {\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{BaseObject}}}}}
@@ -619,7 +577,7 @@ Example usage:
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{analytic}\PYG{o}{.}\PYG{n}{to\PYGZus{}dict}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+go}{\PYGZob{}\PYGZsq{}className\PYGZsq{}: \PYGZsq{}ReverseMLWorkflow\PYGZsq{},}
 \PYG{g+go}{\PYGZsq{}params\PYGZsq{}: \PYGZob{}\PYGZsq{}bucket\PYGZsq{}: \PYGZsq{}bucket\PYGZus{}name\PYGZsq{},}
-\PYG{g+go}{\PYGZsq{}fileName\PYGZsq{}: \PYGZsq{}file\PYGZus{}name\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}fileNames\PYGZsq{}: [\PYGZsq{}file\PYGZus{}name\PYGZsq{}],}
 \PYG{g+go}{\PYGZsq{}inputType\PYGZsq{}: \PYGZsq{}text\PYGZsq{},}
 \PYG{g+go}{\PYGZsq{}column\PYGZsq{}: \PYGZsq{}column\PYGZus{}name\PYGZsq{},}
 \PYG{g+go}{\PYGZsq{}period\PYGZsq{}: None,}
@@ -643,12 +601,12 @@ Example usage:
 \pysigstopsignatures
 \end{fulllineitems}
 
-\index{filename (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)@\spxentry{filename}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}}
+\index{filenames (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)@\spxentry{filenames}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.config.analytic:aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.filename}}
+\phantomsection\label{\detokenize{aisquared.config.analytic:aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.filenames}}
 \pysigstartsignatures
-\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w}{  }}}\sphinxbfcode{\sphinxupquote{filename}}}
+\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w}{  }}}\sphinxbfcode{\sphinxupquote{filenames}}}
 \pysigstopsignatures
 \end{fulllineitems}
 
@@ -4024,7 +3982,7 @@ Get the configuration object as a dictionary
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.config:aisquared.config.GraphConfiguration.GraphConfiguration}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.GraphConfiguration.}}\sphinxbfcode{\sphinxupquote{GraphConfiguration}}}{\emph{\DUrole{n}{name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{stage}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}experimental\textquotesingle{}}}, \emph{\DUrole{n}{version}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}int\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{description}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \emph{\DUrole{n}{mlflow\_uri}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{mlflow\_user}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{mlflow\_token}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{owner}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{url}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}*\textquotesingle{}}}, \emph{\DUrole{n}{auto\_run}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{False}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.GraphConfiguration.}}\sphinxbfcode{\sphinxupquote{GraphConfiguration}}}{\emph{\DUrole{n}{name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{stage}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}experimental\textquotesingle{}}}, \emph{\DUrole{n}{version}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}int\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{description}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \emph{\DUrole{n}{mlflow\_uri}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{mlflow\_user}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{mlflow\_token}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{owner}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{url}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}*\textquotesingle{}}}, \emph{\DUrole{n}{auto\_run}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{False}}, \emph{\DUrole{n}{documentation\_link}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Bases: {\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{BaseObject}}}}}
@@ -4105,6 +4063,15 @@ Compile the object into a ‘.air’ file, which can then be dragged and dropped
 \phantomsection\label{\detokenize{aisquared.config:aisquared.config.GraphConfiguration.GraphConfiguration.description}}
 \pysigstartsignatures
 \pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w}{  }}}\sphinxbfcode{\sphinxupquote{description}}}
+\pysigstopsignatures
+\end{fulllineitems}
+
+\index{documentation\_link (aisquared.config.GraphConfiguration.GraphConfiguration property)@\spxentry{documentation\_link}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration property}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{aisquared.config:aisquared.config.GraphConfiguration.GraphConfiguration.documentation_link}}
+\pysigstartsignatures
+\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w}{  }}}\sphinxbfcode{\sphinxupquote{documentation\_link}}}
 \pysigstopsignatures
 \end{fulllineitems}
 
@@ -4215,7 +4182,7 @@ Get the object as a dictionary
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.config:aisquared.config.ModelConfiguration.ModelConfiguration}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.ModelConfiguration.}}\sphinxbfcode{\sphinxupquote{ModelConfiguration}}}{\emph{\DUrole{n}{name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{harvesting\_steps}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}Union\DUrole{p}{{[}}{\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{BaseObject}}}\DUrole{p}{,}\DUrole{w}{  }list\DUrole{p}{{]}}\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{preprocessing\_steps}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}Union\DUrole{p}{{[}}{\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{BaseObject}}}\DUrole{p}{,}\DUrole{w}{  }list\DUrole{p}{{]}}\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{analytic}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}Union\DUrole{p}{{[}}{\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{BaseObject}}}\DUrole{p}{,}\DUrole{w}{  }list\DUrole{p}{{]}}\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{postprocessing\_steps}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}Union\DUrole{p}{{[}}{\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{BaseObject}}}\DUrole{p}{,}\DUrole{w}{  }list\DUrole{p}{{]}}\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{rendering\_steps}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}Union\DUrole{p}{{[}}{\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{BaseObject}}}\DUrole{p}{,}\DUrole{w}{  }list\DUrole{p}{{]}}\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{feedback\_steps}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}Union\DUrole{p}{{[}}{\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{BaseObject}}}\DUrole{p}{,}\DUrole{w}{  }list\DUrole{p}{{]}}\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{stage}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}experimental\textquotesingle{}}}, \emph{\DUrole{n}{version}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}int\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{description}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \emph{\DUrole{n}{mlflow\_uri}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{mlflow\_user}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{mlflow\_token}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{owner}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{url}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}*\textquotesingle{}}}, \emph{\DUrole{n}{auto\_run}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{False}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.ModelConfiguration.}}\sphinxbfcode{\sphinxupquote{ModelConfiguration}}}{\emph{\DUrole{n}{name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{harvesting\_steps}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}Union\DUrole{p}{{[}}{\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{BaseObject}}}\DUrole{p}{,}\DUrole{w}{  }list\DUrole{p}{{]}}\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{preprocessing\_steps}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}Union\DUrole{p}{{[}}{\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{BaseObject}}}\DUrole{p}{,}\DUrole{w}{  }list\DUrole{p}{{]}}\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{analytic}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}Union\DUrole{p}{{[}}{\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{BaseObject}}}\DUrole{p}{,}\DUrole{w}{  }list\DUrole{p}{{]}}\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{postprocessing\_steps}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}Union\DUrole{p}{{[}}{\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{BaseObject}}}\DUrole{p}{,}\DUrole{w}{  }list\DUrole{p}{{]}}\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{rendering\_steps}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}Union\DUrole{p}{{[}}{\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{BaseObject}}}\DUrole{p}{,}\DUrole{w}{  }list\DUrole{p}{{]}}\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{feedback\_steps}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}Union\DUrole{p}{{[}}{\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{BaseObject}}}\DUrole{p}{,}\DUrole{w}{  }list\DUrole{p}{{]}}\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{stage}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}experimental\textquotesingle{}}}, \emph{\DUrole{n}{version}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}int\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{description}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \emph{\DUrole{n}{mlflow\_uri}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{mlflow\_user}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{mlflow\_token}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{owner}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{url}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}*\textquotesingle{}}}, \emph{\DUrole{n}{auto\_run}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{False}}, \emph{\DUrole{n}{documentation\_link}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Bases: {\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{BaseObject}}}}}
@@ -4282,6 +4249,15 @@ name of the analytic
 \phantomsection\label{\detokenize{aisquared.config:aisquared.config.ModelConfiguration.ModelConfiguration.description}}
 \pysigstartsignatures
 \pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w}{  }}}\sphinxbfcode{\sphinxupquote{description}}}
+\pysigstopsignatures
+\end{fulllineitems}
+
+\index{documentation\_link (aisquared.config.ModelConfiguration.ModelConfiguration property)@\spxentry{documentation\_link}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{aisquared.config:aisquared.config.ModelConfiguration.ModelConfiguration.documentation_link}}
+\pysigstartsignatures
+\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w}{  }}}\sphinxbfcode{\sphinxupquote{documentation\_link}}}
 \pysigstopsignatures
 \end{fulllineitems}
 
@@ -6952,6 +6928,20 @@ Fixed response behaviors where no data was returned from \sphinxtitleref{AISquar
 
 \end{description}
 
+\item {} \begin{description}
+\sphinxlineitem{Version 0.3.5}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Changed \sphinxtitleref{file\_name} parameter in \sphinxtitleref{ReverseMLWorkflow} to \sphinxtitleref{file\_names}
+
+\item {} 
+\sphinxAtStartPar
+Added \sphinxtitleref{documentation\_link} parameter to \sphinxtitleref{ModelConfiguration} class
+
+\end{itemize}
+
+\end{description}
+
 \end{itemize}
 
 
@@ -6962,7 +6952,6 @@ Fixed response behaviors where no data was returned from \sphinxtitleref{AISquar
 \item\relax\sphinxstyleindexentry{aisquared}\sphinxstyleindexpageref{aisquared:\detokenize{module-aisquared}}
 \item\relax\sphinxstyleindexentry{aisquared.base}\sphinxstyleindexpageref{aisquared.base:\detokenize{module-aisquared.base}}
 \item\relax\sphinxstyleindexentry{aisquared.base.BaseObject}\sphinxstyleindexpageref{aisquared.base:\detokenize{module-aisquared.base.BaseObject}}
-\item\relax\sphinxstyleindexentry{aisquared.base.CustomObject}\sphinxstyleindexpageref{aisquared.base:\detokenize{module-aisquared.base.CustomObject}}
 \item\relax\sphinxstyleindexentry{aisquared.base.rendering}\sphinxstyleindexpageref{aisquared.base:\detokenize{module-aisquared.base.rendering}}
 \item\relax\sphinxstyleindexentry{aisquared.base.stages}\sphinxstyleindexpageref{aisquared.base:\detokenize{module-aisquared.base.stages}}
 \item\relax\sphinxstyleindexentry{aisquared.config}\sphinxstyleindexpageref{aisquared.config:\detokenize{module-aisquared.config}}

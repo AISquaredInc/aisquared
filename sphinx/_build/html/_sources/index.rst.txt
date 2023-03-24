@@ -15,7 +15,7 @@ Welcome to the documentation for the `aisquared` python package!
 
 This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.
 
-**Current Production Version:** ``0.3.4``
+**Current Production Version:** ``0.3.5``
 
 :download:`View this Documentation in PDF Format <./_build/latex/aisquared.pdf>`.
 
@@ -130,3 +130,6 @@ Changelog
    - Moved `CustomObject` to `aisquared.config` from `aisquared.base`
    - Changed endpoint used to list platform users
    - Fixed response behaviors where no data was returned from `AISquaredPlatformClient`
+- Version 0.3.5
+   - Changed `file_name` parameter in `ReverseMLWorkflow` to `file_names`
+   - Added `documentation_link` parameter to `ModelConfiguration` class

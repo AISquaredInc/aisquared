@@ -313,3 +313,7 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Moved `CustomObject` to `aisquared.config` from `aisquared.base`
 - Changed endpoint used to list platform users
 - Fixed response behaviors where no data was returned from `AISquaredPlatformClient`
+
+## Version 0.3.5
+- Changed `file_name` parameter in `ReverseMLWorkflow` to `file_names`
+- Added `documentation_link` parameter to `ModelConfiguration` class
