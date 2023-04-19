@@ -317,3 +317,6 @@ Below are a list of additional features, bug fixes, and other changes made for e
 ## Version 0.3.5
 - Changed `file_name` parameter in `ReverseMLWorkflow` to `file_names`
 - Added `documentation_link` parameter to `ModelConfiguration` class
+
+## Version 0.3.6
+- Fixed issue with type checking for `ModelConfiguration` Rendering classes
