@@ -5,16 +5,12 @@ import os
 DEFAULT_CONTAINER_RENDERING_CSS = {
     'style': {
         'container': {
-            'border': "none",
-            'margin': "0",
-            'padding': "8px",
-            'background': "#ffffff",
-            'borderRadius': "0",
-            'color': "#000000",
+            'color': 'black',
+            'margin': '0',
+            'padding': '24px',
             'fontSize': '16px',
-            'textAlign': 'left',
-            'textDecoration': 'none',
-            'textTransform': 'none',
+            'background': 'white',
+            'borderRadius': '10px'
         }
     }
 }
