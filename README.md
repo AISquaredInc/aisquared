@@ -321,3 +321,4 @@ Below are a list of additional features, bug fixes, and other changes made for e
 ## Version 0.3.6
 - Fixed issue with type checking for `ModelConfiguration` Rendering classes
 - Restricted TensorFlow version to below `2.12.0` to prevent import issues
+- Added `position` parameter to `WordRendering` class

@@ -136,3 +136,4 @@ Changelog
 - Version 0.3.6
    - Fixed issue with type checking for `ModelConfiguration` Rendering classes
    - Restricted TensorFlow version to below `2.12.0` to prevent import issues
+   - Added `position` parameter to `WordRendering` class
