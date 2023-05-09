@@ -113,7 +113,8 @@ def test_word_rendering():
             'badgeColor': 'blue',
             'classes': None,
             'thresholdKey': None,
-            'thresholdValue': None
+            'thresholdValue': None,
+            'position': 'after'
         }
     }
     word = aisquared.config.rendering.WordRendering(badge_shape='underline')
@@ -127,7 +128,8 @@ def test_word_rendering():
             'badgeColor': 'blue',
             'classes': None,
             'thresholdKey': None,
-            'thresholdValue': None
+            'thresholdValue': None,
+            'position': 'after'
         }
     }
 
