@@ -31,6 +31,7 @@ class ReverseMLWorkflow(BaseObject):
         filenames: list,
         column: str,
         input_type: str,
+        filter_type: str,
         period: int = None,
         secret: str = ''
     ):
@@ -45,6 +46,8 @@ class ReverseMLWorkflow(BaseObject):
             The column name in the CSV file
         input_type : str
             Either one of 'text' or 'cv'
+        filter_type : str
+            The filter type
         period : None or int (default None)
             The period for this to run
         secret : str (default '')
@@ -55,6 +58,7 @@ class ReverseMLWorkflow(BaseObject):
         self.filenames = filenames
         self.column = column
         self.input_type = input_type
+        self.filter_type = filter_type
         self.period = period
         self.secret = secret
 
@@ -101,6 +105,16 @@ class ReverseMLWorkflow(BaseObject):
         self._input_type = value
 
     @property
+    def filter_type(self):
+        return self._filter_type
+    
+    @filter_type.setter
+    def filter_type(self, value):
+        if not isinstance(value, str):
+            raise TypeError('filter_type must be str')
+        self._filter_type = value
+
+    @property
     def period(self):
         return self._period
 
@@ -131,6 +145,7 @@ class ReverseMLWorkflow(BaseObject):
                 'bucket': self.bucket,
                 'fileNames': self.filenames,
                 'inputType': self.input_type,
+                'filterType': self.filter_type,
                 'column': self.column,
                 'period': self.period,
                 'secret': self.secret
