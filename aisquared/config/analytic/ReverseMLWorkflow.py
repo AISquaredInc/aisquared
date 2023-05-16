@@ -111,7 +111,7 @@ class ReverseMLWorkflow(BaseObject):
     @property
     def filter_type(self):
         return self._filter_type
-    
+
     @filter_type.setter
     def filter_type(self, value):
         if not isinstance(value, str):
@@ -128,28 +128,31 @@ class ReverseMLWorkflow(BaseObject):
             raise TypeError('filter_by_columns must be list')
         if not all([isinstance(v, dict) for v in value]):
             raise TypeError('All items in filter_by_columns must be dict')
-        
+
         def _check_item(v):
             if 'inputType' not in v.keys():
-                raise ValueError('All items in filter_by_columns must have "inputType" key')
-            
+                raise ValueError(
+                    'All items in filter_by_columns must have "inputType" key')
+
             if v['inputType'] not in v.keys():
                 if 'columnValue' not in v.keys():
-                    raise ValueError('All items in filter_by_columns must have "columnValue" key if "inputType" is "static"')
-                
+                    raise ValueError(
+                        'All items in filter_by_columns must have "columnValue" key if "inputType" is "static"')
+
             if 'columnName' not in v.keys():
-                    raise ValueError('All items in filter_by_columns must have "columnName" ke')
-            
+                raise ValueError(
+                    'All items in filter_by_columns must have "columnName" ke')
+
             if v['inputType'] not in ['group', 'input', 'static']:
-                raise ValueError(f'"inputType" must be one of "group", "input", or "static", got {v["inputType"]}')
-            
+                raise ValueError(
+                    f'"inputType" must be one of "group", "input", or "static", got {v["inputType"]}')
+
             return True
-        
+
         if not all([_check_item(v) for v in value]):
             raise ValueError('Not all items pass validation')
-        
-        self._filter_by_columns = value
 
+        self._filter_by_columns = value
 
     @property
     def period(self):

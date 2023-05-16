@@ -32,12 +32,12 @@ def test_analytic_init():
         'bucket',
         ['filename1.csv'],
         'name',
-        input_type = 'text',
-        filter_type = 'static',
-        filter_by_columns = {
+        input_type='text',
+        filter_type='static',
+        filter_by_columns=[{
             'inputType': 'static',
             'columnName': 'status',
             'columnValue': 'pending'
-        },
-        period = 1
+        }],
+        period=1
     )
