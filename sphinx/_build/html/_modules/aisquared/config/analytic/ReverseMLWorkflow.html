@@ -99,6 +99,8 @@
         <span class="n">filenames</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
         <span class="n">column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">input_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">filter_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">filter_by_columns</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">period</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">secret</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
     <span class="p">):</span>
@@ -113,6 +115,10 @@
 <span class="sd">            The column name in the CSV file</span>
 <span class="sd">        input_type : str</span>
 <span class="sd">            Either one of &#39;text&#39; or &#39;cv&#39;</span>
+<span class="sd">        filter_type : str</span>
+<span class="sd">            The filter type</span>
+<span class="sd">        filter_by_columns : str</span>
+<span class="sd">            How to filter the columns of the ReverseMLWorkflow</span>
 <span class="sd">        period : None or int (default None)</span>
 <span class="sd">            The period for this to run</span>
 <span class="sd">        secret : str (default &#39;&#39;)</span>
@@ -123,6 +129,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">filenames</span> <span class="o">=</span> <span class="n">filenames</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">column</span> <span class="o">=</span> <span class="n">column</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">input_type</span> <span class="o">=</span> <span class="n">input_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filter_type</span> <span class="o">=</span> <span class="n">filter_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filter_by_columns</span> <span class="o">=</span> <span class="n">filter_by_columns</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">period</span> <span class="o">=</span> <span class="n">period</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">secret</span> <span class="o">=</span> <span class="n">secret</span>
 
@@ -169,6 +177,52 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_input_type</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">filter_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filter_type</span>
+
+    <span class="nd">@filter_type</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">filter_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;filter_type must be str&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_filter_type</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">filter_by_columns</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filter_by_columns</span>
+
+    <span class="nd">@filter_by_columns</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">filter_by_columns</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;filter_by_columns must be list&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;All items in filter_by_columns must be dict&#39;</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">_check_item</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+            <span class="k">if</span> <span class="s1">&#39;inputType&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s1">&#39;All items in filter_by_columns must have &quot;inputType&quot; key&#39;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;inputType&#39;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">if</span> <span class="s1">&#39;columnValue&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="s1">&#39;All items in filter_by_columns must have &quot;columnValue&quot; key if &quot;inputType&quot; is &quot;static&quot;&#39;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="s1">&#39;columnName&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s1">&#39;All items in filter_by_columns must have &quot;columnName&quot; ke&#39;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;inputType&#39;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="s1">&#39;static&#39;</span><span class="p">]:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s1">&#39;&quot;inputType&quot; must be one of &quot;group&quot;, &quot;input&quot;, or &quot;static&quot;, got </span><span class="si">{</span><span class="n">v</span><span class="p">[</span><span class="s2">&quot;inputType&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="n">_check_item</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Not all items pass validation&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_filter_by_columns</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">period</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_period</span>
 
@@ -199,9 +253,11 @@
                 <span class="s1">&#39;bucket&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">bucket</span><span class="p">,</span>
                 <span class="s1">&#39;fileNames&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">filenames</span><span class="p">,</span>
                 <span class="s1">&#39;inputType&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_type</span><span class="p">,</span>
+                <span class="s1">&#39;filterType&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_type</span><span class="p">,</span>
                 <span class="s1">&#39;column&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">column</span><span class="p">,</span>
                 <span class="s1">&#39;period&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">period</span><span class="p">,</span>
-                <span class="s1">&#39;secret&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">secret</span>
+                <span class="s1">&#39;secret&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">secret</span><span class="p">,</span>
+                <span class="s1">&#39;filterByColumns&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_by_columns</span>
             <span class="p">}</span>
         <span class="p">}</span></div></div>
 </pre></div>

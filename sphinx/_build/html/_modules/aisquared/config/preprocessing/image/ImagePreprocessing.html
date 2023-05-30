@@ -79,14 +79,14 @@
 <span class="p">)</span>
 
 
-<div class="viewcode-block" id="ImagePreprocessor"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor">[docs]</a><span class="k">class</span> <span class="nc">ImagePreprocessor</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
+<div class="viewcode-block" id="ImagePreprocesser"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser">[docs]</a><span class="k">class</span> <span class="nc">ImagePreprocesser</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Preprocessor object for image data</span>
+<span class="sd">    Preprocesser object for image data</span>
 
 <span class="sd">    Example usage:</span>
 
 <span class="sd">    &gt;&gt;&gt; import aisquared</span>
-<span class="sd">    &gt;&gt;&gt; preprocesser = aisquared.config.preprocessing.image.ImagePreprocessor()</span>
+<span class="sd">    &gt;&gt;&gt; preprocesser = aisquared.config.preprocessing.image.ImagePreprocesser()</span>
 <span class="sd">    &gt;&gt;&gt; preprocesser.add_step(</span>
 <span class="sd">        aisquared.config.preprocessing.image.AddValue(255.0)</span>
 <span class="sd">    )</span>
@@ -117,9 +117,9 @@
                 <span class="n">step</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps</span>
             <span class="p">]</span>
 
-<div class="viewcode-block" id="ImagePreprocessor.add_step"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor.add_step">[docs]</a>    <span class="k">def</span> <span class="nf">add_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
+<div class="viewcode-block" id="ImagePreprocesser.add_step"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser.add_step">[docs]</a>    <span class="k">def</span> <span class="nf">add_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Add a step to the preprocessor object</span>
+<span class="sd">        Add a step to the preprocesser object</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">ALLOWED_STEPS</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Each step must be one of </span><span class="si">{</span><span class="n">ALLOWED_STEPS</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -128,12 +128,12 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">steps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps</span> <span class="o">+</span> <span class="p">[</span><span class="n">step</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="ImagePreprocessor.to_dict"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<div class="viewcode-block" id="ImagePreprocesser.to_dict"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the configuration object as a dictionary</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">{</span>
-            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;ImagePreprocessor&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;ImagePreprocesser&#39;</span><span class="p">,</span>
             <span class="s1">&#39;steps&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">step_dict</span>
         <span class="p">}</span></div></div>
 </pre></div>

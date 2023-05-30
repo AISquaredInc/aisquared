@@ -1,13 +1,13 @@
 from typing import Union
 from aisquared.base import BaseObject, ALLOWED_STAGES
-from aisquared.config import CustomObject
+from .CustomObject import CustomObject
 from aisquared.config.harvesting import ImageHarvester, TextHarvester, InputHarvester, QueryParameterHarvester
-from aisquared.config.preprocessing.tabular import TabularPreprocessor
-from aisquared.config.preprocessing.image import ImagePreprocessor
-from aisquared.config.preprocessing.text import TextPreprocessor
+from aisquared.config.preprocessing.tabular import TabularPreprocesser
+from aisquared.config.preprocessing.image import ImagePreprocesser
+from aisquared.config.preprocessing.text import TextPreprocesser
 from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel, LocalAnalytic, ReverseMLWorkflow
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, ObjectDetection, Regression
-from aisquared.config.rendering import ImageRendering, ObjectRendering, DocumentRendering, WordRendering, FilterRendering, ContainerRendering, HTMLTagRendering, DoughnutChartRendering, TableRendering, BarChartRendering, LineChartRendering, DashboardReplacementRendering, PieChartRendering, SOSRendering, DashboardRendering
+from aisquared.config.rendering import ImageRendering, ObjectRendering, DocumentRendering, WordRendering, FilterRendering, ContainerRendering, HTMLTagRendering, DoughnutChartRendering, TableRendering, BarChartRendering, LineChartRendering, DashboardReplacementRendering, PieChartRendering, SOSRendering  # , DashboardRendering
 from aisquared.config.feedback import SimpleFeedback, BinaryFeedback, MulticlassFeedback, RegressionFeedback, ModelFeedback, QualitativeFeedback
 
 import tensorflowjs as tfjs
@@ -25,9 +25,9 @@ HARVESTING_CLASSES = (
 )
 
 PREPROCESSING_CLASSES = (
-    TabularPreprocessor,
-    ImagePreprocessor,
-    TextPreprocessor,
+    TabularPreprocesser,
+    ImagePreprocesser,
+    TextPreprocesser,
     CustomObject
 )
 
@@ -64,7 +64,7 @@ RENDERING_CLASSES = (
     PieChartRendering,
     SOSRendering,
     CustomObject,
-    DashboardRendering
+    # DashboardRendering
 )
 
 FEEDBACK_CLASSES = (
@@ -213,7 +213,7 @@ class ModelConfiguration(BaseObject):
             self._preprocessing_steps = value
         else:
             raise ValueError(
-                'preprocessing_steps must a single Preprocessor object, a list of Preprocessor objects, or a list of list of preprocessor objects')
+                'preprocessing_steps must a single Preprocesser object, a list of Preprocesser objects, or a list of list of preprocesser objects')
 
     # analytic
     @property

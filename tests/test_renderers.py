@@ -113,7 +113,8 @@ def test_word_rendering():
             'badgeColor': 'blue',
             'classes': None,
             'thresholdKey': None,
-            'thresholdValue': None
+            'thresholdValue': None,
+            'position': 'after'
         }
     }
     word = aisquared.config.rendering.WordRendering(badge_shape='underline')
@@ -127,7 +128,8 @@ def test_word_rendering():
             'badgeColor': 'blue',
             'classes': None,
             'thresholdKey': None,
-            'thresholdValue': None
+            'thresholdValue': None,
+            'position': 'after'
         }
     }
 
@@ -163,31 +165,30 @@ def test_bar_chart_rendering():
         legend_icon='circle',
         labels_key='labels'
     )
-    assert renderer.to_dict() == {
-        'className': 'BarChartRendering',
-        'label': 'test',
-        'params': {
-            'id': 'test',
-            'chartName': 'test',
-            'containerId': 'test',
-            'displayLegend': True,
-            'legendIcon': 'circle',
-            'width': 'auto',
-            'height': 'auto',
-            'xOffset': '0',
-            'yOffset': '0',
-            'datasource': [
-                {
-                    'labels': None,
-                    'labelsKey': 'labels',
-                    'consolidateRows': True,
-                    'predictionNameKey': '',
-                    'predictionValueKey': '',
-                    'predictionNameValue': ''
-                }
-            ]
-        }
-    }
+    assert renderer.to_dict() == {'className': 'BarChartRendering',
+                                  'label': 'test',
+                                  'params': {'id': 'test',
+                                             'chartName': 'test',
+                                             'containerId': 'test',
+                                             'displayLegend': True,
+                                             'legendIcon': 'circle',
+                                             'width': 'auto',
+                                             'height': 'auto',
+                                             'xOffset': '0',
+                                             'yOffset': '0',
+                                             'datasource': [{'labels': None,
+                                                             'labelsKey': 'labels',
+                                                             'consolidateRows': True,
+                                                             'predictionNameKey': '',
+                                                             'predictionValueKey': '',
+                                                             'predictionNameValue': ''}],
+                                             'style': {'container': {'color': 'black',
+                                                                     'border': '1px solid lightgray',
+                                                                     'margin': '0',
+                                                                     'padding': '24px',
+                                                                     'fontSize': '16px',
+                                                                     'background': 'white',
+                                                                     'borderRadius': '10px'}}}}
 
 
 def test_line_chart_rendering():
@@ -203,31 +204,30 @@ def test_line_chart_rendering():
         legend_icon='circle',
         labels_key='labels'
     )
-    assert renderer.to_dict() == {
-        'className': 'LineChartRendering',
-        'label': 'test',
-        'params': {
-            'id': 'test',
-            'chartName': 'test',
-            'containerId': 'test',
-            'displayLegend': True,
-            'legendIcon': 'circle',
-            'width': 'auto',
-            'height': 'auto',
-            'xOffset': '0',
-            'yOffset': '0',
-            'datasource': [
-                {
-                    'labels': None,
-                    'labelsKey': 'labels',
-                    'consolidateRows': True,
-                    'predictionNameKey': '',
-                    'predictionValueKey': '',
-                    'predictionNameValue': '',
-                }
-            ]
-        }
-    }
+    assert renderer.to_dict() == {'className': 'LineChartRendering',
+                                  'label': 'test',
+                                  'params': {'id': 'test',
+                                             'chartName': 'test',
+                                             'containerId': 'test',
+                                             'displayLegend': True,
+                                             'legendIcon': 'circle',
+                                             'width': 'auto',
+                                             'height': 'auto',
+                                             'xOffset': '0',
+                                             'yOffset': '0',
+                                             'datasource': [{'labels': None,
+                                                             'labelsKey': 'labels',
+                                                             'consolidateRows': True,
+                                                             'predictionNameKey': '',
+                                                             'predictionValueKey': '',
+                                                             'predictionNameValue': ''}],
+                                             'style': {'container': {'color': 'black',
+                                                                     'border': '1px solid lightgray',
+                                                                     'margin': '0',
+                                                                     'padding': '24px',
+                                                                     'fontSize': '16px',
+                                                                     'background': 'white',
+                                                                     'borderRadius': '10px'}}}}
 
 
 def test_doughnut_chart_rendering():
@@ -243,31 +243,30 @@ def test_doughnut_chart_rendering():
         legend_icon='circle',
         labels_key='labels'
     )
-    assert renderer.to_dict() == {
-        'className': 'DoughnutChartRendering',
-        'label': 'test',
-        'params': {
-            'id': 'test',
-            'chartName': 'test',
-            'containerId': 'test',
-            'displayLegend': True,
-            'legendIcon': 'circle',
-            'width': 'auto',
-            'height': 'auto',
-            'xOffset': '0',
-            'yOffset': '0',
-            'datasource': [
-                {
-                    'labels': None,
-                    'labelsKey': 'labels',
-                    'consolidateRows': True,
-                    'predictionNameKey': '',
-                    'predictionValueKey': '',
-                    'predictionNameValue': '',
-                }
-            ]
-        }
-    }
+    assert renderer.to_dict() == {'className': 'DoughnutChartRendering',
+                                  'label': 'test',
+                                  'params': {'id': 'test',
+                                             'chartName': 'test',
+                                             'containerId': 'test',
+                                             'displayLegend': True,
+                                             'legendIcon': 'circle',
+                                             'width': 'auto',
+                                             'height': 'auto',
+                                             'xOffset': '0',
+                                             'yOffset': '0',
+                                             'datasource': [{'labels': None,
+                                                             'labelsKey': 'labels',
+                                                             'consolidateRows': True,
+                                                             'predictionNameKey': '',
+                                                             'predictionValueKey': '',
+                                                             'predictionNameValue': ''}],
+                                             'style': {'container': {'color': 'black',
+                                                                     'border': '1px solid lightgray',
+                                                                     'margin': '0',
+                                                                     'padding': '24px',
+                                                                     'fontSize': '16px',
+                                                                     'background': 'white',
+                                                                     'borderRadius': '10px'}}}}
 
 
 def test_pie_chart_rendering():
@@ -283,31 +282,30 @@ def test_pie_chart_rendering():
         legend_icon='circle',
         labels_key='labels'
     )
-    assert renderer.to_dict() == {
-        'className': 'PieChartRendering',
-        'label': 'test',
-        'params': {
-            'id': 'test',
-            'chartName': 'test',
-            'containerId': 'test',
-            'displayLegend': True,
-            'legendIcon': 'circle',
-            'width': 'auto',
-            'height': 'auto',
-            'xOffset': '0',
-            'yOffset': '0',
-            'datasource': [
-                {
-                    'labels': None,
-                    'labelsKey': 'labels',
-                    'consolidateRows': True,
-                    'predictionNameKey': '',
-                    'predictionValueKey': '',
-                    'predictionNameValue': '',
-                }
-            ]
-        }
-    }
+    assert renderer.to_dict() == {'className': 'PieChartRendering',
+                                  'label': 'test',
+                                  'params': {'id': 'test',
+                                             'chartName': 'test',
+                                             'containerId': 'test',
+                                             'displayLegend': True,
+                                             'legendIcon': 'circle',
+                                             'width': 'auto',
+                                             'height': 'auto',
+                                             'xOffset': '0',
+                                             'yOffset': '0',
+                                             'datasource': [{'labels': None,
+                                                             'labelsKey': 'labels',
+                                                             'consolidateRows': True,
+                                                             'predictionNameKey': '',
+                                                             'predictionValueKey': '',
+                                                             'predictionNameValue': ''}],
+                                             'style': {'container': {'color': 'black',
+                                                                     'border': '1px solid lightgray',
+                                                                     'margin': '0',
+                                                                     'padding': '24px',
+                                                                     'fontSize': '16px',
+                                                                     'background': 'white',
+                                                                     'borderRadius': '10px'}}}}
 
 
 def test_container_rendering():
@@ -328,16 +326,12 @@ def test_container_rendering():
                                              'orientation': 'column',
                                              'querySelector': 'test',
                                              'staticPosition': None,
-                                             'style': {'container': {'border': 'none',
+                                             'style': {'container': {'color': 'black',
                                                                      'margin': '0',
-                                                                     'padding': '8px',
-                                                                     'background': '#ffffff',
-                                                                     'borderRadius': '0',
-                                                                     'color': '#000000',
+                                                                     'padding': '24px',
                                                                      'fontSize': '16px',
-                                                                     'textAlign': 'left',
-                                                                     'textDecoration': 'none',
-                                                                     'textTransform': 'none'}}}}
+                                                                     'background': 'white',
+                                                                     'borderRadius': '10px'}}}}
 
 
 def test_dashboard_replacement_rendering():
@@ -384,11 +378,11 @@ def test_html_tag_rendering():
                                                                    'background': 'transparent',
                                                                    'borderRadius': '0',
                                                                    'color': '#000000',
-                                                                   'fontSize': '16px',
+                                                                   'fontSize': '14px',
                                                                    'textAlign': 'left',
                                                                    'textDecoration': 'none',
                                                                    'textTransform': 'none',
-                                                                   'fontWeight': '',
+                                                                   'fontWeight': 'bold',
                                                                    'width': 'auto',
                                                                    'height': 'auto'},
                                                        'extraContent': {'border': 'none',
@@ -397,11 +391,11 @@ def test_html_tag_rendering():
                                                                         'background': 'transparent',
                                                                         'borderRadius': '0',
                                                                         'color': '#000000',
-                                                                        'fontSize': '16px',
+                                                                        'fontSize': '14px',
                                                                         'textAlign': 'left',
                                                                         'textDecoration': 'none',
                                                                         'textTransform': 'none',
-                                                                        'fontWeight': '',
+                                                                        'fontWeight': 'bold',
                                                                         'width': 'auto',
                                                                         'height': 'auto'}}}}
 
@@ -434,71 +428,31 @@ def test_table_rendering():
                                              'predictionValueKey': 'test',
                                              'predictionNameValues': ['name1', 'name2'],
                                              'tableName': '',
-                                             'style': {'container': {'border': 'none',
-                                                                     'margin': '0',
-                                                                     'padding': '8px',
-                                                                     'background': '#ffffff',
-                                                                     'borderRadius': '0',
+                                             'style': {'container': {'border': '1px solid lightgray',
+                                                                     'margin': '8px 0',
+                                                                     'padding': '10px',
+                                                                     'background': '#f3f3f3',
+                                                                     'borderRadius': '10px',
                                                                      'color': '#000000',
-                                                                     'fontSize': '16px',
+                                                                     'fontSize': '14px',
                                                                      'textAlign': 'left',
-                                                                     'textDecoration': 'none',
-                                                                     'textTransform': 'none'},
-                                                       'title': {'color': 'inherit',
-                                                                 'fontSize': '16px',
-                                                                 'textAlign': 'left',
-                                                                 'textDecoration': 'none',
-                                                                 'textTransform': 'capitalize',
-                                                                 'textShadow': 'none',
-                                                                 'textIndent': '',
-                                                                 'letterSpacing': '',
-                                                                 'lineHeight': '',
-                                                                 'wordSpacing': '',
-                                                                 'whiteSpace': ''},
+                                                                     'fontFamily': 'Raleway, sans-serif'},
+                                                       'title': {'fontWeight': 'bold', 'marginBottom': '4px'},
                                                        'table': {'border': '1px solid lightgray',
-                                                                 'margin': '8px',
-                                                                 'padding': '8px',
-                                                                 'background': 'transparent',
-                                                                 'color': '#000000',
-                                                                 'fontSize': '16px',
-                                                                 'textAlign': 'left',
-                                                                 'textDecoration': 'none',
+                                                                 'textAlign': 'center',
                                                                  'textTransform': 'capitalize',
-                                                                 'width': 'auto',
-                                                                 'height': 'auto'},
+                                                                 'width': '100%',
+                                                                 'fontFamily': 'Raleway, sans-serif'},
                                                        'tableHeader': {'border': '1px solid lightgray',
-                                                                       'background': 'transparent',
-                                                                       'color': '#000000',
-                                                                       'margin': '0',
-                                                                       'padding': '0',
-                                                                       'fontSize': '16px',
-                                                                       'textAlign': 'left',
-                                                                       'textDecoration': 'none',
+                                                                       'padding': '4px',
+                                                                       'fontWeight': 'bold',
                                                                        'textTransform': 'capitalize'},
-                                                       'tableBody': {'border': '1px solid lightgray',
-                                                                     'background': 'transparent',
-                                                                     'color': '#000000',
-                                                                     'margin': '8px',
-                                                                     'padding': '8px',
-                                                                     'fontSize': '16px',
-                                                                     'textAlign': 'left',
-                                                                     'textDecoration': 'none',
-                                                                     'textTransform': 'capitalize'},
-                                                       'tableRows': {'border': '1px solid lightgray',
-                                                                     'background': 'transparent',
-                                                                     'color': '#000000',
-                                                                     'margin': '0',
-                                                                     'padding': '0',
-                                                                     'fontSize': '16px',
-                                                                     'textAlign': 'left',
-                                                                     'textDecoration': 'none',
-                                                                     'textTransform': 'capitalize'},
+                                                       'tableBody': {},
+                                                       'tableRows': {'border': '1px solid lightgray'},
                                                        'rowCells': {'border': '1px solid lightgray',
-                                                                    'background': 'transparent',
-                                                                    'color': '#000000',
-                                                                    'margin': '0',
-                                                                    'padding': '0',
-                                                                    'fontSize': '16px',
-                                                                    'textAlign': 'left',
-                                                                    'textDecoration': 'none',
-                                                                    'textTransform': 'capitalize'}}}}
+                                                                    'fontWeight': 'normal',
+                                                                    'padding': '8px'},
+                                                       'headerCells': {'border': '1px solid lightgray',
+                                                                       'padding': '8px',
+                                                                       'fontWeight': 'bolder',
+                                                                       'backgroundColor': 'white'}}}}

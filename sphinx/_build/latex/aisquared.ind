@@ -11,11 +11,11 @@
 		\hyperpage{8}
   \item \spxentry{add\_question()}\spxextra{aisquared.config.feedback.QualitativeFeedback.QualitativeFeedback method}, 
 		\hyperpage{9}
-  \item \spxentry{add\_step()}\spxextra{aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor method}, 
+  \item \spxentry{add\_step()}\spxextra{aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser method}, 
 		\hyperpage{16}
-  \item \spxentry{add\_step()}\spxextra{aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor method}, 
+  \item \spxentry{add\_step()}\spxextra{aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocesser method}, 
 		\hyperpage{20}
-  \item \spxentry{add\_step()}\spxextra{aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor method}, 
+  \item \spxentry{add\_step()}\spxextra{aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser method}, 
 		\hyperpage{24}
   \item \spxentry{add\_users\_to\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{41}
@@ -134,13 +134,13 @@
   \item \spxentry{aisquared.config.rendering.WordRendering}
     \subitem \spxentry{module}, \hyperpage{37}
   \item \spxentry{aisquared.logging}
-    \subitem \spxentry{module}, \hyperpage{40}
+    \subitem \spxentry{module}, \hyperpage{41}
   \item \spxentry{aisquared.platform}
     \subitem \spxentry{module}, \hyperpage{41}
   \item \spxentry{aisquared.platform.AISquaredPlatformClient}
     \subitem \spxentry{module}, \hyperpage{41}
   \item \spxentry{aisquared.serving}
-    \subitem \spxentry{module}, \hyperpage{57}
+    \subitem \spxentry{module}, \hyperpage{58}
   \item \spxentry{aisquared.serving.deploy\_model}
     \subitem \spxentry{module}, \hyperpage{58}
   \item \spxentry{aisquared.serving.get\_remote\_prediction}
@@ -254,7 +254,7 @@
   \item \spxentry{description}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration property}, 
 		\hyperpage{38}
   \item \spxentry{description}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}, 
-		\hyperpage{39}
+		\hyperpage{40}
   \item \spxentry{display}\spxextra{aisquared.config.rendering.ContainerRendering.ContainerRendering property}, 
 		\hyperpage{26}
   \item \spxentry{DivideValue}\spxextra{class in aisquared.config.preprocessing.image.Steps}, 
@@ -282,6 +282,10 @@
 		\hyperpage{40}
   \item \spxentry{filenames}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}, 
 		\hyperpage{7}
+  \item \spxentry{filter\_by\_columns}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}, 
+		\hyperpage{7}
+  \item \spxentry{filter\_type}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}, 
+		\hyperpage{7}
   \item \spxentry{FilterRendering}\spxextra{class in aisquared.config.rendering.FilterRendering}, 
 		\hyperpage{30}
   \item \spxentry{flags}\spxextra{aisquared.config.harvesting.TextHarvester.TextHarvester property}, 
@@ -298,18 +302,18 @@
   \indexspace
   \bigletter G
   \item \spxentry{get\_filenames()}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration method}, 
-		\hyperpage{38}
+		\hyperpage{39}
   \item \spxentry{get\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{44}
   \item \spxentry{get\_group\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
-		\hyperpage{44}
+		\hyperpage{45}
   \item \spxentry{get\_model()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{45}
   \item \spxentry{get\_model()}\spxextra{in module aisquared.utils.utils}, \hyperpage{59}
   \item \spxentry{get\_model\_filenames()}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration method}, 
 		\hyperpage{40}
   \item \spxentry{get\_model\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
-		\hyperpage{45}
+		\hyperpage{46}
   \item \spxentry{get\_remote\_prediction()}\spxextra{in module aisquared.serving.get\_remote\_prediction}, 
 		\hyperpage{59}
   \item \spxentry{get\_role\_id\_by\_role\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
@@ -348,7 +352,7 @@
 		\hyperpage{26}
   \item \spxentry{ImageHarvester}\spxextra{class in aisquared.config.harvesting.ImageHarvester}, 
 		\hyperpage{11}
-  \item \spxentry{ImagePreprocessor}\spxextra{class in aisquared.config.preprocessing.image.ImagePreprocessing}, 
+  \item \spxentry{ImagePreprocesser}\spxextra{class in aisquared.config.preprocessing.image.ImagePreprocessing}, 
 		\hyperpage{16}
   \item \spxentry{ImageRendering}\spxextra{class in aisquared.config.rendering.ImageRendering}, 
 		\hyperpage{32}
@@ -405,11 +409,11 @@
   \item \spxentry{list\_group\_users()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{47}
   \item \spxentry{list\_groups()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
-		\hyperpage{47}
+		\hyperpage{48}
   \item \spxentry{list\_model\_feedback()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{48}
   \item \spxentry{list\_model\_prediction\_feedback()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
-		\hyperpage{48}
+		\hyperpage{49}
   \item \spxentry{list\_model\_usage\_metrics()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{49}
   \item \spxentry{list\_model\_users()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
@@ -457,15 +461,15 @@
   \item \spxentry{mins}\spxextra{aisquared.config.preprocessing.tabular.Steps.MinMax property}, 
 		\hyperpage{19}
   \item \spxentry{mlflow\_token}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration property}, 
-		\hyperpage{38}
+		\hyperpage{39}
   \item \spxentry{mlflow\_token}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}, 
 		\hyperpage{40}
   \item \spxentry{mlflow\_uri}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration property}, 
-		\hyperpage{38}
+		\hyperpage{39}
   \item \spxentry{mlflow\_uri}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}, 
 		\hyperpage{40}
   \item \spxentry{mlflow\_user}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration property}, 
-		\hyperpage{38}
+		\hyperpage{39}
   \item \spxentry{mlflow\_user}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}, 
 		\hyperpage{40}
   \item \spxentry{ModelConfiguration}\spxextra{class in aisquared.config.ModelConfiguration}, 
@@ -529,10 +533,10 @@
     \subitem \spxentry{aisquared.config.rendering.SOSRendering}, \hyperpage{36}
     \subitem \spxentry{aisquared.config.rendering.TableRendering}, \hyperpage{36}
     \subitem \spxentry{aisquared.config.rendering.WordRendering}, \hyperpage{37}
-    \subitem \spxentry{aisquared.logging}, \hyperpage{40}
+    \subitem \spxentry{aisquared.logging}, \hyperpage{41}
     \subitem \spxentry{aisquared.platform}, \hyperpage{41}
     \subitem \spxentry{aisquared.platform.AISquaredPlatformClient}, \hyperpage{41}
-    \subitem \spxentry{aisquared.serving}, \hyperpage{57}
+    \subitem \spxentry{aisquared.serving}, \hyperpage{58}
     \subitem \spxentry{aisquared.serving.deploy\_model}, \hyperpage{58}
     \subitem \spxentry{aisquared.serving.get\_remote\_prediction}, \hyperpage{59}
     \subitem \spxentry{aisquared.utils}, \hyperpage{59}
@@ -547,7 +551,7 @@
   \indexspace
   \bigletter N
   \item \spxentry{name}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration property}, 
-		\hyperpage{38}
+		\hyperpage{39}
   \item \spxentry{name}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}, 
 		\hyperpage{40}
 
@@ -592,6 +596,8 @@
 		\hyperpage{34}
   \item \spxentry{position}\spxextra{aisquared.config.rendering.ContainerRendering.ContainerRendering property}, 
 		\hyperpage{26}
+  \item \spxentry{position}\spxextra{aisquared.config.rendering.WordRendering.WordRendering property}, 
+		\hyperpage{37}
   \item \spxentry{postprocesser\_dict}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}, 
 		\hyperpage{40}
   \item \spxentry{postprocessing\_steps}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}, 
@@ -683,9 +689,9 @@
 		\hyperpage{26}
   \item \spxentry{stds}\spxextra{aisquared.config.preprocessing.tabular.Steps.ZScore property}, 
 		\hyperpage{20}
-  \item \spxentry{step\_dict}\spxextra{aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor property}, 
+  \item \spxentry{step\_dict}\spxextra{aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser property}, 
 		\hyperpage{16}
-  \item \spxentry{step\_dict}\spxextra{aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor property}, 
+  \item \spxentry{step\_dict}\spxextra{aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser property}, 
 		\hyperpage{24}
   \item \spxentry{SubtractValue}\spxextra{class in aisquared.config.preprocessing.image.Steps}, 
 		\hyperpage{18}
@@ -694,13 +700,13 @@
   \bigletter T
   \item \spxentry{TableRendering}\spxextra{class in aisquared.config.rendering.TableRendering}, 
 		\hyperpage{36}
-  \item \spxentry{TabularPreprocessor}\spxextra{class in aisquared.config.preprocessing.tabular.TabularPreprocessing}, 
+  \item \spxentry{TabularPreprocesser}\spxextra{class in aisquared.config.preprocessing.tabular.TabularPreprocessing}, 
 		\hyperpage{20}
   \item \spxentry{test\_connection()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{54}
   \item \spxentry{TextHarvester}\spxextra{class in aisquared.config.harvesting.TextHarvester}, 
 		\hyperpage{12}
-  \item \spxentry{TextPreprocessor}\spxextra{class in aisquared.config.preprocessing.text.TextPreprocessing}, 
+  \item \spxentry{TextPreprocesser}\spxextra{class in aisquared.config.preprocessing.text.TextPreprocessing}, 
 		\hyperpage{23}
   \item \spxentry{thickness}\spxextra{aisquared.config.rendering.ImageRendering.ImageRendering property}, 
 		\hyperpage{32}
@@ -721,7 +727,7 @@
   \item \spxentry{threshold\_value}\spxextra{aisquared.config.rendering.ImageRendering.ImageRendering property}, 
 		\hyperpage{32}
   \item \spxentry{threshold\_value}\spxextra{aisquared.config.rendering.WordRendering.WordRendering property}, 
-		\hyperpage{37}
+		\hyperpage{38}
   \item \spxentry{to\_dict()}\spxextra{aisquared.base.BaseObject.BaseObject method}, \hyperpage{3}
   \item \spxentry{to\_dict()}\spxextra{aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic method}, 
 		\hyperpage{5}
@@ -765,7 +771,7 @@
 		\hyperpage{14}
   \item \spxentry{to\_dict()}\spxextra{aisquared.config.postprocessing.Regression.Regression method}, 
 		\hyperpage{15}
-  \item \spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor method}, 
+  \item \spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser method}, 
 		\hyperpage{16}
   \item \spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.image.Steps.AddValue method}, 
 		\hyperpage{16}
@@ -787,7 +793,7 @@
 		\hyperpage{19}
   \item \spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.tabular.Steps.ZScore method}, 
 		\hyperpage{20}
-  \item \spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor method}, 
+  \item \spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocesser method}, 
 		\hyperpage{21}
   \item \spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.text.Steps.ConvertToCase method}, 
 		\hyperpage{21}
@@ -801,7 +807,7 @@
 		\hyperpage{23}
   \item \spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.text.Steps.Trim method}, 
 		\hyperpage{23}
-  \item \spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor method}, 
+  \item \spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser method}, 
 		\hyperpage{24}
   \item \spxentry{to\_dict()}\spxextra{aisquared.config.rendering.BarChartRendering.BarChartRendering method}, 
 		\hyperpage{25}
@@ -824,13 +830,13 @@
   \item \spxentry{to\_dict()}\spxextra{aisquared.config.rendering.ObjectRendering.ObjectRendering method}, 
 		\hyperpage{34}
   \item \spxentry{to\_dict()}\spxextra{aisquared.config.rendering.PieChartRendering.PieChartRendering method}, 
-		\hyperpage{35}
+		\hyperpage{36}
   \item \spxentry{to\_dict()}\spxextra{aisquared.config.rendering.SOSRendering.SOSRendering method}, 
 		\hyperpage{36}
   \item \spxentry{to\_dict()}\spxextra{aisquared.config.rendering.TableRendering.TableRendering method}, 
 		\hyperpage{37}
   \item \spxentry{to\_dict()}\spxextra{aisquared.config.rendering.WordRendering.WordRendering method}, 
-		\hyperpage{37}
+		\hyperpage{38}
   \item \spxentry{to\_json()}\spxextra{aisquared.base.BaseObject.BaseObject method}, \hyperpage{4}
   \item \spxentry{token}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}, 
 		\hyperpage{54}
@@ -848,7 +854,7 @@
   \item \spxentry{underline\_color}\spxextra{aisquared.config.rendering.DocumentRendering.DocumentRendering property}, 
 		\hyperpage{28}
   \item \spxentry{unshare\_model\_with\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
-		\hyperpage{54}
+		\hyperpage{55}
   \item \spxentry{unshare\_model\_with\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{55}
   \item \spxentry{update\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
@@ -900,7 +906,7 @@
   \item \spxentry{width}\spxextra{aisquared.config.rendering.ContainerRendering.ContainerRendering property}, 
 		\hyperpage{26}
   \item \spxentry{word\_list}\spxextra{aisquared.config.rendering.WordRendering.WordRendering property}, 
-		\hyperpage{37}
+		\hyperpage{38}
   \item \spxentry{WordRendering}\spxextra{class in aisquared.config.rendering.WordRendering}, 
 		\hyperpage{37}
   \item \spxentry{words}\spxextra{aisquared.config.rendering.DocumentRendering.DocumentRendering property}, 

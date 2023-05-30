@@ -31,9 +31,9 @@ def test_steps_init():
 
 
 def test_processers_init():
-    tabular = aisquared.config.preprocessing.tabular.TabularPreprocessor()
-    image = aisquared.config.preprocessing.image.ImagePreprocessor()
-    text = aisquared.config.preprocessing.text.TextPreprocessor()
+    tabular = aisquared.config.preprocessing.tabular.TabularPreprocesser()
+    image = aisquared.config.preprocessing.image.ImagePreprocesser()
+    text = aisquared.config.preprocessing.text.TextPreprocesser()
 
     tabular.add_step(
         aisquared.config.preprocessing.tabular.ZScore([0], [0])

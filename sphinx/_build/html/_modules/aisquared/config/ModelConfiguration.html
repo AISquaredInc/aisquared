@@ -68,14 +68,14 @@
   <h1>Source code for aisquared.config.ModelConfiguration</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 <span class="kn">from</span> <span class="nn">aisquared.base</span> <span class="kn">import</span> <span class="n">BaseObject</span><span class="p">,</span> <span class="n">ALLOWED_STAGES</span>
-<span class="kn">from</span> <span class="nn">aisquared.config</span> <span class="kn">import</span> <span class="n">CustomObject</span>
+<span class="kn">from</span> <span class="nn">.CustomObject</span> <span class="kn">import</span> <span class="n">CustomObject</span>
 <span class="kn">from</span> <span class="nn">aisquared.config.harvesting</span> <span class="kn">import</span> <span class="n">ImageHarvester</span><span class="p">,</span> <span class="n">TextHarvester</span><span class="p">,</span> <span class="n">InputHarvester</span><span class="p">,</span> <span class="n">QueryParameterHarvester</span>
-<span class="kn">from</span> <span class="nn">aisquared.config.preprocessing.tabular</span> <span class="kn">import</span> <span class="n">TabularPreprocessor</span>
-<span class="kn">from</span> <span class="nn">aisquared.config.preprocessing.image</span> <span class="kn">import</span> <span class="n">ImagePreprocessor</span>
-<span class="kn">from</span> <span class="nn">aisquared.config.preprocessing.text</span> <span class="kn">import</span> <span class="n">TextPreprocessor</span>
+<span class="kn">from</span> <span class="nn">aisquared.config.preprocessing.tabular</span> <span class="kn">import</span> <span class="n">TabularPreprocesser</span>
+<span class="kn">from</span> <span class="nn">aisquared.config.preprocessing.image</span> <span class="kn">import</span> <span class="n">ImagePreprocesser</span>
+<span class="kn">from</span> <span class="nn">aisquared.config.preprocessing.text</span> <span class="kn">import</span> <span class="n">TextPreprocesser</span>
 <span class="kn">from</span> <span class="nn">aisquared.config.analytic</span> <span class="kn">import</span> <span class="n">DeployedAnalytic</span><span class="p">,</span> <span class="n">DeployedModel</span><span class="p">,</span> <span class="n">LocalModel</span><span class="p">,</span> <span class="n">LocalAnalytic</span><span class="p">,</span> <span class="n">ReverseMLWorkflow</span>
 <span class="kn">from</span> <span class="nn">aisquared.config.postprocessing</span> <span class="kn">import</span> <span class="n">BinaryClassification</span><span class="p">,</span> <span class="n">MulticlassClassification</span><span class="p">,</span> <span class="n">ObjectDetection</span><span class="p">,</span> <span class="n">Regression</span>
-<span class="kn">from</span> <span class="nn">aisquared.config.rendering</span> <span class="kn">import</span> <span class="n">ImageRendering</span><span class="p">,</span> <span class="n">ObjectRendering</span><span class="p">,</span> <span class="n">DocumentRendering</span><span class="p">,</span> <span class="n">WordRendering</span><span class="p">,</span> <span class="n">FilterRendering</span><span class="p">,</span> <span class="n">ContainerRendering</span><span class="p">,</span> <span class="n">HTMLTagRendering</span><span class="p">,</span> <span class="n">DoughnutChartRendering</span><span class="p">,</span> <span class="n">TableRendering</span><span class="p">,</span> <span class="n">BarChartRendering</span><span class="p">,</span> <span class="n">LineChartRendering</span><span class="p">,</span> <span class="n">DashboardReplacementRendering</span><span class="p">,</span> <span class="n">PieChartRendering</span><span class="p">,</span> <span class="n">SOSRendering</span><span class="p">,</span> <span class="n">DashboardRendering</span>
+<span class="kn">from</span> <span class="nn">aisquared.config.rendering</span> <span class="kn">import</span> <span class="n">ImageRendering</span><span class="p">,</span> <span class="n">ObjectRendering</span><span class="p">,</span> <span class="n">DocumentRendering</span><span class="p">,</span> <span class="n">WordRendering</span><span class="p">,</span> <span class="n">FilterRendering</span><span class="p">,</span> <span class="n">ContainerRendering</span><span class="p">,</span> <span class="n">HTMLTagRendering</span><span class="p">,</span> <span class="n">DoughnutChartRendering</span><span class="p">,</span> <span class="n">TableRendering</span><span class="p">,</span> <span class="n">BarChartRendering</span><span class="p">,</span> <span class="n">LineChartRendering</span><span class="p">,</span> <span class="n">DashboardReplacementRendering</span><span class="p">,</span> <span class="n">PieChartRendering</span><span class="p">,</span> <span class="n">SOSRendering</span>  <span class="c1"># , DashboardRendering</span>
 <span class="kn">from</span> <span class="nn">aisquared.config.feedback</span> <span class="kn">import</span> <span class="n">SimpleFeedback</span><span class="p">,</span> <span class="n">BinaryFeedback</span><span class="p">,</span> <span class="n">MulticlassFeedback</span><span class="p">,</span> <span class="n">RegressionFeedback</span><span class="p">,</span> <span class="n">ModelFeedback</span><span class="p">,</span> <span class="n">QualitativeFeedback</span>
 
 <span class="kn">import</span> <span class="nn">tensorflowjs</span> <span class="k">as</span> <span class="nn">tfjs</span>
@@ -93,9 +93,9 @@
 <span class="p">)</span>
 
 <span class="n">PREPROCESSING_CLASSES</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">TabularPreprocessor</span><span class="p">,</span>
-    <span class="n">ImagePreprocessor</span><span class="p">,</span>
-    <span class="n">TextPreprocessor</span><span class="p">,</span>
+    <span class="n">TabularPreprocesser</span><span class="p">,</span>
+    <span class="n">ImagePreprocesser</span><span class="p">,</span>
+    <span class="n">TextPreprocesser</span><span class="p">,</span>
     <span class="n">CustomObject</span>
 <span class="p">)</span>
 
@@ -132,7 +132,7 @@
     <span class="n">PieChartRendering</span><span class="p">,</span>
     <span class="n">SOSRendering</span><span class="p">,</span>
     <span class="n">CustomObject</span><span class="p">,</span>
-    <span class="n">DashboardRendering</span>
+    <span class="c1"># DashboardRendering</span>
 <span class="p">)</span>
 
 <span class="n">FEEDBACK_CLASSES</span> <span class="o">=</span> <span class="p">(</span>
@@ -281,7 +281,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_preprocessing_steps</span> <span class="o">=</span> <span class="n">value</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="s1">&#39;preprocessing_steps must a single Preprocessor object, a list of Preprocessor objects, or a list of list of preprocessor objects&#39;</span><span class="p">)</span>
+                <span class="s1">&#39;preprocessing_steps must a single Preprocesser object, a list of Preprocesser objects, or a list of list of preprocesser objects&#39;</span><span class="p">)</span>
 
     <span class="c1"># analytic</span>
     <span class="nd">@property</span>

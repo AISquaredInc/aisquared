@@ -1,4 +1,6 @@
-from aisquared.base import BaseObject
+from aisquared.base import BaseObject, DEFAULT_CHART_RENDERING_CSS, CHART_RENDERING_CSS_FILE
+import json
+import os
 
 
 class LineChartRendering(BaseObject):
@@ -59,8 +61,8 @@ class LineChartRendering(BaseObject):
         xOffset: str = '0',
         yOffset: str = '0',
         labels: list = None,
-        consolidate_rows: bool = True
-
+        consolidate_rows: bool = True,
+        css_params: dict = None
     ):
         """
         Parameters
@@ -97,6 +99,8 @@ class LineChartRendering(BaseObject):
             Labels, if hard-coded
         consolidate_rows : bool (default True)
             Whether to consolidate rows in the data
+        css_params : dict or None (default None)
+            Additional CSS parameters
         """
         super().__init__()
         self.label = label
@@ -115,6 +119,13 @@ class LineChartRendering(BaseObject):
         self.consolidate_rows = consolidate_rows
         self.labels_key = labels_key
         self.labels = labels
+
+        if css_params is None:
+            if os.path.exists(CHART_RENDERING_CSS_FILE):
+                with open(CHART_RENDERING_CSS_FILE, 'r') as f:
+                    self.css_params = json.load(f)
+            else:
+                self.css_params = DEFAULT_CHART_RENDERING_CSS
 
     def to_dict(self) -> dict:
         """
@@ -142,6 +153,7 @@ class LineChartRendering(BaseObject):
                         'predictionValueKey': self.prediction_value_key,
                         'predictionNameValue': self.prediction_name_value,
                     }
-                ]
+                ],
+                'style': self.css_params['style']
             }
         }

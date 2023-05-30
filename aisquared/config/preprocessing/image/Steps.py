@@ -9,7 +9,7 @@ class AddValue(BaseObject):
     Example usage:
 
     >>> import aisquared
-    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocessor()
+    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocesser()
     >>> preprocesser.add_step(
         aisquared.config.preprocessing.image.AddValue(255.0)
     )
@@ -57,7 +57,7 @@ class SubtractValue(BaseObject):
     Example usage:
 
     >>> import aisquared
-    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocessor()
+    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocesser()
     >>> preprocesser.add_step(
         aisquared.config.preprocessing.image.SubtractValue(255.0)
     )
@@ -105,7 +105,7 @@ class MultiplyValue(BaseObject):
     Example usage:
 
     >>> import aisquared
-    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocessor()
+    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocesser()
     >>> preprocesser.add_step(
         aisquared.config.preprocessing.image.MultiplyValue(2.0)
     )
@@ -153,7 +153,7 @@ class DivideValue(BaseObject):
     Example usage:
 
     >>> import aisquared
-    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocessor()
+    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocesser()
     >>> preprocesser.add_step(
         aisquared.config.preprocessing.image.DivideValue(255.0)
     )
@@ -201,7 +201,7 @@ class ConvertToColor(BaseObject):
     Example usage:
 
     >>> import aisquared
-    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocessor()
+    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocesser()
     >>> preprocesser.add_step(
         aisquared.config.preprocessing.image.ConvertToColor('RGB')
     )
@@ -246,7 +246,7 @@ class Resize(BaseObject):
     Preprocessing step to resize an image
 
     >>> import aisquared
-    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocessor()
+    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocesser()
     >>> preprocesser.add_step(
         aisquared.config.preprocessing.image.Resize([100, 100])
     )

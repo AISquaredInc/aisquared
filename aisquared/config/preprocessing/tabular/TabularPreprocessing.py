@@ -9,16 +9,16 @@ ALLOWED_STEPS = (
 )
 
 
-class TabularPreprocessor(BaseObject):
+class TabularPreprocesser(BaseObject):
     """
-    Preprocessor object for tabular data
+    Preprocesser object for tabular data
 
     Example usage:
 
     Example usage:
 
     >>> import aisquared
-    >>> preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocessor()
+    >>> preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocesser()
     >>> preprocesser.add_step(
         aisquared.config.preprocessing.tabular.ZScore(
             [0, 1, 2],
@@ -35,7 +35,7 @@ class TabularPreprocessor(BaseObject):
         Parameters
         ----------
         steps : list or None (default None)
-            List of preprocessor steps for tabular data
+            List of preprocesser steps for tabular data
         """
         super().__init__()
         self.steps = None
@@ -45,7 +45,7 @@ class TabularPreprocessor(BaseObject):
 
     def add_step(self, step):
         """
-        Add a step to the preprocessor object
+        Add a step to the preprocesser object
         """
         if not isinstance(step, ALLOWED_STEPS):
             raise TypeError(f'Each step must be one of {ALLOWED_STEPS}')
@@ -59,7 +59,7 @@ class TabularPreprocessor(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className': 'TabularPreprocessor',
+            'className': 'TabularPreprocesser',
             'steps': [
                 step.to_dict() for step in self.steps
             ]

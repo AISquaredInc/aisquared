@@ -11,14 +11,14 @@ ALLOWED_STEPS = (
 )
 
 
-class ImagePreprocessor(BaseObject):
+class ImagePreprocesser(BaseObject):
     """
-    Preprocessor object for image data
+    Preprocesser object for image data
 
     Example usage:
 
     >>> import aisquared
-    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocessor()
+    >>> preprocesser = aisquared.config.preprocessing.image.ImagePreprocesser()
     >>> preprocesser.add_step(
         aisquared.config.preprocessing.image.AddValue(255.0)
     )
@@ -51,7 +51,7 @@ class ImagePreprocessor(BaseObject):
 
     def add_step(self, step):
         """
-        Add a step to the preprocessor object
+        Add a step to the preprocesser object
         """
         if not isinstance(step, ALLOWED_STEPS):
             raise TypeError(f'Each step must be one of {ALLOWED_STEPS}')
@@ -65,6 +65,6 @@ class ImagePreprocessor(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className': 'ImagePreprocessor',
+            'className': 'ImagePreprocesser',
             'steps': self.step_dict
         }

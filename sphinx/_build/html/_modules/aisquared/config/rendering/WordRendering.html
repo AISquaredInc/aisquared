@@ -87,7 +87,8 @@
 <span class="sd">    &#39;badgeColor&#39;: &#39;blue&#39;,</span>
 <span class="sd">    &#39;classes&#39;: None,</span>
 <span class="sd">    &#39;thresholdKey&#39;: None,</span>
-<span class="sd">    &#39;thresholdValue&#39;: None}}</span>
+<span class="sd">    &#39;thresholdValue&#39;: None</span>
+<span class="sd">    &#39;position&#39;: &#39;after&#39;}}</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -100,7 +101,8 @@
             <span class="n">badge_color</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span>
             <span class="n">classes</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
             <span class="n">threshold_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-            <span class="n">threshold_value</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">threshold_value</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">position</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;after&#39;</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
@@ -121,6 +123,8 @@
 <span class="sd">            If provided, the key to look for to threshold</span>
 <span class="sd">        theshold_value : None or numeric (default None)</span>
 <span class="sd">            If provided with threshold_key, the minimum value required to render</span>
+<span class="sd">        position : str (default &#39;after&#39;)</span>
+<span class="sd">            The position of the rendering widget, either &#39;before&#39; or &#39;after&#39;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">word_list</span> <span class="o">=</span> <span class="n">word_list</span>
@@ -131,6 +135,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">classes</span> <span class="o">=</span> <span class="n">classes</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">threshold_key</span> <span class="o">=</span> <span class="n">threshold_key</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">threshold_value</span> <span class="o">=</span> <span class="n">threshold_value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">position</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">word_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -201,6 +206,19 @@
     <span class="k">def</span> <span class="nf">threshold_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_threshold_value</span> <span class="o">=</span> <span class="n">value</span>
 
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_position</span>
+
+    <span class="nd">@position</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">position</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;position must be string&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;before&#39;</span><span class="p">,</span> <span class="s1">&#39;after&#39;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;position must be either &quot;before&quot; or &quot;after&quot;, got </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_position</span> <span class="o">=</span> <span class="n">value</span>
+
 <div class="viewcode-block" id="WordRendering.to_dict"><a class="viewcode-back" href="../../../../aisquared.config.rendering.html#aisquared.config.rendering.WordRendering.WordRendering.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the configuration object as a dictionary</span>
@@ -215,7 +233,8 @@
                 <span class="s1">&#39;badgeColor&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">badge_color</span><span class="p">,</span>
                 <span class="s1">&#39;classes&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span>
                 <span class="s1">&#39;thresholdKey&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">threshold_key</span><span class="p">,</span>
-                <span class="s1">&#39;thresholdValue&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">threshold_value</span>
+                <span class="s1">&#39;thresholdValue&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">threshold_value</span><span class="p">,</span>
+                <span class="s1">&#39;position&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span>
             <span class="p">}</span>
         <span class="p">}</span></div></div>
 </pre></div>

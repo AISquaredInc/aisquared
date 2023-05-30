@@ -1,6 +1,6 @@
 from typing import Union
 from aisquared.base import BaseObject, ALLOWED_STAGES
-from aisquared.config import CustomObject
+from .CustomObject import CustomObject
 import tensorflowjs as tfjs
 import tensorflow as tf
 import shutil

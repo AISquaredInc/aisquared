@@ -30,7 +30,14 @@ def test_analytic_init():
     )
     aisquared.config.analytic.ReverseMLWorkflow(
         'bucket',
-        'filename',
-        'column',
-        10
+        ['filename1.csv'],
+        'name',
+        input_type='text',
+        filter_type='static',
+        filter_by_columns=[{
+            'inputType': 'static',
+            'columnName': 'status',
+            'columnValue': 'pending'
+        }],
+        period=1
     )

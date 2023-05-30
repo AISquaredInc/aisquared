@@ -19,7 +19,8 @@ class WordRendering(BaseObject):
     'badgeColor': 'blue',
     'classes': None,
     'thresholdKey': None,
-    'thresholdValue': None}}
+    'thresholdValue': None
+    'position': 'after'}}
 
     """
 
@@ -32,7 +33,8 @@ class WordRendering(BaseObject):
             badge_color: str = 'blue',
             classes: list = None,
             threshold_key: str = None,
-            threshold_value: Union[int, float] = None
+            threshold_value: Union[int, float] = None,
+            position: str = 'after'
     ):
         """
         Parameters
@@ -53,6 +55,8 @@ class WordRendering(BaseObject):
             If provided, the key to look for to threshold
         theshold_value : None or numeric (default None)
             If provided with threshold_key, the minimum value required to render
+        position : str (default 'after')
+            The position of the rendering widget, either 'before' or 'after'
         """
         super().__init__()
         self.word_list = word_list
@@ -63,6 +67,7 @@ class WordRendering(BaseObject):
         self.classes = classes
         self.threshold_key = threshold_key
         self.threshold_value = threshold_value
+        self.position = position
 
     @property
     def word_list(self):
@@ -133,6 +138,19 @@ class WordRendering(BaseObject):
     def threshold_value(self, value):
         self._threshold_value = value
 
+    @property
+    def position(self):
+        return self._position
+
+    @position.setter
+    def position(self, value):
+        if not isinstance(value, str):
+            raise TypeError('position must be string')
+        if value not in ['before', 'after']:
+            raise ValueError(
+                f'position must be either "before" or "after", got {value}')
+        self._position = value
+
     def to_dict(self) -> dict:
         """
         Get the configuration object as a dictionary
@@ -147,6 +165,7 @@ class WordRendering(BaseObject):
                 'badgeColor': self.badge_color,
                 'classes': self.classes,
                 'thresholdKey': self.threshold_key,
-                'thresholdValue': self.threshold_value
+                'thresholdValue': self.threshold_value,
+                'position': self.position
             }
         }

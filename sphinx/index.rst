@@ -15,7 +15,7 @@ Welcome to the documentation for the `aisquared` python package!
 
 This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.
 
-**Current Production Version:** ``0.3.5``
+**Current Production Version:** ``0.3.6``
 
 :download:`View this Documentation in PDF Format <./_build/latex/aisquared.pdf>`.
 
@@ -133,3 +133,9 @@ Changelog
 - Version 0.3.5
    - Changed `file_name` parameter in `ReverseMLWorkflow` to `file_names`
    - Added `documentation_link` parameter to `ModelConfiguration` class
+- Version 0.3.6
+   - Fixed issue with type checking for `ModelConfiguration` Rendering classes
+   - Restricted TensorFlow version to below `2.12.0` to prevent import issues
+   - Added `position` parameter to `WordRendering` class
+   - Changed default CSS styling for rendering classes
+   - Changed name of all `processor` classes to `processer`
