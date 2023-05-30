@@ -323,3 +323,4 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Restricted TensorFlow version to below `2.12.0` to prevent import issues
 - Added `position` parameter to `WordRendering` class
 - Changed default CSS styling for rendering classes
+- Changed name of all `processor` classes to `processer`

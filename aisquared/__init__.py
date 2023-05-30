@@ -2,7 +2,7 @@
 This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Browser Extension or other applications developed through the AI Squared JavaScript SDK.
 """
 
-__version__ = '0.3.6.dev0'
+__version__ = '0.3.6'
 __dev__ = True
 
 import aisquared.config
