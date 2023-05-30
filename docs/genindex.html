@@ -105,12 +105,12 @@
         <li><a href="aisquared.config.feedback.html#aisquared.config.feedback.QualitativeFeedback.QualitativeFeedback.add_question">(aisquared.config.feedback.QualitativeFeedback.QualitativeFeedback method)</a>
 </li>
       </ul></li>
-      <li><a href="aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor.add_step">add_step() (aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor method)</a>
+      <li><a href="aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser.add_step">add_step() (aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser method)</a>
 
       <ul>
-        <li><a href="aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor.add_step">(aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor method)</a>
+        <li><a href="aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocesser.add_step">(aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocesser method)</a>
 </li>
-        <li><a href="aisquared.config.preprocessing.text.html#aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor.add_step">(aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor method)</a>
+        <li><a href="aisquared.config.preprocessing.text.html#aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser.add_step">(aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser method)</a>
 </li>
       </ul></li>
       <li><a href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.add_users_to_group">add_users_to_group() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)</a>
@@ -737,10 +737,14 @@
 </li>
       <li><a href="aisquared.config.analytic.html#aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.filenames">filenames (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)</a>
 </li>
-      <li><a href="aisquared.config.rendering.html#aisquared.config.rendering.FilterRendering.FilterRendering">FilterRendering (class in aisquared.config.rendering.FilterRendering)</a>
+      <li><a href="aisquared.config.analytic.html#aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.filter_by_columns">filter_by_columns (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)</a>
+</li>
+      <li><a href="aisquared.config.analytic.html#aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.filter_type">filter_type (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="aisquared.config.rendering.html#aisquared.config.rendering.FilterRendering.FilterRendering">FilterRendering (class in aisquared.config.rendering.FilterRendering)</a>
+</li>
       <li><a href="aisquared.config.harvesting.html#aisquared.config.harvesting.TextHarvester.TextHarvester.flags">flags (aisquared.config.harvesting.TextHarvester.TextHarvester property)</a>
 </li>
       <li><a href="aisquared.config.rendering.html#aisquared.config.rendering.ImageRendering.ImageRendering.font_color">font_color (aisquared.config.rendering.ImageRendering.ImageRendering property)</a>
@@ -829,7 +833,7 @@
 </li>
       <li><a href="aisquared.config.harvesting.html#aisquared.config.harvesting.ImageHarvester.ImageHarvester">ImageHarvester (class in aisquared.config.harvesting.ImageHarvester)</a>
 </li>
-      <li><a href="aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor">ImagePreprocessor (class in aisquared.config.preprocessing.image.ImagePreprocessing)</a>
+      <li><a href="aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser">ImagePreprocesser (class in aisquared.config.preprocessing.image.ImagePreprocessing)</a>
 </li>
       <li><a href="aisquared.config.rendering.html#aisquared.config.rendering.ImageRendering.ImageRendering">ImageRendering (class in aisquared.config.rendering.ImageRendering)</a>
 </li>
@@ -1191,7 +1195,11 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="aisquared.config.rendering.html#aisquared.config.rendering.ContainerRendering.ContainerRendering.position">position (aisquared.config.rendering.ContainerRendering.ContainerRendering property)</a>
+
+      <ul>
+        <li><a href="aisquared.config.rendering.html#aisquared.config.rendering.WordRendering.WordRendering.position">(aisquared.config.rendering.WordRendering.WordRendering property)</a>
 </li>
+      </ul></li>
       <li><a href="aisquared.config.html#aisquared.config.ModelConfiguration.ModelConfiguration.postprocesser_dict">postprocesser_dict (aisquared.config.ModelConfiguration.ModelConfiguration property)</a>
 </li>
       <li><a href="aisquared.config.html#aisquared.config.ModelConfiguration.ModelConfiguration.postprocessing_steps">postprocessing_steps (aisquared.config.ModelConfiguration.ModelConfiguration property)</a>
@@ -1302,10 +1310,10 @@
 </li>
       <li><a href="aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.Steps.ZScore.stds">stds (aisquared.config.preprocessing.tabular.Steps.ZScore property)</a>
 </li>
-      <li><a href="aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor.step_dict">step_dict (aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor property)</a>
+      <li><a href="aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser.step_dict">step_dict (aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser property)</a>
 
       <ul>
-        <li><a href="aisquared.config.preprocessing.text.html#aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor.step_dict">(aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor property)</a>
+        <li><a href="aisquared.config.preprocessing.text.html#aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser.step_dict">(aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser property)</a>
 </li>
       </ul></li>
       <li><a href="aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.Steps.SubtractValue">SubtractValue (class in aisquared.config.preprocessing.image.Steps)</a>
@@ -1318,13 +1326,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="aisquared.config.rendering.html#aisquared.config.rendering.TableRendering.TableRendering">TableRendering (class in aisquared.config.rendering.TableRendering)</a>
 </li>
-      <li><a href="aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor">TabularPreprocessor (class in aisquared.config.preprocessing.tabular.TabularPreprocessing)</a>
+      <li><a href="aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocesser">TabularPreprocesser (class in aisquared.config.preprocessing.tabular.TabularPreprocessing)</a>
 </li>
       <li><a href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.test_connection">test_connection() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)</a>
 </li>
       <li><a href="aisquared.config.harvesting.html#aisquared.config.harvesting.TextHarvester.TextHarvester">TextHarvester (class in aisquared.config.harvesting.TextHarvester)</a>
 </li>
-      <li><a href="aisquared.config.preprocessing.text.html#aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor">TextPreprocessor (class in aisquared.config.preprocessing.text.TextPreprocessing)</a>
+      <li><a href="aisquared.config.preprocessing.text.html#aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser">TextPreprocesser (class in aisquared.config.preprocessing.text.TextPreprocessing)</a>
 </li>
       <li><a href="aisquared.config.rendering.html#aisquared.config.rendering.ImageRendering.ImageRendering.thickness">thickness (aisquared.config.rendering.ImageRendering.ImageRendering property)</a>
 
@@ -1399,7 +1407,7 @@
 </li>
         <li><a href="aisquared.config.postprocessing.html#aisquared.config.postprocessing.Regression.Regression.to_dict">(aisquared.config.postprocessing.Regression.Regression method)</a>
 </li>
-        <li><a href="aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor.to_dict">(aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor method)</a>
+        <li><a href="aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser.to_dict">(aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser method)</a>
 </li>
         <li><a href="aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.Steps.AddValue.to_dict">(aisquared.config.preprocessing.image.Steps.AddValue method)</a>
 </li>
@@ -1421,7 +1429,7 @@
 </li>
         <li><a href="aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.Steps.ZScore.to_dict">(aisquared.config.preprocessing.tabular.Steps.ZScore method)</a>
 </li>
-        <li><a href="aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor.to_dict">(aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor method)</a>
+        <li><a href="aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocesser.to_dict">(aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocesser method)</a>
 </li>
         <li><a href="aisquared.config.preprocessing.text.html#aisquared.config.preprocessing.text.Steps.ConvertToCase.to_dict">(aisquared.config.preprocessing.text.Steps.ConvertToCase method)</a>
 </li>
@@ -1435,7 +1443,7 @@
 </li>
         <li><a href="aisquared.config.preprocessing.text.html#aisquared.config.preprocessing.text.Steps.Trim.to_dict">(aisquared.config.preprocessing.text.Steps.Trim method)</a>
 </li>
-        <li><a href="aisquared.config.preprocessing.text.html#aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor.to_dict">(aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor method)</a>
+        <li><a href="aisquared.config.preprocessing.text.html#aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser.to_dict">(aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser method)</a>
 </li>
         <li><a href="aisquared.config.rendering.html#aisquared.config.rendering.BarChartRendering.BarChartRendering.to_dict">(aisquared.config.rendering.BarChartRendering.BarChartRendering method)</a>
 </li>
