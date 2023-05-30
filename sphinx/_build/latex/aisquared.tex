@@ -62,7 +62,7 @@
 
 
 \title{aisquared}
-\date{Mar 24, 2023}
+\date{May 30, 2023}
 \release{}
 \author{The AI Squared Team}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -94,7 +94,7 @@
 This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.
 
 \sphinxAtStartPar
-\sphinxstylestrong{Current Production Version:} \sphinxcode{\sphinxupquote{0.3.5}}
+\sphinxstylestrong{Current Production Version:} \sphinxcode{\sphinxupquote{0.3.6}}
 
 \sphinxAtStartPar
 \sphinxcode{\sphinxupquote{View this Documentation in PDF Format}}.
@@ -555,7 +555,7 @@ Get the configuration object as a dictionary
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.config.analytic:aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.analytic.ReverseMLWorkflow.}}\sphinxbfcode{\sphinxupquote{ReverseMLWorkflow}}}{\emph{\DUrole{n}{bucket}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{filenames}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{list}}, \emph{\DUrole{n}{column}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{input\_type}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{period}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}int\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{secret}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.analytic.ReverseMLWorkflow.}}\sphinxbfcode{\sphinxupquote{ReverseMLWorkflow}}}{\emph{\DUrole{n}{bucket}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{filenames}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{list}}, \emph{\DUrole{n}{column}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{input\_type}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{filter\_type}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{filter\_by\_columns}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}list\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{period}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}int\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{secret}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Bases: {\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{BaseObject}}}}}
@@ -607,6 +607,24 @@ Example usage:
 \phantomsection\label{\detokenize{aisquared.config.analytic:aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.filenames}}
 \pysigstartsignatures
 \pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w}{  }}}\sphinxbfcode{\sphinxupquote{filenames}}}
+\pysigstopsignatures
+\end{fulllineitems}
+
+\index{filter\_by\_columns (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)@\spxentry{filter\_by\_columns}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{aisquared.config.analytic:aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.filter_by_columns}}
+\pysigstartsignatures
+\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w}{  }}}\sphinxbfcode{\sphinxupquote{filter\_by\_columns}}}
+\pysigstopsignatures
+\end{fulllineitems}
+
+\index{filter\_type (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)@\spxentry{filter\_type}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{aisquared.config.analytic:aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.filter_type}}
+\pysigstartsignatures
+\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w}{  }}}\sphinxbfcode{\sphinxupquote{filter\_type}}}
 \pysigstopsignatures
 \end{fulllineitems}
 
@@ -1588,54 +1606,54 @@ The aisquared.config.preprocessing.image subpackage contains objects for configu
 \label{\detokenize{aisquared.config.preprocessing.image:submodules}}
 
 \subparagraph{aisquared.config.preprocessing.image.ImagePreprocessing module}
-\label{\detokenize{aisquared.config.preprocessing.image:module-aisquared.config.preprocessing.image.ImagePreprocessing}}\label{\detokenize{aisquared.config.preprocessing.image:aisquared-config-preprocessing-image-imagepreprocessing-module}}\index{module@\spxentry{module}!aisquared.config.preprocessing.image.ImagePreprocessing@\spxentry{aisquared.config.preprocessing.image.ImagePreprocessing}}\index{aisquared.config.preprocessing.image.ImagePreprocessing@\spxentry{aisquared.config.preprocessing.image.ImagePreprocessing}!module@\spxentry{module}}\index{ImagePreprocessor (class in aisquared.config.preprocessing.image.ImagePreprocessing)@\spxentry{ImagePreprocessor}\spxextra{class in aisquared.config.preprocessing.image.ImagePreprocessing}}
+\label{\detokenize{aisquared.config.preprocessing.image:module-aisquared.config.preprocessing.image.ImagePreprocessing}}\label{\detokenize{aisquared.config.preprocessing.image:aisquared-config-preprocessing-image-imagepreprocessing-module}}\index{module@\spxentry{module}!aisquared.config.preprocessing.image.ImagePreprocessing@\spxentry{aisquared.config.preprocessing.image.ImagePreprocessing}}\index{aisquared.config.preprocessing.image.ImagePreprocessing@\spxentry{aisquared.config.preprocessing.image.ImagePreprocessing}!module@\spxentry{module}}\index{ImagePreprocesser (class in aisquared.config.preprocessing.image.ImagePreprocessing)@\spxentry{ImagePreprocesser}\spxextra{class in aisquared.config.preprocessing.image.ImagePreprocessing}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.config.preprocessing.image:aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor}}
+\phantomsection\label{\detokenize{aisquared.config.preprocessing.image:aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.preprocessing.image.ImagePreprocessing.}}\sphinxbfcode{\sphinxupquote{ImagePreprocessor}}}{\emph{\DUrole{n}{steps}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}list\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.preprocessing.image.ImagePreprocessing.}}\sphinxbfcode{\sphinxupquote{ImagePreprocesser}}}{\emph{\DUrole{n}{steps}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}list\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Bases: {\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{BaseObject}}}}}
 
 \sphinxAtStartPar
-Preprocessor object for image data
+Preprocesser object for image data
 
 \sphinxAtStartPar
 Example usage:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{image}\PYG{o}{.}\PYG{n}{ImagePreprocessor}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{image}\PYG{o}{.}\PYG{n}{ImagePreprocesser}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser}\PYG{o}{.}\PYG{n}{add\PYGZus{}step}\PYG{p}{(}
 \PYG{g+go}{    aisquared.config.preprocessing.image.AddValue(255.0)}
 \PYG{g+go}{)}
 \end{sphinxVerbatim}
-\index{add\_step() (aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor method)@\spxentry{add\_step()}\spxextra{aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor method}}
+\index{add\_step() (aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser method)@\spxentry{add\_step()}\spxextra{aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.config.preprocessing.image:aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor.add_step}}
+\phantomsection\label{\detokenize{aisquared.config.preprocessing.image:aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser.add_step}}
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{add\_step}}}{\emph{\DUrole{n}{step}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
-Add a step to the preprocessor object
+Add a step to the preprocesser object
 
 \end{fulllineitems}
 
-\index{step\_dict (aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor property)@\spxentry{step\_dict}\spxextra{aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor property}}
+\index{step\_dict (aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser property)@\spxentry{step\_dict}\spxextra{aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser property}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.config.preprocessing.image:aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor.step_dict}}
+\phantomsection\label{\detokenize{aisquared.config.preprocessing.image:aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser.step_dict}}
 \pysigstartsignatures
 \pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w}{  }}}\sphinxbfcode{\sphinxupquote{step\_dict}}}
 \pysigstopsignatures
 \end{fulllineitems}
 
-\index{to\_dict() (aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor method)@\spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor method}}
+\index{to\_dict() (aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser method)@\spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.config.preprocessing.image:aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor.to_dict}}
+\phantomsection\label{\detokenize{aisquared.config.preprocessing.image:aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser.to_dict}}
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{to\_dict}}}{}{{ $\rightarrow$ dict}}
 \pysigstopsignatures
@@ -1668,7 +1686,7 @@ Example usage:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{image}\PYG{o}{.}\PYG{n}{ImagePreprocessor}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{image}\PYG{o}{.}\PYG{n}{ImagePreprocesser}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser}\PYG{o}{.}\PYG{n}{add\PYGZus{}step}\PYG{p}{(}
 \PYG{g+go}{    aisquared.config.preprocessing.image.AddValue(255.0)}
 \PYG{g+go}{)}
@@ -1715,7 +1733,7 @@ Example usage:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{image}\PYG{o}{.}\PYG{n}{ImagePreprocessor}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{image}\PYG{o}{.}\PYG{n}{ImagePreprocesser}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser}\PYG{o}{.}\PYG{n}{add\PYGZus{}step}\PYG{p}{(}
 \PYG{g+go}{    aisquared.config.preprocessing.image.ConvertToColor(\PYGZsq{}RGB\PYGZsq{})}
 \PYG{g+go}{)}
@@ -1762,7 +1780,7 @@ Example usage:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{image}\PYG{o}{.}\PYG{n}{ImagePreprocessor}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{image}\PYG{o}{.}\PYG{n}{ImagePreprocesser}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser}\PYG{o}{.}\PYG{n}{add\PYGZus{}step}\PYG{p}{(}
 \PYG{g+go}{    aisquared.config.preprocessing.image.DivideValue(255.0)}
 \PYG{g+go}{)}
@@ -1809,7 +1827,7 @@ Example usage:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{image}\PYG{o}{.}\PYG{n}{ImagePreprocessor}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{image}\PYG{o}{.}\PYG{n}{ImagePreprocesser}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser}\PYG{o}{.}\PYG{n}{add\PYGZus{}step}\PYG{p}{(}
 \PYG{g+go}{    aisquared.config.preprocessing.image.MultiplyValue(2.0)}
 \PYG{g+go}{)}
@@ -1853,7 +1871,7 @@ Preprocessing step to resize an image
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{image}\PYG{o}{.}\PYG{n}{ImagePreprocessor}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{image}\PYG{o}{.}\PYG{n}{ImagePreprocesser}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser}\PYG{o}{.}\PYG{n}{add\PYGZus{}step}\PYG{p}{(}
 \PYG{g+go}{    aisquared.config.preprocessing.image.Resize([100, 100])}
 \PYG{g+go}{)}
@@ -1918,7 +1936,7 @@ Example usage:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{image}\PYG{o}{.}\PYG{n}{ImagePreprocessor}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{image}\PYG{o}{.}\PYG{n}{ImagePreprocesser}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser}\PYG{o}{.}\PYG{n}{add\PYGZus{}step}\PYG{p}{(}
 \PYG{g+go}{    aisquared.config.preprocessing.image.SubtractValue(255.0)}
 \PYG{g+go}{)}
@@ -1982,7 +2000,7 @@ Example usage:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{tabular}\PYG{o}{.}\PYG{n}{TabularPreprocessor}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{tabular}\PYG{o}{.}\PYG{n}{TabularPreprocesser}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser}\PYG{o}{.}\PYG{n}{add\PYGZus{}step}\PYG{p}{(}
 \PYG{g+go}{    aisquared.config.preprocessing.tabular.DropColumn(}
 \PYG{g+go}{        3}
@@ -2035,7 +2053,7 @@ Example usage:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{tabular}\PYG{o}{.}\PYG{n}{TabularPreprocessor}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{tabular}\PYG{o}{.}\PYG{n}{TabularPreprocesser}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser}\PYG{o}{.}\PYG{n}{add\PYGZus{}step}\PYG{p}{(}
 \PYG{g+go}{    aisquared.config.preprocessing.tabular.MinMax(}
 \PYG{g+go}{        [0, 1.1, 2],}
@@ -2103,7 +2121,7 @@ Example usage:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{tabular}\PYG{o}{.}\PYG{n}{TabularPreprocessor}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{tabular}\PYG{o}{.}\PYG{n}{TabularPreprocesser}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser}\PYG{o}{.}\PYG{n}{add\PYGZus{}step}\PYG{p}{(}
 \PYG{g+go}{    aisquared.config.preprocessing.tabular.OneHot(}
 \PYG{g+go}{        6,}
@@ -2166,7 +2184,7 @@ Example usage:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{tabular}\PYG{o}{.}\PYG{n}{TabularPreprocessor}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{tabular}\PYG{o}{.}\PYG{n}{TabularPreprocesser}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser}\PYG{o}{.}\PYG{n}{add\PYGZus{}step}\PYG{p}{(}
 \PYG{g+go}{    aisquared.config.preprocessing.tabular.ZScore(}
 \PYG{g+go}{        [0, 1, 2],}
@@ -2219,18 +2237,18 @@ Get the configuration object as a dictionary
 
 
 \subparagraph{aisquared.config.preprocessing.tabular.TabularPreprocessing module}
-\label{\detokenize{aisquared.config.preprocessing.tabular:module-aisquared.config.preprocessing.tabular.TabularPreprocessing}}\label{\detokenize{aisquared.config.preprocessing.tabular:aisquared-config-preprocessing-tabular-tabularpreprocessing-module}}\index{module@\spxentry{module}!aisquared.config.preprocessing.tabular.TabularPreprocessing@\spxentry{aisquared.config.preprocessing.tabular.TabularPreprocessing}}\index{aisquared.config.preprocessing.tabular.TabularPreprocessing@\spxentry{aisquared.config.preprocessing.tabular.TabularPreprocessing}!module@\spxentry{module}}\index{TabularPreprocessor (class in aisquared.config.preprocessing.tabular.TabularPreprocessing)@\spxentry{TabularPreprocessor}\spxextra{class in aisquared.config.preprocessing.tabular.TabularPreprocessing}}
+\label{\detokenize{aisquared.config.preprocessing.tabular:module-aisquared.config.preprocessing.tabular.TabularPreprocessing}}\label{\detokenize{aisquared.config.preprocessing.tabular:aisquared-config-preprocessing-tabular-tabularpreprocessing-module}}\index{module@\spxentry{module}!aisquared.config.preprocessing.tabular.TabularPreprocessing@\spxentry{aisquared.config.preprocessing.tabular.TabularPreprocessing}}\index{aisquared.config.preprocessing.tabular.TabularPreprocessing@\spxentry{aisquared.config.preprocessing.tabular.TabularPreprocessing}!module@\spxentry{module}}\index{TabularPreprocesser (class in aisquared.config.preprocessing.tabular.TabularPreprocessing)@\spxentry{TabularPreprocesser}\spxextra{class in aisquared.config.preprocessing.tabular.TabularPreprocessing}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.config.preprocessing.tabular:aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor}}
+\phantomsection\label{\detokenize{aisquared.config.preprocessing.tabular:aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocesser}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.preprocessing.tabular.TabularPreprocessing.}}\sphinxbfcode{\sphinxupquote{TabularPreprocessor}}}{\emph{\DUrole{n}{steps}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}list\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.preprocessing.tabular.TabularPreprocessing.}}\sphinxbfcode{\sphinxupquote{TabularPreprocesser}}}{\emph{\DUrole{n}{steps}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}list\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Bases: {\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{BaseObject}}}}}
 
 \sphinxAtStartPar
-Preprocessor object for tabular data
+Preprocesser object for tabular data
 
 \sphinxAtStartPar
 Example usage:
@@ -2240,7 +2258,7 @@ Example usage:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{tabular}\PYG{o}{.}\PYG{n}{TabularPreprocessor}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{tabular}\PYG{o}{.}\PYG{n}{TabularPreprocesser}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser}\PYG{o}{.}\PYG{n}{add\PYGZus{}step}\PYG{p}{(}
 \PYG{g+go}{    aisquared.config.preprocessing.tabular.ZScore(}
 \PYG{g+go}{        [0, 1, 2],}
@@ -2248,22 +2266,22 @@ Example usage:
 \PYG{g+go}{    )}
 \PYG{g+go}{)}
 \end{sphinxVerbatim}
-\index{add\_step() (aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor method)@\spxentry{add\_step()}\spxextra{aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor method}}
+\index{add\_step() (aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocesser method)@\spxentry{add\_step()}\spxextra{aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocesser method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.config.preprocessing.tabular:aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor.add_step}}
+\phantomsection\label{\detokenize{aisquared.config.preprocessing.tabular:aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocesser.add_step}}
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{add\_step}}}{\emph{\DUrole{n}{step}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
-Add a step to the preprocessor object
+Add a step to the preprocesser object
 
 \end{fulllineitems}
 
-\index{to\_dict() (aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor method)@\spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor method}}
+\index{to\_dict() (aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocesser method)@\spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocesser method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.config.preprocessing.tabular:aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor.to_dict}}
+\phantomsection\label{\detokenize{aisquared.config.preprocessing.tabular:aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocesser.to_dict}}
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{to\_dict}}}{}{}
 \pysigstopsignatures
@@ -2310,7 +2328,7 @@ Example usage:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{text}\PYG{o}{.}\PYG{n}{TextPreprocessor}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{text}\PYG{o}{.}\PYG{n}{TextPreprocesser}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser}\PYG{o}{.}\PYG{n}{add\PYGZus{}step}\PYG{p}{(}
 \PYG{g+go}{    aisquared.config.preprocessing.text.ConvertToCase()}
 \PYG{g+go}{)}
@@ -2357,7 +2375,7 @@ Example usage:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{text}\PYG{o}{.}\PYG{n}{TextPreprocessor}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{text}\PYG{o}{.}\PYG{n}{TextPreprocesser}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser}\PYG{o}{.}\PYG{n}{add\PYGZus{}step}\PYG{p}{(}
 \PYG{g+go}{    aisquared.config.preprocessing.text.ConvertToVocabulary(}
 \PYG{g+go}{        \PYGZob{}}
@@ -2436,7 +2454,7 @@ Example usage:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{text}\PYG{o}{.}\PYG{n}{TextPreprocessor}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{text}\PYG{o}{.}\PYG{n}{TextPreprocesser}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser}\PYG{o}{.}\PYG{n}{add\PYGZus{}step}\PYG{p}{(}
 \PYG{g+go}{    aisquared.config.preprocessing.text.PadSequences()}
 \PYG{g+go}{)}
@@ -2510,7 +2528,7 @@ Example usage:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{text}\PYG{o}{.}\PYG{n}{TextPreprocessor}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{text}\PYG{o}{.}\PYG{n}{TextPreprocesser}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser}\PYG{o}{.}\PYG{n}{add\PYGZus{}step}\PYG{p}{(}
 \PYG{g+go}{    aisquared.config.preprocessing.text.RemoveCharacters()}
 \PYG{g+go}{)}
@@ -2566,7 +2584,7 @@ Example usage:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{text}\PYG{o}{.}\PYG{n}{TextPreprocessor}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{text}\PYG{o}{.}\PYG{n}{TextPreprocesser}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser}\PYG{o}{.}\PYG{n}{add\PYGZus{}step}\PYG{p}{(}
 \PYG{g+go}{    aisquared.config.preprocessing.text.Tokenize()}
 \PYG{g+go}{)}
@@ -2631,7 +2649,7 @@ Example usage:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{text}\PYG{o}{.}\PYG{n}{TextPreprocessor}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{text}\PYG{o}{.}\PYG{n}{TextPreprocesser}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser}\PYG{o}{.}\PYG{n}{add\PYGZus{}step}\PYG{p}{(}
 \PYG{g+go}{    aisquared.config.preprocessing.text.Trim()}
 \PYG{g+go}{)}
@@ -2654,54 +2672,54 @@ Get the configuration object as a dictionary
 
 
 \subparagraph{aisquared.config.preprocessing.text.TextPreprocessing module}
-\label{\detokenize{aisquared.config.preprocessing.text:module-aisquared.config.preprocessing.text.TextPreprocessing}}\label{\detokenize{aisquared.config.preprocessing.text:aisquared-config-preprocessing-text-textpreprocessing-module}}\index{module@\spxentry{module}!aisquared.config.preprocessing.text.TextPreprocessing@\spxentry{aisquared.config.preprocessing.text.TextPreprocessing}}\index{aisquared.config.preprocessing.text.TextPreprocessing@\spxentry{aisquared.config.preprocessing.text.TextPreprocessing}!module@\spxentry{module}}\index{TextPreprocessor (class in aisquared.config.preprocessing.text.TextPreprocessing)@\spxentry{TextPreprocessor}\spxextra{class in aisquared.config.preprocessing.text.TextPreprocessing}}
+\label{\detokenize{aisquared.config.preprocessing.text:module-aisquared.config.preprocessing.text.TextPreprocessing}}\label{\detokenize{aisquared.config.preprocessing.text:aisquared-config-preprocessing-text-textpreprocessing-module}}\index{module@\spxentry{module}!aisquared.config.preprocessing.text.TextPreprocessing@\spxentry{aisquared.config.preprocessing.text.TextPreprocessing}}\index{aisquared.config.preprocessing.text.TextPreprocessing@\spxentry{aisquared.config.preprocessing.text.TextPreprocessing}!module@\spxentry{module}}\index{TextPreprocesser (class in aisquared.config.preprocessing.text.TextPreprocessing)@\spxentry{TextPreprocesser}\spxextra{class in aisquared.config.preprocessing.text.TextPreprocessing}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.config.preprocessing.text:aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor}}
+\phantomsection\label{\detokenize{aisquared.config.preprocessing.text:aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.preprocessing.text.TextPreprocessing.}}\sphinxbfcode{\sphinxupquote{TextPreprocessor}}}{\emph{\DUrole{n}{steps}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}list\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.preprocessing.text.TextPreprocessing.}}\sphinxbfcode{\sphinxupquote{TextPreprocesser}}}{\emph{\DUrole{n}{steps}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}list\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Bases: {\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{BaseObject}}}}}
 
 \sphinxAtStartPar
-Preprocessor object for natural language
+Preprocesser object for natural language
 
 \sphinxAtStartPar
 Example usage:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{text}\PYG{o}{.}\PYG{n}{TextPreprocessor}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{preprocessing}\PYG{o}{.}\PYG{n}{text}\PYG{o}{.}\PYG{n}{TextPreprocesser}\PYG{p}{(}\PYG{p}{)}
 \PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{preprocesser}\PYG{o}{.}\PYG{n}{add\PYGZus{}step}\PYG{p}{(}
 \PYG{g+go}{    aisquared.config.preprocessing.text.Tokenize()}
 \PYG{g+go}{)}
 \end{sphinxVerbatim}
-\index{add\_step() (aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor method)@\spxentry{add\_step()}\spxextra{aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor method}}
+\index{add\_step() (aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser method)@\spxentry{add\_step()}\spxextra{aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.config.preprocessing.text:aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor.add_step}}
+\phantomsection\label{\detokenize{aisquared.config.preprocessing.text:aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser.add_step}}
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{add\_step}}}{\emph{\DUrole{n}{step}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
-Add a step to the preprocessor object
+Add a step to the preprocesser object
 
 \end{fulllineitems}
 
-\index{step\_dict (aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor property)@\spxentry{step\_dict}\spxextra{aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor property}}
+\index{step\_dict (aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser property)@\spxentry{step\_dict}\spxextra{aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser property}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.config.preprocessing.text:aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor.step_dict}}
+\phantomsection\label{\detokenize{aisquared.config.preprocessing.text:aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser.step_dict}}
 \pysigstartsignatures
 \pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w}{  }}}\sphinxbfcode{\sphinxupquote{step\_dict}}}
 \pysigstopsignatures
 \end{fulllineitems}
 
-\index{to\_dict() (aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor method)@\spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor method}}
+\index{to\_dict() (aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser method)@\spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser method}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.config.preprocessing.text:aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor.to_dict}}
+\phantomsection\label{\detokenize{aisquared.config.preprocessing.text:aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser.to_dict}}
 \pysigstartsignatures
 \pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{to\_dict}}}{}{{ $\rightarrow$ dict}}
 \pysigstopsignatures
@@ -2735,7 +2753,7 @@ The aisquared.config.rendering subpackage contains objects for configuring how r
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.config.rendering:aisquared.config.rendering.BarChartRendering.BarChartRendering}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.rendering.BarChartRendering.}}\sphinxbfcode{\sphinxupquote{BarChartRendering}}}{\emph{\DUrole{n}{label}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{chart\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{container\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_name\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_value\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_name\_value}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{display\_legend}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}}, \emph{\DUrole{n}{legend\_icon}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{labels\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{width}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}auto\textquotesingle{}}}, \emph{\DUrole{n}{height}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}auto\textquotesingle{}}}, \emph{\DUrole{n}{xOffset}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}0\textquotesingle{}}}, \emph{\DUrole{n}{yOffset}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}0\textquotesingle{}}}, \emph{\DUrole{n}{labels}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}list\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{consolidate\_rows}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.rendering.BarChartRendering.}}\sphinxbfcode{\sphinxupquote{BarChartRendering}}}{\emph{\DUrole{n}{label}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{chart\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{container\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_name\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_value\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_name\_value}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{display\_legend}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}}, \emph{\DUrole{n}{legend\_icon}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{labels\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{width}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}auto\textquotesingle{}}}, \emph{\DUrole{n}{height}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}auto\textquotesingle{}}}, \emph{\DUrole{n}{xOffset}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}0\textquotesingle{}}}, \emph{\DUrole{n}{yOffset}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}0\textquotesingle{}}}, \emph{\DUrole{n}{labels}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}list\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{consolidate\_rows}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{css\_params}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}dict\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Bases: {\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{BaseObject}}}}}
@@ -3156,7 +3174,7 @@ Get the configuration object as a dictionary
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.config.rendering:aisquared.config.rendering.DoughnutChartRendering.DoughnutChartRendering}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.rendering.DoughnutChartRendering.}}\sphinxbfcode{\sphinxupquote{DoughnutChartRendering}}}{\emph{\DUrole{n}{label}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{chart\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{container\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_name\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_value\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_name\_value}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{display\_legend}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}}, \emph{\DUrole{n}{legend\_icon}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{labels\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{width}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}auto\textquotesingle{}}}, \emph{\DUrole{n}{height}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}auto\textquotesingle{}}}, \emph{\DUrole{n}{xOffset}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}0\textquotesingle{}}}, \emph{\DUrole{n}{yOffset}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}0\textquotesingle{}}}, \emph{\DUrole{n}{labels}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}list\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{consolidate\_rows}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.rendering.DoughnutChartRendering.}}\sphinxbfcode{\sphinxupquote{DoughnutChartRendering}}}{\emph{\DUrole{n}{label}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{chart\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{container\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_name\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_value\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_name\_value}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{display\_legend}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}}, \emph{\DUrole{n}{legend\_icon}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{labels\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{width}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}auto\textquotesingle{}}}, \emph{\DUrole{n}{height}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}auto\textquotesingle{}}}, \emph{\DUrole{n}{xOffset}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}0\textquotesingle{}}}, \emph{\DUrole{n}{yOffset}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}0\textquotesingle{}}}, \emph{\DUrole{n}{labels}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}list\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{consolidate\_rows}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{css\_params}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}dict\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Bases: {\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{BaseObject}}}}}
@@ -3504,7 +3522,7 @@ Get the configuration object as a dictionary
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.config.rendering:aisquared.config.rendering.LineChartRendering.LineChartRendering}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.rendering.LineChartRendering.}}\sphinxbfcode{\sphinxupquote{LineChartRendering}}}{\emph{\DUrole{n}{label}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{chart\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{container\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_name\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_value\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_name\_value}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{display\_legend}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}}, \emph{\DUrole{n}{legend\_icon}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{labels\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{width}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}auto\textquotesingle{}}}, \emph{\DUrole{n}{height}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}auto\textquotesingle{}}}, \emph{\DUrole{n}{xOffset}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}0\textquotesingle{}}}, \emph{\DUrole{n}{yOffset}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}0\textquotesingle{}}}, \emph{\DUrole{n}{labels}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}list\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{consolidate\_rows}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.rendering.LineChartRendering.}}\sphinxbfcode{\sphinxupquote{LineChartRendering}}}{\emph{\DUrole{n}{label}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{chart\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{container\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_name\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_value\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_name\_value}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{display\_legend}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}}, \emph{\DUrole{n}{legend\_icon}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{labels\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{width}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}auto\textquotesingle{}}}, \emph{\DUrole{n}{height}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}auto\textquotesingle{}}}, \emph{\DUrole{n}{xOffset}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}0\textquotesingle{}}}, \emph{\DUrole{n}{yOffset}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}0\textquotesingle{}}}, \emph{\DUrole{n}{labels}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}list\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{consolidate\_rows}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{css\_params}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}dict\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Bases: {\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{BaseObject}}}}}
@@ -3681,7 +3699,7 @@ Get the configuration object as a dictionary
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.config.rendering:aisquared.config.rendering.PieChartRendering.PieChartRendering}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.rendering.PieChartRendering.}}\sphinxbfcode{\sphinxupquote{PieChartRendering}}}{\emph{\DUrole{n}{label}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{chart\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{container\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_name\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_value\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_name\_value}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{display\_legend}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}}, \emph{\DUrole{n}{legend\_icon}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{labels\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{width}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}auto\textquotesingle{}}}, \emph{\DUrole{n}{height}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}auto\textquotesingle{}}}, \emph{\DUrole{n}{xOffset}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}0\textquotesingle{}}}, \emph{\DUrole{n}{yOffset}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}0\textquotesingle{}}}, \emph{\DUrole{n}{labels}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}list\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{consolidate\_rows}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.rendering.PieChartRendering.}}\sphinxbfcode{\sphinxupquote{PieChartRendering}}}{\emph{\DUrole{n}{label}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{chart\_name}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{container\_id}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_name\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_value\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{prediction\_name\_value}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{display\_legend}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}}, \emph{\DUrole{n}{legend\_icon}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}}, \emph{\DUrole{n}{labels\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{width}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}auto\textquotesingle{}}}, \emph{\DUrole{n}{height}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}auto\textquotesingle{}}}, \emph{\DUrole{n}{xOffset}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}0\textquotesingle{}}}, \emph{\DUrole{n}{yOffset}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}0\textquotesingle{}}}, \emph{\DUrole{n}{labels}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}list\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{consolidate\_rows}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{bool}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{True}}, \emph{\DUrole{n}{css\_params}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}dict\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Bases: {\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{BaseObject}}}}}
@@ -3859,7 +3877,7 @@ Get the configuration object as a dictionary
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.config.rendering:aisquared.config.rendering.WordRendering.WordRendering}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.rendering.WordRendering.}}\sphinxbfcode{\sphinxupquote{WordRendering}}}{\emph{\DUrole{n}{word\_list}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}input\textquotesingle{}}}, \emph{\DUrole{n}{result\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{content\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{badge\_shape}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}star\textquotesingle{}}}, \emph{\DUrole{n}{badge\_color}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}blue\textquotesingle{}}}, \emph{\DUrole{n}{classes}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}list\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{threshold\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{threshold\_value}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}Union\DUrole{p}{{[}}int\DUrole{p}{,}\DUrole{w}{  }float\DUrole{p}{{]}}\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.rendering.WordRendering.}}\sphinxbfcode{\sphinxupquote{WordRendering}}}{\emph{\DUrole{n}{word\_list}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}input\textquotesingle{}}}, \emph{\DUrole{n}{result\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{content\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{badge\_shape}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}star\textquotesingle{}}}, \emph{\DUrole{n}{badge\_color}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}blue\textquotesingle{}}}, \emph{\DUrole{n}{classes}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}list\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{threshold\_key}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}str\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{threshold\_value}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{Optional\DUrole{p}{{[}}Union\DUrole{p}{{[}}int\DUrole{p}{,}\DUrole{w}{  }float\DUrole{p}{{]}}\DUrole{p}{{]}}}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{None}}, \emph{\DUrole{n}{position}\DUrole{p}{:}\DUrole{w}{  }\DUrole{n}{str}\DUrole{w}{  }\DUrole{o}{=}\DUrole{w}{  }\DUrole{default_value}{\textquotesingle{}after\textquotesingle{}}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Bases: {\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{BaseObject}}}}}
@@ -3882,7 +3900,8 @@ Example usage:
 \PYG{g+go}{\PYGZsq{}badgeColor\PYGZsq{}: \PYGZsq{}blue\PYGZsq{},}
 \PYG{g+go}{\PYGZsq{}classes\PYGZsq{}: None,}
 \PYG{g+go}{\PYGZsq{}thresholdKey\PYGZsq{}: None,}
-\PYG{g+go}{\PYGZsq{}thresholdValue\PYGZsq{}: None\PYGZcb{}\PYGZcb{}}
+\PYG{g+go}{\PYGZsq{}thresholdValue\PYGZsq{}: None}
+\PYG{g+go}{\PYGZsq{}position\PYGZsq{}: \PYGZsq{}after\PYGZsq{}\PYGZcb{}\PYGZcb{}}
 \end{sphinxVerbatim}
 \index{badge\_color (aisquared.config.rendering.WordRendering.WordRendering property)@\spxentry{badge\_color}\spxextra{aisquared.config.rendering.WordRendering.WordRendering property}}
 
@@ -3917,6 +3936,15 @@ Example usage:
 \phantomsection\label{\detokenize{aisquared.config.rendering:aisquared.config.rendering.WordRendering.WordRendering.content_key}}
 \pysigstartsignatures
 \pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w}{  }}}\sphinxbfcode{\sphinxupquote{content\_key}}}
+\pysigstopsignatures
+\end{fulllineitems}
+
+\index{position (aisquared.config.rendering.WordRendering.WordRendering property)@\spxentry{position}\spxextra{aisquared.config.rendering.WordRendering.WordRendering property}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{aisquared.config.rendering:aisquared.config.rendering.WordRendering.WordRendering.position}}
+\pysigstartsignatures
+\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w}{  }}}\sphinxbfcode{\sphinxupquote{position}}}
 \pysigstopsignatures
 \end{fulllineitems}
 
@@ -6937,6 +6965,32 @@ Changed \sphinxtitleref{file\_name} parameter in \sphinxtitleref{ReverseMLWorkfl
 \item {} 
 \sphinxAtStartPar
 Added \sphinxtitleref{documentation\_link} parameter to \sphinxtitleref{ModelConfiguration} class
+
+\end{itemize}
+
+\end{description}
+
+\item {} \begin{description}
+\sphinxlineitem{Version 0.3.6}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Fixed issue with type checking for \sphinxtitleref{ModelConfiguration} Rendering classes
+
+\item {} 
+\sphinxAtStartPar
+Restricted TensorFlow version to below \sphinxtitleref{2.12.0} to prevent import issues
+
+\item {} 
+\sphinxAtStartPar
+Added \sphinxtitleref{position} parameter to \sphinxtitleref{WordRendering} class
+
+\item {} 
+\sphinxAtStartPar
+Changed default CSS styling for rendering classes
+
+\item {} 
+\sphinxAtStartPar
+Changed name of all \sphinxtitleref{processor} classes to \sphinxtitleref{processer}
 
 \end{itemize}
 

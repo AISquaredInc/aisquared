@@ -50,6 +50,8 @@
 \indexentry{bucket (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)@\spxentry{bucket}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}|hyperpage}{7}
 \indexentry{column (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)@\spxentry{column}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}|hyperpage}{7}
 \indexentry{filenames (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)@\spxentry{filenames}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}|hyperpage}{7}
+\indexentry{filter\_by\_columns (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)@\spxentry{filter\_by\_columns}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}|hyperpage}{7}
+\indexentry{filter\_type (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)@\spxentry{filter\_type}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}|hyperpage}{7}
 \indexentry{input\_type (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)@\spxentry{input\_type}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}|hyperpage}{7}
 \indexentry{period (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)@\spxentry{period}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}|hyperpage}{7}
 \indexentry{secret (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)@\spxentry{secret}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}|hyperpage}{7}
@@ -146,10 +148,10 @@
 \indexentry{aisquared.config.preprocessing.image@\spxentry{aisquared.config.preprocessing.image}!module@\spxentry{module}|hyperpage}{15}
 \indexentry{module@\spxentry{module}!aisquared.config.preprocessing.image.ImagePreprocessing@\spxentry{aisquared.config.preprocessing.image.ImagePreprocessing}|hyperpage}{16}
 \indexentry{aisquared.config.preprocessing.image.ImagePreprocessing@\spxentry{aisquared.config.preprocessing.image.ImagePreprocessing}!module@\spxentry{module}|hyperpage}{16}
-\indexentry{ImagePreprocessor (class in aisquared.config.preprocessing.image.ImagePreprocessing)@\spxentry{ImagePreprocessor}\spxextra{class in aisquared.config.preprocessing.image.ImagePreprocessing}|hyperpage}{16}
-\indexentry{add\_step() (aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor method)@\spxentry{add\_step()}\spxextra{aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor method}|hyperpage}{16}
-\indexentry{step\_dict (aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor property)@\spxentry{step\_dict}\spxextra{aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor property}|hyperpage}{16}
-\indexentry{to\_dict() (aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor method)@\spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocessor method}|hyperpage}{16}
+\indexentry{ImagePreprocesser (class in aisquared.config.preprocessing.image.ImagePreprocessing)@\spxentry{ImagePreprocesser}\spxextra{class in aisquared.config.preprocessing.image.ImagePreprocessing}|hyperpage}{16}
+\indexentry{add\_step() (aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser method)@\spxentry{add\_step()}\spxextra{aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser method}|hyperpage}{16}
+\indexentry{step\_dict (aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser property)@\spxentry{step\_dict}\spxextra{aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser property}|hyperpage}{16}
+\indexentry{to\_dict() (aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser method)@\spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser method}|hyperpage}{16}
 \indexentry{module@\spxentry{module}!aisquared.config.preprocessing.image.Steps@\spxentry{aisquared.config.preprocessing.image.Steps}|hyperpage}{16}
 \indexentry{aisquared.config.preprocessing.image.Steps@\spxentry{aisquared.config.preprocessing.image.Steps}!module@\spxentry{module}|hyperpage}{16}
 \indexentry{AddValue (class in aisquared.config.preprocessing.image.Steps)@\spxentry{AddValue}\spxextra{class in aisquared.config.preprocessing.image.Steps}|hyperpage}{16}
@@ -195,9 +197,9 @@
 \indexentry{to\_dict() (aisquared.config.preprocessing.tabular.Steps.ZScore method)@\spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.tabular.Steps.ZScore method}|hyperpage}{20}
 \indexentry{module@\spxentry{module}!aisquared.config.preprocessing.tabular.TabularPreprocessing@\spxentry{aisquared.config.preprocessing.tabular.TabularPreprocessing}|hyperpage}{20}
 \indexentry{aisquared.config.preprocessing.tabular.TabularPreprocessing@\spxentry{aisquared.config.preprocessing.tabular.TabularPreprocessing}!module@\spxentry{module}|hyperpage}{20}
-\indexentry{TabularPreprocessor (class in aisquared.config.preprocessing.tabular.TabularPreprocessing)@\spxentry{TabularPreprocessor}\spxextra{class in aisquared.config.preprocessing.tabular.TabularPreprocessing}|hyperpage}{20}
-\indexentry{add\_step() (aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor method)@\spxentry{add\_step()}\spxextra{aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor method}|hyperpage}{20}
-\indexentry{to\_dict() (aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor method)@\spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocessor method}|hyperpage}{21}
+\indexentry{TabularPreprocesser (class in aisquared.config.preprocessing.tabular.TabularPreprocessing)@\spxentry{TabularPreprocesser}\spxextra{class in aisquared.config.preprocessing.tabular.TabularPreprocessing}|hyperpage}{20}
+\indexentry{add\_step() (aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocesser method)@\spxentry{add\_step()}\spxextra{aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocesser method}|hyperpage}{20}
+\indexentry{to\_dict() (aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocesser method)@\spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocesser method}|hyperpage}{21}
 \indexentry{module@\spxentry{module}!aisquared.config.preprocessing.text@\spxentry{aisquared.config.preprocessing.text}|hyperpage}{21}
 \indexentry{aisquared.config.preprocessing.text@\spxentry{aisquared.config.preprocessing.text}!module@\spxentry{module}|hyperpage}{21}
 \indexentry{module@\spxentry{module}!aisquared.config.preprocessing.text.Steps@\spxentry{aisquared.config.preprocessing.text.Steps}|hyperpage}{21}
@@ -230,10 +232,10 @@
 \indexentry{to\_dict() (aisquared.config.preprocessing.text.Steps.Trim method)@\spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.text.Steps.Trim method}|hyperpage}{23}
 \indexentry{module@\spxentry{module}!aisquared.config.preprocessing.text.TextPreprocessing@\spxentry{aisquared.config.preprocessing.text.TextPreprocessing}|hyperpage}{23}
 \indexentry{aisquared.config.preprocessing.text.TextPreprocessing@\spxentry{aisquared.config.preprocessing.text.TextPreprocessing}!module@\spxentry{module}|hyperpage}{23}
-\indexentry{TextPreprocessor (class in aisquared.config.preprocessing.text.TextPreprocessing)@\spxentry{TextPreprocessor}\spxextra{class in aisquared.config.preprocessing.text.TextPreprocessing}|hyperpage}{23}
-\indexentry{add\_step() (aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor method)@\spxentry{add\_step()}\spxextra{aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor method}|hyperpage}{24}
-\indexentry{step\_dict (aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor property)@\spxentry{step\_dict}\spxextra{aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor property}|hyperpage}{24}
-\indexentry{to\_dict() (aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor method)@\spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor method}|hyperpage}{24}
+\indexentry{TextPreprocesser (class in aisquared.config.preprocessing.text.TextPreprocessing)@\spxentry{TextPreprocesser}\spxextra{class in aisquared.config.preprocessing.text.TextPreprocessing}|hyperpage}{23}
+\indexentry{add\_step() (aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser method)@\spxentry{add\_step()}\spxextra{aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser method}|hyperpage}{24}
+\indexentry{step\_dict (aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser property)@\spxentry{step\_dict}\spxextra{aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser property}|hyperpage}{24}
+\indexentry{to\_dict() (aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser method)@\spxentry{to\_dict()}\spxextra{aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser method}|hyperpage}{24}
 \indexentry{module@\spxentry{module}!aisquared.config.rendering@\spxentry{aisquared.config.rendering}|hyperpage}{24}
 \indexentry{aisquared.config.rendering@\spxentry{aisquared.config.rendering}!module@\spxentry{module}|hyperpage}{24}
 \indexentry{module@\spxentry{module}!aisquared.config.rendering.BarChartRendering@\spxentry{aisquared.config.rendering.BarChartRendering}|hyperpage}{24}
@@ -323,7 +325,7 @@
 \indexentry{module@\spxentry{module}!aisquared.config.rendering.PieChartRendering@\spxentry{aisquared.config.rendering.PieChartRendering}|hyperpage}{35}
 \indexentry{aisquared.config.rendering.PieChartRendering@\spxentry{aisquared.config.rendering.PieChartRendering}!module@\spxentry{module}|hyperpage}{35}
 \indexentry{PieChartRendering (class in aisquared.config.rendering.PieChartRendering)@\spxentry{PieChartRendering}\spxextra{class in aisquared.config.rendering.PieChartRendering}|hyperpage}{35}
-\indexentry{to\_dict() (aisquared.config.rendering.PieChartRendering.PieChartRendering method)@\spxentry{to\_dict()}\spxextra{aisquared.config.rendering.PieChartRendering.PieChartRendering method}|hyperpage}{35}
+\indexentry{to\_dict() (aisquared.config.rendering.PieChartRendering.PieChartRendering method)@\spxentry{to\_dict()}\spxextra{aisquared.config.rendering.PieChartRendering.PieChartRendering method}|hyperpage}{36}
 \indexentry{module@\spxentry{module}!aisquared.config.rendering.SOSRendering@\spxentry{aisquared.config.rendering.SOSRendering}|hyperpage}{36}
 \indexentry{aisquared.config.rendering.SOSRendering@\spxentry{aisquared.config.rendering.SOSRendering}!module@\spxentry{module}|hyperpage}{36}
 \indexentry{SOSRendering (class in aisquared.config.rendering.SOSRendering)@\spxentry{SOSRendering}\spxextra{class in aisquared.config.rendering.SOSRendering}|hyperpage}{36}
@@ -341,11 +343,12 @@
 \indexentry{badge\_shape (aisquared.config.rendering.WordRendering.WordRendering property)@\spxentry{badge\_shape}\spxextra{aisquared.config.rendering.WordRendering.WordRendering property}|hyperpage}{37}
 \indexentry{classes (aisquared.config.rendering.WordRendering.WordRendering property)@\spxentry{classes}\spxextra{aisquared.config.rendering.WordRendering.WordRendering property}|hyperpage}{37}
 \indexentry{content\_key (aisquared.config.rendering.WordRendering.WordRendering property)@\spxentry{content\_key}\spxextra{aisquared.config.rendering.WordRendering.WordRendering property}|hyperpage}{37}
+\indexentry{position (aisquared.config.rendering.WordRendering.WordRendering property)@\spxentry{position}\spxextra{aisquared.config.rendering.WordRendering.WordRendering property}|hyperpage}{37}
 \indexentry{result\_key (aisquared.config.rendering.WordRendering.WordRendering property)@\spxentry{result\_key}\spxextra{aisquared.config.rendering.WordRendering.WordRendering property}|hyperpage}{37}
 \indexentry{threshold\_key (aisquared.config.rendering.WordRendering.WordRendering property)@\spxentry{threshold\_key}\spxextra{aisquared.config.rendering.WordRendering.WordRendering property}|hyperpage}{37}
-\indexentry{threshold\_value (aisquared.config.rendering.WordRendering.WordRendering property)@\spxentry{threshold\_value}\spxextra{aisquared.config.rendering.WordRendering.WordRendering property}|hyperpage}{37}
-\indexentry{to\_dict() (aisquared.config.rendering.WordRendering.WordRendering method)@\spxentry{to\_dict()}\spxextra{aisquared.config.rendering.WordRendering.WordRendering method}|hyperpage}{37}
-\indexentry{word\_list (aisquared.config.rendering.WordRendering.WordRendering property)@\spxentry{word\_list}\spxextra{aisquared.config.rendering.WordRendering.WordRendering property}|hyperpage}{37}
+\indexentry{threshold\_value (aisquared.config.rendering.WordRendering.WordRendering property)@\spxentry{threshold\_value}\spxextra{aisquared.config.rendering.WordRendering.WordRendering property}|hyperpage}{38}
+\indexentry{to\_dict() (aisquared.config.rendering.WordRendering.WordRendering method)@\spxentry{to\_dict()}\spxextra{aisquared.config.rendering.WordRendering.WordRendering method}|hyperpage}{38}
+\indexentry{word\_list (aisquared.config.rendering.WordRendering.WordRendering property)@\spxentry{word\_list}\spxextra{aisquared.config.rendering.WordRendering.WordRendering property}|hyperpage}{38}
 \indexentry{module@\spxentry{module}!aisquared.config.GraphConfiguration@\spxentry{aisquared.config.GraphConfiguration}|hyperpage}{38}
 \indexentry{aisquared.config.GraphConfiguration@\spxentry{aisquared.config.GraphConfiguration}!module@\spxentry{module}|hyperpage}{38}
 \indexentry{GraphConfiguration (class in aisquared.config.GraphConfiguration)@\spxentry{GraphConfiguration}\spxextra{class in aisquared.config.GraphConfiguration}|hyperpage}{38}
@@ -354,11 +357,11 @@
 \indexentry{compile() (aisquared.config.GraphConfiguration.GraphConfiguration method)@\spxentry{compile()}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration method}|hyperpage}{38}
 \indexentry{description (aisquared.config.GraphConfiguration.GraphConfiguration property)@\spxentry{description}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration property}|hyperpage}{38}
 \indexentry{documentation\_link (aisquared.config.GraphConfiguration.GraphConfiguration property)@\spxentry{documentation\_link}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration property}|hyperpage}{38}
-\indexentry{get\_filenames() (aisquared.config.GraphConfiguration.GraphConfiguration method)@\spxentry{get\_filenames()}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration method}|hyperpage}{38}
-\indexentry{mlflow\_token (aisquared.config.GraphConfiguration.GraphConfiguration property)@\spxentry{mlflow\_token}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration property}|hyperpage}{38}
-\indexentry{mlflow\_uri (aisquared.config.GraphConfiguration.GraphConfiguration property)@\spxentry{mlflow\_uri}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration property}|hyperpage}{38}
-\indexentry{mlflow\_user (aisquared.config.GraphConfiguration.GraphConfiguration property)@\spxentry{mlflow\_user}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration property}|hyperpage}{38}
-\indexentry{name (aisquared.config.GraphConfiguration.GraphConfiguration property)@\spxentry{name}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration property}|hyperpage}{38}
+\indexentry{get\_filenames() (aisquared.config.GraphConfiguration.GraphConfiguration method)@\spxentry{get\_filenames()}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration method}|hyperpage}{39}
+\indexentry{mlflow\_token (aisquared.config.GraphConfiguration.GraphConfiguration property)@\spxentry{mlflow\_token}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration property}|hyperpage}{39}
+\indexentry{mlflow\_uri (aisquared.config.GraphConfiguration.GraphConfiguration property)@\spxentry{mlflow\_uri}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration property}|hyperpage}{39}
+\indexentry{mlflow\_user (aisquared.config.GraphConfiguration.GraphConfiguration property)@\spxentry{mlflow\_user}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration property}|hyperpage}{39}
+\indexentry{name (aisquared.config.GraphConfiguration.GraphConfiguration property)@\spxentry{name}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration property}|hyperpage}{39}
 \indexentry{owner (aisquared.config.GraphConfiguration.GraphConfiguration property)@\spxentry{owner}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration property}|hyperpage}{39}
 \indexentry{stage (aisquared.config.GraphConfiguration.GraphConfiguration property)@\spxentry{stage}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration property}|hyperpage}{39}
 \indexentry{to\_dict() (aisquared.config.GraphConfiguration.GraphConfiguration method)@\spxentry{to\_dict()}\spxextra{aisquared.config.GraphConfiguration.GraphConfiguration method}|hyperpage}{39}
@@ -371,7 +374,7 @@
 \indexentry{analytic\_dict (aisquared.config.ModelConfiguration.ModelConfiguration property)@\spxentry{analytic\_dict}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}|hyperpage}{39}
 \indexentry{auto\_run (aisquared.config.ModelConfiguration.ModelConfiguration property)@\spxentry{auto\_run}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}|hyperpage}{39}
 \indexentry{compile() (aisquared.config.ModelConfiguration.ModelConfiguration method)@\spxentry{compile()}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration method}|hyperpage}{39}
-\indexentry{description (aisquared.config.ModelConfiguration.ModelConfiguration property)@\spxentry{description}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}|hyperpage}{39}
+\indexentry{description (aisquared.config.ModelConfiguration.ModelConfiguration property)@\spxentry{description}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}|hyperpage}{40}
 \indexentry{documentation\_link (aisquared.config.ModelConfiguration.ModelConfiguration property)@\spxentry{documentation\_link}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}|hyperpage}{40}
 \indexentry{feedback\_dict (aisquared.config.ModelConfiguration.ModelConfiguration property)@\spxentry{feedback\_dict}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}|hyperpage}{40}
 \indexentry{feedback\_steps (aisquared.config.ModelConfiguration.ModelConfiguration property)@\spxentry{feedback\_steps}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}|hyperpage}{40}
@@ -393,8 +396,8 @@
 \indexentry{to\_dict() (aisquared.config.ModelConfiguration.ModelConfiguration method)@\spxentry{to\_dict()}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration method}|hyperpage}{40}
 \indexentry{url (aisquared.config.ModelConfiguration.ModelConfiguration property)@\spxentry{url}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}|hyperpage}{40}
 \indexentry{version (aisquared.config.ModelConfiguration.ModelConfiguration property)@\spxentry{version}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}|hyperpage}{40}
-\indexentry{module@\spxentry{module}!aisquared.logging@\spxentry{aisquared.logging}|hyperpage}{40}
-\indexentry{aisquared.logging@\spxentry{aisquared.logging}!module@\spxentry{module}|hyperpage}{40}
+\indexentry{module@\spxentry{module}!aisquared.logging@\spxentry{aisquared.logging}|hyperpage}{41}
+\indexentry{aisquared.logging@\spxentry{aisquared.logging}!module@\spxentry{module}|hyperpage}{41}
 \indexentry{module@\spxentry{module}!aisquared.platform@\spxentry{aisquared.platform}|hyperpage}{41}
 \indexentry{aisquared.platform@\spxentry{aisquared.platform}!module@\spxentry{module}|hyperpage}{41}
 \indexentry{module@\spxentry{module}!aisquared.platform.AISquaredPlatformClient@\spxentry{aisquared.platform.AISquaredPlatformClient}|hyperpage}{41}
@@ -408,17 +411,17 @@
 \indexentry{delete\_model() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{delete\_model()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{43}
 \indexentry{delete\_user() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{delete\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{44}
 \indexentry{get\_group() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{44}
-\indexentry{get\_group\_id\_by\_name() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_group\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{44}
+\indexentry{get\_group\_id\_by\_name() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_group\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{45}
 \indexentry{get\_model() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_model()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{45}
-\indexentry{get\_model\_id\_by\_name() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_model\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{45}
+\indexentry{get\_model\_id\_by\_name() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_model\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{46}
 \indexentry{get\_role\_id\_by\_role\_name() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_role\_id\_by\_role\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{46}
 \indexentry{get\_user() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{46}
 \indexentry{get\_user\_id\_by\_name() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{get\_user\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{47}
 \indexentry{headers (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property)@\spxentry{headers}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}|hyperpage}{47}
 \indexentry{list\_group\_users() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_group\_users()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{47}
-\indexentry{list\_groups() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_groups()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{47}
+\indexentry{list\_groups() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_groups()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{48}
 \indexentry{list\_model\_feedback() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_model\_feedback()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{48}
-\indexentry{list\_model\_prediction\_feedback() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_model\_prediction\_feedback()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{48}
+\indexentry{list\_model\_prediction\_feedback() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_model\_prediction\_feedback()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{49}
 \indexentry{list\_model\_usage\_metrics() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_model\_usage\_metrics()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{49}
 \indexentry{list\_model\_users() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_model\_users()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{49}
 \indexentry{list\_models() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{list\_models()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{50}
@@ -433,15 +436,15 @@
 \indexentry{share\_model\_with\_user() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{share\_model\_with\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{54}
 \indexentry{test\_connection() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{test\_connection()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{54}
 \indexentry{token (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property)@\spxentry{token}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}|hyperpage}{54}
-\indexentry{unshare\_model\_with\_group() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{unshare\_model\_with\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{54}
+\indexentry{unshare\_model\_with\_group() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{unshare\_model\_with\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{55}
 \indexentry{unshare\_model\_with\_user() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{unshare\_model\_with\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{55}
 \indexentry{update\_group() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{update\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{55}
 \indexentry{update\_user() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{update\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{56}
 \indexentry{upload\_model() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{upload\_model()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{57}
 \indexentry{use\_port (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property)@\spxentry{use\_port}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}|hyperpage}{57}
 \indexentry{username (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property)@\spxentry{username}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}|hyperpage}{57}
-\indexentry{module@\spxentry{module}!aisquared.serving@\spxentry{aisquared.serving}|hyperpage}{57}
-\indexentry{aisquared.serving@\spxentry{aisquared.serving}!module@\spxentry{module}|hyperpage}{57}
+\indexentry{module@\spxentry{module}!aisquared.serving@\spxentry{aisquared.serving}|hyperpage}{58}
+\indexentry{aisquared.serving@\spxentry{aisquared.serving}!module@\spxentry{module}|hyperpage}{58}
 \indexentry{module@\spxentry{module}!aisquared.serving.deploy\_model@\spxentry{aisquared.serving.deploy\_model}|hyperpage}{58}
 \indexentry{aisquared.serving.deploy\_model@\spxentry{aisquared.serving.deploy\_model}!module@\spxentry{module}|hyperpage}{58}
 \indexentry{deploy\_model() (in module aisquared.serving.deploy\_model)@\spxentry{deploy\_model()}\spxextra{in module aisquared.serving.deploy\_model}|hyperpage}{58}
