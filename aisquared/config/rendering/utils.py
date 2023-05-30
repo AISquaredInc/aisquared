@@ -10,7 +10,7 @@ def save_default_css():
     -----
     - Saves all CSS files to the `~/.aisquared/` directory
     """
-    
+
     with open(CONTAINER_RENDERING_CSS_FILE, 'w') as f:
         json.dump(DEFAULT_CONTAINER_RENDERING_CSS, f)
 
