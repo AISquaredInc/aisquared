@@ -2,6 +2,7 @@ from aisquared.base import BaseObject, DEFAULT_CHART_RENDERING_CSS, CHART_RENDER
 import json
 import os
 
+
 class LineChartRendering(BaseObject):
 
     """
@@ -99,7 +100,7 @@ class LineChartRendering(BaseObject):
         consolidate_rows : bool (default True)
             Whether to consolidate rows in the data
         css_params : dict or None (default None)
-            Additional CSS parameters        
+            Additional CSS parameters
         """
         super().__init__()
         self.label = label

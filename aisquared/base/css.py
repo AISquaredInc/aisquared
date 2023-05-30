@@ -64,8 +64,8 @@ DEFAULT_TABLE_RENDERING_CSS = {
             'fontFamily': 'Raleway, sans-serif',
         },
         'title': {
-            'fontWeight' : 'bold',
-            'marginBottom' : '4px',
+            'fontWeight': 'bold',
+            'marginBottom': '4px',
         },
         'table': {
             'border': "1px solid lightgray",
@@ -86,15 +86,15 @@ DEFAULT_TABLE_RENDERING_CSS = {
             'border': "1px solid lightgray",
         },
         'rowCells': {
-            'border' : "1px solid lightgray",
-            'fontWeight' : 'normal',
-            'padding' : "8px",
+            'border': "1px solid lightgray",
+            'fontWeight': 'normal',
+            'padding': "8px",
         },
         'headerCells': {
-            'border' : '1px solid lightgray',
-            'padding' : '8px',
-            'fontWeight' : 'bolder',
-            'backgroundColor' : 'white'
+            'border': '1px solid lightgray',
+            'padding': '8px',
+            'fontWeight': 'bolder',
+            'backgroundColor': 'white'
         }
     }
 }

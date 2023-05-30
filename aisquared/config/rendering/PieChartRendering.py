@@ -2,6 +2,7 @@ from aisquared.base import BaseObject, DEFAULT_CHART_RENDERING_CSS, CHART_RENDER
 import json
 import os
 
+
 class PieChartRendering(BaseObject):
     """
     Rendering class for rendering a Pie Chart
@@ -116,7 +117,7 @@ class PieChartRendering(BaseObject):
         self.yOffset = yOffset
         self.consolidate_rows = consolidate_rows
         self.labels_key = labels_key
-       
+
         if css_params is None:
             if os.path.exists(CHART_RENDERING_CSS_FILE):
                 with open(CHART_RENDERING_CSS_FILE, 'r') as f:

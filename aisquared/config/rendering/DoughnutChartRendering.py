@@ -2,6 +2,7 @@ from aisquared.base import BaseObject, DEFAULT_CHART_RENDERING_CSS, CHART_RENDER
 import json
 import os
 
+
 class DoughnutChartRendering(BaseObject):
     """
     Rendering class for rendering a Doughnut Chart
