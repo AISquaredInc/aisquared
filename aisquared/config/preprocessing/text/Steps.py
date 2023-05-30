@@ -8,7 +8,7 @@ class Tokenize(BaseObject):
     Example usage:
 
     >>> import aisquared
-    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocessor()
+    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocesser()
     >>> preprocesser.add_step(
         aisquared.config.preprocessing.text.Tokenize()
     )
@@ -86,7 +86,7 @@ class RemoveCharacters(BaseObject):
     Example usage:
 
     >>> import aisquared
-    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocessor()
+    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocesser()
     >>> preprocesser.add_step(
         aisquared.config.preprocessing.text.RemoveCharacters()
     )
@@ -148,7 +148,7 @@ class ConvertToCase(BaseObject):
     Example usage:
 
     >>> import aisquared
-    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocessor()
+    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocesser()
     >>> preprocesser.add_step(
         aisquared.config.preprocessing.text.ConvertToCase()
     )
@@ -195,7 +195,7 @@ class ConvertToVocabulary(BaseObject):
     Example usage:
 
     >>> import aisquared
-    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocessor()
+    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocesser()
     >>> preprocesser.add_step(
         aisquared.config.preprocessing.text.ConvertToVocabulary(
             {
@@ -297,7 +297,7 @@ class PadSequences(BaseObject):
     Example usage:
 
     >>> import aisquared
-    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocessor()
+    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocesser()
     >>> preprocesser.add_step(
         aisquared.config.preprocessing.text.PadSequences()
     )
@@ -398,7 +398,7 @@ class Trim(BaseObject):
     Example usage:
 
     >>> import aisquared
-    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocessor()
+    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocesser()
     >>> preprocesser.add_step(
         aisquared.config.preprocessing.text.Trim()
     )

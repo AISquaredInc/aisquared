@@ -11,14 +11,14 @@ ALLOWED_STEPS = (
 )
 
 
-class TextPreprocessor(BaseObject):
+class TextPreprocesser(BaseObject):
     """
-    Preprocessor object for natural language
+    Preprocesser object for natural language
 
     Example usage:
 
     >>> import aisquared
-    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocessor()
+    >>> preprocesser = aisquared.config.preprocessing.text.TextPreprocesser()
     >>> preprocesser.add_step(
         aisquared.config.preprocessing.text.Tokenize()
     )
@@ -51,7 +51,7 @@ class TextPreprocessor(BaseObject):
 
     def add_step(self, step):
         """
-        Add a step to the preprocessor object
+        Add a step to the preprocesser object
         """
         if not isinstance(step, ALLOWED_STEPS):
             raise TypeError(f'Each step must be one of {ALLOWED_STEPS}')
@@ -65,6 +65,6 @@ class TextPreprocessor(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className': 'TextPreprocessor',
+            'className': 'TextPreprocesser',
             'steps': self.step_dict
         }

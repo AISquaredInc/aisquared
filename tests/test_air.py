@@ -62,7 +62,7 @@ def test_sentimentanalysis(tmp_path):
     model.save(os.path.join(tmp_path, 'model.h5'))
 
     harvester = aisquared.config.harvesting.TextHarvester()
-    preproc = aisquared.config.preprocessing.text.TextPreprocessor(
+    preproc = aisquared.config.preprocessing.text.TextPreprocesser(
         [
             aisquared.config.preprocessing.text.Tokenize(),
             aisquared.config.preprocessing.text.ConvertToVocabulary(
@@ -104,7 +104,7 @@ def test_imageclassification(tmp_path):
     model.save(os.path.join(tmp_path, 'test_model.h5'))
 
     harvester = aisquared.config.harvesting.InputHarvester('image')
-    preprocesser = aisquared.config.preprocessing.image.ImagePreprocessor(
+    preprocesser = aisquared.config.preprocessing.image.ImagePreprocesser(
         [
             aisquared.config.preprocessing.image.Resize([30, 30]),
             aisquared.config.preprocessing.image.DivideValue(255)

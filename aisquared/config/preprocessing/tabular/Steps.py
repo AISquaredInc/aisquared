@@ -12,7 +12,7 @@ class ZScore(BaseObject):
     Example usage:
 
     >>> import aisquared
-    >>> preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocessor()
+    >>> preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocesser()
     >>> preprocesser.add_step(
         aisquared.config.preprocessing.tabular.ZScore(
             [0, 1, 2],
@@ -107,7 +107,7 @@ class MinMax(BaseObject):
     Example usage:
 
     >>> import aisquared
-    >>> preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocessor()
+    >>> preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocesser()
     >>> preprocesser.add_step(
         aisquared.config.preprocessing.tabular.MinMax(
             [0, 1.1, 2],
@@ -202,7 +202,7 @@ class OneHot(BaseObject):
     Example usage:
 
     >>> import aisquared
-    >>> preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocessor()
+    >>> preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocesser()
     >>> preprocesser.add_step(
         aisquared.config.preprocessing.tabular.OneHot(
             6,
@@ -269,7 +269,7 @@ class DropColumn(BaseObject):
     Example usage:
 
     >>> import aisquared
-    >>> preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocessor()
+    >>> preprocesser = aisquared.config.preprocessing.tabular.TabularPreprocesser()
     >>> preprocesser.add_step(
         aisquared.config.preprocessing.tabular.DropColumn(
             3

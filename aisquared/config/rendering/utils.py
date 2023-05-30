@@ -3,6 +3,14 @@ import json
 
 
 def save_default_css():
+    """
+    Save default CSS so that default CSS can be edited and automatically utilized with changes
+
+    Notes
+    -----
+    - Saves all CSS files to the `~/.aisquared/` directory
+    """
+    
     with open(CONTAINER_RENDERING_CSS_FILE, 'w') as f:
         json.dump(DEFAULT_CONTAINER_RENDERING_CSS, f)
 

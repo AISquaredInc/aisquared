@@ -3,7 +3,7 @@ import pytest
 import aisquared
 
 
-def test_postprocessor_init():
+def test_postprocesser_init():
     with pytest.raises(TypeError):
         aisquared.config.postprocessing.BinaryClassification(
             ['zero', 'one'],
