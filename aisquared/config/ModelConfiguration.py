@@ -569,7 +569,10 @@ class ModelConfiguration(BaseObject):
                     tfjs.converters.save_keras_model(
                         model, model_dir, quantization_dtype_map=dtype_map)
                 else:
-                    shutil.copy(f, dirname)
+                    if os.path.isdir(f):
+                        shutil.copytree(f, os.path.join(dirname, f))
+                    else:
+                        shutil.copy(f, dirname)
 
         # go through the entire directory of dirname, grab all files, and make
         # the archive file
