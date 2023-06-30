@@ -26,8 +26,8 @@ class DeployedAnalytic(BaseObject):
         input_type: str,
         secret: str = 'request',
         header: dict = None,
-        api_key_header_name = None,
-        api_key_prefix = None
+        api_key_header_name=None,
+        api_key_prefix=None
     ):
         """
         Parameters
@@ -89,7 +89,7 @@ class DeployedAnalytic(BaseObject):
     @property
     def api_key_header_name(self):
         return self._api_key_header_name
-    
+
     @api_key_header_name.setter
     def api_key_header_name(self, value):
         if not isinstance(value, str) and value is not None:
@@ -99,7 +99,7 @@ class DeployedAnalytic(BaseObject):
     @property
     def api_key_prefix(self):
         return self._api_key_prefix
-    
+
     @api_key_prefix.setter
     def api_key_prefix(self, value):
         if not isinstance(value, str) and value is not None:
