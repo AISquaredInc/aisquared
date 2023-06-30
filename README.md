@@ -324,3 +324,6 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Added `position` parameter to `WordRendering` class
 - Changed default CSS styling for rendering classes
 - Changed name of all `processor` classes to `processer`
+
+## Version 0.3.7
+- Changed schema of the `DeployedAnalytic` class to include API key management

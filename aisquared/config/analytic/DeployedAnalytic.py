@@ -25,7 +25,9 @@ class DeployedAnalytic(BaseObject):
         url: str,
         input_type: str,
         secret: str = 'request',
-        header: dict = None
+        header: dict = None,
+        api_key_header_name = None,
+        api_key_prefix = None
     ):
         """
         Parameters
@@ -39,12 +41,18 @@ class DeployedAnalytic(BaseObject):
             indicates that the user inputs the key whenever the analytic is started again
         header : dict or None (default None)
             Header to use when calling the endpoint
+        api_key_header_name : str or None (default None)
+            The header name for the API key
+        api_key_prefix : str or None (default None)
+            The prefix for the API key
         """
         super().__init__()
         self.url = url
         self.input_type = input_type
         self.secret = secret
         self.header = header
+        self.api_key_header_name = api_key_header_name
+        self.api_key_prefix = api_key_prefix
 
     @property
     def url(self):
@@ -78,6 +86,26 @@ class DeployedAnalytic(BaseObject):
     def header(self, value):
         self._header = value
 
+    @property
+    def api_key_header_name(self):
+        return self._api_key_header_name
+    
+    @api_key_header_name.setter
+    def api_key_header_name(self, value):
+        if not isinstance(value, str) and value is not None:
+            raise TypeError('api_key_header_name must be str')
+        self._api_key_header_name = value
+
+    @property
+    def api_key_prefix(self):
+        return self._api_key_prefix
+    
+    @api_key_prefix.setter
+    def api_key_prefix(self, value):
+        if not isinstance(value, str) and value is not None:
+            raise TypeError('api_key_prefix must be str')
+        self._api_key_prefix = value
+
     def to_dict(self) -> dict:
         return {
             'className': 'DeployedAnalytic',
@@ -85,6 +113,8 @@ class DeployedAnalytic(BaseObject):
                 'url': self.url,
                 'inputType': self.input_type,
                 'secret': self.secret,
-                'header': self.header
+                'header': self.header,
+                'apiKeyHeaderName': self.api_key_header_name,
+                'apiKeyPrefix': self.api_key_prefix
             }
         }
