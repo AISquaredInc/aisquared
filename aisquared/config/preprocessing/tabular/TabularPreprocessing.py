@@ -59,7 +59,7 @@ class TabularPreprocesser(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className': 'TabularPreprocesser',
+            'className': 'TabularPreprocessor',
             'steps': [
                 step.to_dict() for step in self.steps
             ]

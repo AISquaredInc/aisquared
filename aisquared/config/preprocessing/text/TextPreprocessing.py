@@ -65,6 +65,6 @@ class TextPreprocesser(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className': 'TextPreprocesser',
+            'className': 'TextPreprocessor',
             'steps': self.step_dict
         }

@@ -65,6 +65,6 @@ class ImagePreprocesser(BaseObject):
         Get the configuration object as a dictionary
         """
         return {
-            'className': 'ImagePreprocesser',
+            'className': 'ImagePreprocessor',
             'steps': self.step_dict
         }
