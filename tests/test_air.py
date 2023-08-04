@@ -59,7 +59,7 @@ def test_sentimentanalysis(tmp_path):
     output_layer = tf.keras.layers.Dense(1, activation='relu')(x)
 
     model = tf.keras.models.Model(input_layer, output_layer)
-    model.save(os.path.join(tmp_path, 'model.h5'))
+    model.save(os.path.join(tmp_path, 'model.keras'))
 
     harvester = aisquared.config.harvesting.TextHarvester()
     preproc = aisquared.config.preprocessing.text.TextPreprocesser(
@@ -77,7 +77,7 @@ def test_sentimentanalysis(tmp_path):
         ]
     )
     analytic = aisquared.config.analytic.LocalModel(
-        os.path.join(tmp_path, 'model.h5'), input_type='text')
+        os.path.join(tmp_path, 'model.keras'), input_type='text')
     postproc = aisquared.config.postprocessing.Regression()
     rendering = aisquared.config.rendering.DocumentRendering()
     feedback = aisquared.config.feedback.RegressionFeedback()
@@ -101,7 +101,7 @@ def test_imageclassification(tmp_path):
     x = tf.keras.layers.Flatten()(input_layer)
     x = tf.keras.layers.Dense(1, activation='sigmoid')(x)
     model = tf.keras.models.Model(input_layer, x)
-    model.save(os.path.join(tmp_path, 'test_model.h5'))
+    model.save(os.path.join(tmp_path, 'test_model.keras'))
 
     harvester = aisquared.config.harvesting.InputHarvester('image')
     preprocesser = aisquared.config.preprocessing.image.ImagePreprocesser(
@@ -111,7 +111,7 @@ def test_imageclassification(tmp_path):
         ]
     )
     analytic = aisquared.config.analytic.LocalModel(
-        os.path.join(tmp_path, 'test_model.h5'), 'cv')
+        os.path.join(tmp_path, 'test_model.keras'), 'cv')
     postprocesser = aisquared.config.postprocessing.BinaryClassification(
         [
             'zero',
