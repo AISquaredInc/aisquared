@@ -10,10 +10,9 @@
     <script src="../../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
-        <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/doctools.js"></script>
         <script src="../../../../_static/sphinx_highlight.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
@@ -26,11 +25,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../../index.html" class="icon icon-home"> aisquared
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            aisquared
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -54,7 +57,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
       <li class="breadcrumb-item active">aisquared.config.analytic.DeployedAnalytic</li>
       <li class="wy-breadcrumbs-aside">
@@ -93,7 +96,9 @@
         <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">input_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">secret</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;request&#39;</span><span class="p">,</span>
-        <span class="n">header</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">header</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">api_key_header_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">api_key_prefix</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
@@ -107,12 +112,18 @@
 <span class="sd">            indicates that the user inputs the key whenever the analytic is started again</span>
 <span class="sd">        header : dict or None (default None)</span>
 <span class="sd">            Header to use when calling the endpoint</span>
+<span class="sd">        api_key_header_name : str or None (default None)</span>
+<span class="sd">            The header name for the API key</span>
+<span class="sd">        api_key_prefix : str or None (default None)</span>
+<span class="sd">            The prefix for the API key</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">input_type</span> <span class="o">=</span> <span class="n">input_type</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">secret</span> <span class="o">=</span> <span class="n">secret</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">header</span> <span class="o">=</span> <span class="n">header</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">api_key_header_name</span> <span class="o">=</span> <span class="n">api_key_header_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">api_key_prefix</span> <span class="o">=</span> <span class="n">api_key_prefix</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -146,6 +157,26 @@
     <span class="k">def</span> <span class="nf">header</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_header</span> <span class="o">=</span> <span class="n">value</span>
 
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">api_key_header_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_api_key_header_name</span>
+
+    <span class="nd">@api_key_header_name</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">api_key_header_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;api_key_header_name must be str&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_api_key_header_name</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">api_key_prefix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_api_key_prefix</span>
+
+    <span class="nd">@api_key_prefix</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">api_key_prefix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;api_key_prefix must be str&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_api_key_prefix</span> <span class="o">=</span> <span class="n">value</span>
+
 <div class="viewcode-block" id="DeployedAnalytic.to_dict"><a class="viewcode-back" href="../../../../aisquared.config.analytic.html#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">{</span>
             <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;DeployedAnalytic&#39;</span><span class="p">,</span>
@@ -153,7 +184,9 @@
                 <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
                 <span class="s1">&#39;inputType&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_type</span><span class="p">,</span>
                 <span class="s1">&#39;secret&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">secret</span><span class="p">,</span>
-                <span class="s1">&#39;header&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">header</span>
+                <span class="s1">&#39;header&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">header</span><span class="p">,</span>
+                <span class="s1">&#39;apiKeyHeaderName&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_key_header_name</span><span class="p">,</span>
+                <span class="s1">&#39;apiKeyPrefix&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_key_prefix</span>
             <span class="p">}</span>
         <span class="p">}</span></div></div>
 </pre></div>

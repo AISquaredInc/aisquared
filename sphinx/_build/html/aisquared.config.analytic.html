@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>aisquared.config.analytic package &mdash; aisquared  documentation</title>
@@ -11,10 +11,9 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> aisquared
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            aisquared
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -43,7 +46,6 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">aisquared</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="aisquared.html">aisquared package</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="aisquared.html#module-aisquared">Module contents</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="aisquared.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="aisquared.base.html">aisquared.base package</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="aisquared.config.html">aisquared.config package</a></li>
@@ -53,6 +55,7 @@
 <li class="toctree-l4"><a class="reference internal" href="aisquared.utils.html">aisquared.utils package</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.html#module-aisquared">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -72,7 +75,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="modules.html">aisquared</a></li>
           <li class="breadcrumb-item"><a href="aisquared.html">aisquared package</a></li>
           <li class="breadcrumb-item"><a href="aisquared.config.html">aisquared.config package</a></li>
@@ -88,10 +91,6 @@
              
   <section id="aisquared-config-analytic-package">
 <h1>aisquared.config.analytic package<a class="headerlink" href="#aisquared-config-analytic-package" title="Permalink to this heading"></a></h1>
-<section id="module-aisquared.config.analytic">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-aisquared.config.analytic" title="Permalink to this heading"></a></h2>
-<p>The aisquared.config.analytic subpackage contains objects for packaging individual analytics.</p>
-</section>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
@@ -99,7 +98,7 @@
 <span id="aisquared-config-analytic-deployedanalytic-module"></span><h2>aisquared.config.analytic.DeployedAnalytic module<a class="headerlink" href="#module-aisquared.config.analytic.DeployedAnalytic" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.analytic.DeployedAnalytic.</span></span><span class="sig-name descname"><span class="pre">DeployedAnalytic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secret</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'request'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/analytic/DeployedAnalytic.html#DeployedAnalytic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.analytic.DeployedAnalytic.</span></span><span class="sig-name descname"><span class="pre">DeployedAnalytic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secret</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'request'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_key_header_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_key_prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/analytic/DeployedAnalytic.html#DeployedAnalytic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
 <p>Interaction with a remote analytic</p>
 <p>Example usage:</p>
@@ -116,6 +115,16 @@
 <span class="go">&#39;header&#39;: None}}</span>
 </pre></div>
 </div>
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.api_key_header_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">api_key_header_name</span></span><a class="headerlink" href="#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.api_key_header_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.api_key_prefix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">api_key_prefix</span></span><a class="headerlink" href="#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.api_key_prefix" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.header">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">header</span></span><a class="headerlink" href="#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.header" title="Permalink to this definition"></a></dt>
@@ -149,7 +158,7 @@
 <span id="aisquared-config-analytic-deployedmodel-module"></span><h2>aisquared.config.analytic.DeployedModel module<a class="headerlink" href="#module-aisquared.config.analytic.DeployedModel" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="aisquared.config.analytic.DeployedModel.DeployedModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.analytic.DeployedModel.</span></span><span class="sig-name descname"><span class="pre">DeployedModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secret</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'request'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/analytic/DeployedModel.html#DeployedModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.analytic.DeployedModel.DeployedModel" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.analytic.DeployedModel.</span></span><span class="sig-name descname"><span class="pre">DeployedModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secret</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'request'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/analytic/DeployedModel.html#DeployedModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.analytic.DeployedModel.DeployedModel" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
 <p>Interaction with a remote model</p>
 <p>Example usage:</p>
@@ -283,7 +292,7 @@ file system</p>
 <span id="aisquared-config-analytic-reversemlworkflow-module"></span><h2>aisquared.config.analytic.ReverseMLWorkflow module<a class="headerlink" href="#module-aisquared.config.analytic.ReverseMLWorkflow" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.analytic.ReverseMLWorkflow.</span></span><span class="sig-name descname"><span class="pre">ReverseMLWorkflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secret</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/analytic/ReverseMLWorkflow.html#ReverseMLWorkflow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.analytic.ReverseMLWorkflow.</span></span><span class="sig-name descname"><span class="pre">ReverseMLWorkflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filenames</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_by_columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secret</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/analytic/ReverseMLWorkflow.html#ReverseMLWorkflow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
 <p>Interaction with a ReverseML CSV stored in S3</p>
 <p>Example usage:</p>
@@ -297,7 +306,7 @@ file system</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">analytic</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
 <span class="go">{&#39;className&#39;: &#39;ReverseMLWorkflow&#39;,</span>
 <span class="go">&#39;params&#39;: {&#39;bucket&#39;: &#39;bucket_name&#39;,</span>
-<span class="go">&#39;fileName&#39;: &#39;file_name&#39;,</span>
+<span class="go">&#39;fileNames&#39;: [&#39;file_name&#39;],</span>
 <span class="go">&#39;inputType&#39;: &#39;text&#39;,</span>
 <span class="go">&#39;column&#39;: &#39;column_name&#39;,</span>
 <span class="go">&#39;period&#39;: None,</span>
@@ -315,8 +324,18 @@ file system</p>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.filename">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filename</span></span><a class="headerlink" href="#aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.filename" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.filenames">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filenames</span></span><a class="headerlink" href="#aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.filenames" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.filter_by_columns">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filter_by_columns</span></span><a class="headerlink" href="#aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.filter_by_columns" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.filter_type">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filter_type</span></span><a class="headerlink" href="#aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.filter_type" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -342,6 +361,10 @@ file system</p>
 
 </dd></dl>
 
+</section>
+<section id="module-aisquared.config.analytic">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-aisquared.config.analytic" title="Permalink to this heading"></a></h2>
+<p>The aisquared.config.analytic subpackage contains objects for packaging individual analytics.</p>
 </section>
 </section>
 

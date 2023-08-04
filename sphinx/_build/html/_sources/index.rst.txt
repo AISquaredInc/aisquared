@@ -15,7 +15,7 @@ Welcome to the documentation for the `aisquared` python package!
 
 This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.
 
-**Current Production Version:** ``0.3.6``
+**Current Production Version:** ``0.3.7``
 
 :download:`View this Documentation in PDF Format <./_build/latex/aisquared.pdf>`.
 
@@ -139,3 +139,8 @@ Changelog
    - Added `position` parameter to `WordRendering` class
    - Changed default CSS styling for rendering classes
    - Changed name of all `processor` classes to `processer`
+- Version 0.3.7
+   - Changed schema of the `DeployedAnalytic` class to include API key management
+   - Changed JSON schema of Preprocesser classes
+   - Allowed .keras files to be saved and loaded with the `ModelConfiguration` and `GraphConfiguration` APIs into `.air` files
+   - Relaxed restriction with TensorFlow version requirements- Changed schema of the `DeployedAnalytic` class to include API key management

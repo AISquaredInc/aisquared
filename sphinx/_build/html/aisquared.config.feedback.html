@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>aisquared.config.feedback package &mdash; aisquared  documentation</title>
@@ -11,10 +11,9 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> aisquared
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            aisquared
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -43,7 +46,6 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">aisquared</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="aisquared.html">aisquared package</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="aisquared.html#module-aisquared">Module contents</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="aisquared.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="aisquared.base.html">aisquared.base package</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="aisquared.config.html">aisquared.config package</a></li>
@@ -53,6 +55,7 @@
 <li class="toctree-l4"><a class="reference internal" href="aisquared.utils.html">aisquared.utils package</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.html#module-aisquared">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -72,7 +75,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="modules.html">aisquared</a></li>
           <li class="breadcrumb-item"><a href="aisquared.html">aisquared package</a></li>
           <li class="breadcrumb-item"><a href="aisquared.config.html">aisquared.config package</a></li>
@@ -88,10 +91,6 @@
              
   <section id="aisquared-config-feedback-package">
 <h1>aisquared.config.feedback package<a class="headerlink" href="#aisquared-config-feedback-package" title="Permalink to this heading"></a></h1>
-<section id="module-aisquared.config.feedback">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-aisquared.config.feedback" title="Permalink to this heading"></a></h2>
-<p>The aisquared.config.feedback subpackage contains objects for configuring feedback in aisquared models.</p>
-</section>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
@@ -154,7 +153,7 @@
 <span class="sig-name descname"><span class="pre">add_question</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">question</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">answer_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'singleChoice'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">choices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/feedback/ModelFeedback.html#ModelFeedback.add_question"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.feedback.ModelFeedback.ModelFeedback.add_question" title="Permalink to this definition"></a></dt>
 <dd><p>Add a question to be asked.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>question</strong> (<em>str</em>) – The question to be asked.</p></li>
 <li><p><strong>answer_type</strong> (<em>str</em><em> (</em><em>default 'singleChoice'</em><em>)</em>) – One of either ‘singleChoice’, ‘multiChoice’, or ‘text’</p></li>
@@ -224,7 +223,7 @@
 <span class="sig-name descname"><span class="pre">add_question</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">question</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">answer_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'singleChoice'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">choices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/feedback/QualitativeFeedback.html#QualitativeFeedback.add_question"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.feedback.QualitativeFeedback.QualitativeFeedback.add_question" title="Permalink to this definition"></a></dt>
 <dd><p>Add a question to be asked.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>question</strong> (<em>str</em>) – The question to be asked.</p></li>
 <li><p><strong>answer_type</strong> (<em>str</em><em> (</em><em>default 'singleChoice'</em><em>)</em>) – One of either ‘singleChoice’, ‘multiChoice’, or ‘text’</p></li>
@@ -288,6 +287,10 @@
 
 </dd></dl>
 
+</section>
+<section id="module-aisquared.config.feedback">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-aisquared.config.feedback" title="Permalink to this heading"></a></h2>
+<p>The aisquared.config.feedback subpackage contains objects for configuring feedback in aisquared models.</p>
 </section>
 </section>
 

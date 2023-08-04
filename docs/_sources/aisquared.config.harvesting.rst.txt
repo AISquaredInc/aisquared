@@ -1,15 +1,6 @@
 aisquared.config.harvesting package
 ===================================
 
-Module contents
----------------
-
-.. automodule:: aisquared.config.harvesting
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-
 Submodules
 ----------
 
@@ -41,6 +32,14 @@ aisquared.config.harvesting.TextHarvester module
 ------------------------------------------------
 
 .. automodule:: aisquared.config.harvesting.TextHarvester
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: aisquared.config.harvesting
    :members:
    :undoc-members:
    :show-inheritance:

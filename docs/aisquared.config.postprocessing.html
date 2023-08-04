@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>aisquared.config.postprocessing package &mdash; aisquared  documentation</title>
@@ -11,10 +11,9 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> aisquared
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            aisquared
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -43,7 +46,6 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">aisquared</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="aisquared.html">aisquared package</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="aisquared.html#module-aisquared">Module contents</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="aisquared.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="aisquared.base.html">aisquared.base package</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="aisquared.config.html">aisquared.config package</a></li>
@@ -53,6 +55,7 @@
 <li class="toctree-l4"><a class="reference internal" href="aisquared.utils.html">aisquared.utils package</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.html#module-aisquared">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -72,7 +75,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="modules.html">aisquared</a></li>
           <li class="breadcrumb-item"><a href="aisquared.html">aisquared package</a></li>
           <li class="breadcrumb-item"><a href="aisquared.config.html">aisquared.config package</a></li>
@@ -88,10 +91,6 @@
              
   <section id="aisquared-config-postprocessing-package">
 <h1>aisquared.config.postprocessing package<a class="headerlink" href="#aisquared-config-postprocessing-package" title="Permalink to this heading"></a></h1>
-<section id="module-aisquared.config.postprocessing">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-aisquared.config.postprocessing" title="Permalink to this heading"></a></h2>
-<p>The aisquared.config.postprocessing subpackage contains objects for configuring how predictions are postprocessed.</p>
-</section>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
@@ -202,7 +201,7 @@
 <span id="aisquared-config-postprocessing-regression-module"></span><h2>aisquared.config.postprocessing.Regression module<a class="headerlink" href="#module-aisquared.config.postprocessing.Regression" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="aisquared.config.postprocessing.Regression.Regression">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.postprocessing.Regression.</span></span><span class="sig-name descname"><span class="pre">Regression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/postprocessing/Regression.html#Regression"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.postprocessing.Regression.Regression" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.postprocessing.Regression.</span></span><span class="sig-name descname"><span class="pre">Regression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/postprocessing/Regression.html#Regression"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.postprocessing.Regression.Regression" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
 <p>Postprocessing configuration object for Regression</p>
 <p>Example usage:</p>
@@ -238,6 +237,10 @@
 
 </dd></dl>
 
+</section>
+<section id="module-aisquared.config.postprocessing">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-aisquared.config.postprocessing" title="Permalink to this heading"></a></h2>
+<p>The aisquared.config.postprocessing subpackage contains objects for configuring how predictions are postprocessed.</p>
 </section>
 </section>
 

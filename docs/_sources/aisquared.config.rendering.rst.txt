@@ -1,15 +1,6 @@
 aisquared.config.rendering package
 ==================================
 
-Module contents
----------------
-
-.. automodule:: aisquared.config.rendering
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-
 Submodules
 ----------
 
@@ -25,6 +16,14 @@ aisquared.config.rendering.ContainerRendering module
 ----------------------------------------------------
 
 .. automodule:: aisquared.config.rendering.ContainerRendering
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+aisquared.config.rendering.DashboardRendering module
+----------------------------------------------------
+
+.. automodule:: aisquared.config.rendering.DashboardRendering
    :members:
    :undoc-members:
    :show-inheritance:
@@ -121,6 +120,22 @@ aisquared.config.rendering.WordRendering module
 -----------------------------------------------
 
 .. automodule:: aisquared.config.rendering.WordRendering
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+aisquared.config.rendering.utils module
+---------------------------------------
+
+.. automodule:: aisquared.config.rendering.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: aisquared.config.rendering
    :members:
    :undoc-members:
    :show-inheritance:

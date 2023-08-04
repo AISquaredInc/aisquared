@@ -1,15 +1,6 @@
 aisquared.config.preprocessing package
 ======================================
 
-Module contents
----------------
-
-.. automodule:: aisquared.config.preprocessing
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-
 Subpackages
 -----------
 
@@ -20,3 +11,10 @@ Subpackages
    aisquared.config.preprocessing.tabular
    aisquared.config.preprocessing.text
 
+Module contents
+---------------
+
+.. automodule:: aisquared.config.preprocessing
+   :members:
+   :undoc-members:
+   :show-inheritance:

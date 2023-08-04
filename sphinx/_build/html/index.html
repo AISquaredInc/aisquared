@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Welcome to the documentation for the aisquared python package! &mdash; aisquared  documentation</title>
@@ -11,10 +11,9 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -28,11 +27,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="#" class="icon icon-home"> aisquared
+
+          
+          
+          <a href="#" class="icon icon-home">
+            aisquared
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -56,7 +59,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="#" class="icon icon-home"></a></li>
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Welcome to the documentation for the <cite>aisquared</cite> python package!</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
@@ -75,7 +78,7 @@
 <section id="welcome-to-the-documentation-for-the-aisquared-python-package">
 <h1>Welcome to the documentation for the <cite>aisquared</cite> python package!<a class="headerlink" href="#welcome-to-the-documentation-for-the-aisquared-python-package" title="Permalink to this heading"></a></h1>
 <p>This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.</p>
-<p><strong>Current Production Version:</strong> <code class="docutils literal notranslate"><span class="pre">0.3.6</span></code></p>
+<p><strong>Current Production Version:</strong> <code class="docutils literal notranslate"><span class="pre">0.3.7</span></code></p>
 <p><a class="reference download internal" download="" href="_downloads/daf57d0c6cf12d409803efeee6f67e68/aisquared.pdf"><code class="xref download docutils literal notranslate"><span class="pre">View</span> <span class="pre">this</span> <span class="pre">Documentation</span> <span class="pre">in</span> <span class="pre">PDF</span> <span class="pre">Format</span></code></a>.</p>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -95,7 +98,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">aisquared</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="aisquared.html">aisquared package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="aisquared.html#module-aisquared">Module contents</a></li>
 <li class="toctree-l3"><a class="reference internal" href="aisquared.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="aisquared.base.html">aisquared.base package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="aisquared.config.html">aisquared.config package</a></li>
@@ -105,6 +107,7 @@
 <li class="toctree-l4"><a class="reference internal" href="aisquared.utils.html">aisquared.utils package</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.html#module-aisquared">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -275,6 +278,16 @@
 <li><p>Added <cite>position</cite> parameter to <cite>WordRendering</cite> class</p></li>
 <li><p>Changed default CSS styling for rendering classes</p></li>
 <li><p>Changed name of all <cite>processor</cite> classes to <cite>processer</cite></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Version 0.3.7</dt><dd><ul>
+<li><p>Changed schema of the <cite>DeployedAnalytic</cite> class to include API key management</p></li>
+<li><p>Changed JSON schema of Preprocesser classes</p></li>
+<li><p>Allowed .keras files to be saved and loaded with the <cite>ModelConfiguration</cite> and <cite>GraphConfiguration</cite> APIs into <cite>.air</cite> files</p></li>
+<li><p>Relaxed restriction with TensorFlow version requirements- Changed schema of the <cite>DeployedAnalytic</cite> class to include API key management</p></li>
 </ul>
 </dd>
 </dl>

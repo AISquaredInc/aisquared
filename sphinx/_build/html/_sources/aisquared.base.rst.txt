@@ -1,14 +1,6 @@
 aisquared.base package
 ======================
 
-Module contents
----------------
-
-.. automodule:: aisquared.base
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 Submodules
 ----------
 
@@ -20,10 +12,42 @@ aisquared.base.BaseObject module
    :undoc-members:
    :show-inheritance:
 
-aisquared.base.CustomObject module
-----------------------------------
+aisquared.base.css module
+-------------------------
 
-.. automodule:: aisquared.base.CustomObject
+.. automodule:: aisquared.base.css
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+aisquared.base.endpoints module
+-------------------------------
+
+.. automodule:: aisquared.base.endpoints
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+aisquared.base.harvesting module
+--------------------------------
+
+.. automodule:: aisquared.base.harvesting
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+aisquared.base.platform module
+------------------------------
+
+.. automodule:: aisquared.base.platform
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+aisquared.base.preprocessing module
+-----------------------------------
+
+.. automodule:: aisquared.base.preprocessing
    :members:
    :undoc-members:
    :show-inheritance:
@@ -40,6 +64,14 @@ aisquared.base.stages module
 ----------------------------
 
 .. automodule:: aisquared.base.stages
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: aisquared.base
    :members:
    :undoc-members:
    :show-inheritance:

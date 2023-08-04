@@ -1,20 +1,11 @@
 aisquared package
 =================
 
-Module contents
----------------
-
-.. automodule:: aisquared
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-
 Subpackages
 -----------
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 4
 
    aisquared.base
    aisquared.config
@@ -23,3 +14,10 @@ Subpackages
    aisquared.serving
    aisquared.utils
 
+Module contents
+---------------
+
+.. automodule:: aisquared
+   :members:
+   :undoc-members:
+   :show-inheritance:

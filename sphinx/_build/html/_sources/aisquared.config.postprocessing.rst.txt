@@ -1,15 +1,6 @@
 aisquared.config.postprocessing package
 =======================================
 
-Module contents
----------------
-
-.. automodule:: aisquared.config.postprocessing
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-
 Submodules
 ----------
 
@@ -41,6 +32,14 @@ aisquared.config.postprocessing.Regression module
 -------------------------------------------------
 
 .. automodule:: aisquared.config.postprocessing.Regression
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: aisquared.config.postprocessing
    :members:
    :undoc-members:
    :show-inheritance:

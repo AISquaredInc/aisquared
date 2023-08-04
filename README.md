@@ -328,3 +328,5 @@ Below are a list of additional features, bug fixes, and other changes made for e
 ## Version 0.3.7
 - Changed schema of the `DeployedAnalytic` class to include API key management
 - Changed JSON schema of Preprocesser classes
+- Allowed .keras files to be saved and loaded with the `ModelConfiguration` and `GraphConfiguration` APIs into `.air` files
+- Relaxed restriction with TensorFlow version requirements

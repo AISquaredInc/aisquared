@@ -1,15 +1,6 @@
 aisquared.config.analytic package
 =================================
 
-Module contents
----------------
-
-.. automodule:: aisquared.config.analytic
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-
 Submodules
 ----------
 
@@ -49,6 +40,14 @@ aisquared.config.analytic.ReverseMLWorkflow module
 --------------------------------------------------
 
 .. automodule:: aisquared.config.analytic.ReverseMLWorkflow
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: aisquared.config.analytic
    :members:
    :undoc-members:
    :show-inheritance:

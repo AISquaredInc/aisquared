@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>aisquared.config.preprocessing.text package &mdash; aisquared  documentation</title>
@@ -11,10 +11,9 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> aisquared
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            aisquared
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -43,7 +46,6 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">aisquared</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="aisquared.html">aisquared package</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="aisquared.html#module-aisquared">Module contents</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="aisquared.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="aisquared.base.html">aisquared.base package</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="aisquared.config.html">aisquared.config package</a></li>
@@ -53,6 +55,7 @@
 <li class="toctree-l4"><a class="reference internal" href="aisquared.utils.html">aisquared.utils package</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="aisquared.html#module-aisquared">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -72,7 +75,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="modules.html">aisquared</a></li>
           <li class="breadcrumb-item"><a href="aisquared.html">aisquared package</a></li>
           <li class="breadcrumb-item"><a href="aisquared.config.html">aisquared.config package</a></li>
@@ -89,10 +92,6 @@
              
   <section id="aisquared-config-preprocessing-text-package">
 <h1>aisquared.config.preprocessing.text package<a class="headerlink" href="#aisquared-config-preprocessing-text-package" title="Permalink to this heading"></a></h1>
-<section id="module-aisquared.config.preprocessing.text">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-aisquared.config.preprocessing.text" title="Permalink to this heading"></a></h2>
-<p>The aisquared.config.preprocessing.text subpackage contains objects for preprocessing text data.</p>
-</section>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
@@ -105,7 +104,7 @@
 <p>Text preprocessing object to convert inputs to all lowercase or all uppercase</p>
 <p>Example usage:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">TextPreprocessor</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">TextPreprocesser</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span><span class="o">.</span><span class="n">add_step</span><span class="p">(</span>
 <span class="go">    aisquared.config.preprocessing.text.ConvertToCase()</span>
 <span class="go">)</span>
@@ -126,12 +125,12 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="aisquared.config.preprocessing.text.Steps.ConvertToVocabulary">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.preprocessing.text.Steps.</span></span><span class="sig-name descname"><span class="pre">ConvertToVocabulary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vocabulary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_character</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oov_character</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_vocab</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/preprocessing/text/Steps.html#ConvertToVocabulary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.preprocessing.text.Steps.ConvertToVocabulary" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.preprocessing.text.Steps.</span></span><span class="sig-name descname"><span class="pre">ConvertToVocabulary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vocabulary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_character</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oov_character</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_vocab</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/preprocessing/text/Steps.html#ConvertToVocabulary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.preprocessing.text.Steps.ConvertToVocabulary" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
 <p>Text preprocessing object to convert tokens to integer vocabularies</p>
 <p>Example usage:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">TextPreprocessor</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">TextPreprocesser</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span><span class="o">.</span><span class="n">add_step</span><span class="p">(</span>
 <span class="go">    aisquared.config.preprocessing.text.ConvertToVocabulary(</span>
 <span class="go">        {</span>
@@ -177,7 +176,7 @@
 <p>Text preprocessing object to pad sequences</p>
 <p>Example usage:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">TextPreprocessor</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">TextPreprocesser</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span><span class="o">.</span><span class="n">add_step</span><span class="p">(</span>
 <span class="go">    aisquared.config.preprocessing.text.PadSequences()</span>
 <span class="go">)</span>
@@ -218,7 +217,7 @@
 <p>Preprocessing step to remove characters from text</p>
 <p>Example usage:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">TextPreprocessor</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">TextPreprocesser</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span><span class="o">.</span><span class="n">add_step</span><span class="p">(</span>
 <span class="go">    aisquared.config.preprocessing.text.RemoveCharacters()</span>
 <span class="go">)</span>
@@ -249,7 +248,7 @@
 <p>Preprocessing Step to tokenize text</p>
 <p>Example usage:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">TextPreprocessor</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">TextPreprocesser</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span><span class="o">.</span><span class="n">add_step</span><span class="p">(</span>
 <span class="go">    aisquared.config.preprocessing.text.Tokenize()</span>
 <span class="go">)</span>
@@ -285,7 +284,7 @@
 <p>Text preprocessing class to trim whitespace from text</p>
 <p>Example usage:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">TextPreprocessor</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">TextPreprocesser</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span><span class="o">.</span><span class="n">add_step</span><span class="p">(</span>
 <span class="go">    aisquared.config.preprocessing.text.Trim()</span>
 <span class="go">)</span>
@@ -303,37 +302,41 @@
 <section id="module-aisquared.config.preprocessing.text.TextPreprocessing">
 <span id="aisquared-config-preprocessing-text-textpreprocessing-module"></span><h2>aisquared.config.preprocessing.text.TextPreprocessing module<a class="headerlink" href="#module-aisquared.config.preprocessing.text.TextPreprocessing" title="Permalink to this heading"></a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.preprocessing.text.TextPreprocessing.</span></span><span class="sig-name descname"><span class="pre">TextPreprocessor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/preprocessing/text/TextPreprocessing.html#TextPreprocessor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.preprocessing.text.TextPreprocessing.</span></span><span class="sig-name descname"><span class="pre">TextPreprocesser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/preprocessing/text/TextPreprocessing.html#TextPreprocesser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
-<p>Preprocessor object for natural language</p>
+<p>Preprocesser object for natural language</p>
 <p>Example usage:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">TextPreprocessor</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">TextPreprocesser</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">preprocesser</span><span class="o">.</span><span class="n">add_step</span><span class="p">(</span>
 <span class="go">    aisquared.config.preprocessing.text.Tokenize()</span>
 <span class="go">)</span>
 </pre></div>
 </div>
 <dl class="py method">
-<dt class="sig sig-object py" id="aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor.add_step">
-<span class="sig-name descname"><span class="pre">add_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">step</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/preprocessing/text/TextPreprocessing.html#TextPreprocessor.add_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor.add_step" title="Permalink to this definition"></a></dt>
-<dd><p>Add a step to the preprocessor object</p>
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser.add_step">
+<span class="sig-name descname"><span class="pre">add_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">step</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/preprocessing/text/TextPreprocessing.html#TextPreprocesser.add_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser.add_step" title="Permalink to this definition"></a></dt>
+<dd><p>Add a step to the preprocesser object</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor.step_dict">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">step_dict</span></span><a class="headerlink" href="#aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor.step_dict" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser.step_dict">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">step_dict</span></span><a class="headerlink" href="#aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser.step_dict" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor.to_dict">
-<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/config/preprocessing/text/TextPreprocessing.html#TextPreprocessor.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocessor.to_dict" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/aisquared/config/preprocessing/text/TextPreprocessing.html#TextPreprocesser.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.preprocessing.text.TextPreprocessing.TextPreprocesser.to_dict" title="Permalink to this definition"></a></dt>
 <dd><p>Get the configuration object as a dictionary</p>
 </dd></dl>
 
 </dd></dl>
 
+</section>
+<section id="module-aisquared.config.preprocessing.text">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-aisquared.config.preprocessing.text" title="Permalink to this heading"></a></h2>
+<p>The aisquared.config.preprocessing.text subpackage contains objects for preprocessing text data.</p>
 </section>
 </section>
 
