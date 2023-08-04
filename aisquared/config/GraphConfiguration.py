@@ -274,7 +274,7 @@ class GraphConfiguration(BaseObject):
         filenames = self.get_filenames()
         if len(filenames) != 0:
             for f in filenames:
-                if os.path.splitext(f)[-1] == 'h5':
+                if os.path.splitext(f)[-1] in ['.h5', '.keras']:
                     model = tf.keras.models.load_model(f)
                     model_dir = os.path.join(dirname, os.path.split(f)[-1])
                     tfjs.converters.save_keras_model(
