@@ -29,7 +29,6 @@ jobs:
         python -m pip install --upgrade pip setuptools
         python -m pip install flake8 pytest pip-audit
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        if [ -f additional_requirements.txt ]; then pip install -r additional_requirements.txt; fi
         python -m pip install ./
     - name: Audit
       run: |
