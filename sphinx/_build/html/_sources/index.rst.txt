@@ -15,7 +15,7 @@ Welcome to the documentation for the `aisquared` python package!
 
 This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.
 
-**Current Production Version:** ``0.3.7``
+**Current Production Version:** ``0.3.8``
 
 :download:`View this Documentation in PDF Format <./_build/latex/aisquared.pdf>`.
 
@@ -144,3 +144,9 @@ Changelog
    - Changed JSON schema of Preprocesser classes
    - Allowed .keras files to be saved and loaded with the `ModelConfiguration` and `GraphConfiguration` APIs into `.air` files
    - Relaxed TensorFlow requirements enforced in version `0.3.6`
+- Version 0.3.8
+   - Created `ChatbotHarvester` class
+   - Created `TextRendering` class
+   - Changed location of reference lists of classes to clean up code
+   - Updated class schemas to ensure compliance with expectations
+   - Updated test cases

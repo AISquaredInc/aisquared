@@ -870,6 +870,37 @@
 </dd></dl>
 
 </section>
+<section id="module-aisquared.config.rendering.TextRendering">
+<span id="aisquared-config-rendering-textrendering-module"></span><h2>aisquared.config.rendering.TextRendering module<a class="headerlink" href="#module-aisquared.config.rendering.TextRendering" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="aisquared.config.rendering.TextRendering.TextRendering">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.rendering.TextRendering.</span></span><span class="sig-name descname"><span class="pre">TextRendering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction_value_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/rendering/TextRendering.html#TextRendering"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.TextRendering.TextRendering" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
+<p>Class for rendering text</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">rendering</span><span class="o">.</span><span class="n">TextRendering</span><span class="p">(</span>
+<span class="go">    prediction_value_key = &#39;my_key&#39;</span>
+<span class="go">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="go">{&#39;className&#39;: &#39;TextRendering&#39;,</span>
+<span class="go">&#39;params&#39;: {&#39;predictionValueKey&#39;: &#39;my_key&#39;}}</span>
+</pre></div>
+</div>
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.rendering.TextRendering.TextRendering.prediction_value_key">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">prediction_value_key</span></span><a class="headerlink" href="#aisquared.config.rendering.TextRendering.TextRendering.prediction_value_key" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="aisquared.config.rendering.TextRendering.TextRendering.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/rendering/TextRendering.html#TextRendering.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.rendering.TextRendering.TextRendering.to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Get the object as a dictionary</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 <section id="module-aisquared.config.rendering.WordRendering">
 <span id="aisquared-config-rendering-wordrendering-module"></span><h2>aisquared.config.rendering.WordRendering module<a class="headerlink" href="#module-aisquared.config.rendering.WordRendering" title="Permalink to this heading"></a></h2>
 <dl class="py class">

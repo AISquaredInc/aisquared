@@ -4,6 +4,14 @@ aisquared.config.harvesting package
 Submodules
 ----------
 
+aisquared.config.harvesting.ChatbotHarvester module
+---------------------------------------------------
+
+.. automodule:: aisquared.config.harvesting.ChatbotHarvester
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 aisquared.config.harvesting.ImageHarvester module
 -------------------------------------------------
 
