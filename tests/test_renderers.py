@@ -456,3 +456,13 @@ def test_table_rendering():
                                                                        'padding': '8px',
                                                                        'fontWeight': 'bolder',
                                                                        'backgroundColor': 'white'}}}}
+
+
+def test_text_renderer():
+    renderer = aisquared.config.rendering.TextRendering()
+    assert renderer.to_dict() == {
+        'className': 'TextRendering',
+        'params': {
+            'predictionValueKey': None
+        }
+    }

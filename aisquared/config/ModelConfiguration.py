@@ -1,86 +1,10 @@
 from typing import Union
-from aisquared.base import BaseObject, ALLOWED_STAGES
-from .CustomObject import CustomObject
-from aisquared.config.harvesting import ImageHarvester, TextHarvester, InputHarvester, QueryParameterHarvester
-from aisquared.config.preprocessing.tabular import TabularPreprocesser
-from aisquared.config.preprocessing.image import ImagePreprocesser
-from aisquared.config.preprocessing.text import TextPreprocesser
-from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalModel, LocalAnalytic, ReverseMLWorkflow
-from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, ObjectDetection, Regression
-from aisquared.config.rendering import ImageRendering, ObjectRendering, DocumentRendering, WordRendering, FilterRendering, ContainerRendering, HTMLTagRendering, DoughnutChartRendering, TableRendering, BarChartRendering, LineChartRendering, DashboardReplacementRendering, PieChartRendering, SOSRendering  # , DashboardRendering
-from aisquared.config.feedback import SimpleFeedback, BinaryFeedback, MulticlassFeedback, RegressionFeedback, ModelFeedback, QualitativeFeedback
-
+from aisquared.base import BaseObject, ALLOWED_STAGES, HARVESTING_CLASSES, PREPROCESSING_CLASSES, ANALYTIC_CLASSES, POSTPROCESSING_CLASSES, RENDERING_CLASSES, FEEDBACK_CLASSES, LOCAL_CLASSES
 import tensorflowjs as tfjs
 import tensorflow as tf
 import shutil
 import json
 import os
-
-HARVESTING_CLASSES = (
-    ImageHarvester,
-    TextHarvester,
-    InputHarvester,
-    QueryParameterHarvester,
-    CustomObject
-)
-
-PREPROCESSING_CLASSES = (
-    TabularPreprocesser,
-    ImagePreprocesser,
-    TextPreprocesser,
-    CustomObject
-)
-
-ANALYTIC_CLASSES = (
-    DeployedAnalytic,
-    DeployedModel,
-    LocalModel,
-    LocalAnalytic,
-    ReverseMLWorkflow,
-    CustomObject
-)
-
-POSTPROCESSING_CLASSES = (
-    BinaryClassification,
-    MulticlassClassification,
-    ObjectDetection,
-    Regression,
-    CustomObject
-)
-
-RENDERING_CLASSES = (
-    ObjectRendering,
-    ImageRendering,
-    DocumentRendering,
-    WordRendering,
-    FilterRendering,
-    ContainerRendering,
-    HTMLTagRendering,
-    DoughnutChartRendering,
-    TableRendering,
-    BarChartRendering,
-    LineChartRendering,
-    DashboardReplacementRendering,
-    PieChartRendering,
-    SOSRendering,
-    CustomObject,
-    # DashboardRendering
-)
-
-FEEDBACK_CLASSES = (
-    ModelFeedback,
-    SimpleFeedback,
-    BinaryFeedback,
-    MulticlassFeedback,
-    RegressionFeedback,
-    QualitativeFeedback
-)
-
-LOCAL_CLASSES = (
-    LocalModel,
-    LocalAnalytic,
-    CustomObject
-)
 
 
 class ModelConfiguration(BaseObject):

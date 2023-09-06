@@ -64,7 +64,7 @@
 
 
 \title{aisquared}
-\date{Aug 04, 2023}
+\date{Sep 06, 2023}
 \release{}
 \author{The AI Squared Team}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -96,7 +96,7 @@
 This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.
 
 \sphinxAtStartPar
-\sphinxstylestrong{Current Production Version:} \sphinxcode{\sphinxupquote{0.3.7}}
+\sphinxstylestrong{Current Production Version:} \sphinxcode{\sphinxupquote{0.3.8}}
 
 \sphinxAtStartPar
 \sphinxcode{\sphinxupquote{View this Documentation in PDF Format}}.
@@ -274,7 +274,9 @@ Example usage:
 \PYG{g+go}{\PYGZsq{}params\PYGZsq{}: \PYGZob{}\PYGZsq{}url\PYGZsq{}: \PYGZsq{}analytic\PYGZus{}url\PYGZsq{},}
 \PYG{g+go}{\PYGZsq{}inputType\PYGZsq{}: \PYGZsq{}text\PYGZsq{},}
 \PYG{g+go}{\PYGZsq{}secret\PYGZsq{}: \PYGZsq{}request\PYGZsq{},}
-\PYG{g+go}{\PYGZsq{}header\PYGZsq{}: None\PYGZcb{}\PYGZcb{}}
+\PYG{g+go}{\PYGZsq{}header\PYGZsq{}: None,}
+\PYG{g+go}{\PYGZsq{}apiKeyHeaderName\PYGZsq{}: None,}
+\PYG{g+go}{\PYGZsq{}apiKeyPrefix\PYGZsq{}: None\PYGZcb{}\PYGZcb{}}
 \end{sphinxVerbatim}
 \index{api\_key\_header\_name (aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic property)@\spxentry{api\_key\_header\_name}\spxextra{aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic property}}
 
@@ -1050,6 +1052,59 @@ The aisquared.config.feedback subpackage contains objects for configuring feedba
 
 \subparagraph{Submodules}
 \label{\detokenize{aisquared.config.harvesting:submodules}}
+
+\subparagraph{aisquared.config.harvesting.ChatbotHarvester module}
+\label{\detokenize{aisquared.config.harvesting:module-aisquared.config.harvesting.ChatbotHarvester}}\label{\detokenize{aisquared.config.harvesting:aisquared-config-harvesting-chatbotharvester-module}}\index{module@\spxentry{module}!aisquared.config.harvesting.ChatbotHarvester@\spxentry{aisquared.config.harvesting.ChatbotHarvester}}\index{aisquared.config.harvesting.ChatbotHarvester@\spxentry{aisquared.config.harvesting.ChatbotHarvester}!module@\spxentry{module}}\index{ChatbotHarvester (class in aisquared.config.harvesting.ChatbotHarvester)@\spxentry{ChatbotHarvester}\spxextra{class in aisquared.config.harvesting.ChatbotHarvester}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{aisquared.config.harvesting:aisquared.config.harvesting.ChatbotHarvester.ChatbotHarvester}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w,w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.harvesting.ChatbotHarvester.}}\sphinxbfcode{\sphinxupquote{ChatbotHarvester}}}{\sphinxparam{\DUrole{n,n}{max\_length}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{int\DUrole{w,w}{  }\DUrole{p,p}{|}\DUrole{w,w}{  }None}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{None}}}{}
+\pysigstopsignatures
+\sphinxAtStartPar
+Bases: {\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{BaseObject}}}}}
+
+\sphinxAtStartPar
+Object to harvest for a chatbot
+
+\sphinxAtStartPar
+Example usage:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{my\PYGZus{}obj} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{harvesting}\PYG{o}{.}\PYG{n}{ChatbotHarvester}\PYG{p}{(}
+\PYG{g+go}{    max\PYGZus{}length = 128}
+\PYG{g+go}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{my\PYGZus{}obj}\PYG{o}{.}\PYG{n}{to\PYGZus{}dict}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+go}{\PYGZob{}\PYGZsq{}className\PYGZsq{}: \PYGZsq{}ChatbotHarvester\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}params\PYGZsq{}: \PYGZob{}\PYGZsq{}maxLength\PYGZsq{}: \PYGZsq{}128\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}inputType\PYGZsq{}: \PYGZsq{}text\PYGZsq{}\PYGZcb{}\PYGZcb{}}
+\end{sphinxVerbatim}
+\index{max\_length (aisquared.config.harvesting.ChatbotHarvester.ChatbotHarvester property)@\spxentry{max\_length}\spxextra{aisquared.config.harvesting.ChatbotHarvester.ChatbotHarvester property}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{aisquared.config.harvesting:aisquared.config.harvesting.ChatbotHarvester.ChatbotHarvester.max_length}}
+\pysigstartsignatures
+\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w,w}{  }}}\sphinxbfcode{\sphinxupquote{max\_length}}}
+\pysigstopsignatures
+\end{fulllineitems}
+
+\index{to\_dict() (aisquared.config.harvesting.ChatbotHarvester.ChatbotHarvester method)@\spxentry{to\_dict()}\spxextra{aisquared.config.harvesting.ChatbotHarvester.ChatbotHarvester method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{aisquared.config.harvesting:aisquared.config.harvesting.ChatbotHarvester.ChatbotHarvester.to_dict}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{to\_dict}}}{}{}
+\pysigstopsignatures
+\sphinxAtStartPar
+Get the object as a dictionary
+
+\end{fulllineitems}
+
+
+\end{fulllineitems}
+
+
 
 \subparagraph{aisquared.config.harvesting.ImageHarvester module}
 \label{\detokenize{aisquared.config.harvesting:module-aisquared.config.harvesting.ImageHarvester}}\label{\detokenize{aisquared.config.harvesting:aisquared-config-harvesting-imageharvester-module}}\index{module@\spxentry{module}!aisquared.config.harvesting.ImageHarvester@\spxentry{aisquared.config.harvesting.ImageHarvester}}\index{aisquared.config.harvesting.ImageHarvester@\spxentry{aisquared.config.harvesting.ImageHarvester}!module@\spxentry{module}}\index{ImageHarvester (class in aisquared.config.harvesting.ImageHarvester)@\spxentry{ImageHarvester}\spxextra{class in aisquared.config.harvesting.ImageHarvester}}
@@ -3995,6 +4050,58 @@ Get the configuration object as a dictionary
 
 
 
+\subparagraph{aisquared.config.rendering.TextRendering module}
+\label{\detokenize{aisquared.config.rendering:module-aisquared.config.rendering.TextRendering}}\label{\detokenize{aisquared.config.rendering:aisquared-config-rendering-textrendering-module}}\index{module@\spxentry{module}!aisquared.config.rendering.TextRendering@\spxentry{aisquared.config.rendering.TextRendering}}\index{aisquared.config.rendering.TextRendering@\spxentry{aisquared.config.rendering.TextRendering}!module@\spxentry{module}}\index{TextRendering (class in aisquared.config.rendering.TextRendering)@\spxentry{TextRendering}\spxextra{class in aisquared.config.rendering.TextRendering}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{aisquared.config.rendering:aisquared.config.rendering.TextRendering.TextRendering}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w,w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.rendering.TextRendering.}}\sphinxbfcode{\sphinxupquote{TextRendering}}}{\sphinxparam{\DUrole{n,n}{prediction\_value\_key}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str\DUrole{w,w}{  }\DUrole{p,p}{|}\DUrole{w,w}{  }None}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{None}}}{}
+\pysigstopsignatures
+\sphinxAtStartPar
+Bases: {\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{BaseObject}}}}}
+
+\sphinxAtStartPar
+Class for rendering text
+
+\sphinxAtStartPar
+Example usage:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{my\PYGZus{}obj} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{rendering}\PYG{o}{.}\PYG{n}{TextRendering}\PYG{p}{(}
+\PYG{g+go}{    prediction\PYGZus{}value\PYGZus{}key = \PYGZsq{}my\PYGZus{}key\PYGZsq{}}
+\PYG{g+go}{)}
+\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{my\PYGZus{}obj}\PYG{o}{.}\PYG{n}{to\PYGZus{}dict}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+go}{\PYGZob{}\PYGZsq{}className\PYGZsq{}: \PYGZsq{}TextRendering\PYGZsq{},}
+\PYG{g+go}{\PYGZsq{}params\PYGZsq{}: \PYGZob{}\PYGZsq{}predictionValueKey\PYGZsq{}: \PYGZsq{}my\PYGZus{}key\PYGZsq{}\PYGZcb{}\PYGZcb{}}
+\end{sphinxVerbatim}
+\index{prediction\_value\_key (aisquared.config.rendering.TextRendering.TextRendering property)@\spxentry{prediction\_value\_key}\spxextra{aisquared.config.rendering.TextRendering.TextRendering property}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{aisquared.config.rendering:aisquared.config.rendering.TextRendering.TextRendering.prediction_value_key}}
+\pysigstartsignatures
+\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w,w}{  }}}\sphinxbfcode{\sphinxupquote{prediction\_value\_key}}}
+\pysigstopsignatures
+\end{fulllineitems}
+
+\index{to\_dict() (aisquared.config.rendering.TextRendering.TextRendering method)@\spxentry{to\_dict()}\spxextra{aisquared.config.rendering.TextRendering.TextRendering method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{aisquared.config.rendering:aisquared.config.rendering.TextRendering.TextRendering.to_dict}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{to\_dict}}}{}{}
+\pysigstopsignatures
+\sphinxAtStartPar
+Get the object as a dictionary
+
+\end{fulllineitems}
+
+
+\end{fulllineitems}
+
+
+
 \subparagraph{aisquared.config.rendering.WordRendering module}
 \label{\detokenize{aisquared.config.rendering:module-aisquared.config.rendering.WordRendering}}\label{\detokenize{aisquared.config.rendering:aisquared-config-rendering-wordrendering-module}}\index{module@\spxentry{module}!aisquared.config.rendering.WordRendering@\spxentry{aisquared.config.rendering.WordRendering}}\index{aisquared.config.rendering.WordRendering@\spxentry{aisquared.config.rendering.WordRendering}!module@\spxentry{module}}\index{WordRendering (class in aisquared.config.rendering.WordRendering)@\spxentry{WordRendering}\spxextra{class in aisquared.config.rendering.WordRendering}}
 
@@ -6600,90 +6707,10 @@ Load a BeyondML model with custom objects
 
 
 \subparagraph{aisquared.serving.get\_remote\_prediction module}
-\label{\detokenize{aisquared.serving:module-aisquared.serving.get_remote_prediction}}\label{\detokenize{aisquared.serving:aisquared-serving-get-remote-prediction-module}}\index{module@\spxentry{module}!aisquared.serving.get\_remote\_prediction@\spxentry{aisquared.serving.get\_remote\_prediction}}\index{aisquared.serving.get\_remote\_prediction@\spxentry{aisquared.serving.get\_remote\_prediction}!module@\spxentry{module}}\index{get\_remote\_prediction() (in module aisquared.serving.get\_remote\_prediction)@\spxentry{get\_remote\_prediction()}\spxextra{in module aisquared.serving.get\_remote\_prediction}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.serving:aisquared.serving.get_remote_prediction.get_remote_prediction}}
-\pysigstartsignatures
-\pysiglinewithargsret{\sphinxcode{\sphinxupquote{aisquared.serving.get\_remote\_prediction.}}\sphinxbfcode{\sphinxupquote{get\_remote\_prediction}}}{\sphinxparam{\DUrole{n,n}{data}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{dict\DUrole{w,w}{  }\DUrole{p,p}{|}\DUrole{w,w}{  }str\DUrole{w,w}{  }\DUrole{p,p}{|}\DUrole{w,w}{  }ndarray\DUrole{w,w}{  }\DUrole{p,p}{|}\DUrole{w,w}{  }list}}, \sphinxparam{\DUrole{n,n}{host}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}127.0.0.1\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{port}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{int}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{2244}}}{{ $\rightarrow$ list}}
-\pysigstopsignatures
-\sphinxAtStartPar
-Send data to use for prediction
-\begin{quote}\begin{description}
-\sphinxlineitem{Parameters}\begin{itemize}
-\item {} 
-\sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{data}} (\sphinxstyleliteralemphasis{\sphinxupquote{dict}}\sphinxstyleliteralemphasis{\sphinxupquote{, }}\sphinxstyleliteralemphasis{\sphinxupquote{str}}\sphinxstyleliteralemphasis{\sphinxupquote{, }}\sphinxstyleliteralemphasis{\sphinxupquote{np.ndarray}}\sphinxstyleliteralemphasis{\sphinxupquote{, or }}\sphinxstyleliteralemphasis{\sphinxupquote{list}}) \textendash{} The data to be predicted on
-
-\item {} 
-\sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{host}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default \textquotesingle{}127.0.0.1\textquotesingle{}}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The host to use
-
-\item {} 
-\sphinxAtStartPar
-\sphinxstyleliteralstrong{\sphinxupquote{port}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default \textquotesingle{}2244\textquotesingle{}}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The port to use
-
-\end{itemize}
-
-\end{description}\end{quote}
-\subsubsection*{Notes}
-\begin{itemize}
-\item {} 
-\sphinxAtStartPar
-If data is a dictionary, it is expected to already be
-correctly formatted
-
-\item {} 
-\sphinxAtStartPar
-If data is a string, it is expected to already be
-correctly formatted
-
-\end{itemize}
-\begin{quote}\begin{description}
-\sphinxlineitem{Returns}
-\sphinxAtStartPar
-\sphinxstylestrong{predictions} \textendash{} The predictions from the deployed model
-
-\sphinxlineitem{Return type}
-\sphinxAtStartPar
-list
-
-\end{description}\end{quote}
-
-\end{fulllineitems}
-
-
+\label{\detokenize{aisquared.serving:aisquared-serving-get-remote-prediction-module}}
 
 \subparagraph{Module contents}
-\label{\detokenize{aisquared.serving:module-aisquared.serving}}\label{\detokenize{aisquared.serving:module-contents}}\index{module@\spxentry{module}!aisquared.serving@\spxentry{aisquared.serving}}\index{aisquared.serving@\spxentry{aisquared.serving}!module@\spxentry{module}}
-\sphinxAtStartPar
-The aisquared.serving package contains utilities to serve models to a local REST endpoint.
-
-\sphinxAtStartPar
-Here is an example of how to serve a simple keras model using these utilities:
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{c+c1}{\PYGZsh{} Assume model is already trained and stored in memory as model}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{from} \PYG{n+nn}{aisquared} \PYG{k+kn}{import} \PYG{n}{serving}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{serving}\PYG{o}{.}\PYG{n}{save\PYGZus{}keras\PYGZus{}model}\PYG{p}{(}\PYG{n}{model}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{my\PYGZus{}model}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{serving}\PYG{o}{.}\PYG{n}{deploy\PYGZus{}model}\PYG{p}{(}
-\PYG{g+go}{    \PYGZsq{}my\PYGZus{}model\PYGZsq{},}
-\PYG{g+go}{    \PYGZsq{}keras\PYGZsq{},}
-\PYG{g+go}{    additional\PYGZus{}functions\PYGZus{}file = \PYGZsq{}\PYGZlt{}optional file containing `preprocess` and `postprocess` functions, if applicable\PYGZgt{}\PYGZsq{}}
-\PYG{g+go}{)}
-\PYG{g+go}{App created successfullly. Serving and awaiting requests}
-\end{sphinxVerbatim}
-
-\sphinxAtStartPar
-And to retrieve predictions from the model:
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{c+c1}{\PYGZsh{} From a separate terminal, assume data is already loaded}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{from} \PYG{n+nn}{aisquared} \PYG{k+kn}{import} \PYG{n}{serving}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{serving}\PYG{o}{.}\PYG{n}{get\PYGZus{}remote\PYGZus{}predictions}\PYG{p}{(}\PYG{n}{data}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Do not need to change host or port if predicting from the same machine}
-\PYG{g+go}{*predictions*}
-\end{sphinxVerbatim}
-
+\label{\detokenize{aisquared.serving:module-contents}}
 \sphinxstepscope
 
 
@@ -7279,6 +7306,32 @@ Relaxed TensorFlow requirements enforced in version \sphinxtitleref{0.3.6}
 
 \end{description}
 
+\item {} \begin{description}
+\sphinxlineitem{Version 0.3.8}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Created \sphinxtitleref{ChatbotHarvester} class
+
+\item {} 
+\sphinxAtStartPar
+Created \sphinxtitleref{TextRendering} class
+
+\item {} 
+\sphinxAtStartPar
+Changed location of reference lists of classes to clean up code
+
+\item {} 
+\sphinxAtStartPar
+Updated class schemas to ensure compliance with expectations
+
+\item {} 
+\sphinxAtStartPar
+Updated test cases
+
+\end{itemize}
+
+\end{description}
+
 \end{itemize}
 
 
@@ -7313,6 +7366,7 @@ Relaxed TensorFlow requirements enforced in version \sphinxtitleref{0.3.6}
 \item\relax\sphinxstyleindexentry{aisquared.config.feedback.SimpleFeedback}\sphinxstyleindexpageref{aisquared.config.feedback:\detokenize{module-aisquared.config.feedback.SimpleFeedback}}
 \item\relax\sphinxstyleindexentry{aisquared.config.GraphConfiguration}\sphinxstyleindexpageref{aisquared.config:\detokenize{module-aisquared.config.GraphConfiguration}}
 \item\relax\sphinxstyleindexentry{aisquared.config.harvesting}\sphinxstyleindexpageref{aisquared.config.harvesting:\detokenize{module-aisquared.config.harvesting}}
+\item\relax\sphinxstyleindexentry{aisquared.config.harvesting.ChatbotHarvester}\sphinxstyleindexpageref{aisquared.config.harvesting:\detokenize{module-aisquared.config.harvesting.ChatbotHarvester}}
 \item\relax\sphinxstyleindexentry{aisquared.config.harvesting.ImageHarvester}\sphinxstyleindexpageref{aisquared.config.harvesting:\detokenize{module-aisquared.config.harvesting.ImageHarvester}}
 \item\relax\sphinxstyleindexentry{aisquared.config.harvesting.InputHarvester}\sphinxstyleindexpageref{aisquared.config.harvesting:\detokenize{module-aisquared.config.harvesting.InputHarvester}}
 \item\relax\sphinxstyleindexentry{aisquared.config.harvesting.QueryParameterHarvester}\sphinxstyleindexpageref{aisquared.config.harvesting:\detokenize{module-aisquared.config.harvesting.QueryParameterHarvester}}
@@ -7348,6 +7402,7 @@ Relaxed TensorFlow requirements enforced in version \sphinxtitleref{0.3.6}
 \item\relax\sphinxstyleindexentry{aisquared.config.rendering.PieChartRendering}\sphinxstyleindexpageref{aisquared.config.rendering:\detokenize{module-aisquared.config.rendering.PieChartRendering}}
 \item\relax\sphinxstyleindexentry{aisquared.config.rendering.SOSRendering}\sphinxstyleindexpageref{aisquared.config.rendering:\detokenize{module-aisquared.config.rendering.SOSRendering}}
 \item\relax\sphinxstyleindexentry{aisquared.config.rendering.TableRendering}\sphinxstyleindexpageref{aisquared.config.rendering:\detokenize{module-aisquared.config.rendering.TableRendering}}
+\item\relax\sphinxstyleindexentry{aisquared.config.rendering.TextRendering}\sphinxstyleindexpageref{aisquared.config.rendering:\detokenize{module-aisquared.config.rendering.TextRendering}}
 \item\relax\sphinxstyleindexentry{aisquared.config.rendering.utils}\sphinxstyleindexpageref{aisquared.config.rendering:\detokenize{module-aisquared.config.rendering.utils}}
 \item\relax\sphinxstyleindexentry{aisquared.config.rendering.WordRendering}\sphinxstyleindexpageref{aisquared.config.rendering:\detokenize{module-aisquared.config.rendering.WordRendering}}
 \item\relax\sphinxstyleindexentry{aisquared.logging}\sphinxstyleindexpageref{aisquared.logging:\detokenize{module-aisquared.logging}}
@@ -7361,9 +7416,7 @@ Relaxed TensorFlow requirements enforced in version \sphinxtitleref{0.3.6}
 \item\relax\sphinxstyleindexentry{aisquared.platform.NoResultsFoundError}\sphinxstyleindexpageref{aisquared.platform:\detokenize{module-aisquared.platform.NoResultsFoundError}}
 \item\relax\sphinxstyleindexentry{aisquared.platform.sharing}\sphinxstyleindexpageref{aisquared.platform:\detokenize{module-aisquared.platform.sharing}}
 \item\relax\sphinxstyleindexentry{aisquared.platform.user\_group}\sphinxstyleindexpageref{aisquared.platform:\detokenize{module-aisquared.platform.user_group}}
-\item\relax\sphinxstyleindexentry{aisquared.serving}\sphinxstyleindexpageref{aisquared.serving:\detokenize{module-aisquared.serving}}
 \item\relax\sphinxstyleindexentry{aisquared.serving.deploy\_model}\sphinxstyleindexpageref{aisquared.serving:\detokenize{module-aisquared.serving.deploy_model}}
-\item\relax\sphinxstyleindexentry{aisquared.serving.get\_remote\_prediction}\sphinxstyleindexpageref{aisquared.serving:\detokenize{module-aisquared.serving.get_remote_prediction}}
 \item\relax\sphinxstyleindexentry{aisquared.utils}\sphinxstyleindexpageref{aisquared.utils:\detokenize{module-aisquared.utils}}
 \item\relax\sphinxstyleindexentry{aisquared.utils.utils}\sphinxstyleindexpageref{aisquared.utils:\detokenize{module-aisquared.utils.utils}}
 \end{sphinxtheindex}

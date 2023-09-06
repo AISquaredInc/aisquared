@@ -141,3 +141,16 @@ def test_queryparameter_harvester():
             'attributes': ['test']
         }
     }
+
+
+def test_chatbot_harvester():
+    harvester = aisquared.config.harvesting.ChatbotHarvester(
+        max_length=256
+    )
+    assert harvester.to_dict() == {
+        'className': 'ChatbotHarvester',
+        'params': {
+            'maxLength': '256',
+            'inputType': 'text'
+        }
+    }

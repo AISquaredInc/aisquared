@@ -116,6 +116,14 @@ aisquared.config.rendering.TableRendering module
    :undoc-members:
    :show-inheritance:
 
+aisquared.config.rendering.TextRendering module
+-----------------------------------------------
+
+.. automodule:: aisquared.config.rendering.TextRendering
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 aisquared.config.rendering.WordRendering module
 -----------------------------------------------
 

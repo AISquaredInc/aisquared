@@ -6,3 +6,4 @@ from .ImageHarvester import ImageHarvester
 from .TextHarvester import TextHarvester
 from .InputHarvester import InputHarvester
 from .QueryParameterHarvester import QueryParameterHarvester
+from .ChatbotHarvester import ChatbotHarvester
