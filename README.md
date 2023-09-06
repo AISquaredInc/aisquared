@@ -330,3 +330,10 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Changed JSON schema of Preprocesser classes
 - Allowed .keras files to be saved and loaded with the `ModelConfiguration` and `GraphConfiguration` APIs into `.air` files
 - Relaxed TensorFlow requirements enforced in version `0.3.6`
+
+## Version 0.3.8
+- Created `ChatbotHarvester` class
+- Created `TextRendering` class
+- Changed location of reference lists of classes to clean up code
+- Updated class schemas to ensure compliance with expectations
+- Updated test cases

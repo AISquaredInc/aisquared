@@ -17,7 +17,9 @@ class DeployedAnalytic(BaseObject):
     'params': {'url': 'analytic_url',
     'inputType': 'text',
     'secret': 'request',
-    'header': None}}
+    'header': None,
+    'apiKeyHeaderName': None,
+    'apiKeyPrefix': None}}
     """
 
     def __init__(
