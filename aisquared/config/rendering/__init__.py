@@ -17,6 +17,7 @@ from .DashboardReplacementRendering import DashboardReplacementRendering
 from .PieChartRendering import PieChartRendering
 from .SOSRendering import SOSRendering
 from .TextRendering import TextRendering
+from .CustomRendering import CustomRendering
 
 # from .DashboardRendering import DashboardRendering
 

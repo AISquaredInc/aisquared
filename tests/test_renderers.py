@@ -466,3 +466,22 @@ def test_text_renderer():
             'predictionValueKey': None
         }
     }
+
+
+def test_custom_renderer():
+    renderer = aisquared.config.rendering.CustomRendering(
+        'test',
+        'test',
+        'test',
+        'test'
+    )
+    assert renderer.to_dict() == {
+        'className': 'CustomRendering',
+        'params': {
+            'id': 'test',
+            'querySelector': None,
+            'contentHtml': 'test',
+            'contentScript': 'test',
+            'contentStyle': 'test'
+        }
+    }

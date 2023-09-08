@@ -150,3 +150,5 @@ Changelog
    - Changed location of reference lists of classes to clean up code
    - Updated class schemas to ensure compliance with expectations
    - Updated test cases
+- Version 0.3.9
+   - Created `CustomRendering` class

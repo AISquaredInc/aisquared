@@ -337,3 +337,6 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Changed location of reference lists of classes to clean up code
 - Updated class schemas to ensure compliance with expectations
 - Updated test cases
+
+## Version 0.3.9
+- Added `CustomRendering` class
