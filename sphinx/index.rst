@@ -152,3 +152,4 @@ Changelog
    - Updated test cases
 - Version 0.3.9
    - Created `CustomRendering` class
+   - Changed to full import of `CustomObject` in `aisquared.base` subpackage

@@ -19,7 +19,7 @@ from aisquared.config.analytic import DeployedAnalytic, DeployedModel, LocalMode
 from aisquared.config.postprocessing import BinaryClassification, MulticlassClassification, ObjectDetection, Regression
 from aisquared.config.rendering import ImageRendering, ObjectRendering, DocumentRendering, WordRendering, FilterRendering, ContainerRendering, HTMLTagRendering, DoughnutChartRendering, TableRendering, BarChartRendering, LineChartRendering, DashboardReplacementRendering, PieChartRendering, SOSRendering, TextRendering, CustomRendering  # , DashboardRendering
 from aisquared.config.feedback import SimpleFeedback, BinaryFeedback, MulticlassFeedback, RegressionFeedback, ModelFeedback, QualitativeFeedback
-from aisquared.config import CustomObject
+from aisquared.config.CustomObject import CustomObject
 
 HARVESTING_CLASSES = (
     ImageHarvester,
@@ -81,7 +81,8 @@ FEEDBACK_CLASSES = (
     BinaryFeedback,
     MulticlassFeedback,
     RegressionFeedback,
-    QualitativeFeedback
+    QualitativeFeedback,
+    CustomObject
 )
 
 LOCAL_CLASSES = (
