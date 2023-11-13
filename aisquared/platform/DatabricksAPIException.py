@@ -1,0 +1,2 @@
+class DatabricksAPIException(Exception):
+    pass
