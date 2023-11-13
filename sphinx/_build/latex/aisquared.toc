@@ -109,12 +109,12 @@
 \contentsline {subparagraph}{Submodules}{62}{subparagraph*.456}%
 \contentsline {subparagraph}{aisquared.serving.deploy\_model module}{62}{subparagraph*.457}%
 \contentsline {subparagraph}{aisquared.serving.get\_remote\_prediction module}{62}{subparagraph*.460}%
-\contentsline {subparagraph}{Module contents}{62}{subparagraph*.461}%
-\contentsline {paragraph}{aisquared.utils package}{62}{paragraph*.462}%
-\contentsline {subparagraph}{Submodules}{62}{subparagraph*.463}%
-\contentsline {subparagraph}{aisquared.utils.utils module}{62}{subparagraph*.464}%
-\contentsline {subparagraph}{Module contents}{64}{subparagraph*.467}%
-\contentsline {subsubsection}{\numberline {1.1.1.2}Module contents}{64}{subsubsection.1.1.1.2}%
-\contentsline {chapter}{\numberline {2}Changelog}{65}{chapter.2}%
-\contentsline {chapter}{Python Module Index}{69}{section*.468}%
-\contentsline {chapter}{Index}{71}{section*.469}%
+\contentsline {subparagraph}{Module contents}{63}{subparagraph*.462}%
+\contentsline {paragraph}{aisquared.utils package}{63}{paragraph*.463}%
+\contentsline {subparagraph}{Submodules}{63}{subparagraph*.464}%
+\contentsline {subparagraph}{aisquared.utils.utils module}{63}{subparagraph*.465}%
+\contentsline {subparagraph}{Module contents}{65}{subparagraph*.468}%
+\contentsline {subsubsection}{\numberline {1.1.1.2}Module contents}{65}{subsubsection.1.1.1.2}%
+\contentsline {chapter}{\numberline {2}Changelog}{67}{chapter.2}%
+\contentsline {chapter}{Python Module Index}{71}{section*.469}%
+\contentsline {chapter}{Index}{73}{section*.470}%

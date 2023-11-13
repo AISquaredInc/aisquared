@@ -36,7 +36,7 @@
   \item \spxentry{AddValue}\spxextra{class in aisquared.config.preprocessing.image.Steps}, 
 		\hyperpage{17}
   \item \spxentry{aisquared}
-    \subitem \spxentry{module}, \hyperpage{64}
+    \subitem \spxentry{module}, \hyperpage{65}
   \item \spxentry{aisquared.base}
     \subitem \spxentry{module}, \hyperpage{4}
   \item \spxentry{aisquared.base.BaseObject}
@@ -189,12 +189,16 @@
     \subitem \spxentry{module}, \hyperpage{61}
   \item \spxentry{aisquared.platform.user\_group}
     \subitem \spxentry{module}, \hyperpage{61}
+  \item \spxentry{aisquared.serving}
+    \subitem \spxentry{module}, \hyperpage{63}
   \item \spxentry{aisquared.serving.deploy\_model}
     \subitem \spxentry{module}, \hyperpage{62}
-  \item \spxentry{aisquared.utils}
-    \subitem \spxentry{module}, \hyperpage{64}
-  \item \spxentry{aisquared.utils.utils}
+  \item \spxentry{aisquared.serving.get\_remote\_prediction}
     \subitem \spxentry{module}, \hyperpage{62}
+  \item \spxentry{aisquared.utils}
+    \subitem \spxentry{module}, \hyperpage{65}
+  \item \spxentry{aisquared.utils.utils}
+    \subitem \spxentry{module}, \hyperpage{63}
   \item \spxentry{AISquaredAPIException}, \hyperpage{44}
   \item \spxentry{AISquaredPlatformClient}\spxextra{class in aisquared.platform.AISquaredPlatformClient}, 
 		\hyperpage{45}
@@ -365,11 +369,13 @@
 		\hyperpage{48}
   \item \spxentry{get\_model()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{49}
-  \item \spxentry{get\_model()}\spxextra{in module aisquared.utils.utils}, \hyperpage{62}
+  \item \spxentry{get\_model()}\spxextra{in module aisquared.utils.utils}, \hyperpage{63}
   \item \spxentry{get\_model\_filenames()}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration method}, 
 		\hyperpage{43}
   \item \spxentry{get\_model\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{49}
+  \item \spxentry{get\_remote\_prediction()}\spxextra{in module aisquared.serving.get\_remote\_prediction}, 
+		\hyperpage{62}
   \item \spxentry{get\_role\_id\_by\_role\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{50}
   \item \spxentry{get\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
@@ -509,7 +515,7 @@
 		\hyperpage{21}
   \item \spxentry{method}\spxextra{aisquared.config.preprocessing.image.Steps.Resize property}, 
 		\hyperpage{18}
-  \item \spxentry{mimic\_model()}\spxextra{in module aisquared.utils.utils}, \hyperpage{63}
+  \item \spxentry{mimic\_model()}\spxextra{in module aisquared.utils.utils}, \hyperpage{64}
   \item \spxentry{min}\spxextra{aisquared.config.postprocessing.Regression.Regression property}, 
 		\hyperpage{16}
   \item \spxentry{MinMax}\spxextra{class in aisquared.config.preprocessing.tabular.Steps}, 
@@ -533,7 +539,7 @@
   \item \spxentry{ModelFeedback}\spxextra{class in aisquared.config.feedback.ModelFeedback}, 
 		\hyperpage{8}
   \item \spxentry{module}
-    \subitem \spxentry{aisquared}, \hyperpage{64}
+    \subitem \spxentry{aisquared}, \hyperpage{65}
     \subitem \spxentry{aisquared.base}, \hyperpage{4}
     \subitem \spxentry{aisquared.base.BaseObject}, \hyperpage{3}
     \subitem \spxentry{aisquared.base.css}, \hyperpage{4}
@@ -610,9 +616,11 @@
     \subitem \spxentry{aisquared.platform.NoResultsFoundError}, \hyperpage{61}
     \subitem \spxentry{aisquared.platform.sharing}, \hyperpage{61}
     \subitem \spxentry{aisquared.platform.user\_group}, \hyperpage{61}
+    \subitem \spxentry{aisquared.serving}, \hyperpage{63}
     \subitem \spxentry{aisquared.serving.deploy\_model}, \hyperpage{62}
-    \subitem \spxentry{aisquared.utils}, \hyperpage{64}
-    \subitem \spxentry{aisquared.utils.utils}, \hyperpage{62}
+    \subitem \spxentry{aisquared.serving.get\_remote\_prediction}, \hyperpage{62}
+    \subitem \spxentry{aisquared.utils}, \hyperpage{65}
+    \subitem \spxentry{aisquared.utils.utils}, \hyperpage{63}
   \item \spxentry{MulticlassClassification}\spxextra{class in aisquared.config.postprocessing.MulticlassClassification}, 
 		\hyperpage{15}
   \item \spxentry{MulticlassFeedback}\spxextra{class in aisquared.config.feedback.MulticlassFeedback}, 
