@@ -341,3 +341,6 @@ Below are a list of additional features, bug fixes, and other changes made for e
 ## Version 0.3.9
 - Added `CustomRendering` class
 - Changed to full import of `CustomObject` in `aisquared.base` subpackage
+
+## Version 0.3.10
+- Added `DatabricksClient` to the `aisquared.platform` subpackage
