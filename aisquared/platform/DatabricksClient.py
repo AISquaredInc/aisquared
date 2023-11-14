@@ -151,6 +151,104 @@ class DatabricksClient:
 
     # TODO: create_job
 
+    def create_job(
+            self,
+            job_name,
+            tasks,
+            libraries,
+            compute_name,
+            spark_version,
+            node_type_id
+    ):
+        
+        # Create the array of libraries
+        library_array = [
+            {'pypi' : {'package' : library}} for library in libraries
+        ]
+
+        # Create the array of tasks from the name : notebook locations in the dictionary of tasks
+        task_array = []
+        for i in range(len(tasks.keys())):
+            task_name = tasks.keys()[i]
+            task_notebook = tasks.values()[i]
+
+            task_dict = {
+                'task_key' : task_name,
+                'run_if' : 'ALL_SUCCESS',
+                'notebook_task' : {
+                    'notebook_path' : task_notebook,
+                    'source' : 'WORKSPACE'
+                },
+                'job_cluster_key' : compute_name,
+                'libraries' : library_array,
+                'timeout_seconds' : 0,
+                'email_notifications' : {},
+                'notification_settings' : {
+                    'no_alert_for_skipped_runs': False,
+                    'no_alert_for_canceled_runs': False,
+                    'alert_on_last_attempt' : False
+                },
+                'webhook_notifications' : {},
+            }
+
+            if i != 0:
+                task_dict['depends_on'] = [
+                    {
+                        'task_key' : tasks.keys()[i - 1]
+                    }
+                ]
+
+            task_array.append(task_dict)
+
+        # Create the job_clusters dictionary
+        job_clusters = [{
+            'job_cluster_key' : compute_name,
+            'new_cluster' : {
+                'cluster_name' : '',
+                'spark_version' : spark_version,
+                'spark_conf' : {
+                    'spark.master' : 'local[*, 4]',
+                    'spark.databricks.cluster.profile' : 'singleNode'
+                }
+            },
+            'node_type_id' : node_type_id,
+            'spark_env_vars': {
+                'PYSPARK_PYTHON' : '/databricks/python3/bin/python3'
+            },
+            'enable_elastic_disk' : True,
+            'runtime_engine' : 'STANDARD',
+            'num_workers' : 0
+        }]
+
+        # Create the entire json to be sent with the request
+        job_dict = {
+            'name' : job_name,
+            'email_notifications' : {
+                'no_alert_for_skipped_runs' : False
+            },
+            'webhook_notifications' : {},
+            'timeout_seconds' : 0,
+            'max_concurrent_runs' : 1,
+            'tasks' : task_array,
+            'job_clusters' : job_clusters,
+            'run_as' : {
+                'user_name' : self.username
+            }
+        }
+
+        with requests.Session() as sess:
+            resp = sess.post(
+                url = f'{self.base_url}/api/2.1/jobs/create',
+                headers = self.headers,
+                json = job_dict
+            )
+
+        if not resp.ok:
+            raise DatabricksAPIException(resp.text)
+        
+        return resp.ok
+
+
     def list_jobs(self, as_df: bool = True):
         with requests.Session() as sess:
             resp = sess.get(
@@ -226,12 +324,14 @@ class DatabricksClient:
 
         return resp.ok
 
+
     def create_served_model(
             self,
             model_name,
             model_version,
             workload_size,
-            scale_to_zero_enabled=True
+            scale_to_zero_enabled=True,
+            workload_type = 'CPU'
     ):
         with requests.Session() as sess:
             resp = sess.post(
@@ -244,7 +344,8 @@ class DatabricksClient:
                             'model_name': model_name,
                             'model_version': model_version,
                             'workload_size': workload_size,
-                            'scale_to_zero_enabled': scale_to_zero_enabled
+                            'scale_to_zero_enabled': scale_to_zero_enabled,
+                            'workload_type' : workload_type
                         }]
                     }
                 }
@@ -254,8 +355,6 @@ class DatabricksClient:
             raise DatabricksAPIException(resp.text)
 
         return resp.json()
-
-    # TODO: start_compute, stop_compute
 
     def list_compute(self, as_df=True):
         with requests.Session() as sess:
@@ -374,3 +473,8 @@ class DatabricksClient:
                     'name': model_name
                 }
             )
+
+        if not resp.ok:
+            raise DatabricksAPIException(resp.text)
+        
+        return resp.ok
