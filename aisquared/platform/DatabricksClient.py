@@ -159,13 +159,13 @@ class DatabricksClient:
             compute_name,
             spark_version,
             node_type_id,
-            cron_syntax = None,
-            timezone = None
+            cron_syntax=None,
+            timezone=None
     ):
-        
+
         # Create the array of libraries
         library_array = [
-            {'pypi' : {'package' : library}} for library in libraries
+            {'pypi': {'package': library}} for library in libraries
         ]
 
         # Create the array of tasks from the name : notebook locations in the dictionary of tasks
@@ -175,28 +175,28 @@ class DatabricksClient:
             task_notebook = list(tasks.values())[i]
 
             task_dict = {
-                'task_key' : task_name,
-                'run_if' : 'ALL_SUCCESS',
-                'notebook_task' : {
-                    'notebook_path' : task_notebook,
-                    'source' : 'WORKSPACE'
+                'task_key': task_name,
+                'run_if': 'ALL_SUCCESS',
+                'notebook_task': {
+                    'notebook_path': task_notebook,
+                    'source': 'WORKSPACE'
                 },
-                'job_cluster_key' : compute_name,
-                'libraries' : library_array,
-                'timeout_seconds' : 0,
-                'email_notifications' : {},
-                'notification_settings' : {
+                'job_cluster_key': compute_name,
+                'libraries': library_array,
+                'timeout_seconds': 0,
+                'email_notifications': {},
+                'notification_settings': {
                     'no_alert_for_skipped_runs': False,
                     'no_alert_for_canceled_runs': False,
-                    'alert_on_last_attempt' : False
+                    'alert_on_last_attempt': False
                 },
-                'webhook_notifications' : {},
+                'webhook_notifications': {},
             }
 
             if i != 0:
                 task_dict['depends_on'] = [
                     {
-                        'task_key' : list(tasks.keys())[i - 1]
+                        'task_key': list(tasks.keys())[i - 1]
                     }
                 ]
 
@@ -204,59 +204,58 @@ class DatabricksClient:
 
         # Create the job_clusters dictionary
         job_clusters = [{
-            'job_cluster_key' : compute_name,
-            'new_cluster' : {
-                'cluster_name' : '',
-                'spark_version' : spark_version,
-                'spark_conf' : {
-                    'spark.master' : 'local[*, 4]'
+            'job_cluster_key': compute_name,
+            'new_cluster': {
+                'cluster_name': '',
+                'spark_version': spark_version,
+                'spark_conf': {
+                    'spark.master': 'local[*, 4]'
                 },
-                'num_workers' : 0,
-                'node_type_id' : node_type_id,
-                'enable_elastic_disk' : True,
-                'data_security_mode' : 'LEGACY_SINGLE_USER_STANDARD',
-                'runtime_engine' : 'STANDARD',
-                'spark_env_vars' : {
-                    'PYSPARK_PYTHON' : '/databricks/python3/bin/python'
+                'num_workers': 0,
+                'node_type_id': node_type_id,
+                'enable_elastic_disk': True,
+                'data_security_mode': 'LEGACY_SINGLE_USER_STANDARD',
+                'runtime_engine': 'STANDARD',
+                'spark_env_vars': {
+                    'PYSPARK_PYTHON': '/databricks/python3/bin/python'
                 }
             }
         }]
 
         # Create the entire json to be sent with the request
         job_dict = {
-            'name' : job_name,
-            'email_notifications' : {
-                'no_alert_for_skipped_runs' : False
+            'name': job_name,
+            'email_notifications': {
+                'no_alert_for_skipped_runs': False
             },
-            'webhook_notifications' : {},
-            'timeout_seconds' : 0,
-            'max_concurrent_runs' : 1,
-            'tasks' : task_array,
-            'job_clusters' : job_clusters,
-            'run_as' : {
-                'user_name' : self.username
+            'webhook_notifications': {},
+            'timeout_seconds': 0,
+            'max_concurrent_runs': 1,
+            'tasks': task_array,
+            'job_clusters': job_clusters,
+            'run_as': {
+                'user_name': self.username
             }
         }
 
         if cron_syntax and timezone:
             job_dict['schedule'] = {
-                'quartz_cron_expression' : cron_syntax,
-                'timezone_id' : timezone,
-                'pause_status' : 'UNPAUSED'
+                'quartz_cron_expression': cron_syntax,
+                'timezone_id': timezone,
+                'pause_status': 'UNPAUSED'
             }
 
         with requests.Session() as sess:
             resp = sess.post(
-                url = f'{self.base_url}/api/2.1/jobs/create',
-                headers = self.headers,
-                json = job_dict
+                url=f'{self.base_url}/api/2.1/jobs/create',
+                headers=self.headers,
+                json=job_dict
             )
 
         if not resp.ok:
             raise DatabricksAPIException(resp.text)
-        
-        return resp.ok
 
+        return resp.ok
 
     def list_jobs(self, as_df: bool = True):
         with requests.Session() as sess:
@@ -333,14 +332,13 @@ class DatabricksClient:
 
         return resp.ok
 
-
     def create_served_model(
             self,
             model_name,
             model_version,
             workload_size,
             scale_to_zero_enabled=True,
-            workload_type = 'CPU'
+            workload_type='CPU'
     ):
         with requests.Session() as sess:
             resp = sess.post(
@@ -354,7 +352,7 @@ class DatabricksClient:
                             'model_version': model_version,
                             'workload_size': workload_size,
                             'scale_to_zero_enabled': scale_to_zero_enabled,
-                            'workload_type' : workload_type
+                            'workload_type': workload_type
                         }]
                     }
                 }
@@ -485,5 +483,5 @@ class DatabricksClient:
 
         if not resp.ok:
             raise DatabricksAPIException(resp.text)
-        
+
         return resp.ok
