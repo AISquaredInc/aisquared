@@ -168,83 +168,83 @@ class DatabricksClient:
             return pd.json_normalize(resp.json()['jobs'])
 
         return resp.json()
-    
+
     def delete_job(self, job_id) -> bool:
         with requests.Session() as sess:
             resp = sess.post(
-                url = f'{self.base_url}/api/2.1/jobs/delete',
-                headers = self.headers,
-                json = {
-                    'job_id' : job_id
-                }
-            )
-        
-        if not resp.ok:
-            raise DatabricksAPIException(resp.text)
-        
-        return resp.ok
-    
-    def run_job(self, job_id) -> int:
-        with requests.Session() as sess:
-            resp = sess.post(
-                url = f'{self.base_url}/api/2.1/jobs/run-now',
-                headers = self.headers,
-                json = {
-                    'job_id' : job_id
+                url=f'{self.base_url}/api/2.1/jobs/delete',
+                headers=self.headers,
+                json={
+                    'job_id': job_id
                 }
             )
 
         if not resp.ok:
             raise DatabricksAPIException(resp.text)
-        
+
+        return resp.ok
+
+    def run_job(self, job_id) -> int:
+        with requests.Session() as sess:
+            resp = sess.post(
+                url=f'{self.base_url}/api/2.1/jobs/run-now',
+                headers=self.headers,
+                json={
+                    'job_id': job_id
+                }
+            )
+
+        if not resp.ok:
+            raise DatabricksAPIException(resp.text)
+
         return resp.json()['run_id']
 
     def list_served_models(self, as_df: bool = True):
         with requests.Session() as sess:
             resp = sess.get(
-                url = f'{self.base_url}/api/2.0/serving-endpoints',
-                headers = self.headers
+                url=f'{self.base_url}/api/2.0/serving-endpoints',
+                headers=self.headers
             )
 
         if not resp.ok:
             raise DatabricksAPIException(resp.text)
-        
+
         if as_df:
             return pd.json_normalize(resp.json()['endpoints'])
         else:
             return resp.json()
-        
+
     def delete_served_model(self, model_name):
         with requests.Session() as sess:
             resp = sess.delete(
-                url = f'{self.base_url}/api/2.0/serving-endpoints/{model_name}',
-                headers = self.headers
+                url=f'{self.base_url}/api/2.0/serving-endpoints/{model_name}',
+                headers=self.headers
             )
 
         if not resp.ok:
             raise DatabricksAPIException(resp.text)
-        
+
         return resp.ok
-    
+
     def create_served_model(
             self,
             model_name,
             model_version,
             workload_size,
-            scale_to_zero_enabled = True
+            scale_to_zero_enabled=True
     ):
         with requests.Session() as sess:
             resp = sess.post(
-                url = f'{self.base_url}/api/2.0/serving-endpoints',
-                headers = self.headers,
-                json = {
-                    'name' : model_name,
-                    'config' : {
-                        'served_models' : [{
-                            'model_name' : model_name,
-                            'model_version' : model_version,
-                            'workload_size' : workload_size,
-                            'scale_to_zero_enabled' : scale_to_zero_enabled
+                url=f'{self.base_url}/api/2.0/serving-endpoints',
+                headers=self.headers,
+                json={
+                    'name': model_name,
+                    'config': {
+                        'served_models': [{
+                            'model_name': model_name,
+                            'model_version': model_version,
+                            'workload_size': workload_size,
+                            'scale_to_zero_enabled': scale_to_zero_enabled
                         }]
                     }
                 }
@@ -252,41 +252,41 @@ class DatabricksClient:
 
         if not resp.ok:
             raise DatabricksAPIException(resp.text)
-        
+
         return resp.json()
-    
+
     # TODO: start_compute, stop_compute
 
-    def list_compute(self, as_df = True):
+    def list_compute(self, as_df=True):
         with requests.Session() as sess:
             resp = sess.get(
-                url = f'{self.base_url}/api/2.0/clusters/list',
-                headers = self.headers
+                url=f'{self.base_url}/api/2.0/clusters/list',
+                headers=self.headers
             )
 
         if not resp.ok:
             raise DatabricksAPIException(resp.text)
-        
+
         if as_df:
             return pd.json_normalize(resp.json()['clusters'])
-        
+
         return resp.json()
-    
+
     def delete_compute(self, compute_id):
         with requests.Session() as sess:
             resp = sess.post(
-                url = f'{self.base_url}/api/2.0/clusters/permanent-delete',
-                headers = self.headers,
-                json = {
-                    'cluster_id' : compute_id
+                url=f'{self.base_url}/api/2.0/clusters/permanent-delete',
+                headers=self.headers,
+                json={
+                    'cluster_id': compute_id
                 }
             )
 
         if not resp.ok:
             raise DatabricksAPIException(resp.text)
-        
+
         return resp.ok
-    
+
     def create_compute(
             self,
             compute_name,
@@ -295,9 +295,9 @@ class DatabricksClient:
     ):
         with requests.Session() as sess:
             resp = sess.post(
-                url = f'{self.base_url}/api/2.0/clusters/create',
-                headers = self.headers,
-                json = {
+                url=f'{self.base_url}/api/2.0/clusters/create',
+                headers=self.headers,
+                json={
                     "cluster_name": compute_name,
                     "spark_version": spark_version,
                     "node_type_id": node_type_id,
@@ -314,35 +314,63 @@ class DatabricksClient:
 
         if not resp.ok:
             raise DatabricksAPIException(resp.text)
-        
+
         return resp.json()
-    
+
     def start_compute(self, compute_id):
         with requests.Session() as sess:
             resp = sess.post(
-                url = f'{self.base_url}/api/2.0/clusters/start',
-                headers = self.headers,
-                json = {
-                    'cluster_id' : compute_id
+                url=f'{self.base_url}/api/2.0/clusters/start',
+                headers=self.headers,
+                json={
+                    'cluster_id': compute_id
                 }
             )
 
         if not resp.ok:
             raise DatabricksAPIException(resp.text)
-        
+
         return resp.ok
-    
+
     def stop_compute(self, compute_id):
         with requests.Session() as sess:
             resp = sess.post(
-                url = f'{self.base_url}/api/2.0/clusters/delete',
-                headers = self.headers,
-                json = {
-                    'cluster_id' : compute_id
+                url=f'{self.base_url}/api/2.0/clusters/delete',
+                headers=self.headers,
+                json={
+                    'cluster_id': compute_id
                 }
             )
 
         if not resp.ok:
             raise DatabricksAPIException(resp.text)
-        
+
         return resp.ok
+
+    def list_registered_models(self, as_df=True):
+        with requests.Session() as sess:
+            resp = sess.get(
+                url=f'{self.base_url}/api/2.0/mlflow/registered-models/list',
+                headers=self.headers,
+                json={
+                    'max_results': 1000
+                }
+            )
+
+        if not resp.ok:
+            raise DatabricksAPIException(resp.text)
+
+        if as_df:
+            return pd.json_normalize(resp.json()['registered_models'])
+
+        return resp.json()
+
+    def delete_registered_model(self, model_name):
+        with requests.Session() as sess:
+            resp = sess.delete(
+                url=f'{self.base_url}/api/2.0/mlflow/registered-models/delete',
+                headers=self.headers,
+                json={
+                    'name': model_name
+                }
+            )
