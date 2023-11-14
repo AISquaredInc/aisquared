@@ -199,8 +199,6 @@ class DatabricksClient:
         
         return resp.json()['run_id']
 
-    # TODO: create_served_model
-
     def list_served_models(self, as_df: bool = True):
         with requests.Session() as sess:
             resp = sess.get(
@@ -242,7 +240,7 @@ class DatabricksClient:
                 json = {
                     'name' : model_name,
                     'config' : {
-                        'served_models' [{
+                        'served_models' : [{
                             'model_name' : model_name,
                             'model_version' : model_version,
                             'workload_size' : workload_size,
@@ -256,8 +254,8 @@ class DatabricksClient:
             raise DatabricksAPIException(resp.text)
         
         return resp.json()
-
-    # TODO: create_compute
+    
+    # TODO: start_compute, stop_compute
 
     def list_compute(self, as_df = True):
         with requests.Session() as sess:
@@ -278,6 +276,67 @@ class DatabricksClient:
         with requests.Session() as sess:
             resp = sess.post(
                 url = f'{self.base_url}/api/2.0/clusters/permanent-delete',
+                headers = self.headers,
+                json = {
+                    'cluster_id' : compute_id
+                }
+            )
+
+        if not resp.ok:
+            raise DatabricksAPIException(resp.text)
+        
+        return resp.ok
+    
+    def create_compute(
+            self,
+            compute_name,
+            spark_version,
+            node_type_id
+    ):
+        with requests.Session() as sess:
+            resp = sess.post(
+                url = f'{self.base_url}/api/2.0/clusters/create',
+                headers = self.headers,
+                json = {
+                    "cluster_name": compute_name,
+                    "spark_version": spark_version,
+                    "node_type_id": node_type_id,
+                    "num_workers": 0,
+                    "spark_conf": {
+                        "spark.databricks.cluster.profile": "singleNode",
+                        "spark.master": "[*, 4]"
+                    },
+                    "custom_tags": {
+                        "ResourceClass": "SingleNode"
+                    }
+                }
+            )
+
+        if not resp.ok:
+            raise DatabricksAPIException(resp.text)
+        
+        return resp.json()
+    
+    def start_compute(self, compute_id):
+        with requests.Session() as sess:
+            resp = sess.post(
+                url = f'{self.base_url}/api/2.0/clusters/start',
+                headers = self.headers,
+                json = {
+                    'cluster_id' : compute_id
+                }
+            )
+
+        if not resp.ok:
+            raise DatabricksAPIException(resp.text)
+        
+        return resp.ok
+    
+    def stop_compute(self, compute_id):
+        with requests.Session() as sess:
+            resp = sess.post(
+                url = f'{self.base_url}/api/2.0/clusters/delete',
+                headers = self.headers,
                 json = {
                     'cluster_id' : compute_id
                 }
