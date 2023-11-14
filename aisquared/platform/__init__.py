@@ -7,3 +7,4 @@ information about this class, please see its documentation.
 """
 
 from .AISquaredPlatformClient import AISquaredPlatformClient
+from .DatabricksClient import DatabricksClient
