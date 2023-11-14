@@ -1,6 +1,6 @@
 from typing import Union
 
-from DatabricksAPIException import DatabricksAPIException
+from .DatabricksAPIException import DatabricksAPIException
 from aisquared.base import DIRECTORY
 
 from getpass import getpass
@@ -158,7 +158,9 @@ class DatabricksClient:
             libraries,
             compute_name,
             spark_version,
-            node_type_id
+            node_type_id,
+            cron_syntax = None,
+            timezone = None
     ):
         
         # Create the array of libraries
@@ -169,8 +171,8 @@ class DatabricksClient:
         # Create the array of tasks from the name : notebook locations in the dictionary of tasks
         task_array = []
         for i in range(len(tasks.keys())):
-            task_name = tasks.keys()[i]
-            task_notebook = tasks.values()[i]
+            task_name = list(tasks.keys())[i]
+            task_notebook = list(tasks.values())[i]
 
             task_dict = {
                 'task_key' : task_name,
@@ -194,7 +196,7 @@ class DatabricksClient:
             if i != 0:
                 task_dict['depends_on'] = [
                     {
-                        'task_key' : tasks.keys()[i - 1]
+                        'task_key' : list(tasks.keys())[i - 1]
                     }
                 ]
 
@@ -207,17 +209,17 @@ class DatabricksClient:
                 'cluster_name' : '',
                 'spark_version' : spark_version,
                 'spark_conf' : {
-                    'spark.master' : 'local[*, 4]',
-                    'spark.databricks.cluster.profile' : 'singleNode'
+                    'spark.master' : 'local[*, 4]'
+                },
+                'num_workers' : 0,
+                'node_type_id' : node_type_id,
+                'enable_elastic_disk' : True,
+                'data_security_mode' : 'LEGACY_SINGLE_USER_STANDARD',
+                'runtime_engine' : 'STANDARD',
+                'spark_env_vars' : {
+                    'PYSPARK_PYTHON' : '/databricks/python3/bin/python'
                 }
-            },
-            'node_type_id' : node_type_id,
-            'spark_env_vars': {
-                'PYSPARK_PYTHON' : '/databricks/python3/bin/python3'
-            },
-            'enable_elastic_disk' : True,
-            'runtime_engine' : 'STANDARD',
-            'num_workers' : 0
+            }
         }]
 
         # Create the entire json to be sent with the request
@@ -235,6 +237,13 @@ class DatabricksClient:
                 'user_name' : self.username
             }
         }
+
+        if cron_syntax and timezone:
+            job_dict['schedule'] = {
+                'quartz_cron_expression' : cron_syntax,
+                'timezone_id' : timezone,
+                'pause_status' : 'UNPAUSED'
+            }
 
         with requests.Session() as sess:
             resp = sess.post(
