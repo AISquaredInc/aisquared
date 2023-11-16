@@ -30,7 +30,8 @@ class DatabricksClient:
             self,
             url: str = None,
             username: str = None,
-            token: str = None
+            token: str = None,
+            persist: bool = True
     ) -> None:
         if url is None:
             url = input('Enter URL: ')
@@ -39,17 +40,23 @@ class DatabricksClient:
         if token is None:
             token = getpass('Enter Secret Token: ')
 
-        with open(CLIENT_CONFIG_FILE, 'w') as f:
-            json.dump(
-                {
-                    'url': url,
-                    'username': username,
-                    'token': token
-                },
-                f
-            )
+        if persist:
+            with open(CLIENT_CONFIG_FILE, 'w') as f:
+                json.dump(
+                    {
+                        'url': url,
+                        'username': username,
+                        'token': token
+                    },
+                    f
+                )
 
-        self._load_info()
+            self._load_info()
+        
+        else:
+            self._base_url = url
+            self._username = username
+            self._token = token
 
     def _load_info(self, config_file: str = CLIENT_CONFIG_FILE) -> None:
         with open(config_file, 'r') as f:
