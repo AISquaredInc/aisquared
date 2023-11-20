@@ -52,7 +52,7 @@ class DatabricksClient:
                 )
 
             self._load_info()
-        
+
         else:
             self._base_url = url
             self._username = username
@@ -155,8 +155,6 @@ class DatabricksClient:
             raise DatabricksAPIException(resp.text)
 
         return resp.ok
-
-    # TODO: create_job
 
     def create_job(
             self,
