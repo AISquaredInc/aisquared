@@ -268,10 +268,19 @@
 \indexentry{width (aisquared.config.rendering.ContainerRendering.ContainerRendering property)@\spxentry{width}\spxextra{aisquared.config.rendering.ContainerRendering.ContainerRendering property}|hyperpage}{27}
 \indexentry{xOffset (aisquared.config.rendering.ContainerRendering.ContainerRendering property)@\spxentry{xOffset}\spxextra{aisquared.config.rendering.ContainerRendering.ContainerRendering property}|hyperpage}{27}
 \indexentry{yOffset (aisquared.config.rendering.ContainerRendering.ContainerRendering property)@\spxentry{yOffset}\spxextra{aisquared.config.rendering.ContainerRendering.ContainerRendering property}|hyperpage}{27}
-\indexentry{module@\spxentry{module}!aisquared.config.rendering.DashboardRendering@\spxentry{aisquared.config.rendering.DashboardRendering}|hyperpage}{27}
-\indexentry{aisquared.config.rendering.DashboardRendering@\spxentry{aisquared.config.rendering.DashboardRendering}!module@\spxentry{module}|hyperpage}{27}
-\indexentry{DashboardRendering (class in aisquared.config.rendering.DashboardRendering)@\spxentry{DashboardRendering}\spxextra{class in aisquared.config.rendering.DashboardRendering}|hyperpage}{27}
-\indexentry{add\_bar\_chart() (aisquared.config.rendering.DashboardRendering.DashboardRendering method)@\spxentry{add\_bar\_chart()}\spxextra{aisquared.config.rendering.DashboardRendering.DashboardRendering method}|hyperpage}{27}
+\indexentry{module@\spxentry{module}!aisquared.config.rendering.CustomRendering@\spxentry{aisquared.config.rendering.CustomRendering}|hyperpage}{27}
+\indexentry{aisquared.config.rendering.CustomRendering@\spxentry{aisquared.config.rendering.CustomRendering}!module@\spxentry{module}|hyperpage}{27}
+\indexentry{CustomRendering (class in aisquared.config.rendering.CustomRendering)@\spxentry{CustomRendering}\spxextra{class in aisquared.config.rendering.CustomRendering}|hyperpage}{27}
+\indexentry{content\_html (aisquared.config.rendering.CustomRendering.CustomRendering property)@\spxentry{content\_html}\spxextra{aisquared.config.rendering.CustomRendering.CustomRendering property}|hyperpage}{27}
+\indexentry{content\_script (aisquared.config.rendering.CustomRendering.CustomRendering property)@\spxentry{content\_script}\spxextra{aisquared.config.rendering.CustomRendering.CustomRendering property}|hyperpage}{27}
+\indexentry{content\_style (aisquared.config.rendering.CustomRendering.CustomRendering property)@\spxentry{content\_style}\spxextra{aisquared.config.rendering.CustomRendering.CustomRendering property}|hyperpage}{27}
+\indexentry{id (aisquared.config.rendering.CustomRendering.CustomRendering property)@\spxentry{id}\spxextra{aisquared.config.rendering.CustomRendering.CustomRendering property}|hyperpage}{28}
+\indexentry{query\_selector (aisquared.config.rendering.CustomRendering.CustomRendering property)@\spxentry{query\_selector}\spxextra{aisquared.config.rendering.CustomRendering.CustomRendering property}|hyperpage}{28}
+\indexentry{to\_dict() (aisquared.config.rendering.CustomRendering.CustomRendering method)@\spxentry{to\_dict()}\spxextra{aisquared.config.rendering.CustomRendering.CustomRendering method}|hyperpage}{28}
+\indexentry{module@\spxentry{module}!aisquared.config.rendering.DashboardRendering@\spxentry{aisquared.config.rendering.DashboardRendering}|hyperpage}{28}
+\indexentry{aisquared.config.rendering.DashboardRendering@\spxentry{aisquared.config.rendering.DashboardRendering}!module@\spxentry{module}|hyperpage}{28}
+\indexentry{DashboardRendering (class in aisquared.config.rendering.DashboardRendering)@\spxentry{DashboardRendering}\spxextra{class in aisquared.config.rendering.DashboardRendering}|hyperpage}{28}
+\indexentry{add\_bar\_chart() (aisquared.config.rendering.DashboardRendering.DashboardRendering method)@\spxentry{add\_bar\_chart()}\spxextra{aisquared.config.rendering.DashboardRendering.DashboardRendering method}|hyperpage}{28}
 \indexentry{add\_container() (aisquared.config.rendering.DashboardRendering.DashboardRendering method)@\spxentry{add\_container()}\spxextra{aisquared.config.rendering.DashboardRendering.DashboardRendering method}|hyperpage}{28}
 \indexentry{add\_doughnut\_chart() (aisquared.config.rendering.DashboardRendering.DashboardRendering method)@\spxentry{add\_doughnut\_chart()}\spxextra{aisquared.config.rendering.DashboardRendering.DashboardRendering method}|hyperpage}{28}
 \indexentry{add\_html\_tag() (aisquared.config.rendering.DashboardRendering.DashboardRendering method)@\spxentry{add\_html\_tag()}\spxextra{aisquared.config.rendering.DashboardRendering.DashboardRendering method}|hyperpage}{28}
@@ -280,9 +289,9 @@
 \indexentry{add\_table() (aisquared.config.rendering.DashboardRendering.DashboardRendering method)@\spxentry{add\_table()}\spxextra{aisquared.config.rendering.DashboardRendering.DashboardRendering method}|hyperpage}{28}
 \indexentry{steps (aisquared.config.rendering.DashboardRendering.DashboardRendering property)@\spxentry{steps}\spxextra{aisquared.config.rendering.DashboardRendering.DashboardRendering property}|hyperpage}{28}
 \indexentry{to\_dict() (aisquared.config.rendering.DashboardRendering.DashboardRendering method)@\spxentry{to\_dict()}\spxextra{aisquared.config.rendering.DashboardRendering.DashboardRendering method}|hyperpage}{28}
-\indexentry{module@\spxentry{module}!aisquared.config.rendering.DashboardReplacementRendering@\spxentry{aisquared.config.rendering.DashboardReplacementRendering}|hyperpage}{28}
-\indexentry{aisquared.config.rendering.DashboardReplacementRendering@\spxentry{aisquared.config.rendering.DashboardReplacementRendering}!module@\spxentry{module}|hyperpage}{28}
-\indexentry{DashboardReplacementRendering (class in aisquared.config.rendering.DashboardReplacementRendering)@\spxentry{DashboardReplacementRendering}\spxextra{class in aisquared.config.rendering.DashboardReplacementRendering}|hyperpage}{28}
+\indexentry{module@\spxentry{module}!aisquared.config.rendering.DashboardReplacementRendering@\spxentry{aisquared.config.rendering.DashboardReplacementRendering}|hyperpage}{29}
+\indexentry{aisquared.config.rendering.DashboardReplacementRendering@\spxentry{aisquared.config.rendering.DashboardReplacementRendering}!module@\spxentry{module}|hyperpage}{29}
+\indexentry{DashboardReplacementRendering (class in aisquared.config.rendering.DashboardReplacementRendering)@\spxentry{DashboardReplacementRendering}\spxextra{class in aisquared.config.rendering.DashboardReplacementRendering}|hyperpage}{29}
 \indexentry{anchor\_selector (aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering property)@\spxentry{anchor\_selector}\spxextra{aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering property}|hyperpage}{29}
 \indexentry{label (aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering property)@\spxentry{label}\spxextra{aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering property}|hyperpage}{29}
 \indexentry{to\_dict() (aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering method)@\spxentry{to\_dict()}\spxextra{aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering method}|hyperpage}{29}
@@ -290,7 +299,7 @@
 \indexentry{module@\spxentry{module}!aisquared.config.rendering.DocumentRendering@\spxentry{aisquared.config.rendering.DocumentRendering}|hyperpage}{29}
 \indexentry{aisquared.config.rendering.DocumentRendering@\spxentry{aisquared.config.rendering.DocumentRendering}!module@\spxentry{module}|hyperpage}{29}
 \indexentry{DocumentRendering (class in aisquared.config.rendering.DocumentRendering)@\spxentry{DocumentRendering}\spxextra{class in aisquared.config.rendering.DocumentRendering}|hyperpage}{29}
-\indexentry{classes (aisquared.config.rendering.DocumentRendering.DocumentRendering property)@\spxentry{classes}\spxextra{aisquared.config.rendering.DocumentRendering.DocumentRendering property}|hyperpage}{29}
+\indexentry{classes (aisquared.config.rendering.DocumentRendering.DocumentRendering property)@\spxentry{classes}\spxextra{aisquared.config.rendering.DocumentRendering.DocumentRendering property}|hyperpage}{30}
 \indexentry{documents (aisquared.config.rendering.DocumentRendering.DocumentRendering property)@\spxentry{documents}\spxextra{aisquared.config.rendering.DocumentRendering.DocumentRendering property}|hyperpage}{30}
 \indexentry{include\_probability (aisquared.config.rendering.DocumentRendering.DocumentRendering property)@\spxentry{include\_probability}\spxextra{aisquared.config.rendering.DocumentRendering.DocumentRendering property}|hyperpage}{30}
 \indexentry{prediction\_key (aisquared.config.rendering.DocumentRendering.DocumentRendering property)@\spxentry{prediction\_key}\spxextra{aisquared.config.rendering.DocumentRendering.DocumentRendering property}|hyperpage}{30}
@@ -483,37 +492,66 @@
 \indexentry{upload\_model() (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method)@\spxentry{upload\_model()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}|hyperpage}{61}
 \indexentry{use\_port (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property)@\spxentry{use\_port}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}|hyperpage}{61}
 \indexentry{username (aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property)@\spxentry{username}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}|hyperpage}{61}
-\indexentry{module@\spxentry{module}!aisquared.platform.NoResultsFoundError@\spxentry{aisquared.platform.NoResultsFoundError}|hyperpage}{61}
-\indexentry{aisquared.platform.NoResultsFoundError@\spxentry{aisquared.platform.NoResultsFoundError}!module@\spxentry{module}|hyperpage}{61}
-\indexentry{NoResultsFoundError@\spxentry{NoResultsFoundError}|hyperpage}{61}
-\indexentry{module@\spxentry{module}!aisquared.platform.additional\_utils@\spxentry{aisquared.platform.additional\_utils}|hyperpage}{61}
-\indexentry{aisquared.platform.additional\_utils@\spxentry{aisquared.platform.additional\_utils}!module@\spxentry{module}|hyperpage}{61}
-\indexentry{module@\spxentry{module}!aisquared.platform.crudl@\spxentry{aisquared.platform.crudl}|hyperpage}{61}
-\indexentry{aisquared.platform.crudl@\spxentry{aisquared.platform.crudl}!module@\spxentry{module}|hyperpage}{61}
-\indexentry{module@\spxentry{module}!aisquared.platform.feedback@\spxentry{aisquared.platform.feedback}|hyperpage}{61}
-\indexentry{aisquared.platform.feedback@\spxentry{aisquared.platform.feedback}!module@\spxentry{module}|hyperpage}{61}
-\indexentry{module@\spxentry{module}!aisquared.platform.metrics@\spxentry{aisquared.platform.metrics}|hyperpage}{61}
-\indexentry{aisquared.platform.metrics@\spxentry{aisquared.platform.metrics}!module@\spxentry{module}|hyperpage}{61}
-\indexentry{module@\spxentry{module}!aisquared.platform.sharing@\spxentry{aisquared.platform.sharing}|hyperpage}{61}
-\indexentry{aisquared.platform.sharing@\spxentry{aisquared.platform.sharing}!module@\spxentry{module}|hyperpage}{61}
-\indexentry{module@\spxentry{module}!aisquared.platform.user\_group@\spxentry{aisquared.platform.user\_group}|hyperpage}{61}
-\indexentry{aisquared.platform.user\_group@\spxentry{aisquared.platform.user\_group}!module@\spxentry{module}|hyperpage}{61}
-\indexentry{module@\spxentry{module}!aisquared.platform@\spxentry{aisquared.platform}|hyperpage}{62}
-\indexentry{aisquared.platform@\spxentry{aisquared.platform}!module@\spxentry{module}|hyperpage}{62}
-\indexentry{module@\spxentry{module}!aisquared.serving.deploy\_model@\spxentry{aisquared.serving.deploy\_model}|hyperpage}{62}
-\indexentry{aisquared.serving.deploy\_model@\spxentry{aisquared.serving.deploy\_model}!module@\spxentry{module}|hyperpage}{62}
-\indexentry{deploy\_model() (in module aisquared.serving.deploy\_model)@\spxentry{deploy\_model()}\spxextra{in module aisquared.serving.deploy\_model}|hyperpage}{62}
-\indexentry{load\_beyondml\_model() (in module aisquared.serving.deploy\_model)@\spxentry{load\_beyondml\_model()}\spxextra{in module aisquared.serving.deploy\_model}|hyperpage}{62}
-\indexentry{module@\spxentry{module}!aisquared.serving.get\_remote\_prediction@\spxentry{aisquared.serving.get\_remote\_prediction}|hyperpage}{62}
-\indexentry{aisquared.serving.get\_remote\_prediction@\spxentry{aisquared.serving.get\_remote\_prediction}!module@\spxentry{module}|hyperpage}{62}
-\indexentry{get\_remote\_prediction() (in module aisquared.serving.get\_remote\_prediction)@\spxentry{get\_remote\_prediction()}\spxextra{in module aisquared.serving.get\_remote\_prediction}|hyperpage}{62}
-\indexentry{module@\spxentry{module}!aisquared.serving@\spxentry{aisquared.serving}|hyperpage}{63}
-\indexentry{aisquared.serving@\spxentry{aisquared.serving}!module@\spxentry{module}|hyperpage}{63}
-\indexentry{module@\spxentry{module}!aisquared.utils.utils@\spxentry{aisquared.utils.utils}|hyperpage}{63}
-\indexentry{aisquared.utils.utils@\spxentry{aisquared.utils.utils}!module@\spxentry{module}|hyperpage}{63}
-\indexentry{get\_model() (in module aisquared.utils.utils)@\spxentry{get\_model()}\spxextra{in module aisquared.utils.utils}|hyperpage}{63}
-\indexentry{mimic\_model() (in module aisquared.utils.utils)@\spxentry{mimic\_model()}\spxextra{in module aisquared.utils.utils}|hyperpage}{64}
-\indexentry{module@\spxentry{module}!aisquared.utils@\spxentry{aisquared.utils}|hyperpage}{65}
-\indexentry{aisquared.utils@\spxentry{aisquared.utils}!module@\spxentry{module}|hyperpage}{65}
-\indexentry{module@\spxentry{module}!aisquared@\spxentry{aisquared}|hyperpage}{65}
-\indexentry{aisquared@\spxentry{aisquared}!module@\spxentry{module}|hyperpage}{65}
+\indexentry{module@\spxentry{module}!aisquared.platform.DatabricksAPIException@\spxentry{aisquared.platform.DatabricksAPIException}|hyperpage}{61}
+\indexentry{aisquared.platform.DatabricksAPIException@\spxentry{aisquared.platform.DatabricksAPIException}!module@\spxentry{module}|hyperpage}{61}
+\indexentry{DatabricksAPIException@\spxentry{DatabricksAPIException}|hyperpage}{61}
+\indexentry{module@\spxentry{module}!aisquared.platform.DatabricksClient@\spxentry{aisquared.platform.DatabricksClient}|hyperpage}{61}
+\indexentry{aisquared.platform.DatabricksClient@\spxentry{aisquared.platform.DatabricksClient}!module@\spxentry{module}|hyperpage}{61}
+\indexentry{DatabricksClient (class in aisquared.platform.DatabricksClient)@\spxentry{DatabricksClient}\spxextra{class in aisquared.platform.DatabricksClient}|hyperpage}{61}
+\indexentry{base\_url (aisquared.platform.DatabricksClient.DatabricksClient property)@\spxentry{base\_url}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient property}|hyperpage}{61}
+\indexentry{create\_compute() (aisquared.platform.DatabricksClient.DatabricksClient method)@\spxentry{create\_compute()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}|hyperpage}{62}
+\indexentry{create\_job() (aisquared.platform.DatabricksClient.DatabricksClient method)@\spxentry{create\_job()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}|hyperpage}{62}
+\indexentry{create\_served\_model() (aisquared.platform.DatabricksClient.DatabricksClient method)@\spxentry{create\_served\_model()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}|hyperpage}{62}
+\indexentry{delete\_compute() (aisquared.platform.DatabricksClient.DatabricksClient method)@\spxentry{delete\_compute()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}|hyperpage}{63}
+\indexentry{delete\_from\_workspace() (aisquared.platform.DatabricksClient.DatabricksClient method)@\spxentry{delete\_from\_workspace()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}|hyperpage}{63}
+\indexentry{delete\_job() (aisquared.platform.DatabricksClient.DatabricksClient method)@\spxentry{delete\_job()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}|hyperpage}{63}
+\indexentry{delete\_registered\_model() (aisquared.platform.DatabricksClient.DatabricksClient method)@\spxentry{delete\_registered\_model()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}|hyperpage}{63}
+\indexentry{delete\_served\_model() (aisquared.platform.DatabricksClient.DatabricksClient method)@\spxentry{delete\_served\_model()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}|hyperpage}{63}
+\indexentry{download\_from\_workspace() (aisquared.platform.DatabricksClient.DatabricksClient method)@\spxentry{download\_from\_workspace()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}|hyperpage}{64}
+\indexentry{headers (aisquared.platform.DatabricksClient.DatabricksClient property)@\spxentry{headers}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient property}|hyperpage}{64}
+\indexentry{list\_compute() (aisquared.platform.DatabricksClient.DatabricksClient method)@\spxentry{list\_compute()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}|hyperpage}{64}
+\indexentry{list\_jobs() (aisquared.platform.DatabricksClient.DatabricksClient method)@\spxentry{list\_jobs()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}|hyperpage}{64}
+\indexentry{list\_registered\_models() (aisquared.platform.DatabricksClient.DatabricksClient method)@\spxentry{list\_registered\_models()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}|hyperpage}{64}
+\indexentry{list\_served\_models() (aisquared.platform.DatabricksClient.DatabricksClient method)@\spxentry{list\_served\_models()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}|hyperpage}{64}
+\indexentry{list\_workspace() (aisquared.platform.DatabricksClient.DatabricksClient method)@\spxentry{list\_workspace()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}|hyperpage}{65}
+\indexentry{login() (aisquared.platform.DatabricksClient.DatabricksClient method)@\spxentry{login()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}|hyperpage}{65}
+\indexentry{run\_job() (aisquared.platform.DatabricksClient.DatabricksClient method)@\spxentry{run\_job()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}|hyperpage}{65}
+\indexentry{start\_compute() (aisquared.platform.DatabricksClient.DatabricksClient method)@\spxentry{start\_compute()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}|hyperpage}{65}
+\indexentry{stop\_compute() (aisquared.platform.DatabricksClient.DatabricksClient method)@\spxentry{stop\_compute()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}|hyperpage}{66}
+\indexentry{token (aisquared.platform.DatabricksClient.DatabricksClient property)@\spxentry{token}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient property}|hyperpage}{66}
+\indexentry{upload\_to\_workspace() (aisquared.platform.DatabricksClient.DatabricksClient method)@\spxentry{upload\_to\_workspace()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}|hyperpage}{66}
+\indexentry{username (aisquared.platform.DatabricksClient.DatabricksClient property)@\spxentry{username}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient property}|hyperpage}{66}
+\indexentry{module@\spxentry{module}!aisquared.platform.NoResultsFoundError@\spxentry{aisquared.platform.NoResultsFoundError}|hyperpage}{66}
+\indexentry{aisquared.platform.NoResultsFoundError@\spxentry{aisquared.platform.NoResultsFoundError}!module@\spxentry{module}|hyperpage}{66}
+\indexentry{NoResultsFoundError@\spxentry{NoResultsFoundError}|hyperpage}{66}
+\indexentry{module@\spxentry{module}!aisquared.platform.additional\_utils@\spxentry{aisquared.platform.additional\_utils}|hyperpage}{66}
+\indexentry{aisquared.platform.additional\_utils@\spxentry{aisquared.platform.additional\_utils}!module@\spxentry{module}|hyperpage}{66}
+\indexentry{module@\spxentry{module}!aisquared.platform.crudl@\spxentry{aisquared.platform.crudl}|hyperpage}{66}
+\indexentry{aisquared.platform.crudl@\spxentry{aisquared.platform.crudl}!module@\spxentry{module}|hyperpage}{66}
+\indexentry{module@\spxentry{module}!aisquared.platform.feedback@\spxentry{aisquared.platform.feedback}|hyperpage}{66}
+\indexentry{aisquared.platform.feedback@\spxentry{aisquared.platform.feedback}!module@\spxentry{module}|hyperpage}{66}
+\indexentry{module@\spxentry{module}!aisquared.platform.metrics@\spxentry{aisquared.platform.metrics}|hyperpage}{66}
+\indexentry{aisquared.platform.metrics@\spxentry{aisquared.platform.metrics}!module@\spxentry{module}|hyperpage}{66}
+\indexentry{module@\spxentry{module}!aisquared.platform.sharing@\spxentry{aisquared.platform.sharing}|hyperpage}{66}
+\indexentry{aisquared.platform.sharing@\spxentry{aisquared.platform.sharing}!module@\spxentry{module}|hyperpage}{66}
+\indexentry{module@\spxentry{module}!aisquared.platform.user\_group@\spxentry{aisquared.platform.user\_group}|hyperpage}{67}
+\indexentry{aisquared.platform.user\_group@\spxentry{aisquared.platform.user\_group}!module@\spxentry{module}|hyperpage}{67}
+\indexentry{module@\spxentry{module}!aisquared.platform@\spxentry{aisquared.platform}|hyperpage}{67}
+\indexentry{aisquared.platform@\spxentry{aisquared.platform}!module@\spxentry{module}|hyperpage}{67}
+\indexentry{module@\spxentry{module}!aisquared.serving.deploy\_model@\spxentry{aisquared.serving.deploy\_model}|hyperpage}{67}
+\indexentry{aisquared.serving.deploy\_model@\spxentry{aisquared.serving.deploy\_model}!module@\spxentry{module}|hyperpage}{67}
+\indexentry{deploy\_model() (in module aisquared.serving.deploy\_model)@\spxentry{deploy\_model()}\spxextra{in module aisquared.serving.deploy\_model}|hyperpage}{67}
+\indexentry{load\_beyondml\_model() (in module aisquared.serving.deploy\_model)@\spxentry{load\_beyondml\_model()}\spxextra{in module aisquared.serving.deploy\_model}|hyperpage}{67}
+\indexentry{module@\spxentry{module}!aisquared.serving.get\_remote\_prediction@\spxentry{aisquared.serving.get\_remote\_prediction}|hyperpage}{67}
+\indexentry{aisquared.serving.get\_remote\_prediction@\spxentry{aisquared.serving.get\_remote\_prediction}!module@\spxentry{module}|hyperpage}{67}
+\indexentry{get\_remote\_prediction() (in module aisquared.serving.get\_remote\_prediction)@\spxentry{get\_remote\_prediction()}\spxextra{in module aisquared.serving.get\_remote\_prediction}|hyperpage}{67}
+\indexentry{module@\spxentry{module}!aisquared.serving@\spxentry{aisquared.serving}|hyperpage}{68}
+\indexentry{aisquared.serving@\spxentry{aisquared.serving}!module@\spxentry{module}|hyperpage}{68}
+\indexentry{module@\spxentry{module}!aisquared.utils.utils@\spxentry{aisquared.utils.utils}|hyperpage}{68}
+\indexentry{aisquared.utils.utils@\spxentry{aisquared.utils.utils}!module@\spxentry{module}|hyperpage}{68}
+\indexentry{get\_model() (in module aisquared.utils.utils)@\spxentry{get\_model()}\spxextra{in module aisquared.utils.utils}|hyperpage}{68}
+\indexentry{mimic\_model() (in module aisquared.utils.utils)@\spxentry{mimic\_model()}\spxextra{in module aisquared.utils.utils}|hyperpage}{69}
+\indexentry{module@\spxentry{module}!aisquared.utils@\spxentry{aisquared.utils}|hyperpage}{70}
+\indexentry{aisquared.utils@\spxentry{aisquared.utils}!module@\spxentry{module}|hyperpage}{70}
+\indexentry{module@\spxentry{module}!aisquared@\spxentry{aisquared}|hyperpage}{70}
+\indexentry{aisquared@\spxentry{aisquared}!module@\spxentry{module}|hyperpage}{70}

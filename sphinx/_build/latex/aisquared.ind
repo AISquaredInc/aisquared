@@ -6,7 +6,7 @@
 
   \bigletter A
   \item \spxentry{add\_bar\_chart()}\spxextra{aisquared.config.rendering.DashboardRendering.DashboardRendering method}, 
-		\hyperpage{27}
+		\hyperpage{28}
   \item \spxentry{add\_container()}\spxextra{aisquared.config.rendering.DashboardRendering.DashboardRendering method}, 
 		\hyperpage{28}
   \item \spxentry{add\_doughnut\_chart()}\spxextra{aisquared.config.rendering.DashboardRendering.DashboardRendering method}, 
@@ -36,7 +36,7 @@
   \item \spxentry{AddValue}\spxextra{class in aisquared.config.preprocessing.image.Steps}, 
 		\hyperpage{17}
   \item \spxentry{aisquared}
-    \subitem \spxentry{module}, \hyperpage{65}
+    \subitem \spxentry{module}, \hyperpage{70}
   \item \spxentry{aisquared.base}
     \subitem \spxentry{module}, \hyperpage{4}
   \item \spxentry{aisquared.base.BaseObject}
@@ -137,10 +137,12 @@
     \subitem \spxentry{module}, \hyperpage{25}
   \item \spxentry{aisquared.config.rendering.ContainerRendering}
     \subitem \spxentry{module}, \hyperpage{26}
-  \item \spxentry{aisquared.config.rendering.DashboardRendering}
+  \item \spxentry{aisquared.config.rendering.CustomRendering}
     \subitem \spxentry{module}, \hyperpage{27}
-  \item \spxentry{aisquared.config.rendering.DashboardReplacementRendering}
+  \item \spxentry{aisquared.config.rendering.DashboardRendering}
     \subitem \spxentry{module}, \hyperpage{28}
+  \item \spxentry{aisquared.config.rendering.DashboardReplacementRendering}
+    \subitem \spxentry{module}, \hyperpage{29}
   \item \spxentry{aisquared.config.rendering.DocumentRendering}
     \subitem \spxentry{module}, \hyperpage{29}
   \item \spxentry{aisquared.config.rendering.DoughnutChartRendering}
@@ -170,35 +172,39 @@
   \item \spxentry{aisquared.logging}
     \subitem \spxentry{module}, \hyperpage{44}
   \item \spxentry{aisquared.platform}
-    \subitem \spxentry{module}, \hyperpage{62}
+    \subitem \spxentry{module}, \hyperpage{67}
   \item \spxentry{aisquared.platform.additional\_utils}
-    \subitem \spxentry{module}, \hyperpage{61}
+    \subitem \spxentry{module}, \hyperpage{66}
   \item \spxentry{aisquared.platform.AISquaredAPIException}
     \subitem \spxentry{module}, \hyperpage{44}
   \item \spxentry{aisquared.platform.AISquaredPlatformClient}
     \subitem \spxentry{module}, \hyperpage{45}
   \item \spxentry{aisquared.platform.crudl}
+    \subitem \spxentry{module}, \hyperpage{66}
+  \item \spxentry{aisquared.platform.DatabricksAPIException}
+    \subitem \spxentry{module}, \hyperpage{61}
+  \item \spxentry{aisquared.platform.DatabricksClient}
     \subitem \spxentry{module}, \hyperpage{61}
   \item \spxentry{aisquared.platform.feedback}
-    \subitem \spxentry{module}, \hyperpage{61}
+    \subitem \spxentry{module}, \hyperpage{66}
   \item \spxentry{aisquared.platform.metrics}
-    \subitem \spxentry{module}, \hyperpage{61}
+    \subitem \spxentry{module}, \hyperpage{66}
   \item \spxentry{aisquared.platform.NoResultsFoundError}
-    \subitem \spxentry{module}, \hyperpage{61}
+    \subitem \spxentry{module}, \hyperpage{66}
   \item \spxentry{aisquared.platform.sharing}
-    \subitem \spxentry{module}, \hyperpage{61}
+    \subitem \spxentry{module}, \hyperpage{66}
   \item \spxentry{aisquared.platform.user\_group}
-    \subitem \spxentry{module}, \hyperpage{61}
+    \subitem \spxentry{module}, \hyperpage{67}
   \item \spxentry{aisquared.serving}
-    \subitem \spxentry{module}, \hyperpage{63}
+    \subitem \spxentry{module}, \hyperpage{68}
   \item \spxentry{aisquared.serving.deploy\_model}
-    \subitem \spxentry{module}, \hyperpage{62}
+    \subitem \spxentry{module}, \hyperpage{67}
   \item \spxentry{aisquared.serving.get\_remote\_prediction}
-    \subitem \spxentry{module}, \hyperpage{62}
+    \subitem \spxentry{module}, \hyperpage{67}
   \item \spxentry{aisquared.utils}
-    \subitem \spxentry{module}, \hyperpage{65}
+    \subitem \spxentry{module}, \hyperpage{70}
   \item \spxentry{aisquared.utils.utils}
-    \subitem \spxentry{module}, \hyperpage{63}
+    \subitem \spxentry{module}, \hyperpage{68}
   \item \spxentry{AISquaredAPIException}, \hyperpage{44}
   \item \spxentry{AISquaredPlatformClient}\spxextra{class in aisquared.platform.AISquaredPlatformClient}, 
 		\hyperpage{45}
@@ -235,6 +241,8 @@
 		\hyperpage{25}
   \item \spxentry{base\_url}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}, 
 		\hyperpage{45}
+  \item \spxentry{base\_url}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient property}, 
+		\hyperpage{61}
   \item \spxentry{BaseObject}\spxextra{class in aisquared.base.BaseObject}, \hyperpage{3}
   \item \spxentry{BinaryClassification}\spxextra{class in aisquared.config.postprocessing.BinaryClassification}, 
 		\hyperpage{14}
@@ -252,7 +260,7 @@
   \item \spxentry{ChatbotHarvester}\spxextra{class in aisquared.config.harvesting.ChatbotHarvester}, 
 		\hyperpage{11}
   \item \spxentry{classes}\spxextra{aisquared.config.rendering.DocumentRendering.DocumentRendering property}, 
-		\hyperpage{29}
+		\hyperpage{30}
   \item \spxentry{classes}\spxextra{aisquared.config.rendering.ImageRendering.ImageRendering property}, 
 		\hyperpage{34}
   \item \spxentry{classes}\spxextra{aisquared.config.rendering.WordRendering.WordRendering property}, 
@@ -279,34 +287,61 @@
 		\hyperpage{43}
   \item \spxentry{ContainerRendering}\spxextra{class in aisquared.config.rendering.ContainerRendering}, 
 		\hyperpage{26}
+  \item \spxentry{content\_html}\spxextra{aisquared.config.rendering.CustomRendering.CustomRendering property}, 
+		\hyperpage{27}
   \item \spxentry{content\_key}\spxextra{aisquared.config.rendering.WordRendering.WordRendering property}, 
 		\hyperpage{40}
+  \item \spxentry{content\_script}\spxextra{aisquared.config.rendering.CustomRendering.CustomRendering property}, 
+		\hyperpage{27}
+  \item \spxentry{content\_style}\spxextra{aisquared.config.rendering.CustomRendering.CustomRendering property}, 
+		\hyperpage{27}
   \item \spxentry{ConvertToCase}\spxextra{class in aisquared.config.preprocessing.text.Steps}, 
 		\hyperpage{22}
   \item \spxentry{ConvertToColor}\spxextra{class in aisquared.config.preprocessing.image.Steps}, 
 		\hyperpage{17}
   \item \spxentry{ConvertToVocabulary}\spxextra{class in aisquared.config.preprocessing.text.Steps}, 
 		\hyperpage{22}
+  \item \spxentry{create\_compute()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}, 
+		\hyperpage{62}
   \item \spxentry{create\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{45}
+  \item \spxentry{create\_job()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}, 
+		\hyperpage{62}
+  \item \spxentry{create\_served\_model()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}, 
+		\hyperpage{62}
   \item \spxentry{create\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{46}
   \item \spxentry{CustomObject}\spxextra{class in aisquared.config.CustomObject}, \hyperpage{41}
+  \item \spxentry{CustomRendering}\spxextra{class in aisquared.config.rendering.CustomRendering}, 
+		\hyperpage{27}
 
   \indexspace
   \bigletter D
   \item \spxentry{DashboardRendering}\spxextra{class in aisquared.config.rendering.DashboardRendering}, 
-		\hyperpage{27}
-  \item \spxentry{DashboardReplacementRendering}\spxextra{class in aisquared.config.rendering.DashboardReplacementRendering}, 
 		\hyperpage{28}
+  \item \spxentry{DashboardReplacementRendering}\spxextra{class in aisquared.config.rendering.DashboardReplacementRendering}, 
+		\hyperpage{29}
+  \item \spxentry{DatabricksAPIException}, \hyperpage{61}
+  \item \spxentry{DatabricksClient}\spxextra{class in aisquared.platform.DatabricksClient}, 
+		\hyperpage{61}
+  \item \spxentry{delete\_compute()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}, 
+		\hyperpage{63}
+  \item \spxentry{delete\_from\_workspace()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}, 
+		\hyperpage{63}
   \item \spxentry{delete\_group()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{47}
+  \item \spxentry{delete\_job()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}, 
+		\hyperpage{63}
   \item \spxentry{delete\_model()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{47}
+  \item \spxentry{delete\_registered\_model()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}, 
+		\hyperpage{63}
+  \item \spxentry{delete\_served\_model()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}, 
+		\hyperpage{63}
   \item \spxentry{delete\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{47}
   \item \spxentry{deploy\_model()}\spxextra{in module aisquared.serving.deploy\_model}, 
-		\hyperpage{62}
+		\hyperpage{67}
   \item \spxentry{DeployedAnalytic}\spxextra{class in aisquared.config.analytic.DeployedAnalytic}, 
 		\hyperpage{4}
   \item \spxentry{DeployedModel}\spxextra{class in aisquared.config.analytic.DeployedModel}, 
@@ -329,6 +364,8 @@
 		\hyperpage{30}
   \item \spxentry{DoughnutChartRendering}\spxextra{class in aisquared.config.rendering.DoughnutChartRendering}, 
 		\hyperpage{30}
+  \item \spxentry{download\_from\_workspace()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}, 
+		\hyperpage{64}
   \item \spxentry{DropColumn}\spxextra{class in aisquared.config.preprocessing.tabular.Steps}, 
 		\hyperpage{19}
 
@@ -369,13 +406,13 @@
 		\hyperpage{48}
   \item \spxentry{get\_model()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{49}
-  \item \spxentry{get\_model()}\spxextra{in module aisquared.utils.utils}, \hyperpage{63}
+  \item \spxentry{get\_model()}\spxextra{in module aisquared.utils.utils}, \hyperpage{68}
   \item \spxentry{get\_model\_filenames()}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration method}, 
 		\hyperpage{43}
   \item \spxentry{get\_model\_id\_by\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{49}
   \item \spxentry{get\_remote\_prediction()}\spxextra{in module aisquared.serving.get\_remote\_prediction}, 
-		\hyperpage{62}
+		\hyperpage{67}
   \item \spxentry{get\_role\_id\_by\_role\_name()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{50}
   \item \spxentry{get\_user()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
@@ -397,6 +434,8 @@
 		\hyperpage{6}
   \item \spxentry{headers}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}, 
 		\hyperpage{51}
+  \item \spxentry{headers}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient property}, 
+		\hyperpage{64}
   \item \spxentry{height}\spxextra{aisquared.config.rendering.ContainerRendering.ContainerRendering property}, 
 		\hyperpage{27}
   \item \spxentry{how}\spxextra{aisquared.config.harvesting.ImageHarvester.ImageHarvester property}, 
@@ -410,6 +449,8 @@
   \bigletter I
   \item \spxentry{id}\spxextra{aisquared.config.rendering.ContainerRendering.ContainerRendering property}, 
 		\hyperpage{27}
+  \item \spxentry{id}\spxextra{aisquared.config.rendering.CustomRendering.CustomRendering property}, 
+		\hyperpage{28}
   \item \spxentry{ImageHarvester}\spxextra{class in aisquared.config.harvesting.ImageHarvester}, 
 		\hyperpage{12}
   \item \spxentry{ImagePreprocesser}\spxextra{class in aisquared.config.preprocessing.image.ImagePreprocessing}, 
@@ -466,10 +507,14 @@
 		\hyperpage{14}
   \item \spxentry{LineChartRendering}\spxextra{class in aisquared.config.rendering.LineChartRendering}, 
 		\hyperpage{35}
+  \item \spxentry{list\_compute()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}, 
+		\hyperpage{64}
   \item \spxentry{list\_group\_users()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{51}
   \item \spxentry{list\_groups()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{51}
+  \item \spxentry{list\_jobs()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}, 
+		\hyperpage{64}
   \item \spxentry{list\_model\_feedback()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{52}
   \item \spxentry{list\_model\_prediction\_feedback()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
@@ -482,20 +527,28 @@
 		\hyperpage{54}
   \item \spxentry{list\_prediction\_feedback()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{54}
+  \item \spxentry{list\_registered\_models()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}, 
+		\hyperpage{64}
   \item \spxentry{list\_roles()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{54}
+  \item \spxentry{list\_served\_models()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}, 
+		\hyperpage{64}
   \item \spxentry{list\_user\_usage\_metrics()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{55}
   \item \spxentry{list\_users()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{55}
+  \item \spxentry{list\_workspace()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}, 
+		\hyperpage{65}
   \item \spxentry{load\_beyondml\_model()}\spxextra{in module aisquared.serving.deploy\_model}, 
-		\hyperpage{62}
+		\hyperpage{67}
   \item \spxentry{LocalAnalytic}\spxextra{class in aisquared.config.analytic.LocalAnalytic}, 
 		\hyperpage{6}
   \item \spxentry{LocalModel}\spxextra{class in aisquared.config.analytic.LocalModel}, 
 		\hyperpage{6}
   \item \spxentry{login()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{56}
+  \item \spxentry{login()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}, 
+		\hyperpage{65}
   \item \spxentry{lowercase}\spxextra{aisquared.config.preprocessing.text.Steps.ConvertToCase property}, 
 		\hyperpage{22}
 
@@ -515,7 +568,7 @@
 		\hyperpage{21}
   \item \spxentry{method}\spxextra{aisquared.config.preprocessing.image.Steps.Resize property}, 
 		\hyperpage{18}
-  \item \spxentry{mimic\_model()}\spxextra{in module aisquared.utils.utils}, \hyperpage{64}
+  \item \spxentry{mimic\_model()}\spxextra{in module aisquared.utils.utils}, \hyperpage{69}
   \item \spxentry{min}\spxextra{aisquared.config.postprocessing.Regression.Regression property}, 
 		\hyperpage{16}
   \item \spxentry{MinMax}\spxextra{class in aisquared.config.preprocessing.tabular.Steps}, 
@@ -539,7 +592,7 @@
   \item \spxentry{ModelFeedback}\spxextra{class in aisquared.config.feedback.ModelFeedback}, 
 		\hyperpage{8}
   \item \spxentry{module}
-    \subitem \spxentry{aisquared}, \hyperpage{65}
+    \subitem \spxentry{aisquared}, \hyperpage{70}
     \subitem \spxentry{aisquared.base}, \hyperpage{4}
     \subitem \spxentry{aisquared.base.BaseObject}, \hyperpage{3}
     \subitem \spxentry{aisquared.base.css}, \hyperpage{4}
@@ -590,8 +643,9 @@
     \subitem \spxentry{aisquared.config.rendering}, \hyperpage{40}
     \subitem \spxentry{aisquared.config.rendering.BarChartRendering}, \hyperpage{25}
     \subitem \spxentry{aisquared.config.rendering.ContainerRendering}, \hyperpage{26}
-    \subitem \spxentry{aisquared.config.rendering.DashboardRendering}, \hyperpage{27}
-    \subitem \spxentry{aisquared.config.rendering.DashboardReplacementRendering}, \hyperpage{28}
+    \subitem \spxentry{aisquared.config.rendering.CustomRendering}, \hyperpage{27}
+    \subitem \spxentry{aisquared.config.rendering.DashboardRendering}, \hyperpage{28}
+    \subitem \spxentry{aisquared.config.rendering.DashboardReplacementRendering}, \hyperpage{29}
     \subitem \spxentry{aisquared.config.rendering.DocumentRendering}, \hyperpage{29}
     \subitem \spxentry{aisquared.config.rendering.DoughnutChartRendering}, \hyperpage{30}
     \subitem \spxentry{aisquared.config.rendering.FilterRendering}, \hyperpage{32}
@@ -606,21 +660,23 @@
     \subitem \spxentry{aisquared.config.rendering.utils}, \hyperpage{40}
     \subitem \spxentry{aisquared.config.rendering.WordRendering}, \hyperpage{39}
     \subitem \spxentry{aisquared.logging}, \hyperpage{44}
-    \subitem \spxentry{aisquared.platform}, \hyperpage{62}
-    \subitem \spxentry{aisquared.platform.additional\_utils}, \hyperpage{61}
+    \subitem \spxentry{aisquared.platform}, \hyperpage{67}
+    \subitem \spxentry{aisquared.platform.additional\_utils}, \hyperpage{66}
     \subitem \spxentry{aisquared.platform.AISquaredAPIException}, \hyperpage{44}
     \subitem \spxentry{aisquared.platform.AISquaredPlatformClient}, \hyperpage{45}
-    \subitem \spxentry{aisquared.platform.crudl}, \hyperpage{61}
-    \subitem \spxentry{aisquared.platform.feedback}, \hyperpage{61}
-    \subitem \spxentry{aisquared.platform.metrics}, \hyperpage{61}
-    \subitem \spxentry{aisquared.platform.NoResultsFoundError}, \hyperpage{61}
-    \subitem \spxentry{aisquared.platform.sharing}, \hyperpage{61}
-    \subitem \spxentry{aisquared.platform.user\_group}, \hyperpage{61}
-    \subitem \spxentry{aisquared.serving}, \hyperpage{63}
-    \subitem \spxentry{aisquared.serving.deploy\_model}, \hyperpage{62}
-    \subitem \spxentry{aisquared.serving.get\_remote\_prediction}, \hyperpage{62}
-    \subitem \spxentry{aisquared.utils}, \hyperpage{65}
-    \subitem \spxentry{aisquared.utils.utils}, \hyperpage{63}
+    \subitem \spxentry{aisquared.platform.crudl}, \hyperpage{66}
+    \subitem \spxentry{aisquared.platform.DatabricksAPIException}, \hyperpage{61}
+    \subitem \spxentry{aisquared.platform.DatabricksClient}, \hyperpage{61}
+    \subitem \spxentry{aisquared.platform.feedback}, \hyperpage{66}
+    \subitem \spxentry{aisquared.platform.metrics}, \hyperpage{66}
+    \subitem \spxentry{aisquared.platform.NoResultsFoundError}, \hyperpage{66}
+    \subitem \spxentry{aisquared.platform.sharing}, \hyperpage{66}
+    \subitem \spxentry{aisquared.platform.user\_group}, \hyperpage{67}
+    \subitem \spxentry{aisquared.serving}, \hyperpage{68}
+    \subitem \spxentry{aisquared.serving.deploy\_model}, \hyperpage{67}
+    \subitem \spxentry{aisquared.serving.get\_remote\_prediction}, \hyperpage{67}
+    \subitem \spxentry{aisquared.utils}, \hyperpage{70}
+    \subitem \spxentry{aisquared.utils.utils}, \hyperpage{68}
   \item \spxentry{MulticlassClassification}\spxextra{class in aisquared.config.postprocessing.MulticlassClassification}, 
 		\hyperpage{15}
   \item \spxentry{MulticlassFeedback}\spxextra{class in aisquared.config.feedback.MulticlassFeedback}, 
@@ -634,7 +690,7 @@
 		\hyperpage{42}
   \item \spxentry{name}\spxextra{aisquared.config.ModelConfiguration.ModelConfiguration property}, 
 		\hyperpage{44}
-  \item \spxentry{NoResultsFoundError}, \hyperpage{61}
+  \item \spxentry{NoResultsFoundError}, \hyperpage{66}
 
   \indexspace
   \bigletter O
@@ -706,6 +762,8 @@
 		\hyperpage{13}
   \item \spxentry{query\_selector}\spxextra{aisquared.config.rendering.ContainerRendering.ContainerRendering property}, 
 		\hyperpage{27}
+  \item \spxentry{query\_selector}\spxextra{aisquared.config.rendering.CustomRendering.CustomRendering property}, 
+		\hyperpage{28}
   \item \spxentry{QueryParameterHarvester}\spxextra{class in aisquared.config.harvesting.QueryParameterHarvester}, 
 		\hyperpage{12}
 
@@ -737,6 +795,8 @@
 		\hyperpage{7}
   \item \spxentry{round}\spxextra{aisquared.config.postprocessing.Regression.Regression property}, 
 		\hyperpage{16}
+  \item \spxentry{run\_job()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}, 
+		\hyperpage{65}
 
   \indexspace
   \bigletter S
@@ -770,6 +830,8 @@
 		\hyperpage{44}
   \item \spxentry{start\_character}\spxextra{aisquared.config.preprocessing.text.Steps.ConvertToVocabulary property}, 
 		\hyperpage{22}
+  \item \spxentry{start\_compute()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}, 
+		\hyperpage{65}
   \item \spxentry{static\_position}\spxextra{aisquared.config.rendering.ContainerRendering.ContainerRendering property}, 
 		\hyperpage{27}
   \item \spxentry{stds}\spxextra{aisquared.config.preprocessing.tabular.Steps.ZScore property}, 
@@ -780,6 +842,8 @@
 		\hyperpage{24}
   \item \spxentry{steps}\spxextra{aisquared.config.rendering.DashboardRendering.DashboardRendering property}, 
 		\hyperpage{28}
+  \item \spxentry{stop\_compute()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}, 
+		\hyperpage{66}
   \item \spxentry{SubtractValue}\spxextra{class in aisquared.config.preprocessing.image.Steps}, 
 		\hyperpage{18}
 
@@ -906,6 +970,8 @@
 		\hyperpage{26}
   \item \spxentry{to\_dict()}\spxextra{aisquared.config.rendering.ContainerRendering.ContainerRendering method}, 
 		\hyperpage{27}
+  \item \spxentry{to\_dict()}\spxextra{aisquared.config.rendering.CustomRendering.CustomRendering method}, 
+		\hyperpage{28}
   \item \spxentry{to\_dict()}\spxextra{aisquared.config.rendering.DashboardRendering.DashboardRendering method}, 
 		\hyperpage{28}
   \item \spxentry{to\_dict()}\spxextra{aisquared.config.rendering.DashboardReplacementRendering.DashboardReplacementRendering method}, 
@@ -937,6 +1003,8 @@
   \item \spxentry{to\_json()}\spxextra{aisquared.base.BaseObject.BaseObject method}, \hyperpage{3}
   \item \spxentry{token}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}, 
 		\hyperpage{58}
+  \item \spxentry{token}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient property}, 
+		\hyperpage{66}
   \item \spxentry{token\_pattern}\spxextra{aisquared.config.preprocessing.text.Steps.Tokenize property}, 
 		\hyperpage{24}
   \item \spxentry{Tokenize}\spxextra{class in aisquared.config.preprocessing.text.Steps}, 
@@ -960,6 +1028,8 @@
 		\hyperpage{60}
   \item \spxentry{upload\_model()}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient method}, 
 		\hyperpage{61}
+  \item \spxentry{upload\_to\_workspace()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}, 
+		\hyperpage{66}
   \item \spxentry{url}\spxextra{aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic property}, 
 		\hyperpage{5}
   \item \spxentry{url}\spxextra{aisquared.config.analytic.DeployedModel.DeployedModel property}, 
@@ -974,6 +1044,8 @@
 		\hyperpage{61}
   \item \spxentry{username}\spxextra{aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient property}, 
 		\hyperpage{61}
+  \item \spxentry{username}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient property}, 
+		\hyperpage{66}
 
   \indexspace
   \bigletter V
