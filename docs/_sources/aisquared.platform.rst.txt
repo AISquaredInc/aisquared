@@ -20,6 +20,22 @@ aisquared.platform.AISquaredPlatformClient module
    :undoc-members:
    :show-inheritance:
 
+aisquared.platform.DatabricksAPIException module
+------------------------------------------------
+
+.. automodule:: aisquared.platform.DatabricksAPIException
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+aisquared.platform.DatabricksClient module
+------------------------------------------
+
+.. automodule:: aisquared.platform.DatabricksClient
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 aisquared.platform.NoResultsFoundError module
 ---------------------------------------------
 

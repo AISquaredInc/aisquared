@@ -15,7 +15,7 @@ Welcome to the documentation for the `aisquared` python package!
 
 This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.
 
-**Current Production Version:** ``0.3.9``
+**Current Production Version:** ``0.3.10``
 
 :download:`View this Documentation in PDF Format <./_build/latex/aisquared.pdf>`.
 
@@ -153,3 +153,5 @@ Changelog
 - Version 0.3.9
    - Created `CustomRendering` class
    - Changed to full import of `CustomObject` in `aisquared.base` subpackage
+- Version 0.3.10
+   - Added `DatabricksClient` to the `aisquared.platform` subpackage

@@ -20,6 +20,14 @@ aisquared.config.rendering.ContainerRendering module
    :undoc-members:
    :show-inheritance:
 
+aisquared.config.rendering.CustomRendering module
+-------------------------------------------------
+
+.. automodule:: aisquared.config.rendering.CustomRendering
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 aisquared.config.rendering.DashboardRendering module
 ----------------------------------------------------
 
