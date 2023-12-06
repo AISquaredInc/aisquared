@@ -26,9 +26,9 @@ class DeployedModel(BaseObject):
         self,
         url: str,
         input_type: str,
-        headers : dict = None,
-        body_key : str = None,
-        return_key : str = None
+        headers: dict = None,
+        body_key: str = None,
+        return_key: str = None
     ):
         """
         Parameters
@@ -78,7 +78,7 @@ class DeployedModel(BaseObject):
     @property
     def body_key(self):
         return self._body_key
-    
+
     @body_key.setter
     def body_key(self, value):
         self._body_key = value
@@ -86,7 +86,7 @@ class DeployedModel(BaseObject):
     @property
     def return_key(self):
         return self._return_key
-    
+
     @return_key.setter
     def return_key(self, value):
         self._return_key = value
@@ -101,7 +101,7 @@ class DeployedModel(BaseObject):
                 'url': self.url,
                 'inputType': self.input_type,
                 'headers': self.headers,
-                'bodyKey' : self.body_key,
-                'returnKey' : self.return_key
+                'bodyKey': self.body_key,
+                'returnKey': self.return_key
             }
         }
