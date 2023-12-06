@@ -16,8 +16,9 @@ class DeployedModel(BaseObject):
     {'className': 'DeployedModel',
     'params': {'url': 'model_url',
     'inputType': 'text',
-    'secret': 'request',
-    'header': None}}
+    'headers': None,
+    'bodyKey': None,
+    'returnKey': None}}
 
     """
 
@@ -25,8 +26,9 @@ class DeployedModel(BaseObject):
         self,
         url: str,
         input_type: str,
-        secret: str = 'request',
-        header: dict = None
+        headers : dict = None,
+        body_key : str = None,
+        return_key : str = None
     ):
         """
         Parameters
@@ -35,17 +37,19 @@ class DeployedModel(BaseObject):
             The base URL for the remote endpoint
         input_type : str
             The input type to the model. Either one of 'cv', 'text', or 'tabular'
-        secret : str (default 'request')
-            The secret key used to interact with the service. Default value of 'request'
-            indicates that the user inputs the key whenever the analytic is started again
-        header : dict or None (default None)
-            Header to use when calling the endpoint
+        headers : dict or None (default None)
+            Headers to use when calling the endpoint
+        body_key : str or None (default None)
+            The key to use for the data to be sent to the endpoint
+        return_key : str or None (default None)
+            The key to parse the returned value from
         """
         super().__init__()
         self.url = url
         self.input_type = input_type
-        self.secret = secret
-        self.header = header
+        self.headers = headers
+        self.body_key = body_key
+        self.return_key = return_key
 
     @property
     def url(self):
@@ -64,20 +68,28 @@ class DeployedModel(BaseObject):
         self._input_type = value
 
     @property
-    def secret(self):
-        return self._secret
+    def headers(self):
+        return self._headers
 
-    @secret.setter
-    def secret(self, value):
-        self._secret = value
+    @headers.setter
+    def headers(self, value):
+        self._headers = value
 
     @property
-    def header(self):
-        return self._header
+    def body_key(self):
+        return self._body_key
+    
+    @body_key.setter
+    def body_key(self, value):
+        self._body_key = value
 
-    @header.setter
-    def header(self, value):
-        self._header = value
+    @property
+    def return_key(self):
+        return self._return_key
+    
+    @return_key.setter
+    def return_key(self, value):
+        self._return_key = value
 
     def to_dict(self) -> dict:
         """
@@ -88,7 +100,8 @@ class DeployedModel(BaseObject):
             'params': {
                 'url': self.url,
                 'inputType': self.input_type,
-                'secret': self.secret,
-                'header': self.header
+                'headers': self.headers,
+                'bodyKey' : self.body_key,
+                'returnKey' : self.return_key
             }
         }
