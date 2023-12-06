@@ -344,3 +344,6 @@ Below are a list of additional features, bug fixes, and other changes made for e
 
 ## Version 0.3.10
 - Added `DatabricksClient` to the `aisquared.platform` subpackage
+
+## Version 0.3.11
+- Updated `DeployedModel` class configuration to conform to AIRJS

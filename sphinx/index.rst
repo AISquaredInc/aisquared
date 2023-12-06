@@ -155,3 +155,5 @@ Changelog
    - Changed to full import of `CustomObject` in `aisquared.base` subpackage
 - Version 0.3.10
    - Added `DatabricksClient` to the `aisquared.platform` subpackage
+- Version 0.3.11
+   - Updated `DeployedModel` class configuration to conform to AIRJS
