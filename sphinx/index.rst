@@ -157,3 +157,4 @@ Changelog
    - Added `DatabricksClient` to the `aisquared.platform` subpackage
 - Version 0.3.11
    - Updated `DeployedModel` class configuration to conform to AIRJS
+   - Updated `DatabricksClient` class to include `update_job` function
