@@ -477,6 +477,144 @@ class DatabricksClient:
 
         return resp.json()['run_id']
 
+    def update_job(
+            self,
+            job_id: int,
+            job_name: str,
+            tasks: list,
+            libraries: list,
+            compute_name: str,
+            spark_version: str,
+            node_type_id: str,
+            cron_syntax: str = None,
+            timezone: str = None
+    ) -> bool:
+        """
+        Update a job by Job ID using notebooks and/or scripts in the workspace
+
+        Parameters
+        ----------
+        job_id : int
+            The unique identifier of the job to update
+        job_name : str
+            The new name for the job
+        tasks : list of dict
+            List of {task_name : task_script} dictionary pairs to run in the updated job
+        libraries : list of str
+            The dependent libraries to install on all compute for the new job
+        compute_name : str
+            The name of the compute to provision specifically for the new job
+        spark_version : str
+            The version of Spark to use on the compute instances
+        node_type_id : str
+            The node type to use
+        cron_syntax : str or None (default None)
+            If the new job is to be set to a schedule, the cron syntax for that schedule
+        timezone : str or None (default None)
+            The timezone to set the schedule to, if cron syntax is provided
+
+        Returns
+        -------
+        success : bool
+            Whether the update job call was successful
+        """
+        # Create the array of libraries
+        library_array = [
+            {'pypi': {'package': library}} for library in libraries
+        ]
+
+        # Create the array of tasks from the name : notebook locations in the dictionary of tasks
+        task_array = []
+        for i in range(len(tasks)):
+            task_name = list(tasks[i].keys())[0]
+            task_notebook = list(tasks[i].values())[0]
+
+            task_dict = {
+                'task_key': task_name,
+                'run_if': 'ALL_SUCCESS',
+                'notebook_task': {
+                    'notebook_path': task_notebook,
+                    'source': 'WORKSPACE'
+                },
+                'job_cluster_key': compute_name,
+                'libraries': library_array,
+                'timeout_seconds': 0,
+                'email_notifications': {},
+                'notification_settings': {
+                    'no_alert_for_skipped_runs': False,
+                    'no_alert_for_canceled_runs': False,
+                    'alert_on_last_attempt': False
+                },
+                'webhook_notifications': {},
+            }
+
+            if i != 0:
+                task_dict['depends_on'] = [
+                    {
+                        'task_key': list(tasks[i - 1].keys())[0]
+                    }
+                ]
+
+            task_array.append(task_dict)
+
+        # Create the job_clusters dictionary
+        job_clusters = [{
+            'job_cluster_key': compute_name,
+            'new_cluster': {
+                'cluster_name': '',
+                'spark_version': spark_version,
+                'spark_conf': {
+                    'spark.master': 'local[*, 4]'
+                },
+                'num_workers': 0,
+                'node_type_id': node_type_id,
+                'enable_elastic_disk': True,
+                'data_security_mode': 'LEGACY_SINGLE_USER_STANDARD',
+                'runtime_engine': 'STANDARD',
+                'spark_env_vars': {
+                    'PYSPARK_PYTHON': '/databricks/python3/bin/python'
+                }
+            }
+        }]
+
+        # Create the entire json to be sent with the request
+        job_dict = {
+            'name': job_name,
+            'email_notifications': {
+                'no_alert_for_skipped_runs': False
+            },
+            'webhook_notifications': {},
+            'timeout_seconds': 0,
+            'max_concurrent_runs': 1,
+            'tasks': task_array,
+            'job_clusters': job_clusters,
+            'run_as': {
+                'user_name': self.username
+            }
+        }
+
+        if cron_syntax and timezone:
+            job_dict['schedule'] = {
+                'quartz_cron_expression': cron_syntax,
+                'timezone_id': timezone,
+                'pause_status': 'UNPAUSED'
+            }
+
+        with requests.Session() as sess:
+            resp = sess.post(
+                url=f'{self.base_url}/api/2.1/jobs/reset',
+                headers=self.headers,
+                json={
+                    'job_id': job_id,
+                    'new_settings': job_dict
+                }
+            )
+
+        if not resp.ok:
+            raise DatabricksAPIException(resp.text)
+
+        return resp.ok
+
     def list_served_models(self, as_df: bool = True) -> Union[dict, pd.DataFrame]:
         """
         List served models in the workspace
