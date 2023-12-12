@@ -125,6 +125,11 @@ class DoughnutChartRendering(BaseObject):
                     self.css_params = json.load(f)
             else:
                 self.css_params = DEFAULT_CHART_RENDERING_CSS
+        else:
+            if css_params.get('style'):
+                self.css_params = css_params
+            else:
+                self.css_params = {'style': css_params}
 
     def to_dict(self) -> dict:
         """
