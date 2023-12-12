@@ -348,3 +348,5 @@ Below are a list of additional features, bug fixes, and other changes made for e
 ## Version 0.3.11
 - Updated `DeployedModel` class configuration to conform to AIRJS
 - Updated `DatabricksClient` class to include `update_job` function
+- Updated custom CSS fields in rendering classes
+- Reconfigured `ReverseMLWorkflow` class
