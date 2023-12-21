@@ -183,7 +183,8 @@ class AISquaredPlatformClient:
         """Headers used for authentication with the AI Squared Platform"""
         return {
             'authorization': f'Bearer {self._token}',
-            'authType': 'jwt'
+            'authType': 'jwt',
+            'User-Agent': 'AI Squared/1.0'
         }
 
     @property

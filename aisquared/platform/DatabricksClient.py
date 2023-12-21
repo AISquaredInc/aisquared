@@ -114,7 +114,8 @@ class DatabricksClient:
         """API headers for calls to the API"""
         return {
             'authorization': f'Bearer {self._token}',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'User-Agent': 'AI Squared/1.0'
         }
 
     @property
