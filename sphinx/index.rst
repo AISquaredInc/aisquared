@@ -160,3 +160,4 @@ Changelog
    - Updated `DatabricksClient` class to include `update_job` function
    - Updated custom CSS fields in rendering classes
    - Reconfigured `ReverseMLWorkflow` class
+   - Added `'User-Agent'` to headers for `AISquaredPlatformClient` and `DatabricksClient`
