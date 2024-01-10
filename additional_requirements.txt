@@ -5,3 +5,4 @@ click
 beyondml
 scikit-learn
 torch
+llmlink

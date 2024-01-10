@@ -13,5 +13,6 @@ try:
     import aisquared.logging
     import aisquared.serving
     import aisquared.utils
+    import llmlink
 except ImportError:
     pass
