@@ -1,4 +1,5 @@
 numpy
+jax==0.4.13
 tensorflowjs
 tensorflow
 pandas
