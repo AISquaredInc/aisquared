@@ -15,7 +15,7 @@ Welcome to the documentation for the `aisquared` python package!
 
 This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.
 
-**Current Production Version:** ``0.3.10``
+**Current Production Version:** ``0.3.11``
 
 :download:`View this Documentation in PDF Format <./_build/latex/aisquared.pdf>`.
 
@@ -161,3 +161,4 @@ Changelog
    - Updated custom CSS fields in rendering classes
    - Reconfigured `ReverseMLWorkflow` class
    - Added `'User-Agent'` to headers for `AISquaredPlatformClient` and `DatabricksClient`
+   - Added `llmlink` as a dependency to the 'full' installation of `aisquared` and added it as a top-level package

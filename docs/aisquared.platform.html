@@ -1509,6 +1509,33 @@ the need to run this command again in the future</p></li>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="aisquared.platform.DatabricksClient.DatabricksClient.update_job">
+<span class="sig-name descname"><span class="pre">update_job</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">job_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">job_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tasks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">libraries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spark_version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_type_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cron_syntax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timezone</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/aisquared/platform/DatabricksClient.html#DatabricksClient.update_job"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.platform.DatabricksClient.DatabricksClient.update_job" title="Permalink to this definition"></a></dt>
+<dd><p>Update a job by Job ID using notebooks and/or scripts in the workspace</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>job_id</strong> (<em>int</em>) – The unique identifier of the job to update</p></li>
+<li><p><strong>job_name</strong> (<em>str</em>) – The new name for the job</p></li>
+<li><p><strong>tasks</strong> (<em>list</em><em> of </em><em>dict</em>) – List of {task_name : task_script} dictionary pairs to run in the updated job</p></li>
+<li><p><strong>libraries</strong> (<em>list</em><em> of </em><em>str</em>) – The dependent libraries to install on all compute for the new job</p></li>
+<li><p><strong>compute_name</strong> (<em>str</em>) – The name of the compute to provision specifically for the new job</p></li>
+<li><p><strong>spark_version</strong> (<em>str</em>) – The version of Spark to use on the compute instances</p></li>
+<li><p><strong>node_type_id</strong> (<em>str</em>) – The node type to use</p></li>
+<li><p><strong>cron_syntax</strong> (<em>str</em><em> or </em><em>None</em><em> (</em><em>default None</em><em>)</em>) – If the new job is to be set to a schedule, the cron syntax for that schedule</p></li>
+<li><p><strong>timezone</strong> (<em>str</em><em> or </em><em>None</em><em> (</em><em>default None</em><em>)</em>) – The timezone to set the schedule to, if cron syntax is provided</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>success</strong> – Whether the update job call was successful</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="aisquared.platform.DatabricksClient.DatabricksClient.upload_to_workspace">
 <span class="sig-name descname"><span class="pre">upload_to_workspace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/aisquared/platform/DatabricksClient.html#DatabricksClient.upload_to_workspace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.platform.DatabricksClient.DatabricksClient.upload_to_workspace" title="Permalink to this definition"></a></dt>
 <dd><p>Upload a file to the workspace</p>

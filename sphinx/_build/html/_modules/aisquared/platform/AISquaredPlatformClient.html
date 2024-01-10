@@ -254,7 +254,8 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Headers used for authentication with the AI Squared Platform&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">{</span>
             <span class="s1">&#39;authorization&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;Bearer </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_token</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;authType&#39;</span><span class="p">:</span> <span class="s1">&#39;jwt&#39;</span>
+            <span class="s1">&#39;authType&#39;</span><span class="p">:</span> <span class="s1">&#39;jwt&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;AI Squared/1.0&#39;</span>
         <span class="p">}</span>
 
     <span class="nd">@property</span>

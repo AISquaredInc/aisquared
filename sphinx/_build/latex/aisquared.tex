@@ -64,7 +64,7 @@
 
 
 \title{aisquared}
-\date{Nov 28, 2023}
+\date{Jan 10, 2024}
 \release{}
 \author{The AI Squared Team}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -96,7 +96,7 @@
 This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.
 
 \sphinxAtStartPar
-\sphinxstylestrong{Current Production Version:} \sphinxcode{\sphinxupquote{0.3.10}}
+\sphinxstylestrong{Current Production Version:} \sphinxcode{\sphinxupquote{0.3.11}}
 
 \sphinxAtStartPar
 \sphinxcode{\sphinxupquote{View this Documentation in PDF Format}}.
@@ -355,7 +355,7 @@ Get the object as a dictionary
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.config.analytic:aisquared.config.analytic.DeployedModel.DeployedModel}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w,w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.analytic.DeployedModel.}}\sphinxbfcode{\sphinxupquote{DeployedModel}}}{\sphinxparam{\DUrole{n,n}{url}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}}, \sphinxparam{\DUrole{n,n}{input\_type}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}}, \sphinxparam{\DUrole{n,n}{secret}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}request\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{header}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{dict\DUrole{w,w}{  }\DUrole{p,p}{|}\DUrole{w,w}{  }None}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{None}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w,w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.analytic.DeployedModel.}}\sphinxbfcode{\sphinxupquote{DeployedModel}}}{\sphinxparam{\DUrole{n,n}{url}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}}, \sphinxparam{\DUrole{n,n}{input\_type}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}}, \sphinxparam{\DUrole{n,n}{headers}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{dict\DUrole{w,w}{  }\DUrole{p,p}{|}\DUrole{w,w}{  }None}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{None}}, \sphinxparam{\DUrole{n,n}{body\_key}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str\DUrole{w,w}{  }\DUrole{p,p}{|}\DUrole{w,w}{  }None}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{None}}, \sphinxparam{\DUrole{n,n}{return\_key}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str\DUrole{w,w}{  }\DUrole{p,p}{|}\DUrole{w,w}{  }None}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{None}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Bases: {\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{BaseObject}}}}}
@@ -376,15 +376,25 @@ Example usage:
 \PYG{g+go}{\PYGZob{}\PYGZsq{}className\PYGZsq{}: \PYGZsq{}DeployedModel\PYGZsq{},}
 \PYG{g+go}{\PYGZsq{}params\PYGZsq{}: \PYGZob{}\PYGZsq{}url\PYGZsq{}: \PYGZsq{}model\PYGZus{}url\PYGZsq{},}
 \PYG{g+go}{\PYGZsq{}inputType\PYGZsq{}: \PYGZsq{}text\PYGZsq{},}
-\PYG{g+go}{\PYGZsq{}secret\PYGZsq{}: \PYGZsq{}request\PYGZsq{},}
-\PYG{g+go}{\PYGZsq{}header\PYGZsq{}: None\PYGZcb{}\PYGZcb{}}
+\PYG{g+go}{\PYGZsq{}headers\PYGZsq{}: None,}
+\PYG{g+go}{\PYGZsq{}bodyKey\PYGZsq{}: None,}
+\PYG{g+go}{\PYGZsq{}returnKey\PYGZsq{}: None\PYGZcb{}\PYGZcb{}}
 \end{sphinxVerbatim}
-\index{header (aisquared.config.analytic.DeployedModel.DeployedModel property)@\spxentry{header}\spxextra{aisquared.config.analytic.DeployedModel.DeployedModel property}}
+\index{body\_key (aisquared.config.analytic.DeployedModel.DeployedModel property)@\spxentry{body\_key}\spxextra{aisquared.config.analytic.DeployedModel.DeployedModel property}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.config.analytic:aisquared.config.analytic.DeployedModel.DeployedModel.header}}
+\phantomsection\label{\detokenize{aisquared.config.analytic:aisquared.config.analytic.DeployedModel.DeployedModel.body_key}}
 \pysigstartsignatures
-\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w,w}{  }}}\sphinxbfcode{\sphinxupquote{header}}}
+\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w,w}{  }}}\sphinxbfcode{\sphinxupquote{body\_key}}}
+\pysigstopsignatures
+\end{fulllineitems}
+
+\index{headers (aisquared.config.analytic.DeployedModel.DeployedModel property)@\spxentry{headers}\spxextra{aisquared.config.analytic.DeployedModel.DeployedModel property}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{aisquared.config.analytic:aisquared.config.analytic.DeployedModel.DeployedModel.headers}}
+\pysigstartsignatures
+\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w,w}{  }}}\sphinxbfcode{\sphinxupquote{headers}}}
 \pysigstopsignatures
 \end{fulllineitems}
 
@@ -397,12 +407,12 @@ Example usage:
 \pysigstopsignatures
 \end{fulllineitems}
 
-\index{secret (aisquared.config.analytic.DeployedModel.DeployedModel property)@\spxentry{secret}\spxextra{aisquared.config.analytic.DeployedModel.DeployedModel property}}
+\index{return\_key (aisquared.config.analytic.DeployedModel.DeployedModel property)@\spxentry{return\_key}\spxextra{aisquared.config.analytic.DeployedModel.DeployedModel property}}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.config.analytic:aisquared.config.analytic.DeployedModel.DeployedModel.secret}}
+\phantomsection\label{\detokenize{aisquared.config.analytic:aisquared.config.analytic.DeployedModel.DeployedModel.return_key}}
 \pysigstartsignatures
-\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w,w}{  }}}\sphinxbfcode{\sphinxupquote{secret}}}
+\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w,w}{  }}}\sphinxbfcode{\sphinxupquote{return\_key}}}
 \pysigstopsignatures
 \end{fulllineitems}
 
@@ -576,106 +586,13 @@ Get the configuration object as a dictionary
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{aisquared.config.analytic:aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow}}
 \pysigstartsignatures
-\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w,w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.analytic.ReverseMLWorkflow.}}\sphinxbfcode{\sphinxupquote{ReverseMLWorkflow}}}{\sphinxparam{\DUrole{n,n}{bucket}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}}, \sphinxparam{\DUrole{n,n}{filenames}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{list}}, \sphinxparam{\DUrole{n,n}{column}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}}, \sphinxparam{\DUrole{n,n}{input\_type}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}}, \sphinxparam{\DUrole{n,n}{filter\_type}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}}, \sphinxparam{\DUrole{n,n}{filter\_by\_columns}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{list\DUrole{w,w}{  }\DUrole{p,p}{|}\DUrole{w,w}{  }None}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{None}}, \sphinxparam{\DUrole{n,n}{period}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{int\DUrole{w,w}{  }\DUrole{p,p}{|}\DUrole{w,w}{  }None}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{None}}, \sphinxparam{\DUrole{n,n}{secret}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}}{}
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class\DUrole{w,w}{  }}}\sphinxcode{\sphinxupquote{aisquared.config.analytic.ReverseMLWorkflow.}}\sphinxbfcode{\sphinxupquote{ReverseMLWorkflow}}}{\sphinxparam{\DUrole{n,n}{label}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}}, \sphinxparam{\DUrole{n,n}{connector\_type}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}}, \sphinxparam{\DUrole{n,n}{connector\_action}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}read\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{input\_type}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}text\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{filter\_type}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}input\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{file\_names}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{list}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{{[}{]}}}, \sphinxparam{\DUrole{n,n}{bucket}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{filter\_by\_columns}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{list}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{{[}{]}}}, \sphinxparam{\DUrole{n,n}{all}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{bool}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{False}}, \sphinxparam{\DUrole{n,n}{arn}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{host}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{path}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{port}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{role}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{soql}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{query}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{token}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{column}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{db\_name}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{db\_user}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{period}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{int\DUrole{w,w}{  }\DUrole{p,p}{|}\DUrole{w,w}{  }None}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{None}}, \sphinxparam{\DUrole{n,n}{schema}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{secret}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{account}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{data\_map}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{list}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{{[}{]}}}, \sphinxparam{\DUrole{n,n}{db\_table}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{client\_id}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{file\_name}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{password}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{schedule}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{sync\_keys}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{dict}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\{\textquotesingle{}destination\textquotesingle{}: \textquotesingle{}\textquotesingle{}, \textquotesingle{}source\textquotesingle{}: \textquotesingle{}\textquotesingle{}\}}}, \sphinxparam{\DUrole{n,n}{warehouse}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{data\_source}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{cluster\_name}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{client\_secret}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{organization}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}, \sphinxparam{\DUrole{n,n}{authentication\_type}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{\textquotesingle{}\textquotesingle{}}}}{}
 \pysigstopsignatures
 \sphinxAtStartPar
 Bases: {\hyperref[\detokenize{aisquared.base:aisquared.base.BaseObject.BaseObject}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{BaseObject}}}}}
 
 \sphinxAtStartPar
-Interaction with a ReverseML CSV stored in S3
-
-\sphinxAtStartPar
-Example usage:
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{k+kn}{import} \PYG{n+nn}{aisquared}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{analytic} \PYG{o}{=} \PYG{n}{aisquared}\PYG{o}{.}\PYG{n}{config}\PYG{o}{.}\PYG{n}{analytic}\PYG{o}{.}\PYG{n}{ReverseMLWorkflow}\PYG{p}{(}
-\PYG{g+go}{    \PYGZsq{}bucket\PYGZus{}name\PYGZsq{},}
-\PYG{g+go}{    \PYGZsq{}file\PYGZus{}name\PYGZsq{},}
-\PYG{g+go}{    \PYGZsq{}column\PYGZus{}name\PYGZsq{},}
-\PYG{g+go}{    \PYGZsq{}text\PYGZsq{}}
-\PYG{g+go}{)}
-\PYG{g+gp}{\PYGZgt{}\PYGZgt{}\PYGZgt{} }\PYG{n}{analytic}\PYG{o}{.}\PYG{n}{to\PYGZus{}dict}\PYG{p}{(}\PYG{p}{)}
-\PYG{g+go}{\PYGZob{}\PYGZsq{}className\PYGZsq{}: \PYGZsq{}ReverseMLWorkflow\PYGZsq{},}
-\PYG{g+go}{\PYGZsq{}params\PYGZsq{}: \PYGZob{}\PYGZsq{}bucket\PYGZsq{}: \PYGZsq{}bucket\PYGZus{}name\PYGZsq{},}
-\PYG{g+go}{\PYGZsq{}fileNames\PYGZsq{}: [\PYGZsq{}file\PYGZus{}name\PYGZsq{}],}
-\PYG{g+go}{\PYGZsq{}inputType\PYGZsq{}: \PYGZsq{}text\PYGZsq{},}
-\PYG{g+go}{\PYGZsq{}column\PYGZsq{}: \PYGZsq{}column\PYGZus{}name\PYGZsq{},}
-\PYG{g+go}{\PYGZsq{}period\PYGZsq{}: None,}
-\PYG{g+go}{\PYGZsq{}secret\PYGZsq{}: \PYGZsq{}\PYGZsq{}\PYGZcb{}\PYGZcb{}}
-\end{sphinxVerbatim}
-\index{bucket (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)@\spxentry{bucket}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.config.analytic:aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.bucket}}
-\pysigstartsignatures
-\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w,w}{  }}}\sphinxbfcode{\sphinxupquote{bucket}}}
-\pysigstopsignatures
-\end{fulllineitems}
-
-\index{column (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)@\spxentry{column}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.config.analytic:aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.column}}
-\pysigstartsignatures
-\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w,w}{  }}}\sphinxbfcode{\sphinxupquote{column}}}
-\pysigstopsignatures
-\end{fulllineitems}
-
-\index{filenames (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)@\spxentry{filenames}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.config.analytic:aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.filenames}}
-\pysigstartsignatures
-\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w,w}{  }}}\sphinxbfcode{\sphinxupquote{filenames}}}
-\pysigstopsignatures
-\end{fulllineitems}
-
-\index{filter\_by\_columns (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)@\spxentry{filter\_by\_columns}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.config.analytic:aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.filter_by_columns}}
-\pysigstartsignatures
-\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w,w}{  }}}\sphinxbfcode{\sphinxupquote{filter\_by\_columns}}}
-\pysigstopsignatures
-\end{fulllineitems}
-
-\index{filter\_type (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)@\spxentry{filter\_type}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.config.analytic:aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.filter_type}}
-\pysigstartsignatures
-\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w,w}{  }}}\sphinxbfcode{\sphinxupquote{filter\_type}}}
-\pysigstopsignatures
-\end{fulllineitems}
-
-\index{input\_type (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)@\spxentry{input\_type}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.config.analytic:aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.input_type}}
-\pysigstartsignatures
-\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w,w}{  }}}\sphinxbfcode{\sphinxupquote{input\_type}}}
-\pysigstopsignatures
-\end{fulllineitems}
-
-\index{period (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)@\spxentry{period}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.config.analytic:aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.period}}
-\pysigstartsignatures
-\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w,w}{  }}}\sphinxbfcode{\sphinxupquote{period}}}
-\pysigstopsignatures
-\end{fulllineitems}
-
-\index{secret (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property)@\spxentry{secret}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow property}}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{aisquared.config.analytic:aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow.secret}}
-\pysigstartsignatures
-\pysigline{\sphinxbfcode{\sphinxupquote{property\DUrole{w,w}{  }}}\sphinxbfcode{\sphinxupquote{secret}}}
-\pysigstopsignatures
-\end{fulllineitems}
-
+Creation of a ReverseML Workflow to interact with remote data sources
 \index{to\_dict() (aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow method)@\spxentry{to\_dict()}\spxextra{aisquared.config.analytic.ReverseMLWorkflow.ReverseMLWorkflow method}}
 
 \begin{fulllineitems}
@@ -7292,6 +7209,67 @@ The token to use for the workspace
 
 \end{fulllineitems}
 
+\index{update\_job() (aisquared.platform.DatabricksClient.DatabricksClient method)@\spxentry{update\_job()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{aisquared.platform:aisquared.platform.DatabricksClient.DatabricksClient.update_job}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{update\_job}}}{\sphinxparam{\DUrole{n,n}{job\_id}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{int}}, \sphinxparam{\DUrole{n,n}{job\_name}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}}, \sphinxparam{\DUrole{n,n}{tasks}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{list}}, \sphinxparam{\DUrole{n,n}{libraries}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{list}}, \sphinxparam{\DUrole{n,n}{compute\_name}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}}, \sphinxparam{\DUrole{n,n}{spark\_version}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}}, \sphinxparam{\DUrole{n,n}{node\_type\_id}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str}}, \sphinxparam{\DUrole{n,n}{cron\_syntax}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str\DUrole{w,w}{  }\DUrole{p,p}{|}\DUrole{w,w}{  }None}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{None}}, \sphinxparam{\DUrole{n,n}{timezone}\DUrole{p,p}{:}\DUrole{w,w}{  }\DUrole{n,n}{str\DUrole{w,w}{  }\DUrole{p,p}{|}\DUrole{w,w}{  }None}\DUrole{w,w}{  }\DUrole{o,o}{=}\DUrole{w,w}{  }\DUrole{default_value}{None}}}{{ $\rightarrow$ bool}}
+\pysigstopsignatures
+\sphinxAtStartPar
+Update a job by Job ID using notebooks and/or scripts in the workspace
+\begin{quote}\begin{description}
+\sphinxlineitem{Parameters}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{job\_id}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \textendash{} The unique identifier of the job to update
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{job\_name}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The new name for the job
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{tasks}} (\sphinxstyleliteralemphasis{\sphinxupquote{list}}\sphinxstyleliteralemphasis{\sphinxupquote{ of }}\sphinxstyleliteralemphasis{\sphinxupquote{dict}}) \textendash{} List of \{task\_name : task\_script\} dictionary pairs to run in the updated job
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{libraries}} (\sphinxstyleliteralemphasis{\sphinxupquote{list}}\sphinxstyleliteralemphasis{\sphinxupquote{ of }}\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The dependent libraries to install on all compute for the new job
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{compute\_name}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The name of the compute to provision specifically for the new job
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{spark\_version}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The version of Spark to use on the compute instances
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{node\_type\_id}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}) \textendash{} The node type to use
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{cron\_syntax}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} If the new job is to be set to a schedule, the cron syntax for that schedule
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleliteralstrong{\sphinxupquote{timezone}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}\sphinxstyleliteralemphasis{\sphinxupquote{ or }}\sphinxstyleliteralemphasis{\sphinxupquote{None}}\sphinxstyleliteralemphasis{\sphinxupquote{ (}}\sphinxstyleliteralemphasis{\sphinxupquote{default None}}\sphinxstyleliteralemphasis{\sphinxupquote{)}}) \textendash{} The timezone to set the schedule to, if cron syntax is provided
+
+\end{itemize}
+
+\sphinxlineitem{Returns}
+\sphinxAtStartPar
+\sphinxstylestrong{success} \textendash{} Whether the update job call was successful
+
+\sphinxlineitem{Return type}
+\sphinxAtStartPar
+bool
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
 \index{upload\_to\_workspace() (aisquared.platform.DatabricksClient.DatabricksClient method)@\spxentry{upload\_to\_workspace()}\spxextra{aisquared.platform.DatabricksClient.DatabricksClient method}}
 
 \begin{fulllineitems}
@@ -8177,6 +8155,36 @@ Changed to full import of \sphinxtitleref{CustomObject} in \sphinxtitleref{aisqu
 \item {} 
 \sphinxAtStartPar
 Added \sphinxtitleref{DatabricksClient} to the \sphinxtitleref{aisquared.platform} subpackage
+
+\end{itemize}
+
+\end{description}
+
+\item {} \begin{description}
+\sphinxlineitem{Version 0.3.11}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Updated \sphinxtitleref{DeployedModel} class configuration to conform to AIRJS
+
+\item {} 
+\sphinxAtStartPar
+Updated \sphinxtitleref{DatabricksClient} class to include \sphinxtitleref{update\_job} function
+
+\item {} 
+\sphinxAtStartPar
+Updated custom CSS fields in rendering classes
+
+\item {} 
+\sphinxAtStartPar
+Reconfigured \sphinxtitleref{ReverseMLWorkflow} class
+
+\item {} 
+\sphinxAtStartPar
+Added \sphinxtitleref{‘User\sphinxhyphen{}Agent’} to headers for \sphinxtitleref{AISquaredPlatformClient} and \sphinxtitleref{DatabricksClient}
+
+\item {} 
+\sphinxAtStartPar
+Added \sphinxtitleref{llmlink} as a dependency to the ‘full’ installation of \sphinxtitleref{aisquared} and added it as a top\sphinxhyphen{}level package
 
 \end{itemize}
 
