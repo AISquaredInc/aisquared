@@ -352,3 +352,6 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Reconfigured `ReverseMLWorkflow` class
 - Added `'User-Agent'` to headers for `AISquaredPlatformClient` and `DatabricksClient`
 - Added `llmlink` as a dependency to the 'full' installation of `aisquared` and added it as a top-level package
+
+## Version 0.3.12
+- Updated `DeployedModel` class to support more abstract API calls
