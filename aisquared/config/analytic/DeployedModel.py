@@ -28,7 +28,9 @@ class DeployedModel(BaseObject):
         input_type: str,
         headers: dict = None,
         body_key: str = None,
-        return_key: str = None
+        return_key: str = None,
+        body_setup: dict = None,
+        body_setup_replace_value: str = '{DATAPOINT}'
     ):
         """
         Parameters
@@ -43,6 +45,10 @@ class DeployedModel(BaseObject):
             The key to use for the data to be sent to the endpoint
         return_key : str or None (default None)
             The key to parse the returned value from
+        body_setup : dict or None (default None)
+            The prototype for the way the body of the request to the API is set up
+        body_setup_replace_value : str (default '{DATAPOINT}')
+            The value in the stringified version of the `body_setup` that gets replaced by the harvested data
         """
         super().__init__()
         self.url = url
@@ -50,6 +56,8 @@ class DeployedModel(BaseObject):
         self.headers = headers
         self.body_key = body_key
         self.return_key = return_key
+        self.body_setup = body_setup
+        self.body_setup_replace_value = body_setup_replace_value
 
     @property
     def url(self):
@@ -91,6 +99,20 @@ class DeployedModel(BaseObject):
     def return_key(self, value):
         self._return_key = value
 
+    @property
+    def body_setup(self):
+        return self._body_setup
+    @body_setup.setter
+    def body_setup(self, value):
+        self._body_setup = value
+
+    @property
+    def body_setup_replace_value(self):
+        return self._body_setup_replace_value
+    @body_setup_replace_value.setter
+    def body_setup_replace_value(self, value):
+        self._body_setup_replace_value = value
+
     def to_dict(self) -> dict:
         """
         Get the config object as a dictionary
@@ -102,6 +124,8 @@ class DeployedModel(BaseObject):
                 'inputType': self.input_type,
                 'headers': self.headers,
                 'bodyKey': self.body_key,
-                'returnKey': self.return_key
+                'returnKey': self.return_key,
+                'bodySetup': self.body_setup,
+                'bodySetupReplaceValue': self.body_setup_replace_value
             }
         }
