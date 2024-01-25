@@ -18,7 +18,9 @@ class DeployedModel(BaseObject):
     'inputType': 'text',
     'headers': None,
     'bodyKey': None,
-    'returnKey': None}}
+    'returnKey': None,
+    'bodySetup': None,
+    'bodySetupReplaceValue': None}}
 
     """
 
