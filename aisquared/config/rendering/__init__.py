@@ -18,6 +18,7 @@ from .PieChartRendering import PieChartRendering
 from .SOSRendering import SOSRendering
 from .TextRendering import TextRendering
 from .CustomRendering import CustomRendering
+from .ChatRendering import ChatRendering
 
 # from .DashboardRendering import DashboardRendering
 

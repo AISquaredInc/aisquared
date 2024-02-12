@@ -3,58 +3,64 @@ from aisquared.base import BaseObject
 
 class DeployedAnalytic(BaseObject):
     """
-    Interaction with a remote analytic
+    Interaction with a remote endpoint.
 
     Example usage:
 
     >>> import aisquared
     >>> analytic = aisquared.config.analytic.DeployedAnalytic(
-        'analytic_url',
-        'text'
+        'model_url',
+        'POST',
+        'text',
+        {
+            'Content-Type' : 'application/json'
+        },
+        {
+            'data_to_be_sent' : '{{input}}'
+        }
     )
     >>> analytic.to_dict()
     {'className': 'DeployedAnalytic',
-    'params': {'url': 'analytic_url',
-    'inputType': 'text',
-    'secret': 'request',
-    'header': None,
-    'apiKeyHeaderName': None,
-    'apiKeyPrefix': None}}
+        'params': {'url': 'model_url',
+        'method': 'POST',
+        'inputType': 'text',
+        'headers': {'Content-Type': 'application/json'},
+        'body': {'data_to_be_sent': '{{input}}'}}}
+
     """
 
     def __init__(
         self,
         url: str,
+        method: str,
         input_type: str,
-        secret: str = 'request',
-        header: dict = None,
-        api_key_header_name=None,
-        api_key_prefix=None
+        headers: dict = None,
+        body: dict = None
     ):
         """
         Parameters
         ----------
         url : str
             The base URL for the remote analytic
+        method : str
+            The method for hitting the API. Either 'POST' or 'GET'
         input_type : str
-            The input types supplied to the analytic. Either one of 'cv', 'text', or 'tabular'
-        secret : str (default 'request')
-            The secret key used to interact with the service. Default value of 'request'
-            indicates that the user inputs the key whenever the analytic is started again
-        header : dict or None (default None)
+            The input types supplied to the analytic. Either one of 'cv' or 'text'
+        headers : dict or None (default None)
             Header to use when calling the endpoint
-        api_key_header_name : str or None (default None)
-            The header name for the API key
-        api_key_prefix : str or None (default None)
-            The prefix for the API key
+        body : dict or None
+            Prototype request body to be sent
+
+        Notes
+        -----
+        - To input harvested data to the body, use the string "{{input}}"
         """
         super().__init__()
         self.url = url
+        self.method = method
         self.input_type = input_type
-        self.secret = secret
-        self.header = header
-        self.api_key_header_name = api_key_header_name
-        self.api_key_prefix = api_key_prefix
+        self.headers = headers
+        self.body = body
 
     @property
     def url(self):
@@ -65,6 +71,19 @@ class DeployedAnalytic(BaseObject):
         self._url = value
 
     @property
+    def method(self):
+        return self._method
+
+    @method.setter
+    def method(self, value):
+        if not isinstance(value, str):
+            raise TypeError(f'method must be str, got {type(value)}')
+        if value not in ['GET', 'POST']:
+            raise ValueError(
+                f'method must be one of "GET", "POST", got {value}')
+        self._method = value
+
+    @property
     def input_type(self):
         return self._input_type
 
@@ -73,50 +92,31 @@ class DeployedAnalytic(BaseObject):
         self._input_type = value
 
     @property
-    def secret(self):
-        return self._secret
+    def headers(self):
+        return self._headers
 
-    @secret.setter
-    def secret(self, value):
-        self._secret = value
-
-    @property
-    def header(self):
-        return self._header
-
-    @header.setter
-    def header(self, value):
-        self._header = value
+    @headers.setter
+    def headers(self, value):
+        self._headers = value
 
     @property
-    def api_key_header_name(self):
-        return self._api_key_header_name
+    def body(self):
+        return self._body
 
-    @api_key_header_name.setter
-    def api_key_header_name(self, value):
-        if not isinstance(value, str) and value is not None:
-            raise TypeError('api_key_header_name must be str')
-        self._api_key_header_name = value
-
-    @property
-    def api_key_prefix(self):
-        return self._api_key_prefix
-
-    @api_key_prefix.setter
-    def api_key_prefix(self, value):
-        if not isinstance(value, str) and value is not None:
-            raise TypeError('api_key_prefix must be str')
-        self._api_key_prefix = value
+    @body.setter
+    def body(self, value):
+        if not isinstance(value, dict):
+            raise TypeError(f'body must be dict, got {type(value)}')
+        self._body = value
 
     def to_dict(self) -> dict:
         return {
             'className': 'DeployedAnalytic',
             'params': {
                 'url': self.url,
+                'method': self.method,
                 'inputType': self.input_type,
-                'secret': self.secret,
-                'header': self.header,
-                'apiKeyHeaderName': self.api_key_header_name,
-                'apiKeyPrefix': self.api_key_prefix
+                'headers': self.headers,
+                'body': self.body
             }
         }

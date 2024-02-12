@@ -104,6 +104,7 @@ class DeployedModel(BaseObject):
     @property
     def body_setup(self):
         return self._body_setup
+
     @body_setup.setter
     def body_setup(self, value):
         self._body_setup = value
@@ -111,6 +112,7 @@ class DeployedModel(BaseObject):
     @property
     def body_setup_replace_value(self):
         return self._body_setup_replace_value
+
     @body_setup_replace_value.setter
     def body_setup_replace_value(self, value):
         self._body_setup_replace_value = value
