@@ -2,6 +2,9 @@ from aisquared.base import BaseObject
 
 
 class ChatRendering(BaseObject):
+    """
+    Rendering for a chatbot use case
+    """
 
     def __init__(
             self,
@@ -10,6 +13,19 @@ class ChatRendering(BaseObject):
             sender_name='You',
             responder_name='Chatbot'
     ):
+        """
+        Parameters
+        ----------
+        return_key : str
+            The return key to retrieve from the returned text. If nested, use dot notation
+            i.e. 'key1.key2.(...)'
+        prediction_value_key : default None
+            Deprecated, will be removed in a future version
+        sender_name : str (default 'You')
+            The name of the user persona in the displayed conversation
+        responder_name : str (default 'Chatbot')
+            The name of the non-user persona in the displayed conversation
+        """
         super().__init__()
         self.return_key = return_key
         self.prediction_value_key = prediction_value_key
@@ -49,6 +65,9 @@ class ChatRendering(BaseObject):
         self._responder_name = value
 
     def to_dict(self):
+        """
+        Get the configuration object as a dictionary
+        """
         return {
             'className': 'ChatRendering',
             'params': {
