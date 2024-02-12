@@ -466,7 +466,7 @@
   \item \spxentry{input\_type}\spxextra{aisquared.config.analytic.DeployedModel.DeployedModel property}, 
 		\hyperpage{6}
   \item \spxentry{input\_type}\spxextra{aisquared.config.analytic.LocalAnalytic.LocalAnalytic property}, 
-		\hyperpage{6}
+		\hyperpage{7}
   \item \spxentry{input\_type}\spxextra{aisquared.config.analytic.LocalModel.LocalModel property}, 
 		\hyperpage{7}
   \item \spxentry{input\_type}\spxextra{aisquared.config.harvesting.InputHarvester.InputHarvester property}, 
