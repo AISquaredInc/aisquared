@@ -98,38 +98,33 @@
 <span id="aisquared-config-analytic-deployedanalytic-module"></span><h2>aisquared.config.analytic.DeployedAnalytic module<a class="headerlink" href="#module-aisquared.config.analytic.DeployedAnalytic" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.analytic.DeployedAnalytic.</span></span><span class="sig-name descname"><span class="pre">DeployedAnalytic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secret</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'request'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_key_header_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_key_prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/analytic/DeployedAnalytic.html#DeployedAnalytic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.analytic.DeployedAnalytic.</span></span><span class="sig-name descname"><span class="pre">DeployedAnalytic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/analytic/DeployedAnalytic.html#DeployedAnalytic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
-<p>Interaction with a remote analytic</p>
+<p>Interaction with a remote endpoint.</p>
 <p>Example usage:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">aisquared</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">analytic</span> <span class="o">=</span> <span class="n">aisquared</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">analytic</span><span class="o">.</span><span class="n">DeployedAnalytic</span><span class="p">(</span>
-<span class="go">    &#39;analytic_url&#39;,</span>
-<span class="go">    &#39;text&#39;</span>
+<span class="go">    &#39;model_url&#39;,</span>
+<span class="go">    &#39;POST&#39;,</span>
+<span class="go">    &#39;text&#39;,</span>
+<span class="go">    {</span>
+<span class="go">        &#39;Content-Type&#39; : &#39;application/json&#39;</span>
+<span class="go">    },</span>
+<span class="go">    {</span>
+<span class="go">        &#39;data_to_be_sent&#39; : &#39;{{input}}&#39;</span>
+<span class="go">    }</span>
 <span class="go">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">analytic</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
-<span class="go">{&#39;className&#39;: &#39;DeployedAnalytic&#39;,</span>
-<span class="go">&#39;params&#39;: {&#39;url&#39;: &#39;analytic_url&#39;,</span>
-<span class="go">&#39;inputType&#39;: &#39;text&#39;,</span>
-<span class="go">&#39;secret&#39;: &#39;request&#39;,</span>
-<span class="go">&#39;header&#39;: None,</span>
-<span class="go">&#39;apiKeyHeaderName&#39;: None,</span>
-<span class="go">&#39;apiKeyPrefix&#39;: None}}</span>
 </pre></div>
 </div>
 <dl class="py property">
-<dt class="sig sig-object py" id="aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.api_key_header_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">api_key_header_name</span></span><a class="headerlink" href="#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.api_key_header_name" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.body">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">body</span></span><a class="headerlink" href="#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.body" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.api_key_prefix">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">api_key_prefix</span></span><a class="headerlink" href="#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.api_key_prefix" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.header">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">header</span></span><a class="headerlink" href="#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.header" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.headers">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">headers</span></span><a class="headerlink" href="#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.headers" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -138,8 +133,8 @@
 <dd></dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.secret">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">secret</span></span><a class="headerlink" href="#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.secret" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.method">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">method</span></span><a class="headerlink" href="#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.method" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -160,7 +155,7 @@
 <span id="aisquared-config-analytic-deployedmodel-module"></span><h2>aisquared.config.analytic.DeployedModel module<a class="headerlink" href="#module-aisquared.config.analytic.DeployedModel" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="aisquared.config.analytic.DeployedModel.DeployedModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.analytic.DeployedModel.</span></span><span class="sig-name descname"><span class="pre">DeployedModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/analytic/DeployedModel.html#DeployedModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.analytic.DeployedModel.DeployedModel" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">aisquared.config.analytic.DeployedModel.</span></span><span class="sig-name descname"><span class="pre">DeployedModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body_setup</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body_setup_replace_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'{DATAPOINT}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aisquared/config/analytic/DeployedModel.html#DeployedModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aisquared.config.analytic.DeployedModel.DeployedModel" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="aisquared.base.html#aisquared.base.BaseObject.BaseObject" title="aisquared.base.BaseObject.BaseObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseObject</span></code></a></p>
 <p>Interaction with a remote model</p>
 <p>Example usage:</p>
@@ -175,12 +170,24 @@
 <span class="go">&#39;inputType&#39;: &#39;text&#39;,</span>
 <span class="go">&#39;headers&#39;: None,</span>
 <span class="go">&#39;bodyKey&#39;: None,</span>
-<span class="go">&#39;returnKey&#39;: None}}</span>
+<span class="go">&#39;returnKey&#39;: None,</span>
+<span class="go">&#39;bodySetup&#39;: None,</span>
+<span class="go">&#39;bodySetupReplaceValue&#39;: None}}</span>
 </pre></div>
 </div>
 <dl class="py property">
 <dt class="sig sig-object py" id="aisquared.config.analytic.DeployedModel.DeployedModel.body_key">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">body_key</span></span><a class="headerlink" href="#aisquared.config.analytic.DeployedModel.DeployedModel.body_key" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.analytic.DeployedModel.DeployedModel.body_setup">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">body_setup</span></span><a class="headerlink" href="#aisquared.config.analytic.DeployedModel.DeployedModel.body_setup" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="aisquared.config.analytic.DeployedModel.DeployedModel.body_setup_replace_value">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">body_setup_replace_value</span></span><a class="headerlink" href="#aisquared.config.analytic.DeployedModel.DeployedModel.body_setup_replace_value" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">

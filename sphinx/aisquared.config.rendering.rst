@@ -12,6 +12,14 @@ aisquared.config.rendering.BarChartRendering module
    :undoc-members:
    :show-inheritance:
 
+aisquared.config.rendering.ChatRendering module
+-----------------------------------------------
+
+.. automodule:: aisquared.config.rendering.ChatRendering
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 aisquared.config.rendering.ContainerRendering module
 ----------------------------------------------------
 

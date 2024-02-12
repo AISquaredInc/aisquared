@@ -89,7 +89,9 @@
 <span class="sd">    &#39;inputType&#39;: &#39;text&#39;,</span>
 <span class="sd">    &#39;headers&#39;: None,</span>
 <span class="sd">    &#39;bodyKey&#39;: None,</span>
-<span class="sd">    &#39;returnKey&#39;: None}}</span>
+<span class="sd">    &#39;returnKey&#39;: None,</span>
+<span class="sd">    &#39;bodySetup&#39;: None,</span>
+<span class="sd">    &#39;bodySetupReplaceValue&#39;: None}}</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -99,7 +101,9 @@
         <span class="n">input_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">body_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">return_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">return_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">body_setup</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">body_setup_replace_value</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{DATAPOINT}</span><span class="s1">&#39;</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
@@ -114,6 +118,10 @@
 <span class="sd">            The key to use for the data to be sent to the endpoint</span>
 <span class="sd">        return_key : str or None (default None)</span>
 <span class="sd">            The key to parse the returned value from</span>
+<span class="sd">        body_setup : dict or None (default None)</span>
+<span class="sd">            The prototype for the way the body of the request to the API is set up</span>
+<span class="sd">        body_setup_replace_value : str (default &#39;{DATAPOINT}&#39;)</span>
+<span class="sd">            The value in the stringified version of the `body_setup` that gets replaced by the harvested data</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span>
@@ -121,6 +129,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">body_key</span> <span class="o">=</span> <span class="n">body_key</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">return_key</span> <span class="o">=</span> <span class="n">return_key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">body_setup</span> <span class="o">=</span> <span class="n">body_setup</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">body_setup_replace_value</span> <span class="o">=</span> <span class="n">body_setup_replace_value</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -162,6 +172,22 @@
     <span class="k">def</span> <span class="nf">return_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_return_key</span> <span class="o">=</span> <span class="n">value</span>
 
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">body_setup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_body_setup</span>
+
+    <span class="nd">@body_setup</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">body_setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body_setup</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">body_setup_replace_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_body_setup_replace_value</span>
+
+    <span class="nd">@body_setup_replace_value</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">body_setup_replace_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body_setup_replace_value</span> <span class="o">=</span> <span class="n">value</span>
+
 <div class="viewcode-block" id="DeployedModel.to_dict"><a class="viewcode-back" href="../../../../aisquared.config.analytic.html#aisquared.config.analytic.DeployedModel.DeployedModel.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the config object as a dictionary</span>
@@ -173,7 +199,9 @@
                 <span class="s1">&#39;inputType&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_type</span><span class="p">,</span>
                 <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span>
                 <span class="s1">&#39;bodyKey&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">body_key</span><span class="p">,</span>
-                <span class="s1">&#39;returnKey&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">return_key</span>
+                <span class="s1">&#39;returnKey&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">return_key</span><span class="p">,</span>
+                <span class="s1">&#39;bodySetup&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">body_setup</span><span class="p">,</span>
+                <span class="s1">&#39;bodySetupReplaceValue&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">body_setup_replace_value</span>
             <span class="p">}</span>
         <span class="p">}</span></div></div>
 </pre></div>

@@ -20,7 +20,8 @@ class DeployedModel(BaseObject):
     'bodyKey': None,
     'returnKey': None,
     'bodySetup': None,
-    'bodySetupReplaceValue': None}}
+    'bodySetupReplaceValue': None
+    }}
 
     """
 

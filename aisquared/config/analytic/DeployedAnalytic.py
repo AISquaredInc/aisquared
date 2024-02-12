@@ -21,11 +21,11 @@ class DeployedAnalytic(BaseObject):
     )
     >>> analytic.to_dict()
     {'className': 'DeployedAnalytic',
-        'params': {'url': 'model_url',
-        'method': 'POST',
-        'inputType': 'text',
-        'headers': {'Content-Type': 'application/json'},
-        'body': {'data_to_be_sent': '{{input}}'}}}
+    'params': {'url': 'model_url',
+    'method': 'POST',
+    'inputType': 'text',
+    'headers': {'Content-Type': 'application/json'},
+    'body': {'data_to_be_sent': '{{input}}'}}}
 
     """
 
