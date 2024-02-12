@@ -355,3 +355,5 @@ Below are a list of additional features, bug fixes, and other changes made for e
 
 ## Version 0.3.12
 - Updated `DeployedModel` class to support more abstract API calls
+- Updated `ChatbotHarvester`, `DeployedAnalytic`, and `ChatRendering` classes
+- Updated `ModelConfiguration` class with `warnings` and `documentURL`

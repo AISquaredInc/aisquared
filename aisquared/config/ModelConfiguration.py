@@ -30,7 +30,8 @@ class ModelConfiguration(BaseObject):
             owner: str = None,
             url: str = '*',
             auto_run: bool = False,
-            documentation_link: str = ''
+            documentation_link: str = '',
+            warnings : list = None
     ):
         """
         Parameters
@@ -69,6 +70,8 @@ class ModelConfiguration(BaseObject):
             Whether to automatically run this file when on a valid page
         documentation_link : str (default '')
             If provided, a URL to the model card for the .air file
+        warnings : list or None (default None)
+            Any warnings to be shown when the model runs
         """
         super().__init__()
         self.name = name
@@ -88,6 +91,7 @@ class ModelConfiguration(BaseObject):
         self.url = url
         self.auto_run = auto_run
         self.documentation_link = documentation_link
+        self.warnings = warnings
 
     # name
     @property
@@ -315,6 +319,18 @@ class ModelConfiguration(BaseObject):
             raise TypeError('documentation_link must be str')
         self._documentation_link = value
 
+    @property
+    def warnings(self):
+        return self._warnings
+    
+    @warnings.setter
+    def warnings(self, value):
+        if isinstance(value, str):
+            value = [value]
+        if not all([isinstance(val, str) for val in value]):
+            raise TypeError('warnings must all be strings')
+        self._warnings = value
+
     # harvester_dict
     @property
     def harvester_dict(self):
@@ -451,7 +467,8 @@ class ModelConfiguration(BaseObject):
                 'owner': self.owner,
                 'url': self.url,
                 'autoRun': self.auto_run,
-                'documentationLink': self.documentation_link
+                'documentURL': self.documentation_link,
+                'warnings': self.warnings
             }
         }
 
