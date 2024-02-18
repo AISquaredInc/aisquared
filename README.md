@@ -357,3 +357,4 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Updated `DeployedModel` class to support more abstract API calls
 - Updated `ChatbotHarvester`, `DeployedAnalytic`, and `ChatRendering` classes
 - Updated `ModelConfiguration` class with `warnings` and `documentURL`
+- Updated `DeployedAnalytic` class with more general support for API calls, `DeployedModel` to be deprecated

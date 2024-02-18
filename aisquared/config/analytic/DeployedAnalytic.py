@@ -17,7 +17,8 @@ class DeployedAnalytic(BaseObject):
         },
         {
             'data_to_be_sent' : '{{input}}'
-        }
+        },
+        'string'
     )
     >>> analytic.to_dict()
     {'className': 'DeployedAnalytic',
@@ -25,7 +26,8 @@ class DeployedAnalytic(BaseObject):
     'method': 'POST',
     'inputType': 'text',
     'headers': {'Content-Type': 'application/json'},
-    'body': {'data_to_be_sent': '{{input}}'}}}
+    'body': {'data_to_be_sent': '{{input}}'}}
+    'dataType': 'string'}
 
     """
 
@@ -35,7 +37,8 @@ class DeployedAnalytic(BaseObject):
         method: str,
         input_type: str,
         headers: dict = None,
-        body: dict = None
+        body: dict = None,
+        data_type: str = 'string'
     ):
         """
         Parameters
@@ -50,6 +53,8 @@ class DeployedAnalytic(BaseObject):
             Header to use when calling the endpoint
         body : dict or None
             Prototype request body to be sent
+        data_type : str
+            The data type for the input variable to be converted to, one of 'string', 'array', 'object', or 'number'
 
         Notes
         -----
@@ -61,6 +66,7 @@ class DeployedAnalytic(BaseObject):
         self.input_type = input_type
         self.headers = headers
         self.body = body
+        self.data_type = data_type
 
     @property
     def url(self):
@@ -109,6 +115,16 @@ class DeployedAnalytic(BaseObject):
             raise TypeError(f'body must be dict, got {type(value)}')
         self._body = value
 
+    @property
+    def data_type(self):
+        return self._data_type
+    
+    @data_type.setter
+    def data_type(self, value):
+        if value not in ['string', 'array', 'object', 'number']:
+            raise ValueError(f'data_type must be one of "string", "array", "object", or "number", got {value}')
+        self._data_type = value
+
     def to_dict(self) -> dict:
         return {
             'className': 'DeployedAnalytic',
@@ -117,6 +133,7 @@ class DeployedAnalytic(BaseObject):
                 'method': self.method,
                 'inputType': self.input_type,
                 'headers': self.headers,
-                'body': self.body
+                'body': self.body,
+                'dataType': self.data_type
             }
         }
