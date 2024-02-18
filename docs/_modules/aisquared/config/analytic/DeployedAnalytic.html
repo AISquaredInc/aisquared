@@ -74,58 +74,70 @@
 
 <div class="viewcode-block" id="DeployedAnalytic"><a class="viewcode-back" href="../../../../aisquared.config.analytic.html#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic">[docs]</a><span class="k">class</span> <span class="nc">DeployedAnalytic</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Interaction with a remote analytic</span>
+<span class="sd">    Interaction with a remote endpoint.</span>
 
 <span class="sd">    Example usage:</span>
 
 <span class="sd">    &gt;&gt;&gt; import aisquared</span>
 <span class="sd">    &gt;&gt;&gt; analytic = aisquared.config.analytic.DeployedAnalytic(</span>
-<span class="sd">        &#39;analytic_url&#39;,</span>
-<span class="sd">        &#39;text&#39;</span>
+<span class="sd">        &#39;model_url&#39;,</span>
+<span class="sd">        &#39;POST&#39;,</span>
+<span class="sd">        &#39;text&#39;,</span>
+<span class="sd">        {</span>
+<span class="sd">            &#39;Content-Type&#39; : &#39;application/json&#39;</span>
+<span class="sd">        },</span>
+<span class="sd">        {</span>
+<span class="sd">            &#39;data_to_be_sent&#39; : &#39;{{input}}&#39;</span>
+<span class="sd">        },</span>
+<span class="sd">        &#39;string&#39;</span>
 <span class="sd">    )</span>
 <span class="sd">    &gt;&gt;&gt; analytic.to_dict()</span>
 <span class="sd">    {&#39;className&#39;: &#39;DeployedAnalytic&#39;,</span>
-<span class="sd">    &#39;params&#39;: {&#39;url&#39;: &#39;analytic_url&#39;,</span>
+<span class="sd">    &#39;params&#39;: {&#39;url&#39;: &#39;model_url&#39;,</span>
+<span class="sd">    &#39;method&#39;: &#39;POST&#39;,</span>
 <span class="sd">    &#39;inputType&#39;: &#39;text&#39;,</span>
-<span class="sd">    &#39;secret&#39;: &#39;request&#39;,</span>
-<span class="sd">    &#39;header&#39;: None,</span>
-<span class="sd">    &#39;apiKeyHeaderName&#39;: None,</span>
-<span class="sd">    &#39;apiKeyPrefix&#39;: None}}</span>
+<span class="sd">    &#39;headers&#39;: {&#39;Content-Type&#39;: &#39;application/json&#39;},</span>
+<span class="sd">    &#39;body&#39;: {&#39;data_to_be_sent&#39;: &#39;{{input}}&#39;}}</span>
+<span class="sd">    &#39;dataType&#39;: &#39;string&#39;}</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">method</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">input_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">secret</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;request&#39;</span><span class="p">,</span>
-        <span class="n">header</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">api_key_header_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">api_key_prefix</span><span class="o">=</span><span class="kc">None</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">body</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">data_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;string&#39;</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        url : str</span>
 <span class="sd">            The base URL for the remote analytic</span>
+<span class="sd">        method : str</span>
+<span class="sd">            The method for hitting the API. Either &#39;POST&#39; or &#39;GET&#39;</span>
 <span class="sd">        input_type : str</span>
-<span class="sd">            The input types supplied to the analytic. Either one of &#39;cv&#39;, &#39;text&#39;, or &#39;tabular&#39;</span>
-<span class="sd">        secret : str (default &#39;request&#39;)</span>
-<span class="sd">            The secret key used to interact with the service. Default value of &#39;request&#39;</span>
-<span class="sd">            indicates that the user inputs the key whenever the analytic is started again</span>
-<span class="sd">        header : dict or None (default None)</span>
+<span class="sd">            The input types supplied to the analytic. Either one of &#39;cv&#39; or &#39;text&#39;</span>
+<span class="sd">        headers : dict or None (default None)</span>
 <span class="sd">            Header to use when calling the endpoint</span>
-<span class="sd">        api_key_header_name : str or None (default None)</span>
-<span class="sd">            The header name for the API key</span>
-<span class="sd">        api_key_prefix : str or None (default None)</span>
-<span class="sd">            The prefix for the API key</span>
+<span class="sd">        body : dict or None</span>
+<span class="sd">            Prototype request body to be sent</span>
+<span class="sd">        data_type : str</span>
+<span class="sd">            The data type for the input variable to be converted to, one of &#39;string&#39;, &#39;array&#39;, &#39;object&#39;, or &#39;number&#39;</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        - To input harvested data to the body, use the string &quot;{{input}}&quot;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">method</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">input_type</span> <span class="o">=</span> <span class="n">input_type</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">secret</span> <span class="o">=</span> <span class="n">secret</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">header</span> <span class="o">=</span> <span class="n">header</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">api_key_header_name</span> <span class="o">=</span> <span class="n">api_key_header_name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">api_key_prefix</span> <span class="o">=</span> <span class="n">api_key_prefix</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">body</span> <span class="o">=</span> <span class="n">body</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_type</span> <span class="o">=</span> <span class="n">data_type</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -136,6 +148,19 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_url</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_method</span>
+
+    <span class="nd">@method</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;method must be str, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;method must be one of &quot;GET&quot;, &quot;POST&quot;, got </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_method</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">input_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_type</span>
 
@@ -144,51 +169,43 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_input_type</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">secret</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_secret</span>
+    <span class="k">def</span> <span class="nf">headers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_headers</span>
 
-    <span class="nd">@secret</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">secret</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_secret</span> <span class="o">=</span> <span class="n">value</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">header</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_header</span>
-
-    <span class="nd">@header</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">header</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_header</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="nd">@headers</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">headers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_headers</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">api_key_header_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_api_key_header_name</span>
+    <span class="k">def</span> <span class="nf">body</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_body</span>
 
-    <span class="nd">@api_key_header_name</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">api_key_header_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;api_key_header_name must be str&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_api_key_header_name</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="nd">@body</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">body</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;body must be dict, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">api_key_prefix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_api_key_prefix</span>
-
-    <span class="nd">@api_key_prefix</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">api_key_prefix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;api_key_prefix must be str&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_api_key_prefix</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">def</span> <span class="nf">data_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_type</span>
+    
+    <span class="nd">@data_type</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">data_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="s1">&#39;array&#39;</span><span class="p">,</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span> <span class="s1">&#39;number&#39;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;data_type must be one of &quot;string&quot;, &quot;array&quot;, &quot;object&quot;, or &quot;number&quot;, got </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data_type</span> <span class="o">=</span> <span class="n">value</span>
 
 <div class="viewcode-block" id="DeployedAnalytic.to_dict"><a class="viewcode-back" href="../../../../aisquared.config.analytic.html#aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">{</span>
             <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;DeployedAnalytic&#39;</span><span class="p">,</span>
             <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
+                <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">,</span>
                 <span class="s1">&#39;inputType&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_type</span><span class="p">,</span>
-                <span class="s1">&#39;secret&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">secret</span><span class="p">,</span>
-                <span class="s1">&#39;header&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">header</span><span class="p">,</span>
-                <span class="s1">&#39;apiKeyHeaderName&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_key_header_name</span><span class="p">,</span>
-                <span class="s1">&#39;apiKeyPrefix&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_key_prefix</span>
+                <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span>
+                <span class="s1">&#39;body&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">body</span><span class="p">,</span>
+                <span class="s1">&#39;dataType&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_type</span>
             <span class="p">}</span>
         <span class="p">}</span></div></div>
 </pre></div>

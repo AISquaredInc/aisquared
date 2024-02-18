@@ -74,52 +74,49 @@
 
 <div class="viewcode-block" id="ChatbotHarvester"><a class="viewcode-back" href="../../../../aisquared.config.harvesting.html#aisquared.config.harvesting.ChatbotHarvester.ChatbotHarvester">[docs]</a><span class="k">class</span> <span class="nc">ChatbotHarvester</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Object to harvest for a chatbot</span>
-
-<span class="sd">    Example usage:</span>
-
-<span class="sd">    &gt;&gt;&gt; import aisquared</span>
-<span class="sd">    &gt;&gt;&gt; my_obj = aisquared.config.harvesting.ChatbotHarvester(</span>
-<span class="sd">        max_length = 128</span>
-<span class="sd">    )</span>
-<span class="sd">    &gt;&gt;&gt; my_obj.to_dict()</span>
-<span class="sd">    {&#39;className&#39;: &#39;ChatbotHarvester&#39;,</span>
-<span class="sd">    &#39;params&#39;: {&#39;maxLength&#39;: &#39;128&#39;,</span>
-<span class="sd">    &#39;inputType&#39;: &#39;text&#39;}}</span>
-
+<span class="sd">    Harvesting for a chatbot</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
-            <span class="n">max_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">title</span><span class="p">,</span>
+            <span class="n">harvest_history</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">input_type</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="p">,</span>
+            <span class="n">features</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">max_length</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        max_length : int or None (default None)</span>
-<span class="sd">            The maximum length of text allowed</span>
+<span class="sd">        title : str</span>
+<span class="sd">            The title for the chat conversation</span>
+<span class="sd">        harvest_history : bool (default False)</span>
+<span class="sd">            Whether to harvest chat history or just the last sent text</span>
+<span class="sd">        input_type : str (default &#39;text&#39;)</span>
+<span class="sd">            The input type (should not be changed)</span>
+<span class="sd">        features : default None</span>
+<span class="sd">            Should not be changed</span>
+<span class="sd">        max_length : default None</span>
+<span class="sd">            Should not be changed</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">harvest_history</span> <span class="o">=</span> <span class="n">harvest_history</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_type</span> <span class="o">=</span> <span class="n">input_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="n">features</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">max_length</span> <span class="o">=</span> <span class="n">max_length</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">input_type</span> <span class="o">=</span> <span class="s1">&#39;text&#39;</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">max_length</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_length</span>
-
-    <span class="nd">@max_length</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">max_length</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;max_length must be int&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_max_length</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">else</span> <span class="n">value</span>
 
 <div class="viewcode-block" id="ChatbotHarvester.to_dict"><a class="viewcode-back" href="../../../../aisquared.config.harvesting.html#aisquared.config.harvesting.ChatbotHarvester.ChatbotHarvester.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the configuration object as a dictionary</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">{</span>
             <span class="s1">&#39;className&#39;</span><span class="p">:</span> <span class="s1">&#39;ChatbotHarvester&#39;</span><span class="p">,</span>
             <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s1">&#39;maxLength&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_length</span><span class="p">,</span>
-                <span class="s1">&#39;inputType&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_type</span>
+                <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">,</span>
+                <span class="s1">&#39;harvestHistory&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">harvest_history</span><span class="p">,</span>
+                <span class="s1">&#39;inputType&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_type</span><span class="p">,</span>
+                <span class="s1">&#39;features&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span>
+                <span class="s1">&#39;maxLength&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_length</span>
             <span class="p">}</span>
         <span class="p">}</span></div></div>
 </pre></div>

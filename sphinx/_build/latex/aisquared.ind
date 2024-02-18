@@ -325,6 +325,8 @@
 		\hyperpage{28}
   \item \spxentry{DashboardReplacementRendering}\spxextra{class in aisquared.config.rendering.DashboardReplacementRendering}, 
 		\hyperpage{29}
+  \item \spxentry{data\_type}\spxextra{aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic property}, 
+		\hyperpage{5}
   \item \spxentry{DatabricksAPIException}, \hyperpage{61}
   \item \spxentry{DatabricksClient}\spxextra{class in aisquared.platform.DatabricksClient}, 
 		\hyperpage{62}

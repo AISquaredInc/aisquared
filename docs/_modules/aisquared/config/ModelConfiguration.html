@@ -101,7 +101,8 @@
             <span class="n">owner</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
             <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span>
             <span class="n">auto_run</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-            <span class="n">documentation_link</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="n">documentation_link</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="n">warnings</span> <span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
@@ -140,6 +141,8 @@
 <span class="sd">            Whether to automatically run this file when on a valid page</span>
 <span class="sd">        documentation_link : str (default &#39;&#39;)</span>
 <span class="sd">            If provided, a URL to the model card for the .air file</span>
+<span class="sd">        warnings : list or None (default None)</span>
+<span class="sd">            Any warnings to be shown when the model runs</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
@@ -159,6 +162,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">auto_run</span> <span class="o">=</span> <span class="n">auto_run</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">documentation_link</span> <span class="o">=</span> <span class="n">documentation_link</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">warnings</span> <span class="o">=</span> <span class="n">warnings</span>
 
     <span class="c1"># name</span>
     <span class="nd">@property</span>
@@ -386,6 +390,18 @@
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;documentation_link must be str&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_documentation_link</span> <span class="o">=</span> <span class="n">value</span>
 
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">warnings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_warnings</span>
+    
+    <span class="nd">@warnings</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">warnings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;warnings must all be strings&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_warnings</span> <span class="o">=</span> <span class="n">value</span>
+
     <span class="c1"># harvester_dict</span>
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">harvester_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -522,7 +538,8 @@
                 <span class="s1">&#39;owner&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span>
                 <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
                 <span class="s1">&#39;autoRun&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">auto_run</span><span class="p">,</span>
-                <span class="s1">&#39;documentationLink&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">documentation_link</span>
+                <span class="s1">&#39;documentURL&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">documentation_link</span><span class="p">,</span>
+                <span class="s1">&#39;warnings&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">warnings</span>
             <span class="p">}</span>
         <span class="p">}</span></div>
 
