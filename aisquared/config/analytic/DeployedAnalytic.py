@@ -26,8 +26,8 @@ class DeployedAnalytic(BaseObject):
     'method': 'POST',
     'inputType': 'text',
     'headers': {'Content-Type': 'application/json'},
-    'body': {'data_to_be_sent': '{{input}}'}}
-    'dataType': 'string'}
+    'body': {'data_to_be_sent': '{{input}}'},
+    'dataType': 'string'}}
 
     """
 
