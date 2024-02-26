@@ -7,3 +7,4 @@ from .DeployedModel import DeployedModel
 from .LocalModel import LocalModel
 from .LocalAnalytic import LocalAnalytic
 from .ReverseMLWorkflow import ReverseMLWorkflow
+from .OnnxModel import OnnxModel
