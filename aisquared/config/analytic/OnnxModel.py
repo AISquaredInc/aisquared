@@ -1,4 +1,5 @@
 from aisquared.base import BaseObject
+import base64
 
 
 class OnnxModel(BaseObject):
@@ -16,6 +17,10 @@ class OnnxModel(BaseObject):
         self.path = path
         self.input_shape = input_shape
         self.input_type = input_type
+
+        with open(self.path, 'rb') as f:
+            data = f.read()
+        self.onnx_data = base64.b64encode(data).decode('ascii')
 
     @property
     def path(self):
@@ -47,12 +52,23 @@ class OnnxModel(BaseObject):
             raise ValueError(f'input_type must be one of "text", "cv", got {value}')
         self._input_type = value
 
+    @property
+    def onnx_data(self):
+        return self._onnx_data
+    
+    @onnx_data.setter
+    def onnx_data(self, value):
+        if not isinstance(value, str):
+            raise TypeError('onnx_data must be a string')
+        self._onnx_data = value
+
     def to_dict(self):
         return {
             'className' : 'OnnxModel',
             'params' : {
                 'path': self.path,
                 'inputShape' : self.input_shape,
-                'inputType' : self.input_type
+                'inputType' : self.input_type,
+                'onnxData' : self.onnx_data
             }
         }
