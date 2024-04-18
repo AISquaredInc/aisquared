@@ -31,7 +31,7 @@ class ModelConfiguration(BaseObject):
             url: str = '*',
             auto_run: bool = False,
             documentation_link: str = '',
-            warnings : list = None
+            warnings: list = None
     ):
         """
         Parameters
@@ -322,14 +322,17 @@ class ModelConfiguration(BaseObject):
     @property
     def warnings(self):
         return self._warnings
-    
+
     @warnings.setter
     def warnings(self, value):
-        if isinstance(value, str):
-            value = [value]
-        if not all([isinstance(val, str) for val in value]):
-            raise TypeError('warnings must all be strings')
-        self._warnings = value
+        if value is None:
+            self._warnings = value
+        else:
+            if isinstance(value, str):
+                value = [value]
+            if not all([isinstance(val, str) for val in value]):
+                raise TypeError('warnings must all be strings')
+            self._warnings = value
 
     # harvester_dict
     @property

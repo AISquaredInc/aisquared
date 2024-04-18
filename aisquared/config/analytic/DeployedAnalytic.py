@@ -118,11 +118,12 @@ class DeployedAnalytic(BaseObject):
     @property
     def data_type(self):
         return self._data_type
-    
+
     @data_type.setter
     def data_type(self, value):
         if value not in ['string', 'array', 'object', 'number']:
-            raise ValueError(f'data_type must be one of "string", "array", "object", or "number", got {value}')
+            raise ValueError(
+                f'data_type must be one of "string", "array", "object", or "number", got {value}')
         self._data_type = value
 
     def to_dict(self) -> dict:

@@ -64,7 +64,7 @@
 
 
 \title{aisquared}
-\date{Feb 18, 2024}
+\date{Apr 18, 2024}
 \release{}
 \author{The AI Squared Team}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -96,7 +96,7 @@
 This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.
 
 \sphinxAtStartPar
-\sphinxstylestrong{Current Production Version:} \sphinxcode{\sphinxupquote{0.3.11}}
+\sphinxstylestrong{Current Production Version:} \sphinxcode{\sphinxupquote{0.3.12}}
 
 \sphinxAtStartPar
 \sphinxcode{\sphinxupquote{View this Documentation in PDF Format}}.
@@ -283,8 +283,8 @@ Example usage:
 \PYG{g+go}{\PYGZsq{}method\PYGZsq{}: \PYGZsq{}POST\PYGZsq{},}
 \PYG{g+go}{\PYGZsq{}inputType\PYGZsq{}: \PYGZsq{}text\PYGZsq{},}
 \PYG{g+go}{\PYGZsq{}headers\PYGZsq{}: \PYGZob{}\PYGZsq{}Content\PYGZhy{}Type\PYGZsq{}: \PYGZsq{}application/json\PYGZsq{}\PYGZcb{},}
-\PYG{g+go}{\PYGZsq{}body\PYGZsq{}: \PYGZob{}\PYGZsq{}data\PYGZus{}to\PYGZus{}be\PYGZus{}sent\PYGZsq{}: \PYGZsq{}\PYGZob{}\PYGZob{}input\PYGZcb{}\PYGZcb{}\PYGZsq{}\PYGZcb{}\PYGZcb{}}
-\PYG{g+go}{\PYGZsq{}dataType\PYGZsq{}: \PYGZsq{}string\PYGZsq{}\PYGZcb{}}
+\PYG{g+go}{\PYGZsq{}body\PYGZsq{}: \PYGZob{}\PYGZsq{}data\PYGZus{}to\PYGZus{}be\PYGZus{}sent\PYGZsq{}: \PYGZsq{}\PYGZob{}\PYGZob{}input\PYGZcb{}\PYGZcb{}\PYGZsq{}\PYGZcb{},}
+\PYG{g+go}{\PYGZsq{}dataType\PYGZsq{}: \PYGZsq{}string\PYGZsq{}\PYGZcb{}\PYGZcb{}}
 \end{sphinxVerbatim}
 \index{body (aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic property)@\spxentry{body}\spxextra{aisquared.config.analytic.DeployedAnalytic.DeployedAnalytic property}}
 
@@ -8288,6 +8288,10 @@ Updated \sphinxtitleref{ModelConfiguration} class with \sphinxtitleref{warnings}
 \item {} 
 \sphinxAtStartPar
 Updated \sphinxtitleref{DeployedAnalytic} class with more general support for API calls, \sphinxtitleref{DeployedModel} to be deprecated
+
+\item {} 
+\sphinxAtStartPar
+Created \sphinxtitleref{ONNXModel} class to support ONNX models
 
 \end{itemize}
 

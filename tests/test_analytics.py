@@ -22,7 +22,9 @@ def test_analytic_init():
     )
     aisquared.config.analytic.DeployedAnalytic(
         'test',
-        'tabular'
+        'POST',
+        'text',
+        body={'test': True}
     )
     aisquared.config.analytic.DeployedModel(
         'test',

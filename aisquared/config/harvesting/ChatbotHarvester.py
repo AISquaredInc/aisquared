@@ -5,6 +5,7 @@ class ChatbotHarvester(BaseObject):
     """
     Harvesting for a chatbot
     """
+
     def __init__(
             self,
             title,

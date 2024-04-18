@@ -15,7 +15,7 @@ Welcome to the documentation for the `aisquared` python package!
 
 This package contains utilities to interact with the AI Squared technology stack, particularly with developing and deploying models to the AI Squared Platform or other applications developed through the AI Squared JavaScript SDK.
 
-**Current Production Version:** ``0.3.11``
+**Current Production Version:** ``0.3.12``
 
 :download:`View this Documentation in PDF Format <./_build/latex/aisquared.pdf>`.
 
@@ -167,3 +167,5 @@ Changelog
    - Updated `ChatbotHarvester`, `DeployedAnalytic`, and `ChatRendering` classes
    - Updated `ModelConfiguration` class with `warnings` and `documentURL`
    - Updated `DeployedAnalytic` class with more general support for API calls, `DeployedModel` to be deprecated
+   - Created `ONNXModel` class to support ONNX models
+   

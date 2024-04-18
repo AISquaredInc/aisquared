@@ -145,12 +145,16 @@ def test_queryparameter_harvester():
 
 def test_chatbot_harvester():
     harvester = aisquared.config.harvesting.ChatbotHarvester(
+        'ChatBot',
         max_length=256
     )
     assert harvester.to_dict() == {
         'className': 'ChatbotHarvester',
         'params': {
-            'maxLength': '256',
-            'inputType': 'text'
+            'title': 'ChatBot',
+            'maxLength': 256,
+            'inputType': 'text',
+            'features': None,
+            'harvestHistory': False
         }
     }
