@@ -40,16 +40,16 @@ The `aisquared.config` subpackage contains the following objects:
 
 The `aisquared.config.harvesting` subpackage contains the following objects:
 
+- `ChatBotHarvester`
+  - The `ChatBotHarvester` class configures harvesting based on data from a ChatBot
 - `ImageHarvester`
   - The `ImageHarvester` class indicates the harvesting of images within the DOM to perform prediction on
-- `TextHarvester`
-  - The `TextHarvester` class indicates the harvesting of text within the DOM to perform prediction on
 - `InputHarvester`
   - The `InputHarvester` class configures harvesting of different kinds of user-defined inputs
 - `QueryParameterHarvester`
   - The `QueryParameterHarvester` class configures harvesting based on query parameters
-- `ChatBotHarvester`
-  - The `ChatBotHarvester` class configures harvesting based on data from a ChatBot
+- `TextHarvester`
+  - The `TextHarvester` class indicates the harvesting of text within the DOM to perform prediction on
 
 #### `aisquared.config.preprocessing`
 
@@ -66,14 +66,16 @@ The `aisquared.config.preprocessing` subpackage contains the following objects:
 
 The `aisquared.config.analytic` subpackage contains the following objects:
 
-- `LocalAnalytic`
-  - The `LocalAnalytic` class indicates the use of an analytic or lookup table from a local file
-- `LocalModel`
-  - The `LocalModel` class indicates the use of a model from a local file
 - `DeployedAnalytic`
   - The `DeployedAnalytic` class indicates the use of an analytic or lookup table from a remote resource
 - `DeployedModel`
   - The `DeployedModel` class indicates the use of a model deployed to a remote resource
+- `LocalAnalytic`
+  - The `LocalAnalytic` class indicates the use of an analytic or lookup table from a local file
+- `LocalModel`
+  - The `LocalModel` class indicates the use of a model from a local file
+- `OnnxModel`
+  - The `OnnxModel` class indicates the use of an ONNX model locally
 - `ReverseMLWorkflow`
   - The `ReverseMLWorkflow` class indicates the use of a Reverse ML Workflow, pulling predictions from a remote source
 
@@ -81,62 +83,68 @@ The `aisquared.config.analytic` subpackage contains the following objects:
 
 The `aisquared.config.postprocessing` subpackage contains the following objects:
 
-- `Regression`
-  - The `Regression` object is a postprocessing class for models which perform regression. Since it is common to train regression models by scaling regression outputs to values between 0 and 1, this class is designed to convert output values between 0 and 1 to their original values, corresponding to `min` and `max` when the class is instantiated.
 - `BinaryClassification`
   - The `BinaryClassification` object is a postprocessing class for models which perform binary classification. The class is instantiated with a label map and a cutoff value used to identify when the positive class (class 1) is identified.
 - `MulticlassClassification`
   - The `MulticlassClassification` object is a postprocessing class for models which perform multiclass classification. The class is instantiated with a label map only.
 - `ObjectDetection`
   - The `ObjectDetection` object is a postprocessing class for models which perform object detection. The class is instantiated with a label map and a cutoff value for identification.
-
+- `Regression`
+  - The `Regression` object is a postprocessing class for models which perform regression. Since it is common to train regression models by scaling regression outputs to values between 0 and 1, this class is designed to convert output values between 0 and 1 to their original values, corresponding to `min` and `max` when the class is instantiated.
+  
 #### `aisquared.config.rendering`
 
 The `aisquared.config.rendering` subpackage contains the following objects:
 
-- `ImageRendering`
-  - The `ImageRendering` object is a rendering class for rendering single predictions on images.
-- `ObjectRendering`
-  - The `ObjectRendering` object is a rendering class for rendering object detection predictions on images.
-- `WordRendering`
-  - The `WordRendering` object is a rendering class for rendering highlights, underlines, or badges on individual words.
-- `DocumentRendering`
-  - The `DocumentRendering` object is a rendering class for rendering document predictions.
 - `BarChartRendering`
   - The `BarChartRendering` object is a rendering class for rendering bar charts.
+- `ChatBotRendering`
+  - The `ChatBotRendering` object is a class for rendering chat bots
 - `ContainerRendering`
   - The `ContainerRendering` object is a rendering class for rendering containers.
 - `DashboardReplacementRendering`
   - The `DashboardReplacementRendering` object is a rendering class for rendering complete dashboard replacements
+- `DocumentRendering`
+  - The `DocumentRendering` object is a rendering class for rendering document predictions.
 - `DoughnutChartRendering`
   - The `DoughnutChartRendering` object is a class for rendering doughnut charts
 - `FilterRendering`
   - The `FilterRendering` object is a class for pass data in a model chain
 - `HTMLTagRendering`
   - The `HTMLTagRendering` object is a class for rendering HTML tags
+- `ImageRendering`
+  - The `ImageRendering` object is a rendering class for rendering single predictions on images.
+- `LineChartRendering`
+  - The `LineChartRendering` object is a class for rendering line charts
+- `ObjectRendering`
+  - The `ObjectRendering` object is a rendering class for rendering object detection predictions on images.
 - `PieChartRendering`
   - The `PieChartRendering` object is a class for rendering pie charts
 - `SOSRendering`
   - The `SOSRendering` object is a class for rendering SOS dashboards
 - `TableRendering`
   - The `TableRendering` object is a class for rendering tables
+- `TextRendering`
+  - The `TextRendering` object is a class for rendering texts
+- `WordRendering`
+  - The `WordRendering` object is a rendering class for rendering highlights, underlines, or badges on individual words.
 
 #### `aisquared.config.feedback`
 
 The `aisquared.config.feedback` subpackage contains the following objects:
 
-- `SimpleFeedback`
-  - The `SimpleFeedback` object is a feedback object for simple thumbs up/thumbs down for predictions
 - `BinaryFeedback`
   - The `BinaryFeedback` object is a feedback object for binary classification use cases
-- `MulticlassFeedback`
-  - The `MulticlassFeedback` object is a feedback object for multiclass classification use cases
-- `RegressionFeedback`
-  - The `RegressionFeedback` object is a feedback object for regression use cases
 - `ModelFeedback`
   - The `ModelFeedback` object is a feedback object for configuring feedback for the model directly, rather than its predictions
+- `MulticlassFeedback`
+  - The `MulticlassFeedback` object is a feedback object for multiclass classification use cases
 - `QualitativeFeedback`
   - The `QualitativeFeedback` object is a feedback object for configuring questions asked about each individual prediction the model makes
+- `RegressionFeedback`
+  - The `RegressionFeedback` object is a feedback object for regression use cases
+- `SimpleFeedback`
+  - The `SimpleFeedback` object is a feedback object for simple thumbs up/thumbs down for predictions
 
 #### Preprocessing Steps
 
