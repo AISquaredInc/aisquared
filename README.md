@@ -48,6 +48,8 @@ The `aisquared.config.harvesting` subpackage contains the following objects:
   - The `InputHarvester` class configures harvesting of different kinds of user-defined inputs
 - `QueryParameterHarvester`
   - The `QueryParameterHarvester` class configures harvesting based on query parameters
+- `ChatBotHarvester`
+  - The `ChatBotHarvester` class configures harvesting based on data from a ChatBot
 
 #### `aisquared.config.preprocessing`
 
