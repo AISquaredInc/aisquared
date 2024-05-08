@@ -1,7 +1,12 @@
 from typing import Union
 from aisquared.base import BaseObject, ALLOWED_STAGES, HARVESTING_CLASSES, PREPROCESSING_CLASSES, ANALYTIC_CLASSES, POSTPROCESSING_CLASSES, RENDERING_CLASSES, FEEDBACK_CLASSES, LOCAL_CLASSES
-import tensorflowjs as tfjs
-import tensorflow as tf
+
+try:
+    import tensorflowjs as tfjs
+    import tensorflow as tf
+except ImportError:
+    pass
+
 import shutil
 import json
 import os

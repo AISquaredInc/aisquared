@@ -1,8 +1,13 @@
 from typing import Union
 from aisquared.base import BaseObject, ALLOWED_STAGES
 from .CustomObject import CustomObject
-import tensorflowjs as tfjs
-import tensorflow as tf
+
+try:
+    import tensorflowjs as tfjs
+    import tensorflow as tf
+except ImportError:
+    pass
+
 import shutil
 import json
 import os
