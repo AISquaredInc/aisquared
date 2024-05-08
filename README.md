@@ -359,3 +359,6 @@ Below are a list of additional features, bug fixes, and other changes made for e
 - Updated `ModelConfiguration` class with `warnings` and `documentURL`
 - Updated `DeployedAnalytic` class with more general support for API calls, `DeployedModel` to be deprecated
 - Created `ONNXModel` class to support ONNX models
+
+## Version 0.3.13
+- Removed TensorFlow from base dependencies due to issues with running `aisquared` on Mac ARM devices
