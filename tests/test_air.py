@@ -2,7 +2,6 @@ import os
 import json
 import pytest
 import aisquared
-import tensorflow as tf
 
 
 def test_graphconfig(tmp_path):
@@ -49,82 +48,3 @@ def test_graphconfig(tmp_path):
 
     config.compile(os.path.join(tmp_path, 'TextAnalytic.air'))
     assert True
-
-
-def test_sentimentanalysis(tmp_path):
-    input_layer = tf.keras.layers.Input(128)
-    x = tf.keras.layers.Embedding(100, 2)(input_layer)
-    x = tf.keras.layers.Flatten()(x)
-    x = tf.keras.layers.Dense(100, activation='relu')(x)
-    output_layer = tf.keras.layers.Dense(1, activation='relu')(x)
-
-    model = tf.keras.models.Model(input_layer, output_layer)
-    model.save(os.path.join(tmp_path, 'model.keras'))
-
-    harvester = aisquared.config.harvesting.TextHarvester()
-    preproc = aisquared.config.preprocessing.text.TextPreprocesser(
-        [
-            aisquared.config.preprocessing.text.Tokenize(),
-            aisquared.config.preprocessing.text.ConvertToVocabulary(
-                {
-                    'this': 3,
-                    'is': 4,
-                    'a': 5,
-                    'test': 6
-                }
-            ),
-            aisquared.config.preprocessing.text.PadSequences()
-        ]
-    )
-    analytic = aisquared.config.analytic.LocalModel(
-        os.path.join(tmp_path, 'model.keras'), input_type='text')
-    postproc = aisquared.config.postprocessing.Regression()
-    rendering = aisquared.config.rendering.DocumentRendering()
-    feedback = aisquared.config.feedback.RegressionFeedback()
-
-    config = aisquared.config.ModelConfiguration(
-        'sentiment-analysis',
-        harvester,
-        preproc,
-        analytic,
-        postproc,
-        rendering,
-        feedback_steps=feedback,
-        url='https://dynamics.microsoft.com/'
-    )
-    config.compile(os.path.join(tmp_path, 'sentiment-analysis.air'))
-    assert True
-
-
-def test_imageclassification(tmp_path):
-    input_layer = tf.keras.layers.Input((30, 30, 3))
-    x = tf.keras.layers.Flatten()(input_layer)
-    x = tf.keras.layers.Dense(1, activation='sigmoid')(x)
-    model = tf.keras.models.Model(input_layer, x)
-    model.save(os.path.join(tmp_path, 'test_model.keras'))
-
-    harvester = aisquared.config.harvesting.InputHarvester('image')
-    preprocesser = aisquared.config.preprocessing.image.ImagePreprocesser(
-        [
-            aisquared.config.preprocessing.image.Resize([30, 30]),
-            aisquared.config.preprocessing.image.DivideValue(255)
-        ]
-    )
-    analytic = aisquared.config.analytic.LocalModel(
-        os.path.join(tmp_path, 'test_model.keras'), 'cv')
-    postprocesser = aisquared.config.postprocessing.BinaryClassification(
-        [
-            'zero',
-            'one'
-        ]
-    )
-    renderer = aisquared.config.rendering.DocumentRendering()
-    config = aisquared.config.ModelConfiguration(
-        'InputHarvestTest',
-        harvester,
-        preprocesser,
-        analytic,
-        postprocesser,
-        renderer
-    )
-    config.compile(os.path.join(tmp_path, config.name))

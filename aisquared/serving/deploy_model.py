@@ -11,7 +11,11 @@ try:
 except ImportError:
     pass
 
-import tensorflow as tf
+try:
+    import tensorflow as tf
+except ImportError:
+    pass
+
 import numpy as np
 
 try:
