@@ -29,13 +29,9 @@ class ModelConfiguration(BaseObject):
             stage: str = ALLOWED_STAGES[0],
             version: int = None,
             description: str = '',
-            mlflow_uri: str = None,
-            mlflow_user: str = None,
-            mlflow_token: str = None,
             owner: str = None,
             url: str = '*',
             auto_run: bool = False,
-            documentation_link: str = '',
             warnings: list = None
     ):
         """
@@ -89,13 +85,9 @@ class ModelConfiguration(BaseObject):
         self.feedback_steps = feedback_steps
         self.version = version
         self.description = description
-        self.mlflow_uri = mlflow_uri
-        self.mlflow_user = mlflow_user
-        self.mlflow_token = mlflow_token
         self.owner = owner
         self.url = url
         self.auto_run = auto_run
-        self.documentation_link = documentation_link
         self.warnings = warnings
 
     # name
@@ -469,13 +461,9 @@ class ModelConfiguration(BaseObject):
                 'stage': self.stage,
                 'version': self.version,
                 'description': self.description,
-                'mlflowUri': self.mlflow_uri,
-                'mlflowUser': self.mlflow_user,
-                'mlflowToken': self.mlflow_token,
                 'owner': self.owner,
                 'url': self.url,
                 'autoRun': self.auto_run,
-                'documentURL': self.documentation_link,
                 'warnings': self.warnings
             }
         }

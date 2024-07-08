@@ -372,3 +372,7 @@ Below are a list of additional features, bug fixes, and other changes made for e
 
 ## Version 0.3.13
 - Removed TensorFlow from base dependencies due to issues with running `aisquared` on Mac ARM devices
+
+## Version 1.0.0
+- Removed unnecessary subpackages from the parent package
+- Streamlined the `ModelConfiguration` class by removing unnecessary parameters
