@@ -1,10 +1,2 @@
-mlflow
-flask
-waitress
-click
-beyondml
-scikit-learn
-torch
-llmlink
 tensorflowjs
 tensorflow

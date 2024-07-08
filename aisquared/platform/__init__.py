@@ -1,10 +1,5 @@
 """
-Utilities for interacting with the AI Squared Platform.
-
-The primary class within this subpackage is the `AISquaredPlatformClient` class, which has the
-capabilities to interact with much of the functionality in the AI Squared platform. For more
-information about this class, please see its documentation.
+Utilities for interacting with platform components of AI Squared.
 """
 
-from .AISquaredPlatformClient import AISquaredPlatformClient
 from .DatabricksClient import DatabricksClient

@@ -1,2 +1,0 @@
-class AISquaredAPIException(Exception):
-    pass

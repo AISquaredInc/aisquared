@@ -15,8 +15,6 @@ setup(
         'aisquared',
         'aisquared.base',
         'aisquared.config',
-        'aisquared.logging',
-        'aisquared.serving',
         'aisquared.config.harvesting',
         'aisquared.config.preprocessing',
         'aisquared.config.preprocessing.text',
@@ -26,7 +24,6 @@ setup(
         'aisquared.config.postprocessing',
         'aisquared.config.rendering',
         'aisquared.config.feedback',
-        'aisquared.utils',
         'aisquared.platform'
     ],
     author='The AI Squared Team',
