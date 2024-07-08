@@ -1,7 +1,10 @@
 from typing import Union
 from sklearn.base import BaseEstimator, ClassifierMixin, RegressorMixin, TransformerMixin
 from sklearn.metrics import classification_report, confusion_matrix, mean_squared_error
-import tensorflow as tf
+try:
+    import tensorflow as tf
+except ImportError:
+    pass
 import numpy as np
 import beyondml
 

@@ -1,4 +1,2 @@
 numpy
-tensorflowjs
-tensorflow
 pandas

@@ -6,3 +6,5 @@ beyondml
 scikit-learn
 torch
 llmlink
+tensorflowjs
+tensorflow
