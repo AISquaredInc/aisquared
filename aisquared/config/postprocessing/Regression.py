@@ -1,8 +1,8 @@
 from typing import Union
-from aisquared.base import BaseObject
+from .PostprocessingObject import PostprocessingObject
 
 
-class Regression(BaseObject):
+class Regression(PostprocessingObject):
     """
     Postprocessing configuration object for Regression
 

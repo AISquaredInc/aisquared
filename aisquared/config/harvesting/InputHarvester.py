@@ -1,7 +1,8 @@
-from aisquared.base import BaseObject, ALLOWED_INPUT_TYPES
+from aisquared.base import ALLOWED_INPUT_TYPES
+from .HarvestingObject import HarvestingObject
 
 
-class InputHarvester(BaseObject):
+class InputHarvester(HarvestingObject):
     """
     Object to harvest user-input text
 

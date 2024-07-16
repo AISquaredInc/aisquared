@@ -1,10 +1,10 @@
-from aisquared.base import BaseObject, DEFAULT_HTML_TAG_RENDERING_CSS, HTML_TAG_RENDERING_CSS_FILE
-import platform
+from aisquared.base import DEFAULT_HTML_TAG_RENDERING_CSS, HTML_TAG_RENDERING_CSS_FILE
+from .RenderingObject import RenderingObject
 import json
 import os
 
 
-class HTMLTagRendering(BaseObject):
+class HTMLTagRendering(RenderingObject):
     """
     Rendering for HTML tags
 

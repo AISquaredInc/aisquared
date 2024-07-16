@@ -1,8 +1,9 @@
 from typing import Union
-from aisquared.base import BADGES, WORD_LISTS, BaseObject
+from aisquared.base import BADGES, WORD_LISTS
+from .RenderingObject import RenderingObject
 
 
-class WordRendering(BaseObject):
+class WordRendering(RenderingObject):
     """
     Object for rendering badges on individual words
 

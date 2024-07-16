@@ -1,7 +1,7 @@
-from aisquared.base import BaseObject
+from .PostprocessingObject import PostprocessingObject
 
 
-class BinaryClassification(BaseObject):
+class BinaryClassification(PostprocessingObject):
     """
     Postprocesssing configuration object for binary classification
 

@@ -1,8 +1,9 @@
 from typing import Union
-from aisquared.base import BaseObject, ALLOWED_PADS
+from aisquared.base import ALLOWED_PADS
+from aisquared.config.preprocessing import PreprocessingObject
 
 
-class Tokenize(BaseObject):
+class Tokenize(PreprocessingObject):
     """Preprocessing Step to tokenize text
 
     Example usage:
@@ -80,7 +81,7 @@ class Tokenize(BaseObject):
         }
 
 
-class RemoveCharacters(BaseObject):
+class RemoveCharacters(PreprocessingObject):
     """Preprocessing step to remove characters from text
 
     Example usage:
@@ -142,7 +143,7 @@ class RemoveCharacters(BaseObject):
         }
 
 
-class ConvertToCase(BaseObject):
+class ConvertToCase(PreprocessingObject):
     """Text preprocessing object to convert inputs to all lowercase or all uppercase
 
     Example usage:
@@ -189,7 +190,7 @@ class ConvertToCase(BaseObject):
         }
 
 
-class ConvertToVocabulary(BaseObject):
+class ConvertToVocabulary(PreprocessingObject):
     """Text preprocessing object to convert tokens to integer vocabularies
 
     Example usage:
@@ -291,7 +292,7 @@ class ConvertToVocabulary(BaseObject):
         }
 
 
-class PadSequences(BaseObject):
+class PadSequences(PreprocessingObject):
     """Text preprocessing object to pad sequences
 
     Example usage:
@@ -392,7 +393,7 @@ class PadSequences(BaseObject):
         }
 
 
-class Trim(BaseObject):
+class Trim(PreprocessingObject):
     """Text preprocessing class to trim whitespace from text
 
     Example usage:

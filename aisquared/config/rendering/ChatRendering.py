@@ -1,7 +1,7 @@
-from aisquared.base import BaseObject
+from .RenderingObject import RenderingObject
 
 
-class ChatRendering(BaseObject):
+class ChatRendering(RenderingObject):
     """
     Rendering for a chatbot use case
     """

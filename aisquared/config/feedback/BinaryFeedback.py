@@ -1,7 +1,7 @@
-from aisquared.base import BaseObject
+from .FeedbackObject import FeedbackObject
 
 
-class BinaryFeedback(BaseObject):
+class BinaryFeedback(FeedbackObject):
     """
     Feedback for binary classification
 

@@ -1,7 +1,7 @@
-from aisquared.base import BaseObject
+from .AnalyticObject import AnalyticObject
 
 
-class LocalModel(BaseObject):
+class LocalModel(AnalyticObject):
     """
     Interaction with a model currently saved to the local
     file system

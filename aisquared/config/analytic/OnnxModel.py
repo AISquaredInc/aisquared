@@ -1,8 +1,8 @@
-from aisquared.base import BaseObject
+from .AnalyticObject import AnalyticObject
 import base64
 
 
-class OnnxModel(BaseObject):
+class OnnxModel(AnalyticObject):
     """
     Run an ONNX model locally
     """

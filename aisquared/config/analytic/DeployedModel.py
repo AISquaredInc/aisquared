@@ -1,7 +1,7 @@
-from aisquared.base import BaseObject
+from .AnalyticObject import AnalyticObject
 
 
-class DeployedModel(BaseObject):
+class DeployedModel(AnalyticObject):
     """
     Interaction with a remote model
 

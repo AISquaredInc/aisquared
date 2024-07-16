@@ -1,7 +1,7 @@
-from aisquared.base import BaseObject
+from .PostprocessingObject import PostprocessingObject
 
 
-class ObjectDetection(BaseObject):
+class ObjectDetection(PostprocessingObject):
     """
     Postprocessing configuration object for object detection
 

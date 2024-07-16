@@ -1,4 +1,4 @@
-from aisquared.base import BaseObject
+from .FeedbackObject import FeedbackObject
 
 ALLOWED_TYPES = ['singleChoice', 'multiChoice', 'text']
 CHOICE_TYPES = ALLOWED_TYPES[:2]
@@ -22,7 +22,7 @@ def _create_question_dict(question, answer_type, choices):
         raise ValueError(f'answer_type must be one of {ALLOWED_TYPES}')
 
 
-class ModelFeedback(BaseObject):
+class ModelFeedback(FeedbackObject):
     """
     Feedback object for questions and answers for an individual model.
 

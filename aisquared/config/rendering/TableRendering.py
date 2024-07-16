@@ -1,10 +1,10 @@
-from aisquared.base import BaseObject, DEFAULT_TABLE_RENDERING_CSS, TABLE_RENDERING_CSS_FILE
-import platform
+from aisquared.base import DEFAULT_TABLE_RENDERING_CSS, TABLE_RENDERING_CSS_FILE
+from .RenderingObject import RenderingObject
 import json
 import os
 
 
-class TableRendering(BaseObject):
+class TableRendering(RenderingObject):
     """
     Class for rendering tables
 

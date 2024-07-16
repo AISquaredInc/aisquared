@@ -1,7 +1,7 @@
-from aisquared.base import BaseObject
+from .RenderingObject import RenderingObject
 
 
-class SOSRendering(BaseObject):
+class SOSRendering(RenderingObject):
     """
     Rendering of an SOS dashboard
 

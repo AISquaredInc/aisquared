@@ -1,7 +1,7 @@
-from aisquared.base import BaseObject
+from .FeedbackObject import FeedbackObject
 
 
-class RegressionFeedback(BaseObject):
+class RegressionFeedback(FeedbackObject):
     """
     Feedback for regression
 

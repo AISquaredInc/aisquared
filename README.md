@@ -376,3 +376,4 @@ Below are a list of additional features, bug fixes, and other changes made for e
 ## Version 1.0.0
 - Removed unnecessary subpackages from the parent package
 - Streamlined the `ModelConfiguration` class by removing unnecessary parameters
+- Created boilerplate classes for all configuration classes and removed hard-coded for type-checking in `ModelConfiguration` class

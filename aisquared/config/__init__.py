@@ -6,5 +6,5 @@ GitHub repository at https://github.com/AISquaredInc/airFiles
 """
 
 from .ModelConfiguration import ModelConfiguration
-from .GraphConfiguration import GraphConfiguration
+# from .GraphConfiguration import GraphConfiguration
 from .CustomObject import CustomObject

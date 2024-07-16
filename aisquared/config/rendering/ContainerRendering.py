@@ -1,10 +1,11 @@
-from aisquared.base import BaseObject, POSITIONS, STATIC_POSITIONS, DEFAULT_CONTAINER_RENDERING_CSS, CONTAINER_RENDERING_CSS_FILE
+from aisquared.base import POSITIONS, STATIC_POSITIONS, DEFAULT_CONTAINER_RENDERING_CSS, CONTAINER_RENDERING_CSS_FILE
+from .RenderingObject import RenderingObject
 import platform
 import json
 import os
 
 
-class ContainerRendering(BaseObject):
+class ContainerRendering(RenderingObject):
     """
     Rendering for a container
 

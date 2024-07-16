@@ -1,7 +1,7 @@
-from aisquared.base import BaseObject
+from .RenderingObject import RenderingObject
 
 
-class DashboardReplacementRendering(BaseObject):
+class DashboardReplacementRendering(RenderingObject):
     """
     Rendering for dashboard replacement
 

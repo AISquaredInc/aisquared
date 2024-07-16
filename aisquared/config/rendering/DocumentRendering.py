@@ -1,8 +1,8 @@
 from typing import Union
-from aisquared.base import BaseObject
+from .RenderingObject import RenderingObject
 
 
-class DocumentRendering(BaseObject):
+class DocumentRendering(RenderingObject):
     """
     Object which dictates how to render predictions on entire documents
 

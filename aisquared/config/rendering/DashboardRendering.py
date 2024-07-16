@@ -7,7 +7,7 @@ import string
 
 import warnings
 
-from aisquared.base import BaseObject
+from .RenderingObject import RenderingObject
 
 from .BarChartRendering import BarChartRendering
 from .ContainerRendering import ContainerRendering
@@ -18,7 +18,7 @@ from .PieChartRendering import PieChartRendering
 from .TableRendering import TableRendering
 
 
-class DashboardRendering(BaseObject):
+class DashboardRendering(RenderingObject):
     """
     THIS CLASS IS IN DEVELOPMENT AND IS NOT STABLE. PLEASE USE WITH CAUTION AND DO NOT USE FOR ANY PRODUCTION WORKLOADS
     """

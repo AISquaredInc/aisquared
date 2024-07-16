@@ -1,7 +1,7 @@
-from aisquared.base import BaseObject
+from .PostprocessingObject import PostprocessingObject
 
 
-class MulticlassClassification(BaseObject):
+class MulticlassClassification(PostprocessingObject):
     """
     Postprocessing configuration object for multiclass classification
 

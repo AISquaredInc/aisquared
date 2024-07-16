@@ -1,7 +1,8 @@
-from aisquared.base import LOCATIONS, COLORS, BaseObject
+from aisquared.base import LOCATIONS, COLORS
+from .RenderingObject import RenderingObject
 
 
-class ObjectRendering(BaseObject):
+class ObjectRendering(RenderingObject):
     """
     Object which dictates how to render object detection in images
 

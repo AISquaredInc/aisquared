@@ -1,7 +1,7 @@
-from aisquared.base import BaseObject
+from .HarvestingObject import HarvestingObject
 
 
-class ChatbotHarvester(BaseObject):
+class ChatbotHarvester(HarvestingObject):
     """
     Harvesting for a chatbot
     """

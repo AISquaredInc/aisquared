@@ -1,7 +1,7 @@
-from aisquared.base import BaseObject
+from .HarvestingObject import HarvestingObject
 
 
-class ImageHarvester(BaseObject):
+class ImageHarvester(HarvestingObject):
     """
     Object to harvest images
 

@@ -1,4 +1,4 @@
-from aisquared.base import BaseObject
+from aisquared.config.preprocessing.PreprocessingObject import PreprocessingObject
 from .Steps import Tokenize, RemoveCharacters, ConvertToCase, ConvertToVocabulary, PadSequences, Trim
 
 ALLOWED_STEPS = (
@@ -11,7 +11,7 @@ ALLOWED_STEPS = (
 )
 
 
-class TextPreprocesser(BaseObject):
+class TextPreprocesser(PreprocessingObject):
     """
     Preprocesser object for natural language
 

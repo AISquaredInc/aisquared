@@ -1,7 +1,7 @@
-from aisquared.base import BaseObject
+from .FeedbackObject import FeedbackObject
 
 
-class SimpleFeedback(BaseObject):
+class SimpleFeedback(FeedbackObject):
     """
     Simple thumbs-up/thumbs-down feedback for predictions
 

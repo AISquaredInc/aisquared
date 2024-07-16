@@ -1,4 +1,4 @@
-from aisquared.base import BaseObject
+from aisquared.config.preprocessing.PreprocessingObject import PreprocessingObject
 from .Steps import AddValue, SubtractValue, MultiplyValue, DivideValue, ConvertToColor, Resize
 
 ALLOWED_STEPS = (
@@ -11,7 +11,7 @@ ALLOWED_STEPS = (
 )
 
 
-class ImagePreprocesser(BaseObject):
+class ImagePreprocesser(PreprocessingObject):
     """
     Preprocesser object for image data
 

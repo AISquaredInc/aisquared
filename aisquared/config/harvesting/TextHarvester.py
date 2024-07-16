@@ -1,8 +1,9 @@
 from typing import Union
-from aisquared.base import BaseObject, ALLOWED_HOWS
+from aisquared.base import ALLOWED_HOWS
+from .HarvestingObject import HarvestingObject
 
 
-class TextHarvester(BaseObject):
+class TextHarvester(HarvestingObject):
     """
     Object to harvest text
 

@@ -1,5 +1,12 @@
 from typing import Union
-from aisquared.base import BaseObject, ALLOWED_STAGES, HARVESTING_CLASSES, PREPROCESSING_CLASSES, ANALYTIC_CLASSES, POSTPROCESSING_CLASSES, RENDERING_CLASSES, FEEDBACK_CLASSES, LOCAL_CLASSES
+from aisquared.base import BaseObject, CustomObject, ALLOWED_STAGES, LOCAL_CLASSES
+
+from aisquared.config.analytic import AnalyticObject
+from aisquared.config.feedback import FeedbackObject
+from aisquared.config.harvesting import HarvestingObject
+from aisquared.config.postprocessing import PostprocessingObject
+from aisquared.config.preprocessing import PreprocessingObject
+from aisquared.config.rendering import RenderingObject
 
 try:
     import tensorflowjs as tfjs
@@ -106,7 +113,8 @@ class ModelConfiguration(BaseObject):
 
     @harvesting_steps.setter
     def harvesting_steps(self, value):
-        harvesting_classes = HARVESTING_CLASSES + (ModelConfiguration,)
+        harvesting_classes = (HarvestingObject,
+                              ModelConfiguration, CustomObject)
         if value is None or (isinstance(value, list) and all([val is None for val in value])):
             self._harvesting_steps = value
         elif isinstance(value, harvesting_classes):
@@ -128,11 +136,11 @@ class ModelConfiguration(BaseObject):
     def preprocessing_steps(self, value):
         if value is None:
             self._preprocessing_steps = value
-        elif isinstance(value, PREPROCESSING_CLASSES):
+        elif isinstance(value, (PreprocessingObject, CustomObject)):
             self._preprocessing_steps = [value]
-        elif isinstance(value, list) and all([isinstance(val, PREPROCESSING_CLASSES) for val in value]):
+        elif isinstance(value, list) and all([isinstance(val, (PreprocessingObject, CustomObject)) for val in value]):
             self._preprocessing_steps = value
-        elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, PREPROCESSING_CLASSES) for val in value for v in val]):
+        elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, (PreprocessingObject, CustomObject)) for val in value for v in val]):
             self._preprocessing_steps = value
         elif value is None:
             self._preprocessing_steps = value
@@ -149,11 +157,11 @@ class ModelConfiguration(BaseObject):
     def analytic(self, value):
         if value is None:
             self._analytic = value
-        elif isinstance(value, ANALYTIC_CLASSES):
+        elif isinstance(value, (AnalyticObject, CustomObject)):
             self._analytic = [value]
-        elif isinstance(value, list) and all([isinstance(val, ANALYTIC_CLASSES) for val in value]):
+        elif isinstance(value, list) and all([isinstance(val, (AnalyticObject, CustomObject)) for val in value]):
             self._analytic = value
-        elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, ANALYTIC_CLASSES) for val in value for v in val]):
+        elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, (AnalyticObject, CustomObject)) for val in value for v in val]):
             self._analytic = value
         else:
             raise ValueError(
@@ -168,11 +176,11 @@ class ModelConfiguration(BaseObject):
     def postprocessing_steps(self, value):
         if value is None:
             self._postprocessing_steps = value
-        elif isinstance(value, POSTPROCESSING_CLASSES):
+        elif isinstance(value, (PostprocessingObject, CustomObject)):
             self._postprocessing_steps = [value]
-        elif isinstance(value, list) and all([isinstance(val, POSTPROCESSING_CLASSES) for val in value]):
+        elif isinstance(value, list) and all([isinstance(val, (PostprocessingObject, CustomObject)) for val in value]):
             self._postprocessing_steps = value
-        elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, POSTPROCESSING_CLASSES) for val in value for v in val]):
+        elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, (PostprocessingObject, CustomObject)) for val in value for v in val]):
             self._postprocessing_steps = value
         elif value is None:
             self._postprocessing_steps = value
@@ -187,11 +195,11 @@ class ModelConfiguration(BaseObject):
 
     @rendering_steps.setter
     def rendering_steps(self, value):
-        if isinstance(value, RENDERING_CLASSES) or value is None:
+        if isinstance(value, (RenderingObject, CustomObject)) or value is None:
             self._rendering_steps = [value]
-        elif isinstance(value, list) and all([isinstance(val, RENDERING_CLASSES) for val in value]):
+        elif isinstance(value, list) and all([isinstance(val, (RenderingObject, CustomObject)) for val in value]):
             self._rendering_steps = value
-        elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, RENDERING_CLASSES) for val in value for v in val]):
+        elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, (RenderingObject, CustomObject)) for val in value for v in val]):
             self._rendering_steps = value
         else:
             raise ValueError(
@@ -206,11 +214,11 @@ class ModelConfiguration(BaseObject):
     def feedback_steps(self, value):
         if value is None:
             self._feedback_steps = value
-        elif isinstance(value, FEEDBACK_CLASSES):
+        elif isinstance(value, (FeedbackObject, CustomObject)):
             self._feedback_steps = [value]
-        elif isinstance(value, list) and all([isinstance(val, FEEDBACK_CLASSES) for val in value]):
+        elif isinstance(value, list) and all([isinstance(val, (FeedbackObject, CustomObject)) for val in value]):
             self._feedback_steps = value
-        elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, FEEDBACK_CLASSES) for val in value for v in val]):
+        elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, (FeedbackObject, CustomObject)) for val in value for v in val]):
             self._feedback_steps = value
         else:
             raise ValueError(
@@ -334,7 +342,8 @@ class ModelConfiguration(BaseObject):
     # harvester_dict
     @property
     def harvester_dict(self):
-        harvesting_classes = HARVESTING_CLASSES + (ModelConfiguration,)
+        harvesting_classes = (
+            HarvestingObject, CustomObject, ModelConfiguration)
         if self.harvesting_steps is None or (isinstance(self.harvesting_steps, list) and all([val is None for val in self.harvesting_steps])):
             return None
         elif isinstance(self.harvesting_steps, list) and all([isinstance(val, harvesting_classes) for val in self.harvesting_steps]):
@@ -349,7 +358,7 @@ class ModelConfiguration(BaseObject):
     def preprocesser_dict(self):
         if self.preprocessing_steps is None:
             return self.preprocessing_steps
-        elif isinstance(self.preprocessing_steps, list) and all([isinstance(val, PREPROCESSING_CLASSES) for val in self.preprocessing_steps]):
+        elif isinstance(self.preprocessing_steps, list) and all([isinstance(val, (PreprocessingObject, CustomObject)) for val in self.preprocessing_steps]):
             return [val.to_dict() for val in self.preprocessing_steps]
         else:
             return [
@@ -359,7 +368,7 @@ class ModelConfiguration(BaseObject):
     # analytic dict
     @property
     def analytic_dict(self):
-        if isinstance(self.analytic, list) and all([isinstance(val, ANALYTIC_CLASSES) for val in self.analytic]):
+        if isinstance(self.analytic, list) and all([isinstance(val, (AnalyticObject, CustomObject)) for val in self.analytic]):
             return [val.to_dict() for val in self.analytic]
         else:
             return [
@@ -371,7 +380,7 @@ class ModelConfiguration(BaseObject):
     def postprocesser_dict(self):
         if self.postprocessing_steps is None:
             return self.postprocessing_steps
-        elif isinstance(self.postprocessing_steps, list) and all([isinstance(val, POSTPROCESSING_CLASSES) for val in self.postprocessing_steps]):
+        elif isinstance(self.postprocessing_steps, list) and all([isinstance(val, (PostprocessingObject, CustomObject)) for val in self.postprocessing_steps]):
             return [val.to_dict() for val in self.postprocessing_steps]
         else:
             return [
@@ -383,7 +392,7 @@ class ModelConfiguration(BaseObject):
     def render_dict(self):
         if self.rendering_steps[0] is None:
             render_list = []
-        elif isinstance(self.rendering_steps, list) and all([isinstance(val, RENDERING_CLASSES) for val in self.rendering_steps]):
+        elif isinstance(self.rendering_steps, list) and all([isinstance(val, (RenderingObject, CustomObject)) for val in self.rendering_steps]):
             render_list = [val.to_dict() for val in self.rendering_steps]
         else:
             render_list = [
@@ -404,7 +413,7 @@ class ModelConfiguration(BaseObject):
     def feedback_dict(self):
         if self.feedback_steps is None:
             return self.feedback_steps
-        elif isinstance(self.feedback_steps, list) and all([isinstance(val, FEEDBACK_CLASSES) for val in self.feedback_steps]):
+        elif isinstance(self.feedback_steps, list) and all([isinstance(val, (FeedbackObject, CustomObject)) for val in self.feedback_steps]):
             return [val.to_dict() for val in self.feedback_steps]
         else:
             return [
@@ -427,7 +436,7 @@ class ModelConfiguration(BaseObject):
             if isinstance(harvester, ModelConfiguration):
                 filenames.extend(harvester.get_model_filenames())
 
-        if isinstance(self.analytic[0], ANALYTIC_CLASSES):
+        if isinstance(self.analytic[0], (AnalyticObject, CustomObject)):
             for a in self.analytic:
                 if isinstance(a, LOCAL_CLASSES):
                     try:

@@ -1,8 +1,9 @@
 from typing import Union
-from aisquared.base import LOCATIONS, BaseObject
+from aisquared.base import LOCATIONS
+from .RenderingObject import RenderingObject
 
 
-class ImageRendering(BaseObject):
+class ImageRendering(RenderingObject):
     """
     Object which dictates how to render images
 

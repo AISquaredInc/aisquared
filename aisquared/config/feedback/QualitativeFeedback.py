@@ -1,8 +1,8 @@
 from .ModelFeedback import _create_question_dict
-from aisquared.base import BaseObject
+from .FeedbackObject import FeedbackObject
 
 
-class QualitativeFeedback(BaseObject):
+class QualitativeFeedback(FeedbackObject):
     """
     Feedback object for questions and answers for individual predictions.
 

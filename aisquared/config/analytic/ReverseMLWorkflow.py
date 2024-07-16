@@ -1,7 +1,7 @@
-from aisquared.base import BaseObject
+from .AnalyticObject import AnalyticObject
 
 
-class ReverseMLWorkflow(BaseObject):
+class ReverseMLWorkflow(AnalyticObject):
     """
     Creation of a ReverseML Workflow to interact with remote data sources
     """

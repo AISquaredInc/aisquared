@@ -1,9 +1,10 @@
-from aisquared.base import BaseObject, DEFAULT_CHART_RENDERING_CSS, CHART_RENDERING_CSS_FILE
+from aisquared.base import DEFAULT_CHART_RENDERING_CSS, CHART_RENDERING_CSS_FILE
+from .RenderingObject import RenderingObject
 import json
 import os
 
 
-class BarChartRendering(BaseObject):
+class BarChartRendering(RenderingObject):
 
     """
     Rendering class for rendering a Bar Chart

@@ -1,5 +1,5 @@
 from .Steps import ZScore, MinMax, OneHot, DropColumn
-from aisquared.base import BaseObject
+from aisquared.config.preprocessing.PreprocessingObject import PreprocessingObject
 
 ALLOWED_STEPS = (
     ZScore,
@@ -9,7 +9,7 @@ ALLOWED_STEPS = (
 )
 
 
-class TabularPreprocesser(BaseObject):
+class TabularPreprocesser(PreprocessingObject):
     """
     Preprocesser object for tabular data
 

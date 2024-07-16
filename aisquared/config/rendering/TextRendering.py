@@ -1,7 +1,7 @@
-from aisquared.base import BaseObject
+from .RenderingObject import RenderingObject
 
 
-class TextRendering(BaseObject):
+class TextRendering(RenderingObject):
     """
     Class for rendering text
 

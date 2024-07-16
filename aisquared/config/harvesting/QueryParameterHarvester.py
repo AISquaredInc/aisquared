@@ -1,8 +1,8 @@
 from typing import Union
-from aisquared.base import BaseObject
+from .HarvestingObject import HarvestingObject
 
 
-class QueryParameterHarvester(BaseObject):
+class QueryParameterHarvester(HarvestingObject):
     """
     Harvester for Query Parameters
 

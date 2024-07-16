@@ -1,5 +1,6 @@
 from typing import Union
-from aisquared.base import BaseObject, QUALIFIERS
+from aisquared.base import QUALIFIERS
+from .RenderingObject import RenderingObject
 
 _ALLOWED_SOURCES = [
     'inputs',
@@ -7,7 +8,7 @@ _ALLOWED_SOURCES = [
 ]
 
 
-class FilterRendering(BaseObject):
+class FilterRendering(RenderingObject):
     """
     Object which dictates how predictions are to be passed to downstream analytics
 

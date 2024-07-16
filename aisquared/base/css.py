@@ -1,5 +1,4 @@
 import platform
-import json
 import os
 
 DEFAULT_CONTAINER_RENDERING_CSS = {

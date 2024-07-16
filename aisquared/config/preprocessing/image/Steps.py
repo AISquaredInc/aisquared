@@ -1,8 +1,8 @@
 from typing import Union
-from aisquared.base import BaseObject
+from aisquared.config.preprocessing import PreprocessingObject
 
 
-class AddValue(BaseObject):
+class AddValue(PreprocessingObject):
     """
     Preprocessing step to add a value to all pixels in an image
 
@@ -50,7 +50,7 @@ class AddValue(BaseObject):
         }
 
 
-class SubtractValue(BaseObject):
+class SubtractValue(PreprocessingObject):
     """
     Preprocessing step to subtract a value from all pixels in an image
 
@@ -98,7 +98,7 @@ class SubtractValue(BaseObject):
         }
 
 
-class MultiplyValue(BaseObject):
+class MultiplyValue(PreprocessingObject):
     """
     Preprocessing step to multiply all pixels in an image by a value
 
@@ -146,7 +146,7 @@ class MultiplyValue(BaseObject):
         }
 
 
-class DivideValue(BaseObject):
+class DivideValue(PreprocessingObject):
     """
     Preprocessing step to divide all pixels in an image by a value
 
@@ -194,7 +194,7 @@ class DivideValue(BaseObject):
         }
 
 
-class ConvertToColor(BaseObject):
+class ConvertToColor(PreprocessingObject):
     """
     Preprocessing step to convert images to a color scheme
 
@@ -241,7 +241,7 @@ class ConvertToColor(BaseObject):
         }
 
 
-class Resize(BaseObject):
+class Resize(PreprocessingObject):
     """
     Preprocessing step to resize an image
 

@@ -1,8 +1,8 @@
 from typing import Union
-from aisquared.base import BaseObject
+from aisquared.config.preprocessing import PreprocessingObject
 
 
-class ZScore(BaseObject):
+class ZScore(PreprocessingObject):
     """
     Z-Score normalization preprocessing step
 
@@ -97,7 +97,7 @@ class ZScore(BaseObject):
         }
 
 
-class MinMax(BaseObject):
+class MinMax(PreprocessingObject):
     """
     Min-Max Scaling preprocessing step
 
@@ -195,7 +195,7 @@ class MinMax(BaseObject):
         }
 
 
-class OneHot(BaseObject):
+class OneHot(PreprocessingObject):
     """
     One Hot encoding preprocessing step
 
@@ -262,7 +262,7 @@ class OneHot(BaseObject):
         }
 
 
-class DropColumn(BaseObject):
+class DropColumn(PreprocessingObject):
     """
     Drop a column from tabular data
 

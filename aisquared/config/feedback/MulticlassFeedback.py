@@ -1,7 +1,7 @@
-from aisquared.base import BaseObject
+from .FeedbackObject import FeedbackObject
 
 
-class MulticlassFeedback(BaseObject):
+class MulticlassFeedback(FeedbackObject):
     """
     Feedback for multiclass classification
 

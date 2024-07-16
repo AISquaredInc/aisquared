@@ -1,7 +1,7 @@
-from aisquared.base import BaseObject
+from .RenderingObject import RenderingObject
 
 
-class CustomRendering(BaseObject):
+class CustomRendering(RenderingObject):
 
     def __init__(
             self,

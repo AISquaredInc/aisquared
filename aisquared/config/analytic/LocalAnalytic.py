@@ -1,7 +1,7 @@
-from aisquared.base import BaseObject
+from .AnalyticObject import AnalyticObject
 
 
-class LocalAnalytic(BaseObject):
+class LocalAnalytic(AnalyticObject):
     """
     Interaction with an analytic (lookup table) saved to the
     local file system
