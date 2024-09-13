@@ -2,7 +2,7 @@ from typing import Union
 from aisquared.base import BaseObject, CustomObject, ALLOWED_STAGES, LOCAL_CLASSES
 
 from aisquared.config.analytic import AnalyticObject
-from aisquared.config.feedback import FeedbackObject
+# from aisquared.config.feedback import FeedbackObject <-- Deprecated
 from aisquared.config.harvesting import HarvestingObject
 from aisquared.config.postprocessing import PostprocessingObject
 from aisquared.config.preprocessing import PreprocessingObject
@@ -10,6 +10,10 @@ from aisquared.config.rendering import RenderingObject
 
 try:
     import tensorflowjs as tfjs
+except ImportError:
+    pass
+
+try:
     import tensorflow as tf
 except ImportError:
     pass
@@ -32,7 +36,8 @@ class ModelConfiguration(BaseObject):
             analytic: Union[BaseObject, list] = None,
             postprocessing_steps: Union[BaseObject, list] = None,
             rendering_steps: Union[BaseObject, list] = None,
-            feedback_steps: Union[BaseObject, list] = None,
+            prediction_feedback_enabled: bool = False,
+            prediction_feedback_categories: list[str] = None,
             stage: str = ALLOWED_STAGES[0],
             version: int = None,
             description: str = '',
@@ -56,8 +61,10 @@ class ModelConfiguration(BaseObject):
             Postprocessers to use
         rendering_steps : Rendering object or list of Rendering objects or None
             Renderers to use
-        feedback_steps : None, Feedback object or list of Feedback objects or None (default None)
-            Feedback steps to use
+        prediction_feedback_enabled : bool (default False)
+            Whether to enable prediction feedback
+        prediction_feedback_categories : list[str] or None (default None)
+            Prediction feedback categories
         stage : str (default 'experimental')
             The stage of the model, from 'experimental', 'staging', 'production'
         version : str or None (default None)
@@ -89,7 +96,8 @@ class ModelConfiguration(BaseObject):
         self.postprocessing_steps = postprocessing_steps
         self.rendering_steps = rendering_steps
         self.stage = stage
-        self.feedback_steps = feedback_steps
+        self.prediction_feedback_enabled = prediction_feedback_enabled
+        self.prediction_feedback_categories = prediction_feedback_categories
         self.version = version
         self.description = description
         self.owner = owner
@@ -205,24 +213,29 @@ class ModelConfiguration(BaseObject):
             raise ValueError(
                 'rendering_steps must be a single Rendering object, a list of Rendering objects, a list of list of Rendering objects, or None')
 
-    # feedback_steps
+    # prediction_feedback_enabled
     @property
-    def feedback_steps(self):
-        return self._feedback_steps
+    def prediction_feedback_enabled(self):
+        return self._prediction_feedback_enabled
 
-    @feedback_steps.setter
-    def feedback_steps(self, value):
-        if value is None:
-            self._feedback_steps = value
-        elif isinstance(value, (FeedbackObject, CustomObject)):
-            self._feedback_steps = [value]
-        elif isinstance(value, list) and all([isinstance(val, (FeedbackObject, CustomObject)) for val in value]):
-            self._feedback_steps = value
-        elif isinstance(value, list) and all([isinstance(val, list) for val in value]) and all([isinstance(v, (FeedbackObject, CustomObject)) for val in value for v in val]):
-            self._feedback_steps = value
-        else:
-            raise ValueError(
-                'feedback_steps must be a single Feedback object, a list of Feedback objects, a list of list of Feedback objects, or None')
+    @prediction_feedback_enabled.setter
+    def prediction_feedback_enabled(self, value):
+        if not isinstance(value, bool):
+            raise TypeError('prediction_feedback_enabled must be bool')
+        self._prediction_feedback_enabled = value
+
+    # prediction_feedback_categories
+    @property
+    def prediction_feedback_categories(self):
+        return self._prediction_feedback_categories
+
+    @prediction_feedback_categories.setter
+    def prediction_feedback_categories(self, value):
+        if not isinstance(value, list) or not all([isinstance(val, str) for val in value]):
+            if value is not None:
+                raise TypeError(
+                    'prediction_feedback_categories must be list of str or None')
+        self._prediction_feedback_categories = value
 
     # stage
     @property
@@ -410,15 +423,12 @@ class ModelConfiguration(BaseObject):
     # feedback_dict
 
     @property
-    def feedback_dict(self):
-        if self.feedback_steps is None:
-            return self.feedback_steps
-        elif isinstance(self.feedback_steps, list) and all([isinstance(val, (FeedbackObject, CustomObject)) for val in self.feedback_steps]):
-            return [val.to_dict() for val in self.feedback_steps]
-        else:
-            return [
-                [v.to_dict() for v in val] for val in self.feedback_steps
-            ]
+    def prediction_feedback_dict(self):
+        to_return = {'enabled': self.prediction_feedback_enabled}
+        if self.prediction_feedback_categories and self.prediction_feedback_enabled:
+            to_return['categories'] = self.prediction_feedback_categories
+
+        return to_return
 
     def get_model_filenames(self) -> list:
         """
@@ -466,7 +476,7 @@ class ModelConfiguration(BaseObject):
                 'analytics': self.analytic_dict,
                 'postprocessingSteps': self.postprocesser_dict,
                 'renderingSteps': self.render_dict,
-                'feedbackSteps': self.feedback_dict,
+                'predictionFeedback': self.prediction_feedback_dict,
                 'stage': self.stage,
                 'version': self.version,
                 'description': self.description,
