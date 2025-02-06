@@ -20,6 +20,7 @@ from .WordRendering import WordRendering
 from .TextRendering import TextRendering
 from .CustomRendering import CustomRendering
 from .ChatRendering import ChatRendering
+from .IFrameRendering import IFrameRendering
 
 # from .DashboardRendering import DashboardRendering
 
