@@ -69,7 +69,7 @@
            <div itemprop="articleBody">
              
   <h1>Source code for aisquared.config.feedback.ModelFeedback</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">aisquared.base</span> <span class="kn">import</span> <span class="n">BaseObject</span>
+<span></span><span class="kn">from</span> <span class="nn">.FeedbackObject</span> <span class="kn">import</span> <span class="n">FeedbackObject</span>
 
 <span class="n">ALLOWED_TYPES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;singleChoice&#39;</span><span class="p">,</span> <span class="s1">&#39;multiChoice&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">]</span>
 <span class="n">CHOICE_TYPES</span> <span class="o">=</span> <span class="n">ALLOWED_TYPES</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
@@ -93,7 +93,7 @@
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;answer_type must be one of </span><span class="si">{</span><span class="n">ALLOWED_TYPES</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="ModelFeedback"><a class="viewcode-back" href="../../../../aisquared.config.feedback.html#aisquared.config.feedback.ModelFeedback.ModelFeedback">[docs]</a><span class="k">class</span> <span class="nc">ModelFeedback</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
+<div class="viewcode-block" id="ModelFeedback"><a class="viewcode-back" href="../../../../aisquared.config.feedback.html#aisquared.config.feedback.ModelFeedback.ModelFeedback">[docs]</a><span class="k">class</span> <span class="nc">ModelFeedback</span><span class="p">(</span><span class="n">FeedbackObject</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Feedback object for questions and answers for an individual model.</span>
 

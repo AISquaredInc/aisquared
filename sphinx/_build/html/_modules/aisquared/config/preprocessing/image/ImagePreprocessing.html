@@ -69,7 +69,7 @@
            <div itemprop="articleBody">
              
   <h1>Source code for aisquared.config.preprocessing.image.ImagePreprocessing</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">aisquared.base</span> <span class="kn">import</span> <span class="n">BaseObject</span>
+<span></span><span class="kn">from</span> <span class="nn">aisquared.config.preprocessing.PreprocessingObject</span> <span class="kn">import</span> <span class="n">PreprocessingObject</span>
 <span class="kn">from</span> <span class="nn">.Steps</span> <span class="kn">import</span> <span class="n">AddValue</span><span class="p">,</span> <span class="n">SubtractValue</span><span class="p">,</span> <span class="n">MultiplyValue</span><span class="p">,</span> <span class="n">DivideValue</span><span class="p">,</span> <span class="n">ConvertToColor</span><span class="p">,</span> <span class="n">Resize</span>
 
 <span class="n">ALLOWED_STEPS</span> <span class="o">=</span> <span class="p">(</span>
@@ -82,7 +82,7 @@
 <span class="p">)</span>
 
 
-<div class="viewcode-block" id="ImagePreprocesser"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser">[docs]</a><span class="k">class</span> <span class="nc">ImagePreprocesser</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
+<div class="viewcode-block" id="ImagePreprocesser"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.ImagePreprocessing.ImagePreprocesser">[docs]</a><span class="k">class</span> <span class="nc">ImagePreprocesser</span><span class="p">(</span><span class="n">PreprocessingObject</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Preprocesser object for image data</span>
 

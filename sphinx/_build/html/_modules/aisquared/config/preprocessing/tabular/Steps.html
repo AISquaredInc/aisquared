@@ -70,10 +70,10 @@
              
   <h1>Source code for aisquared.config.preprocessing.tabular.Steps</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
-<span class="kn">from</span> <span class="nn">aisquared.base</span> <span class="kn">import</span> <span class="n">BaseObject</span>
+<span class="kn">from</span> <span class="nn">aisquared.config.preprocessing</span> <span class="kn">import</span> <span class="n">PreprocessingObject</span>
 
 
-<div class="viewcode-block" id="ZScore"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.Steps.ZScore">[docs]</a><span class="k">class</span> <span class="nc">ZScore</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
+<div class="viewcode-block" id="ZScore"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.Steps.ZScore">[docs]</a><span class="k">class</span> <span class="nc">ZScore</span><span class="p">(</span><span class="n">PreprocessingObject</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Z-Score normalization preprocessing step</span>
 
@@ -168,7 +168,7 @@
         <span class="p">}</span></div></div>
 
 
-<div class="viewcode-block" id="MinMax"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.Steps.MinMax">[docs]</a><span class="k">class</span> <span class="nc">MinMax</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
+<div class="viewcode-block" id="MinMax"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.Steps.MinMax">[docs]</a><span class="k">class</span> <span class="nc">MinMax</span><span class="p">(</span><span class="n">PreprocessingObject</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Min-Max Scaling preprocessing step</span>
 
@@ -266,7 +266,7 @@
         <span class="p">}</span></div></div>
 
 
-<div class="viewcode-block" id="OneHot"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.Steps.OneHot">[docs]</a><span class="k">class</span> <span class="nc">OneHot</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
+<div class="viewcode-block" id="OneHot"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.Steps.OneHot">[docs]</a><span class="k">class</span> <span class="nc">OneHot</span><span class="p">(</span><span class="n">PreprocessingObject</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    One Hot encoding preprocessing step</span>
 
@@ -333,7 +333,7 @@
         <span class="p">}</span></div></div>
 
 
-<div class="viewcode-block" id="DropColumn"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.Steps.DropColumn">[docs]</a><span class="k">class</span> <span class="nc">DropColumn</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
+<div class="viewcode-block" id="DropColumn"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.Steps.DropColumn">[docs]</a><span class="k">class</span> <span class="nc">DropColumn</span><span class="p">(</span><span class="n">PreprocessingObject</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Drop a column from tabular data</span>
 

@@ -104,9 +104,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="aisquared.base.html#module-aisquared.base.css">aisquared.base.css module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aisquared.base.html#module-aisquared.base.endpoints">aisquared.base.endpoints module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.base.html#aisquared-base-endpoints-module">aisquared.base.endpoints module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aisquared.base.html#module-aisquared.base.harvesting">aisquared.base.harvesting module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aisquared.base.html#module-aisquared.base.platform">aisquared.base.platform module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.base.html#aisquared-base-platform-module">aisquared.base.platform module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aisquared.base.html#module-aisquared.base.preprocessing">aisquared.base.preprocessing module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aisquared.base.html#module-aisquared.base.rendering">aisquared.base.rendering module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aisquared.base.html#module-aisquared.base.stages">aisquared.base.stages module</a></li>
@@ -223,8 +223,6 @@
 <li class="toctree-l4"><a class="reference internal" href="aisquared.config.html#aisquared.config.ModelConfiguration.ModelConfiguration.compile"><code class="docutils literal notranslate"><span class="pre">ModelConfiguration.compile()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="aisquared.config.html#aisquared.config.ModelConfiguration.ModelConfiguration.description"><code class="docutils literal notranslate"><span class="pre">ModelConfiguration.description</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="aisquared.config.html#aisquared.config.ModelConfiguration.ModelConfiguration.documentation_link"><code class="docutils literal notranslate"><span class="pre">ModelConfiguration.documentation_link</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.config.html#aisquared.config.ModelConfiguration.ModelConfiguration.feedback_dict"><code class="docutils literal notranslate"><span class="pre">ModelConfiguration.feedback_dict</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.config.html#aisquared.config.ModelConfiguration.ModelConfiguration.feedback_steps"><code class="docutils literal notranslate"><span class="pre">ModelConfiguration.feedback_steps</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="aisquared.config.html#aisquared.config.ModelConfiguration.ModelConfiguration.get_model_filenames"><code class="docutils literal notranslate"><span class="pre">ModelConfiguration.get_model_filenames()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="aisquared.config.html#aisquared.config.ModelConfiguration.ModelConfiguration.harvester_dict"><code class="docutils literal notranslate"><span class="pre">ModelConfiguration.harvester_dict</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="aisquared.config.html#aisquared.config.ModelConfiguration.ModelConfiguration.harvesting_steps"><code class="docutils literal notranslate"><span class="pre">ModelConfiguration.harvesting_steps</span></code></a></li>
@@ -235,6 +233,9 @@
 <li class="toctree-l4"><a class="reference internal" href="aisquared.config.html#aisquared.config.ModelConfiguration.ModelConfiguration.owner"><code class="docutils literal notranslate"><span class="pre">ModelConfiguration.owner</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="aisquared.config.html#aisquared.config.ModelConfiguration.ModelConfiguration.postprocesser_dict"><code class="docutils literal notranslate"><span class="pre">ModelConfiguration.postprocesser_dict</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="aisquared.config.html#aisquared.config.ModelConfiguration.ModelConfiguration.postprocessing_steps"><code class="docutils literal notranslate"><span class="pre">ModelConfiguration.postprocessing_steps</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.html#aisquared.config.ModelConfiguration.ModelConfiguration.prediction_feedback_categories"><code class="docutils literal notranslate"><span class="pre">ModelConfiguration.prediction_feedback_categories</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.html#aisquared.config.ModelConfiguration.ModelConfiguration.prediction_feedback_dict"><code class="docutils literal notranslate"><span class="pre">ModelConfiguration.prediction_feedback_dict</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="aisquared.config.html#aisquared.config.ModelConfiguration.ModelConfiguration.prediction_feedback_enabled"><code class="docutils literal notranslate"><span class="pre">ModelConfiguration.prediction_feedback_enabled</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="aisquared.config.html#aisquared.config.ModelConfiguration.ModelConfiguration.preprocesser_dict"><code class="docutils literal notranslate"><span class="pre">ModelConfiguration.preprocesser_dict</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="aisquared.config.html#aisquared.config.ModelConfiguration.ModelConfiguration.preprocessing_steps"><code class="docutils literal notranslate"><span class="pre">ModelConfiguration.preprocessing_steps</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="aisquared.config.html#aisquared.config.ModelConfiguration.ModelConfiguration.render_dict"><code class="docutils literal notranslate"><span class="pre">ModelConfiguration.render_dict</span></code></a></li>
@@ -252,61 +253,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="aisquared.logging.html">aisquared.logging package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="aisquared.logging.html#module-aisquared.logging">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.logging.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="aisquared.platform.html">aisquared.platform package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="aisquared.platform.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aisquared.platform.html#module-aisquared.platform.AISquaredAPIException">aisquared.platform.AISquaredAPIException module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredAPIException.AISquaredAPIException"><code class="docutils literal notranslate"><span class="pre">AISquaredAPIException</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="aisquared.platform.html#module-aisquared.platform.AISquaredPlatformClient">aisquared.platform.AISquaredPlatformClient module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.add_users_to_group"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.add_users_to_group()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.base_url"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.base_url</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.create_group"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.create_group()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.create_user"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.create_user()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.delete_group"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.delete_group()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.delete_model"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.delete_model()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.delete_user"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.delete_user()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_group"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.get_group()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_group_id_by_name"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.get_group_id_by_name()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_model"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.get_model()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_model_id_by_name"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.get_model_id_by_name()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_role_id_by_role_name"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.get_role_id_by_role_name()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_user"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.get_user()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.get_user_id_by_name"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.get_user_id_by_name()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.headers"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.headers</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_group_users"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.list_group_users()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_groups"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.list_groups()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_model_feedback"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.list_model_feedback()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_model_prediction_feedback"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.list_model_prediction_feedback()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_model_usage_metrics"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.list_model_usage_metrics()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_model_users"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.list_model_users()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_models"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.list_models()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_prediction_feedback"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.list_prediction_feedback()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_roles"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.list_roles()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_user_usage_metrics"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.list_user_usage_metrics()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.list_users"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.list_users()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.login"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.login()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.password"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.password</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.remove_users_from_group"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.remove_users_from_group()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.share_model_with_group"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.share_model_with_group()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.share_model_with_user"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.share_model_with_user()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.test_connection"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.test_connection()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.token"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.token</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.unshare_model_with_group"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.unshare_model_with_group()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.unshare_model_with_user"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.unshare_model_with_user()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.update_group"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.update_group()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.update_user"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.update_user()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.upload_model"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.upload_model()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.use_port"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.use_port</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.AISquaredPlatformClient.AISquaredPlatformClient.username"><code class="docutils literal notranslate"><span class="pre">AISquaredPlatformClient.username</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.platform.html#aisquared-platform-aisquaredapiexception-module">aisquared.platform.AISquaredAPIException module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.platform.html#aisquared-platform-aisquaredplatformclient-module">aisquared.platform.AISquaredPlatformClient module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aisquared.platform.html#module-aisquared.platform.DatabricksAPIException">aisquared.platform.DatabricksAPIException module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.DatabricksAPIException.DatabricksAPIException"><code class="docutils literal notranslate"><span class="pre">DatabricksAPIException</span></code></a></li>
 </ul>
@@ -341,41 +294,27 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="aisquared.platform.html#module-aisquared.platform.NoResultsFoundError">aisquared.platform.NoResultsFoundError module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="aisquared.platform.html#aisquared.platform.NoResultsFoundError.NoResultsFoundError"><code class="docutils literal notranslate"><span class="pre">NoResultsFoundError</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="aisquared.platform.html#module-aisquared.platform.additional_utils">aisquared.platform.additional_utils module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aisquared.platform.html#module-aisquared.platform.crudl">aisquared.platform.crudl module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aisquared.platform.html#module-aisquared.platform.feedback">aisquared.platform.feedback module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aisquared.platform.html#module-aisquared.platform.metrics">aisquared.platform.metrics module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aisquared.platform.html#module-aisquared.platform.sharing">aisquared.platform.sharing module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aisquared.platform.html#module-aisquared.platform.user_group">aisquared.platform.user_group module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.platform.html#aisquared-platform-noresultsfounderror-module">aisquared.platform.NoResultsFoundError module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.platform.html#aisquared-platform-additional-utils-module">aisquared.platform.additional_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.platform.html#aisquared-platform-crudl-module">aisquared.platform.crudl module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.platform.html#aisquared-platform-feedback-module">aisquared.platform.feedback module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.platform.html#aisquared-platform-metrics-module">aisquared.platform.metrics module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.platform.html#aisquared-platform-sharing-module">aisquared.platform.sharing module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.platform.html#aisquared-platform-user-group-module">aisquared.platform.user_group module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aisquared.platform.html#module-aisquared.platform">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="aisquared.serving.html">aisquared.serving package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="aisquared.serving.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aisquared.serving.html#module-aisquared.serving.deploy_model">aisquared.serving.deploy_model module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="aisquared.serving.html#aisquared.serving.deploy_model.deploy_model"><code class="docutils literal notranslate"><span class="pre">deploy_model()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="aisquared.serving.html#aisquared.serving.deploy_model.load_beyondml_model"><code class="docutils literal notranslate"><span class="pre">load_beyondml_model()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="aisquared.serving.html#module-aisquared.serving.get_remote_prediction">aisquared.serving.get_remote_prediction module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="aisquared.serving.html#aisquared.serving.get_remote_prediction.get_remote_prediction"><code class="docutils literal notranslate"><span class="pre">get_remote_prediction()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="aisquared.serving.html#module-aisquared.serving">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.serving.html#aisquared-serving-deploy-model-module">aisquared.serving.deploy_model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.serving.html#aisquared-serving-get-remote-prediction-module">aisquared.serving.get_remote_prediction module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.serving.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="aisquared.utils.html">aisquared.utils package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="aisquared.utils.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aisquared.utils.html#module-aisquared.utils.utils">aisquared.utils.utils module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="aisquared.utils.html#aisquared.utils.utils.get_model"><code class="docutils literal notranslate"><span class="pre">get_model()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="aisquared.utils.html#aisquared.utils.utils.mimic_model"><code class="docutils literal notranslate"><span class="pre">mimic_model()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="aisquared.utils.html#module-aisquared.utils">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.utils.html#aisquared-utils-utils-module">aisquared.utils.utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aisquared.utils.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>

@@ -70,7 +70,7 @@
              
   <h1>Source code for aisquared.config.preprocessing.tabular.TabularPreprocessing</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">.Steps</span> <span class="kn">import</span> <span class="n">ZScore</span><span class="p">,</span> <span class="n">MinMax</span><span class="p">,</span> <span class="n">OneHot</span><span class="p">,</span> <span class="n">DropColumn</span>
-<span class="kn">from</span> <span class="nn">aisquared.base</span> <span class="kn">import</span> <span class="n">BaseObject</span>
+<span class="kn">from</span> <span class="nn">aisquared.config.preprocessing.PreprocessingObject</span> <span class="kn">import</span> <span class="n">PreprocessingObject</span>
 
 <span class="n">ALLOWED_STEPS</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">ZScore</span><span class="p">,</span>
@@ -80,7 +80,7 @@
 <span class="p">)</span>
 
 
-<div class="viewcode-block" id="TabularPreprocesser"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocesser">[docs]</a><span class="k">class</span> <span class="nc">TabularPreprocesser</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
+<div class="viewcode-block" id="TabularPreprocesser"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.tabular.html#aisquared.config.preprocessing.tabular.TabularPreprocessing.TabularPreprocesser">[docs]</a><span class="k">class</span> <span class="nc">TabularPreprocesser</span><span class="p">(</span><span class="n">PreprocessingObject</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Preprocesser object for tabular data</span>
 

@@ -70,10 +70,10 @@
              
   <h1>Source code for aisquared.config.preprocessing.image.Steps</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
-<span class="kn">from</span> <span class="nn">aisquared.base</span> <span class="kn">import</span> <span class="n">BaseObject</span>
+<span class="kn">from</span> <span class="nn">aisquared.config.preprocessing</span> <span class="kn">import</span> <span class="n">PreprocessingObject</span>
 
 
-<div class="viewcode-block" id="AddValue"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.Steps.AddValue">[docs]</a><span class="k">class</span> <span class="nc">AddValue</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
+<div class="viewcode-block" id="AddValue"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.Steps.AddValue">[docs]</a><span class="k">class</span> <span class="nc">AddValue</span><span class="p">(</span><span class="n">PreprocessingObject</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Preprocessing step to add a value to all pixels in an image</span>
 
@@ -121,7 +121,7 @@
         <span class="p">}</span></div></div>
 
 
-<div class="viewcode-block" id="SubtractValue"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.Steps.SubtractValue">[docs]</a><span class="k">class</span> <span class="nc">SubtractValue</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
+<div class="viewcode-block" id="SubtractValue"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.Steps.SubtractValue">[docs]</a><span class="k">class</span> <span class="nc">SubtractValue</span><span class="p">(</span><span class="n">PreprocessingObject</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Preprocessing step to subtract a value from all pixels in an image</span>
 
@@ -169,7 +169,7 @@
         <span class="p">}</span></div></div>
 
 
-<div class="viewcode-block" id="MultiplyValue"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.Steps.MultiplyValue">[docs]</a><span class="k">class</span> <span class="nc">MultiplyValue</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
+<div class="viewcode-block" id="MultiplyValue"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.Steps.MultiplyValue">[docs]</a><span class="k">class</span> <span class="nc">MultiplyValue</span><span class="p">(</span><span class="n">PreprocessingObject</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Preprocessing step to multiply all pixels in an image by a value</span>
 
@@ -217,7 +217,7 @@
         <span class="p">}</span></div></div>
 
 
-<div class="viewcode-block" id="DivideValue"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.Steps.DivideValue">[docs]</a><span class="k">class</span> <span class="nc">DivideValue</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
+<div class="viewcode-block" id="DivideValue"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.Steps.DivideValue">[docs]</a><span class="k">class</span> <span class="nc">DivideValue</span><span class="p">(</span><span class="n">PreprocessingObject</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Preprocessing step to divide all pixels in an image by a value</span>
 
@@ -265,7 +265,7 @@
         <span class="p">}</span></div></div>
 
 
-<div class="viewcode-block" id="ConvertToColor"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.Steps.ConvertToColor">[docs]</a><span class="k">class</span> <span class="nc">ConvertToColor</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
+<div class="viewcode-block" id="ConvertToColor"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.Steps.ConvertToColor">[docs]</a><span class="k">class</span> <span class="nc">ConvertToColor</span><span class="p">(</span><span class="n">PreprocessingObject</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Preprocessing step to convert images to a color scheme</span>
 
@@ -312,7 +312,7 @@
         <span class="p">}</span></div></div>
 
 
-<div class="viewcode-block" id="Resize"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.Steps.Resize">[docs]</a><span class="k">class</span> <span class="nc">Resize</span><span class="p">(</span><span class="n">BaseObject</span><span class="p">):</span>
+<div class="viewcode-block" id="Resize"><a class="viewcode-back" href="../../../../../aisquared.config.preprocessing.image.html#aisquared.config.preprocessing.image.Steps.Resize">[docs]</a><span class="k">class</span> <span class="nc">Resize</span><span class="p">(</span><span class="n">PreprocessingObject</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Preprocessing step to resize an image</span>
 
